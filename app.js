@@ -13,6 +13,11 @@ class ArtDashboard {
         };
         this.charts = {};
         this.autoRefreshInterval = 30000; // 30초
+
+        // S3 Browser와 KB Viewer 모듈 초기화
+        this.s3Browser = null;
+        this.kbViewer = null;
+
         this.init();
     }
 
@@ -20,6 +25,10 @@ class ArtDashboard {
         await this.loadData();
         this.renderDashboard();
         this.startAutoRefresh();
+
+        // S3 Browser와 KB Viewer 초기화
+        this.initializeS3Browser();
+        this.initializeKBViewer();
     }
 
     async loadData() {
@@ -122,7 +131,7 @@ class ArtDashboard {
                     <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">${exec.thread_id}</td>
                     <td class="px-6 py-4 whitespace-nowrap">${exec.phase}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                        ${new Date(exec.started_at).toLocaleTimeString()}
+                        ${new Date(exec.started_at).toLocaleDateString('ko-KR', {month: 'short', day: 'numeric'})} ${new Date(exec.started_at).toLocaleTimeString('ko-KR', {hour: '2-digit', minute: '2-digit'})}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         ${exec.duration_minutes ? `${exec.duration_minutes.toFixed(1)} min` : 'In Progress'}

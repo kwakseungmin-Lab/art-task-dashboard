@@ -191,19 +191,23 @@ class AzleAPI {
         return 'Unknown';
     }
 
-    // Fallback 데이터
+    // Fallback 데이터 (실제 에이전트 설정 반영)
     getFallbackAgents() {
         return [
-            { name: 'Orchestrator', type: 'art_task_plan_orchestrator', model: 'gpt-5.4', tools_count: 14, phase: 'Meta Controller', status: 'active' },
-            { name: 'Designer', type: 'art_task_plan_designer', model: 'gpt-5.4', tools_count: 7, phase: 'Phase 1', status: 'active' },
-            { name: 'Analyzer', type: 'art_task_plan_analyzer', model: 'gpt-5.4', tools_count: 8, phase: 'Phase 1 & 2', status: 'active' },
+            { name: 'Orchestrator', type: 'art_task_plan_orchestrator', model: 'gpt-5.4', tools_count: 12, phase: 'Meta Controller', status: 'active' },
+            { name: 'Designer', type: 'art_task_plan_designer', model: 'gpt-5.4', tools_count: 11, phase: 'Phase 1', status: 'active' },
+            { name: 'Analyzer', type: 'art_task_plan_analyzer', model: 'gpt-5.4', tools_count: 10, phase: 'Phase 1 & 2', status: 'active' },
             { name: 'Generator', type: 'art_task_plan_generator', model: 'gpt-5.4', tools_count: 9, phase: 'Phase 1', status: 'active' },
-            { name: 'Evaluator', type: 'art_task_plan_evaluator', model: 'gpt-5.4', tools_count: 7, phase: 'Phase 1', status: 'active' },
-            { name: 'Process Validator', type: 'art_task_plan_process_validator', model: 'gpt-5.4', tools_count: 8, phase: 'Phase 2', status: 'active' },
-            { name: 'Agent Evolver', type: 'art_task_plan_agent_evolver', model: 'gpt-5.4', tools_count: 8, phase: 'Phase 2', status: 'active' },
+            { name: 'Evaluator', type: 'art_task_plan_evaluator', model: 'gpt-5.4', tools_count: 8, phase: 'Phase 1', status: 'active' },
+            { name: 'Process Validator', type: 'art_task_plan_process_validator', model: 'gpt-5.4', tools_count: 9, phase: 'Phase 2', status: 'active' },
+            { name: 'Agent Evolver', type: 'art_task_plan_agent_evolver', model: 'gpt-5.4', tools_count: 10, phase: 'Phase 2', status: 'active' },
             { name: 'Evolver Reviewer', type: 'art_task_plan_evolver_reviewer', model: 'gpt-5.4', tools_count: 7, phase: 'Phase 2', status: 'active' },
-            { name: 'Monitor', type: 'art_task_plan_monitor', model: 'gpt-4.1', tools_count: 6, phase: 'Parallel', status: 'active' },
-            { name: 'Kb Retriever', type: 'art_task_plan_kb_retriever', model: 'gpt-5.4', tools_count: 4, phase: 'Support', status: 'active' }
+            { name: 'Monitor', type: 'art_task_plan_monitor', model: 'gpt-5.4', tools_count: 6, phase: 'Parallel', status: 'active' },
+            { name: 'KB Retriever', type: 'art_task_plan_kb_retriever', model: 'gpt-5.4', tools_count: 5, phase: 'Support', status: 'active' },
+            { name: 'KB Writer', type: 'art_task_plan_kb_writer', model: 'gpt-5.4', tools_count: 4, phase: 'KB Management', status: 'active' },
+            { name: 'Meta KB Writer', type: 'art_task_plan_meta_kb_writer', model: 'gpt-5.4', tools_count: 4, phase: 'KB Management', status: 'active' },
+            { name: 'KB Manager', type: 'art_task_plan_kb_manager', model: 'gpt-5.4', tools_count: 5, phase: 'KB Management', status: 'active' },
+            { name: 'Meta KB Manager', type: 'art_task_plan_meta_kb_manager', model: 'gpt-5.4', tools_count: 5, phase: 'KB Management', status: 'active' }
         ];
     }
 }
