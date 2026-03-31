@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Task Plan Dashboard - Advanced</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .pulse { animation: pulse 2s infinite; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- API Token Modal -->
+    <div id="apiTokenModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full">
+            <h2 class="text-xl font-bold mb-4">Azle API Configuration</h2>
+            <p class="text-sm text-gray-600 mb-4">Enter your Azle API token to enable real-time data</p>
+            <input type="password"
+                   id="apiTokenInput"
+                   placeholder="Enter API Token"
+                   class="w-full p-2 border rounded mb-4">
+            <div class="flex justify-end space-x-2">
+                <button onclick="cancelApiToken()"
+                        class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
+                    Skip (Use Demo Data)
+                </button>
+                <button onclick="saveApiToken()"
+                        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                    Connect
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl">🎨</span>
+                    <h1 class="ml-2 text-xl font-bold text-gray-900">Art Task Plan Dashboard</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- WebSocket Status Indicator -->
+                    <div id="ws-status-indicator" class="flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-gray-500"></span>
+                        <span class="text-sm text-gray-600">Offline</span>
+                    </div>
+                    <span class="text-sm text-gray-500" id="lastUpdate"></span>
+                    <button onclick="toggleDataMode()"
+                            id="dataModeBtn"
+                            class="bg-gray-200 text-gray-700 px-3 py-1 rounded hover:bg-gray-300">
+                        Demo Mode
+                    </button>
+                    <button onclick="location.reload()"
+                            class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="fixed top-20 right-4 z-50 space-y-2"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Status Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6 card-hover">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-500">Total Agents</h3>
+                    <span class="text-blue-600">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                    </span>
+                </div>
+                <p class="text-2xl font-bold text-gray-900" id="stat-agents">14</p>
+                <p class="text-xs text-gray-500 mt-1">11 Pipeline + 2 KB + 1 Manager</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6 card-hover">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-500">Art KB Entities</h3>
+                    <span class="text-green-600">
+                        <i data-lucide="database" class="w-5 h-5"></i>
+                    </span>
+                </div>
+                <p class="text-2xl font-bold text-gray-900" id="stat-art-kb">26,789</p>
+                <p class="text-xs text-green-600 mt-1">+1,234 this week</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6 card-hover">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-500">Meta KB Entities</h3>
+                    <span class="text-purple-600">
+                        <i data-lucide="git-branch" class="w-5 h-5"></i>
+                    </span>
+                </div>
+                <p class="text-2xl font-bold text-gray-900" id="stat-meta-kb">2,313</p>
+                <p class="text-xs text-purple-600 mt-1">+156 this week</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6 card-hover">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-500">Success Rate</h3>
+                    <span class="text-emerald-600">
+                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                    </span>
+                </div>
+                <p class="text-2xl font-bold text-gray-900" id="stat-success">92.5%</p>
+                <p class="text-xs text-emerald-600 mt-1">+3.2% vs last week</p>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="mb-6">
+            <nav class="flex space-x-4">
+                <button onclick="showTab('agents')" class="tab-btn px-4 py-2 rounded-lg font-medium bg-blue-500 text-white" id="tab-agents">
+                    Agents
+                </button>
+                <button onclick="showTab('kb')" class="tab-btn px-4 py-2 rounded-lg font-medium bg-gray-200 text-gray-700" id="tab-kb">
+                    Knowledge Base
+                </button>
+                <button onclick="showTab('executions')" class="tab-btn px-4 py-2 rounded-lg font-medium bg-gray-200 text-gray-700" id="tab-executions">
+                    Executions
+                </button>
+                <button onclick="showTab('analytics')" class="tab-btn px-4 py-2 rounded-lg font-medium bg-gray-200 text-gray-700" id="tab-analytics">
+                    Analytics
+                </button>
+                <button onclick="showTab('api')" class="tab-btn px-4 py-2 rounded-lg font-medium bg-gray-200 text-gray-700" id="tab-api">
+                    API Settings
+                </button>
+            </nav>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="content-agents" class="tab-content">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-lg font-bold mb-4">Agent Configuration</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="agentCards">
+                    <!-- Agent cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <div id="content-kb" class="tab-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-bold mb-4">Art Task Plan KB</h3>
+                    <p class="text-sm text-gray-500 mb-4">ID: 8cb7d4ac-7882-419a-a0cb-90b586fea960</p>
+                    <canvas id="artKbChart"></canvas>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-bold mb-4">Meta Iteration KB</h3>
+                    <p class="text-sm text-gray-500 mb-4">ID: 6e8d718c-5c37-44e1-ba6f-347195b46811</p>
+                    <canvas id="metaKbChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-executions" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-lg font-bold mb-4">Recent Executions</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Thread ID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Phase</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Started</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody id="executionsTable" class="bg-white divide-y divide-gray-200">
+                            <!-- Rows will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-analytics" class="tab-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-bold mb-4">Success Rate Trend</h3>
+                    <canvas id="successChart"></canvas>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-bold mb-4">Phase Duration</h3>
+                    <canvas id="durationChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-api" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-lg font-bold mb-4">API Configuration</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">API Token</label>
+                        <div class="flex space-x-2">
+                            <input type="password"
+                                   id="apiTokenDisplay"
+                                   placeholder="Enter your Azle API token"
+                                   class="flex-1 p-2 border rounded">
+                            <button onclick="updateApiToken()"
+                                    class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                Update
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Connection Status</label>
+                        <div id="connectionStatus" class="p-3 bg-gray-100 rounded">
+                            <p class="text-sm">Status: <span id="apiStatus">Not connected</span></p>
+                            <p class="text-sm">Mode: <span id="dataMode">Demo</span></p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">API Endpoints</label>
+                        <div class="p-3 bg-gray-100 rounded font-mono text-xs">
+                            <p>Base URL: https://agent.atoz.krafton.io/api</p>
+                            <p>WebSocket: wss://agent.atoz.krafton.io/ws</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load modules -->
+    <script src="app.js"></script>
+    <script src="azle-api.js"></script>
+    <script src="websocket-handler.js"></script>
+
+    <script>
+        // Global variables
+        let dashboard;
+        let azleAPI;
+        let wsHandler;
+        let dataMode = 'demo'; // 'demo' or 'live'
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize dashboard
+            dashboard = new ArtDashboard();
+
+            // Check for saved API token
+            const savedToken = localStorage.getItem('azle_api_token');
+            if (savedToken) {
+                connectToAzle(savedToken);
+            } else if (window.location.search.includes('live=true')) {
+                // Show API token modal if live mode requested
+                document.getElementById('apiTokenModal').classList.remove('hidden');
+            }
+
+            // Initialize UI
+            window.showTab('agents');
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        // Connect to Azle API
+        function connectToAzle(token) {
+            // Initialize Azle API
+            azleAPI = new AzleAPI(token);
+
+            // Initialize WebSocket handler
+            wsHandler = new WebSocketHandler(dashboard);
+            wsHandler.connect(token);
+
+            // Update data mode
+            dataMode = 'live';
+            document.getElementById('dataModeBtn').textContent = 'Live Mode';
+            document.getElementById('dataModeBtn').classList.remove('bg-gray-200', 'text-gray-700');
+            document.getElementById('dataModeBtn').classList.add('bg-green-500', 'text-white');
+
+            // Load live data
+            loadLiveData();
+        }
+
+        // Load live data from Azle API
+        async function loadLiveData() {
+            try {
+                // Load agents
+                const agents = await azleAPI.getAgents();
+                dashboard.data.agents = agents;
+
+                // Load threads
+                const threads = await azleAPI.getThreads();
+                dashboard.data.executions = threads;
+
+                // Load KB stats
+                const artKbStats = await azleAPI.getKBStats('8cb7d4ac-7882-419a-a0cb-90b586fea960');
+                const metaKbStats = await azleAPI.getKBStats('6e8d718c-5c37-44e1-ba6f-347195b46811');
+
+                if (artKbStats) dashboard.data.kb_statistics.art_kb = artKbStats;
+                if (metaKbStats) dashboard.data.kb_statistics.meta_kb = metaKbStats;
+
+                // Update dashboard
+                dashboard.renderDashboard();
+
+                // Update API status
+                document.getElementById('apiStatus').textContent = 'Connected';
+                document.getElementById('dataMode').textContent = 'Live';
+
+            } catch (error) {
+                console.error('Failed to load live data:', error);
+                showNotification('error', 'Failed to load live data. Using demo data.');
+            }
+        }
+
+        // Toggle data mode
+        function toggleDataMode() {
+            if (dataMode === 'demo') {
+                // Show API token modal
+                document.getElementById('apiTokenModal').classList.remove('hidden');
+            } else {
+                // Switch to demo mode
+                dataMode = 'demo';
+                if (wsHandler) wsHandler.disconnect();
+
+                document.getElementById('dataModeBtn').textContent = 'Demo Mode';
+                document.getElementById('dataModeBtn').classList.remove('bg-green-500', 'text-white');
+                document.getElementById('dataModeBtn').classList.add('bg-gray-200', 'text-gray-700');
+
+                // Load demo data
+                dashboard.loadData().then(() => dashboard.renderDashboard());
+            }
+        }
+
+        // Save API token
+        function saveApiToken() {
+            const token = document.getElementById('apiTokenInput').value;
+            if (token) {
+                localStorage.setItem('azle_api_token', token);
+                document.getElementById('apiTokenModal').classList.add('hidden');
+                connectToAzle(token);
+            }
+        }
+
+        // Cancel API token
+        function cancelApiToken() {
+            document.getElementById('apiTokenModal').classList.add('hidden');
+        }
+
+        // Update API token
+        function updateApiToken() {
+            const token = document.getElementById('apiTokenDisplay').value;
+            if (token) {
+                localStorage.setItem('azle_api_token', token);
+                connectToAzle(token);
+                showNotification('success', 'API token updated successfully');
+            }
+        }
+
+        // Show notification
+        function showNotification(type, message) {
+            const container = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+
+            notification.className = `p-4 rounded-lg shadow-lg max-w-sm ${
+                type === 'success' ? 'bg-green-500 text-white' :
+                type === 'error' ? 'bg-red-500 text-white' :
+                'bg-blue-500 text-white'
+            }`;
+
+            notification.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <p class="text-sm">${message}</p>
+                    <button onclick="this.parentElement.parentElement.remove()"
+                            class="ml-4 text-white hover:text-gray-200">✕</button>
+                </div>
+            `;
+
+            container.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Tab switching
+        window.showTab = function(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).classList.remove('bg-gray-200', 'text-gray-700');
+            document.getElementById(`tab-${tabName}`).classList.add('bg-blue-500', 'text-white');
+        };
+    </script>
+</body>
+</html>
