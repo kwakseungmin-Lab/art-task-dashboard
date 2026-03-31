@@ -135,6 +135,12 @@
                 <button onclick="showTab('api')" class="tab-btn px-4 py-2 rounded-lg font-medium bg-gray-200 text-gray-700" id="tab-api">
                     API Settings
                 </button>
+                <button onclick="showTab('s3')" class="tab-btn px-4 py-2 rounded-lg font-medium bg-gray-200 text-gray-700" id="tab-s3">
+                    S3 Iterations
+                </button>
+                <button onclick="showTab('kbexplorer')" class="tab-btn px-4 py-2 rounded-lg font-medium bg-gray-200 text-gray-700" id="tab-kbexplorer">
+                    KB Explorer
+                </button>
             </nav>
         </div>
 
@@ -234,10 +240,39 @@
                 </div>
             </div>
         </div>
+
+        <!-- S3 Iterations Tab Content -->
+        <div id="content-s3" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-lg font-bold mb-4">S3 Iteration Results</h2>
+                <div id="s3-iterations-container">
+                    <!-- S3 Browser will render here -->
+                    <div class="text-center py-8 text-gray-500">
+                        Loading S3 iterations...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KB Explorer Tab Content -->
+        <div id="content-kbexplorer" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-lg font-bold mb-4">KB Entity Explorer</h2>
+                <div id="kb-explorer-container">
+                    <!-- KB Viewer will render here -->
+                    <div class="text-center py-8 text-gray-500">
+                        Loading KB data...
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Load modules -->
     <script src="app.js"></script>
+    <script src="s3-browser.js"></script>
+    <script src="kb-viewer.js"></script>
+    <script src="dashboard-integration.js"></script>
     <script src="azle-api.js"></script>
     <script src="websocket-handler.js"></script>
 

@@ -13,6 +13,11 @@ class ArtDashboard {
         };
         this.charts = {};
         this.autoRefreshInterval = 30000; // 30초
+
+        // S3 Browser와 KB Viewer 모듈 초기화
+        this.s3Browser = null;
+        this.kbViewer = null;
+
         this.init();
     }
 
@@ -20,6 +25,10 @@ class ArtDashboard {
         await this.loadData();
         this.renderDashboard();
         this.startAutoRefresh();
+
+        // S3 Browser와 KB Viewer 초기화
+        this.initializeS3Browser();
+        this.initializeKBViewer();
     }
 
     async loadData() {
