@@ -1,0 +1,4 @@
+            ,{ name: 'KB Writer', type: 'art_task_plan_kb_writer', model: 'gpt-5.4', tools_count: 4, phase: 'KB Management', status: 'active' },
+            { name: 'Meta KB Writer', type: 'art_task_plan_meta_kb_writer', model: 'gpt-5.4', tools_count: 4, phase: 'KB Management', status: 'active' },
+            { name: 'KB Manager', type: 'art_task_plan_kb_manager', model: 'gpt-5.4', tools_count: 5, phase: 'KB Management', status: 'active' },
+            { name: 'Meta KB Manager', type: 'art_task_plan_meta_kb_manager', model: 'gpt-5.4', tools_count: 5, phase: 'KB Management', status: 'active' }

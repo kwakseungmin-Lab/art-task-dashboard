@@ -572,3 +572,124 @@ class KBViewer {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = KBViewer;
 }
+    // KB Explorer 메인 뷰 렌더링 - 추가된 함수
+    renderKBExplorer(kbData, kbType) {
+        if (!kbData || !kbData.entities) {
+            return '<div class="text-center py-8 text-gray-500">No KB data available</div>';
+        }
+
+        const entityTypes = [...new Set(kbData.entities.map(e => e.entity_type))];
+
+        return `
+            <div class="space-y-4">
+                <!-- Search and Filter Bar -->
+                <div class="flex space-x-4 mb-4">
+                    <input type="text"
+                           id="${kbType}-kb-search"
+                           placeholder="Search entities..."
+                           class="flex-1 px-4 py-2 border rounded-lg"
+                           onkeyup="window.filterKBEntities('${kbType}')">
+                    <select id="${kbType}-kb-type-filter"
+                            class="px-4 py-2 border rounded-lg"
+                            onchange="window.filterKBEntities('${kbType}')">
+                        <option value="">All Types</option>
+                        ${entityTypes.map(type =>
+                            '<option value="' + type + '">' + type + '</option>'
+                        ).join('')}
+                    </select>
+                </div>
+
+                <!-- Statistics -->
+                <div class="grid grid-cols-4 gap-4 mb-4">
+                    <div class="bg-blue-50 p-3 rounded">
+                        <p class="text-sm text-gray-600">Total Entities</p>
+                        <p class="text-xl font-bold">${kbData.statistics.total_entities}</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded">
+                        <p class="text-sm text-gray-600">Relations</p>
+                        <p class="text-xl font-bold">${kbData.statistics.relations || 0}</p>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded">
+                        <p class="text-sm text-gray-600">Entity Types</p>
+                        <p class="text-xl font-bold">${entityTypes.length}</p>
+                    </div>
+                    <div class="bg-yellow-50 p-3 rounded">
+                        <p class="text-sm text-gray-600">Last Update</p>
+                        <p class="text-sm font-medium">${new Date(kbData.entities[0]?.created_at || Date.now()).toLocaleDateString()}</p>
+                    </div>
+                </div>
+
+                <!-- Entities List -->
+                <div id="${kbType}-kb-entities-list">
+                    ${this.renderEntitiesList(kbData.entities.slice(0, 50))}
+                </div>
+            </div>
+        `;
+    }
+
+    // 엔티티 필터링 함수 추가
+    filterEntities(kbData, searchTerm, selectedType) {
+        if (!kbData || !kbData.entities) return kbData;
+
+        let filtered = [...kbData.entities];
+
+        if (searchTerm) {
+            filtered = filtered.filter(entity =>
+                entity.entity_id.toLowerCase().includes(searchTerm) ||
+                entity.entity_type.toLowerCase().includes(searchTerm) ||
+                (entity.source_agent && entity.source_agent.toLowerCase().includes(searchTerm))
+            );
+        }
+
+        if (selectedType && selectedType !== '') {
+            filtered = filtered.filter(entity => entity.entity_type === selectedType);
+        }
+
+        return {
+            ...kbData,
+            entities: filtered
+        };
+    }
+
+    // KB 요약 정보 렌더링 함수 추가
+    renderKBSummary(kbData) {
+        if (!kbData || !kbData.entities) {
+            return '<div class="text-center py-8 text-gray-500">No KB data available</div>';
+        }
+
+        const entityTypes = kbData.entities.reduce((acc, entity) => {
+            acc[entity.entity_type] = (acc[entity.entity_type] || 0) + 1;
+            return acc;
+        }, {});
+
+        return `
+            <div class="space-y-4">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="bg-blue-50 p-4 rounded">
+                        <p class="text-2xl font-bold">${kbData.entities.length}</p>
+                        <p class="text-sm text-gray-600">Total Entities</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded">
+                        <p class="text-2xl font-bold">${Object.keys(entityTypes).length}</p>
+                        <p class="text-sm text-gray-600">Entity Types</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded">
+                        <p class="text-2xl font-bold">${kbData.statistics?.relations || 0}</p>
+                        <p class="text-sm text-gray-600">Relations</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-2">Entity Type Distribution</h4>
+                    <div class="space-y-2">
+                        ${Object.entries(entityTypes).map(([type, count]) =>
+                            '<div class="flex justify-between items-center p-2 bg-gray-50 rounded">' +
+                            '<span>' + type + '</span>' +
+                            '<span class="font-bold">' + count + '</span>' +
+                            '</div>'
+                        ).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
