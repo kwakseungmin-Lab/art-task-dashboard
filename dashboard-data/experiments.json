@@ -1,0 +1,71 @@
+{
+  "total_experiments": 42,
+  "active_experiments": 3,
+  "total_iterations": 156,
+  "average_improvement": 8.3,
+  "experiments": [
+    {
+      "id": "exp-20260324-001",
+      "name": "Prompt Optimization",
+      "status": "running",
+      "start_date": "2026-03-24T13:09:24.216182",
+      "iterations": 17,
+      "improvement": "TBD",
+      "description": "Testing prompt optimization for pipeline optimization"
+    },
+    {
+      "id": "exp-20260325-002",
+      "name": "Tool Selection Strategy",
+      "status": "running",
+      "start_date": "2026-03-25T13:09:24.216210",
+      "iterations": 9,
+      "improvement": "TBD",
+      "description": "Testing tool selection strategy for pipeline optimization"
+    },
+    {
+      "id": "exp-20260326-003",
+      "name": "Model Comparison (GPT vs Opus)",
+      "status": "complete",
+      "start_date": "2026-03-26T13:09:24.216218",
+      "iterations": 9,
+      "improvement": "+4.5%",
+      "description": "Testing model comparison (gpt vs opus) for pipeline optimization"
+    },
+    {
+      "id": "exp-20260327-004",
+      "name": "KB Query Pattern Optimization",
+      "status": "failed",
+      "start_date": "2026-03-27T13:09:24.216225",
+      "iterations": 7,
+      "improvement": "TBD",
+      "description": "Testing kb query pattern optimization for pipeline optimization"
+    },
+    {
+      "id": "exp-20260328-005",
+      "name": "Delegation Flow Improvement",
+      "status": "failed",
+      "start_date": "2026-03-28T13:09:24.216230",
+      "iterations": 12,
+      "improvement": "TBD",
+      "description": "Testing delegation flow improvement for pipeline optimization"
+    },
+    {
+      "id": "exp-20260329-006",
+      "name": "Error Recovery Mechanism",
+      "status": "running",
+      "start_date": "2026-03-29T13:09:24.216234",
+      "iterations": 20,
+      "improvement": "TBD",
+      "description": "Testing error recovery mechanism for pipeline optimization"
+    },
+    {
+      "id": "exp-20260330-007",
+      "name": "Parallel Execution Test",
+      "status": "planning",
+      "start_date": "2026-03-30T13:09:24.216238",
+      "iterations": 0,
+      "improvement": "TBD",
+      "description": "Testing parallel execution test for pipeline optimization"
+    }
+  ]
+}

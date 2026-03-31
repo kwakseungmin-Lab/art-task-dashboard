@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Task Plan Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .pulse { animation: pulse 2s infinite; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl">🎨</span>
+                    <h1 class="ml-2 text-xl font-bold text-gray-900">Art Task Plan Dashboard</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-500" id="lastUpdate"></span>
+                    <button onclick="location.reload()" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Status Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6 card-hover">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-500">Total Agents</h3>
+                    <span class="text-blue-600">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                    </span>
+                </div>
+                <p class="text-2xl font-bold text-gray-900">14</p>
+                <p class="text-xs text-gray-500 mt-1">11 Pipeline + 2 KB + 1 Manager</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6 card-hover">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-500">Art KB Entities</h3>
+                    <span class="text-green-600">
+                        <i data-lucide="database" class="w-5 h-5"></i>
+                    </span>
+                </div>
+                <p class="text-2xl font-bold text-gray-900">26,789</p>
+                <p class="text-xs text-green-600 mt-1">+1,234 this week</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6 card-hover">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-500">Meta KB Entities</h3>
+                    <span class="text-purple-600">
+                        <i data-lucide="git-branch" class="w-5 h-5"></i>
+                    </span>
+                </div>
+                <p class="text-2xl font-bold text-gray-900">2,313</p>
+                <p class="text-xs text-purple-600 mt-1">+156 this week</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6 card-hover">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-medium text-gray-500">Success Rate</h3>
+                    <span class="text-emerald-600">
+                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                    </span>
+                </div>
+                <p class="text-2xl font-bold text-gray-900">92.5%</p>
+                <p class="text-xs text-emerald-600 mt-1">+3.2% vs last week</p>
+            </div>
+        </div>
+
+        <!-- Pipeline Flow -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-lg font-bold mb-4 flex items-center">
+                <i data-lucide="workflow" class="w-5 h-5 mr-2"></i>
+                Pipeline Flow
+            </h2>
+            <div class="overflow-auto">
+                <svg viewBox="0 0 1200 400" class="w-full">
+                    <!-- SVG Pipeline Diagram -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+                        </marker>
+                    </defs>
+
+                    <!-- Nodes -->
+                    <g id="nodes">
+                        <!-- Orchestrator -->
+                        <rect x="50" y="150" width="120" height="50" rx="5" fill="#ff6b6b" />
+                        <text x="110" y="180" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Orchestrator</text>
+
+                        <!-- Designer -->
+                        <rect x="220" y="150" width="100" height="50" rx="5" fill="#4ecdc4" />
+                        <text x="270" y="180" text-anchor="middle" fill="white" font-size="14">Designer</text>
+
+                        <!-- Analyzer -->
+                        <rect x="370" y="150" width="100" height="50" rx="5" fill="#45b7d1" />
+                        <text x="420" y="180" text-anchor="middle" fill="white" font-size="14">Analyzer</text>
+
+                        <!-- Generator -->
+                        <rect x="520" y="150" width="100" height="50" rx="5" fill="#96ceb4" />
+                        <text x="570" y="180" text-anchor="middle" fill="white" font-size="14">Generator</text>
+
+                        <!-- Evaluator -->
+                        <rect x="670" y="150" width="100" height="50" rx="5" fill="#ffeaa7" />
+                        <text x="720" y="180" text-anchor="middle" fill="black" font-size="14">Evaluator</text>
+
+                        <!-- Process Validator -->
+                        <rect x="820" y="150" width="120" height="50" rx="5" fill="#dfe6e9" />
+                        <text x="880" y="180" text-anchor="middle" fill="black" font-size="14">Validator</text>
+
+                        <!-- Agent Evolver -->
+                        <rect x="990" y="150" width="100" height="50" rx="5" fill="#a29bfe" />
+                        <text x="1040" y="180" text-anchor="middle" fill="white" font-size="14">Evolver</text>
+
+                        <!-- Monitor (parallel) -->
+                        <rect x="520" y="50" width="100" height="50" rx="5" fill="#fd79a8" stroke-dasharray="5,5" stroke="#333" />
+                        <text x="570" y="80" text-anchor="middle" fill="white" font-size="14">Monitor</text>
+
+                        <!-- KB Writers -->
+                        <rect x="820" y="250" width="120" height="50" rx="5" fill="#00b894" />
+                        <text x="880" y="280" text-anchor="middle" fill="white" font-size="14">KB Writers</text>
+                    </g>
+
+                    <!-- Arrows -->
+                    <g id="arrows">
+                        <line x1="170" y1="175" x2="220" y2="175" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <line x1="320" y1="175" x2="370" y2="175" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <line x1="470" y1="175" x2="520" y2="175" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <line x1="620" y1="175" x2="670" y2="175" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <line x1="770" y1="175" x2="820" y2="175" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <line x1="940" y1="175" x2="990" y2="175" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+                        <!-- Monitor connections (dashed) -->
+                        <line x1="570" y1="100" x2="110" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="5,5" />
+                        <line x1="570" y1="100" x2="720" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="5,5" />
+
+                        <!-- To KB Writers -->
+                        <line x1="1040" y1="200" x2="880" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="mb-6">
+            <nav class="flex space-x-4">
+                <button onclick="showTab('agents')" class="tab-btn px-4 py-2 rounded-lg font-medium" id="tab-agents">
+                    Agents
+                </button>
+                <button onclick="showTab('kb')" class="tab-btn px-4 py-2 rounded-lg font-medium" id="tab-kb">
+                    Knowledge Base
+                </button>
+                <button onclick="showTab('executions')" class="tab-btn px-4 py-2 rounded-lg font-medium" id="tab-executions">
+                    Executions
+                </button>
+                <button onclick="showTab('analytics')" class="tab-btn px-4 py-2 rounded-lg font-medium" id="tab-analytics">
+                    Analytics
+                </button>
+            </nav>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="content-agents" class="tab-content">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-lg font-bold mb-4">Agent Configuration</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Agent cards will be dynamically added here -->
+                    <div id="agentCards"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-kb" class="tab-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-bold mb-4">Art Task Plan KB</h3>
+                    <p class="text-sm text-gray-500 mb-4">ID: 8cb7d4ac-7882-419a-a0cb-90b586fea960</p>
+                    <canvas id="artKbChart"></canvas>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-bold mb-4">Meta Iteration KB</h3>
+                    <p class="text-sm text-gray-500 mb-4">ID: 6e8d718c-5c37-44e1-ba6f-347195b46811</p>
+                    <canvas id="metaKbChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-executions" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-lg font-bold mb-4">Recent Executions</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Thread ID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Phase</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Started</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody id="executionsTable" class="bg-white divide-y divide-gray-200">
+                            <!-- Rows will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-analytics" class="tab-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-bold mb-4">Success Rate Trend</h3>
+                    <canvas id="successChart"></canvas>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-bold mb-4">Phase Duration</h3>
+                    <canvas id="durationChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Update timestamp
+        document.getElementById('lastUpdate').textContent = `Last updated: ${new Date().toLocaleString()}`;
+
+        // Tab switching
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+
+            // Show selected tab
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).classList.remove('bg-gray-200', 'text-gray-700');
+            document.getElementById(`tab-${tabName}`).classList.add('bg-blue-500', 'text-white');
+        }
+
+        // Initialize with first tab
+        showTab('agents');
+
+        // Agent data
+        const agents = [
+            { name: 'Orchestrator', model: 'gpt-5.4', tools: 14, phase: 'Meta', color: '#ff6b6b' },
+            { name: 'Designer', model: 'gpt-5.4', tools: 7, phase: 'Phase 1', color: '#4ecdc4' },
+            { name: 'Analyzer', model: 'gpt-5.4', tools: 8, phase: 'Phase 1&2', color: '#45b7d1' },
+            { name: 'Generator', model: 'gpt-5.4', tools: 9, phase: 'Phase 1', color: '#96ceb4' },
+            { name: 'Evaluator', model: 'gpt-5.4', tools: 7, phase: 'Phase 1', color: '#ffeaa7' },
+            { name: 'Process Validator', model: 'gpt-5.4', tools: 8, phase: 'Phase 2', color: '#dfe6e9' },
+            { name: 'Agent Evolver', model: 'gpt-5.4', tools: 8, phase: 'Phase 2', color: '#a29bfe' },
+            { name: 'Evolver Reviewer', model: 'gpt-5.4', tools: 7, phase: 'Phase 2', color: '#b2bec3' },
+            { name: 'Monitor', model: 'gpt-4.1', tools: 6, phase: 'Parallel', color: '#fd79a8' }
+        ];
+
+        // Populate agent cards
+        const agentCardsContainer = document.getElementById('agentCards').parentElement;
+        agentCardsContainer.innerHTML = '';
+        agents.forEach(agent => {
+            const card = document.createElement('div');
+            card.className = 'border rounded-lg p-4 hover:shadow-lg transition-shadow';
+            card.innerHTML = `
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="font-semibold">${agent.name}</h3>
+                    <span class="w-3 h-3 rounded-full" style="background-color: ${agent.color}"></span>
+                </div>
+                <p class="text-sm text-gray-600">Model: ${agent.model}</p>
+                <p class="text-sm text-gray-600">Tools: ${agent.tools}</p>
+                <p class="text-xs mt-2 px-2 py-1 bg-gray-100 rounded inline-block">${agent.phase}</p>
+            `;
+            agentCardsContainer.appendChild(card);
+        });
+
+        // Execution data
+        const executions = [
+            { status: 'success', thread: 'thread-0042', phase: 'Evaluator', time: '10 mins ago', duration: '12.3 min' },
+            { status: 'success', thread: 'thread-0041', phase: 'KB Write', time: '25 mins ago', duration: '8.5 min' },
+            { status: 'running', thread: 'thread-0043', phase: 'Generator', time: '2 mins ago', duration: 'In Progress' },
+            { status: 'failed', thread: 'thread-0040', phase: 'Evolver', time: '45 mins ago', duration: '18.7 min' },
+            { status: 'success', thread: 'thread-0039', phase: 'Complete', time: '1 hour ago', duration: '41.3 min' }
+        ];
+
+        // Populate executions table
+        const executionsTable = document.getElementById('executionsTable');
+        executions.forEach(exec => {
+            const row = document.createElement('tr');
+            const statusIcon = exec.status === 'success' ? '🟢' : exec.status === 'running' ? '🟡' : '🔴';
+            const pulseClass = exec.status === 'running' ? 'pulse' : '';
+
+            row.innerHTML = `
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="${pulseClass}">${statusIcon}</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">${exec.thread}</td>
+                <td class="px-6 py-4 whitespace-nowrap">${exec.phase}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-500">${exec.time}</td>
+                <td class="px-6 py-4 whitespace-nowrap">${exec.duration}</td>
+            `;
+            executionsTable.appendChild(row);
+        });
+
+        // Charts
+        setTimeout(() => {
+            // Art KB Chart
+            const artKbCtx = document.getElementById('artKbChart');
+            if (artKbCtx) {
+                new Chart(artKbCtx.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Task Plans', 'Evaluations', 'Configs', 'Prompts', 'Logs'],
+                        datasets: [{
+                            data: [8234, 7456, 5123, 3456, 2520],
+                            backgroundColor: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'bottom' }
+                        }
+                    }
+                });
+            }
+
+            // Meta KB Chart
+            const metaKbCtx = document.getElementById('metaKbChart');
+            if (metaKbCtx) {
+                new Chart(metaKbCtx.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Strategies', 'Iterations', 'Analysis', 'Facts'],
+                        datasets: [{
+                            data: [823, 756, 512, 222],
+                            backgroundColor: ['#a29bfe', '#fd79a8', '#dfe6e9', '#b2bec3']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'bottom' }
+                        }
+                    }
+                });
+            }
+
+            // Success Rate Chart
+            const successCtx = document.getElementById('successChart');
+            if (successCtx) {
+                new Chart(successCtx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Success Rate (%)',
+                            data: [88, 90, 87, 92, 91, 93, 92.5],
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }
+
+            // Duration Chart
+            const durationCtx = document.getElementById('durationChart');
+            if (durationCtx) {
+                new Chart(durationCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Designer', 'Analyzer', 'Generator', 'Evaluator', 'Validator'],
+                        datasets: [{
+                            label: 'Avg Duration (min)',
+                            data: [5.2, 8.3, 12.5, 6.7, 4.3],
+                            backgroundColor: '#3b82f6'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }
+        }, 100);
+
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            document.getElementById('lastUpdate').textContent = `Last updated: ${new Date().toLocaleString()}`;
+            // Here you would fetch new data
+        }, 30000);
+    </script>
+</body>
+</html>

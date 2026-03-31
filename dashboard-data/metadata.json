@@ -1,0 +1,15 @@
+{
+  "last_updated": "2026-03-31T13:09:24.217012",
+  "version": "2.0.0",
+  "data_sources": {
+    "project_path": "c:\\Users\\ksm2761\\Documents\\GitHub\\a2z-docs\\Solutions\\GameMaking\\Planning\\Repository\\Art_Task_Plan",
+    "art_kb_id": "8cb7d4ac-7882-419a-a0cb-90b586fea960",
+    "meta_kb_id": "6e8d718c-5c37-44e1-ba6f-347195b46811"
+  },
+  "statistics": {
+    "total_agents": 14,
+    "active_agents": 14,
+    "total_kb_entities": 29102,
+    "total_executions": 20
+  }
+}
