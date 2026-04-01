@@ -592,15 +592,18 @@ const DashboardApp = {
         this.viewTaskPlanJSON(basePath + '_project_common.json');
     },
 
-    // View Task Plan JSON content
+    // View Task Plan JSON content - COMPLETE FILE
     viewTaskPlanJSON(filepath) {
         const viewer = document.getElementById('json-viewer');
         const filename = filepath.split('/').pop();
 
-        // Get real JSON content based on file
-        let jsonContent = {};
+        // Load actual complete JSON content
+        let jsonContent;
 
-        if (filename === '_project_common.json') {
+        // Use ActualJSONLoader if available
+        if (typeof ActualJSONLoader !== 'undefined') {
+            jsonContent = ActualJSONLoader.getJSON(filename);
+        } else if (filename === '_project_common.json') {
             jsonContent = {
                 "schema_version": "art_task_plan_pkg@8",
                 "project": {

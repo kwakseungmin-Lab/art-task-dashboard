@@ -252,8 +252,7 @@
             </div>
 
             <div class="controls">
-                <button class="btn active" onclick="switchView('radial')">Radial View</button>
-                <button class="btn" onclick="switchView('force')">Force Network</button>
+                <button class="btn active" onclick="switchView('force')">Force Network</button>
                 <button class="btn" onclick="switchView('hierarchical')">Hierarchical</button>
                 <button class="btn" onclick="resetZoom()">Reset Zoom</button>
                 <button class="btn" onclick="toggleFullscreen()">Fullscreen</button>
@@ -296,7 +295,7 @@
     <script src="kb-network-api.js"></script>
 
     <script>
-        let currentView = 'radial';
+        let currentView = 'force'; // Default to Force Network
         let svg, g, zoom;
         let kbData = null;
         let simulation = null;
@@ -407,9 +406,7 @@
 
         // Initialize visualization
         function initVisualization() {
-            if (currentView === 'radial') {
-                initRadialNetwork();
-            } else if (currentView === 'force') {
+            if (currentView === 'force' || currentView === 'radial') { // Treat radial as force
                 initForceNetwork();
             } else {
                 initHierarchicalNetwork();
