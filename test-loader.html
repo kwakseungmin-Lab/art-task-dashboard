@@ -6,92 +6,82 @@
     <title>Test JSON Loader</title>
     <style>
         body {
+            font-family: monospace;
             background: #0f1419;
             color: #e1e8ed;
-            font-family: monospace;
             padding: 20px;
         }
-        .test-result {
-            margin: 20px 0;
-            padding: 20px;
-            background: #1a1f2e;
-            border-radius: 8px;
-            white-space: pre-wrap;
+        pre {
+            background: #1a1a2e;
+            padding: 15px;
+            border-radius: 5px;
+            overflow: auto;
         }
-        .success {
-            border-left: 4px solid #10b981;
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        button {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
         }
-        .error {
-            border-left: 4px solid #ff7b72;
+        button:hover {
+            background: #2563eb;
         }
     </style>
 </head>
 <body>
-    <h1>Testing JSON File Loading</h1>
-    <div id="results"></div>
+    <h1>JSON Loader Test</h1>
+    <div>
+        <button onclick="testLoad('_project_common.json')">Load _project_common.json</button>
+        <button onclick="testLoad('character/dino_runner_core.json')">Load dino_runner_core.json</button>
+        <button onclick="testLoad('ui/score_digits_font.json')">Load score_digits_font.json</button>
+        <button onclick="testLoad('world/sky_day_field.json')">Load sky_day_field.json</button>
+    </div>
+    <div id="status"></div>
+    <pre id="result"></pre>
 
+    <script src="fixed-json-loader.js"></script>
+    <script src="dynamic-json-loader.js"></script>
     <script>
-        const results = document.getElementById('results');
+        async function testLoad(fileName) {
+            const statusDiv = document.getElementById('status');
+            const resultDiv = document.getElementById('result');
 
-        async function testFile(path, description) {
-            const div = document.createElement('div');
-            div.className = 'test-result';
+            statusDiv.innerHTML = '<span class="status">Loading ' + fileName + '...</span>';
+            resultDiv.textContent = '';
 
             try {
-                console.log(`Testing: ${path}`);
-                const response = await fetch(path);
-                const text = await response.text();
+                // Test FixedJSONLoader
+                const data = await FixedJSONLoader.loadJSON(8, 'Chrome_Dino_Runner', 1, fileName);
 
-                if (response.ok) {
-                    const json = JSON.parse(text);
-                    div.className += ' success';
-                    div.innerHTML = `✅ ${description}
-Path: ${path}
-Status: ${response.status}
-File found! Keys: ${Object.keys(json).slice(0, 5).join(', ')}...
-Asset: ${json.asset_key || 'N/A'}`;
+                if (data.error) {
+                    statusDiv.innerHTML = '<span class="error">❌ Error: ' + data.error + ' - ' + (data.message || data.path) + '</span>';
+                    resultDiv.textContent = JSON.stringify(data, null, 2);
                 } else {
-                    div.className += ' error';
-                    div.innerHTML = `❌ ${description}
-Path: ${path}
-Status: ${response.status}
-Error: File not found`;
+                    statusDiv.innerHTML = '<span class="success">✅ Successfully loaded ' + fileName + '</span>';
+                    resultDiv.textContent = JSON.stringify(data, null, 2);
                 }
             } catch (error) {
-                div.className += ' error';
-                div.innerHTML = `❌ ${description}
-Path: ${path}
-Error: ${error.message}`;
+                statusDiv.innerHTML = '<span class="error">❌ Exception: ' + error.message + '</span>';
+                resultDiv.textContent = error.stack;
             }
-
-            results.appendChild(div);
         }
 
-        // Test various paths
-        async function runTests() {
-            // Test direct paths
-            await testFile('data/iteration_8/Chrome_Dino_Runner/trial_1/_project_common.json',
-                          'Direct path: iteration_8/Chrome_Dino_Runner/trial_1/_project_common.json');
+        // Test on load
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('Test page loaded');
+            console.log('GitHub Pages:', FixedJSONLoader.isGitHubPages());
+            console.log('Base path:', FixedJSONLoader.getBasePath());
 
-            await testFile('data/iteration_8/Chrome_Dino_Runner/trial_1/character/dino_runner_core.json',
-                          'Direct path: dino_runner_core.json');
-
-            await testFile('/data/iteration_8/Chrome_Dino_Runner/trial_1/character/dino_runner_core.json',
-                          'Absolute path: /data/...');
-
-            await testFile('./data/iteration_8/Chrome_Dino_Runner/trial_1/character/dino_runner_core.json',
-                          'Relative path: ./data/...');
-
-            // Test umbra_scale
-            await testFile('data/iteration_8/umbra_scale/trial_5/character/umbra_player_core_states.json',
-                          'umbra_scale character file');
-
-            // Test Pico_Echo
-            await testFile('data/iteration_8/Pico_Echo/trial_1/_project_common.json',
-                          'Pico_Echo project file');
-        }
-
-        runTests();
+            // Auto-test after 2 seconds
+            setTimeout(() => {
+                testLoad('_project_common.json');
+            }, 2000);
+        });
     </script>
 </body>
 </html>
