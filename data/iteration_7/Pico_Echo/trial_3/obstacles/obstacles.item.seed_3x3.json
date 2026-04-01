@@ -1,0 +1,88 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.item.seed_3x3",
+  "asset_name": "Seed (single 3x3 particle)",
+  "category": "obstacles",
+  "subcategory": "pickup_particle",
+  "priority": "P1",
+  "execution_order": 130,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "feed_particle",
+    "layer": "obstacles",
+    "usage": "Spawned during drag-to-feed; can be reused in eating frames.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 3,
+      "height": 3
+    },
+    "colors_hex": [
+      "#FFEC27",
+      "#AB5236"
+    ],
+    "animation": null,
+    "shape_notes": [
+      "3x3 blob with exactly 1 darker pixel (#AB5236) for depth."
+    ],
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.item.seed_3x3.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 3x3px with transparent background.",
+    "Contains 8 pixels of #FFEC27 and 1 pixel of #AB5236.",
+    "No anti-aliasing; nearest-neighbor scaling preserves crisp edges."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

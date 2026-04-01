@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.gold_urn_static_36x44",
+  "asset_name": "Gold Urn (36x44)",
+  "category": "obstacles",
+  "subcategory": "launchable_gold_urn",
+  "priority": "P2",
+  "execution_order": 180,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620",
+    "obstacles.environment.wood_pillar_24x120"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620",
+    "obstacles.environment.wood_pillar_24x120"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.wood_pillar_24x120",
+      "character.noble.boss_idle_6f_4fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "launchable_object",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Selected by the player as a heavy launchable that stuns up to 2 nearby nobles when it breaks.",
+    "adjacent_elements": [
+      "wood pillar",
+      "boss noble"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 36,
+      "height": 44
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#F0D07A",
+      "#8B6B5C",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "round urn body with two side handles and a short neck opening",
+      "components": [
+        "body",
+        "neck",
+        "left_handle",
+        "right_handle",
+        "base_ring"
+      ]
+    },
+    "physics_tags": {
+      "mass_relative": 4,
+      "base_restitution": 0.6,
+      "stun_target_count_max": 2
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.gold_urn_static_36x44.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 36x44px and the main body stays centered within a 28px width.",
+    "Both side handles remain symmetrical with 4px inner openings and the neck opening stays at 8px width.",
+    "Only #D4A843, #F0D07A, #8B6B5C, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

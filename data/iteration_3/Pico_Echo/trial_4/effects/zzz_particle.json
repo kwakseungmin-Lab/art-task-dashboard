@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-4px",
+      "height": "2-5px"
+    },
+    "color_scheme": {
+      "primary": "#FF004D",
+      "secondary": "#FFEC27",
+      "accent": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects and visual feedback",
+      "animation_method": "frame-by-frame with movement",
+      "layer_order": 4,
+      "lifespan": "0.5-2 seconds typical"
+    }
+  },
+  "asset": {
+    "asset_id": "zzz_particle",
+    "asset_name": "Sleep ZZZ Particle",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Visual indicator when Echo is sleeping",
+      "screen_position": "Spawns right of Echo at (75, 55), floats upward",
+      "adjacent_elements": ["echo_sleeping"],
+      "usage_scenario": "Spawns every 2 seconds during sleep state, floats up and fades"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "text": "#7E2553"
+      },
+      "shape": "Letter 'Z' in pixel font",
+      "texture": "Flat color pixel text",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 10,
+        "fps": 3,
+        "loop": false,
+        "description": "Frames 1-10: Z floats from (75,55) to (75,35), fades in final 3 frames"
+      },
+      "details": "Purple 'Z' (#7E2553) 3x3px, spawns every 2 seconds, rises straight up 20px over 3.3 seconds, fades starting at frame 8, three Z's can be visible simultaneously at different heights"
+    },
+    "relationships": {
+      "related_assets": ["echo_sleeping"],
+      "shared_with": "All particle effects share temporary display behavior",
+      "differences_from": "heart_particle (text vs shape), note_particle (slower spawn rate and movement)"
+    },
+    "explicit_negations": [
+      "No horizontal drift",
+      "No rotation",
+      "No size variations",
+      "No color changes",
+      "No sound effect visualization",
+      "No permanent display"
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit Pixel Art",
+    "theme": "Prehistoric Desert",
+    "mood": "Minimal, Retro, Focus-Demanding",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px outline included in sprites",
+    "rendering": "Pixel-perfect, no anti-aliasing"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "Variable (tiling/full screen)",
+      "height": "2-150px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "background": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "Minimal pixel art",
+      "color_mode": "Monochrome or background color",
+      "movement": "Scrolling or static",
+      "collision_layer": "Layer 2 (Ground) or no collision (Background)",
+      "rendering_priority": "Background layer (lowest)"
+    }
+  },
+  "asset": {
+    "asset_id": "background_sky",
+    "asset_name": "Background Sky",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Static background representing the sky, provides clean backdrop for all game elements",
+      "screen_position": "Fills entire screen (600x150px), behind all other elements",
+      "adjacent_elements": ["ground_line", "ground_texture", "player_run", "player_jump", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_fly", "cloud_small", "cloud_large"],
+      "usage_scenario": "Always visible throughout gameplay, static (no scrolling), provides high contrast with Primary color elements"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "600px",
+        "height": "150px"
+      },
+      "colors": {
+        "sky": "#F7F7F7"
+      },
+      "shape": "Full screen rectangle",
+      "texture": "Solid color fill, no texture",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static solid color background, no movement or animation"
+      },
+      "details": "Uniform Background color (#F7F7F7) fill, no gradients, no patterns, provides clean minimalist backdrop"
+    },
+    "relationships": {
+      "related_assets": ["cloud_small", "cloud_large", "ground_line", "ground_texture", "player_run", "player_jump", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_fly"],
+      "shared_with": "Same color as project Background color",
+      "differences_from": "All other elements use Primary color (#535353), background_sky is static while ground_line scrolls, clouds scroll at 50% speed (parallax)"
+    },
+    "explicit_negations": [
+      "No gradients or color variations",
+      "No texture or patterns",
+      "No scrolling or movement",
+      "No day/night cycle or color changes",
+      "No atmospheric effects (fog, haze)",
+      "No horizon line or perspective",
+      "No sun, moon, or celestial objects (clouds are separate optional assets)",
+      "No depth layers or parallax within sky itself",
+      "No transparency or alpha blending",
+      "No dynamic lighting"
+    ]
+  }
+}

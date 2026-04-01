@@ -1,0 +1,166 @@
+{
+  "task_id": "task_id_008101016",
+  "asset_key": "ui_hp_and_echo_tokens_sheet_192x32",
+  "asset_name": "HP and Echo Token HUD Sheet",
+  "category": "ui",
+  "subcategory": "hud_icons",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101005",
+    "task_id_008101010"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101005",
+    "task_id_008101010"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle slices or sub-rect extraction from one HUD sheet for the heart row and echo-token row.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "HudOverlay"
+    ],
+    "asset_loading": "Load ui/ui_hp_and_echo_tokens_sheet_192x32.png through AssetServer and slice separate rects for the top-left HP row and top-right echo token row.",
+    "runtime_notes": [
+      "Heart icons should support three HP states and echo tokens should support two remaining summon charges.",
+      "Keep icon silhouettes bold because these widgets sit over a dark but detailed backdrop.",
+      "The sheet is a source atlas; on-screen layout is split between left and right anchors."
+    ]
+  },
+  "context": {
+    "role": "hud_hp_and_echo_icons",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        96,
+        28
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Single HUD source sheet providing the three-heart HP row and the two-token echo counter used at the top corners of gameplay.",
+    "adjacent_elements": [
+      "player_umbra_idle_6f_12fps",
+      "echo_clone_idle_4f_8fps",
+      "ui_exposure_gauge_160x12"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 32
+    },
+    "colors_hex": [
+      "#1C1826",
+      "#F5EFE0",
+      "#D4682A",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "HUD sheet with three heart slots on the left half and two echo summon tokens on the right half.",
+      "components": [
+        "heart_slot_1",
+        "heart_slot_2",
+        "heart_slot_3",
+        "echo_token_1",
+        "echo_token_2",
+        "backing_trim"
+      ]
+    },
+    "layout": {
+      "heart_icon_size_px": [
+        24,
+        24
+      ],
+      "echo_icon_size_px": [
+        20,
+        30
+      ],
+      "heart_anchor": "top_left",
+      "echo_anchor": "top_right"
+    }
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 192x32 px.",
+    "All three heart slots and both echo tokens remain distinct when viewed at 1x gameplay scale.",
+    "The sheet leaves at least 2 px of padding around every icon group for clean UI slicing."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101005",
+      "task_id_008101010",
+      "task_id_008101017",
+      "task_id_008101019",
+      "task_id_008101020"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_hp_and_echo_tokens_sheet_192x32.png",
+      "transparent_background": true
+    }
+  ]
+}

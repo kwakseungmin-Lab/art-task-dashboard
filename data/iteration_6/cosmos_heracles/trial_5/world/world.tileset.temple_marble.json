@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.tileset.temple_marble",
+  "asset_name": "Temple Marble Tileset (16x16) — corridors, walls, void edges",
+  "category": "world",
+  "subcategory": "tileset",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [
+    "obstacles.pillar.standard_breakable",
+    "obstacles.pillar.rotating",
+    "obstacles.gap.narrow_marker",
+    "obstacles.gap.wide_marker"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.layer2_column_hall",
+      "world.fx.star_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "background": {
+      "name": "marble_ivory",
+      "hex": "#D9D0BE"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "world_tiles",
+    "layer": "world",
+    "usage": "Primary temple corridor tiles for Zones 1–3; used for floor, wall, trim, and void edges in an auto-scrolling side view.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "tile_size_px": {
+      "width": 16,
+      "height": 16
+    },
+    "sheet_dimensions_px": {
+      "width": 256,
+      "height": 256
+    },
+    "tile_count_expected": 256,
+    "required_tile_ids": [
+      "marble_floor_01",
+      "marble_floor_02",
+      "marble_floor_cracked",
+      "marble_wall_01",
+      "marble_wall_shadow",
+      "trim_gold_01",
+      "void_edge_top",
+      "void_edge_bottom",
+      "void_edge_inner_corner",
+      "column_base",
+      "column_shaft",
+      "column_cap",
+      "arch_01",
+      "stair_up_01",
+      "stair_down_01",
+      "door_frame_01"
+    ],
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#FFD966",
+      "#F0EFE9",
+      "#7B2FBE"
+    ],
+    "tiling_rules": {
+      "void_edges": "Provide top/bottom + inner/outer corners so marble platforms can sit over deep space without 1px gaps.",
+      "floor_variation": "Include at least 3 floor variants (clean, cracked, star-dusted) to avoid repetition in auto-scroll.",
+      "gold_trim": "Trim tiles should read as bronze/gold accents but not overpower enemy silhouettes."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tileset.temple_marble.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Every tile is exactly 16x16px and aligns on a 16px grid with no sub-pixel offsets.",
+    "The sheet is exactly 256x256px and includes all required_tile_ids.",
+    "Void edge tiles allow a continuous platform silhouette over deep space without visible 1px seams when tiled."
+  ]
+}

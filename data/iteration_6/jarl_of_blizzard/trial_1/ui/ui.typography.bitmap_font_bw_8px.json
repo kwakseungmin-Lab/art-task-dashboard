@@ -1,0 +1,174 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.typography.bitmap_font_bw_8px",
+  "asset_name": "Bitmap Font (B/W) — 8px",
+  "category": "ui",
+  "subcategory": "typography",
+  "priority": "P0",
+  "execution_order": 5,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.hud_panels_bw_atlas",
+      "ui.panel.memory_panel_600x400",
+      "ui.panel.event_popup_600x200"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "bitmap_font",
+    "layer": "ui",
+    "usage": "Primary UI font for all HUD and panels; supports ASCII, digits, and basic symbols (: / + -).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 128
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#000000"
+    ],
+    "animation": null,
+    "font_rules": {
+      "glyph_size_px": {
+        "width": 8,
+        "height": 8
+      },
+      "grid": {
+        "cols": 32,
+        "rows": 16
+      },
+      "required_glyphs": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+        "/",
+        "-",
+        "+",
+        ";",
+        ":",
+        "%"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.typography.bitmap_font_bw_8px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Font atlas is exactly 256x128px and aligns to an 8x8 grid.",
+    "All glyphs use only #FFFFFF for pixels and transparent background; no gray anti-aliasing.",
+    "Digits 0-9 remain legible when rendered at 1x on a 1920x1080 HUD."
+  ]
+}

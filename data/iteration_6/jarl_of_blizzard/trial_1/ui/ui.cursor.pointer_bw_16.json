@@ -1,0 +1,123 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.cursor.pointer_bw_16",
+  "asset_name": "Mouse Cursor Pointer — 16×16",
+  "category": "ui",
+  "subcategory": "cursor",
+  "priority": "P0",
+  "execution_order": 6,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.hud_panels_bw_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "cursor",
+    "layer": "ui",
+    "usage": "Default pointer cursor for all UI interactions.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "hotspot_px": [
+      0,
+      0
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.cursor.pointer_bw_16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Cursor is exactly 16x16px with hotspot at (0,0).",
+    "High-contrast outline ensures visibility on both black and white backgrounds.",
+    "No anti-aliasing and no colors outside the allowed grayscale values."
+  ]
+}

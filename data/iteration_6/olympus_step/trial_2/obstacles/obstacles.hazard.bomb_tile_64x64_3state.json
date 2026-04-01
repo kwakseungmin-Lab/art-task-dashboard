@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.hazard.bomb_tile_64x64_3state",
+  "asset_name": "Hazard Tile — Time Bomb Countdown (64x64, 3 states)",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P1",
+  "execution_order": 45,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hazard_countdown",
+    "layer": "hazard_tile",
+    "usage": "Bomb tile with 3-turn countdown; shows 3,2,1 number overlay before explosion.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "grid_rules": {
+      "tile_size_px": [
+        64,
+        64
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#EF4444",
+      "#1E1B4B",
+      "#F8FAFC",
+      "#D4C5A9"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 3,
+      "fps": 1,
+      "loop": false,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "state_notes": [
+      "Frame 1 displays \"3\" centered.",
+      "Frame 2 displays \"2\" centered.",
+      "Frame 3 displays \"1\" centered."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.bomb_tile_64x64_3state.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x64px (3 frames × 64x64).",
+    "Countdown numeral occupies a 24x24px centered box and uses #F8FAFC fill with #1E1B4B 1px outline.",
+    "Uses only listed colors and transparency; no anti-aliasing."
+  ]
+}

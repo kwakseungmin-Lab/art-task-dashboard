@@ -1,0 +1,129 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.top_bar_1280x50",
+  "asset_name": "HUD Top Bar (1280x50) — Stage name + Moves + Undo + Buttons",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 310,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.court_serif_16px_ascii_96glyph"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.court_serif_16px_ascii_96glyph"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.court_serif_16px_ascii_96glyph"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "hud_top",
+    "layer": "ui",
+    "usage": "Top HUD region: stage title left, moves/undo counters right, hint/restart/menu buttons.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 50
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#D4A843",
+      "#3D2B1F",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "layout_spec": {
+      "padding_px": 12,
+      "stage_name_box_px": [
+        12,
+        12,
+        240,
+        26
+      ],
+      "moves_counter_box_px": [
+        1040,
+        12,
+        228,
+        20
+      ],
+      "undo_counter_box_px": [
+        1100,
+        32,
+        168,
+        16
+      ],
+      "button_size_px": [
+        60,
+        24
+      ],
+      "button_positions_px": {
+        "hint": [
+          12,
+          32
+        ],
+        "restart": [
+          1140,
+          12
+        ],
+        "menu": [
+          1210,
+          12
+        ]
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.top_bar_1280x50.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1280x50px with transparent background; designed to overlay on top of gameplay area without obscuring critical objects.",
+    "Text regions assume #3D2B1F font color; background panels use low-opacity ivory (#F5F0E8 at ~60% alpha) with gold accents #D4A843.",
+    "All UI boxes align to a 4px grid; button hit areas are 60x24px and visually distinct in idle state."
+  ]
+}

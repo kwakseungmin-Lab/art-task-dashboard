@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "position_base": "perch at y=60",
+      "character": "Echo the cockatiel"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_preening",
+    "asset_name": "Echo Preening State",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Echo grooming feathers (autonomous behavior)",
+      "screen_position": "Center at x=64, y=60 on perch",
+      "adjacent_elements": ["perch", "feather_effect", "cage_background"],
+      "usage_scenario": "Randomly triggered from idle state (30% chance); plays for 5 seconds; spawns feather particle effects"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head turned toward body/wing area, beak touching feathers",
+      "texture": "Flat pixel art with no gradients; hand-drawn organic edges",
+      "outline": "None; pure pixel art with color blocking",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 5,
+        "fps": 3,
+        "loop": false,
+        "description": "Frame 1: head turning toward wing, Frame 2-3: beak touching body feathers, Frame 4: head moving to tail area, Frame 5: returning to normal position"
+      },
+      "details": "Head rotates approximately 45 degrees toward body; beak appears to touch body in frames 2-3; crest in normal position; one wing slightly raised (2-3px) in frames 2-4"
+    },
+    "relationships": {
+      "related_assets": ["feather_effect", "perch", "echo_idle"],
+      "shared_with": "Same color palette and base structure as all Echo states",
+      "differences_from": "echo_idle (head turned vs forward), echo_sleeping (active vs resting)"
+    },
+    "explicit_negations": [
+      "no smooth gradients",
+      "no anti-aliasing",
+      "no realistic feather texture",
+      "no 3D depth",
+      "no motion blur",
+      "no dust clouds",
+      "no water droplets"
+    ]
+  }
+}

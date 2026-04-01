@@ -1,0 +1,373 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "task_plan_type": "Art Task Plan",
+    "task_plan_output_version": "v3",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "source_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+    "canvas": {
+      "resolution_px": "128x128",
+      "pixel_aspect_ratio": "1:1",
+      "coordinate_origin": "top_left",
+      "x_range_px": "0-127",
+      "y_range_px": "0-127",
+      "render_scale_rule": "nearest_neighbor_only"
+    },
+    "view": {
+      "camera_angle": "front",
+      "perspective": "none_2d"
+    },
+    "style": {
+      "art_style": "pixel_art",
+      "color_mode": "indexed",
+      "max_unique_colors": 16,
+      "palette_hex": [
+        "#FFA300",
+        "#FF004D",
+        "#FFEC27",
+        "#AB5236",
+        "#FFF1E8",
+        "#C2C3C7",
+        "#1D2B53",
+        "#FFCCAA",
+        "#5F574F",
+        "#00E436",
+        "#7E2553"
+      ],
+      "anti_aliasing": "forbidden",
+      "gradient": "forbidden",
+      "dither": "forbidden_unless_explicit",
+      "outline": "none_unless_explicit"
+    },
+    "file_spec": {
+      "format": "png",
+      "background": {
+        "sprites": "transparent_alpha_0",
+        "full_screen_background": "opaque"
+      }
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "engine_notes": {
+      "recommended_sprite_anchor": "center",
+      "default_anchor_px": [
+        64,
+        64
+      ]
+    }
+  },
+  "task_id": "pico_echo.character.echo_singing",
+  "asset_name": "Echo_Singing_Animation",
+  "category": "character",
+  "subcategory": "echo_state_singing",
+  "description": "Create Echo state animation Singing as pixel art frames. Frame size 40x40 px, 8 frames, 4 fps. Camera front, perspective none. Use only project palette hex values. No gradients, no anti-aliasing, no blur. Required features in every non-sleeping frame: crest (#FFEC27), cheek patch (#FF004D), tail (2 feathers), beak (#AB5236).",
+  "deliverables": [
+    {
+      "type": "sprite_frame",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/character/echo_singing/echo_singing_f01.png",
+      "dimensions_px": "40x40",
+      "background": "transparent"
+    },
+    {
+      "type": "sprite_frame",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/character/echo_singing/echo_singing_f02.png",
+      "dimensions_px": "40x40",
+      "background": "transparent"
+    },
+    {
+      "type": "sprite_frame",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/character/echo_singing/echo_singing_f03.png",
+      "dimensions_px": "40x40",
+      "background": "transparent"
+    },
+    {
+      "type": "sprite_frame",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/character/echo_singing/echo_singing_f04.png",
+      "dimensions_px": "40x40",
+      "background": "transparent"
+    },
+    {
+      "type": "sprite_frame",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/character/echo_singing/echo_singing_f05.png",
+      "dimensions_px": "40x40",
+      "background": "transparent"
+    },
+    {
+      "type": "sprite_frame",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/character/echo_singing/echo_singing_f06.png",
+      "dimensions_px": "40x40",
+      "background": "transparent"
+    },
+    {
+      "type": "sprite_frame",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/character/echo_singing/echo_singing_f07.png",
+      "dimensions_px": "40x40",
+      "background": "transparent"
+    },
+    {
+      "type": "sprite_frame",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/character/echo_singing/echo_singing_f08.png",
+      "dimensions_px": "40x40",
+      "background": "transparent"
+    }
+  ],
+  "specs": {
+    "dimensions": "40x40",
+    "animation": {
+      "frame_count": 8,
+      "fps": 4,
+      "loop": true,
+      "loop_behavior": "infinite",
+      "frame_naming": "echo_singing_f01..f08.png"
+    },
+    "render": {
+      "anchor": "center",
+      "center_on_screen_px": [
+        64,
+        60
+      ],
+      "bbox_on_screen_px": {
+        "x": 44,
+        "y": 40,
+        "w": 40,
+        "h": 40
+      }
+    },
+    "visual_spec": {
+      "base_anatomy": {
+        "sprite_bbox_px": {
+          "x": 44,
+          "y": 40,
+          "w": 40,
+          "h": 40
+        },
+        "body": {
+          "shape": "filled_ellipse",
+          "center_xy": [
+            20,
+            23
+          ],
+          "radius_xy": [
+            13,
+            12
+          ],
+          "fill_hex": "#FFA300"
+        },
+        "head": {
+          "shape": "filled_ellipse",
+          "center_xy": [
+            20,
+            16
+          ],
+          "radius_xy": [
+            11,
+            9
+          ],
+          "fill_hex": "#FFA300"
+        },
+        "eyes": {
+          "size_px": "2x2",
+          "left_top_left_xy": [
+            14,
+            14
+          ],
+          "right_top_left_xy": [
+            24,
+            14
+          ],
+          "fill_hex": "#1D2B53"
+        },
+        "cheek_patch": {
+          "shape": "filled_circle",
+          "center_xy": [
+            27,
+            18
+          ],
+          "radius_px": 3,
+          "fill_hex": "#FF004D"
+        },
+        "beak": {
+          "shape": "filled_triangle",
+          "points_xy": [
+            [
+              20,
+              20
+            ],
+            [
+              18,
+              22
+            ],
+            [
+              22,
+              22
+            ]
+          ],
+          "fill_hex": "#AB5236"
+        },
+        "crest": {
+          "shape": "three_triangles",
+          "base_center_xy": [
+            20,
+            6
+          ],
+          "triangle_count": 3,
+          "triangle_height_px": 6,
+          "triangle_base_width_px": 4,
+          "spacing_px": 1,
+          "fill_hex": "#FFEC27"
+        },
+        "tail": {
+          "shape": "two_feathers",
+          "left": {
+            "start_xy": [
+              16,
+              33
+            ],
+            "end_xy": [
+              12,
+              39
+            ],
+            "thickness_px": 2,
+            "fill_hex": "#FFA300"
+          },
+          "right": {
+            "start_xy": [
+              24,
+              33
+            ],
+            "end_xy": [
+              28,
+              39
+            ],
+            "thickness_px": 2,
+            "fill_hex": "#FFA300"
+          }
+        },
+        "feet": {
+          "shape": "two_rects",
+          "left_rect_xywh": [
+            16,
+            33,
+            4,
+            2
+          ],
+          "right_rect_xywh": [
+            20,
+            33,
+            4,
+            2
+          ],
+          "fill_hex": "#AB5236"
+        }
+      },
+      "state_motion_per_frame": [
+        {
+          "frame": 1,
+          "beak_state": "open_1px"
+        },
+        {
+          "frame": 2,
+          "beak_state": "open_2px"
+        },
+        {
+          "frame": 3,
+          "beak_state": "open_1px"
+        },
+        {
+          "frame": 4,
+          "beak_state": "open_2px"
+        },
+        {
+          "frame": 5,
+          "beak_state": "open_1px"
+        },
+        {
+          "frame": 6,
+          "beak_state": "open_2px"
+        },
+        {
+          "frame": 7,
+          "beak_state": "open_1px"
+        },
+        {
+          "frame": 8,
+          "beak_state": "open_2px"
+        }
+      ],
+      "effects_expected_task_ids": [
+        "pico_echo.vfx.vfx_music_note_particle"
+      ]
+    }
+  },
+  "context": {
+    "role": "main_character_state_animation",
+    "screen_location": {
+      "center_px": [
+        64,
+        60
+      ]
+    },
+    "adjacent_elements": [
+      "cage_perch at y=80",
+      "food_bowl at (16,100)",
+      "status_bubble near Echo upper-right when needed"
+    ],
+    "layer": "character",
+    "usage": {
+      "trigger": "BehaviorSystem state == SINGING",
+      "state_durations_seconds": 8.0
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.environment.cage_perch",
+      "pico_echo.environment.cage_bars_overlay"
+    ],
+    "shared_constraints": [
+      "frame_dimensions_px == 40x40",
+      "palette_usage_subset == [#FFA300,#FF004D,#FFEC27,#AB5236,#1D2B53]",
+      "render_anchor == center"
+    ],
+    "differences": [
+      "state == Singing",
+      "frame_count == 8",
+      "fps == 4",
+      "loop == True"
+    ]
+  },
+  "depends_on": [
+    "pico_echo.character.echo_idle"
+  ],
+  "execution_order": 8,
+  "priority": "P1",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.character.echo_idle"
+  ],
+  "acceptance_criteria": [
+    "dimensions_px == 40x40",
+    "file_format == PNG",
+    "unique_colors_count <= 16",
+    "all_colors_in_project_palette_hex == true",
+    "no_antialiasing_pixels == true",
+    "no_gradient_pixels == true",
+    "animation.frame_count == 8",
+    "animation.fps == 4",
+    "animation.loop == true",
+    "Echo cheek_patch color == #FF004D in every non-sleeping frame == true"
+  ]
+}

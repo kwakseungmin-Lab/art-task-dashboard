@@ -1,0 +1,117 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.cactus.large_static",
+  "asset_name": "Large Cactus Obstacle",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": "obstacles.cactus.small_static",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000.",
+    "Ground baseline contact.",
+    "2px outline width and single-fill cactus interior."
+  ],
+  "differences": [
+    "Width increases from 34 px to 102 px.",
+    "Height increases from 70 px to 100 px.",
+    "Three grouped stems create a wider collision silhouette."
+  ],
+  "depends_on": [
+    "obstacles.cactus.small_static"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.cactus.small_static"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus.small_static",
+      "world.ground.line_1200x2"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hazard_ground_variant",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        650,
+        80
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Spawned from the ground obstacle table and moves left at current obstacle speed.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "character.player.dino_run_2f_12fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 102,
+      "height": 100
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Grouped cactus silhouette with vertical stems, spike arms, and 2px outline.",
+      "components": [
+        "grouped_stems",
+        "spike_arms",
+        "base_pixels"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus.large_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 102x100 px.",
+    "All opaque pixels use #535353 and transparent background only.",
+    "Ground-contact pixels form one continuous baseline contact band."
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.environment.wine_barrel_explode_8f_12fps",
+  "asset_name": "Wine Barrel — Explode Sequence (8 frames, 12fps)",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P1",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "trigger_explosion",
+    "layer": "obstacles",
+    "usage": "Used when barrel HP reaches 0; spawns explosion VFX and pushes nearby objects.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#A89880",
+      "#E8704A",
+      "#D4A843",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": false,
+      "frame_size_px": [
+        48,
+        48
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "vfx_notes": [
+      "Explosion is stylized and non-violent; emphasize wine splash and sparkles rather than debris.",
+      "Frame 1 starts intact; frame 8 ends with mostly transparent remnants."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.wine_barrel_explode_8f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 384x48px (8 frames × 48x48) with 0px spacing and transparent background.",
+    "Motion reads clearly at 12fps: intact → crack → burst → splash → fade; last frame alpha <=10% except tiny sparkles.",
+    "Colors stay within palette; avoid dark smoke/char; explosion reads comedic and pastel (use #E8704A/#D4A843 accents)."
+  ]
+}

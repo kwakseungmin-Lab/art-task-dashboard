@@ -1,0 +1,165 @@
+{
+  "task_id": "task_id_008101001",
+  "asset_key": "world_tower_backdrop_parallax_1920x1080",
+  "asset_name": "Twilight Tower Backdrop",
+  "category": "world",
+  "subcategory": "backdrop",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "task_id_008101002",
+    "task_id_008101003",
+    "task_id_008101004",
+    "task_id_008101018",
+    "task_id_008101021"
+  ],
+  "blocked_by": [],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle for the backdrop root and split depth bands into parallax child sprites during scene assembly.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TowerBackdrop",
+      "ParallaxLayer"
+    ],
+    "asset_loading": "Load world/world_tower_backdrop_parallax_1920x1080.png through AssetServer during floor setup and assign it to the TowerBackdrop root entity.",
+    "runtime_notes": [
+      "Background depth bands scroll at 0.3, 0.6, and 1.0 camera speed ratios so the tower feels tall without hiding gameplay silhouettes.",
+      "Keep the darkest shadow wells directly behind traversal lanes so moving light hazards remain readable at one glance.",
+      "Do not animate the entire sheet; only subtle layer translation should occur from camera movement."
+    ]
+  },
+  "context": {
+    "role": "tower_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "world_background",
+    "usage": "Primary full-screen backdrop for every floor, establishing the art-deco tower city, window rhythm, and silhouette-based navigation mood.",
+    "adjacent_elements": [
+      "world_tower_tilekit_32px",
+      "world_exit_door_8f_64x96",
+      "ui_floor_timer_strip_240x48"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#D4682A",
+      "#C9A84C",
+      "#1A4A52",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "A three-depth twilight tower skyline with art-deco arches, window ribs, suspended bridges, and deep shadow wells cut through the midground.",
+      "components": [
+        "far_city_mass",
+        "mid_tower_columns",
+        "arched_window_ribs",
+        "bridge_spans",
+        "foreground_shadow_vignette"
+      ]
+    },
+    "parallax": {
+      "layer_count": 3,
+      "speed_multipliers": [
+        0.3,
+        0.6,
+        1.0
+      ]
+    },
+    "lighting": "Amber windows and beam spills stay localized so the safe shadow lanes read as dark teal-black masses."
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 1920x1080 px.",
+    "Backdrop contains three readable depth bands with the central traversal lane kept visually open for hazards and the player silhouette.",
+    "Bright amber window accents occupy less than 8 percent of the frame area so the shadow-navigation mood stays dominant."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101002",
+      "task_id_008101003",
+      "task_id_008101004",
+      "task_id_008101014",
+      "task_id_008101018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_tower_backdrop_parallax_1920x1080.png",
+      "transparent_background": true
+    }
+  ]
+}

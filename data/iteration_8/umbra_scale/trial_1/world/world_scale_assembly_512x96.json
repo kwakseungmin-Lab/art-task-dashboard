@@ -1,0 +1,176 @@
+{
+  "task_id": "task_id_008101003",
+  "asset_key": "world_scale_assembly_512x96",
+  "asset_name": "Dual Deck Scale Assembly",
+  "category": "world",
+  "subcategory": "interactive_structure",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101001",
+    "task_id_008101002"
+  ],
+  "blocks": [
+    "task_id_008101010",
+    "task_id_008101013",
+    "task_id_008101019"
+  ],
+  "blocked_by": [
+    "task_id_008101001",
+    "task_id_008101002"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle for the assembled art and place Rapier2D colliders or child transforms on each deck and the center pivot.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "ScaleAssembly",
+      "ScaleDeckLeft",
+      "ScaleDeckRight",
+      "ScalePivot"
+    ],
+    "asset_loading": "Load world/world_scale_assembly_512x96.png through AssetServer during puzzle room spawn and attach deck anchor children at authored guide marks.",
+    "runtime_notes": [
+      "The center pivot must remain visually aligned with the gameplay torque origin.",
+      "Keep deck tops horizontal in the source art so runtime rotation communicates tilt instead of pre-baked skew.",
+      "Reserve small marker pockets above and below the pivot for the dynamic balance text overlay."
+    ]
+  },
+  "context": {
+    "role": "scale_puzzle_anchor",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        760
+      ]
+    },
+    "layer": "world_interactive",
+    "usage": "Primary seesaw puzzle assembly that combines the left deck, right deck, central axle, and target-angle ornament into one reusable world object.",
+    "adjacent_elements": [
+      "obstacle_weight_block_set_5states_32x32",
+      "echo_clone_idle_4f_8fps",
+      "ui_scale_balance_floater_176x40"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#2D1B4E",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "A long dual-deck art-deco scale with two 240 px plates, a tall central axle, chain braces, and engraved target-angle ticks.",
+      "components": [
+        "left_deck",
+        "right_deck",
+        "center_pivot",
+        "chain_braces",
+        "target_angle_ticks"
+      ]
+    },
+    "interaction": {
+      "tilt_range_degrees": [
+        -45,
+        45
+      ],
+      "slip_threshold_degrees": 30,
+      "target_tolerance_degrees": 5
+    },
+    "authoring_guides": {
+      "left_deck_top_y_px": 40,
+      "right_deck_top_y_px": 40,
+      "pivot_center_px": [
+        256,
+        44
+      ]
+    }
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 512x96 px.",
+    "Each deck top reads as a clean 240 px platform with the pivot centered between them.",
+    "Target-angle markings remain legible at gameplay scale without overpowering the silhouette of carried objects."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101002",
+      "task_id_008101010",
+      "task_id_008101013",
+      "task_id_008101019",
+      "task_id_008101008"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_scale_assembly_512x96.png",
+      "transparent_background": true
+    }
+  ]
+}

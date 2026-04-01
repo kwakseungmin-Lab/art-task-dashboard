@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.tiles.olympus_grid_64_atlas",
+  "asset_name": "Olympus Grid Tiles — 64px Atlas",
+  "category": "world",
+  "subcategory": "tiles",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_ambient",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tile_atlas",
+    "layer": "world",
+    "usage": "Base 12×9 board tiles (64×64). Subtle Greek stone motif + variants; seams avoided.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 512
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "tile_size_px": {
+      "width": 64,
+      "height": 64
+    },
+    "tile_count": 64,
+    "included_variants": [
+      "base_stone_ivory",
+      "shadow_slate_alt",
+      "cracked_stone",
+      "rune_inlay",
+      "edge_border_top",
+      "edge_border_bottom",
+      "edge_border_left",
+      "edge_border_right",
+      "corner_tl",
+      "corner_tr",
+      "corner_bl",
+      "corner_br"
+    ],
+    "layout_note": "8×8 grid of 64px tiles in 512×512 atlas. Grid outline subtle under zoom."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tiles.olympus_grid_64_atlas.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas 512×512; 64 tiles of 64×64.",
+    "Tiles tile seamlessly at 1× and 150% zoom.",
+    "Overlays (player/hazard/path) remain readable on top."
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040405",
+  "asset_key": "rival_champion_state_sheet",
+  "asset_name": "Rival Champion State Sheet",
+  "category": "character",
+  "subcategory": "enemy_duelist",
+  "priority": "P0",
+  "execution_order": 5,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Enemy sheet keeps a 120x180 px body scale per frame and top-side staging that faces the player lane.",
+    "Casting poses preserve left-to-right projectile launch direction for readable threat telegraphing."
+  ],
+  "differences": [
+    "This sheet packs Idle, Casting, Hit, and Defeated states into one deterministic atlas with 26 total frames."
+  ],
+  "depends_on": [
+    "task_id_825040402",
+    "task_id_825040403"
+  ],
+  "blocks": [
+    "task_id_825040406",
+    "task_id_825040407",
+    "task_id_825040408"
+  ],
+  "blocked_by": [
+    "task_id_825040402",
+    "task_id_825040403"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040404",
+      "task_id_825040406",
+      "task_id_825040407",
+      "task_id_825040408"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Enemy stage placement, upper-side framing, and academy robe trim grounding."
+    },
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "Enemy state counts, top-side placement, and battle pacing grounding."
+    },
+    {
+      "label": "Reflect Academy player concept",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/player.png?raw=1",
+      "purpose": "Scale relationship between student duelists and costume detail density grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with 26 frames and store clip metadata in an EnemyCasterVisual component.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "EnemyCasterVisual",
+      "EnemyMarker"
+    ],
+    "asset_loading": "Load character/rival_champion_state_sheet.png through AssetServer and create clip metadata during encounter setup.",
+    "runtime_notes": [
+      "Spawn frame origin at x=1380 px and y=670 px.",
+      "Clip ranges are Idle 0-7, Casting 8-13, Hit 14-17, Defeated 18-25.",
+      "Keep casting hand flare inside the frame so projectile spawn offsets stay deterministic."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Primary enemy duelist art used for anticipation, cast release, damage reaction, and defeat states.",
+    "screen_position": {
+      "anchor": "top_right",
+      "x_px": 1380,
+      "y_px": 670
+    },
+    "layer": {
+      "name": "character_enemy",
+      "z_index": 30
+    },
+    "usage": "Visible whenever the current academy opponent is active on the upper side of the duel hall."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1560,
+      "height": 360
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#2B1B17",
+      "#D4AF37",
+      "#E74C3C",
+      "#8E44AD",
+      "#FFFACD"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 26,
+      "fps": 8,
+      "loop": false,
+      "layout": {
+        "rows": 2,
+        "columns": 13,
+        "frame_size_px": {
+          "width": 120,
+          "height": 180
+        }
+      },
+      "state_clips": [
+        {
+          "state": "idle",
+          "start_frame": 0,
+          "end_frame": 7,
+          "fps": 8,
+          "loop": true
+        },
+        {
+          "state": "casting",
+          "start_frame": 8,
+          "end_frame": 13,
+          "fps": 10,
+          "loop": true
+        },
+        {
+          "state": "hit",
+          "start_frame": 14,
+          "end_frame": 17,
+          "fps": 10,
+          "loop": false
+        },
+        {
+          "state": "defeated",
+          "start_frame": 18,
+          "end_frame": 25,
+          "fps": 8,
+          "loop": false
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "rival_champion_state_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 1560,
+        "height": 360
+      },
+      "notes": "26-frame atlas arranged as 13 columns by 2 rows."
+    },
+    {
+      "artifact": "rival_champion_state_sheet_clips.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "State clip map for Idle, Casting, Hit, and Defeated."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 1560x360 px with 26 used frames at 120x180 px each.",
+    "Idle uses 8 frames, Casting uses 6 frames, Hit uses 4 frames, and Defeated uses 8 frames with the clip ranges declared in specs.animation.state_clips.",
+    "Projectile release hand remains within the right 32 px of each casting frame for consistent spawn alignment."
+  ]
+}

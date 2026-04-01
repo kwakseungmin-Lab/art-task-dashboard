@@ -1,0 +1,114 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.reset_button_120x36_2state",
+  "asset_name": "RESET Path Button — 120×36 (2 states)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 180,
+  "variant_of": "ui.hud.confirm_button_180x50_2state",
+  "shared_properties": {
+    "style": "Same marble UI language (2px border, gold enabled, slate disabled).",
+    "typography": "Same parchment font + 1px outline.",
+    "states": "2-state horizontal strip."
+  },
+  "differences": {
+    "size": "120×36 per state",
+    "label": "RESET (or R) + optional key-hint icon",
+    "placement": "Secondary bottom-left helper button"
+  },
+  "depends_on": [
+    "ui.hud.confirm_button_180x50_2state"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.confirm_button_180x50_2state"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "button",
+    "layer": "ui",
+    "usage": "Bottom-left path reset button; active only when path exists.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": {
+        "x": 40,
+        "y": -40
+      }
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 36
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#C17B2F",
+      "#D4C5A9",
+      "#6B7280",
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#F59E0B",
+      "#DC2626",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC"
+    ],
+    "states": [
+      {
+        "id": "enabled",
+        "note": "Gold border, subtle cyan hover tint."
+      },
+      {
+        "id": "disabled",
+        "note": "Slate border, dim text."
+      }
+    ],
+    "layout_note": "2-state horizontal strip: 2×(120×36)=240×36."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.reset_button_120x36_2state.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 240×36px (2×120×36).",
+    "Matches confirm style but clearly secondary (smaller, less glow).",
+    "Label readable and unclipped at 100% and 80% zoom."
+  ]
+}

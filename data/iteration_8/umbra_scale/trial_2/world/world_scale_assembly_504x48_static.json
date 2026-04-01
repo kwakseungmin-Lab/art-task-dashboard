@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020111",
+  "asset_key": "world_scale_assembly_504x48_static",
+  "asset_name": "Scale Assembly with Dual Platforms and Pivot (504x48 static)",
+  "category": "world",
+  "subcategory": "physics_platform",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The assembly encodes two 240x16 px platforms and one 24x48 px center pivot inside a single 504x48 px composition.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while support-shadow tones stay inside specs.colors_hex.",
+    "Gold trim stays symmetrical so load differences read through object placement rather than decoration."
+  ],
+  "differences": [
+    "The center pivot is heavier and brighter than the platforms to communicate the torque fulcrum.",
+    "Platform top surfaces include a 4 px contact strip and a darker underside for readable footing at shallow and steep tilt angles.",
+    "Small engraved tick marks appear every 32 px to support grid-aware placement of Umbra, Echo, and weight blocks."
+  ],
+  "depends_on": [
+    "task_id_008020110"
+  ],
+  "blocks": [
+    "task_id_008020108",
+    "task_id_008020115",
+    "task_id_008020112"
+  ],
+  "blocked_by": [
+    "task_id_008020110"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020105",
+      "task_id_008020108",
+      "task_id_008020112",
+      "task_id_008020115"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds scale dimensions, torque-play framing, and platform contact geometry."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the gold engineering language used by tower machinery."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds player and Echo placement scale against the balance assembly."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle with runtime rotation on child platform transforms.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "ScaleAssembly"
+    ],
+    "asset_loading": "Load the scale assembly texture during FloorLoading and register it for ScaleAssembly roots.",
+    "runtime_notes": [
+      "Author the texture in a neutral level pose and rotate platform children around the pivot according to torque results.",
+      "Keep tick marks aligned to 32 px intervals.",
+      "Render world geometry behind Umbra and Echo silhouettes while keeping pivot trim visible under beam overlays."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "balance_platform",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        708
+      ]
+    },
+    "layer": "world",
+    "usage": "Primary weight-torque assembly used to open routes and unlock exit doors when target tilt thresholds are reached.",
+    "adjacent_elements": [
+      "task_id_008020105",
+      "task_id_008020108",
+      "task_id_008020115"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 504,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": null,
+    "construction_notes": [
+      "Left platform width is 240 px.",
+      "Pivot body width is 24 px and height is 48 px.",
+      "Right platform width is 240 px with mirrored trim balance."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_scale_assembly_504x48_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Scale assembly texture is exactly 504x48 px and clearly separates two 240x16 platforms from the center pivot.",
+    "Top contact strips remain readable under moderate tilt and do not merge into the darker underside.",
+    "32 px placement ticks are visible without overpowering the core gold-and-shadow silhouette."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "varies by element"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bars": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "view_type": "interior view (no cage bars visible)",
+      "perspective": "flat 2D front-facing",
+      "lighting": "uniform (no shadows)"
+    }
+  },
+  "asset": {
+    "asset_id": "perch",
+    "asset_name": "Wooden Perch",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Horizontal wooden perch where Echo stands",
+      "screen_position": "Horizontal bar at y=80, spanning x=24 to x=104",
+      "adjacent_elements": ["echo (all states)", "cage_background"],
+      "usage_scenario": "Static element; Echo's feet always positioned on this perch"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "80px",
+        "height": "4px"
+      },
+      "colors": {
+        "main": "#AB5236",
+        "highlight": "#C2C3C7"
+      },
+      "shape": "Horizontal rectangular bar with slight organic irregularity",
+      "texture": "Flat pixel art; optional 1px lighter highlight on top edge to suggest wood grain",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static perch, no animation"
+      },
+      "details": "4px tall horizontal bar; top edge may have 1px #C2C3C7 highlight; slightly irregular edges (±1px) for hand-drawn feel"
+    },
+    "relationships": {
+      "related_assets": ["echo_idle", "echo_eating", "echo_sleeping", "echo_happy", "echo_preening", "echo_dirty", "echo_hungry", "echo_singing"],
+      "shared_with": "All Echo states use this as standing position",
+      "differences_from": "floor (elevated vs ground level)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no 3D cylindrical shape",
+      "no wood grain texture detail",
+      "no shadows underneath",
+      "no rope or swing attachment"
+    ]
+  }
+}

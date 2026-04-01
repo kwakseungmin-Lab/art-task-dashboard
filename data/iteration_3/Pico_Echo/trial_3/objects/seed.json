@@ -1,0 +1,83 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "objects",
+  "category_common": {
+    "base_size": {
+      "width": "2-3px",
+      "height": "2-3px"
+    },
+    "color_scheme": {
+      "seed": "#FFA300",
+      "poop": "#AB5236"
+    },
+    "shared_attributes": {
+      "object_type": "small interactive/spawnable items",
+      "design_principle": "minimal pixel representation, clear at tiny scale"
+    }
+  },
+  "asset": {
+    "asset_id": "seed",
+    "asset_name": "Seed (Golden Millet)",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "food item for Echo, appears in food bowl",
+      "screen_position": "inside food bowl (x=16-32, y=100-112) when present",
+      "adjacent_elements": ["food bowl (container)", "Echo (consumer when eating)"],
+      "usage_scenario": "displayed in food bowl based on food_level (0=none, 1=few, 2=many), consumed when Echo eats"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "seed": "#FFA300"
+      },
+      "shape": "small irregular oval/ellipse",
+      "texture": "solid color, no internal detail at 3x3px",
+      "outline": "none (too small)",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "static seed sprite, no animation, multiple instances clustered in bowl"
+      },
+      "details": "golden orange color (#FFA300) matching Echo's body, 3x3px irregular shape, appears in clusters of 3-8 seeds in food bowl depending on food_level"
+    },
+    "relationships": {
+      "related_assets": ["food_bowl", "echo_eating", "echo_hungry"],
+      "shared_with": "shares golden color (#FFA300) with Echo's body feathers",
+      "differences_from": "smallest object in game, purely visual representation (no individual seed interaction), appears/disappears based on food_level state"
+    },
+    "explicit_negations": [
+      "no individual seed detail (too small)",
+      "no realistic texture or shading",
+      "no animation or movement",
+      "no outline (would obscure at 3x3px)",
+      "no color variation between seeds",
+      "no 3D depth"
+    ]
+  }
+}

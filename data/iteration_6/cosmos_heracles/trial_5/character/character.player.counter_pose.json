@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.counter_pose",
+  "asset_name": "Player Counter Animation — 64x96 (3 frames, one-shot)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "depends_on": [
+    "character.player.base_run"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.base_run"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.popup.counter_result",
+      "ui.widget.counter_gauge"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "counter_cyan",
+      "hex": "#40E8D0"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "high",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "player_action",
+    "layer": "character",
+    "usage": "Played when player presses Space within the ±80ms window; should feel snappy and readable.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 400,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 64,
+      "height": 96
+    },
+    "frame_count": 3,
+    "fps": 15,
+    "loop": false,
+    "sheet_dimensions_px": {
+      "width": 192,
+      "height": 96
+    },
+    "vfx_notes": "Include a subtle cyan arc/spark burst but keep hitbox silhouette consistent with base form.",
+    "colors_hex": [
+      "#40E8D0",
+      "#FFD966",
+      "#C47C2B",
+      "#E8B87A",
+      "#0B0C1E",
+      "#F0EFE9"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "layout": "row"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.counter_pose.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Animation is exactly 3 frames and reads clearly as a counter/parry action.",
+    "No frame extends outside 64x96px bounding box.",
+    "Cyan accents (#40E8D0) are visible but not overpowering compared to enemy telegraphs."
+  ]
+}

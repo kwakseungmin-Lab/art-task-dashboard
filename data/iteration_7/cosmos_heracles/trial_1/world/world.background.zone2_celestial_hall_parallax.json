@@ -1,0 +1,124 @@
+{
+  "asset_name": "Zone 2 Celestial Hall Parallax 1600x900",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 12,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.enemy.medusa_state_sheet",
+      "obstacles.pillar.rotating_sheet"
+    ]
+  },
+  "context": {
+    "role": "background_zone_2",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "obstacles.pillar.rotating_sheet",
+      "character.enemy.medusa_state_sheet"
+    ],
+    "layer": "background_layers_0_to_2",
+    "usage": "Used during Zone 2 traversal and Medusa boss preparation from second 90 to second 195."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#FFD966",
+      "#7B2FBE"
+    ],
+    "animation": {
+      "type": "none",
+      "frame_count": 1,
+      "frame_time_s": 0.0,
+      "loop": false
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Celestial hall with ceiling oculus at x 800 y 120 and eight column bays over a 1600x900 frame.",
+      "components": [
+        "nebula band",
+        "oculus ring 192x192",
+        "column row x8",
+        "constellation floor reflections"
+      ]
+    },
+    "parallax_layers": [
+      {
+        "name": "layer0_nebula",
+        "scroll_multiplier": 0.1
+      },
+      {
+        "name": "layer1_hall_arches",
+        "scroll_multiplier": 0.3
+      },
+      {
+        "name": "layer2_columns",
+        "scroll_multiplier": 0.6
+      }
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.zone2_celestial_hall_parallax.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Background canvas is exactly 1600x900 px.",
+    "The oculus ring diameter is exactly 192 px and centered at x 800 y 120.",
+    "Eight column bays are present with 160 px average bay width.",
+    "Boss purple #7B2FBE appears only in the constellation and medusa emphasis areas."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "world.background.zone2_celestial_hall_parallax",
+  "category": "world",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.prop.curtain_banner_sheet",
+  "asset_name": "Curtain Banner Sheet",
+  "category": "world",
+  "subcategory": "prop",
+  "priority": "P1",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.column_curtain_mid_layer"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.column_curtain_mid_layer"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.column_curtain_mid_layer",
+      "obstacles.environment.chandelier_swing_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "ambient_prop",
+    "layer": "world_background_mid",
+    "usage": "Animated cloth banner sheet for side curtains and stage wind motion.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 96,
+      "y": 120
+    },
+    "adjacent_elements": [
+      "world.background.column_curtain_mid_layer"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 960,
+      "height": 320
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#8B3A52"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "directions": 1,
+      "frame_count_per_direction": 8,
+      "fps": 2,
+      "loop": true,
+      "sheet_layout": {
+        "rows": 1,
+        "cols": 8,
+        "frame_size_px": {
+          "width": 120,
+          "height": 320
+        },
+        "ordering": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "long_cloth_banner_with_gold_trim",
+      "components": [
+        "banner_panel",
+        "top_rod_loop",
+        "hem_trim"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "wind_sway_px": 6
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.prop.curtain_banner_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 960x320px with 8 frames sized 120x320px.",
+    "Hem sway stays within a 6px horizontal range across the loop.",
+    "Cloth body uses #8B3A52 and gold trim uses #D4A843."
+  ]
+}

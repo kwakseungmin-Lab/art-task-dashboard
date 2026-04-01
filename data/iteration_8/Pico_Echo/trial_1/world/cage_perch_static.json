@@ -1,0 +1,129 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000021",
+  "asset_key": "cage_perch_static",
+  "asset_name": "Perch (static)",
+  "category": "world",
+  "subcategory": "prop",
+  "priority": "P0",
+  "execution_order": 230,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Asset preserves the front-facing 128x128 cage composition.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering keeps the room calm and readable behind gameplay."
+  ],
+  "differences": [
+    "This layer anchors Echo to a stable perch line in the center band of the scene.",
+    "The perch width supports the 40x40 character footprint without crowding.",
+    "Static rendering keeps the standing pose readable across all character states."
+  ],
+  "depends_on": [
+    "task_id_801000019"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000019"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000019"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "cage_layout_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "purpose": "Grounds cage framing, perch placement, and lower-floor composition."
+    },
+    {
+      "label": "art_direction_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "purpose": "Grounds warm household palette and front-facing pixel-art rendering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Static sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "WorldLayerMarker"
+    ],
+    "asset_loading": "Load cage_perch_static.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "perch",
+    "layer": "world",
+    "usage": "Echo stands on perch; rendered behind the character layer.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        28,
+        70
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 72,
+      "height": 8
+    },
+    "colors_hex": [
+      "#AB5236",
+      "#1D2B53"
+    ],
+    "animation": null,
+    "shape_notes": [
+      "Main log is 72x4px with 1px outline (#1D2B53) and fill (#AB5236).",
+      "Add 3-5 1px notches using #1D2B53; do not use dithering."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/cage_perch_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Perch asset bounding box is exactly 72x8px.",
+    "Top surface is a straight horizontal line so Echo feet can align to a 1px baseline.",
+    "Texture pixels are limited to 5 or fewer to keep PICO-8 simplicity."
+  ]
+}

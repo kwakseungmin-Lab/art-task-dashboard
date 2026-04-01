@@ -1,0 +1,186 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 5,
+    "source": {
+      "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+      "concepts": [
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+      ]
+    },
+    "rendering": {
+      "style": "pixel_art",
+      "bit_depth_style": "8-bit",
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "dithering": false
+    },
+    "canvas": {
+      "screen_dimensions_px": "600x150",
+      "target_fps": 60,
+      "coordinate_system": {
+        "ground_y": 0,
+        "positive_y": "up",
+        "note": "GDD uses Ground level y=0; airborne obstacles use y=50 and y=80 above ground."
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "allowed_colors": [
+        "#F7F7F7",
+        "#535353",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "rules": [
+        "All gameplay sprites (player, obstacles, ground, clouds) use only #535353 for non-transparent pixels.",
+        "Background sky uses only #F7F7F7 (no transparency).",
+        "UI text uses only #535353. White (#FFFFFF) is allowed only for runtime flash effects or overlays."
+      ]
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353",
+        "rule": "Sprite silhouettes must have a minimum 2px-thick edge where applicable; no 1px hairline edges."
+      },
+      "transparency": {
+        "background": "transparent",
+        "alpha_requirement": "All non-background sprites must have fully transparent background (alpha=0) outside the silhouette."
+      },
+      "scale_support": {
+        "base_scale": "1x",
+        "secondary_scale": "2x",
+        "scaling_method": "nearest_neighbor",
+        "note": "Export 1x originals; 2x exports must be integer-scaled using nearest-neighbor (no filtering)."
+      }
+    },
+    "export": {
+      "formats": [
+        "png"
+      ],
+      "color_space": "sRGB",
+      "png": {
+        "bit_depth": 8,
+        "interlaced": false
+      },
+      "naming": {
+        "frame_indexing": "1-based in filenames where specified by GDD (e.g., dino_run_1.png, dino_run_2.png)",
+        "scale_suffix": "@2x"
+      }
+    },
+    "priorities": {
+      "scheme": "P0-P3",
+      "definitions": {
+        "P0": "Required for a playable MVP (core gameplay and essential UI).",
+        "P1": "Feature-complete look but not strictly blocking MVP.",
+        "P2": "Optional polish.",
+        "P3": "Nice-to-have polish."
+      }
+    },
+    "layers": [
+      {
+        "name": "background_sky",
+        "z_index": 0
+      },
+      {
+        "name": "background_clouds",
+        "z_index": 1
+      },
+      {
+        "name": "ground",
+        "z_index": 5
+      },
+      {
+        "name": "obstacles",
+        "z_index": 10
+      },
+      {
+        "name": "player",
+        "z_index": 15
+      },
+      {
+        "name": "ui",
+        "z_index": 100
+      },
+      {
+        "name": "vfx_overlay",
+        "z_index": 200
+      }
+    ]
+  },
+  "task_id": "cdr_environment_ground_texture",
+  "asset_name": "Ground Texture Strip (optional)",
+  "category": "environment",
+  "subcategory": "ground",
+  "description": "Create an optional decorative ground texture strip.\n\n- Canvas: 1200x10 px (1x).\n- Background: fully transparent (alpha=0).\n- Non-transparent pixels: #535353 only.\n\nPattern constraints:\n- Place micro-shapes using only these primitives:\n  1) 2x2 solid block\n  2) 3x2 solid block\n  3) 4x2 solid block\n- Quantity: exactly 18 micro-shapes.\n- X positions (top-left of each micro-shape):\n  [20, 85, 140, 210, 275, 340, 405, 470, 535, 600, 665, 730, 795, 860, 925, 990, 1055, 1120]\n- Y positions: repeating cycle [0,2,4,6] for the 18 shapes.\n- All shapes must fit entirely within y=0..9.\n\n- 2x export: 2400x20 px, nearest-neighbor upscale.",
+  "deliverables": [
+    {
+      "path": "Environment/ground_texture.png",
+      "type": "png_sprite",
+      "dimensions": "1200x10",
+      "scale": "1x",
+      "background": "transparent"
+    },
+    {
+      "path": "Environment/ground_texture@2x.png",
+      "type": "png_sprite",
+      "dimensions": "2400x20",
+      "scale": "2x",
+      "background": "transparent",
+      "scaling": "nearest_neighbor"
+    }
+  ],
+  "specs": {
+    "dimensions": "1200x10",
+    "tileable": true,
+    "colors": {
+      "pixels": "#535353",
+      "background": "transparent"
+    }
+  },
+  "context": {
+    "role": "Optional minimal ground detail.",
+    "screen_location": "Rendered near the baseline (y=2..11).",
+    "adjacent_elements": [
+      "cdr_environment_ground_line"
+    ],
+    "layer": "ground",
+    "usage": "Tiled and scrolled like ground_line."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_environment_ground_line"
+    ],
+    "shared_properties": [
+      "tile_width_px=1200",
+      "color=#535353"
+    ],
+    "differences": [
+      "Sparse pixels on transparent background vs solid line."
+    ]
+  },
+  "depends_on": [
+    "cdr_environment_ground_line"
+  ],
+  "execution_order": 3,
+  "priority": "P2",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_environment_ground_line"
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1200x10 (1x) and 2400x20 (2x).",
+    "Only #535353 and fully transparent pixels exist.",
+    "Exactly 18 micro-shapes exist at the specified X positions.",
+    "Texture tiles seamlessly horizontally."
+  ]
+}

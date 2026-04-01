@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.dino_crash_pose",
+  "asset_name": "Player Dino — crash pose",
+  "category": "character",
+  "subcategory": "player_state",
+  "priority": "P1",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "Head pitch rotates downward to communicate impact.",
+    "Leg support collapses into a stop frame with no motion smear.",
+    "Accent red is restricted to the defeat cue and does not fill the body."
+  ],
+  "depends_on": [
+    "character.player.dino_runner_core"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.dino_runner_core"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_runner_core",
+      "ui.banner.game_over_message"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "defeat_pose",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        58
+      ]
+    },
+    "layer": "character",
+    "usage": "Single defeat frame displayed immediately after collision before restart input."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7",
+      "#FF0000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "silhouette_notes": [
+      "Torso leans forward by 6 to 10 degrees.",
+      "Tail tip drops below the ground motion core tail height by at least 4px.",
+      "Defeat cue stays inside the eye area to avoid broad red coverage."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_crash_pose.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 88x94px.",
+    "Eye mark or facial cue for defeat occupies at least 4 painted pixels.",
+    "Pose remains readable against the game-over banner with no more than 10 red pixels total."
+  ]
+}

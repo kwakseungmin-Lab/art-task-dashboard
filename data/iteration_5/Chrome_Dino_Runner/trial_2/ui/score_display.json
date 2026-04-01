@@ -1,0 +1,94 @@
+{
+  "task_id": "ui.score_display",
+  "asset_name": "Score Display UI Layout",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "critical",
+  "execution_order": 70,
+  "project_common": {
+    "project_id": "chrome_dino_runner_iter5_trial2_art_task_plan",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 2,
+    "canvas_px": [
+      600,
+      150
+    ],
+    "pixel_perfect": true,
+    "anti_aliasing": "none",
+    "palette_hex": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash": "#FFFFFF"
+    },
+    "outline_px": 2,
+    "outline_color_hex": "#535353"
+  },
+  "description": "Define the HUD score text layout and milestone flash behavior using the bitmap font.",
+  "context": {
+    "role": "Shows current score during gameplay in the top-right corner.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 590,
+      "y": 10,
+      "anchor": "top_right"
+    },
+    "layer": 90,
+    "usage": {
+      "visible_when": [
+        "running"
+      ],
+      "format": {
+        "digits": 5,
+        "zero_padding": true,
+        "max_value": 99999
+      },
+      "milestone": {
+        "interval_score": 100,
+        "flash_duration_seconds": 0.1,
+        "flash_color_hex": "#FFFFFF"
+      }
+    }
+  },
+  "specs": {
+    "text": {
+      "font_asset_task_id": "ui.pixel_font_atlas",
+      "font_size_px": 16,
+      "monospace_char_width_px": 10,
+      "color_hex": "#535353",
+      "alignment": "right"
+    },
+    "safe_area": {
+      "margin_right_px": 10,
+      "margin_top_px": 10
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "ui.pixel_font_atlas",
+      "character.player_dino_sprite_set"
+    ]
+  },
+  "depends_on": [
+    "ui.pixel_font_atlas"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.pixel_font_atlas"
+  ],
+  "deliverables": [
+    {
+      "type": "layout_spec",
+      "file": "score_display_layout.json",
+      "notes": "Include position, anchor, font size, and score formatting rules."
+    }
+  ],
+  "acceptance_criteria": [
+    "The score text anchor is top_right with x=590 and y=10 on a 600x150 canvas.",
+    "The score format is exactly 5 digits with zero padding; value 42 renders as '00042'.",
+    "The text color is #535353 in normal state and switches to #FFFFFF for exactly 0.1 seconds on each 100-point milestone.",
+    "The score display remains readable against a #F7F7F7 background with no outline thicker than 1px inside glyph cells.",
+    "No UI element overlaps the score area within a 10px margin from the top and right edges."
+  ]
+}

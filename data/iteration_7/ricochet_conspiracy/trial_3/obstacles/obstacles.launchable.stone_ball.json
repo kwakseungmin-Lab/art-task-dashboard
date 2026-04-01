@@ -1,0 +1,127 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.stone_ball",
+  "asset_name": "Stone Ball Projectile",
+  "category": "obstacles",
+  "subcategory": "launchable_object",
+  "priority": "P0",
+  "execution_order": 12,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This projectile communicates mass through compact circular silhouette and bright highlight."
+  ],
+  "depends_on": [
+    "world.foreground.floor_tiles"
+  ],
+  "blocks": [
+    "ui.overlay.trajectory_guide"
+  ],
+  "blocked_by": [
+    "world.foreground.floor_tiles"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.stone_wall",
+      "ui.overlay.trajectory_guide"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "heavy_projectile",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 228,
+      "y": 508,
+      "width": 32,
+      "height": 32,
+      "anchor": "top_left"
+    },
+    "layer": "midground_interactive",
+    "usage": "Used from stage 1-1 onward as the highest rebound projectile.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "obstacles.environment.stone_wall",
+      "character.noble_basic",
+      "ui.overlay.trajectory_guide"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#A89880",
+      "#F5F0E8",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "roll",
+      "states": [
+        {
+          "name": "roll",
+          "frame_count": 4,
+          "fps": 10
+        }
+      ]
+    },
+    "notes": [
+      "Highlight crescent occupies 22% of the front face to show rotation direction.",
+      "Outer contour remains circular within 1 px tolerance across all frames."
+    ],
+    "shape": {
+      "silhouette": "solid round stone sphere with a compact outline and a ground contact shadow",
+      "components": [
+        "round stone body",
+        "surface crack lines",
+        "ground contact shadow"
+      ]
+    }
+  },
+  "deliverables": [
+    "Rolling stone ball loop 4 frames at 10 fps.",
+    "Static icon export for selection UI.",
+    "Rotation direction preview overlay."
+  ],
+  "acceptance_criteria": [
+    "Projectile size is exactly 32x32 px.",
+    "Rolling loop contains 4 frames at 10 fps.",
+    "Outer contour stays circular within 1 px tolerance in every frame."
+  ]
+}

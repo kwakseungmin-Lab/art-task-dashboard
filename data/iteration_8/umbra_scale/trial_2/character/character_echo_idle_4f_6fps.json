@@ -1,0 +1,166 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020105",
+  "asset_key": "character_echo_idle_4f_6fps",
+  "asset_name": "Echo Weight Clone Idle (4 frames, 6fps)",
+  "category": "character",
+  "subcategory": "summon_state",
+  "priority": "P1",
+  "execution_order": 60,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Echo keeps a 24x36 px mini-silhouette that clearly derives from Umbra through crest shape, eye-glow, and mist fringe.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while translucency-support colors stay inside specs.colors_hex.",
+    "The pose is authored for stationary placement on the scale assembly and preserves readable feet contact at small size."
+  ],
+  "differences": [
+    "Echo is smaller, semi-transparent, and less expressive than Umbra to communicate a weight-distribution summon.",
+    "Four frames cycle a gentle spectral pulse instead of locomotion to reinforce that the clone stays fixed until recalled.",
+    "A teal aura ring appears around the lower body to separate Echo from direct damage feedback."
+  ],
+  "depends_on": [
+    "task_id_008020101"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020101"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020101",
+      "task_id_008020108",
+      "task_id_008020111",
+      "task_id_008020115"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds Echo size, fixed placement, and the two-clone reserve rule."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the spectral teal accent used for shadow-safe utility objects."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds the family resemblance between Umbra and Echo."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with summon-state timers.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility",
+      "EchoAnchor"
+    ],
+    "asset_loading": "Load the echo atlas during FloorLoading and register it for EchoAnchor entities.",
+    "runtime_notes": [
+      "Loop the idle pulse at 6 fps while the clone exists.",
+      "Author translucency into the sheet rather than with runtime alpha pulses.",
+      "Anchor the center-bottom pivot to the same baseline logic used by Umbra."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "echo_weight_clone",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        760,
+        658
+      ]
+    },
+    "layer": "character",
+    "usage": "Summoned weight clone placed on the scale assembly to adjust torque without moving the main player body.",
+    "adjacent_elements": [
+      "task_id_008020108",
+      "task_id_008020111"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 36
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        24,
+        36
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "pose_notes": [
+      "Aura ring extends 3 px beyond the feet.",
+      "Eye-glow cluster is 3x2 px.",
+      "Body width never exceeds 20 px inside the 24 px canvas."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_echo_idle_4f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x36 px with 4 frames of 24x36 px and 0 px spacing.",
+    "The clone is visibly related to Umbra while remaining distinct through smaller scale and aura treatment.",
+    "The silhouette stays readable on the scale assembly without being mistaken for a particle effect."
+  ]
+}

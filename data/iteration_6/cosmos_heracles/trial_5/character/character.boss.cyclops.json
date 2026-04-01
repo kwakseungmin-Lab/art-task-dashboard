@@ -1,0 +1,105 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.boss.cyclops",
+  "asset_name": "Cyclops Boss — 120x160 (8 frames: idle 4 + attack 4)",
+  "category": "character",
+  "subcategory": "boss",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.counter_gauge",
+      "ui.popup.counter_result"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "boss_purple",
+      "hex": "#7B2FBE"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "danger_red",
+      "hex": "#E84040"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "high",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "boss",
+    "layer": "character",
+    "usage": "Zone 1 boss. Performs 3-hit combo; telegraphs should be readable for ±80ms counter timing.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 1100,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 120,
+      "height": 160
+    },
+    "animations": {
+      "idle": {
+        "frame_count": 4,
+        "fps": 6,
+        "loop": true
+      },
+      "attack": {
+        "frame_count": 4,
+        "fps": 12,
+        "loop": false
+      }
+    },
+    "sheet_layout": "Row layout: idle(4) then attack(4).",
+    "sheet_dimensions_px": {
+      "width": 960,
+      "height": 160
+    },
+    "colors_hex": [
+      "#7B2FBE",
+      "#0B0C1E",
+      "#D9D0BE",
+      "#E84040",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "layout": "row"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.boss.cyclops.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Frames are exactly 120x160px with consistent ground contact.",
+    "Attack pose silhouettes are distinct from idle, making counter timing readable.",
+    "Cyclops reads as a boss: larger scale, strong single-eye focal point, and clear weapon/arm motion."
+  ]
+}

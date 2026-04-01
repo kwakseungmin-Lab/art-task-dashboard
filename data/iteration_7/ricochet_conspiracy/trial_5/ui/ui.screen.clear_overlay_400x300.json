@@ -1,0 +1,117 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.clear_overlay_400x300",
+  "asset_name": "Clear Overlay (400x300)",
+  "category": "ui",
+  "subcategory": "result_overlay_clear",
+  "priority": "P1",
+  "execution_order": 290,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.top_bar_1280x50",
+    "ui.controls.bottom_bar_1280x50"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.top_bar_1280x50",
+    "ui.controls.bottom_bar_1280x50"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.button.restart_60x24",
+      "ui.button.menu_60x24"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "result_overlay",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui",
+    "usage": "Visible when all target nobles are removed; shows 3 star slots, move summary, and next-stage dialog controls in a 400x300 panel.",
+    "adjacent_elements": [
+      "restart button",
+      "menu button",
+      "star row"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_2d",
+      "facing": "viewer"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 300
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#D4A843",
+      "#C8B4E0",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "rounded dialog plate with a star row, stat panel, and 2 control buttons",
+      "components": [
+        "dialog_plate",
+        "star_row",
+        "stats_panel",
+        "next_slot",
+        "retry_slot"
+      ]
+    },
+    "ui_behavior": {
+      "button_slot_count": 2,
+      "star_slot_count": 3,
+      "result_state": "clear"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.clear_overlay_400x300.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 400x300px and the dialog plate stays centered inside a 360x260 inner rectangle.",
+    "Star row holds 3 stars each 40x40px with 16px spacing and the stats panel stays at 280x96px.",
+    "Only #E8D5C4, #D4A843, #C8B4E0, and #3D2B1F are used on the UI sheet."
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000514",
+  "asset_key": "world_ground_texture_1200x10",
+  "asset_name": "Ground Texture Strip",
+  "category": "world",
+  "subcategory": "ground",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [
+    "task_id_000000513"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000513"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000513",
+      "task_id_000000502"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "environment",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/environment_design.png",
+      "purpose": "Ground the desert sky, cloud, and ground composition."
+    },
+    {
+      "label": "style",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png",
+      "purpose": "Ground the monochrome pixel-art outline and spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "GroundDecor"
+    ],
+    "asset_loading": "Load assets/art/chrome_dino_runner/trial_5/world_ground_texture_1200x10.png with AssetServer during Loading state and keep the handle in a resource entry keyed by world_ground_texture_1200x10.",
+    "runtime_notes": [
+      "Apply nearest-neighbor sampling and integer-pixel transforms at runtime.",
+      "Keep the authored 1x pixel ratio and scale only by integer multiples in camera space.",
+      "Use a deterministic startup registration order so task execution order maps to asset registration order.",
+      "Spawn the sprite as a single-image handle with no runtime atlas index changes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_texture",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        130
+      ]
+    },
+    "layer": "world_front",
+    "usage": "Scroll under the ground line as a repeating 1200 px strip with sparse pebble and crack pixels.",
+    "adjacent_elements": [
+      "task_id_000000513",
+      "task_id_000000502"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 10
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Long low strip with sparse stepped crack pixels and pebble dots.",
+      "components": [
+        "ground_fill",
+        "crack_pixels",
+        "pebble_pixels"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_ground_texture_1200x10.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 1200x10 px.",
+    "Visible pixels use only the hex colors listed in specs.colors_hex plus transparency.",
+    "Opaque pixels stay inside the authored bounds with no anti-aliased edge pixels."
+  ]
+}

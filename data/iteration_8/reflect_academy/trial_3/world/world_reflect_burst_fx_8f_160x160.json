@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003004",
+  "asset_key": "world_reflect_burst_fx_8f_160x160",
+  "asset_name": "Reflect Burst Effect",
+  "category": "world",
+  "subcategory": "reflect_fx",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003003"
+  ],
+  "blocks": [
+    "task_id_008003007"
+  ],
+  "blocked_by": [
+    "task_id_008003003"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003007",
+      "task_id_008003016",
+      "task_id_008003020"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the burst animation and despawn the entity when the non-looping atlas finishes.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "ReflectBurstFx",
+      "Transform"
+    ],
+    "asset_loading": "Load world/world_reflect_burst_fx_8f_160x160.png through AssetServer and build a TextureAtlasLayout with eight columns.",
+    "runtime_notes": [
+      "Burst origin aligns to the reflect line rather than the projectile center to keep timing feedback stable.",
+      "Animation lasts 0.5 seconds at 16 fps and then removes itself.",
+      "Blend mode stays alpha based so UI remains readable over the effect."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "successful_reflect_fx",
+    "screen_position": {
+      "type": "relative_to_entity",
+      "entity": "player_student_reflect_success_6f_14fps",
+      "offset_px": [
+        130,
+        -40
+      ]
+    },
+    "layer": "world_fx_front",
+    "usage": "Eight-frame burst that fires on a successful reflection and marks the projectile turn point.",
+    "adjacent_elements": [
+      "player_student_reflect_success_6f_14fps",
+      "projectile_fire_fly_6f_12fps",
+      "ui_timing_bar_600x30"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_stage",
+      "facing": "outward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 160
+    },
+    "colors_hex": [
+      "#00FFFF",
+      "#D4AF37",
+      "#FFFACD",
+      "#1A1A2E"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 16,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Circular arc burst with glass-like shards and a bright center pulse.",
+      "components": [
+        "arcane_ring",
+        "center_flash",
+        "radial_sparks",
+        "shard_trails"
+      ]
+    },
+    "lighting": "Cyan inner core expands into gold rim sparkles over the frame sequence."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_reflect_burst_fx_8f_160x160.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 1280x160 px with eight 160x160 frames.",
+    "Peak flash radius reaches 72 px inside frame 4 without clipping the outer shards.",
+    "Final frame fades to less than 10 percent opacity so the lane clears for the next projectile."
+  ]
+}

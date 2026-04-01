@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.wine_glass_break_8f_12fps",
+  "asset_name": "Launchable Object — Wine Glass (Break sequence, 8 frames, 12fps)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P1",
+  "execution_order": 140,
+  "variant_of": "obstacles.launchable.wine_glass_intact",
+  "shared_properties": {
+    "base_dimensions_px": {
+      "width": 20,
+      "height": 32
+    },
+    "material": "glass",
+    "outline_hex": "#3D2B1F"
+  },
+  "differences": {
+    "animation": "break_into_shards",
+    "frame_count": 8,
+    "shards_count_hint": "4-6 shards visible by final frame"
+  },
+  "depends_on": [
+    "obstacles.launchable.wine_glass_intact"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.launchable.wine_glass_intact"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.wine_glass_intact",
+      "obstacles.environment.wine_barrel_intact_48x48"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "projectile_break",
+    "layer": "world",
+    "usage": "Played on collision to show shattering. Final frame suggests shards; actual shard objects may be spawned separately in-engine.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 32
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#F5F0E8",
+      "#C8B4E0",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 20,
+        "height": 32
+      },
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      },
+      "frame_count": 8,
+      "directions": null,
+      "note": "Break progression from intact to scattered shards."
+    },
+    "animation": {
+      "type": "one_shot",
+      "fps": 12,
+      "notes": "Play once then remove; last frame can be held for 0.1s."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.wine_glass_break_8f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 160x32px (8x1) with 20x32px frames; first frame matches intact silhouette closely.",
+    "Break progression is readable: at least 4 distinct shards by frame 6-8; shards use #F5F0E8 highlight pixels.",
+    "No motion blur/anti-aliasing; maintain crisp 1px outline style."
+  ]
+}

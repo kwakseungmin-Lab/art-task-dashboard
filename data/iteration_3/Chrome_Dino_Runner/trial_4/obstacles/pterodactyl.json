@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline included in sprite dimensions",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "obstacles",
+  "category_common": {
+    "base_size": {
+      "width": "variable",
+      "height": "variable"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art obstacles",
+      "color": "monochrome primary color",
+      "outline": "2px included in dimensions",
+      "movement": "scroll left at Current_Speed (300-900 px/s)",
+      "spawn_position": "screen right edge + 50px",
+      "despawn_position": "screen left edge - 100px",
+      "collision_layer": "Layer 1 (Obstacles)"
+    }
+  },
+  "asset": {
+    "asset_id": "pterodactyl",
+    "asset_name": "Pterodactyl Flying Animation",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Aerial obstacle requiring duck or precise jump timing to avoid",
+      "screen_position": "Spawns at x=650px (screen_width + 50), y=50px or y=80px (Low/High variants), scrolls left",
+      "adjacent_elements": ["background", "player", "other obstacles at 300px+ spacing"],
+      "usage_scenario": "Appears after score reaches 200+, forces player to use duck input, 30-40% spawn probability in mid-late game, Low variant (y=50) requires ducking, High variant (y=80) can be passed under"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "92px",
+        "height": "80px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "Pteranodon/pterodactyl with long beak, extended wings in flight",
+      "texture": "pixel art, flat color, no gradients",
+      "outline": "2px solid, included in sprite dimensions",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 10,
+        "loop": true,
+        "description": "Wing flapping animation - frame 1: wings up position, frame 2: wings down position, seamless loop"
+      },
+      "details": "Long pointed beak, wings clearly extended, flying pose, wing flapping creates sense of movement, hitbox 89x77px (3px margin for forgiveness), two height variants: Low (y=50px) overlaps with player running hitbox requiring duck, High (y=80px) above player allowing pass-through"
+    },
+    "relationships": {
+      "related_assets": ["player_duck", "player_jump", "cactus_small", "cactus_medium", "cactus_large", "background"],
+      "shared_with": "Same color as all obstacles, animated like player_run and player_duck",
+      "differences_from": "All cacti are ground-based (y=0) and static, pterodactyl is aerial (y=50 or 80) and animated, cacti require jump, pterodactyl Low requires duck"
+    },
+    "explicit_negations": [
+      "no anti-aliasing",
+      "no gradients or shading",
+      "no motion blur",
+      "no additional colors beyond #535353",
+      "no smooth curves (pixel-aligned edges only)",
+      "no transparency except full alpha",
+      "no rotation or banking",
+      "no easing between frames",
+      "no feather details (simple silhouette only)",
+      "no tail streamers or decorative elements"
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.guard_noble.patrol_6f_6fps",
+  "asset_name": "Guard Noble — Patrol Loop (6 frames)",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P1",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "2px_brush"
+  },
+  "context": {
+    "role": "moving_target_noble",
+    "layer": "world_characters",
+    "usage": "Patrol animation for guard nobles that move horizontally (80px range).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 216,
+      "height": 52
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#8BA7C7",
+      "#8B3A52",
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#C8B4E0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "directions": 1,
+      "frame_count_per_direction": 6,
+      "fps": 6,
+      "loop": true,
+      "sheet_layout": {
+        "rows": 1,
+        "cols": 6,
+        "frame_size_px": {
+          "width": 36,
+          "height": 52
+        },
+        "ordering": "left_to_right"
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.guard_noble.patrol_6f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 216x52px (6 frames × 36x52px).",
+    "Motion stays within frame; no limb clipping beyond 36x52.",
+    "Guard reads distinct via accessory silhouette while staying pastel."
+  ]
+}

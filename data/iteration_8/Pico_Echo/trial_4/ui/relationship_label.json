@@ -1,0 +1,142 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008004026",
+  "asset_name": "Relationship Level Label (Stranger → Best Friend)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 330,
+  "variant_of": null,
+  "depends_on": [
+    "task_id_008004024"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008004024"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004024"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_text",
+    "layer": "ui",
+    "usage": "Displays relationship tier text at top-center.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_center",
+      "offset_px": [
+        0,
+        4
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 8
+    },
+    "colors_hex": [
+      "#1D2B53",
+      "#FFF1E8"
+    ],
+    "animation": null,
+    "text_layout": {
+      "max_chars": 14,
+      "padding_px": [
+        2,
+        1,
+        2,
+        1
+      ],
+      "background_fill_hex": "#FFF1E8",
+      "border_hex": "#1D2B53",
+      "font_glyph_size_px": [
+        3,
+        5
+      ],
+      "font_foreground_hex": "#1D2B53"
+    },
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/relationship_label.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Label asset is exactly 80x8px with a 1px border in #1D2B53.",
+    "Interior is filled with #FFF1E8 and supports rendering up to 14 characters using 3x5 glyphs in #1D2B53.",
+    "When placed at top-center with 4px y offset, it remains inside the 128x128 canvas and leaves the bottom HUD row (y=127) unobstructed."
+  ],
+  "shared_properties": [],
+  "differences": [],
+  "asset_key": "relationship_label",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "relationship_system_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/RelationshipSystem.md?raw=1",
+      "purpose": "Bond progression label, unlock pacing, and relationship feedback anchor."
+    },
+    {
+      "label": "hud_widget_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md?raw=1",
+      "purpose": "Bottom HUD layout, care popup placement, and touch-safe spacing anchor."
+    },
+    {
+      "label": "art_direction_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md?raw=1",
+      "purpose": "Pixel-art palette, silhouette, and warm interior mood anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for ui asset loading with nearest-neighbor sampling and deterministic z-order.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "UiOverlay"
+    ],
+    "asset_loading": "Load ui/relationship_label.png through AssetServer and store the handle under relationship_label.",
+    "runtime_notes": [
+      "Anchor UI sprites in screen space inside the 128x128 logical canvas and clamp to whole pixels before render.",
+      "Register manifest execution_order in a startup resource so build order stays deterministic during content validation.",
+      "Read frame size and bounds from specs.dimensions_px rather than texture metadata during runtime checks."
+    ]
+  }
+}

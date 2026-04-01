@@ -1,0 +1,98 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-12px",
+      "note": "Varies by effect type - particles are 2-4px, speech bubble is 12x10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8",
+      "bubble_bg": "#FFF1E8",
+      "bubble_outline": "#1D2B53"
+    },
+    "shared_attributes": {
+      "rendering": "animated particles or static overlays",
+      "layer": "foreground (on top of all other elements)",
+      "style": "simple iconic pixel art",
+      "lifespan": "0.5-2 seconds (particles auto-destroy)"
+    }
+  },
+  "asset": {
+    "asset_id": "zzz_particle",
+    "asset_name": "ZZZ Sleep Particle Effect",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Sleep indicator that appears when Echo is in sleeping state",
+      "screen_position": "Spawns to right of Echo at x=80-90px, y=40-50px, drifts upward and right",
+      "adjacent_elements": [
+        "echo_sleeping (spawns during this state)",
+        "cage_background"
+      ],
+      "usage_scenario": "Continuously spawns ZZZ particles (one every 2-3 seconds) while Echo is sleeping. Each ZZZ drifts upward-right in gentle arc, fading out. Classic sleep indicator."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "primary": "#7E2553"
+      },
+      "shape": "Letter 'Z' in pixel font. 3x3px character with diagonal zigzag pattern.",
+      "texture": "Pure pixel art text character",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "particle",
+        "frames": 5,
+        "fps": 3,
+        "loop": false,
+        "description": "Frame 1: Z appears at spawn. Frame 2: Moves up 3px, right 1px. Frame 3: Moves up 3px, right 1px, begins fade (75%). Frame 4: Moves up 3px, right 1px, fades to 50%. Frame 5: Moves up 3px, right 1px, fades to 0%. Total movement: 12px up, 4px right. Duration: 1.67 seconds."
+      },
+      "details": "Single 'Z' character: 3x3px in #7E2553. Pixel pattern forms diagonal zigzag. Spawns at x=85px, y=45px. Drifts to x=89px, y=33px. New Z spawns every 2-3 seconds during sleep. Sometimes 2-3 Z's visible simultaneously at different positions along drift path."
+    },
+    "relationships": {
+      "related_assets": [
+        "echo_sleeping",
+        "cage_background"
+      ],
+      "shared_with": "Purple color (#7E2553) unique to this effect",
+      "differences_from": "Unlike hearts/notes: diagonal drift (not straight up), text character (not icon), continuous spawn (not triggered by animation frames), purple color."
+    },
+    "explicit_negations": [
+      "No 3D shading",
+      "No outline stroke",
+      "No rotation",
+      "No size scaling",
+      "No motion blur",
+      "No multiple Z's per particle (single Z only)",
+      "No bubble or cloud container",
+      "No sound wave effects"
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.pillar.standard_breakable",
+  "asset_name": "Standard Pillar (64x200) + Break Animation (6 frames)",
+  "category": "obstacles",
+  "subcategory": "pillar",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": null,
+  "depends_on": [
+    "world.tileset.temple_marble"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.tileset.temple_marble"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.collectible.star_shard",
+      "character.player.size_large"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "danger_red",
+      "hex": "#E84040"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "obstacle",
+    "layer": "world",
+    "usage": "Zone 1+ breakable pillar. Colliding while LARGE destroys it instantly and spawns Star Shards.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "intact_dimensions_px": {
+      "width": 64,
+      "height": 200
+    },
+    "break_animation": {
+      "frame_size_px": {
+        "width": 64,
+        "height": 200
+      },
+      "frame_count": 6,
+      "fps": 20,
+      "loop": false,
+      "note": "Frame 0 is intact sprite (separate) OR include intact as first frame; keep debris readable."
+    },
+    "sheet_dimensions_px": {
+      "width": 448,
+      "height": 200
+    },
+    "suggested_layout": "Row layout: 7 frames total (intact + 6 break frames).",
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E",
+      "#FFD966"
+    ],
+    "collision_box_hint": "Collision should match the opaque pillar body; do not include decorative glow pixels.",
+    "animation": {
+      "type": "spritesheet",
+      "layout": "row"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.pillar.standard_breakable.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Intact pillar silhouette is clearly 64x200px and reads as marble/temple material.",
+    "Break animation has exactly 6 frames (non-looping) and looks good at ~0.3s total duration.",
+    "Debris does not extend collision beyond the intact pillar's bounds (visual only)."
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "task_id": "ui.care_menu_panel",
+  "asset_name": "Care_Menu_Panel_32x16",
+  "category": "ui",
+  "subcategory": "menu_panel",
+  "description": "Create a compact care menu panel sprite, 32x16 px, transparent background. Outline 1 px #1D2B53, fill #FFF1E8. Interior has 3 icon slots (8x8) aligned horizontally. Slot top-left positions: (2,4), (12,4), (22,4). Slot border #C2C3C7 1 px and slot fill #FFF1E8.",
+  "execution_order": 145,
+  "priority": "P1",
+  "depends_on": [
+    "ui.pixel_font_3x5"
+  ],
+  "blocks": [
+    "ui.care_menu_icons_atlas"
+  ],
+  "blocked_by": [
+    "ui.pixel_font_3x5"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.care_menu_icons_atlas",
+      "ui.pixel_font_3x5"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 16
+    },
+    "outline_hex": "#1D2B53",
+    "fill_hex": "#FFF1E8",
+    "slot_outline_hex": "#C2C3C7",
+    "slot_fill_hex": "#FFF1E8",
+    "icon_slots_px": [
+      {
+        "x": 2,
+        "y": 4,
+        "width": 8,
+        "height": 8
+      },
+      {
+        "x": 12,
+        "y": 4,
+        "width": 8,
+        "height": 8
+      },
+      {
+        "x": 22,
+        "y": 4,
+        "width": 8,
+        "height": 8
+      }
+    ]
+  },
+  "context": {
+    "role": "Popup panel that hosts 3 care action icons (feed/clean/pet).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        20
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "ui",
+      "menu"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/care_menu_panel_32x16.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/care_menu_panel_32x16.png",
+      "dimensions_px": {
+        "width": 32,
+        "height": 16
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 32x16 px with transparent background.",
+    "Panel outline is 1 px #1D2B53 and fill is #FFF1E8.",
+    "Three icon slots exist at the specified rectangles and use only #C2C3C7 and #FFF1E8."
+  ]
+}

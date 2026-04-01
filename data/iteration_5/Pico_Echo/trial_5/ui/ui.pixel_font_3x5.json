@@ -1,0 +1,108 @@
+{
+  "task_id": "ui.pixel_font_3x5",
+  "id": "ui.pixel_font_3x5",
+  "asset_name": "Pixel font 3x5",
+  "category": "ui",
+  "subcategory": "typography",
+  "description": "3x5 pixel bitmap font sheet for HUD numerals and short labels. Provide a compact sprite sheet containing 0-9 and %.",
+  "execution_order": 90,
+  "priority": "P2",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud_happiness_bar"
+    ]
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1
+  },
+  "specs": {
+    "glyph_dimensions_px": {
+      "width": 3,
+      "height": 5
+    },
+    "sheet_layout": {
+      "columns": 6,
+      "rows": 2,
+      "cell_padding_px": 1
+    },
+    "glyphs": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "%"
+    ],
+    "ink_hex": "#1D2B53",
+    "background": "transparent"
+  },
+  "context": {
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "origin": "canvas_top_left"
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "ui_overlay",
+      "text"
+    ],
+    "role": "ui_font"
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/ui/pixel_font_3x5.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/ui/pixel_font_3x5.png",
+      "dimensions_px": {
+        "width": 32,
+        "height": 16
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 32x16 px with transparent background.",
+    "Each glyph is 3x5 px and uses #1D2B53 for ink pixels.",
+    "Sheet contains glyphs: 0-9 and %.",
+    "No colors outside palette_hex are used."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

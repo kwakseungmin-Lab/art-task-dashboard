@@ -1,0 +1,143 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.goal.temple_goal_tile_64_sheet_8f",
+  "asset_name": "Temple Goal Tile Sheet — 512x64, 8 frames",
+  "category": "world",
+  "subcategory": "goal",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "blocks": [
+    "ui.overlay.path_tile_numbers_20_atlas"
+  ],
+  "blocked_by": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.tiles.marble_grid_64_atlas",
+      "character.player.last_olympian_god_idle_sheet_48_4f",
+      "ui.overlay.path_tile_numbers_20_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "goal_tile",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 704,
+      "y": 256
+    },
+    "layer": "world_goal",
+    "usage": "Animated destination tile placed on one board cell and read at 1x scale during path planning.",
+    "adjacent_elements": [
+      "world.tiles.marble_grid_64_atlas",
+      "ui.overlay.path_tile_numbers_20_atlas"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_2d",
+      "facing": "north_up"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 64
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#FBBF24",
+      "#FEF3C7",
+      "#F59E0B"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 8,
+      "fps": 4,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 8,
+        "frame_size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "order": [
+          "goal_1",
+          "goal_2",
+          "goal_3",
+          "goal_4",
+          "goal_5",
+          "goal_6",
+          "goal_7",
+          "goal_8"
+        ],
+        "padding_px": 0
+      }
+    },
+    "shape": {
+      "silhouette": "64px temple arch centered on a square tile with a circular seal under the arch.",
+      "components": [
+        "base_tile",
+        "two_column_arch",
+        "seal_ring",
+        "flame_rays"
+      ]
+    },
+    "glow": {
+      "center_hex": "#FEF3C7",
+      "edge_hex": "#FBBF24",
+      "ring_thickness_px": 3
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.goal.temple_goal_tile_64_sheet_8f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 512x64px with 8 frames of 64x64px.",
+    "Every frame keeps the arch footprint inside a 48x52px area centered on the tile.",
+    "Seal ring thickness is 3px and cycles brightness through the listed gold and ivory hex values."
+  ]
+}

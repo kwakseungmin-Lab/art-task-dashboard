@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.font.minipixel_3x5_ascii_96glyph",
+  "asset_name": "Mini Pixel Font (3x5, ASCII 96 glyph atlas)",
+  "category": "ui",
+  "subcategory": "font",
+  "priority": "P0",
+  "execution_order": 310,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "bitmap_font",
+    "layer": "ui",
+    "usage": "3x5 font for small UI labels (relationship level, tooltips).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 15
+    },
+    "colors_hex": [
+      "#1D2B53"
+    ],
+    "animation": null,
+    "font": {
+      "glyph_size_px": [
+        3,
+        5
+      ],
+      "glyph_count": 96,
+      "grid": {
+        "columns": 32,
+        "rows": 3,
+        "cell_spacing_px": [
+          0,
+          0
+        ]
+      },
+      "first_codepoint": 32,
+      "foreground_hex": "#1D2B53",
+      "background": "transparent"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.font.minipixel_3x5_ascii_96glyph.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Font atlas PNG is exactly 96x15px (32 columns × 3px, 3 rows × 5px) with 0px spacing.",
+    "Only #1D2B53 pixels and transparency are used; no outlines or shadows.",
+    "Glyphs for \"A\", \"E\", \"O\", \"0\", \"8\", \"?\", \"!\" are visually distinct at 1x scale."
+  ]
+}

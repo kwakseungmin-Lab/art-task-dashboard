@@ -1,0 +1,172 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000930",
+  "asset_key": "ui_reward_card_pick_panel",
+  "asset_name": "Reward Card Pick Panel — post-victory reveal, hover, and selection states",
+  "category": "ui",
+  "subcategory": "reward_panel",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The reward panel reuses academy gold trim and deep navy panels to stay consistent with the battle HUD.",
+    "Three-card choice layout must remain readable over a dimmed battle scene without fully replacing the stage.",
+    "Hover and selected states need clear focus framing for mouse-first interaction."
+  ],
+  "differences": [
+    "This task covers the post-victory reward selection overlay rather than the active combat hand.",
+    "Core card-face artwork stays in the battle card sheet."
+  ],
+  "depends_on": [
+    "task_id_000000927",
+    "task_id_000000929",
+    "task_id_000000926"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000927",
+    "task_id_000000929",
+    "task_id_000000926"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000926",
+      "task_id_000000927",
+      "task_id_000000929"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for elegant magical reward presentation that still feels like the academy duel interface."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for dimmed-scene layering so the overlay keeps the battle context visible behind it."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_4x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "RewardPanel",
+      "OverlayUi",
+      "HoverState"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/ui_reward_card_pick_panel.png during DuelLoading and cache the atlas under ui_reward_card_pick_panel.",
+    "runtime_notes": [
+      "Use four states named closed, reveal_choices, hovered_choice, and selected_choice.",
+      "Show the panel on the overlay camera with a dimmed world underlay and keep the three card slots aligned to center screen.",
+      "Runtime text can inject reward labels and rarity names inside the framed slot headers."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "reward_selection_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "ui",
+    "usage": "Post-battle overlay that presents three reward cards and confirms the player choice before the next duel."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1320,
+      "height": 760
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#BDC3C7",
+      "#00FFFF",
+      "#ADFF2F",
+      "#8E44AD",
+      "#FFFFFF"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "closed",
+        "reveal_choices",
+        "hovered_choice",
+        "selected_choice"
+      ],
+      "frame_count": 4,
+      "frame_size_px": [
+        1320,
+        760
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "layout_notes": [
+      "Panel centers three reward slots with 60px gaps and a headline plaque above them.",
+      "Closed state contains only the decorative frame and dim underlay mask.",
+      "Hovered and selected states add focus glows around one of the three slots without moving the base panel."
+    ],
+    "shape": {
+      "silhouette": "Large center-screen plaque with three framed card bays, headline crest, and footer confirm area.",
+      "components": [
+        "outer overlay frame",
+        "headline crest",
+        "three reward bays",
+        "hover glow",
+        "selection lock glow",
+        "footer confirm strip"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_reward_card_pick_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 5280x760px with four 1320x760 states and no padding.",
+    "Three reward bays remain centered and evenly spaced in reveal, hover, and selected states.",
+    "Hover and selected focus treatments are visually distinct without changing the underlying panel geometry.",
+    "The overlay still allows the dimmed academy stage to remain recognizable in the background."
+  ]
+}

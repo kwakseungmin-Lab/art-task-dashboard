@@ -1,0 +1,150 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040410",
+  "asset_key": "card_frame_state_sheet",
+  "asset_name": "Card Frame State Sheet",
+  "category": "ui",
+  "subcategory": "card_ui",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Card frames use an 80x120 px per-frame contract so five runtime instances fit the centered hand layout.",
+    "Card safe text area remains inside a 64x96 px inner panel in every frame."
+  ],
+  "differences": [
+    "This sheet provides 11 frames covering Idle, Hover, Use, and Discard states for the reusable card UI frame."
+  ],
+  "depends_on": [
+    "task_id_825040409",
+    "task_id_825040404"
+  ],
+  "blocks": [
+    "task_id_825040411"
+  ],
+  "blocked_by": [
+    "task_id_825040409",
+    "task_id_825040404"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040404",
+      "task_id_825040409",
+      "task_id_825040411"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "Card size, state counts, and hand capacity grounding."
+    },
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Card border treatment, glow emphasis, and navy panel styling grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with one generic card frame atlas and spawn up to five UI ImageNode instances that swap atlas indices by card state.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "ImageNode",
+      "TextureAtlas",
+      "AnimationTimer",
+      "CardUiVisual"
+    ],
+    "asset_loading": "Load ui/card_frame_state_sheet.png through AssetServer and attach the atlas handle to hand-card UI nodes.",
+    "runtime_notes": [
+      "The atlas uses 3 rows and 4 columns with one unused transparent cell.",
+      "Frame indices 0 are Idle, 1-2 are Hover, 3-6 are Use, and 7-10 are Discard.",
+      "Runtime spacing target is 100 px between card centers for five-card hands."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Reusable hand-card frame atlas for state changes during hover, use, and discard actions.",
+    "screen_position": {
+      "anchor": "bottom_center",
+      "x_px": 960,
+      "y_px": 120
+    },
+    "layer": {
+      "name": "ui_cards",
+      "z_index": 82
+    },
+    "usage": "Instanced up to five times at the bottom center of the duel screen."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 360
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#BDC3C7",
+      "#8E44AD",
+      "#FFFACD"
+    ],
+    "animation": {
+      "mode": "sprite_sheet",
+      "frame_count": 11,
+      "fps": 12,
+      "loop": false,
+      "layout": {
+        "rows": 3,
+        "columns": 4,
+        "frame_size_px": {
+          "width": 80,
+          "height": 120
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "card_frame_state_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 320,
+        "height": 360
+      },
+      "notes": "11 used frames arranged as 4 columns by 3 rows with one transparent spare cell."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 320x360 px with 11 used frames at 80x120 px each.",
+    "Visible border hex values are limited to #D4AF37, #BDC3C7, and #8E44AD.",
+    "Inner card face safe area remains exactly 64x96 px inside every state frame."
+  ]
+}

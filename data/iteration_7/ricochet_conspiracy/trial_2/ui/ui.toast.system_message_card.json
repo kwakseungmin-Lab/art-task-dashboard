@@ -1,0 +1,110 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.toast.system_message_card",
+  "asset_name": "System Message Toast Card",
+  "category": "ui",
+  "subcategory": "toast",
+  "priority": "P1",
+  "execution_order": 340,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.serif_bitmap_16px_ascii96",
+      "ui.hud.top_status_bar"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "toast_message",
+    "layer": "ui",
+    "usage": "Small toast card for undo-empty and hint-used system notices.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_center",
+      "offset_px": [
+        0,
+        72
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.top_status_bar"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 36
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "small_rounded_message_card",
+      "components": [
+        "outer_frame",
+        "inner_fill",
+        "text_slot"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "display_time_ms": 800,
+    "fade_time_ms": 200
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.toast.system_message_card.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 200x36px with a centered text slot of 152x16px.",
+    "Frame thickness stays at 2px on all edges.",
+    "Card uses #E8D5C4 fill and #3D2B1F frame with one #D4A843 top accent line."
+  ]
+}

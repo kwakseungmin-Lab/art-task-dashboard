@@ -1,0 +1,137 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008004020",
+  "asset_name": "Cage Bars Foreground Overlay",
+  "category": "world",
+  "subcategory": "foreground",
+  "priority": "P0",
+  "execution_order": 220,
+  "variant_of": null,
+  "depends_on": [
+    "task_id_008004019"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008004019"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004019"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "cage_bars",
+    "layer": "world_foreground",
+    "usage": "Overlay bars drawn above Echo; must avoid central facial area.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#C2C3C7",
+      "#1D2B53"
+    ],
+    "animation": null,
+    "bar_rules": {
+      "vertical_bar_width_px": 1,
+      "vertical_bar_spacing_px": 8,
+      "outline_hex": "#1D2B53",
+      "fill_hex": "#C2C3C7",
+      "safe_face_region_px": [
+        54,
+        50,
+        16,
+        16
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/cage_bars_foreground.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay is exactly 128x128px with transparent gaps between bars.",
+    "Bars are 1px wide and repeat every 8px across the canvas.",
+    "No bar pixels exist inside safe face region (54,50,16,16) so eyes/beak remain unobstructed."
+  ],
+  "shared_properties": [],
+  "differences": [],
+  "asset_key": "cage_bars_foreground",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "cage_object_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md?raw=1",
+      "purpose": "Cage layout, perch, bowl placement, and floor bounds anchor."
+    },
+    {
+      "label": "art_direction_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md?raw=1",
+      "purpose": "Pixel-art palette, silhouette, and warm interior mood anchor."
+    },
+    {
+      "label": "time_system_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/TimeSystem.md?raw=1",
+      "purpose": "Sleep cycle, food decay, and poop spawn cadence anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for world asset loading with nearest-neighbor sampling and deterministic z-order.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "CageLayer"
+    ],
+    "asset_loading": "Load world/cage_bars_foreground.png through AssetServer and store the handle under cage_bars_foreground.",
+    "runtime_notes": [
+      "Keep world layers on deterministic z-order bands: background < perch/floor < foreground bars < night overlay.",
+      "Register manifest execution_order in a startup resource so build order stays deterministic during content validation.",
+      "Read frame size and bounds from specs.dimensions_px rather than texture metadata during runtime checks."
+    ]
+  }
+}

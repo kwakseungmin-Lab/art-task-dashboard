@@ -1,0 +1,173 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000924",
+  "asset_key": "obstacles_telegraph_feint_marker_sheet",
+  "asset_name": "Telegraph and Feint Marker Sheet — warning rings, fake cues, and combo flare",
+  "category": "obstacles",
+  "subcategory": "combat_fx",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "All markers are transparent overlay effects designed to sit over the lane and enemy cast zone.",
+    "Warning colors separate honest cues from fake cues through hue and shape changes rather than text.",
+    "The sheet must support brief 0.5 second telegraphs and later feint-heavy champion patterns."
+  ],
+  "differences": [
+    "This task covers warning rings and feint markers rather than spell bodies.",
+    "Persistent HUD widgets and the lane base strip remain outside this file."
+  ],
+  "depends_on": [
+    "task_id_000000922",
+    "task_id_000000926"
+  ],
+  "blocks": [
+    "task_id_000000928"
+  ],
+  "blocked_by": [
+    "task_id_000000922",
+    "task_id_000000926"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000922",
+      "task_id_000000923",
+      "task_id_000000926",
+      "task_id_000000928"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for luminous magic ring layering inside the academy hall scene."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for judging how close warning rings can approach the student sprite without masking input readability."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_3x2",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "TelegraphCue",
+      "FeintMarker",
+      "FadeTimer"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/obstacles_telegraph_feint_marker_sheet.png during DuelLoading and store the atlas under obstacles_telegraph_feint_marker_sheet.",
+    "runtime_notes": [
+      "Use six states named cast_warning, perfect_window, good_window, fake_warning, combo_flare, and impact_flash.",
+      "Animate opacity in code while the art provides the silhouette and hue identity for each cue.",
+      "Render marker sprites above the lane but below full-screen reward UI to preserve combat focus."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "telegraph_and_combo_fx",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        980,
+        430
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Temporary combat overlays that warn about incoming spells, fake casts, and successful combo reflections."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 180
+    },
+    "colors_hex": [
+      "#D4AF37",
+      "#00FFFF",
+      "#ADFF2F",
+      "#E74C3C",
+      "#8E44AD",
+      "#FFFFFF"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "cast_warning",
+        "perfect_window",
+        "good_window",
+        "fake_warning",
+        "combo_flare",
+        "impact_flash"
+      ],
+      "frame_count": 6,
+      "frame_size_px": [
+        180,
+        180
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    "shape": {
+      "silhouette": "Circular rune rings, segmented timing crescents, and burst stars with open transparent centers.",
+      "components": [
+        "outer rune ring",
+        "segmented timing arcs",
+        "fake cue slash marks",
+        "combo starburst"
+      ]
+    },
+    "timing_rules": {
+      "telegraph_duration_sec": 0.5,
+      "perfect_window_sec": 0.1,
+      "good_window_sec": 0.25,
+      "fake_warning_visual_diff": "red-violet broken ring with offset notch"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_telegraph_feint_marker_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 540x360px with six 180x180 states and no padding.",
+    "Perfect and good window cues are visually separable through ring thickness and hue even in motion blur.",
+    "Fake warning state reads as intentionally deceptive without matching the honest cast-warning silhouette.",
+    "All markers preserve a transparent center so projectiles and characters remain visible beneath them."
+  ]
+}

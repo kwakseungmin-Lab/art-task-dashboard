@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.cactus.small_static",
+  "asset_name": "Small Cactus Obstacle",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [
+    "obstacles.cactus.medium_static",
+    "obstacles.cactus.large_static"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_run_2f_12fps",
+      "world.ground.line_1200x2"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hazard_ground_small",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        650,
+        80
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Spawned after 2.0 seconds or later and moves left at current obstacle speed.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "character.player.dino_run_2f_12fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 34,
+      "height": 70
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single upright cactus with three arm spikes, 34 px width, 70 px height, and 2px outline.",
+      "components": [
+        "main_stem",
+        "left_spike",
+        "right_spike",
+        "base_pixels"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus.small_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 34x70 px.",
+    "Bottom row sits on the ground baseline without transparent gap below the silhouette.",
+    "Spike tips use whole-pixel stair steps with no anti-aliasing."
+  ]
+}

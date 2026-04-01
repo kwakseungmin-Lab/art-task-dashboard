@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.restart_prompt_300x12",
+  "asset_name": "Restart Prompt Text",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 180,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [
+    "ui.font.mono_digits_10x16_0-9"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.mono_digits_10x16_0-9"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.mono_digits_10x16_0-9",
+      "ui.screen.game_over_text_24px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "game_over_restart_prompt",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        150,
+        82
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Displayed after collision to instruct restart input with 300 px width, 12 px height, and optional 0.5 s blink cadence.",
+    "adjacent_elements": [
+      "ui.screen.game_over_text_24px",
+      "character.player.dino_dead_static"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 300,
+      "height": 12
+    },
+    "colors_hex": [
+      "#535353",
+      "#FF0000",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "blink_optional",
+      "frame_count": 2,
+      "fps": 2,
+      "loop": true,
+      "state_notes": [
+        "frame_0 text visible",
+        "frame_1 text visible with 50 percent accent highlight coverage"
+      ]
+    },
+    "shape": {
+      "silhouette": "Single-line PRESS SPACE TO RESTART wordmark on a 300x12 px banner grid with centered baseline placement.",
+      "components": [
+        "PRESS",
+        "SPACE",
+        "TO",
+        "RESTART"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.restart_prompt_300x12.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 300x12 px.",
+    "Letterforms use #535353 for the default state and may use #FF0000 on no more than 50 percent of visible text pixels during the blink state.",
+    "The top-left anchor is 150,82 in a 600x150 frame, which centers the 300 px banner horizontally."
+  ]
+}

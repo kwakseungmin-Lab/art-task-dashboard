@@ -1,0 +1,164 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.tile.stone_shadow_64x64",
+  "asset_name": "Grid Tile — Stone Shadow (64x64)",
+  "category": "world",
+  "subcategory": "tile",
+  "priority": "P1",
+  "execution_order": 21,
+  "variant_of": "world.tile.stone_ivory_64x64",
+  "shared_properties": [
+    "tile_size_px: 64, 64",
+    "crack_layout: {'type': 'segment', 'x1': 18, 'y1': 10, 'x2': 18, 'y2': 54, 'width_px': 1, 'color_hex': '#6B7280'}, {'type': 'segment', 'x1': 8, 'y1': 32, 'x2': 56, 'y2': 32, 'width_px': 1, 'color_hex': '#6B7280'}, {'type': 'segment', 'x1': 40, 'y1': 12, 'x2': 52, 'y2': 24, 'width_px': 1, 'color_hex': '#6B7280'}, {'type': 'segment', 'x1': 24, 'y1': 48, 'x2': 36, 'y2': 56, 'width_px': 1, 'color_hex': '#6B7280'}",
+    "outline_px: 1"
+  ],
+  "differences": [
+    "base_fill_hex: #6B7280",
+    "shadow_strength: increased"
+  ],
+  "depends_on": [
+    "world.tile.stone_ivory_64x64"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.tile.stone_ivory_64x64"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.tile.stone_ivory_64x64"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tile_base_variant",
+    "layer": "tilemap",
+    "usage": "Alternate darker tile for checkerboard variation and depth.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "grid_rules": {
+      "tile_size_px": [
+        64,
+        64
+      ],
+      "grid_size_tiles": [
+        12,
+        9
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#6B7280",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#F8FAFC"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "surface_rules": {
+      "base_fill_hex": "#6B7280",
+      "inner_shadow_hex": "#1E1B4B",
+      "highlight_hex": "#F8FAFC",
+      "outline_hex": "#1E1B4B",
+      "outline_px": 1
+    },
+    "crack_layout": [
+      {
+        "type": "segment",
+        "x1": 18,
+        "y1": 10,
+        "x2": 18,
+        "y2": 54,
+        "width_px": 1,
+        "color_hex": "#6B7280"
+      },
+      {
+        "type": "segment",
+        "x1": 8,
+        "y1": 32,
+        "x2": 56,
+        "y2": 32,
+        "width_px": 1,
+        "color_hex": "#6B7280"
+      },
+      {
+        "type": "segment",
+        "x1": 40,
+        "y1": 12,
+        "x2": 52,
+        "y2": 24,
+        "width_px": 1,
+        "color_hex": "#6B7280"
+      },
+      {
+        "type": "segment",
+        "x1": 24,
+        "y1": 48,
+        "x2": 36,
+        "y2": 56,
+        "width_px": 1,
+        "color_hex": "#6B7280"
+      }
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tile.stone_shadow_64x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Tile is exactly 64x64px and tiles seamlessly on all 4 edges.",
+    "Crack segments match the provided crack_layout coordinates and use #1E1B4B at 1px width for higher contrast on the dark base fill.",
+    "Uses only listed colors and transparency; no anti-aliasing."
+  ]
+}

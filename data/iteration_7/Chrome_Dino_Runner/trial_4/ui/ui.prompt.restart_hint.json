@@ -1,0 +1,105 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.prompt.restart_hint",
+  "asset_name": "UI — restart hint prompt",
+  "category": "ui",
+  "subcategory": "prompt",
+  "priority": "P1",
+  "execution_order": 330,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This prompt is subordinate to the game-over banner in size and contrast.",
+    "Input wording must cover Space and tap without crowding the one-line layout.",
+    "No red accent is required for the restart state."
+  ],
+  "depends_on": [
+    "ui.font.score_digits"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.score_digits"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.banner.game_over_message"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "restart_prompt",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        230,
+        82
+      ]
+    },
+    "layer": "ui",
+    "usage": "Compact prompt that instructs keyboard and mobile restart input after the defeat state."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 140,
+      "height": 16
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "layout_notes": [
+      "Center the prompt to the same axis used by the game-over banner.",
+      "Keep cap height inside the 16px frame with 2px vertical breathing room.",
+      "Avoid decorative border pixels around the text area."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.prompt.restart_hint.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 140x16px.",
+    "Prompt text fits on one line with at least 8px horizontal padding.",
+    "The prompt remains readable when placed 10px below the game-over banner."
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000511",
+  "asset_key": "world_background_cloud_small_static",
+  "asset_name": "Small Cloud Sprite",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [
+    "task_id_000000512"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000510",
+      "task_id_000000509"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "environment",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/environment_design.png",
+      "purpose": "Ground the desert sky, cloud, and ground composition."
+    },
+    {
+      "label": "style",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png",
+      "purpose": "Ground the monochrome pixel-art outline and spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "ParallaxLayer"
+    ],
+    "asset_loading": "Load assets/art/chrome_dino_runner/trial_5/world_background_cloud_small_static.png with AssetServer during Loading state and keep the handle in a resource entry keyed by world_background_cloud_small_static.",
+    "runtime_notes": [
+      "Apply nearest-neighbor sampling and integer-pixel transforms at runtime.",
+      "Keep the authored 1x pixel ratio and scale only by integer multiples in camera space.",
+      "Use a deterministic startup registration order so task execution order maps to asset registration order.",
+      "Spawn the sprite as a single-image handle with no runtime atlas index changes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background_cloud_small",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        420,
+        24
+      ]
+    },
+    "layer": "world_mid",
+    "usage": "Place a slow parallax cloud in the upper half of the sky while keeping obstacle silhouettes readable.",
+    "adjacent_elements": [
+      "task_id_000000510",
+      "task_id_000000509"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 46,
+      "height": 14
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Rounded low-detail cloud with stepped pixel bumps and flat bottom edge.",
+      "components": [
+        "cloud_body",
+        "top_bumps",
+        "bottom_edge"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_background_cloud_small_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 46x14 px.",
+    "Visible pixels use only the hex colors listed in specs.colors_hex plus transparency.",
+    "Opaque pixels stay inside the authored bounds with no anti-aliased edge pixels."
+  ]
+}

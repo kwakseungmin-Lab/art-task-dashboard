@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050010",
+  "asset_key": "light_path_preview_overlay",
+  "asset_name": "Light Path Preview Overlay",
+  "category": "ui",
+  "subcategory": "full_screen_overlay",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The overlay uses project colors only and stays compatible with full-screen UI compositing in Bevy.",
+    "Authoring assumes a 1920x1080 orthographic target with centered gameplay framing.",
+    "The preview exists to clarify puzzle logic and therefore must preserve readability of existing HUD and world silhouettes."
+  ],
+  "differences": [
+    "Unlike persistent HUD panels, this asset is an optional full-screen help layer tied to one explicit input.",
+    "Only the active frame carries amber beam guides; the hidden frame is truly empty to avoid false positives.",
+    "The overlay highlights predicted paths and impact zones rather than live damage or state numbers."
+  ],
+  "depends_on": [
+    "task_id_008050003",
+    "task_id_008050004",
+    "task_id_008050006",
+    "task_id_008050011",
+    "task_id_008050009"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008050003",
+    "task_id_008050004",
+    "task_id_008050006",
+    "task_id_008050011",
+    "task_id_008050009"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050003",
+      "task_id_008050004",
+      "task_id_008050006",
+      "task_id_008050009",
+      "task_id_008050011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_2x1",
+    "ecs_components": [
+      "LightPreviewOverlayTag",
+      "UiImage",
+      "Style",
+      "Visibility"
+    ],
+    "asset_loading": "Load light_path_preview_overlay.png during Loading and expose frame 0 as hidden plus frame 1 as the active overlay used when Tab toggles path preview on.",
+    "runtime_notes": [
+      "Render the overlay in UI space above the world and below modal pause or results panels.",
+      "Keep the active frame semi-transparent so beam guides stay visible without erasing the player, scale, or HUD.",
+      "Bind visibility to the Tab toggle only; no gameplay system should silently force the preview on."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tab_toggle_beam_preview",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "ui",
+    "usage": "Covers the full screen with a 50% amber preview of light trajectories and beam-impact regions when the player requests path help."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 3840,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#00000000",
+      "#D4682A80",
+      "#F5EFE080",
+      "#C9A84C80"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        1920,
+        1080
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "layout_notes": [
+      "Frame 0 is fully transparent and frame 1 reserves 50% opacity beam channels with no opaque fill blocks.",
+      "Leave the outer 48 px edges lighter than the center so the overlay does not compete with HUD anchors.",
+      "Beam guide strokes should remain narrower than 48 px to match the GDD hazard beam width."
+    ],
+    "preview_profile": {
+      "toggle_key": "Tab",
+      "target_opacity_percent": 50,
+      "beam_width_px": 48
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/light_path_preview_overlay.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 3840x1080 px for two 1920x1080 frames with no frame gutter.",
+    "The active frame averages approximately 50% opacity and never exceeds 80% opacity in any non-beam region.",
+    "HUD text and the Umbra silhouette remain readable when the active frame is composited over representative gameplay mockups."
+  ]
+}

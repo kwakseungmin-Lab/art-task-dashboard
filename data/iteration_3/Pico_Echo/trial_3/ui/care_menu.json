@@ -1,0 +1,91 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "varies",
+      "height": "2-12px"
+    },
+    "color_scheme": {
+      "text": "#1D2B53",
+      "background": "#FFF1E8",
+      "accent": "#FF004D",
+      "green": "#00E436",
+      "yellow": "#FFEC27",
+      "orange": "#FFA300"
+    },
+    "shared_attributes": {
+      "ui_type": "minimal overlay interface",
+      "design_principle": "maximum clarity at minimum size, non-intrusive"
+    }
+  },
+  "asset": {
+    "asset_id": "care_menu",
+    "asset_name": "Care Menu",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "popup menu with 3 care action buttons (feed, clean, pet), appears on screen tap",
+      "screen_position": "lower right corner (x=96-120, y=108-116) when visible",
+      "adjacent_elements": ["happiness bar (below)", "game screen (overlays)"],
+      "usage_scenario": "hidden by default, appears when player taps screen, shows 3 clickable icons, hides after action or timeout"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "24px",
+        "height": "8px"
+      },
+      "colors": {
+        "background": "#1D2B53",
+        "icon_feed": "#FFA300",
+        "icon_clean": "#C2C3C7",
+        "icon_pet": "#FFCCAA",
+        "icon_disabled": "#5F574F"
+      },
+      "shape": "horizontal row of 3 square icon buttons (8x8px each)",
+      "texture": "solid background with simple icon shapes",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 2,
+        "fps": 0,
+        "loop": false,
+        "description": "frame 1: visible state (icons in color), frame 2: disabled state (icons grayed out #5F574F when on cooldown), instant toggle on/off"
+      },
+      "details": "3 icons: (1) seed shape (#FFA300) for feed, (2) broom shape (#C2C3C7) for clean, (3) hand shape (#FFCCAA) for pet. Each icon 8x8px, positioned at x=96, 104, 112. Dark navy background (#1D2B53). Icons turn gray (#5F574F) when action is on cooldown."
+    },
+    "relationships": {
+      "related_assets": ["seed", "floor", "echo_happy", "echo_eating"],
+      "shared_with": "icon colors match related game elements (seed=orange, broom=gray, hand=skin tone)",
+      "differences_from": "only UI element that appears/disappears, interactive buttons unlike passive happiness bar, overlays game screen"
+    },
+    "explicit_negations": [
+      "no text labels (icons only)",
+      "no animation for appear/disappear (instant toggle)",
+      "no hover states (touch interface)",
+      "no borders or outlines around icons",
+      "no background transparency (solid navy)",
+      "no more than 3 buttons"
+    ]
+  }
+}

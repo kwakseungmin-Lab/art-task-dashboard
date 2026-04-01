@@ -1,0 +1,133 @@
+{
+  "task_id": "ui.care_menu_icons_atlas",
+  "asset_name": "Care_Menu_Icons_Atlas_24x8",
+  "category": "ui",
+  "subcategory": "icon_atlas",
+  "description": "Create a 24x8 px icon atlas containing 3 icons (each 8x8) used in the care menu: [0] feed(seed) icon, [1] clean(sparkle) icon, [2] pet(heart/hand) icon. Background transparent. Use outline #1D2B53 and fills from palette (feed: #FFA300/#FFEC27, clean: #C2C3C7/#FFF1E8, pet: #FF004D/#FF77A8).",
+  "execution_order": 148,
+  "priority": "P1",
+  "depends_on": [
+    "ui.care_menu_panel",
+    "obstacles.seed"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.care_menu_panel",
+    "obstacles.seed"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.care_menu_panel",
+      "obstacles.seed",
+      "character.echo_sprite_sheet"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 8
+    },
+    "cell_size_px": {
+      "width": 8,
+      "height": 8
+    },
+    "cells": [
+      {
+        "index": 0,
+        "name": "feed",
+        "x": 0,
+        "y": 0,
+        "colors_hex": [
+          "#1D2B53",
+          "#FFA300",
+          "#FFEC27"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "clean",
+        "x": 8,
+        "y": 0,
+        "colors_hex": [
+          "#1D2B53",
+          "#C2C3C7",
+          "#FFF1E8"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "pet",
+        "x": 16,
+        "y": 0,
+        "colors_hex": [
+          "#1D2B53",
+          "#FF004D",
+          "#FF77A8"
+        ]
+      }
+    ]
+  },
+  "context": {
+    "role": "Atlas of 3 action icons shown inside ui.care_menu_panel slots.",
+    "screen_position": {
+      "type": "relative_to_parent",
+      "parent_task_id": "ui.care_menu_panel",
+      "anchor": "top_left",
+      "offset_px": [
+        2,
+        4
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "ui",
+      "icons"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/care_menu_icons_atlas_24x8.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/care_menu_icons_atlas_24x8.png",
+      "dimensions_px": {
+        "width": 24,
+        "height": 8
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 24x8 px with transparent background.",
+    "There are 3 icons occupying x ranges [0..7], [8..15], [16..23] with no pixels crossing cell boundaries.",
+    "Only colors from project_common.palette_hex are used, with outlines using #1D2B53."
+  ]
+}

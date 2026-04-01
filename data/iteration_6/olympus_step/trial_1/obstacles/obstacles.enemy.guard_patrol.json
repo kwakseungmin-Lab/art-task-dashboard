@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.enemy.guard_patrol",
+  "asset_name": "Enemy - Guard Patrol",
+  "category": "obstacles",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.player.god_idle"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.hazard.fog_curse"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "background": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "Divine Cyan",
+      "hex": "#06B6D4"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_hd2d_glow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "moving_hazard",
+    "layer": "entities",
+    "usage": "Moves 1 tile per turn along patrol path; collision with player causes failure",
+    "grid": {
+      "tile_size_px": 64,
+      "sprite_anchor": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#6B7280",
+      "#FEF3C7",
+      "#1C1917"
+    ],
+    "animation": {
+      "frame_count": 4,
+      "frame_duration_sec": 0.25,
+      "loop": true,
+      "notes": "1.0s loop; provide left/right-facing via mirroring or extra frames"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png_spritesheet",
+      "file": "obstacles/obstacles.enemy.guard_patrol.png",
+      "transparent_background": true,
+      "frames": {
+        "count": 4,
+        "layout": "horizontal",
+        "frame_size_px": [
+          48,
+          48
+        ]
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "4-frame 48x48px patrol loop; feet motion indicates 1-tile-per-turn pacing.",
+    "Silhouette is distinct from player sprite; readable at 1x scale on grid.",
+    "No weapon attack frames; threat communicated via stance/helm/glow only."
+  ]
+}

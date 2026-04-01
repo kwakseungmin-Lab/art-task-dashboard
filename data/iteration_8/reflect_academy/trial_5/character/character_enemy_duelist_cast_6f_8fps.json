@@ -1,0 +1,171 @@
+{
+  "task_id": "task_id_000008505",
+  "asset_key": "character_enemy_duelist_cast_6f_8fps",
+  "asset_name": "Enemy Duelist Casting Loop",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the project core palette copy #D4AF37/#2B1B17/#00FFFF.",
+    "Frame size remains 120x180 px for the enemy duel slot.",
+    "Casting pose must leave a clear hand-off point for projectile launch at wand x=92 y=58 inside the local frame."
+  ],
+  "differences": [
+    "This file carries the enemy warning pose and launch beat instead of a neutral idle cycle.",
+    "Cape flare and spell sigil pulse over 6 frames at 8 fps."
+  ],
+  "depends_on": [
+    "task_id_000008501"
+  ],
+  "blocks": [
+    "task_id_000008506",
+    "task_id_000008507",
+    "task_id_000008511"
+  ],
+  "blocked_by": [
+    "task_id_000008501"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000008501",
+      "task_id_000008506",
+      "task_id_000008507",
+      "task_id_000008511"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "duel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png",
+      "purpose": "Ground enemy slot scale and fantasy academy lighting."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground the 0.5 second warning beat and enemy HP-side staging."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_6x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "AnimationTimer",
+      "EnemyMage",
+      "Combatant"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_5/character_enemy_duelist_cast_6f_8fps.png with AssetServer during Loading state and store the handle under character_enemy_duelist_cast_6f_8fps.",
+    "runtime_notes": [
+      "Create a 6-column TextureAtlasLayout and loop it while the enemy remains in warning or casting state.",
+      "Place the sprite at z=4 so projectile sprites can pass in front at z=5.",
+      "Keep wand-tip launch coordinates consistent for fire and thunder projectile spawn offsets."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "enemy_cast",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1440,
+        220
+      ]
+    },
+    "layer": "character",
+    "usage": "Shown during the 0.5 second warning beat and the active projectile launch frame.",
+    "adjacent_elements": [
+      "task_id_000008506",
+      "task_id_000008507",
+      "task_id_000008511"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_side",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#D4AF37",
+      "#2B1B17",
+      "#00FFFF",
+      "#FFFACD",
+      "#8E44AD",
+      "#E74C3C"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [
+        120,
+        180
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Rival mage with flared cape, raised wand arm, and a bright launch sigil near the hand.",
+      "components": [
+        "cape sweep",
+        "wand arm",
+        "launch sigil",
+        "boots",
+        "shoulder trim",
+        "face silhouette"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_enemy_duelist_cast_6f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet canvas is exactly 720x180 px with 6 frames.",
+    "Wand-tip launch point remains within a 3 px radius across all frames.",
+    "Launch sigil reaches #FFFACD peak brightness in frame 6 with no outline break."
+  ],
+  "schema_version": "art_task@8",
+  "category": "character"
+}

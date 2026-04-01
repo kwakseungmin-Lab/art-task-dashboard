@@ -1,0 +1,17 @@
+{
+  "category": "items",
+  "base_size": {
+    "width": "2-3px",
+    "height": "2-3px"
+  },
+  "color_scheme": {
+    "primary": "#FFA300",
+    "secondary": "#AB5236"
+  },
+  "shared_attributes": {
+    "sprite_type": "small pixel art objects",
+    "animation_method": "static or simple state changes",
+    "layer_order": 2,
+    "rendering": "rendered on floor or in bowls"
+  }
+}

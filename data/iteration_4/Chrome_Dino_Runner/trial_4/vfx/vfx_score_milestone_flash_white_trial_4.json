@@ -1,0 +1,185 @@
+{
+  "task_id": "cdr_vfx_score_milestone_flash_white",
+  "asset_name": "vfx_score_milestone_flash_white",
+  "category": "vfx",
+  "subcategory": "screen_flash",
+  "description": "Create a full-screen white flash overlay sprite for optional score milestone effect. Canvas size 600x150 px. Solid fill color #FFFFFF, alpha 255 for all pixels. Intended runtime usage: display for exactly 0.1 seconds at 60 FPS (6 frames) then hide.",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Optional visual feedback when score hits multiples of 100.",
+    "screen_location": "Covers full screen.",
+    "adjacent_elements": [
+      "score_display"
+    ],
+    "layer": "vfx_overlay",
+    "usage": "Triggered when displayed_score%100==0; duration 0.1s."
+  },
+  "specs": {
+    "dimensions": "600x150",
+    "colors": [
+      "#FFFFFF"
+    ],
+    "outline": {
+      "enabled": false,
+      "thickness_px": 0
+    },
+    "animation": {
+      "enabled": false
+    },
+    "runtime": {
+      "duration_seconds": 0.1,
+      "frames_at_60fps": 6
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/vfx/vfx_score_milestone_flash_white.png",
+      "type": "vfx_overlay",
+      "format": "png",
+      "dimensions_px": "600x150",
+      "scale": 1,
+      "background": "opaque"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/vfx/vfx_score_milestone_flash_white@2x.png",
+      "type": "vfx_overlay",
+      "format": "png",
+      "dimensions_px": "1200x300",
+      "scale": 2,
+      "scale_method": "nearest_neighbor",
+      "background": "opaque"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_ui_score_display_mock"
+    ],
+    "shared_properties": {
+      "full_screen": true,
+      "effect_color_hex": "#FFFFFF"
+    },
+    "differences": {
+      "trigger": "score milestone only"
+    }
+  },
+  "depends_on": [],
+  "execution_order": 20,
+  "priority": "P2",
+  "blocks": [],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "1x PNG is exactly 600x150 and all pixels are #FFFFFF with alpha 255.",
+    "2x PNG is exactly 1200x300 and is a nearest-neighbor scaled version of 1x."
+  ]
+}

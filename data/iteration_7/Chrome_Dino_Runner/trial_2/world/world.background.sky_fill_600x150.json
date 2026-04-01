@@ -1,0 +1,114 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.sky_fill_600x150",
+  "asset_name": "Sky Fill 600x150",
+  "category": "world",
+  "subcategory": "background_fill",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #535353, background #F7F7F7, and accent #FF0000.",
+    "Canvas target stays 600x150px with pixel-perfect presentation at 60 FPS.",
+    "All painted edges keep a 2px outline rhythm and flat shading."
+  ],
+  "differences": [
+    "This asset is the only full-canvas fill layer and sets the background tone for every scene state.",
+    "The fill is static with no scroll parallax.",
+    "The asset uses only the background color and transparency is not painted."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "world.background.cloud_small_static",
+    "world.background.cloud_large_static"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.cloud_small_static",
+      "world.background.cloud_large_static",
+      "obstacles.pterodactyl.fly_2f_10fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background_sky",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_backdrop",
+    "usage": "Static day sky fill that stays behind every gameplay and fail-state layer.",
+    "adjacent_elements": [
+      "world.background.cloud_small_static",
+      "obstacles.pterodactyl.fly_2f_10fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "camera_fixed",
+      "facing": "none"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 150
+    },
+    "colors_hex": [
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Full rectangular fill layer with no internal cutout shapes.",
+      "components": [
+        "sky_fill_rect"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.sky_fill_600x150.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 600x150px.",
+    "Every painted pixel uses #F7F7F7 with no other visible colors.",
+    "No internal decorative shapes or gradients appear in the fill layer."
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.environment.mirror_panel_8x64",
+  "asset_name": "Mirror — Reflect Panel (8x64)",
+  "category": "obstacles",
+  "subcategory": "environment_interactive",
+  "priority": "P1",
+  "execution_order": 110,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "perfect_reflector",
+    "layer": "obstacles",
+    "usage": "High-reflection surface (mirror). Placed as a thin vertical panel.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 64
+    },
+    "colors_hex": [
+      "#F5F0E8",
+      "#A89880",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "material_notes": [
+      "Hint of shine using ivory (#F5F0E8) highlight; avoid realistic reflections."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.mirror_panel_8x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 8x64px with transparent background; silhouette is a thin panel with a small frame.",
+    "Highlight occupies <=2px width and stays consistent along the vertical length.",
+    "No text or symbols on the mirror; keep it generic for stage reuse."
+  ]
+}

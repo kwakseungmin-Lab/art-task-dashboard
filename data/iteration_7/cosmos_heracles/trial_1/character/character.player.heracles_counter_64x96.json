@@ -1,0 +1,157 @@
+{
+  "asset_name": "Player Counter Pose 64x96",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 23,
+  "variant_of": "character.player.heracles_form_64x96",
+  "shared_properties": {
+    "camera_angle": "side_orthographic",
+    "facing": "right",
+    "dimensions_px": [
+      64,
+      96
+    ],
+    "bronze_armor_hex": "#C47C2B"
+  },
+  "differences": {
+    "animation": {
+      "from": "6 frame run loop",
+      "to": "3 frame counter strike one-shot"
+    },
+    "effect_color_hex": {
+      "from": "#FFD966",
+      "to": "#40E8D0"
+    }
+  },
+  "depends_on": [
+    "character.player.heracles_form_64x96"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.heracles_form_64x96"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.counter_gauge",
+      "ui.popup.counter_result"
+    ]
+  },
+  "context": {
+    "role": "player_counter_pose",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 400,
+      "y": 724
+    },
+    "adjacent_elements": [
+      "ui.hud.counter_gauge",
+      "ui.popup.counter_result"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Visible for the counter success window and perfect counter window; one-shot state length 0.24 seconds."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 96
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#FFD966",
+      "#C47C2B",
+      "#E8B87A",
+      "#40E8D0"
+    ],
+    "animation": {
+      "type": "one_shot",
+      "frame_count": 3,
+      "frame_time_s": 0.08,
+      "loop": false,
+      "sprite_sheet_layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Base humanoid profile with front arm extension increased to 24 px and rear leg planted under torso center.",
+      "components": [
+        "head 16x16",
+        "extended front arm 24x8",
+        "torso 24x32",
+        "front leg brace 8x32",
+        "counter arc 32x32"
+      ]
+    },
+    "face": {
+      "eyes": "2 px sclera with 1 px pupil",
+      "mouth": "2 px diagonal line",
+      "nose": "2 px forward wedge"
+    },
+    "appendages": {
+      "arms": "2",
+      "legs": "2",
+      "tail": "none",
+      "accessories": [
+        "counter arc"
+      ]
+    },
+    "texture": "bronze_plate_plus_cloth",
+    "collision_box_px": {
+      "width": 64,
+      "height": 96
+    },
+    "telegraph_window_ms": 80,
+    "shading_model": "two_tone_flat"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.heracles_counter_64x96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet bounding box is exactly 64x96 px per frame.",
+    "Sheet contains exactly 3 frames in one row.",
+    "Counter arc uses #40E8D0 and appears in at least 80 visible pixels.",
+    "Ground contact remains aligned to y 820 across all 3 frames."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "character.player.heracles_counter_64x96",
+  "category": "character",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "pico_echo",
+    "project_name": "Pico_Echo"
+  },
+  "meta": {
+    "plan_id": "Pico_Echo__iter8__trial5",
+    "game_name": "Pico_Echo",
+    "iteration": 8,
+    "trial_index": 5,
+    "plan_dir": "trial_5",
+    "created_at_utc": "2026-03-25T10:01:26Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md",
+    "run_id": "20260325_085239_53910769"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FFA300"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "reference_images": [
+    {
+      "label": "proxy_pixel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/quality-consistency/step0-gdd-generation/sample_gdds/echo_spin_4.2/_images/moodboard.png",
+      "purpose": "Proxy pixel-density board for warm low-resolution scenes because the Pico Echo image generator was cancelled before upload."
+    },
+    {
+      "label": "proxy_character_silhouette",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/echo_detective/_images/player.png",
+      "purpose": "Proxy sprite silhouette reference for keeping the playable bird readable at 1x scale."
+    },
+    {
+      "label": "proxy_environment_spacing",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_A2/_ReferenceImages/background.png",
+      "purpose": "Proxy room-layout reference for placing floor, perch, and prop anchors inside a tiny scene."
+    },
+    {
+      "label": "proxy_hud_density",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_A2/_ReferenceImages/hud.png",
+      "purpose": "Proxy UI spacing reference for compact bars, buttons, and bubbles in a 128x128 frame."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "sprite_pipeline": "Author each PNG for nearest-neighbor sampling, render with an orthographic 2D camera, and keep transforms on integer pixels.",
+    "ecs_model": "Use separate entities for cage shell, foreground bars, feed props, cleanup feedback, Echo animation sheets, happiness HUD, care popup, and status bubbles.",
+    "asset_loading": "Load all Pico Echo trial_5 PNG handles during a Loading state with AssetServer and keep them in a typed resource keyed by asset_key.",
+    "runtime_notes": [
+      "Create TextureAtlasLayout resources during startup before gameplay begins for every sheet-based asset.",
+      "Render world and obstacle layers behind Echo, keep the foreground bar overlay above Echo, and draw UI on a separate overlay camera layer.",
+      "Use fixed-timestep timers for state-sheet playback so idle, eating, sleeping, and HUD animations stay deterministic.",
+      "Keep every sprite origin and translation on whole pixels to avoid shimmer in the 128x128 presentation."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "file_stem_equals_asset_key"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "care_feed",
+      "label": "Feed Echo and clear hunger",
+      "description": "The player fills the bowl, Echo pecks through the food animation, and the interface confirms the recovery without leaving the cozy cage view.",
+      "critical_states": [
+        "food_empty",
+        "food_refilled",
+        "eating",
+        "hungry_cleared"
+      ],
+      "task_ids": [
+        "task_id_000000801",
+        "task_id_000000803",
+        "task_id_000000805",
+        "task_id_000000808",
+        "task_id_000000809"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000808",
+        "task_id_000000809"
+      ]
+    },
+    {
+      "mechanic_id": "care_clean",
+      "label": "Clean the cage floor",
+      "description": "The bottom band accumulates dirt marks, the player swipes to clear them, and a brief sparkle confirms the low-stress cleanup loop.",
+      "critical_states": [
+        "dirty_1",
+        "dirty_3",
+        "dirty_5",
+        "post_clean_sparkle"
+      ],
+      "task_ids": [
+        "task_id_000000801",
+        "task_id_000000804",
+        "task_id_000000805",
+        "task_id_000000808",
+        "task_id_000000807"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000808",
+        "task_id_000000807"
+      ]
+    },
+    {
+      "mechanic_id": "pet_and_observe",
+      "label": "Pet Echo and observe reward behavior",
+      "description": "Touch feedback shifts Echo into happy or singing poses while the bubble system adds concise emotion cues near the head space.",
+      "critical_states": [
+        "happy",
+        "preening",
+        "singing",
+        "status_heart"
+      ],
+      "task_ids": [
+        "task_id_000000805",
+        "task_id_000000806",
+        "task_id_000000809"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000809"
+      ]
+    },
+    {
+      "mechanic_id": "sleep_cycle",
+      "label": "Night rest and wake cycle",
+      "description": "Echo transitions into a tucked sleeping pose during the configured rest window and surfaces readable sleep cues without changing the room shell.",
+      "critical_states": [
+        "sleeping",
+        "zzz_bubble",
+        "wake_return"
+      ],
+      "task_ids": [
+        "task_id_000000801",
+        "task_id_000000806",
+        "task_id_000000809"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000809"
+      ]
+    },
+    {
+      "mechanic_id": "happiness_monitor",
+      "label": "Track the steady happiness baseline",
+      "description": "The happiness bar communicates the 50 to 100 comfort range while care actions and calm observation shift the color thresholds.",
+      "critical_states": [
+        "low_50",
+        "warm_70",
+        "bright_90",
+        "max_100"
+      ],
+      "task_ids": [
+        "task_id_000000805",
+        "task_id_000000806",
+        "task_id_000000807",
+        "task_id_000000809"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000807",
+        "task_id_000000809"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_000000801",
+      "asset_key": "world_cage_room_shell_static",
+      "category": "world",
+      "file": "world/world_cage_room_shell_static.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000802",
+      "asset_key": "world_cage_foreground_bar_overlay",
+      "category": "world",
+      "file": "world/world_cage_foreground_bar_overlay.json",
+      "execution_order": 20,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000803",
+      "asset_key": "obstacles_cage_feed_station_set",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_cage_feed_station_set.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000804",
+      "asset_key": "obstacles_cage_cleanup_feedback_set",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_cage_cleanup_feedback_set.json",
+      "execution_order": 40,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000805",
+      "asset_key": "character_echo_behavior_core_sheet_21f",
+      "category": "character",
+      "file": "character/character_echo_behavior_core_sheet_21f.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000806",
+      "asset_key": "character_echo_affection_rest_sheet_20f",
+      "category": "character",
+      "file": "character/character_echo_affection_rest_sheet_20f.json",
+      "execution_order": 60,
+      "variant_of": "task_id_000000805",
+      "variant_of_asset_key": "character_echo_behavior_core_sheet_21f"
+    },
+    {
+      "task_id": "task_id_000000807",
+      "asset_key": "ui_hud_happiness_bar_states",
+      "category": "ui",
+      "file": "ui/ui_hud_happiness_bar_states.json",
+      "execution_order": 70,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000808",
+      "asset_key": "ui_menu_care_popup_icons",
+      "category": "ui",
+      "file": "ui/ui_menu_care_popup_icons.json",
+      "execution_order": 80,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000809",
+      "asset_key": "ui_widget_status_bubble_set",
+      "category": "ui",
+      "file": "ui/ui_widget_status_bubble_set.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ],
+  "source_material": {
+    "gdd_documents": [
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Game_Direction.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/HappinessSystem.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/CareSystem.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/BehaviorSystem.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/TimeSystem.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Echo.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Seed.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Poop.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md"
+    ],
+    "generation_report": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/_meta/generation_report.json",
+    "image_status": "Original workflow image generation was cancelled before upload, so actual repo PNG proxies are used for pixel-density grounding while the Pico Echo GDD remains the content authority."
+  },
+  "generation_log": {
+    "kb_reference_used": true,
+    "kb_findings": [
+      "Art Task Plan KB shows Pico_Echo trial 5 passed in iterations 6 and 7, with older iteration 4 and 5 fail history present.",
+      "Meta Iteration KB records iteration 5 dependency and grouping issues plus iteration 6 infrastructure anomalies, while iteration 7 reached a full PASS run."
+    ],
+    "avoidance_actions": [
+      "Created every required category with at least one asset JSON.",
+      "Kept manifest task_id, asset_key, file path, execution order, and variant lineage aligned.",
+      "Embedded reference_images and Bevy constraints in the package and every asset.",
+      "Used a complete folder package contract instead of legacy single-file output."
+    ]
+  }
+}

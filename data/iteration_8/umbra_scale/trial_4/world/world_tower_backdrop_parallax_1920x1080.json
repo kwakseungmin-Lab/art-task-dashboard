@@ -1,0 +1,163 @@
+{
+  "task_id": "task_id_008004001",
+  "asset_key": "world_tower_backdrop_parallax_1920x1080",
+  "asset_name": "Tower Backdrop Parallax",
+  "category": "world",
+  "subcategory": "backdrop",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004002",
+      "task_id_008004004",
+      "task_id_008004011"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use layered SpriteBundle quads with three parallax strips that share one backdrop atlas for midground and skyline silhouettes.",
+    "atlas_or_static": "static_layers",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "ParallaxLayer",
+      "WorldBackdrop"
+    ],
+    "asset_loading": "Load world/world_tower_backdrop_parallax_1920x1080.png through AssetServer before floor assembly.",
+    "runtime_notes": [
+      "Back, mid, and front layers scroll at 0.3x, 0.6x, and 1.0x camera speed.",
+      "Window glow accents remain sparse so the beam overlays stay dominant.",
+      "The horizon stays below the top quarter of frame to preserve climb readability."
+    ]
+  },
+  "context": {
+    "role": "tower_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "world_background",
+    "usage": "Primary tower-city panorama behind every puzzle floor, combining art deco arches, stacked bridges, and distant windows to keep vertical ascent readable.",
+    "adjacent_elements": [
+      "world_shadow_safe_zone_tilekit_32px",
+      "world_exit_door_8f_64x96",
+      "player_umbra_idle_6f_8fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#D4682A",
+      "#C9A84C",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Three-layer tower panorama with tapered spires, suspended bridges, and deco arch windows framed by thin gold trim.",
+      "components": [
+        "far_spire_band",
+        "mid_tower_stack",
+        "foreground_bridge_chain",
+        "window_glow_nodes",
+        "decorative_gold_insets"
+      ]
+    },
+    "parallax_layers": [
+      {
+        "name": "far_spires",
+        "speed_multiplier": 0.3
+      },
+      {
+        "name": "mid_towers",
+        "speed_multiplier": 0.6
+      },
+      {
+        "name": "foreground_bridges",
+        "speed_multiplier": 1.0
+      }
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_tower_backdrop_parallax_1920x1080.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 1920x1080 px.",
+    "At least three readable depth bands remain distinct at 50 percent brightness.",
+    "Gold trim occupies less than 8 percent of pixels so the backdrop never overpowers beam hazards."
+  ],
+  "blocked_by": [],
+  "blocks": [
+    "task_id_008004002",
+    "task_id_008004003",
+    "task_id_008004004",
+    "task_id_008004005",
+    "task_id_008004009",
+    "task_id_008004011"
+  ],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

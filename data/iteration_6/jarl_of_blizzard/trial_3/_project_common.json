@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task_plan_pkg@6",
+  "project": {
+    "project_id": "jarl_of_blizzard",
+    "project_name": "Jarl of Blizzard"
+  },
+  "meta": {
+    "game_name": "jarl_of_blizzard",
+    "iteration": 6,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-03-10T07:26:55Z",
+    "git_ref": "art_task_plan/iter6_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v6.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "character.player.jarl_portrait_sheet_64_4f",
+      "category": "character",
+      "file": "character/character.player.jarl_portrait_sheet_64_4f.json"
+    },
+    {
+      "task_id": "character.unit.warrior_idle_sheet_32x48_4f",
+      "category": "character",
+      "file": "character/character.unit.warrior_idle_sheet_32x48_4f.json"
+    },
+    {
+      "task_id": "world.building.viking_settlement_bw_atlas",
+      "category": "world",
+      "file": "world/world.building.viking_settlement_bw_atlas.json"
+    },
+    {
+      "task_id": "world.tiles.snow_ground_16_atlas",
+      "category": "world",
+      "file": "world/world.tiles.snow_ground_16_atlas.json"
+    },
+    {
+      "task_id": "world.props.resource_piles_bw_atlas",
+      "category": "world",
+      "file": "world/world.props.resource_piles_bw_atlas.json"
+    },
+    {
+      "task_id": "obstacles.vfx.blizzard_particles_2px_strip_8",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.vfx.blizzard_particles_2px_strip_8.json"
+    },
+    {
+      "task_id": "obstacles.vfx.whiteout_vignette_masks_512_set_4",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.vfx.whiteout_vignette_masks_512_set_4.json"
+    },
+    {
+      "task_id": "obstacles.icon.event_icons_24_set_5",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.icon.event_icons_24_set_5.json"
+    },
+    {
+      "task_id": "ui.typography.bitmap_font_bw_8px",
+      "category": "ui",
+      "file": "ui/ui.typography.bitmap_font_bw_8px.json"
+    },
+    {
+      "task_id": "ui.icons.resources_24_set_6",
+      "category": "ui",
+      "file": "ui/ui.icons.resources_24_set_6.json"
+    },
+    {
+      "task_id": "ui.hud.winter_round_bw_panels_atlas",
+      "category": "ui",
+      "file": "ui/ui.hud.winter_round_bw_panels_atlas.json"
+    },
+    {
+      "task_id": "ui.cursor.pointer_bw_16",
+      "category": "ui",
+      "file": "ui/ui.cursor.pointer_bw_16.json"
+    }
+  ]
+}

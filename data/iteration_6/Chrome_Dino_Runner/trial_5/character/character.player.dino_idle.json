@@ -1,0 +1,93 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.dino_idle",
+  "asset_name": "Player Dino - Idle",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player",
+    "layer": "gameplay",
+    "usage": "Displayed before game start and when grounded without movement input state changes",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 100,
+      "y": 0,
+      "origin": "ground_baseline"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 2,
+      "fps": 6,
+      "loop": true,
+      "frame_order": [
+        0,
+        1
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_idle.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet contains exactly 2 frames for idle at 88x94px each; total sheet width is 176px and height is 94px.",
+    "Uses only #535353 for dino pixels and transparent/#F7F7F7 for non-dino pixels; no anti-aliasing.",
+    "Outline thickness is 2px maximum and the feet contact point aligns to a consistent baseline across both frames."
+  ]
+}

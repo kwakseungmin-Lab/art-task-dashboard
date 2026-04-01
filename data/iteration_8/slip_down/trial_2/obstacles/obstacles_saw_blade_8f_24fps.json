@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000006",
+  "asset_name": "Saw Blade Rotor (24x24, 8 frames, 24fps)",
+  "category": "obstacles",
+  "subcategory": "hazard_animated",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": [
+    "Rotor footprint remains 24x24 px with a centered axle and eight evenly spaced teeth readable at high speed.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while blade colors stay inside specs.colors_hex.",
+    "Outer diameter occupies at least 22 px so the blade feels larger than the player shoulder width."
+  ],
+  "differences": [
+    "Eight frames cover a full 360 degree clockwise rotation at 24 fps for a mechanical hazard cadence.",
+    "Cold-steel teeth use #8FA8B8 highlights on the outer arc while the hub remains dark and heavy.",
+    "Motion blur is avoided entirely so each tooth remains crisp at every angle."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000003",
+      "task_id_802000014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the 24x24 saw blade size, fixed-position rotation hazard, and one-hit HP loss behavior used in dark zones."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the cold metallic hazard language and grim shaft atmosphere needed for late-run threats."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player-to-hazard scale so the saw reads as a large, unfair-looking but clearly visible trap."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for static hazards or SpriteSheetBundle for animated hazards, all rendered with nearest-neighbor sampling.",
+    "atlas_or_static": "mixed_static_and_texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load hazard textures and atlases during the shared Loading state and expose handles through HazardVisualRegistry keyed by asset_key.",
+    "runtime_notes": [
+      "Keep collision volumes in gameplay components rather than inferring them from visual pixels.",
+      "Align every hazard origin to the 16x16 grid unless the authored size is 24x24 or 48x16 by design.",
+      "Use visibility toggles or atlas index changes instead of runtime texture swaps to avoid hitching during repeated descent loops."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hazard",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        716,
+        300
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Rotating stationary hazard introduced in the dark zone and abyss.",
+    "adjacent_elements": [
+      "task_id_802000009"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 24
+    },
+    "colors_hex": [
+      "#8FA8B8",
+      "#3B3347",
+      "#0D0D0F",
+      "#1A1A2E"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 24,
+      "loop": true,
+      "frame_size_px": [
+        24,
+        24
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "rotation_notes": [
+      "Hub diameter is 6 px and stays centered at x12 y12 in every frame.",
+      "Tooth tips reach at least x1 and x23 across the rotation cycle.",
+      "No tooth overlap or smear exceeds 1 px beyond the 24x24 bounds."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_saw_blade_8f_24fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x24 px with 8 frames of 24x24 px and 0 px spacing.",
+    "All 8 frames keep the axle centered at x12 y12 and preserve a full visible tooth ring.",
+    "Palette uses only the listed steel and shadow colors plus transparency, with no motion blur or anti-aliasing."
+  ],
+  "asset_key": "obstacles_saw_blade_8f_24fps",
+  "variant_of_asset_key": null
+}

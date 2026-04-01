@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.ground.line_1200x2_scroll",
+  "asset_name": "World — Ground Line (1200x2, scrolling)",
+  "category": "world",
+  "subcategory": "ground",
+  "priority": "P0",
+  "execution_order": 210,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player_dino.run_2f_12fps",
+      "obstacles.cactus.small_static_34x70"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground",
+    "layer": "world",
+    "usage": "Single ground line; loops seamlessly; scroll speed matches game speed (300–900 px/s).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        120
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 2
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        1200,
+        2
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "tiling": {
+      "type": "horizontal",
+      "seamless": true
+    },
+    "scrolling": {
+      "enabled": true,
+      "parallax_factor": 1.0,
+      "speed_px_per_sec_range": [
+        300,
+        900
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground.line_1200x2_scroll.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1200x2px.",
+    "Texture (if any) does not create visible seams when tiled horizontally.",
+    "Only #535353 pixels + transparency are used."
+  ]
+}

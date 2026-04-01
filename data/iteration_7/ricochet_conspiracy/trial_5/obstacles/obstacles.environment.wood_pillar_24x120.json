@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.wood_pillar_24x120",
+  "asset_name": "Wood Pillar (24x120)",
+  "category": "obstacles",
+  "subcategory": "environment_pillar",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [
+    "obstacles.launchable.gold_urn_static_36x44",
+    "obstacles.launchable.book_static_28x20"
+  ],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.gold_urn_static_36x44",
+      "obstacles.launchable.book_static_28x20"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "environment_obstacle",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Placed in the play lane as a vertical pillar that falls after 3 hits and clears a narrow horizontal path.",
+    "adjacent_elements": [
+      "floor trim",
+      "gold urn"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 120
+    },
+    "colors_hex": [
+      "#8B6B5C",
+      "#B58863",
+      "#D4A843",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "tall thin pillar with ring trim and a wider base foot at 24x120",
+      "components": [
+        "cap_ring",
+        "shaft",
+        "base_foot",
+        "wood_grain_bands"
+      ]
+    },
+    "physics_tags": {
+      "hp": 3,
+      "fall_trigger_hits": 3,
+      "fall_path_length_px": 120
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.wood_pillar_24x120.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 24x120px and the shaft stays centered within a 20px width for the full height.",
+    "Ring trim appears at y=16px and y=96px with 3px height for each band.",
+    "Only #8B6B5C, #B58863, #D4A843, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

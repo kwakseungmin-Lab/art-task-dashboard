@@ -1,0 +1,149 @@
+{
+  "schema_version": "art_task_plan_pkg@6",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner"
+  },
+  "meta": {
+    "game_name": "Chrome_Dino_Runner",
+    "iteration": 6,
+    "trial_index": 2,
+    "plan_dir": "trial_2",
+    "created_at_utc": "2026-03-10T06:07:40Z",
+    "git_ref": "art_task_plan/iter6_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v6.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "character.dino.run_6f_12fps",
+      "category": "character",
+      "file": "character/character.dino.run_6f_12fps.json"
+    },
+    {
+      "task_id": "character.dino.jump_static",
+      "category": "character",
+      "file": "character/character.dino.jump_static.json"
+    },
+    {
+      "task_id": "character.dino.duck_2f_6fps",
+      "category": "character",
+      "file": "character/character.dino.duck_2f_6fps.json"
+    },
+    {
+      "task_id": "character.dino.dead_static",
+      "category": "character",
+      "file": "character/character.dino.dead_static.json"
+    },
+    {
+      "task_id": "obstacles.cactus.small_single_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.small_single_static.json"
+    },
+    {
+      "task_id": "obstacles.cactus.group_medium_2_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.group_medium_2_static.json"
+    },
+    {
+      "task_id": "obstacles.cactus.group_large_3_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.group_large_3_static.json"
+    },
+    {
+      "task_id": "obstacles.pterodactyl.fly_2f_10fps_low",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pterodactyl.fly_2f_10fps_low.json"
+    },
+    {
+      "task_id": "obstacles.pterodactyl.fly_2f_10fps_high",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pterodactyl.fly_2f_10fps_high.json"
+    },
+    {
+      "task_id": "world.ground.line_tile_600x16",
+      "category": "world",
+      "file": "world/world.ground.line_tile_600x16.json"
+    },
+    {
+      "task_id": "world.ground.bump_tile_60x16",
+      "category": "world",
+      "file": "world/world.ground.bump_tile_60x16.json"
+    },
+    {
+      "task_id": "world.background.cloud_small_static",
+      "category": "world",
+      "file": "world/world.background.cloud_small_static.json"
+    },
+    {
+      "task_id": "world.background.cloud_large_static",
+      "category": "world",
+      "file": "world/world.background.cloud_large_static.json"
+    },
+    {
+      "task_id": "world.background.horizon_silhouette_600x60",
+      "category": "world",
+      "file": "world/world.background.horizon_silhouette_600x60.json"
+    },
+    {
+      "task_id": "ui.font.score_digits_5x7_10glyph",
+      "category": "ui",
+      "file": "ui/ui.font.score_digits_5x7_10glyph.json"
+    },
+    {
+      "task_id": "ui.text.game_over_96x16",
+      "category": "ui",
+      "file": "ui/ui.text.game_over_96x16.json"
+    },
+    {
+      "task_id": "ui.icon.restart_24x24",
+      "category": "ui",
+      "file": "ui/ui.icon.restart_24x24.json"
+    },
+    {
+      "task_id": "ui.text.hi_label_16x7",
+      "category": "ui",
+      "file": "ui/ui.text.hi_label_16x7.json"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.enemy.cerberus",
+  "asset_name": "Cerberus Charge Set",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P1",
+  "execution_order": 190,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.counter_pose",
+      "ui.widget.counter_gauge_ring"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "enemy",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 1120,
+      "y_px": 724
+    },
+    "layer": "character",
+    "usage": "Zone 3 chase enemy with three heads and fast forward pressure."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 96
+    },
+    "colors_hex": [
+      "#5A4638",
+      "#C47C2B",
+      "#E84040",
+      "#FFD966",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemy.cerberus.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 1024x96px with eight 128x96 frames.",
+    "All three heads stay readable as separate silhouettes on every run frame.",
+    "Forward lean communicates the extra chase pressure without extending beyond the 128px frame width."
+  ]
+}

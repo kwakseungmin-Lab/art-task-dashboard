@@ -1,0 +1,372 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "reflect_academy",
+    "project_name": "Reflect Academy"
+  },
+  "meta": {
+    "plan_id": "reflect_academy__iter8__trial3",
+    "game_name": "reflect_academy",
+    "iteration": 8,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-03-25T16:40:23Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 0.14 SpriteBundle and TextureAtlasLayout for animated characters, projectiles, and reflect effects, plus ImageBundle for anchored HUD widgets inside a 1920x1080 logical canvas.",
+    "ecs_model": "Separate ArenaBackground, ArenaPlatform, SpellLaneOverlay, PlayerReflector, EnemyCaster, SpellProjectile, ReflectBurstFx, and HUD widget components so render order and interaction points stay deterministic.",
+    "asset_loading": "Load every PNG through AssetServer during duel scene setup, cache handles in a ReflectAcademyArtManifest resource keyed by task_id and asset_key, and build atlas layouts from specs.animation metadata.",
+    "runtime_notes": [
+      "Combat sprites live in world space under a fixed orthographic camera with 16:9 letterbox support.",
+      "Projectile motion uses Transform updates driven by Time delta and does not rely on a physics engine.",
+      "HUD assets remain in Bevy UI space while forecast icons can attach to world-space anchors above the enemy."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key_for_json_and_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "enemy_spell_telegraph_and_launch",
+      "label": "Enemy spell telegraph and launch readability",
+      "description": "Covers the champion cast pose, lane setup, and elemental projectile read before the player commits a card.",
+      "critical_states": [
+        "telegraph_start",
+        "forecast_visible",
+        "projectile_launch",
+        "multi_element_swap"
+      ],
+      "task_ids": [
+        "task_id_008003003",
+        "task_id_008003009",
+        "task_id_008003010",
+        "task_id_008003012",
+        "task_id_008003013",
+        "task_id_008003014",
+        "task_id_008003015"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008003019"
+      ]
+    },
+    {
+      "mechanic_id": "reflection_timing_and_resolution",
+      "label": "Reflection timing and resolution",
+      "description": "Covers player ready, success, and fail poses, the reflect burst, and the timing bar that communicates perfect and good windows.",
+      "critical_states": [
+        "card_primed",
+        "perfect_window",
+        "good_window",
+        "miss_window",
+        "reflect_return"
+      ],
+      "task_ids": [
+        "task_id_008003004",
+        "task_id_008003005",
+        "task_id_008003006",
+        "task_id_008003007",
+        "task_id_008003008",
+        "task_id_008003012",
+        "task_id_008003013",
+        "task_id_008003014",
+        "task_id_008003015"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008003016",
+        "task_id_008003020"
+      ]
+    },
+    {
+      "mechanic_id": "deck_and_cost_loop",
+      "label": "Deck hand and cost loop",
+      "description": "Covers the five-slot hand strip, primed stance, and upper-left round feedback that support draw, hover, commit, and discard decisions.",
+      "critical_states": [
+        "round_draw",
+        "hand_full",
+        "card_hover",
+        "card_commit",
+        "discard"
+      ],
+      "task_ids": [
+        "task_id_008003005",
+        "task_id_008003006",
+        "task_id_008003017",
+        "task_id_008003020"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008003017",
+        "task_id_008003020"
+      ]
+    },
+    {
+      "mechanic_id": "health_and_victory_feedback",
+      "label": "Health loss and victory feedback",
+      "description": "Covers player hit feedback, enemy defeat, HP bars, and the combo panel that bridge combat resolution into round end.",
+      "critical_states": [
+        "player_hit",
+        "enemy_hit",
+        "enemy_defeated",
+        "round_end",
+        "reward_ready"
+      ],
+      "task_ids": [
+        "task_id_008003004",
+        "task_id_008003008",
+        "task_id_008003011",
+        "task_id_008003018"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008003018",
+        "task_id_008003020"
+      ]
+    },
+    {
+      "mechanic_id": "arena_readability_and_safe_zones",
+      "label": "Arena readability and safe zones",
+      "description": "Covers the hall background, duel platform, lane overlay, and actor placement that keep silhouettes readable across the full duel screen.",
+      "critical_states": [
+        "pre_duel",
+        "idle_readability",
+        "projectile_clear_lane"
+      ],
+      "task_ids": [
+        "task_id_008003001",
+        "task_id_008003002",
+        "task_id_008003003",
+        "task_id_008003005",
+        "task_id_008003009"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008003018"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_008003001",
+      "asset_key": "world_academy_hall_background_1920x1080",
+      "category": "world",
+      "file": "world/world_academy_hall_background_1920x1080.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003002",
+      "asset_key": "world_duel_platform_960x180",
+      "category": "world",
+      "file": "world/world_duel_platform_960x180.json",
+      "execution_order": 20,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003003",
+      "asset_key": "world_spell_lane_overlay_960x220",
+      "category": "world",
+      "file": "world/world_spell_lane_overlay_960x220.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003004",
+      "asset_key": "world_reflect_burst_fx_8f_160x160",
+      "category": "world",
+      "file": "world/world_reflect_burst_fx_8f_160x160.json",
+      "execution_order": 40,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003005",
+      "asset_key": "player_student_idle_8f_8fps",
+      "category": "character",
+      "file": "character/player_student_idle_8f_8fps.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003006",
+      "asset_key": "player_student_reflect_ready_4f_12fps",
+      "category": "character",
+      "file": "character/player_student_reflect_ready_4f_12fps.json",
+      "execution_order": 60,
+      "variant_of": "task_id_008003005",
+      "variant_of_asset_key": "player_student_idle_8f_8fps"
+    },
+    {
+      "task_id": "task_id_008003007",
+      "asset_key": "player_student_reflect_success_6f_14fps",
+      "category": "character",
+      "file": "character/player_student_reflect_success_6f_14fps.json",
+      "execution_order": 70,
+      "variant_of": "task_id_008003005",
+      "variant_of_asset_key": "player_student_idle_8f_8fps"
+    },
+    {
+      "task_id": "task_id_008003008",
+      "asset_key": "player_student_reflect_fail_4f_10fps",
+      "category": "character",
+      "file": "character/player_student_reflect_fail_4f_10fps.json",
+      "execution_order": 80,
+      "variant_of": "task_id_008003005",
+      "variant_of_asset_key": "player_student_idle_8f_8fps"
+    },
+    {
+      "task_id": "task_id_008003009",
+      "asset_key": "enemy_champion_idle_8f_8fps",
+      "category": "character",
+      "file": "character/enemy_champion_idle_8f_8fps.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003010",
+      "asset_key": "enemy_champion_cast_6f_12fps",
+      "category": "character",
+      "file": "character/enemy_champion_cast_6f_12fps.json",
+      "execution_order": 100,
+      "variant_of": "task_id_008003009",
+      "variant_of_asset_key": "enemy_champion_idle_8f_8fps"
+    },
+    {
+      "task_id": "task_id_008003011",
+      "asset_key": "enemy_champion_defeated_8f_8fps",
+      "category": "character",
+      "file": "character/enemy_champion_defeated_8f_8fps.json",
+      "execution_order": 110,
+      "variant_of": "task_id_008003009",
+      "variant_of_asset_key": "enemy_champion_idle_8f_8fps"
+    },
+    {
+      "task_id": "task_id_008003012",
+      "asset_key": "projectile_fire_fly_6f_12fps",
+      "category": "obstacles",
+      "file": "obstacles/projectile_fire_fly_6f_12fps.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003013",
+      "asset_key": "projectile_water_fly_6f_12fps",
+      "category": "obstacles",
+      "file": "obstacles/projectile_water_fly_6f_12fps.json",
+      "execution_order": 130,
+      "variant_of": "task_id_008003012",
+      "variant_of_asset_key": "projectile_fire_fly_6f_12fps"
+    },
+    {
+      "task_id": "task_id_008003014",
+      "asset_key": "projectile_thunder_fly_6f_14fps",
+      "category": "obstacles",
+      "file": "obstacles/projectile_thunder_fly_6f_14fps.json",
+      "execution_order": 140,
+      "variant_of": "task_id_008003012",
+      "variant_of_asset_key": "projectile_fire_fly_6f_12fps"
+    },
+    {
+      "task_id": "task_id_008003015",
+      "asset_key": "projectile_dark_fly_6f_10fps",
+      "category": "obstacles",
+      "file": "obstacles/projectile_dark_fly_6f_10fps.json",
+      "execution_order": 150,
+      "variant_of": "task_id_008003012",
+      "variant_of_asset_key": "projectile_fire_fly_6f_12fps"
+    },
+    {
+      "task_id": "task_id_008003016",
+      "asset_key": "ui_timing_bar_600x30",
+      "category": "ui",
+      "file": "ui/ui_timing_bar_600x30.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003017",
+      "asset_key": "ui_hand_card_strip_5x80x120",
+      "category": "ui",
+      "file": "ui/ui_hand_card_strip_5x80x120.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003018",
+      "asset_key": "ui_hp_bars_dual_440x32",
+      "category": "ui",
+      "file": "ui/ui_hp_bars_dual_440x32.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003019",
+      "asset_key": "ui_enemy_forecast_icon_atlas_8x40",
+      "category": "ui",
+      "file": "ui/ui_enemy_forecast_icon_atlas_8x40.json",
+      "execution_order": 190,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008003020",
+      "asset_key": "ui_round_combo_panel_180x64",
+      "category": "ui",
+      "file": "ui/ui_round_combo_panel_180x64.json",
+      "execution_order": 200,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

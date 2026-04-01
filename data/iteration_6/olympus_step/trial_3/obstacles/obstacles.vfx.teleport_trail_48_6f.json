@@ -1,0 +1,122 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.teleport_trail_48_6f",
+  "asset_name": "VFX — Teleport Trail / Afterimage (48px, 6 frames)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P1",
+  "execution_order": 28,
+  "variant_of": null,
+  "depends_on": [
+    "character.player.god_teleport_sheet_48_6f"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.god_teleport_sheet_48_6f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "additive",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "vfx_sprite",
+    "layer": "effects",
+    "usage": "Afterimage/trail spawned during each teleport hop; ~30% opacity ghost fades quickly.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 288,
+      "height": 48
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "frame_size_px": {
+      "width": 48,
+      "height": 48
+    },
+    "frame_count": 6,
+    "fps": 12,
+    "frames": [
+      {
+        "id": "trail_1",
+        "note": "Fade step"
+      },
+      {
+        "id": "trail_2",
+        "note": "Fade step"
+      },
+      {
+        "id": "trail_3",
+        "note": "Fade step"
+      },
+      {
+        "id": "trail_4",
+        "note": "Fade step"
+      },
+      {
+        "id": "trail_5",
+        "note": "Fade step"
+      },
+      {
+        "id": "trail_6",
+        "note": "Fade step"
+      }
+    ],
+    "layout_note": "Single-row strip 288×48. Centered origin; cyan/white glow."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.teleport_trail_48_6f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Aligns to player origin (centered).",
+    "Smooth fade with no popping."
+  ]
+}

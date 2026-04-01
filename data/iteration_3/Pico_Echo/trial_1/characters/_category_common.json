@@ -1,0 +1,21 @@
+{
+  "base_size": {
+    "width": "40px",
+    "height": "40px"
+  },
+  "color_scheme": {
+    "body": "#FFA300",
+    "cheek_patch": "#FF004D",
+    "crest": "#FFEC27",
+    "beak": "#AB5236",
+    "eyes": "#1D2B53"
+  },
+  "shared_attributes": {
+    "sprite_type": "hand-drawn pixel art",
+    "animation_method": "frame-by-frame spritesheet",
+    "position": "center of 128x128 screen, on perch at y=60",
+    "key_features": "crest, cheek patch, tail - 3 essential cockatiel traits",
+    "eye_size": "2x2px",
+    "outline": "1px, organic hand-drawn style"
+  }
+}

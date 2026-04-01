@@ -1,0 +1,161 @@
+{
+  "task_id": "task_id_008101011",
+  "asset_key": "obstacle_plane_mirror_static_16x96",
+  "asset_name": "Plane Mirror Prop",
+  "category": "obstacles",
+  "subcategory": "reflector",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101002",
+    "task_id_008101003"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101002",
+    "task_id_008101003"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle for the mirror body and pair it with a separate reflection normal component for the light system.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "ReflectorMirror",
+      "ReflectionNormal"
+    ],
+    "asset_loading": "Load obstacles/obstacle_plane_mirror_static_16x96.png through AssetServer and attach authored pivot guides at the center line.",
+    "runtime_notes": [
+      "The reflection pivot should sit exactly on the geometric center to support 15-degree rotation increments.",
+      "Keep the reflective edge brighter than the frame so the usable plane is obvious from a distance.",
+      "Do not draw excessive texture noise; mirror readability matters more than surface wear."
+    ]
+  },
+  "context": {
+    "role": "movable_reflector",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1180,
+        650
+      ]
+    },
+    "layer": "obstacles_interactive",
+    "usage": "Grab-and-rotate plane mirror used to redirect light, cut new shadows, and reveal exit routes.",
+    "adjacent_elements": [
+      "player_umbra_grab_4f_10fps",
+      "obstacle_prism_glass_static_48x48",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 96
+    },
+    "colors_hex": [
+      "#C9A84C",
+      "#F5EFE0",
+      "#2D1B4E"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Tall narrow mirror with a thin gold frame, bright reflective core, and a small grip bracket at mid height.",
+      "components": [
+        "gold_frame",
+        "reflective_plane",
+        "grip_bracket",
+        "base_cap"
+      ]
+    },
+    "interaction": {
+      "moveable": true,
+      "rotation_increment_degrees": 15,
+      "grip_range_px": 32
+    },
+    "optics": {
+      "behavior": "specular_reflection",
+      "max_reflections_supported": 4
+    }
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 16x96 px.",
+    "The reflective center line remains perfectly straight so reflected beam math can align with the art.",
+    "Frame trim stays thin enough that the mirror still reads clearly when rotated at gameplay scale."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101008",
+      "task_id_008101012",
+      "task_id_008101014",
+      "task_id_008101015",
+      "task_id_008101021"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_plane_mirror_static_16x96.png",
+      "transparent_background": true
+    }
+  ]
+}

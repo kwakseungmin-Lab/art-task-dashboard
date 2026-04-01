@@ -1,0 +1,93 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.collectible.star_shard",
+  "asset_name": "Star Shard Collectible (16x16) — 4-frame spin",
+  "category": "obstacles",
+  "subcategory": "collectible",
+  "priority": "P1",
+  "execution_order": 115,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pillar.standard_breakable",
+      "world.fx.star_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "ui_white",
+      "hex": "#F0EFE9"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "none",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "collectible",
+    "layer": "world",
+    "usage": "Drops 1–3 from pillar breaks; adds score (+100 each).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 16,
+      "height": 16
+    },
+    "frame_count": 4,
+    "fps": 12,
+    "loop": true,
+    "sheet_dimensions_px": {
+      "width": 64,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFD966",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "layout": "row"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.collectible.star_shard.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Each frame is exactly 16x16px; silhouette remains centered across frames.",
+    "Shard remains clearly visible on both deep space (#0B0C1E) and marble ivory (#D9D0BE) backgrounds.",
+    "Spin loop has no popping between frame 4 → frame 1."
+  ]
+}

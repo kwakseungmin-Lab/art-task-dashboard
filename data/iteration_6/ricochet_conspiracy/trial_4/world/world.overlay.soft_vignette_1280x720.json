@@ -1,0 +1,82 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.overlay.soft_vignette_1280x720",
+  "asset_name": "Overlay — Soft vignette",
+  "category": "world",
+  "subcategory": "overlay",
+  "priority": "P2",
+  "execution_order": 450,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_brown",
+      "hex": "#2D1F1A"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "pale_gold",
+      "hex": "#D6B27A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "thin"
+  },
+  "context": {
+    "role": "overlay",
+    "layer": "world",
+    "usage": "Optional vignette overlay.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "colors_hex": [
+      "#2D1F1A"
+    ],
+    "animation": null,
+    "opacity_notes": [
+      "Edge opacity <=20%; center transparent."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.overlay.soft_vignette_1280x720.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Deliverable PNG matches the specified pixel dimensions (or sprite-sheet total size) with transparent background.",
+    "Uses the project palette as a guideline; any additional colors are limited and documented in specs.colors_hex.",
+    "Silhouette/readability holds at 100% and 50% zoom; no muddy edges or unintended blurs."
+  ]
+}

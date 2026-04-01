@@ -1,0 +1,405 @@
+{
+  "task_id": "ui.hud_atlas",
+  "asset_name": "HUD_Atlas_64x32",
+  "category": "ui",
+  "subcategory": "hud_overlay",
+  "description": "Create a transparent UI sprite atlas (64x32 px) containing 4 care/hint icons (8x8 each) and 1 status bubble frame (12x10). The atlas is used at 1x scale with nearest-neighbor scaling. Unused pixels must be fully transparent.",
+  "execution_order": 40,
+  "priority": "P0",
+  "context": {
+    "role": "HUD overlay sprites",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "anchor": "top_left"
+    },
+    "layer": "ui",
+    "usage": "Icons appear in a popup menu and status hints; bubble frame is used for hungry status."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "character.echo_sprite_sheet",
+      "obstacles.seed_sprite",
+      "world.cage_background"
+    ]
+  },
+  "depends_on": [
+    "character.echo_sprite_sheet"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "file": "ui_hud_atlas_64x32.png",
+      "format": "png",
+      "transparent_background": true,
+      "notes": "Unused pixels are alpha=0."
+    }
+  ],
+  "acceptance_criteria": [
+    "The atlas image is exactly 64x32 px with transparent background.",
+    "Every non-transparent pixel uses only the 16 hex values in specs.palette_hex.",
+    "Icon regions match specs.layout exactly and each icon is exactly 8x8 px.",
+    "Status bubble frame region is exactly 12x10 px and has a 1 px border using #1D2B53.",
+    "All unused pixels are fully transparent (alpha=0)."
+  ],
+  "specs": {
+    "atlas_dimensions_px": {
+      "width": 64,
+      "height": 32
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "layout": {
+      "icons_row_top_left_px": [
+        0,
+        0
+      ],
+      "icon_size_px": {
+        "width": 8,
+        "height": 8
+      },
+      "icons": [
+        {
+          "name": "feed",
+          "top_left_px": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "clean",
+          "top_left_px": [
+            8,
+            0
+          ]
+        },
+        {
+          "name": "pet",
+          "top_left_px": [
+            16,
+            0
+          ]
+        },
+        {
+          "name": "seed_hint",
+          "top_left_px": [
+            24,
+            0
+          ]
+        }
+      ],
+      "status_bubble_frame": {
+        "top_left_px": [
+          0,
+          10
+        ],
+        "dimensions_px": {
+          "width": 12,
+          "height": 10
+        }
+      }
+    },
+    "icons_pixel_data": {
+      "feed": {
+        "pixels_by_color": {
+          "#1D2B53": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "#FFEC27": [
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ]
+        }
+      },
+      "clean": {
+        "pixels_by_color": {
+          "#1D2B53": [
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "#FFF1E8": [
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ]
+        }
+      },
+      "pet": {
+        "pixels_by_color": {
+          "#FF004D": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "#1D2B53": [
+            [
+              2,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        }
+      },
+      "seed_hint": {
+        "pixels_by_color": {
+          "#FFEC27": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "#FFA300": [
+            [
+              2,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    "status_bubble_frame": {
+      "border_color_hex": "#1D2B53",
+      "border_thickness_px": 1,
+      "interior_transparent": true,
+      "corner_pixels": {
+        "top_left": [
+          0,
+          0
+        ],
+        "top_right": [
+          11,
+          0
+        ],
+        "bottom_left": [
+          0,
+          9
+        ],
+        "bottom_right": [
+          11,
+          9
+        ]
+      }
+    },
+    "happiness_bar_render_rule": {
+      "bar_height_px": 2,
+      "bar_y_range_in_canvas_px": [
+        126,
+        127
+      ],
+      "bar_x_range_in_canvas_px": [
+        0,
+        127
+      ],
+      "empty_color_hex": "#C2C3C7",
+      "filled_color_hex": "#FF004D",
+      "background_under_bar_hex": "#FFF1E8"
+    }
+  },
+  "project_common": {
+    "game_name": "Pico_Echo",
+    "iteration": 5,
+    "trial_index": 4,
+    "canvas_px": {
+      "width": 128,
+      "height": 128
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "pixel_art": {
+      "snap_to_pixel_grid": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor"
+    }
+  }
+}

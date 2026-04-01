@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.control.power_slider_200x30",
+  "asset_name": "Control — Power Slider Track (200x30)",
+  "category": "ui",
+  "subcategory": "control",
+  "priority": "P0",
+  "execution_order": 480,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.bitmap_serif_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_serif_16px_ascii96",
+      "ui.hud.bottom_control_bar_frame_1280x50"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "control_slider",
+    "layer": "ui",
+    "usage": "Power slider visual for \"반발력: NN%\"; knob may be drawn in-engine; provide track and ticks.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_center",
+      "offset_px": [
+        0,
+        -38
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 30
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#3D2B1F",
+      "#D4A843",
+      "#A89880",
+      "#F5F0E8"
+    ],
+    "ui_element": {
+      "track_height_px": 6,
+      "tick_count": 19,
+      "note": "Ticks represent 10%..100% in 5% increments (19 positions)."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.control.power_slider_200x30.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Slider asset is exactly 200x30px; track is 6px tall centered vertically; ticks are evenly spaced.",
+    "Uses #3D2B1F for border/track and #D4A843 for active accent; disabled ticks can use #A89880; no anti-aliasing.",
+    "Designed to sit at bottom-center with offset (0,-38) without overlapping angle readout at 1280x720."
+  ]
+}

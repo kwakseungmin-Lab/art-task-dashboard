@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "game_name": "Pico_Echo",
+    "iteration": 5,
+    "trial_index": 2,
+    "plan_dir_name": "trial_2",
+    "created_at_utc": "2026-03-05T07:12:04Z",
+    "git_ref": "art_task_plan/iter5_pipeline",
+    "generator": "art_task_plan_generator",
+    "source_gdd": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/_gdd_data.json",
+    "prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v5.md",
+    "prompt_version": "v5",
+    "purpose": "Pico_Echo art task plan package (trial directory mode)"
+  },
+  "canvas": {
+    "base_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_aspect_ratio": 1,
+    "frame_rate_target_fps": 60,
+    "camera": "2d_front",
+    "snap_to_pixel_grid": true,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "style_guide": {
+    "art_style": "pico8_hand_drawn_pixel_art",
+    "palette_name": "pico8_default_16",
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "line_weight_px": 1,
+    "dithering_rule": "Allowed only on large flat surfaces using a 2x2 checker pattern; avoid dithering on character sprites.",
+    "background_default_hex": "#FFF1E8",
+    "text_default_hex": "#1D2B53"
+  },
+  "coordinate_rules": {
+    "origin": "canvas_top_left",
+    "x_positive": "right",
+    "y_positive": "down",
+    "units": "px",
+    "key_layout": {
+      "perch_y_px": 80,
+      "floor_y_px_range": [
+        110,
+        127
+      ],
+      "food_bowl_top_left_px": {
+        "x": 16,
+        "y": 100
+      },
+      "water_bowl_top_left_px": {
+        "x": 40,
+        "y": 100
+      },
+      "echo_anchor_px": {
+        "x": 64,
+        "y": 60
+      }
+    }
+  },
+  "export_rules": {
+    "primary_formats": [
+      "png"
+    ],
+    "source_formats": [
+      "aseprite"
+    ],
+    "transparent_background_required": true,
+    "naming": {
+      "file_name_case": "lower_snake_case",
+      "path_template": "Art/Exports/{game_name}/{category}/{asset_name}/{asset_name}.{ext}"
+    }
+  },
+  "assets": [
+    {
+      "task_id": "world.cage_background",
+      "asset_name": "cage_background_128x128",
+      "category": "world",
+      "plan_file": "world/world_cage_background_128x128.json",
+      "execution_order": 10,
+      "priority": "P0"
+    },
+    {
+      "task_id": "world.cage_bars_overlay",
+      "asset_name": "cage_bars_overlay_128x128",
+      "category": "world",
+      "plan_file": "world/world_cage_bars_overlay_128x128.json",
+      "execution_order": 20,
+      "priority": "P1"
+    },
+    {
+      "task_id": "world.perch",
+      "asset_name": "perch_80x4",
+      "category": "world",
+      "plan_file": "world/world_perch_80x4.json",
+      "execution_order": 30,
+      "priority": "P0"
+    },
+    {
+      "task_id": "world.floor_strip",
+      "asset_name": "floor_strip_128x18",
+      "category": "world",
+      "plan_file": "world/world_floor_strip_128x18.json",
+      "execution_order": 40,
+      "priority": "P1"
+    },
+    {
+      "task_id": "world.food_bowl",
+      "asset_name": "food_bowl_16x12_states3",
+      "category": "world",
+      "plan_file": "world/world_food_bowl_16x12_states3.json",
+      "execution_order": 50,
+      "priority": "P0"
+    },
+    {
+      "task_id": "world.water_bowl",
+      "asset_name": "water_bowl_12x10",
+      "category": "world",
+      "plan_file": "world/world_water_bowl_12x10.json",
+      "execution_order": 60,
+      "priority": "P2"
+    },
+    {
+      "task_id": "obstacles.seed",
+      "asset_name": "seed_3x3_variants2",
+      "category": "obstacles",
+      "plan_file": "obstacles/obstacles_seed_3x3_variants2.json",
+      "execution_order": 70,
+      "priority": "P1"
+    },
+    {
+      "task_id": "obstacles.poop",
+      "asset_name": "poop_2x2",
+      "category": "obstacles",
+      "plan_file": "obstacles/obstacles_poop_2x2.json",
+      "execution_order": 80,
+      "priority": "P1"
+    },
+    {
+      "task_id": "character.echo_sprite_sheet",
+      "asset_name": "echo_sprite_sheet_7states_40x40",
+      "category": "character",
+      "plan_file": "character/character_echo_sprite_sheet_7states_40x40.json",
+      "execution_order": 90,
+      "priority": "P0"
+    },
+    {
+      "task_id": "ui.pixel_font_3x5",
+      "asset_name": "pixel_font_3x5_digits_percent",
+      "category": "ui",
+      "plan_file": "ui/ui_pixel_font_3x5_digits_percent.json",
+      "execution_order": 100,
+      "priority": "P1"
+    },
+    {
+      "task_id": "ui.hud_happiness_bar",
+      "asset_name": "hud_happiness_bar_120x2",
+      "category": "ui",
+      "plan_file": "ui/ui_hud_happiness_bar_120x2.json",
+      "execution_order": 110,
+      "priority": "P0"
+    },
+    {
+      "task_id": "ui.care_menu_panel",
+      "asset_name": "care_menu_panel_44x16",
+      "category": "ui",
+      "plan_file": "ui/ui_care_menu_panel_44x16.json",
+      "execution_order": 120,
+      "priority": "P1"
+    },
+    {
+      "task_id": "ui.icon_feed",
+      "asset_name": "icon_feed_8x8",
+      "category": "ui",
+      "plan_file": "ui/ui_icon_feed_8x8.json",
+      "execution_order": 130,
+      "priority": "P0"
+    },
+    {
+      "task_id": "ui.icon_clean",
+      "asset_name": "icon_clean_8x8",
+      "category": "ui",
+      "plan_file": "ui/ui_icon_clean_8x8.json",
+      "execution_order": 131,
+      "priority": "P0"
+    },
+    {
+      "task_id": "ui.icon_pet",
+      "asset_name": "icon_pet_8x8",
+      "category": "ui",
+      "plan_file": "ui/ui_icon_pet_8x8.json",
+      "execution_order": 132,
+      "priority": "P0"
+    },
+    {
+      "task_id": "ui.status_bubble",
+      "asset_name": "status_bubble_12x10",
+      "category": "ui",
+      "plan_file": "ui/ui_status_bubble_12x10.json",
+      "execution_order": 140,
+      "priority": "P1"
+    },
+    {
+      "task_id": "ui.vfx_particles_atlas",
+      "asset_name": "vfx_particles_atlas_32x16",
+      "category": "ui",
+      "plan_file": "ui/ui_vfx_particles_atlas_32x16.json",
+      "execution_order": 150,
+      "priority": "P2"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.ground.line_1200x2",
+  "asset_name": "Ground Line Tile 1200x2",
+  "category": "world",
+  "subcategory": "ground_lane",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #535353, background #F7F7F7, and accent #FF0000.",
+    "Canvas target stays 600x150px with pixel-perfect presentation at 60 FPS.",
+    "All painted edges keep a 2px outline rhythm and flat shading."
+  ],
+  "differences": [
+    "The asset is a pure scrolling strip that defines the player baseline across the whole lane.",
+    "The tile is 1200px wide so the loop repeats off-screen rather than inside the visible canvas.",
+    "No decorative texture appears inside the 2px strip."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "world.ground.texture_1200x10"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_idle_2f_6fps",
+      "obstacles.cactus.small_static",
+      "world.ground.texture_1200x10"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_baseline",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        118
+      ]
+    },
+    "layer": "world_foreground",
+    "usage": "Scrolling baseline that anchors player feet, cactus bases, and the perceived floor height.",
+    "adjacent_elements": [
+      "character.player.dino_idle_2f_6fps",
+      "obstacles.cactus.small_static",
+      "world.ground.texture_1200x10"
+    ],
+    "viewpoint": {
+      "camera_angle": "camera_fixed",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 2
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "scroll_strip",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": true,
+      "speed_px_per_sec": 300
+    },
+    "shape": {
+      "silhouette": "Continuous 2px horizontal line with no breaks across the 1200px tile width.",
+      "components": [
+        "continuous_line_strip"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground.line_1200x2.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 1200x2px.",
+    "The strip has no transparent gaps along the full 1200px width.",
+    "Only #535353 and transparency appear in painted pixels."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "character.enemy.slime_bounce",
+  "asset_name": "Enemy Slime Bounce Loop",
+  "category": "character",
+  "group_id": "character.enemy.slime",
+  "variant_role": "standalone",
+  "priority": "P1",
+  "execution_order": 24,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.counter_gauge"
+    ]
+  },
+  "context": {
+    "role": "enemy",
+    "screen_position": {
+      "type": "world_space",
+      "units": "px",
+      "pivot": "bottom_center"
+    },
+    "layer": "characters_enemies",
+    "usage": "Zone 1 basic enemy. 4-frame bounce loop. Size 48x40.",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 192,
+      "height_px": 40
+    },
+    "frame_layout": {
+      "grid_columns": 4,
+      "grid_rows": 1,
+      "frame_size_px": [
+        48,
+        40
+      ],
+      "row_order": [
+        "bounce"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#7B2FBE"
+      },
+      "secondary": [
+        {
+          "name": "highlight",
+          "hex": "#F0EFE9"
+        },
+        {
+          "name": "shadow",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "simple slime blob with squash-and-stretch and readable eyes",
+      "components": [
+        "blob_body",
+        "eyes",
+        "inner_glow"
+      ]
+    }
+  },
+  "description": "Create a 4-frame slime bounce loop at 48x40 per frame. Use a cosmic purple tone (#7B2FBE) with subtle inner glow. Keep outline dark so it reads on marble and space.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/enemy_slime_bounce.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 192x40 px (4 frames)",
+    "Each frame is 48x40 px",
+    "Bounce loop shows clear squash (frame 1) and stretch (frame 2/3)"
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003018",
+  "asset_key": "ui_hp_bars_dual_440x32",
+  "asset_name": "Dual HP Bar Atlas",
+  "category": "ui",
+  "subcategory": "status_ui",
+  "priority": "P0",
+  "execution_order": 180,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003005",
+    "task_id_008003009"
+  ],
+  "blocks": [
+    "task_id_008003020"
+  ],
+  "blocked_by": [
+    "task_id_008003005",
+    "task_id_008003009"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003008",
+      "task_id_008003009",
+      "task_id_008003011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for each HP bar module and crop the shared atlas into separate enemy and player widgets.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "UiImage",
+      "Style",
+      "HealthBarWidget"
+    ],
+    "asset_loading": "Load ui/ui_hp_bars_dual_440x32.png through AssetServer during HUD setup and slice the atlas into two 220x32 regions.",
+    "runtime_notes": [
+      "Enemy bar anchors to top-right and player bar anchors to bottom-right inside the same safe margin.",
+      "Runtime fill amounts animate inside the authored channels without scaling the frame art.",
+      "Numeric text can overlay the socket region with no further frame swap."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "health_feedback",
+    "screen_position": {
+      "type": "screen_anchor_set",
+      "anchors": [
+        "top_right",
+        "bottom_right"
+      ],
+      "safe_margin_px": 24
+    },
+    "layer": "ui_hud",
+    "usage": "Shared atlas for the enemy top-right HP bar and the player bottom-right HP bar with numeric sockets.",
+    "adjacent_elements": [
+      "enemy_champion_idle_8f_8fps",
+      "player_student_idle_8f_8fps",
+      "ui_round_combo_panel_180x64"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space",
+      "facing": "right_aligned"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 440,
+      "height": 32
+    },
+    "colors_hex": [
+      "#2ECC71",
+      "#E74C3C",
+      "#1A1A2E",
+      "#D4AF37",
+      "#FFFACD"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Two horizontal framed bars with left label pads and right numeric sockets.",
+      "components": [
+        "enemy_bar_frame",
+        "player_bar_frame",
+        "fill_channels",
+        "numeric_sockets",
+        "gold_outline"
+      ]
+    },
+    "lighting": "Cream highlights sit on the bar rims while fill channels stay flat for clear value reads."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_hp_bars_dual_440x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas frame is exactly 440x32 px and contains two 220x32 bar modules side by side.",
+    "Enemy fill channel uses crimson and player fill channel uses emerald with identical inner padding.",
+    "Numeric sockets remain at least 44 px wide so three-digit values fit without clipping."
+  ]
+}

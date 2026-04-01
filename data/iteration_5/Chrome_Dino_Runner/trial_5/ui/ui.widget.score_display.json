@@ -1,0 +1,96 @@
+{
+  "project_common": {
+    "project": {
+      "project_id": "chrome_dino_runner",
+      "project_name": "Chrome Dino Runner",
+      "iteration": 5,
+      "trial": 5
+    },
+    "canvas": {
+      "resolution_px": { "width": 600, "height": 150 },
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "baseline_y_px": 148,
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      }
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "accent_hex": "#FF0000"
+    },
+    "style": {
+      "art_style": "pixel_art_8bit_minimal",
+      "theme": "prehistoric_desert",
+      "outline": { "enabled": true, "thickness_px": 2, "color_hex": "#535353" },
+      "max_colors_total": 3
+    },
+    "export_defaults": {
+      "format": "png",
+      "scale": "1x",
+      "transparent_background_default": true
+    }
+  },
+  "task_id": "ui.widget.score_display",
+  "asset_name": "HUD Score Display (5-digit)",
+  "category": "ui",
+  "subcategory": "hud",
+  "execution_order": 2,
+  "priority": "P0",
+  "depends_on": ["ui.font.pixel_mono_16"],
+  "blocks": [],
+  "blocked_by": ["ui.font.pixel_mono_16"],
+  "relationships": {
+    "related_task_ids": ["character.player.run", "world.background.sky_fill"]
+  },
+  "deliverables": [
+    {
+      "type": "layout_png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_5/ui/score_display/score_display_layout_600x150.png",
+      "dimensions_px": { "width": 600, "height": 150 },
+      "background": "opaque"
+    }
+  ],
+  "acceptance_criteria": [
+    "Layout PNG is exactly 600x150 px and can be overlaid on the game canvas without scaling.",
+    "Score text bounding box is width=70 px, height=16 px located at (x=520,y=10) with anchor=top_left.",
+    "Score is rendered as 5 digits with zero padding using #535353 for all glyph pixels."
+  ],
+  "description": "HUD score display specification for the running game. Render a 5-digit score using a 16 px monospace pixel glyph set. Place the text box at x=520,y=10 on a 600x150 canvas.",
+  "specs": {
+    "canvas_dimensions_px": { "width": 600, "height": 150 },
+    "text_box_px": { "x": 520, "y": 10, "width": 70, "height": 16, "anchor": "top_left" },
+    "font_inlined": {
+      "sprite_sheet_path": "Output/Chrome_Dino_Runner/iteration_5/trial_5/ui/font_pixel_mono_16/font_pixel_mono_16_128x128.png",
+      "sheet_dimensions_px": { "width": 128, "height": 128 },
+      "cell_size_px": { "width": 16, "height": 16 },
+      "glyphs": {
+        "0": { "cell": [0, 0] },
+        "1": { "cell": [1, 0] },
+        "2": { "cell": [2, 0] },
+        "3": { "cell": [3, 0] },
+        "4": { "cell": [4, 0] },
+        "5": { "cell": [5, 0] },
+        "6": { "cell": [6, 0] },
+        "7": { "cell": [7, 0] },
+        "8": { "cell": [0, 1] },
+        "9": { "cell": [1, 1] }
+      }
+    },
+    "format": { "digits": 5, "zero_padding": true },
+    "color_hex": "#535353",
+    "background": { "enabled": false, "color_hex": "#F7F7F7" }
+  },
+  "context": {
+    "role": "hud_overlay",
+    "screen_position": { "type": "absolute_px", "x": 0, "y": 0, "anchor": "top_left" },
+    "layer": "ui",
+    "usage": ["in_game", "score_updates"]
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "reflect_academy",
+    "project_name": "reflect_academy"
+  },
+  "meta": {
+    "plan_id": "reflect_academy__iter8__trial1",
+    "game_name": "reflect_academy",
+    "iteration": 8,
+    "trial_index": 1,
+    "plan_dir": "trial_1",
+    "created_at_utc": "2026-03-25T16:39:06Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Grounds the student duelist silhouette, costume trim, wand handling, and heroic stance."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Bevy 0.14 2D sprites with orthographic camera, layered SpriteBundle rendering, and atlas-driven combat states for actors and UI sheets.",
+    "ecs_model": "Player, enemy, projectile, stage, and HUD assets map to separate ECS entities with marker components so combat systems can swap visuals by state without parsing filenames.",
+    "asset_loading": "Preload every PNG declared by this package through AssetServer during Loading state and register handles by task_id plus asset_key before the first duel scene becomes interactive.",
+    "runtime_notes": [
+      "Use a fixed 16:9 orthographic camera and preserve authored anchors so the lower timing lane, upper enemy lane, and bottom card hand remain spatially stable.",
+      "Drive projectile motion with Transform updates from Bevy Time delta seconds rather than a physics engine so travel speed matches the GDD timing windows.",
+      "Keep UI widgets in a dedicated render layer or camera order so HP panels, forecast icons, and the timing strip remain crisp above stage lighting and spell bloom."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "reflection_timing_duel_loop",
+      "label": "Reflection timing duel loop",
+      "description": "Covers the player neutral pose, reflect-ready escalation, successful counter release, enemy casting, projectile travel, world-space reflect anchor, and timing strip feedback that define the core duel rhythm.",
+      "critical_states": [
+        "incoming_projectile",
+        "reflect_ready",
+        "perfect_window",
+        "counter_release",
+        "enemy_pressure"
+      ],
+      "task_ids": [
+        "task_id_801000001",
+        "task_id_801000002",
+        "task_id_801000003",
+        "task_id_801000004",
+        "task_id_801000005",
+        "task_id_801000007",
+        "task_id_801000009",
+        "task_id_801000012"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_801000011",
+        "task_id_801000012",
+        "task_id_801000015"
+      ]
+    },
+    {
+      "mechanic_id": "elemental_spell_readability",
+      "label": "Elemental spell readability",
+      "description": "Covers enemy spell charge, fire and thunder projectile differentiation, forecast icons, card frame states, and the outbound reflected arc needed to read elemental conversion play.",
+      "critical_states": [
+        "forecast_seen",
+        "fire_cast",
+        "thunder_cast",
+        "card_selected",
+        "reflected_arc"
+      ],
+      "task_ids": [
+        "task_id_801000004",
+        "task_id_801000005",
+        "task_id_801000006",
+        "task_id_801000007",
+        "task_id_801000013",
+        "task_id_801000014"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_801000013",
+        "task_id_801000014",
+        "task_id_801000015"
+      ]
+    },
+    {
+      "mechanic_id": "academy_stage_and_status_readability",
+      "label": "Academy stage and status readability",
+      "description": "Covers backdrop framing, podium support props, lane anchor art, fixed HP panels, and timing strip placement so the player and enemy remain readable on one screen.",
+      "critical_states": [
+        "combat_start",
+        "enemy_upper_lane",
+        "player_lower_lane",
+        "hp_tracking",
+        "screen_focus"
+      ],
+      "task_ids": [
+        "task_id_801000001",
+        "task_id_801000004",
+        "task_id_801000008",
+        "task_id_801000009",
+        "task_id_801000010",
+        "task_id_801000011",
+        "task_id_801000012"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_801000011",
+        "task_id_801000012"
+      ]
+    },
+    {
+      "mechanic_id": "combo_and_result_feedback",
+      "label": "Combo and result feedback",
+      "description": "Covers successful reflect acting, outbound counter motion, HP state awareness, and short-lived popup feedback for perfect, good, combo, damage, heal, and shield outcomes.",
+      "critical_states": [
+        "successful_reflect",
+        "good_reflect",
+        "combo_chain",
+        "damage_popup",
+        "reward_flash"
+      ],
+      "task_ids": [
+        "task_id_801000002",
+        "task_id_801000003",
+        "task_id_801000007",
+        "task_id_801000011",
+        "task_id_801000012",
+        "task_id_801000015"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_801000011",
+        "task_id_801000012",
+        "task_id_801000015"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_801000001",
+      "asset_key": "player_duelist_idle_loop",
+      "category": "character",
+      "file": "character/player_duelist_idle_loop.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000002",
+      "asset_key": "player_duelist_reflect_ready",
+      "category": "character",
+      "file": "character/player_duelist_reflect_ready.json",
+      "execution_order": 20,
+      "variant_of": "task_id_801000001",
+      "variant_of_asset_key": "player_duelist_idle_loop"
+    },
+    {
+      "task_id": "task_id_801000003",
+      "asset_key": "player_duelist_reflect_success",
+      "category": "character",
+      "file": "character/player_duelist_reflect_success.json",
+      "execution_order": 30,
+      "variant_of": "task_id_801000001",
+      "variant_of_asset_key": "player_duelist_idle_loop"
+    },
+    {
+      "task_id": "task_id_801000004",
+      "asset_key": "enemy_caster_duel_loop",
+      "category": "character",
+      "file": "character/enemy_caster_duel_loop.json",
+      "execution_order": 40,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000005",
+      "asset_key": "projectile_fire_orb",
+      "category": "obstacles",
+      "file": "obstacles/projectile_fire_orb.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000006",
+      "asset_key": "projectile_thunder_lance",
+      "category": "obstacles",
+      "file": "obstacles/projectile_thunder_lance.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000007",
+      "asset_key": "reflected_spell_arc",
+      "category": "obstacles",
+      "file": "obstacles/reflected_spell_arc.json",
+      "execution_order": 70,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000008",
+      "asset_key": "academy_hall_backdrop",
+      "category": "world",
+      "file": "world/academy_hall_backdrop.json",
+      "execution_order": 80,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000009",
+      "asset_key": "duel_lane_reflect_line",
+      "category": "world",
+      "file": "world/duel_lane_reflect_line.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000010",
+      "asset_key": "podium_window_set",
+      "category": "world",
+      "file": "world/podium_window_set.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000011",
+      "asset_key": "duel_hud_hp_panels",
+      "category": "ui",
+      "file": "ui/duel_hud_hp_panels.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000012",
+      "asset_key": "timing_bar_precision_strip",
+      "category": "ui",
+      "file": "ui/timing_bar_precision_strip.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000013",
+      "asset_key": "hand_card_frame_sheet",
+      "category": "ui",
+      "file": "ui/hand_card_frame_sheet.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000014",
+      "asset_key": "spell_forecast_icon_sheet",
+      "category": "ui",
+      "file": "ui/spell_forecast_icon_sheet.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_801000015",
+      "asset_key": "combo_damage_popup_sheet",
+      "category": "ui",
+      "file": "ui/combo_damage_popup_sheet.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

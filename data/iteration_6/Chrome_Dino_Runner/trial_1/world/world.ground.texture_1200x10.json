@@ -1,0 +1,87 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.ground.texture_1200x10",
+  "asset_name": "Ground — Texture Strip (1200x10, optional rocks/tufts)",
+  "category": "world",
+  "subcategory": "ground",
+  "priority": "P3",
+  "execution_order": 140,
+  "variant_of": null,
+  "depends_on": [
+    "world.ground.line_1200x2"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_detail",
+    "layer": "world",
+    "usage": "Optional subtle ground texture below the line; scrolls with ground.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        140
+      ]
+    },
+    "notes": "Matches GDD Ground optional texture: 1200x10."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 10
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static"
+    },
+    "silhouette_notes": [
+      "Sparse 1–2px rocks/tufts; keep density low to preserve minimalism.",
+      "Must tile seamlessly across 1200px width."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground.texture_1200x10.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1200x10px and tiles seamlessly on x-axis.",
+    "Texture density is low: at least 70% of pixels are transparent/background."
+  ]
+}

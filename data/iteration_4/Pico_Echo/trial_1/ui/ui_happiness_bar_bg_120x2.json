@@ -1,0 +1,120 @@
+{
+  "task_id": "pico_echo_ui_happiness_bar_bg",
+  "asset_name": "ui_happiness_bar_bg_120x2",
+  "category": "ui",
+  "subcategory": "hud",
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style": "pixel_art",
+      "constraints": [
+        "grid: 1px",
+        "no_antialiasing: true",
+        "no_gradients: true",
+        "scaling: nearest_neighbor"
+      ]
+    },
+    "render_target": {
+      "canvas_px": "128x128",
+      "view": "2D_front",
+      "origin": "top_left"
+    },
+    "color": {
+      "palette_name": "PICO-8",
+      "palette_hex_16": [
+        "#000000",
+        "#1D2B53",
+        "#7E2553",
+        "#008751",
+        "#AB5236",
+        "#5F574F",
+        "#C2C3C7",
+        "#FFF1E8",
+        "#FF004D",
+        "#FFA300",
+        "#FFEC27",
+        "#00E436",
+        "#29ADFF",
+        "#83769C",
+        "#FF77A8",
+        "#FFCCAA"
+      ],
+      "project_named_colors": {
+        "echo_body": "#FFA300",
+        "echo_cheek_patch": "#FF004D",
+        "echo_crest": "#FFEC27",
+        "echo_beak_and_feet": "#AB5236",
+        "ui_text": "#1D2B53",
+        "cage_background": "#FFF1E8",
+        "cage_bars": "#C2C3C7",
+        "perch": "#AB5236",
+        "floor": "#FFCCAA"
+      }
+    },
+    "export": {
+      "formats": [
+        "PNG"
+      ],
+      "png": {
+        "alpha": true,
+        "color_mode": "indexed",
+        "max_colors": 16
+      }
+    },
+    "layering_order": [
+      "environment_background",
+      "environment_structure",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ]
+  },
+  "description": "Create a 120x2px PNG sprite for the happiness bar background. All pixels must be #5F574F with alpha=255.",
+  "context": {
+    "role": "HUD happiness bar background drawn at x=4..123,y=126..127.",
+    "screen_location": "HUD bottom strip.",
+    "adjacent_elements": [
+      "ui_font_mini_3x5_digits_percent"
+    ],
+    "layer": "ui",
+    "usage": "Always visible. Foreground fill is drawn as a rectangle in code using colors #00E436/#FFEC27/#FFA300."
+  },
+  "specs": {
+    "dimensions": "120x2",
+    "colors_used_hex": [
+      "#5F574F"
+    ],
+    "background": {
+      "alpha": 1.0
+    }
+  },
+  "deliverables": [
+    {
+      "type": "sprite",
+      "format": "PNG",
+      "path": "assets/pico_echo/ui/ui_happiness_bar_bg_120x2.png"
+    },
+    {
+      "type": "source",
+      "format": "ASEPRITE",
+      "path": "assets/pico_echo/ui/ui_happiness_bar_bg_120x2.aseprite"
+    }
+  ],
+  "execution_order": 27,
+  "priority": "P0",
+  "depends_on": [
+    "pico_echo_environment_cage_background_wall"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo_environment_cage_background_wall"
+  ],
+  "relationships": {},
+  "acceptance_criteria": [
+    "Image size is exactly 120x2 px.",
+    "All pixels are #5F574F alpha=255.",
+    "No other colors present."
+  ]
+}

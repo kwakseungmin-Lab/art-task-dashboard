@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.dino_idle_2f_6fps",
+  "asset_name": "Player Dino — Idle (2 frames, 6fps loop)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_run_2f_12fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "idle",
+    "layer": "character",
+    "usage": "Shown before the run starts / when restarting prompt is visible.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "notes": "Matches GDD Player sprite spec: 88x94, 2 frames @ 6fps."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Cute T-Rex silhouette: big head, short arms, thick tail.",
+      "2px outline; no anti-aliasing.",
+      "Single-color body (#535353) with negative-space details only (eyes/mouth as background cutouts)."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_idle_2f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 176x94px (2×88x94), 0px spacing.",
+    "Loop reads as subtle idle: minimal leg movement / blink; no jitter beyond 1px.",
+    "Only #535353 + transparency are used; no grayscale gradients."
+  ]
+}

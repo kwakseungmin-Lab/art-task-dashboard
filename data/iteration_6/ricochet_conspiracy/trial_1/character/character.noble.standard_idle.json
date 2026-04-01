@@ -1,0 +1,125 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.noble.standard_idle",
+  "asset_name": "Standard Noble (Idle)",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "target_noble",
+    "layer": "characters",
+    "usage": "Basic target; HP 1; idle wobble loop; removed on valid impact",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#8BA7C7",
+      "#3D2B1F",
+      "#D4A843"
+    ],
+    "animation": {
+      "type": "loop",
+      "states": {
+        "idle": {
+          "fps": 4,
+          "frame_count": 6,
+          "notes": "subtle wobble, comedic"
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.standard_idle.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 32x48px; feet sit within bottom 6px region consistently across all 6 frames.",
+    "Idle loop is 6 frames at 4fps and loops seamlessly without a visible pop at the seam.",
+    "Outfit main fill uses #8BA7C7; outline uses #3D2B1F; gold accents #D4A843 are limited to <= 15% of pixels."
+  ]
+}

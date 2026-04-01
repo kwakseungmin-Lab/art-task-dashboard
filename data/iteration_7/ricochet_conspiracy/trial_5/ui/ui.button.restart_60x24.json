@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.button.restart_60x24",
+  "asset_name": "Restart Button (60x24)",
+  "category": "ui",
+  "subcategory": "hud_button",
+  "priority": "P1",
+  "execution_order": 230,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.top_bar_1280x50"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.top_bar_1280x50"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.top_bar_1280x50",
+      "ui.screen.fail_overlay_320x200",
+      "ui.screen.clear_overlay_400x300"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "hud_button",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -144,
+        18
+      ]
+    },
+    "layer": "ui",
+    "usage": "Visible in the top HUD and result screens; triggers an instant stage reset with a circular arrow icon.",
+    "adjacent_elements": [
+      "top HUD bar",
+      "menu button"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_2d",
+      "facing": "viewer"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 60,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#F5F0E8",
+      "#8B6B5C",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "rounded button plate with a circular arrow icon and a centered label zone",
+      "components": [
+        "button_plate",
+        "border",
+        "arrow_icon",
+        "label_zone"
+      ]
+    },
+    "ui_behavior": {
+      "states": [
+        "idle"
+      ],
+      "label_key": "restart",
+      "hotkey": "R"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.button.restart_60x24.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 60x24px and keeps the circular arrow inside a 12x12 icon box.",
+    "Label zone stays centered within a 34x12 rectangle and the outer border stays 1px thick.",
+    "Only #D4A843, #F5F0E8, #8B6B5C, and #3D2B1F are used on the UI sheet."
+  ]
+}

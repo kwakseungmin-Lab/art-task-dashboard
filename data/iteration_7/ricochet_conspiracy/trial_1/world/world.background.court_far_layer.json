@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.court_far_layer",
+  "asset_name": "Court Hall Far Layer",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.curtain_column_mid_layer",
+      "world.foreground.marble_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "parallax_background",
+    "layer": "world_far",
+    "usage": "Far layer with tall windows, distant arches, and soft light bands. Parallax factor 0.20.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.background.curtain_column_mid_layer"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "wide_parallax_strip_with_arch_windows",
+      "components": [
+        "arched_windows",
+        "stone_arch_row",
+        "soft_light_bands"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.court_far_layer.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1280x720px and fills the full stage width with no seam at x=1279.",
+    "Only 3 HEX groups are used: #E8D5C4, #A89880, and #F5F0E8.",
+    "No noble, launchable object, or UI icon silhouette is baked into this layer."
+  ]
+}

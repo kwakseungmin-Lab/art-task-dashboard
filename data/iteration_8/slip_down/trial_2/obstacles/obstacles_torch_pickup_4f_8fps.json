@@ -1,0 +1,160 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000008",
+  "asset_name": "Torch Pickup (8x16, 4 frames, 8fps)",
+  "category": "obstacles",
+  "subcategory": "pickup_heal",
+  "priority": "P1",
+  "execution_order": 80,
+  "variant_of": null,
+  "shared_properties": [
+    "Pickup footprint remains 8x16 px with a centered handle and a flame that never exceeds the authored height.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while flame and wood colors stay inside specs.colors_hex.",
+    "Torch silhouette stays legible against both dark stone walls and the bright HP UI strip."
+  ],
+  "differences": [
+    "Four frames animate the flame tip through a 2 px lateral sway and a 1 px height variation.",
+    "Amber flame colors dominate the top half while the handle stays a thin 2 px brown shaft in the lower half.",
+    "The pickup reads as beneficial rather than dangerous through warm colors and a compact non-spiked silhouette."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_802000014"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the 8x16 healing torch size, pickup behavior, and maximum HP restoration role inside the dungeon run."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the warm amber contrast against the dark shaft so healing pickups remain visible but rare."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player-to-item scale so the prisoner body clearly reads as larger than the healing pickup."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for static hazards or SpriteSheetBundle for animated hazards, all rendered with nearest-neighbor sampling.",
+    "atlas_or_static": "mixed_static_and_texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load hazard textures and atlases during the shared Loading state and expose handles through HazardVisualRegistry keyed by asset_key.",
+    "runtime_notes": [
+      "Keep collision volumes in gameplay components rather than inferring them from visual pixels.",
+      "Align every hazard origin to the 16x16 grid unless the authored size is 24x24 or 48x16 by design.",
+      "Use visibility toggles or atlas index changes instead of runtime texture swaps to avoid hitching during repeated descent loops."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "pickup",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        764,
+        388
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Optional healing item placed rarely in the shaft when HP recovery is allowed.",
+    "adjacent_elements": [
+      "task_id_802000010",
+      "task_id_802000014"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 16
+    },
+    "colors_hex": [
+      "#F5A623",
+      "#E07B39",
+      "#3D2B00",
+      "#D6D0C4",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [
+        8,
+        16
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "flame_notes": [
+      "Flame occupies y0-y6 and handle occupies y7-y15.",
+      "Bright amber pixels cover at least 6 pixels in every frame.",
+      "Handle width stays exactly 2 px through all frames."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_torch_pickup_4f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 32x16 px with 4 frames of 8x16 px and 0 px spacing.",
+    "Flame animation cycles at 8 fps and the handle remains a stable 2 px vertical shaft in all frames.",
+    "Only the listed warm colors plus transparency are used and the pickup remains readable on a #0D0D0F background."
+  ],
+  "asset_key": "obstacles_torch_pickup_4f_8fps",
+  "variant_of_asset_key": null
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000011",
+  "asset_key": "duel_hud_hp_panels",
+  "asset_name": "Duel HUD HP Panels",
+  "category": "ui",
+  "subcategory": "status_panel",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The HUD uses a navy panel body, gold border, and high-contrast fill colors so health remains readable over bright spells.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while HP fill colors appear inside specs.colors_hex.",
+    "UI art is authored for transparent background compositing at fixed screen anchors."
+  ],
+  "differences": [
+    "The atlas contains one enemy HP panel frame and one player HP panel frame with matching ornamental trim.",
+    "Enemy fill is crimson and player fill is emerald to match the GDD.",
+    "Panel corners use a restrained academy crest motif instead of heavy flourishes so numbers remain the focal point."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000001",
+      "task_id_801000004",
+      "task_id_801000012",
+      "task_id_801000015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_2x1",
+    "ecs_components": [
+      "HudPanelTag",
+      "UiImage",
+      "Style",
+      "Visibility"
+    ],
+    "asset_loading": "Load duel_hud_hp_panels.png during Loading and build a 2x1 atlas for player and enemy HUD instances.",
+    "runtime_notes": [
+      "Frame 0 anchors to the upper-right for enemy HP and frame 1 anchors to the lower-right for player HP.",
+      "Use UI space placement rather than world transforms so the panel remains stable during camera shake.",
+      "Overlay text or fill masks without stretching the gold frame geometry."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "combat_hp_panels",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1480,
+        32
+      ]
+    },
+    "layer": "ui",
+    "usage": "Fixed HUD asset for enemy and player health tracking during active combat."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 440,
+      "height": 120
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#E74C3C",
+      "#2ECC71",
+      "#FFFACD"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        220,
+        120
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "layout_notes": [
+      "Leave a 140x20 px bar interior for dynamic fill masking.",
+      "Reserve a 52x24 px number zone inside each frame.",
+      "Crest ornament stays inside the outer 20 px margin."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/duel_hud_hp_panels.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 440x120 px for two 220x120 frames with no frame gutter.",
+    "Both HP panel frames remain readable over the backdrop when previewed at 75% scale.",
+    "The inner bar region is rectangular and unobstructed for runtime fill masking."
+  ]
+}

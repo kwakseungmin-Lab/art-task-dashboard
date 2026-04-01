@@ -1,0 +1,154 @@
+{
+  "task_id": "task_id_008004016",
+  "asset_key": "ui_hp_orbs_strip_3slot_72x24",
+  "asset_name": "HP Orbs Strip",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008004011",
+    "task_id_008004014"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004011",
+      "task_id_008004014",
+      "task_id_008004017"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use a static UI Image node or SpriteBundle in screen space and reveal or dim each orb through shader tint or clipping.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Node",
+      "ImageNode",
+      "HudWidget",
+      "HpDisplay"
+    ],
+    "asset_loading": "Load ui/ui_hp_orbs_strip_3slot_72x24.png through AssetServer before HUD construction.",
+    "runtime_notes": [
+      "Widget anchors to the top-left HUD margin at 16 px offsets.",
+      "Each orb slot can be masked independently without repacking the source art.",
+      "Glow accents stay tight so the strip remains readable over bright beams."
+    ]
+  },
+  "context": {
+    "role": "hp_display",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        52,
+        28
+      ]
+    },
+    "layer": "ui_hud_top_left",
+    "usage": "Three-slot HP display that communicates remaining life before a floor reset.",
+    "adjacent_elements": [
+      "player_umbra_idle_6f_8fps",
+      "player_umbra_exposure_5f_12fps",
+      "ui_exposure_gauge_160x12"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 72,
+      "height": 24
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#F5EFE0",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Three circular HP orbs inside a thin deco frame with small separators.",
+      "components": [
+        "left_orb",
+        "center_orb",
+        "right_orb",
+        "frame",
+        "separators"
+      ]
+    },
+    "layout": {
+      "slot_count": 3,
+      "slot_size_px": [
+        24,
+        24
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_hp_orbs_strip_3slot_72x24.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 72x24 px.",
+    "All three orb centers align on the same horizontal axis.",
+    "Frame lines remain visible over both dark and bright gameplay backgrounds."
+  ],
+  "blocked_by": [
+    "task_id_008004011",
+    "task_id_008004014"
+  ],
+  "blocks": [],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

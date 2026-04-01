@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000010",
+  "asset_key": "ground_runner_strip",
+  "asset_name": "Ground Runner Strip",
+  "category": "world",
+  "subcategory": "ground_lane",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Primary painted tone uses #535353 with transparent background only.",
+    "Tile width stays 1200 px to support seamless looping.",
+    "Ground contact baseline stays at y=0 for runner and cactus alignment."
+  ],
+  "differences": [
+    "This task supplies the 2 px ground line that anchors every obstacle and player contact point.",
+    "The strip scrolls left at the current speed without sprite-frame animation.",
+    "Line thickness remains exactly 2 px across the entire tile width."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_801000011"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000001",
+      "task_id_801000005",
+      "task_id_801000008",
+      "task_id_801000011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    },
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "GroundTag",
+      "ScrollVelocity",
+      "LoopingTile"
+    ],
+    "asset_loading": "Load one 1200x2 PNG during Loading state and spawn two tiled instances for seamless horizontal looping.",
+    "runtime_notes": [
+      "Advance the x translation from the shared CurrentSpeed resource.",
+      "Wrap a tile by +1200 px when its x position drops below -1200.",
+      "Render this strip below runner, obstacle, and UI layers and above the sky field."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_baseline",
+    "screen_position": {
+      "type": "tile_origin_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_ground",
+    "usage": "Visible for the entire play session as the continuous runner baseline."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 2
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        1200,
+        2
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "scroll_profile": {
+      "speed_window_px_per_s": [
+        300,
+        900
+      ],
+      "loop_width_px": 1200,
+      "parallax_factor": 1.0
+    },
+    "collision_anchor": {
+      "ground_y_px": 0,
+      "line_thickness_px": 2
+    },
+    "shape_notes": [
+      "One unbroken 2 px line spans the full 1200 px tile width."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/ground_runner_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1200x2 px with no gap in the horizontal line.",
+    "Painted pixels use #535353 only and keep transparent background above the line.",
+    "Line thickness stays exactly 2 px across the whole tile."
+  ]
+}

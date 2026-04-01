@@ -1,0 +1,124 @@
+{
+  "schema_version": "art_task_plan_pkg@6",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner"
+  },
+  "meta": {
+    "game_name": "Chrome_Dino_Runner",
+    "iteration": 6,
+    "trial_index": 4,
+    "plan_dir": "trial_4",
+    "created_at_utc": "2026-03-10T00:00:00Z",
+    "git_ref": "art_task_plan/iter6_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/Chrome_Dino_Runner/Chrome_Dino_Runner.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v6.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#2B2B2B"
+    },
+    "background": {
+      "name": "paper",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "alert",
+      "hex": "#D23C3C"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "character.dino.run_6f_12fps",
+      "category": "character",
+      "file": "character/character.dino.run_6f_12fps.json"
+    },
+    {
+      "task_id": "character.dino.jump_static",
+      "category": "character",
+      "file": "character/character.dino.jump_static.json"
+    },
+    {
+      "task_id": "character.dino.duck_2f_10fps",
+      "category": "character",
+      "file": "character/character.dino.duck_2f_10fps.json"
+    },
+    {
+      "task_id": "obstacles.cactus.small_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.small_static.json"
+    },
+    {
+      "task_id": "obstacles.cactus.large_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.large_static.json"
+    },
+    {
+      "task_id": "obstacles.pterodactyl.fly_2f_8fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pterodactyl.fly_2f_8fps.json"
+    },
+    {
+      "task_id": "world.sky.day_static",
+      "category": "world",
+      "file": "world/world.sky.day_static.json"
+    },
+    {
+      "task_id": "world.ground.strip_tileable",
+      "category": "world",
+      "file": "world/world.ground.strip_tileable.json"
+    },
+    {
+      "task_id": "world.cloud.small_static",
+      "category": "world",
+      "file": "world/world.cloud.small_static.json"
+    },
+    {
+      "task_id": "ui.font.digits_5x7_10glyph",
+      "category": "ui",
+      "file": "ui/ui.font.digits_5x7_10glyph.json"
+    },
+    {
+      "task_id": "ui.hud.score_panel",
+      "category": "ui",
+      "file": "ui/ui.hud.score_panel.json"
+    },
+    {
+      "task_id": "ui.banner.game_over",
+      "category": "ui",
+      "file": "ui/ui.banner.game_over.json"
+    },
+    {
+      "task_id": "ui.button.restart_icon",
+      "category": "ui",
+      "file": "ui/ui.button.restart_icon.json"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050001",
+  "asset_name": "Abyss Depth Backdrop",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #D6D0C4, background #0D0D0F, and accent #E07B39.",
+    "Canvas target stays 320x180px with pixel-perfect presentation at 60 FPS.",
+    "Every painted edge keeps flat pixel clusters that stay readable under a 4x upscale."
+  ],
+  "differences": [
+    "Backdrop spans 320x540px so one authored sheet covers three camera heights before repeating.",
+    "Depth layers separate abyss black, deep slate, and dungeon stone bands to support 0.4x parallax motion.",
+    "Composition leaves the center lane visually open so the falling route stays readable without any progress meter."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_008050002",
+    "task_id_008050003",
+    "task_id_008050004",
+    "task_id_008050012"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050002",
+      "task_id_008050003",
+      "task_id_008050012"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "shaft_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_far",
+    "usage": "Parallax backdrop for the vertical prison shaft during continuous descent.",
+    "adjacent_elements": [
+      "task_id_008050002",
+      "task_id_008050003",
+      "task_id_008050012"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "forward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 540
+    },
+    "colors_hex": [
+      "#0D0D0F",
+      "#1A1A2E",
+      "#3B3347"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        320,
+        540
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Layered stone void with repeating alcove rhythm.",
+      "tiling": "Vertical seamless repeat every 180px.",
+      "collision_read": "Background only with no collision pixels."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_abyss_depth_backdrop.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 320x540px.",
+    "The top and bottom 180px bands loop without a visible seam when the camera scrolls downward.",
+    "No numerals, arrows, or progress markers appear anywhere in the backdrop art."
+  ],
+  "asset_key": "world_abyss_depth_backdrop",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds stone texture breakup, low-key lighting, and vertical shaft composition for the active environment asset."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle on a dedicated parallax layer with a repeating material region.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "ParallaxLayer"
+    ],
+    "asset_loading": "Load once during the Loading state and keep the handle in a background resource used by the shaft camera system.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Scroll this backdrop at 0.4x camera speed so foreground collision art stays readable.",
+      "Anchor the image to whole pixels before parallax offset is applied."
+    ]
+  }
+}

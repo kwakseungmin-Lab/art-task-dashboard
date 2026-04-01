@@ -1,0 +1,100 @@
+{
+  "task_id": "obstacles.seed",
+  "id": "obstacles.seed",
+  "asset_name": "Seed sprite",
+  "category": "obstacles",
+  "subcategory": "food_particle",
+  "description": "Small seed sprite used in the food bowl and as a 1-frame nibble effect during eating.",
+  "execution_order": 40,
+  "priority": "P1",
+  "depends_on": [
+    "world.food_bowl"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.food_bowl",
+      "character.echo_sprite_sheet"
+    ]
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 3,
+      "height": 3
+    },
+    "primary_hex": "#FFA300",
+    "outline_hex": "#1D2B53",
+    "variants": {
+      "count": 2,
+      "note": "Two slightly different 3x3 shapes to reduce visual repetition."
+    }
+  },
+  "context": {
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "screen_bottom_left",
+      "offset_px": {
+        "x": 18,
+        "y": -12
+      }
+    },
+    "layer": "world_props",
+    "usage": [
+      "in_game",
+      "ui_icon_source",
+      "spawned_sprite"
+    ],
+    "role": "food_item_seed"
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/obstacles/seed.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/obstacles/seed.png",
+      "dimensions_px": {
+        "width": 3,
+        "height": 3
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 3x3 px with transparent background.",
+    "Dominant seed pixels use #FFA300 and are readable at 1x scale.",
+    "No more than 16 colors are used; all colors are within palette_hex.",
+    "Seed does not include any anti-aliasing or subpixel shading."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

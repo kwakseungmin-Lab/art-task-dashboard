@@ -1,0 +1,152 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050004",
+  "asset_name": "Mossy Floor Strip",
+  "category": "world",
+  "subcategory": "friction_surface",
+  "priority": "P1",
+  "execution_order": 40,
+  "variant_of": "task_id_008050003",
+  "shared_properties": [
+    "Overall footprint stays 144x16px so it drops into the same floor sockets as the slick strip.",
+    "Top collision edge remains flat and aligned to the 16px tile cadence used across the shaft.",
+    "Stone understructure keeps the same deep-slate shadow band used by the base floor strip."
+  ],
+  "differences": [
+    "Mid-tone moss clusters replace the icy highlight band and push the dominant surface hue to #4E5940.",
+    "Grip read becomes denser through extra edge noise and short vertical root pixels.",
+    "Interior breakup shifts from glossy streaks to mottled organic patches to communicate medium friction."
+  ],
+  "depends_on": [
+    "task_id_008050003"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008050003"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050003",
+      "task_id_008050010",
+      "task_id_008050015"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "medium_friction_floor",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        72,
+        92
+      ]
+    },
+    "layer": "world_mid",
+    "usage": "Mid-friction floor used to reset player control after high-speed descent segments.",
+    "adjacent_elements": [
+      "task_id_008050003",
+      "task_id_008050010",
+      "task_id_008050015"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "forward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 144,
+      "height": 16
+    },
+    "colors_hex": [
+      "#4E5940",
+      "#3B3347",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        144,
+        16
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Flat floor strip with moss tufts and stone edge chips.",
+      "tiling": "Repeats horizontally in 16px columns.",
+      "collision_read": "Top edge remains clean while the interior pixels communicate added grip."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_mossy_floor_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 144x16px.",
+    "Moss clusters never break the top collision silhouette of the floor strip.",
+    "The strip reads more grippy than the slick floor through warmer green-grey coverage and reduced specular pixels."
+  ],
+  "asset_key": "world_mossy_floor_strip",
+  "variant_of_asset_key": "world_slick_floor_strip",
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds stone texture breakup, low-key lighting, and vertical shaft composition for the active environment asset."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Tilemap-backed strip or repeated SpriteBundle instances aligned to medium-friction lanes.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TilemapId",
+      "TilePos",
+      "TileTextureIndex",
+      "Visibility"
+    ],
+    "asset_loading": "Load during the Loading state and swap into shaft chunks where the gameplay layer assigns 0.5 friction.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Keep this strip on the same tile grid as the slick floor so route variants can reuse level sockets.",
+      "Use palette separation rather than outline thickness to distinguish it from the low-friction strip."
+    ]
+  }
+}

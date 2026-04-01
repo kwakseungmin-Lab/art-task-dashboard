@@ -1,0 +1,138 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003032",
+  "asset_name": "Touch Indicator (tap ring, 2 frames)",
+  "category": "ui",
+  "subcategory": "feedback",
+  "priority": "P2",
+  "execution_order": 390,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "input_feedback",
+    "layer": "ui",
+    "usage": "Shows a small ring at touch/click position for web builds.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 12,
+      "height": 12
+    },
+    "colors_hex": [
+      "#FF004D",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 8,
+      "loop": false,
+      "frame_size_px": [
+        12,
+        12
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "frames": {
+      "frame_0": "6px radius ring, 1px thick",
+      "frame_1": "8px radius ring, 1px thick"
+    },
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/touch_indicator_2f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 24x12px (2 frames × 12x12).",
+    "Ring thickness is 1px; center is transparent in both frames.",
+    "Uses only #FF004D or #1D2B53 pixels and transparency; no gradients."
+  ],
+  "shared_properties": [],
+  "differences": [],
+  "asset_key": "touch_indicator_2f",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "hud_widget_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md?raw=1",
+      "purpose": "Bottom HUD layout, care popup placement, and touch-safe spacing anchor."
+    },
+    {
+      "label": "care_system_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/CareSystem.md?raw=1",
+      "purpose": "Feed, clean, and pet interaction timing plus UI icon anchor."
+    },
+    {
+      "label": "game_direction_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Game_Direction.md?raw=1",
+      "purpose": "Core loop, care mechanic, and no-fail pet fantasy anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle for ui asset loading with nearest-neighbor sampling and deterministic z-order.",
+    "atlas_or_static": "sprite_sheet_2x1",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "UiOverlay"
+    ],
+    "asset_loading": "Load ui/touch_indicator_2f.png through AssetServer and store the handle under touch_indicator_2f.",
+    "runtime_notes": [
+      "Anchor UI sprites in screen space inside the 128x128 logical canvas and clamp to whole pixels before render.",
+      "Register manifest execution_order in a startup resource so build order stays deterministic during content validation.",
+      "Read frame size and bounds from specs.dimensions_px rather than texture metadata during runtime checks."
+    ]
+  }
+}

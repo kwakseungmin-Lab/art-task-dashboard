@@ -1,0 +1,152 @@
+{
+  "task_id": "pico_echo.character.echo_preening",
+  "asset_name": "Echo animation preening",
+  "category": "character",
+  "subcategory": "echo_state_animation",
+  "description": "Create Echo (cockatiel) animation for state 'preening'.\nSpritesheet: horizontal strip; frame size 40x40px; background transparent.\nAnimation params: frame_count=5, fps=3, loop=once.\n\nEcho base pixel template for every frame (40x40 local frame coordinates):\n- Transparent background outside silhouette.\n- Body fill (#FFA300): all body pixels must be within bounding box x=12..27,y=14..33.\n- Head fill (#FFA300): all head pixels must be within bounding box x=14..25,y=8..18.\n- Crest (#FFEC27): all crest pixels within x=16..23,y=2..7; crest tip pixel at (19,2) exists unless overridden.\n- Eyes open: left 2x2 #1D2B53 at x=17..18,y=12..13; right 2x2 #1D2B53 at x=21..22,y=12..13.\n- Eyes closed: for each eye replace 2x2 block with a 2px horizontal line #1D2B53 at y=13 on the same x range.\n- Cheek patch (#FF004D): fixed 2x2 at x=24..25,y=14..15 in EVERY frame.\n- Beak (#AB5236): 3x2 at x=19..21,y=16..17 unless overridden.\n- Feet (#AB5236): y=33, left x=16..17 and right x=22..23.\n- Tail (#FFA300): x=19..20,y=30..37.\n- Outline: 1px contour #1D2B53 around outer silhouette.\n- Shading: optional #5F574F, max 20 pixels per frame, only for y>=24.\n\nPreening overrides (5 frames):\n- Move beak block to x=17..19,y=20..21 in all frames.\n- Frames 3..5 add feather pixels #FFA300 at (11,22) and (28,22).\n",
+  "project": {
+    "game_name": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style_family": "pixel_art",
+      "style_reference": "PICO-8 default palette",
+      "view": "2D_front_facing",
+      "canvas_px": {
+        "width": 128,
+        "height": 128
+      },
+      "color_constraints": {
+        "mode": "indexed_color",
+        "max_colors": 16,
+        "palette_name": "PICO8_16",
+        "palette_hex": [
+          "#000000",
+          "#1D2B53",
+          "#7E2553",
+          "#008751",
+          "#AB5236",
+          "#5F574F",
+          "#C2C3C7",
+          "#FFF1E8",
+          "#FF004D",
+          "#FFA300",
+          "#FFEC27",
+          "#00E436",
+          "#29ADFF",
+          "#83769C",
+          "#FF77A8",
+          "#FFCCAA"
+        ],
+        "alpha": "binary"
+      },
+      "rendering": {
+        "scaling": "nearest_neighbor",
+        "outline": {
+          "enabled": true,
+          "color": "#1D2B53",
+          "thickness_px": 1
+        },
+        "shading": {
+          "enabled": true,
+          "steps": 2,
+          "shadow_color": "#5F574F"
+        }
+      }
+    },
+    "layer_order_top_to_bottom": [
+      "ui",
+      "vfx",
+      "character",
+      "object",
+      "environment"
+    ],
+    "source_gdd_paths": [
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Echo.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md"
+    ]
+  },
+  "deliverables": [
+    {
+      "path": "game_assets/pico_echo/character/echo_preening_strip_5f.png",
+      "format": "PNG",
+      "type": "spritesheet"
+    }
+  ],
+  "specs": {
+    "dimensions_px": "200x40",
+    "format": "PNG",
+    "color_mode": "indexed",
+    "max_colors": 16,
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "animation": {
+      "frame_size_px": "40x40",
+      "frame_count": 5,
+      "fps": 3,
+      "loop": "once",
+      "layout": "horizontal_strip"
+    }
+  },
+  "context": {
+    "role": "pet animation",
+    "screen_location": "anchor (x=64,y=60) above perch y=80",
+    "adjacent_elements": [
+      "perch"
+    ],
+    "layer": "character",
+    "usage": "preening"
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.character.echo_idle"
+    ],
+    "shared_constraints": [
+      "40x40"
+    ],
+    "differences": [
+      "preening"
+    ]
+  },
+  "depends_on": [
+    "pico_echo.character.echo_idle"
+  ],
+  "execution_order": 15,
+  "priority": "P1",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.character.echo_idle"
+  ],
+  "acceptance_criteria": [
+    "PNG dims 200x40",
+    "All colors within palette",
+    "Cheek #FF004D exists in every frame",
+    "For every frame: cheek patch #FF004D exists exactly at x=24..25,y=14..15",
+    "For every frame: feet pixels #AB5236 exist at y=33 (x=16..17 and x=22..23)",
+    "For every frame: crest pixels are within x=16..23,y=2..7",
+    "For open-eye frames: eyes are exactly 2x2 blocks at x=17..18,y=12..13 and x=21..22,y=12..13",
+    "For closed-eye frames: eyes are 2px horizontal lines at y=13 on x=17..18 and x=21..22"
+  ],
+  "source_gdd": [
+    "BehaviorSystem.md",
+    "Echo.md",
+    "Art_Direction.md"
+  ]
+}

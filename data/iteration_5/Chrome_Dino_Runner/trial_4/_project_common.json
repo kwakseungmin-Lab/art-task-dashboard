@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "game_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 4,
+    "plan_dir": "trial_4",
+    "created_at_utc": "2026-03-05T07:06:42Z",
+    "git_ref": "art_task_plan/iter5_pipeline",
+    "gdd_source": "github",
+    "source_gdd": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+    "prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v5.md",
+    "prompt_version": "v5",
+    "purpose": "Chrome Dino Runner directory-mode art task plan package",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v5.md"
+  },
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "pixel_perfect": true,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "coordinate_system": {
+      "origin": "canvas_top_left",
+      "x_axis": "right_positive",
+      "y_axis": "down_positive",
+      "units": "px"
+    },
+    "baseline_y_px": 148
+  },
+  "palette": {
+    "name": "chrome_dino_grayscale",
+    "background": {
+      "hex": "#F7F7F7"
+    },
+    "primary": {
+      "hex": "#535353"
+    },
+    "highlight_optional": {
+      "hex": "#FF0000"
+    },
+    "colors": [
+      {
+        "name": "background",
+        "hex": "#F7F7F7"
+      },
+      {
+        "name": "primary",
+        "hex": "#535353"
+      },
+      {
+        "name": "highlight_optional",
+        "hex": "#FF0000"
+      }
+    ]
+  },
+  "style_guide": {
+    "art_style": "pixel_art_8bit_minimal",
+    "theme": "prehistoric_desert_minimal",
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    },
+    "allowed_colors_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "line_discipline": {
+      "diagonal_lines_allowed": true,
+      "stair_stepping_ok": true,
+      "subpixel_forbidden": true
+    }
+  },
+  "layering": {
+    "order": [
+      "world_background",
+      "world_ground",
+      "world_props",
+      "character",
+      "obstacles",
+      "ui_overlay"
+    ]
+  },
+  "export_defaults": {
+    "format": "png",
+    "color_space": "sRGB",
+    "scale": "1x",
+    "transparent_bg": true,
+    "trim_transparent_border": false
+  },
+  "assets": [
+    {
+      "task_id": "world.background.sky_fill_600x150",
+      "category": "world",
+      "file": "world/world.background.sky_fill_600x150.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/background_sky_fill_600x150.png"
+    },
+    {
+      "task_id": "world.cloud.small_46x14",
+      "category": "world",
+      "file": "world/world.cloud.small_46x14.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/cloud_small_46x14.png"
+    },
+    {
+      "task_id": "world.cloud.large_92x27",
+      "category": "world",
+      "file": "world/world.cloud.large_92x27.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/cloud_large_92x27.png"
+    },
+    {
+      "task_id": "world.ground.line_tile_1200x2",
+      "category": "world",
+      "file": "world/world.ground.line_tile_1200x2.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/ground_line_tile_1200x2.png"
+    },
+    {
+      "task_id": "world.ground.texture_tile_1200x10",
+      "category": "world",
+      "file": "world/world.ground.texture_tile_1200x10.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/ground_texture_tile_1200x10.png"
+    },
+    {
+      "task_id": "character.player.dino",
+      "category": "character",
+      "file": "character/character.player.dino.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/character/player_dino_sprite_sheet.png"
+    },
+    {
+      "task_id": "obstacles.cactus.small_34x70",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.small_34x70.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/obstacles/cactus_small_34x70.png"
+    },
+    {
+      "task_id": "obstacles.cactus.medium_68x70",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.medium_68x70.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/obstacles/cactus_medium_68x70.png"
+    },
+    {
+      "task_id": "obstacles.cactus.large_102x100",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.large_102x100.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/obstacles/cactus_large_102x100.png"
+    },
+    {
+      "task_id": "obstacles.pterodactyl.fly_92x80_2f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pterodactyl.fly_92x80_2f.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/obstacles/pterodactyl_fly_92x80_2f.png"
+    },
+    {
+      "task_id": "ui.font.bitmap_mono_16",
+      "category": "ui",
+      "file": "ui/ui.font.bitmap_mono_16.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/font_bitmap_mono_16.png"
+    },
+    {
+      "task_id": "ui.widget.score_display",
+      "category": "ui",
+      "file": "ui/ui.widget.score_display.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/widget_score_display.png"
+    },
+    {
+      "task_id": "ui.widget.high_score_display",
+      "category": "ui",
+      "file": "ui/ui.widget.high_score_display.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/widget_high_score_display.png"
+    },
+    {
+      "task_id": "ui.effect.score_milestone_flash",
+      "category": "ui",
+      "file": "ui/ui.effect.score_milestone_flash.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/effect_score_milestone_flash_mock.png"
+    },
+    {
+      "task_id": "ui.text.start_prompt_press_space",
+      "category": "ui",
+      "file": "ui/ui.text.start_prompt_press_space.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/text_start_prompt_press_space.png"
+    },
+    {
+      "task_id": "ui.screen.game_over",
+      "category": "ui",
+      "file": "ui/ui.screen.game_over.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/screen_game_over_mock.png"
+    },
+    {
+      "task_id": "ui.text.new_record",
+      "category": "ui",
+      "file": "ui/ui.text.new_record.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/text_new_record.png"
+    },
+    {
+      "task_id": "ui.icon.restart_24x24",
+      "category": "ui",
+      "file": "ui/ui.icon.restart_24x24.json",
+      "primary_deliverable": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/icon_restart_24x24.png"
+    }
+  ]
+}

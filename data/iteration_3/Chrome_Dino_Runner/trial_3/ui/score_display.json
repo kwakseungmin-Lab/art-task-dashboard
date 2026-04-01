@@ -1,0 +1,83 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scalable",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "variable by element",
+      "height": "12-24px (font sizes)"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "monospace pixel font",
+      "rendering": "pixel-perfect, no antialiasing",
+      "font_type": "monospace pixel font",
+      "alignment": "varies by element",
+      "layer": "UI overlay (top layer)",
+      "collision": "none"
+    }
+  },
+  "asset": {
+    "asset_id": "score_display",
+    "asset_name": "Score Display Widget",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Real-time score counter during gameplay",
+      "screen_position": "Top-right corner at x=590px (screen_width - 10), y=10px",
+      "adjacent_elements": ["player_run", "pterodactyl_fly", "cloud_small", "cloud_large"],
+      "usage_scenario": "Displays current score in real-time, updates every frame as score increases at 10 points/second, flashes white for 0.1 seconds at every 100-point milestone"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "50px (5 digits × 10px character width)",
+        "height": "16px"
+      },
+      "colors": {
+        "text": "#535353",
+        "text_flash": "#FFFFFF"
+      },
+      "shape": "Text string of 5 digits with zero-padding (e.g., 00042, 01234, 99999)",
+      "texture": "Monospace pixel font, crisp pixel rendering",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No sprite animation. Text updates every frame based on ScoreSystem.current_score. Flash effect: color changes to #FFFFFF for 0.1 seconds when score % 100 == 0"
+      },
+      "details": "5-digit number with leading zeros, monospace font (10px per character), right-aligned at top-right corner with 10px margin from edges"
+    },
+    "relationships": {
+      "related_assets": ["gameover_screen", "player_run"],
+      "shared_with": "Same font style and size (16px) as gameover_screen score display",
+      "differences_from": "gameover_screen displays final score centered with additional text. score_display is live updating and top-right positioned"
+    },
+    "explicit_negations": [
+      "No decorative borders or backgrounds",
+      "No shadows or outlines on text",
+      "No gradients or color variations (except white flash)",
+      "No anti-aliasing on font",
+      "No proportional font (must be monospace)",
+      "No animation beyond color flash",
+      "No icons or symbols",
+      "No transparency except full alpha channel"
+    ]
+  }
+}

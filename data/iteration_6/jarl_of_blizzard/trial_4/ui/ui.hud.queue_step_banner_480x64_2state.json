@@ -1,0 +1,112 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.queue_step_banner_480x64_2state",
+  "asset_name": "Queue Step Banner — 480×64 (Normal/Error states)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P2",
+  "execution_order": 43,
+  "variant_of": null,
+  "depends_on": [
+    "ui.hud.winter_round_bw_panels_atlas",
+    "ui.typography.bitmap_font_bw_8px",
+    "ui.icons.resources_24_set_6"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.winter_round_bw_panels_atlas",
+    "ui.typography.bitmap_font_bw_8px",
+    "ui.icons.resources_24_set_6"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_banner",
+    "layer": "ui_hud",
+    "usage": "Bottom-center banner used in execution phase to show current queue item and feedback (normal vs error).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_center",
+      "offset_px": {
+        "x": 0,
+        "y": -24
+      }
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 960,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "states": [
+      {
+        "id": "normal",
+        "size_px": {
+          "width": 480,
+          "height": 64
+        },
+        "note": "Neutral frame and subtle highlight."
+      },
+      {
+        "id": "error",
+        "size_px": {
+          "width": 480,
+          "height": 64
+        },
+        "note": "High-contrast border and jitter lines impression; still grayscale."
+      }
+    ],
+    "layout_note": "Two states side-by-side: 960×64 total (480×64 each). Transparent background."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.queue_step_banner_480x64_2state.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Image is exactly 960×64px with two 480×64 states.",
+    "Error state is clearly distinguishable from normal state in grayscale at 1× scale.",
+    "Interior area supports overlaying 8px bitmap font text with sufficient contrast."
+  ]
+}

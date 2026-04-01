@@ -1,0 +1,94 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "character_type": "cockatiel parrot",
+      "design_principle": "hand-drawn frame-by-frame animation",
+      "key_features": ["crest (볏)", "cheek patch (체크 패치)", "tail feathers"],
+      "position": "center screen on perch (x=64, y=60)"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_idle",
+    "asset_name": "Echo Idle State",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "default resting state of Echo the cockatiel",
+      "screen_position": "center (x=64, y=60) on perch",
+      "adjacent_elements": ["perch (below)", "cage background", "food bowl (lower left)", "water bowl (lower left)"],
+      "usage_scenario": "displayed when no other state is active, most frequently seen state"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "cockatiel silhouette with upright posture, standing on perch",
+      "texture": "pixel art with minimal dithering, hand-drawn organic feel",
+      "outline": "1px dark outline (#1D2B53) on key features only",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 4,
+        "fps": 2,
+        "loop": true,
+        "description": "F1: eyes open, F2: eyes open (slight body shift), F3: eyes closed (blink), F4: eyes open"
+      },
+      "details": "crest in normal position (not raised), cheek patch always visible (#FF004D), tail feathers pointing down, feet gripping perch, subtle breathing motion"
+    },
+    "relationships": {
+      "related_assets": ["echo_eating", "echo_sleeping", "echo_happy", "echo_preening", "echo_dirty", "echo_hungry", "echo_singing"],
+      "shared_with": "all Echo states share same base body structure and color palette",
+      "differences_from": "other states have different poses, expressions, and particle effects; idle is the neutral baseline"
+    },
+    "explicit_negations": [
+      "no realistic rendering or gradients",
+      "no anti-aliasing or smooth edges",
+      "no 3D effects or depth shading",
+      "no colors outside PICO-8 16-color palette",
+      "no motion blur or tweening between frames",
+      "no detailed feather textures (keep pixel-simple)",
+      "crest must not be raised (that's for happy/singing states)"
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "task_id": "obstacles.cactus.large_102x100",
+  "id": "cactus_large_102x100",
+  "asset_name": "Cactus Large (102x100)",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "display_name": "Cactus Large (102x100)",
+  "description": "Create asset for task_id 'obstacles.cactus.large_102x100' as specified in specs/context.",
+  "execution_order": 42,
+  "priority": "P1",
+  "depends_on": [
+    "obstacles.cactus.small_34x70"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus.small_34x70"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 600,
+        "height": 150
+      },
+      "frame_rate_target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      },
+      "baseline_y_px": 148
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "highlight_optional_hex": "#FF0000"
+    },
+    "style": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 102,
+      "height": 100
+    },
+    "frames": 1,
+    "colors_hex": [
+      "#535353"
+    ],
+    "transparent_background": true,
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    }
+  },
+  "context": {
+    "role": "ground_obstacle_variant",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 650,
+      "y": 48,
+      "anchor": "top_left"
+    },
+    "layer": "obstacles",
+    "usage": [
+      "in_game"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/obstacles/cactus_large_102x100.aseprite",
+      "notes": "Static cactus large variant (3-cactus group)."
+    },
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/obstacles/cactus_large_102x100.png",
+      "dimensions_px": {
+        "width": 102,
+        "height": 100
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 102x100 px, transparent background.",
+    "All visible pixels are #535353 only.",
+    "Reads as a 3-cactus group with height variation; no animation."
+  ]
+}

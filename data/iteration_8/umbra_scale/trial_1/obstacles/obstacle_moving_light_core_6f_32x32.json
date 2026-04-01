@@ -1,0 +1,173 @@
+{
+  "task_id": "task_id_008101015",
+  "asset_key": "obstacle_moving_light_core_6f_32x32",
+  "asset_name": "Moving Light Core Pulse",
+  "category": "obstacles",
+  "subcategory": "light_source_mobile",
+  "priority": "P1",
+  "execution_order": 150,
+  "variant_of": "task_id_008101014",
+  "variant_of_asset_key": "obstacle_fixed_light_core_6f_32x32",
+  "shared_properties": [
+    "Keeps the same 32x32 pulsing light core dimensions as the fixed source.",
+    "Uses the same amber-to-white hazard palette and centered beam origin.",
+    "Preserves the same six-frame pulse rhythm so both source types feel related."
+  ],
+  "differences": [
+    "Adds a hanging rail bracket and motion indicator fins to communicate movement.",
+    "The casing is slightly heavier on the top edge to imply suspension from a track.",
+    "The design reads as a patrol source rather than a permanently mounted lamp."
+  ],
+  "depends_on": [
+    "task_id_008101014",
+    "task_id_008101002"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101014",
+    "task_id_008101002"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Reuse the fixed-light SpriteSheetBundle and attach a MovingLight component for rail motion.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "LightSource",
+      "MovingLight",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/obstacle_moving_light_core_6f_32x32.png through AssetServer and reuse the six-frame atlas for patrol sources.",
+    "runtime_notes": [
+      "Motion assumes a 120 px per second rail speed with the sprite centered on the track path.",
+      "Bracket shapes should not extend beyond the 32 px logical body in ways that confuse collider alignment.",
+      "Pulse timing remains identical to the fixed light so movement, not color, is the distinguishing factor."
+    ]
+  },
+  "context": {
+    "role": "moving_light_source",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1680,
+        420
+      ]
+    },
+    "layer": "obstacles_hazard",
+    "usage": "Rail-mounted light emitter used in advanced floors where the player must read changing shadow windows over time.",
+    "adjacent_elements": [
+      "obstacle_fixed_light_core_6f_32x32",
+      "player_umbra_exposure_5f_12fps",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#D4682A",
+      "#F5EFE0",
+      "#C9A84C"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 6,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 6,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Fixed-light core silhouette extended with a slim top rail bracket and directional side fins.",
+      "components": [
+        "outer_rim",
+        "lens_core",
+        "hazard_flare",
+        "rail_bracket",
+        "direction_fins"
+      ]
+    },
+    "motion": {
+      "path": "horizontal_ping_pong",
+      "speed_px_per_second": 120
+    }
+  },
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x32 px with six 32x32 frames.",
+    "Rail-bracket details read clearly without shifting the visual beam origin away from the sprite center.",
+    "The moving source remains immediately distinguishable from the fixed source at gameplay scale."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101014",
+      "task_id_008101009",
+      "task_id_008101011",
+      "task_id_008101012",
+      "task_id_008101021"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_moving_light_core_6f_32x32.png",
+      "transparent_background": true
+    }
+  ]
+}

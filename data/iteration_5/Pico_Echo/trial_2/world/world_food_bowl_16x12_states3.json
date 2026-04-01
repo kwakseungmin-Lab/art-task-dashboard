@@ -1,0 +1,106 @@
+{
+  "task_id": "world.food_bowl",
+  "asset_name": "food_bowl_16x12_states3",
+  "category": "world",
+  "subcategory": "interactive_prop",
+  "description": "Create a 48x12 px sprite sheet (3 states in one row) for the food bowl at 16x12 per state: state0_empty, state1_low, state2_full. Bowl outline uses #AB5236. Bowl interior uses #FFF1E8. Seed dots use #FFA300. Empty: 0 seed dots. Low: exactly 4 seed dots (each dot is 1px). Full: exactly 8 seed dots (each dot is 1px). Background must be fully transparent outside bowl pixels.",
+  "execution_order": 50,
+  "priority": "P0",
+  "specs": {
+    "sprite_sheet_px": {
+      "width": 48,
+      "height": 12
+    },
+    "state_frame_px": {
+      "width": 16,
+      "height": 12
+    },
+    "states": [
+      "empty",
+      "low",
+      "full"
+    ],
+    "outline_hex": "#AB5236",
+    "interior_hex": "#FFF1E8",
+    "seed_hex": "#FFA300",
+    "seed_dot_px": {
+      "width": 1,
+      "height": 1
+    },
+    "seed_dot_counts": {
+      "empty": 0,
+      "low": 4,
+      "full": 8
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": true
+  },
+  "context": {
+    "role": "Food bowl that triggers Feed care action when tapped.",
+    "layer": "world_props",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 16,
+      "y": 100,
+      "anchor": "top_left"
+    },
+    "interaction": {
+      "type": "tap",
+      "cooldown_seconds": 300
+    }
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/world/food_bowl_16x12_states3/food_bowl_16x12_states3.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/world/food_bowl_16x12_states3/food_bowl_16x12_states3.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.seed",
+      "character.echo_sprite_sheet"
+    ]
+  },
+  "depends_on": [
+    "world.cage_background"
+  ],
+  "blocks": [
+    "obstacles.seed"
+  ],
+  "blocked_by": [
+    "world.cage_background"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 48x12 px with transparent background.",
+    "Sprite sheet contains 3 frames of 16x12 px in a single row.",
+    "Seed dot counts are exactly: empty=0, low=4, full=8.",
+    "Only #AB5236, #FFF1E8, #FFA300 are used for non-transparent pixels."
+  ]
+}

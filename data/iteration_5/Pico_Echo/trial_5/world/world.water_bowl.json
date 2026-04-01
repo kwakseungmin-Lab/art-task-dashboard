@@ -1,0 +1,95 @@
+{
+  "task_id": "world.water_bowl",
+  "id": "world.water_bowl",
+  "asset_name": "Water bowl",
+  "category": "world",
+  "subcategory": "decorative_prop",
+  "description": "Water bowl prop placed near the food bowl. Decorative only; includes a small blue water surface highlight.",
+  "execution_order": 26,
+  "priority": "P1",
+  "depends_on": [
+    "world.cage_background"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.food_bowl",
+      "character.echo_sprite_sheet"
+    ]
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 12,
+      "height": 10
+    },
+    "bowl_outline_hex": "#AB5236",
+    "bowl_fill_hex": "#FFF1E8",
+    "water_hex": "#29ADFF",
+    "water_highlight_hex": "#FFF1E8"
+  },
+  "context": {
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 40,
+      "y": 100,
+      "origin": "canvas_top_left"
+    },
+    "layer": "world_props",
+    "usage": [
+      "in_game",
+      "static_prop"
+    ],
+    "role": "world_prop_water_bowl"
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/world/water_bowl.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/world/water_bowl.png",
+      "dimensions_px": {
+        "width": 12,
+        "height": 10
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 12x10 px with transparent background.",
+    "Water surface includes #29ADFF pixels and reads as water at 1x scale.",
+    "Bowl outline uses #AB5236 and stays within 12x10 bounds.",
+    "All colors are within palette_hex."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

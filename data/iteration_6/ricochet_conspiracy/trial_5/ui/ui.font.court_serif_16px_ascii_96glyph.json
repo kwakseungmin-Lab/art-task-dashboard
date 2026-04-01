@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.font.court_serif_16px_ascii_96glyph",
+  "asset_name": "UI Font — Court Serif 16px (ASCII 96 glyphs)",
+  "category": "ui",
+  "subcategory": "font",
+  "priority": "P0",
+  "execution_order": 300,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "ui_font",
+    "layer": "ui",
+    "usage": "Primary UI font for HUD labels (stage name, moves, undo, buttons) at 16px.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 768,
+      "height": 96
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#F5F0E8"
+    ],
+    "animation": {
+      "type": "glyph_sheet",
+      "glyph_count": 96,
+      "glyph_size_px": [
+        8,
+        16
+      ],
+      "layout": {
+        "columns": 32,
+        "rows": 3
+      },
+      "baseline_px": 12
+    },
+    "typography_rules": {
+      "font_style": "serif",
+      "stroke_hex": "#3D2B1F",
+      "fill_hex": "#3D2B1F",
+      "shadow": null
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.font.court_serif_16px_ascii_96glyph.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Glyph sheet is exactly 768x96px (32x3 grid of 8x16 glyphs) with transparent background.",
+    "All glyphs are legible at 16px on #E8D5C4 background; stroke/fill uses #3D2B1F only.",
+    "ASCII 0x20–0x7F coverage is complete; missing glyphs are not allowed (use placeholder box only for control chars outside range)."
+  ]
+}

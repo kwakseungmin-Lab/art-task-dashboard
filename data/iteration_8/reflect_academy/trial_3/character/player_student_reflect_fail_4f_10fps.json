@@ -1,0 +1,192 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003008",
+  "asset_key": "player_student_reflect_fail_4f_10fps",
+  "asset_name": "Player Reflect Fail Pose",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": "task_id_008003005",
+  "variant_of_asset_key": "player_student_idle_8f_8fps",
+  "shared_properties": [
+    "120x180 frame size and academy coat silhouette.",
+    "Navy robe body, gold trim, and skin tone distribution.",
+    "Rightward facing combat root position on the platform."
+  ],
+  "differences": [
+    "Shoulders drop by about 12 px and the guard arm opens too late.",
+    "Cyan rune glow turns off after frame 2.",
+    "Card hand trails behind the body to show missed timing."
+  ],
+  "depends_on": [
+    "task_id_008003005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003018",
+      "task_id_008003020",
+      "task_id_008003012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the fail state and return control to idle after the four-frame sequence ends.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerReflector",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_student_reflect_fail_4f_10fps.png through AssetServer and register the atlas under player_student_reflect_fail_4f_10fps.",
+    "runtime_notes": [
+      "Fail state lines up with the idle pivot so hit reactions do not slide off the platform.",
+      "Damage UI can trigger on the final frame without covering the face.",
+      "The non-looping sequence should finish in 0.4 seconds at 10 fps."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "player_reflect_fail",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        360,
+        640
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Shown after a miss window or no card use when the incoming spell connects with the player.",
+    "adjacent_elements": [
+      "ui_hp_bars_dual_440x32",
+      "ui_round_combo_panel_180x64",
+      "projectile_fire_fly_6f_12fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#F2E2C4",
+      "#5C3317",
+      "#E74C3C"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 10,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compressed player silhouette with late arm motion and a backward torso lean.",
+      "components": [
+        "head",
+        "late_guard_arm",
+        "card_hand",
+        "coat_body",
+        "boots",
+        "sash"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "wide_almond",
+        "size_px": [
+          20,
+          9
+        ]
+      },
+      "mouth": {
+        "shape": "open_line",
+        "length_px": 14
+      },
+      "nose": {
+        "shape": "small_bridge",
+        "length_px": 8
+      }
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 58
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 72
+      },
+      "tail": null,
+      "accessories": "Dimmed focus bracer, crest brooch, and sash."
+    },
+    "texture": "Coat folds bunch at the shoulders and the bracer glow fades out through the sequence.",
+    "shading": "Soft gradient shading with a brief red hit accent near the chest in the final frame."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_student_reflect_fail_4f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 480x180 px with four 120x180 frames.",
+    "Late guard motion remains readable without crossing the card hand silhouette.",
+    "Red hit accent appears only in the final frame and covers less than 12 percent of opaque pixels."
+  ]
+}

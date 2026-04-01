@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.tiles.marble_grid_64_atlas",
+  "asset_name": "Marble Grid Tiles — 64px Atlas",
+  "category": "world",
+  "subcategory": "tiles",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.dusk_sky_1920x1080"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.dusk_sky_1920x1080"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.path_link_dash_64_sheet_6f",
+      "obstacles.hazard.fire_tile_64_sheet_8f",
+      "world.goal.temple_goal_tile_64_sheet_8f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tile_atlas",
+    "layer": "world_grid",
+    "usage": "64×64 base tiles for 12×9 grid; includes normal/dark/hover/invalid variants.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 512
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#C17B2F",
+      "#D4C5A9",
+      "#6B7280",
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#F59E0B",
+      "#DC2626",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC"
+    ],
+    "tile_size_px": {
+      "width": 64,
+      "height": 64
+    },
+    "tiles": [
+      {
+        "id": "grid_base_ivory",
+        "note": "Stone Ivory base w/ subtle marble texture + 1px grid."
+      },
+      {
+        "id": "grid_dark_slate",
+        "note": "Shadow Slate depth variant."
+      },
+      {
+        "id": "grid_hover_cyan",
+        "note": "Hover cyan rim only."
+      },
+      {
+        "id": "grid_invalid_red",
+        "note": "Invalid outline (path error / BLOCK)."
+      }
+    ],
+    "layout_note": "8×8 grid in 512×512; transparent background."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tiles.marble_grid_64_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 512×512px aligned to 64px grid.",
+    "Grid lines are crisp 1px at 100% zoom.",
+    "Texture is low-frequency and does not fight hazard animation."
+  ]
+}

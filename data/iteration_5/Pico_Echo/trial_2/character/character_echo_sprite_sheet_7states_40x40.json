@@ -1,0 +1,155 @@
+{
+  "task_id": "character.echo_sprite_sheet",
+  "asset_name": "echo_sprite_sheet_7states_40x40",
+  "category": "character",
+  "subcategory": "player_pet",
+  "description": "Create a sprite sheet for Echo (cockatiel) containing 7 state animations: idle(4f@2fps), eating(6f@4fps), sleeping(3f@1fps), happy(8f@4fps), preening(5f@3fps), dirty(3f@2fps), hungry(4f@2fps), singing(8f@4fps). Each frame bounding box is exactly 40x40 px. Use only PICO-8 palette colors. Mandatory feature colors: body #FFA300, cheek patch #FF004D, crest #FFEC27, beak #AB5236, eye #1D2B53. Background must be fully transparent.",
+  "execution_order": 90,
+  "priority": "P0",
+  "specs": {
+    "frame_bounds_px": {
+      "width": 40,
+      "height": 40
+    },
+    "animations": {
+      "idle": {
+        "frame_count": 4,
+        "fps": 2,
+        "loop": true
+      },
+      "eating": {
+        "frame_count": 6,
+        "fps": 4,
+        "loop": false
+      },
+      "sleeping": {
+        "frame_count": 3,
+        "fps": 1,
+        "loop": true
+      },
+      "happy": {
+        "frame_count": 8,
+        "fps": 4,
+        "loop": false,
+        "loop_count": 2
+      },
+      "preening": {
+        "frame_count": 5,
+        "fps": 3,
+        "loop": false
+      },
+      "dirty": {
+        "frame_count": 3,
+        "fps": 2,
+        "loop": true
+      },
+      "hungry": {
+        "frame_count": 4,
+        "fps": 2,
+        "loop": true
+      },
+      "singing": {
+        "frame_count": 8,
+        "fps": 4,
+        "loop": true
+      }
+    },
+    "required_feature_colors_hex": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eye": "#1D2B53"
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "outline": {
+      "enabled": false,
+      "notes": "Outline disabled; define silhouette using palette contrast."
+    },
+    "anchor_points": {
+      "perch_contact_px": {
+        "x": 20,
+        "y": 36
+      },
+      "hitbox_px": {
+        "x": 10,
+        "y": 8,
+        "width": 20,
+        "height": 28
+      }
+    }
+  },
+  "context": {
+    "role": "Main pet character. Centered above perch.",
+    "layer": "character",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 64,
+      "y": 60,
+      "anchor": "center"
+    },
+    "ground_alignment": {
+      "perch_y_px": 80,
+      "perch_sprite_task_id": "world.perch"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/character/echo_sprite_sheet_7states_40x40/echo_sprite_sheet_7states_40x40.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/character/echo_sprite_sheet_7states_40x40/echo_sprite_sheet_7states_40x40.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.perch",
+      "world.food_bowl",
+      "obstacles.seed",
+      "obstacles.poop",
+      "ui.status_bubble",
+      "ui.vfx_particles_atlas"
+    ]
+  },
+  "depends_on": [
+    "world.perch",
+    "world.food_bowl"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.perch",
+    "world.food_bowl"
+  ],
+  "acceptance_criteria": [
+    "Every frame uses only the palette_hex colors and transparency.",
+    "Body pixels include #FFA300 and cheek patch pixels include #FF004D in every state.",
+    "Each animation has exactly the specified frame_count and fps.",
+    "All frames are exactly 40x40 px with fully transparent background around the sprite."
+  ]
+}

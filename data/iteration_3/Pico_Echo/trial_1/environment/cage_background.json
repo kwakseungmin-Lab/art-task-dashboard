@@ -1,0 +1,89 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art background",
+      "rendering": "single layer, no parallax",
+      "style": "minimal, clean, PICO-8 aesthetic",
+      "perspective": "front-facing 2D, no depth"
+    }
+  },
+  "asset": {
+    "asset_id": "cage_background",
+    "asset_name": "Cage Background Wall",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Background wall of cage interior, fills entire screen",
+      "screen_position": "Full screen (0,0) to (128,128), bottom layer",
+      "adjacent_elements": ["All game elements render on top of this", "cage_bars (top edge)", "floor (bottom)"],
+      "usage_scenario": "Always visible, provides warm home environment feeling. Static, never changes."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "128px",
+        "height": "128px"
+      },
+      "colors": {
+        "primary": "#FFF1E8"
+      },
+      "shape": "Rectangular fill, entire screen",
+      "texture": "Flat solid color, no pattern or texture",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No animation. Single solid color fill."
+      },
+      "details": "Simple cream-colored (#FFF1E8) background representing interior wall of cage. No decorative elements, wallpaper, or patterns. Provides neutral backdrop for Echo and other elements."
+    },
+    "relationships": {
+      "related_assets": ["cage_bars", "floor", "perch", "all other game elements"],
+      "shared_with": "Color palette with all environment elements",
+      "differences_from": "floor: lighter cream vs darker tan. cage_bars: solid vs bars. Simplest asset in game."
+    },
+    "explicit_negations": [
+      "No wallpaper pattern",
+      "No texture or grain",
+      "No gradients",
+      "No shadows or lighting effects",
+      "No decorative elements",
+      "No window or outside view",
+      "No wood grain or material texture",
+      "Color does not change based on time or state"
+    ]
+  }
+}

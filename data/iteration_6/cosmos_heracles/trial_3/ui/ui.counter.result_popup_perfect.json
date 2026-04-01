@@ -1,0 +1,125 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.counter.result_popup_perfect",
+  "asset_name": "Perfect Counter Result Popup (PERFECT!!)",
+  "category": "ui",
+  "subcategory": "popup",
+  "priority": "P0",
+  "execution_order": 380,
+  "variant_of": "ui.counter.result_popup_counter",
+  "shared_properties": {
+    "display_duration_s": 0.6,
+    "layer": "ui",
+    "pixel_art": "true"
+  },
+  "differences": {
+    "text": "PERFECT!!",
+    "color_main_hex": "#FFD966",
+    "trigger_window_ms": 20
+  },
+  "depends_on": [
+    "ui.counter.result_popup_counter"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.counter.result_popup_counter"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Danger Red",
+      "hex": "#E84040"
+    },
+    "shadow": {
+      "name": "Column Shadow",
+      "hex": "#6B6357"
+    },
+    "gold": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    },
+    "counter": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "boss": {
+      "name": "Boss Purple",
+      "hex": "#7B2FBE"
+    },
+    "ui_text": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "skin": {
+      "name": "Hero Skin",
+      "hex": "#E8B87A"
+    },
+    "armor": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "anti_aliasing": "none"
+  },
+  "context": {
+    "role": "popup",
+    "layer": "ui",
+    "usage": "Displayed for 0.6s after a perfect counter (±20ms).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 1100,
+      "y": 400
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 260,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFD966",
+      "#40E8D0",
+      "#F0EFE9",
+      "#6B6357",
+      "#0B0C1E"
+    ],
+    "animation": null,
+    "display_duration_s": 0.6
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.counter.result_popup_perfect.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Popup image is exactly 260x64px and contains the text PERFECT!! in pixel font style.",
+    "Uses #FFD966 as the main fill and #40E8D0 as accent; no gradients or glow blur.",
+    "Silhouette and baseline alignment remain stable versus the COUNTER popup to avoid UI jump."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.book",
+  "asset_name": "Launchable Object — Library Book (28x20)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P2",
+  "execution_order": 180,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "projectile",
+    "layer": "world",
+    "usage": "Flat object used to redirect impacts; sprite should emphasize flat edges for 90° redirection readability.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 28,
+      "height": 20
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#8BA7C7",
+      "#F5F0E8",
+      "#D4A843",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 28,
+        "height": 20
+      },
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      },
+      "frame_count": 1,
+      "directions": null,
+      "note": "Book cover with gold spine accent; flat rectangle silhouette."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.book.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 28x20px with crisp rectangular silhouette and 1px outline #3D2B1F.",
+    "Spine/edge accents use #D4A843; interior pages hinted with #F5F0E8; no anti-aliasing.",
+    "Edges are straight (no wobble) so collisions feel consistent with a flat redirector object."
+  ]
+}

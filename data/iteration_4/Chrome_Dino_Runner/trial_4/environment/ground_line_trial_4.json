@@ -1,0 +1,193 @@
+{
+  "task_id": "cdr_environment_ground_line",
+  "asset_name": "ground_line",
+  "category": "environment",
+  "subcategory": "ground",
+  "description": "Create the ground baseline sprite used for infinite scrolling. Image size must be exactly 1200x2 px. All pixels must be #535353 (RGB 83,83,83) with alpha 255. Line thickness is exactly 2 px (the full image height).",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Ground baseline reference for player landing and obstacle placement.",
+    "screen_location": "Rendered at Ground y=0 baseline across screen; scrolls horizontally.",
+    "adjacent_elements": [
+      "player sprite bottom aligned to this line",
+      "cactus base sits on this line"
+    ],
+    "layer": "foreground",
+    "usage": "Always visible during Running and GameOver; scroll speed = Current_Speed."
+  },
+  "specs": {
+    "dimensions": "1200x2",
+    "colors": [
+      "#535353"
+    ],
+    "outline": {
+      "enabled": false,
+      "thickness_px": 0
+    },
+    "animation": {
+      "enabled": false
+    },
+    "tiling": {
+      "tile_width_px": 1200,
+      "tile_height_px": 2,
+      "seamless_required": true
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/environment/ground_line.png",
+      "type": "tile_sprite",
+      "format": "png",
+      "dimensions_px": "1200x2",
+      "scale": 1,
+      "background": "opaque"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/environment/ground_line@2x.png",
+      "type": "tile_sprite",
+      "format": "png",
+      "dimensions_px": "2400x4",
+      "scale": 2,
+      "scale_method": "nearest_neighbor",
+      "background": "opaque"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_environment_ground_texture",
+      "cdr_obstacle_cactus_small",
+      "cdr_character_player_run"
+    ],
+    "shared_properties": {
+      "ground_color_hex": "#535353",
+      "ground_thickness_px": 2,
+      "tile_width_px": 1200
+    },
+    "differences": {
+      "vs_ground_texture": "Ground line is solid opaque; texture is transparent overlay with sparse details."
+    }
+  },
+  "depends_on": [],
+  "execution_order": 2,
+  "priority": "P0",
+  "blocks": [
+    "cdr_environment_ground_texture"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "PNG dimensions exactly 1200x2 px (1x) and 2400x4 px (2x).",
+    "All pixels in 1x file are exactly #535353 with alpha 255.",
+    "Left and right edges are identical (seamless tiling when repeated every 1200 px)."
+  ]
+}

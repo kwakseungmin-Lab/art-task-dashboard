@@ -1,0 +1,89 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.top_bar_layout_1280x50",
+  "asset_name": "UI HUD — Top Bar Layout (Stage name, moves, hint/restart/menu)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "2px_brush"
+  },
+  "context": {
+    "role": "hud",
+    "layer": "ui",
+    "usage": "Top HUD bar (1280x50). Contains stage name area, moves counter, hint/restart/menu buttons placeholders.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 50
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#8BA7C7",
+      "#8B3A52",
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#C8B4E0"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.top_bar_layout_1280x50.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Image is exactly 1280x50px and fits the top of a 1280x720 canvas.",
+    "No real text baked; placeholder panels only.",
+    "Text/line color uses #3D2B1F; accent uses #D4A843."
+  ]
+}

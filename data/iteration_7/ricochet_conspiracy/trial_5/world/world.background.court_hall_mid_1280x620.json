@@ -1,0 +1,122 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.court_hall_mid_1280x620",
+  "asset_name": "Court Hall Mid Layer (1280x620)",
+  "category": "world",
+  "subcategory": "background_mid",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_far_1280x620"
+  ],
+  "blocks": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocked_by": [
+    "world.background.court_hall_far_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.court_hall_far_1280x620",
+      "world.background.court_hall_front_1280x620",
+      "world.effect.candle_glow_radial_160x160"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "stage_background_mid",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        50
+      ]
+    },
+    "layer": "world_mid",
+    "usage": "Visible during puzzle play; holds column pairs, curtain folds, and hanging light anchors inside the 1280x620 lane.",
+    "adjacent_elements": [
+      "far arches layer",
+      "front floor trim",
+      "chandelier anchor"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#D9C1B2",
+      "#B89D8A",
+      "#A89880",
+      "#8B6B5C",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "paired columns with curtain masses that leave a centered play lane 720px wide",
+      "components": [
+        "left_column_pair",
+        "right_column_pair",
+        "curtain_cluster_left",
+        "curtain_cluster_right",
+        "ceiling_anchor_points"
+      ]
+    },
+    "parallax": {
+      "depth_index": 2,
+      "scroll_factor_x": 0.6
+    },
+    "lighting": {
+      "accent_hex": "#D4A843",
+      "column_shadow_hex": "#8B6B5C"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.court_hall_mid_1280x620.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1280x620px with paired columns aligned at x=160px and x=1040px.",
+    "Curtain masses stay outside the center lane from x=280px to x=1000px so obstacle silhouettes remain readable.",
+    "Only #D9C1B2, #B89D8A, #A89880, #8B6B5C, and #3D2B1F are used in the painted layer."
+  ]
+}

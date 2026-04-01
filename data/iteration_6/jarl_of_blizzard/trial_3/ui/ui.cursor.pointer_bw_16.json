@@ -1,0 +1,86 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.cursor.pointer_bw_16",
+  "asset_name": "Mouse Cursor — BW pointer 16px",
+  "category": "ui",
+  "subcategory": "cursor",
+  "priority": "P3",
+  "execution_order": 46,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "cursor",
+    "layer": "ui_cursor",
+    "usage": "Custom cursor visible on both black and white regions of whiteout.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "hotspot_px": {
+      "x": 1,
+      "y": 1
+    },
+    "note": "High-contrast outline cursor; optional inverted inner fill."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.cursor.pointer_bw_16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Cursor image is exactly 16×16px and transparent outside shape.",
+    "Cursor remains visible on both #000000 and #FFFFFF backgrounds."
+  ]
+}

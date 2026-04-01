@@ -1,0 +1,519 @@
+{
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style": "pixel_art",
+      "constraints": [
+        "grid: 1px",
+        "no_antialiasing: true",
+        "no_gradients: true",
+        "scaling: nearest_neighbor"
+      ]
+    },
+    "render_target": {
+      "canvas_px": "128x128",
+      "view": "2D_front",
+      "origin": "top_left"
+    },
+    "color": {
+      "palette_name": "PICO-8",
+      "palette_hex_16": [
+        "#000000",
+        "#1D2B53",
+        "#7E2553",
+        "#008751",
+        "#AB5236",
+        "#5F574F",
+        "#C2C3C7",
+        "#FFF1E8",
+        "#FF004D",
+        "#FFA300",
+        "#FFEC27",
+        "#00E436",
+        "#29ADFF",
+        "#83769C",
+        "#FF77A8",
+        "#FFCCAA"
+      ],
+      "project_named_colors": {
+        "echo_body": "#FFA300",
+        "echo_cheek_patch": "#FF004D",
+        "echo_crest": "#FFEC27",
+        "echo_beak_and_feet": "#AB5236",
+        "ui_text": "#1D2B53",
+        "cage_background": "#FFF1E8",
+        "cage_bars": "#C2C3C7",
+        "perch": "#AB5236",
+        "floor": "#FFCCAA"
+      }
+    },
+    "export": {
+      "formats": [
+        "PNG"
+      ],
+      "png": {
+        "alpha": true,
+        "color_mode": "indexed",
+        "max_colors": 16
+      }
+    },
+    "layering_order": [
+      "environment_background",
+      "environment_structure",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ]
+  },
+  "asset_index": [
+    {
+      "task_id": "pico_echo_environment_cage_background_wall",
+      "asset_name": "cage_background_wall_128x128",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/environment/cage_background_wall_128x128.json",
+      "execution_order": 1,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/environment/cage_background_wall_128x128.png",
+        "assets/pico_echo/environment/cage_background_wall_128x128.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_environment_cage_bars_overlay",
+      "asset_name": "cage_bars_overlay_128x128",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/environment/cage_bars_overlay_128x128.json",
+      "execution_order": 2,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/environment/cage_bars_overlay_128x128.png",
+        "assets/pico_echo/environment/cage_bars_overlay_128x128.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_environment_perch",
+      "asset_name": "perch_80x4",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/environment/perch_80x4.json",
+      "execution_order": 3,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/environment/perch_80x4.png",
+        "assets/pico_echo/environment/perch_80x4.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_environment_floor_strip",
+      "asset_name": "floor_strip_128x18",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/environment/floor_strip_128x18.json",
+      "execution_order": 4,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/environment/floor_strip_128x18.png",
+        "assets/pico_echo/environment/floor_strip_128x18.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_environment_food_bowl_empty",
+      "asset_name": "food_bowl_empty_16x12",
+      "category": "environment",
+      "subcategory": "cage_object",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/environment/food_bowl_empty_16x12.json",
+      "execution_order": 5,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/environment/food_bowl_empty_16x12.png",
+        "assets/pico_echo/environment/food_bowl_empty_16x12.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_environment_food_bowl_low",
+      "asset_name": "food_bowl_low_16x12",
+      "category": "environment",
+      "subcategory": "cage_object",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/environment/food_bowl_low_16x12.json",
+      "execution_order": 6,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/environment/food_bowl_low_16x12.png",
+        "assets/pico_echo/environment/food_bowl_low_16x12.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_environment_food_bowl_full",
+      "asset_name": "food_bowl_full_16x12",
+      "category": "environment",
+      "subcategory": "cage_object",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/environment/food_bowl_full_16x12.json",
+      "execution_order": 7,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/environment/food_bowl_full_16x12.png",
+        "assets/pico_echo/environment/food_bowl_full_16x12.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_environment_water_bowl",
+      "asset_name": "water_bowl_12x10",
+      "category": "environment",
+      "subcategory": "cage_object",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/environment/water_bowl_12x10.json",
+      "execution_order": 8,
+      "priority": "P1",
+      "primary_deliverables": [
+        "assets/pico_echo/environment/water_bowl_12x10.png",
+        "assets/pico_echo/environment/water_bowl_12x10.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_object_seed_single",
+      "asset_name": "seed_single_3x3",
+      "category": "object",
+      "subcategory": "consumable",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/object/seed_single_3x3.json",
+      "execution_order": 9,
+      "priority": "P1",
+      "primary_deliverables": [
+        "assets/pico_echo/object/seed_single_3x3.png",
+        "assets/pico_echo/object/seed_single_3x3.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_object_poop",
+      "asset_name": "poop_2x2",
+      "category": "object",
+      "subcategory": "environmental_hazard",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/object/poop_2x2.json",
+      "execution_order": 10,
+      "priority": "P1",
+      "primary_deliverables": [
+        "assets/pico_echo/object/poop_2x2.png",
+        "assets/pico_echo/object/poop_2x2.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_character_echo_idle",
+      "asset_name": "echo_idle_strip_160x40",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/character/echo_idle_strip_160x40.json",
+      "execution_order": 11,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/character/echo_idle_strip_160x40.png",
+        "assets/pico_echo/character/echo_idle.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_character_echo_eating",
+      "asset_name": "echo_eating_strip_240x40",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/character/echo_eating_strip_240x40.json",
+      "execution_order": 12,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/character/echo_eating_strip_240x40.png",
+        "assets/pico_echo/character/echo_eating.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_character_echo_sleeping",
+      "asset_name": "echo_sleeping_strip_120x40",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/character/echo_sleeping_strip_120x40.json",
+      "execution_order": 13,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/character/echo_sleeping_strip_120x40.png",
+        "assets/pico_echo/character/echo_sleeping.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_character_echo_happy",
+      "asset_name": "echo_happy_strip_320x40",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/character/echo_happy_strip_320x40.json",
+      "execution_order": 14,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/character/echo_happy_strip_320x40.png",
+        "assets/pico_echo/character/echo_happy.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_character_echo_preening",
+      "asset_name": "echo_preening_strip_200x40",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/character/echo_preening_strip_200x40.json",
+      "execution_order": 15,
+      "priority": "P1",
+      "primary_deliverables": [
+        "assets/pico_echo/character/echo_preening_strip_200x40.png",
+        "assets/pico_echo/character/echo_preening.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_character_echo_dirty",
+      "asset_name": "echo_dirty_strip_120x40",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/character/echo_dirty_strip_120x40.json",
+      "execution_order": 16,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/character/echo_dirty_strip_120x40.png",
+        "assets/pico_echo/character/echo_dirty.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_character_echo_hungry",
+      "asset_name": "echo_hungry_strip_160x40",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/character/echo_hungry_strip_160x40.json",
+      "execution_order": 17,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/character/echo_hungry_strip_160x40.png",
+        "assets/pico_echo/character/echo_hungry.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_character_echo_singing",
+      "asset_name": "echo_singing_strip_320x40",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/character/echo_singing_strip_320x40.json",
+      "execution_order": 18,
+      "priority": "P1",
+      "primary_deliverables": [
+        "assets/pico_echo/character/echo_singing_strip_320x40.png",
+        "assets/pico_echo/character/echo_singing.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_vfx_heart_particle",
+      "asset_name": "vfx_heart_particle_4x4",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/vfx/vfx_heart_particle_4x4.json",
+      "execution_order": 19,
+      "priority": "P1",
+      "primary_deliverables": [
+        "assets/pico_echo/vfx/vfx_heart_particle_4x4.png",
+        "assets/pico_echo/vfx/vfx_heart_particle_4x4.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_vfx_note_particle",
+      "asset_name": "vfx_note_particle_3x5",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/vfx/vfx_note_particle_3x5.json",
+      "execution_order": 20,
+      "priority": "P2",
+      "primary_deliverables": [
+        "assets/pico_echo/vfx/vfx_note_particle_3x5.png",
+        "assets/pico_echo/vfx/vfx_note_particle_3x5.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_vfx_zzz_particle",
+      "asset_name": "vfx_zzz_particle_3x3",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/vfx/vfx_zzz_particle_3x3.json",
+      "execution_order": 21,
+      "priority": "P2",
+      "primary_deliverables": [
+        "assets/pico_echo/vfx/vfx_zzz_particle_3x3.png",
+        "assets/pico_echo/vfx/vfx_zzz_particle_3x3.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_vfx_feather_particle",
+      "asset_name": "vfx_feather_particle_2x2",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/vfx/vfx_feather_particle_2x2.json",
+      "execution_order": 22,
+      "priority": "P2",
+      "primary_deliverables": [
+        "assets/pico_echo/vfx/vfx_feather_particle_2x2.png",
+        "assets/pico_echo/vfx/vfx_feather_particle_2x2.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_vfx_dust_particle",
+      "asset_name": "vfx_dust_particle_1x1",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/vfx/vfx_dust_particle_1x1.json",
+      "execution_order": 23,
+      "priority": "P2",
+      "primary_deliverables": [
+        "assets/pico_echo/vfx/vfx_dust_particle_1x1.png",
+        "assets/pico_echo/vfx/vfx_dust_particle_1x1.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_vfx_clean_sparkle",
+      "asset_name": "vfx_clean_sparkle_3x3",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/vfx/vfx_clean_sparkle_3x3.json",
+      "execution_order": 24,
+      "priority": "P2",
+      "primary_deliverables": [
+        "assets/pico_echo/vfx/vfx_clean_sparkle_3x3.png",
+        "assets/pico_echo/vfx/vfx_clean_sparkle_3x3.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_vfx_broom_swipe",
+      "asset_name": "vfx_broom_swipe_strip_64x8",
+      "category": "vfx",
+      "subcategory": "animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/vfx/vfx_broom_swipe_strip_64x8.json",
+      "execution_order": 25,
+      "priority": "P1",
+      "primary_deliverables": [
+        "assets/pico_echo/vfx/vfx_broom_swipe_strip_64x8.png",
+        "assets/pico_echo/vfx/vfx_broom_swipe_strip_64x8.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_vfx_seed_drop",
+      "asset_name": "vfx_seed_drop_strip_24x8",
+      "category": "vfx",
+      "subcategory": "animation",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/vfx/vfx_seed_drop_strip_24x8.json",
+      "execution_order": 26,
+      "priority": "P2",
+      "primary_deliverables": [
+        "assets/pico_echo/vfx/vfx_seed_drop_strip_24x8.png",
+        "assets/pico_echo/vfx/vfx_seed_drop_strip_24x8.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_ui_happiness_bar_bg",
+      "asset_name": "ui_happiness_bar_bg_120x2",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/ui/ui_happiness_bar_bg_120x2.json",
+      "execution_order": 27,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/ui/ui_happiness_bar_bg_120x2.png",
+        "assets/pico_echo/ui/ui_happiness_bar_bg_120x2.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_ui_care_menu_bg",
+      "asset_name": "ui_care_menu_bg_40x16",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/ui/ui_care_menu_bg_40x16.json",
+      "execution_order": 28,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/ui/ui_care_menu_bg_40x16.png",
+        "assets/pico_echo/ui/ui_care_menu_bg_40x16.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_ui_icon_seed",
+      "asset_name": "ui_icon_seed_8x8",
+      "category": "ui",
+      "subcategory": "icon_8x8",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/ui/ui_icon_seed_8x8.json",
+      "execution_order": 29,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/ui/ui_icon_seed_8x8.png",
+        "assets/pico_echo/ui/ui_icon_seed_8x8.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_ui_icon_broom",
+      "asset_name": "ui_icon_broom_8x8",
+      "category": "ui",
+      "subcategory": "icon_8x8",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/ui/ui_icon_broom_8x8.json",
+      "execution_order": 30,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/ui/ui_icon_broom_8x8.png",
+        "assets/pico_echo/ui/ui_icon_broom_8x8.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_ui_icon_hand",
+      "asset_name": "ui_icon_hand_8x8",
+      "category": "ui",
+      "subcategory": "icon_8x8",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/ui/ui_icon_hand_8x8.json",
+      "execution_order": 31,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/ui/ui_icon_hand_8x8.png",
+        "assets/pico_echo/ui/ui_icon_hand_8x8.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_ui_status_bubble_bg",
+      "asset_name": "status_bubble_bg_12x10",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/ui/status_bubble_bg_12x10.json",
+      "execution_order": 32,
+      "priority": "P1",
+      "primary_deliverables": [
+        "assets/pico_echo/ui/status_bubble_bg_12x10.png",
+        "assets/pico_echo/ui/status_bubble_bg_12x10.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_ui_icon_sleep",
+      "asset_name": "ui_icon_sleep_8x8",
+      "category": "ui",
+      "subcategory": "icon_8x8",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/ui/ui_icon_sleep_8x8.json",
+      "execution_order": 33,
+      "priority": "P0",
+      "primary_deliverables": [
+        "assets/pico_echo/ui/ui_icon_sleep_8x8.png",
+        "assets/pico_echo/ui/ui_icon_sleep_8x8.aseprite"
+      ]
+    },
+    {
+      "task_id": "pico_echo_typography_font_mini_3x5",
+      "asset_name": "ui_font_mini_3x5_digits_percent",
+      "category": "typography",
+      "subcategory": "font_bitmap",
+      "plan_path": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_1/typography/ui_font_mini_3x5_digits_percent.json",
+      "execution_order": 34,
+      "priority": "P2",
+      "primary_deliverables": [
+        "assets/pico_echo/typography/ui_font_mini_3x5_digits_percent.png",
+        "assets/pico_echo/typography/ui_font_mini_3x5_digits_percent.aseprite"
+      ]
+    }
+  ],
+  "notes": {
+    "gdd_source": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "plan_version": "v1",
+    "generated_by": "art_task_plan_generator"
+  }
+}

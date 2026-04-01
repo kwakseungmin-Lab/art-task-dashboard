@@ -1,0 +1,120 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.bottom_control_bar",
+  "asset_name": "Bottom Control Bar",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 250,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.serif_bitmap_16px_ascii96",
+      "ui.overlay.trajectory_dot_tile"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "hud_bottom",
+    "layer": "ui",
+    "usage": "Bottom HUD bar with angle label, power slider slot, and shot counter.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "ui.overlay.trajectory_dot_tile"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 50
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "full_width_bar_with_center_slider_slot",
+      "components": [
+        "angle_slot",
+        "power_slider_slot",
+        "shot_counter_slot"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "angle_slot_px": {
+      "width": 100,
+      "height": 30
+    },
+    "power_slider_slot_px": {
+      "width": 200,
+      "height": 30
+    },
+    "shot_counter_slot_px": {
+      "width": 100,
+      "height": 30
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.bottom_control_bar.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1280x50px and power slider slot stays centered at x=540px.",
+    "Angle slot and shot counter slot each measure 100x30px.",
+    "Bar top edge uses a 2px #3D2B1F line across the full width."
+  ]
+}

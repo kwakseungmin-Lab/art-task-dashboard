@@ -1,0 +1,99 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position": "center of 128x128 screen, on perch at y=60",
+      "key_features": "crest, cheek patch, tail - 3 essential cockatiel traits",
+      "eye_size": "2x2px",
+      "outline": "1px, organic hand-drawn style"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_dirty",
+    "asset_name": "Echo Dirty State Animation",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Triggered when cage has 3+ poop on floor (uncleaned)",
+      "screen_position": "Center (x=64, y=60), on perch",
+      "adjacent_elements": ["perch (below)", "poop (3+ on floor)", "dust_particle (around Echo)", "happiness_bar (bottom, decreasing)"],
+      "usage_scenario": "Indicates cage needs cleaning. Echo looks uncomfortable. Remains until player swipes floor to clean. Happiness decreases over time in this state."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236",
+        "dust": "#C2C3C7"
+      },
+      "shape": "Cockatiel with slightly hunched posture, uncomfortable expression",
+      "texture": "Flat pixel art with hand-drawn organic edges, no gradients",
+      "outline": "1px black (#1D2B53) outline, hand-drawn style",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 3,
+        "fps": 2,
+        "loop": true,
+        "description": "Frame 1: Normal uncomfortable posture. Frame 2: Slight shift left. Frame 3: Slight shift right. Fidgeting motion showing discomfort."
+      },
+      "details": "Crest: slightly drooped (not fully raised or flat). Eyes: half-closed or showing discomfort (2x1px instead of 2x2px). Body: hunched, 2-3px lower than normal. Dust particles (1x1px #C2C3C7) float around Echo, 3-4 particles visible at any time. Fidget motion: 1-2px horizontal shift."
+    },
+    "relationships": {
+      "related_assets": ["poop", "dust_particle", "echo_idle", "floor"],
+      "shared_with": "Same base colors as all Echo states",
+      "differences_from": "echo_idle: hunched vs upright, half-closed eyes vs open, dust particles present vs clean. echo_sleeping: eyes half-closed vs hidden, upright vs tucked."
+    },
+    "explicit_negations": [
+      "No 3D modeling",
+      "No smooth gradients",
+      "Echo does not turn brown or change body color",
+      "No visible dirt on feathers (only dust particles around)",
+      "Crest not completely flat",
+      "Eyes not fully closed",
+      "No smell lines or stink waves",
+      "Body does not shrink",
+      "No sad tear drops"
+    ]
+  }
+}

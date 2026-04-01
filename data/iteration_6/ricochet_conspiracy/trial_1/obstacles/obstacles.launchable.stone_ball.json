@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.stone_ball",
+  "asset_name": "Stone Ball (Launchable)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "launchable_projectile",
+    "layer": "gameplay",
+    "usage": "High bounce (0.9). Direct hit on non-shield nobles removes them",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#A89880",
+      "#3D2B1F"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.stone_ball.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 32x32px with centered shading implying sphere; outline 2px in #3D2B1F.",
+    "No baked motion blur; rotation is expected to be handled by engine (visual remains symmetric).",
+    "Uses only #A89880 family tones plus #3D2B1F outline; avoids pure black."
+  ]
+}

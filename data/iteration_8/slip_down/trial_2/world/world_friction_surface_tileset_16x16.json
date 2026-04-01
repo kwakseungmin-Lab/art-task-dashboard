@@ -1,0 +1,175 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000010",
+  "asset_name": "Friction Surface Tileset (16x16 modules)",
+  "category": "world",
+  "subcategory": "tileset",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "shared_properties": [
+    "Every tile unit is authored on a 16x16 grid so walls, floors, and ledges align to bevy_ecs_tilemap cells.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while stone, moss, and slick-surface colors stay inside specs.colors_hex.",
+    "Top edges use a consistent 1 px outline and a readable contact strip so friction zones can be recognized at a glance."
+  ],
+  "differences": [
+    "Tileset includes dedicated high-friction wall, medium-friction moss floor, and low-friction slick floor variants inside one atlas.",
+    "High-friction wall tiles favor #3B3347 and vertical cracks, medium-friction floor tiles favor #4E5940 moss patches, and low-friction floor tiles favor #4A90A4 reflective streaks.",
+    "Corner and cap variants keep the atlas usable for shaft transitions without inventing new colors beyond the listed palette."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_802000002",
+    "task_id_802000005",
+    "task_id_802000011",
+    "task_id_802000016"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000001",
+      "task_id_802000005",
+      "task_id_802000011",
+      "task_id_802000016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the 16x16 tile size, friction coefficients for wall and floor materials, and vertical maze construction rules."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the cold dungeon texture language so high, medium, and low friction materials remain readable inside one palette family."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player-to-surface scale so wall braking and ledge landings feel fair for a 16x24 body."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for parallax backdrops and TilemapChunk-backed textures for reusable 16x16 surface modules.",
+    "atlas_or_static": "mixed_static_and_tile_sheet",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "TileTextureIndex",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load world textures before gameplay, cache tile indices for high, medium, and low friction surfaces, and keep shaft layer handles in a WorldVisualRegistry resource.",
+    "runtime_notes": [
+      "Render the shaft backdrop from an offscreen 320x180 target and upscale by an integer factor of 4 to preserve pixel integrity.",
+      "Move parallax layers at 0.4x camera speed and keep their anchors fixed to the downward-only camera model.",
+      "Treat one-way ledges and exit gates as separate gameplay entities even when they share world art atlases."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tileset",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world",
+    "usage": "Reusable surface atlas for walls, floors, and friction-signaling shaft modules.",
+    "adjacent_elements": [
+      "task_id_802000001",
+      "task_id_802000005",
+      "task_id_802000011",
+      "task_id_802000016"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 32
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#4E5940",
+      "#4A90A4",
+      "#0D0D0F",
+      "#1A1A2E",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "type": "tile_sheet",
+      "states": [
+        "stone_wall",
+        "moss_floor",
+        "slick_floor",
+        "stone_cap",
+        "moss_edge",
+        "slick_edge"
+      ],
+      "frame_count": 12,
+      "frame_size_px": [
+        16,
+        16
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 2
+      }
+    },
+    "friction_rules": {
+      "high_friction_hex": "#3B3347",
+      "medium_friction_hex": "#4E5940",
+      "low_friction_hex": "#4A90A4",
+      "tile_size_px": 16
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_friction_surface_tileset_16x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 96x32 px with 12 tiles of 16x16 px arranged in 6 columns and 2 rows.",
+    "High, medium, and low friction tiles remain visually distinct through their authored dominant colors and surface motifs.",
+    "Every tile preserves a clean 16x16 footprint with no anti-aliased edges or off-grid ornament."
+  ],
+  "asset_key": "world_friction_surface_tileset_16x16",
+  "variant_of_asset_key": null
+}

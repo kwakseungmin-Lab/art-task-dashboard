@@ -1,0 +1,103 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.enemy.guard_patrol",
+  "asset_name": "Enemy - Guard (Patrol)",
+  "category": "obstacles",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "enemy",
+    "layer": "obstacles",
+    "usage": "48x48px guard that patrols 1 tile per turn; collision with player causes immediate fail",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "sprite_dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "tile_size_px": {
+      "width": 64,
+      "height": 64
+    },
+    "animation": {
+      "type": "loop",
+      "frame_count": 4,
+      "fps": 4,
+      "notes": "1.0s loop; includes left/right direction cues in sprite"
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#6B7280",
+      "#D4C5A9",
+      "#FBBF24",
+      "#1C1917"
+    ],
+    "readability": {
+      "must_read_as": "armored guard with spear or shield silhouette",
+      "outline_px": 1
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.enemy.guard_patrol.png",
+      "transparent_background": true,
+      "layout": "horizontal_strip",
+      "frame_size_px": {
+        "width": 48,
+        "height": 48
+      },
+      "frame_count": 4
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG has exactly 4 frames in a single horizontal strip; each frame is 48x48px, total image size is 192x48px.",
+    "When centered on a 64x64 tile, the sprite does not exceed the tile bounds and maintains a 1px outline.",
+    "Silhouette is readable as a guard at 1x zoom using contrast against #D4C5A9 floor tiles."
+  ]
+}

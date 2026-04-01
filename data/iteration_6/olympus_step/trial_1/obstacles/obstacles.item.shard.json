@@ -1,0 +1,94 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.item.shard",
+  "asset_name": "Item - Divine Shard",
+  "category": "obstacles",
+  "subcategory": "item",
+  "priority": "P1",
+  "execution_order": 70,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.grid.tile_stone_ivory"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "background": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "Divine Cyan",
+      "hex": "#06B6D4"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_hd2d_glow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "collectible",
+    "layer": "items",
+    "usage": "Gives +1 evolution point when landed on; 32x32 centered in tile",
+    "grid": {
+      "tile_size_px": 64,
+      "sprite_anchor": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#F59E0B",
+      "#F8FAFC",
+      "#1E1B4B"
+    ],
+    "animation": {
+      "frame_count": 4,
+      "frame_duration_sec": 0.3,
+      "loop": true,
+      "notes": "1.2s loop; rotation sparkle"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png_spritesheet",
+      "file": "obstacles/obstacles.item.shard.png",
+      "transparent_background": true,
+      "frames": {
+        "count": 4,
+        "layout": "horizontal",
+        "frame_size_px": [
+          32,
+          32
+        ]
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "32x32px, 4-frame loop totals 1.2s; sparkle does not exceed bounding box.",
+    "Uses ichor gold #F59E0B as main color; highlight #F8FAFC limited to small specular pixels.",
+    "Centered placement on 64x64 tile remains readable even under path line overlay."
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.score_display_mock",
+  "asset_name": "Score Display Mockup",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [
+    "ui.font.mono_digits_10x16_0-9"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.mono_digits_10x16_0-9"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.mono_digits_10x16_0-9",
+      "world.background.sky_fill_600x150"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hud_score_display",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        540,
+        10
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Shows a right-aligned 5-digit score string at the top-right corner with 10 px top and right margins.",
+    "adjacent_elements": [
+      "world.background.sky_fill_600x150",
+      "character.player.dino_run_2f_12fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 50,
+      "height": 16
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Five-character horizontal number string using a 10x16 monospace grid.",
+      "components": [
+        "digit_slot_1",
+        "digit_slot_2",
+        "digit_slot_3",
+        "digit_slot_4",
+        "digit_slot_5"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.score_display_mock.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 50x16 px.",
+    "Rendered text shows 5 digits with 0 padding and right-aligned occupancy.",
+    "Top-left pixel of the mock sits at the 540,10 screen anchor when placed in the full frame."
+  ]
+}

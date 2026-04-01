@@ -1,0 +1,160 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050015",
+  "asset_name": "Friction Gauge Bar",
+  "category": "ui",
+  "subcategory": "hud_meter",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": [
+    "Gauge footprint stays 240x8px to match the bottom-center HUD zone in the GDD.",
+    "Outline remains 1px thick so the meter reads clearly over dark gameplay art.",
+    "Color transitions stay low-saturation and rely on hue shift rather than bloom."
+  ],
+  "differences": [
+    "Bar is split into mirrored left and right halves with a centered neutral marker at x=120.",
+    "Low-friction range uses cool blue clusters while high-friction range steps toward moss green and amber accents.",
+    "Internal segment cuts provide readable change states for one-sided brake, dual brake, and neutral fall."
+  ],
+  "depends_on": [
+    "task_id_008050003"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008050003"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050003",
+      "task_id_008050004",
+      "task_id_008050006",
+      "task_id_008050011"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_friction_meter",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        40,
+        172
+      ]
+    },
+    "layer": "ui",
+    "usage": "Bottom-center gauge that visualizes friction intensity and left or right input balance.",
+    "adjacent_elements": [
+      "task_id_008050003",
+      "task_id_008050004",
+      "task_id_008050006",
+      "task_id_008050011"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_screen",
+      "facing": "forward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 8
+    },
+    "colors_hex": [
+      "#4A90A4",
+      "#4E5940",
+      "#C8A84B",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        240,
+        8
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Long thin meter with mirrored fill lanes and a center notch.",
+      "tiling": "Not tiled.",
+      "collision_read": "UI-only asset with no collision meaning."
+    },
+    "states": [
+      "neutral_fall",
+      "left_brake",
+      "right_brake",
+      "dual_brake"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_friction_gauge_bar.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 240x8px.",
+    "The center neutral notch sits on pixel x=120 and remains visible over every fill color.",
+    "The art supports clearly distinct left, right, and dual-brake reads without introducing any text labels."
+  ],
+  "asset_key": "ui_friction_gauge_bar",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds HUD contrast, muted dungeon palette, and low-saturation screen overlays for the active widget."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "ImageBundle for the base bar with separate fill overlays driven by gameplay state.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Style",
+      "UiNode",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer during the Loading state and keep the base bar handle in the HUD resource.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Animate fill amount through UI clipping or masks instead of resizing the source texture.",
+      "Keep the gauge anchored to whole pixels at the bottom center to avoid shimmer."
+    ]
+  }
+}

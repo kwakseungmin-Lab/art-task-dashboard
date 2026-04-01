@@ -1,0 +1,140 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003006",
+  "asset_name": "Small Cactus Obstacle",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [
+    "task_id_008003007",
+    "task_id_008003008"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003013"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hazard_ground_small",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        650,
+        80
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Spawned after 2.0 seconds or later and moves left at current obstacle speed.",
+    "adjacent_elements": [
+      "world_ground_line_1200x2",
+      "player_dino_run_2f_12fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 34,
+      "height": 70
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single upright cactus with three arm spikes, 34 px width, 70 px height, and 2px outline.",
+      "components": [
+        "main_stem",
+        "left_spike",
+        "right_spike",
+        "base_pixels"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_cactus_small_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 34x70 px.",
+    "Bottom row sits on the ground baseline without transparent gap below the silhouette.",
+    "Spike tips use whole-pixel stair steps with no anti-aliasing."
+  ],
+  "asset_key": "obstacle_cactus_small_static",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "cactus_obstacle_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/cactus_obstacles.png?raw=1",
+      "purpose": "Ground obstacle size bands and arm-spike silhouette anchor."
+    },
+    {
+      "label": "pterodactyl_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/pterodactyl_obstacle.png?raw=1",
+      "purpose": "Air obstacle wing cadence and body proportion anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for static hazards and SpriteSheetBundle for wing-flap obstacles.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Collider",
+      "Obstacle",
+      "Transform",
+      "Velocity"
+    ],
+    "asset_loading": "Load obstacles/obstacle_cactus_small_static.png through AssetServer and register the handle under obstacle_cactus_small_static.",
+    "runtime_notes": [
+      "Keep source pixels unfiltered with nearest-neighbor sampling and integer world transforms.",
+      "Spawn order follows execution_order so downstream setup can validate deterministic asset availability.",
+      "Collision and UI code read logical dimensions from specs.dimensions_px rather than texture metadata."
+    ]
+  }
+}

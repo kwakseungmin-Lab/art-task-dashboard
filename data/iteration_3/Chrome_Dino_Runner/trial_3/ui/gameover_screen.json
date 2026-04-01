@@ -1,0 +1,111 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scalable",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "variable by element",
+      "height": "12-24px (font sizes)"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "monospace pixel font",
+      "rendering": "pixel-perfect, no antialiasing",
+      "font_type": "monospace pixel font",
+      "alignment": "varies by element",
+      "layer": "UI overlay (top layer)",
+      "collision": "none"
+    }
+  },
+  "asset": {
+    "asset_id": "gameover_screen",
+    "asset_name": "Game Over Screen UI",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "End-game UI displaying final score and restart instructions",
+      "screen_position": "Center of screen at x=300px (screen_width / 2), y=75px (screen_height / 2)",
+      "adjacent_elements": ["player_dead", "score_display", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_fly"],
+      "usage_scenario": "Appears instantly when player collides with obstacle, displays GAME OVER message, final score, high score, and restart instruction. Waits for Space key input to restart game"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "300px (approximate, text-dependent)",
+        "height": "100px (total vertical span of all text elements)"
+      },
+      "colors": {
+        "text": "#535353"
+      },
+      "shape": "Multi-line centered text layout with 4 text elements vertically stacked",
+      "texture": "Monospace pixel font, crisp pixel rendering",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No animation. Appears instantly on game over. Optional: restart instruction text blinks at 0.5 second intervals (2 FPS toggle between visible/invisible)"
+      },
+      "details": "4 text lines center-aligned: Line 1 (y=-30): 'GAME OVER' at 24px font size. Line 2 (y=0): 'Score: XXXXX' at 16px with 5-digit zero-padded score. Line 3 (y=20): 'HI XXXXX' at 16px with 5-digit high score. Line 4 (y=50): 'Press SPACE to restart' at 12px. All text in primary color #535353, no background overlay"
+      },
+      "details_quantified": {
+        "line_1": {
+          "text": "GAME OVER",
+          "font_size": "24px",
+          "offset_y": "-30px",
+          "alignment": "center"
+        },
+        "line_2": {
+          "text": "Score: 00000",
+          "font_size": "16px",
+          "offset_y": "0px",
+          "alignment": "center"
+        },
+        "line_3": {
+          "text": "HI 00000",
+          "font_size": "16px",
+          "offset_y": "20px",
+          "alignment": "center"
+        },
+        "line_4": {
+          "text": "Press SPACE to restart",
+          "font_size": "12px",
+          "offset_y": "50px",
+          "alignment": "center",
+          "blink": "optional, 0.5s interval"
+        }
+      }
+    },
+    "relationships": {
+      "related_assets": ["score_display", "player_dead"],
+      "shared_with": "Same font style and color as score_display, same 5-digit zero-padding format for scores",
+      "differences_from": "score_display is top-right positioned and live updating. gameover_screen is centered, static, and displays multiple text lines including high score and instructions"
+    },
+    "explicit_negations": [
+      "No background overlay or dimming effect",
+      "No decorative borders or panels",
+      "No shadows or outlines on text",
+      "No gradients or color variations",
+      "No anti-aliasing on font",
+      "No proportional font (must be monospace)",
+      "No icons or graphics",
+      "No fade-in animation (instant appearance)",
+      "No buttons or clickable UI elements"
+    ]
+  }
+}

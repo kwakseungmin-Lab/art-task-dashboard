@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.noble.guard_patrol_6f_4fps",
+  "asset_name": "Target Noble — Guard (Patrol Idle, 6 frames, 4fps)",
+  "category": "character",
+  "subcategory": "target_guard",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "target",
+    "layer": "world",
+    "usage": "Guard noble that patrols horizontally; animation supports readable motion during patrol.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 216,
+      "height": 52
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#8BA7C7",
+      "#A89880",
+      "#F5F0E8",
+      "#E8704A"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 36,
+        "height": 52
+      },
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      },
+      "frame_count": 6,
+      "directions": null,
+      "note": "Includes small plume/pauldron to differentiate from basic noble."
+    },
+    "animation": {
+      "type": "loop",
+      "fps": 4,
+      "notes": "Guard patrol idle loop; keep center-of-mass stable for collision readability."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.guard_patrol_6f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 216x52px (6x1) with 36x52px frames; feet baseline aligned across frames.",
+    "Guard silhouette is distinct (helmet/plume or shoulder armor) while keeping pastel tone; 1px outline in #3D2B1F.",
+    "Animation reads at 4fps without jitter; no frame-to-frame size/pose drift that changes collision expectation."
+  ]
+}

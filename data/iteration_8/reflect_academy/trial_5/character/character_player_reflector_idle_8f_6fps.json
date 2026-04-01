@@ -1,0 +1,171 @@
+{
+  "task_id": "task_id_000008503",
+  "asset_key": "character_player_reflector_idle_8f_6fps",
+  "asset_name": "Player Reflector Idle Loop",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the project core palette copy #D4AF37/#2B1B17/#00FFFF.",
+    "Frame size remains 120x180 px for duel slot alignment.",
+    "Student mage silhouette stays readable inside the lower-left combat slot."
+  ],
+  "differences": [
+    "This file carries the neutral ready stance without the reflection arc.",
+    "Robe hem and wand tip move within a 4 px breathing loop."
+  ],
+  "depends_on": [
+    "task_id_000008501"
+  ],
+  "blocks": [
+    "task_id_000008504",
+    "task_id_000008508",
+    "task_id_000008509",
+    "task_id_000008510"
+  ],
+  "blocked_by": [
+    "task_id_000008501"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000008501",
+      "task_id_000008504",
+      "task_id_000008508",
+      "task_id_000008509"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "player_concept",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/player.png",
+      "purpose": "Ground robe silhouette, wand pose, and body proportion."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground player size 120x180 px and idle state timing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_8x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerMage",
+      "Combatant"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_5/character_player_reflector_idle_8f_6fps.png with AssetServer during Loading state and store the handle under character_player_reflector_idle_8f_6fps.",
+    "runtime_notes": [
+      "Create an 8-column TextureAtlasLayout before combat begins.",
+      "Anchor the sprite origin so the front foot contacts world y=860 in every frame.",
+      "Advance frames in FixedUpdate at 6 fps using a repeating Timer component."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        360,
+        680
+      ]
+    },
+    "layer": "character",
+    "usage": "Shown during round start, card selection, pass input recovery, and neutral battle beats.",
+    "adjacent_elements": [
+      "task_id_000008508",
+      "task_id_000008509"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#D4AF37",
+      "#2B1B17",
+      "#00FFFF",
+      "#5C3317",
+      "#BDC3C7",
+      "#2ECC71"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        120,
+        180
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Young mage in a long robe with a raised wand hand, card satchel, and stable duel stance.",
+      "components": [
+        "hooded hair shape",
+        "wand hand",
+        "card satchel",
+        "robe body",
+        "boots",
+        "cyan rune pin"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_player_reflector_idle_8f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet canvas is exactly 960x180 px with 8 frames.",
+    "Front foot contact stays within a 2 px vertical band across all frames.",
+    "Wand tip glow uses #00FFFF and robe trim uses #D4AF37 with no color drift."
+  ],
+  "schema_version": "art_task@8",
+  "category": "character"
+}

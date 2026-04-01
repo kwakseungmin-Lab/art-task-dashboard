@@ -1,0 +1,110 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "character.player.cosmos_base_run",
+  "asset_name": "Player (Base) Run Loop",
+  "category": "character",
+  "group_id": "character.player.cosmos",
+  "variant_role": "base",
+  "priority": "P0",
+  "execution_order": 20,
+  "depends_on": [],
+  "blocks": [
+    "character.player.cosmos_large_transform_loop",
+    "character.player.cosmos_small_transform_loop",
+    "character.player.cosmos_counter_action"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.icons.size_state",
+      "ui.widget.counter_gauge"
+    ]
+  },
+  "context": {
+    "role": "player_character",
+    "screen_position": {
+      "type": "world_space",
+      "units": "px",
+      "pivot": "bottom_center",
+      "anchor_rule": "fixed_to_left_25_percent"
+    },
+    "layer": "characters",
+    "usage": "Main player animation during auto-run. Base size is 64x96 px. 6 frames loop, 0.08s/frame.",
+    "adjacent_elements": [
+      "world.star_floor_strip",
+      "obstacles.pillar.marble_static"
+    ]
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 384,
+      "height_px": 96
+    },
+    "frame_layout": {
+      "grid_columns": 6,
+      "grid_rows": 1,
+      "frame_size_px": [
+        64,
+        96
+      ],
+      "row_order": [
+        "run"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#C47C2B"
+      },
+      "secondary": [
+        {
+          "name": "skin",
+          "hex": "#E8B87A"
+        },
+        {
+          "name": "outline",
+          "hex": "#0B0C1E"
+        },
+        {
+          "name": "ui_white",
+          "hex": "#F0EFE9"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "athletic hero with readable torso/arms/legs; side-view running pose",
+      "components": [
+        "head",
+        "torso",
+        "arms",
+        "legs",
+        "bronze_armor_panels",
+        "cloth_accent"
+      ]
+    }
+  },
+  "description": "Create a 6-frame side-view run loop for the player character at base size (64x96). Use bronze armor (#C47C2B) and skin (#E8B87A). Keep silhouette clear against deep space backgrounds. Motion: consistent run cycle, minimal foot sliding.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/player_cosmos_base_run.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 384x96 px (6 frames)",
+    "Each frame is 64x96 px; character feet align to a consistent ground line",
+    "Armor uses #C47C2B as a dominant tone"
+  ]
+}

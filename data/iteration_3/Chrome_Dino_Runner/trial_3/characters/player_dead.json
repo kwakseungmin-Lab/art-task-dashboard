@@ -1,0 +1,81 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scalable",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art T-Rex dinosaur",
+      "features": "short front legs, large eyes, thick tail",
+      "outline": "2px included in dimensions",
+      "rendering": "pixel-perfect, no antialiasing"
+    }
+  },
+  "asset": {
+    "asset_id": "player_dead",
+    "asset_name": "Player Dead Sprite",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Player character death state after collision with obstacle",
+      "screen_position": "Fixed at x=100px from left edge, y=0px (ground level)",
+      "adjacent_elements": ["ground_line", "gameover_screen", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_fly"],
+      "usage_scenario": "Displayed when player collides with any obstacle, triggers game over state, all movement stops"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "88px",
+        "height": "94px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "T-Rex dinosaur in defeated pose with eyes closed or X-shaped",
+      "texture": "Pixel art, hard edges, no gradients",
+      "outline": "2px solid outline integrated into sprite",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Single static frame displayed indefinitely until game restart"
+      },
+      "details": "Eyes closed or replaced with X symbols (optional), body slumped or neutral standing pose, conveys defeat clearly"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_idle", "player_jump", "player_duck", "gameover_screen", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_fly"],
+      "shared_with": "Same dimensions as player_run, player_idle, player_jump. Same color scheme as all player states",
+      "differences_from": "All other player states have open eyes. player_run and player_idle are animated. player_duck has different dimensions (118x60px)"
+    },
+    "explicit_negations": [
+      "No animation or movement",
+      "No color change from primary #535353",
+      "No blood or gore effects",
+      "No particle effects",
+      "No explosion graphics",
+      "No transparency except full alpha channel",
+      "No rotation or falling animation",
+      "No gradients or shading"
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.noble.boss_idle",
+  "asset_name": "Boss Noble (3 HP, Patrol)",
+  "category": "character",
+  "subcategory": "enemy_boss",
+  "priority": "P0",
+  "execution_order": 44,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "boss_target",
+    "layer": "characters",
+    "usage": "Boss target; HP 3; patrol along path; has layered armor and deep burgundy outfit",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 56,
+      "height": 64
+    },
+    "colors_hex": [
+      "#8B3A52",
+      "#3D2B1F",
+      "#D4A843"
+    ],
+    "animation": {
+      "type": "loop",
+      "states": {
+        "idle": {
+          "fps": 4,
+          "frame_count": 8,
+          "notes": "heavier presence, cape sway"
+        },
+        "hit_react": {
+          "fps": 12,
+          "frame_count": 4,
+          "notes": "short flash/jerk per hit"
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.boss_idle.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 56x64px; boss silhouette is clearly larger than other nobles.",
+    "Idle loop is 8 frames at 4fps and loops seamlessly; cape sway does not exceed 4px horizontal movement.",
+    "Outfit uses #8B3A52 as main fill with gold #D4A843 accents; outline uses #3D2B1F."
+  ]
+}

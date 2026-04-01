@@ -1,0 +1,136 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.props.resource_piles_bw_atlas",
+  "asset_name": "Resource Piles / Stockpiles — BW Atlas",
+  "category": "world",
+  "subcategory": "props",
+  "priority": "P2",
+  "execution_order": 24,
+  "variant_of": null,
+  "depends_on": [
+    "world.building.viking_settlement_bw_atlas"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.building.viking_settlement_bw_atlas"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "resource_props",
+    "layer": "world_props",
+    "usage": "Small props used near buildings and in UI previews: food crates, wood stacks, herb bundle, faith totem, trade goods.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 256
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "atlas": {
+      "packing_rule": "exact_rects_no_rotation",
+      "sprites": [
+        {
+          "id": "food_crate",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 1,
+          "note": "Dried fish/food crate."
+        },
+        {
+          "id": "wood_stack",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 1,
+          "note": "Logs stack."
+        },
+        {
+          "id": "herb_bundle",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 1,
+          "note": "Herbs bag."
+        },
+        {
+          "id": "faith_totem",
+          "size_px": {
+            "width": 32,
+            "height": 48
+          },
+          "frames": 1,
+          "note": "Small rune totem."
+        },
+        {
+          "id": "trade_goods",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 1,
+          "note": "Furs/coins bundle."
+        }
+      ],
+      "layout_note": "Pack into 256×256 with ≥2px padding."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.props.resource_piles_bw_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Each prop reads as distinct resource in grayscale only.",
+    "Props match building style (outline thickness, shading)."
+  ]
+}

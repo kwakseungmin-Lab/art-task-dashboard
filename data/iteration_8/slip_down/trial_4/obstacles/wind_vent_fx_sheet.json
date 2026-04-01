@@ -1,0 +1,168 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040408",
+  "asset_key": "wind_vent_fx_sheet",
+  "asset_name": "Wind Vent FX Sheet",
+  "category": "obstacles",
+  "subcategory": "force_field_hazard",
+  "priority": "P1",
+  "execution_order": 8,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Vent source keeps a 16x16 px footprint that snaps cleanly to the dungeon tile grid.",
+    "Air flow uses cool cyan tones so players can distinguish vent acceleration from warm damage feedback."
+  ],
+  "differences": [
+    "This sheet provides a four-frame downward-force loop with a brighter center column that signals the active push zone."
+  ],
+  "depends_on": [
+    "task_id_804040401",
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_804040401",
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040402",
+      "task_id_804040404",
+      "task_id_804040406",
+      "task_id_804040411"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Vent size, downward force value, and abyss placement grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Cold air glow and darkness contrast grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout for the vent loop and attach the visual to a hazard entity that applies a downward force area in gameplay code.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "WindVentMarker"
+    ],
+    "asset_loading": "Load obstacles/wind_vent_fx_sheet.png through AssetServer and store the atlas handle in the wind-vent visual recipe keyed by asset_key.",
+    "runtime_notes": [
+      "Each frame is 16x16 px.",
+      "Loop runs at 8 FPS.",
+      "Glow stays inside the 16x16 bounds so tile snapping remains precise."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Animated force-field marker that communicates extra downward acceleration.",
+    "screen_position": {
+      "anchor": "tile_grid_origin",
+      "x_px": 0,
+      "y_px": 0
+    },
+    "layer": {
+      "name": "obstacle_force_field",
+      "z_index": 23
+    },
+    "usage": "Appears in later sections where players must anticipate sudden speed gains while descending."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 16
+    },
+    "colors_hex": [
+      "#4A90A4",
+      "#00FFFF",
+      "#0D0D0F",
+      "#3B3347"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "columns": 4,
+        "frame_size_px": {
+          "width": 16,
+          "height": 16
+        }
+      },
+      "state_clips": [
+        {
+          "state": "active_loop",
+          "start_frame": 0,
+          "end_frame": 3,
+          "fps": 8,
+          "loop": true
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "wind_vent_fx_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 64,
+        "height": 16
+      },
+      "notes": "Four 16x16 frames for the active vent loop."
+    },
+    {
+      "artifact": "wind_vent_fx_sheet_clips.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Single active_loop clip definition for the vent visual."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 64x16 px with four 16x16 frames.",
+    "Cyan air flow stays centered and readable on dark stone backgrounds at 4x scale.",
+    "Loop conveys downward thrust without shifting the vent origin between frames."
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "position_base": "perch at y=60",
+      "character": "Echo the cockatiel"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_happy",
+    "asset_name": "Echo Happy State",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Echo expressing joy after being petted",
+      "screen_position": "Center at x=64, y=60 on perch",
+      "adjacent_elements": ["perch", "heart_effect", "cage_background"],
+      "usage_scenario": "Triggered by petting interaction; plays for 5 seconds then returns to idle; spawns heart particle effects"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with fully raised crest (5-6px tall spikes), slightly puffed body, wings partially spread",
+      "texture": "Flat pixel art with no gradients; hand-drawn organic edges",
+      "outline": "None; pure pixel art with color blocking",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 8,
+        "fps": 4,
+        "loop": true,
+        "description": "Frame 1-2: crest raising, Frame 3-4: body swaying left, Frame 5-6: wings slightly spreading (4px extension), Frame 7-8: body swaying right and returning to center"
+      },
+      "details": "Crest fully erect with 4-5 individual spikes; eyes wide open (2x2px); wings extend 4px from body in frames 5-6; body sways 3-4px left/right"
+    },
+    "relationships": {
+      "related_assets": ["heart_effect", "perch", "echo_idle"],
+      "shared_with": "Same base body structure as all Echo states",
+      "differences_from": "echo_idle (crest raised vs normal), echo_singing (no open beak)"
+    },
+    "explicit_negations": [
+      "no smooth gradients",
+      "no anti-aliasing",
+      "no realistic feather texture",
+      "no 3D depth",
+      "no motion blur",
+      "no sparkles or glow",
+      "no open beak"
+    ]
+  }
+}

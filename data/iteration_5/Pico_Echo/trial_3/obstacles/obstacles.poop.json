@@ -1,0 +1,76 @@
+{
+  "task_id": "obstacles.poop",
+  "asset_name": "Poop_Variants_Strip_8x2",
+  "category": "obstacles",
+  "subcategory": "dirt",
+  "description": "Create an 8x2 px sprite strip with 4 variants of poop (each variant is 2x2 px, arranged left-to-right). Base color: #AB5236. Add a 1 px highlight using #FFCCAA on each 2x2 variant. Keep the silhouette inside each 2x2 cell.",
+  "execution_order": 100,
+  "priority": "P1",
+  "depends_on": ["world.floor_strip"],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.floor_strip",
+      "world.vfx_particles_atlas",
+      "ui.care_menu_icons_atlas"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": { "width": 128, "height": 128 },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": { "width": 8, "height": 2 },
+    "variant_dimensions_px": { "width": 2, "height": 2 },
+    "variant_count": 4,
+    "layout": { "direction": "horizontal", "variant_order": [0, 1, 2, 3] },
+    "colors": {
+      "base_hex": "#AB5236",
+      "highlight_hex": "#FFCCAA"
+    }
+  },
+  "context": {
+    "role": "Cleaning target spawned on the floor.",
+    "screen_position": { "type": "absolute_px", "x": 0, "y": 0, "anchor": "top_left" },
+    "layer": "world_props",
+    "usage": ["in_game", "cleaning"]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/obstacles/poop_variants_8x2.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/obstacles/poop_variants_8x2.png",
+      "dimensions_px": { "width": 8, "height": 2 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 8x2 px with transparent background.",
+    "There are 4 variants of exactly 2x2 px each in a horizontal strip.",
+    "Each variant uses #AB5236 and #FFCCAA.",
+    "No color outside project_common.palette_hex is used."
+  ]
+}

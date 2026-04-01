@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "character.player.cosmos_small_transform_loop",
+  "asset_name": "Player (Small) Transform + Loop",
+  "category": "character",
+  "group_id": "character.player.cosmos",
+  "variant_role": "variant",
+  "priority": "P0",
+  "execution_order": 22,
+  "depends_on": [
+    "character.player.cosmos_base_run"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pillar.marble_static"
+    ]
+  },
+  "context": {
+    "role": "player_character_small_state",
+    "screen_position": {
+      "type": "world_space",
+      "units": "px",
+      "pivot": "bottom_center"
+    },
+    "layer": "characters",
+    "usage": "Small state used while holding DOWN. Size 40x40. 4 frames: shrink then loop.",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 160,
+      "height_px": 40
+    },
+    "frame_layout": {
+      "grid_columns": 4,
+      "grid_rows": 1,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "row_order": [
+        "small_loop"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#C47C2B"
+      },
+      "secondary": [
+        {
+          "name": "skin",
+          "hex": "#E8B87A"
+        },
+        {
+          "name": "outline",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "compact chibi-like hero ball with readable helmet/armor bits at 40px",
+      "components": [
+        "mini_head",
+        "mini_torso",
+        "tiny_limbs"
+      ]
+    }
+  },
+  "description": "Create a 4-frame small-state animation at 40x40. Frame 1-2 show shrink motion; frames 3-4 loop subtle idle. Keep palette consistent with base player.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/player_cosmos_small_transform_loop.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 160x40 px (4 frames)",
+    "Each frame is 40x40 px",
+    "Small silhouette stays readable and distinct from star shard at 1x"
+  ]
+}

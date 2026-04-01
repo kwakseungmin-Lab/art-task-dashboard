@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.layer2_column_hall",
+  "asset_name": "Column Hall Near Background",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.layer1_temple_silhouette",
+      "world.ground.star_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "parallax_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 180
+    },
+    "layer": "world_background_2",
+    "usage": "Near-background marble columns and archways that move at 0.6x parallax behind the obstacle lane."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 520
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E",
+      "#C47C2B"
+    ],
+    "animation": {
+      "type": "tile_scroll",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 1,
+        "order": "left_to_right"
+      },
+      "parallax_multiplier": 0.6
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.layer2_column_hall.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Columns align to a 16px grid and leave a clear silhouette gap for enemies in the foreground lane.",
+    "Marble faces use ivory plus one shadow tone only, keeping the flat-shaded rule intact.",
+    "Layer tiles seamlessly across 1600px while preserving visible depth separation from the far silhouette layer."
+  ]
+}

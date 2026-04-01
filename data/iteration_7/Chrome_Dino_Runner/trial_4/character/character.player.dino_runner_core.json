@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.dino_runner_core",
+  "asset_name": "Player Dino — ground motion core sheet",
+  "category": "character",
+  "subcategory": "player_motion",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This sheet carries the baseline body proportion for all player motion tasks.",
+    "Leg swing reads at 12 FPS with one left-lead frame and one right-lead frame.",
+    "Head, torso, and tail volume remain stable across both frames."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "character.player.dino_air_pose",
+    "character.player.dino_low_profile",
+    "character.player.dino_crash_pose"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_air_pose",
+      "character.player.dino_low_profile",
+      "character.player.dino_crash_pose",
+      "world.ground_runner_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_motion",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "layer": "character",
+    "usage": "Primary two-frame run sheet used during active play on the ground lane."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Head width occupies 24px to keep the T-Rex face readable at 1x scale.",
+      "Arm cluster stays inside a 10x8px block near the chest.",
+      "Tail tip stays at least 6px above the ground baseline."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_runner_core.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 176x94px with 0px gutter.",
+    "Foot contact point stays within 1px on the baseline across both frames.",
+    "Only #535353 and transparency appear in painted pixels."
+  ]
+}

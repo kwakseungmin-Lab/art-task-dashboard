@@ -1,0 +1,84 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects",
+      "rendering": "flat 2D",
+      "behavior": "temporary (spawn and despawn)",
+      "animation_type": "movement-based (position changes)"
+    }
+  },
+  "asset": {
+    "asset_id": "speech_bubble_effect",
+    "asset_name": "Speech Bubble with Icon",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Visual indicator of Echo's needs (hunger)",
+      "screen_position": "Above Echo's head at x=72, y=45",
+      "adjacent_elements": ["echo_hungry"],
+      "usage_scenario": "Triggered during hungry state; displays seed icon inside bubble; persists until food is provided"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "12px",
+        "height": "10px"
+      },
+      "colors": {
+        "bubble": "#FFF1E8",
+        "outline": "#1D2B53",
+        "icon": "#FFA300"
+      },
+      "shape": "Rounded rectangle speech bubble with small tail pointing to Echo",
+      "texture": "Flat pixel art; solid fill with outline",
+      "outline": "1px #1D2B53 outline",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static bubble with seed icon inside; no animation"
+      },
+      "details": "12x10px rounded rectangle; #FFF1E8 fill with 1px #1D2B53 outline; contains 3x3px seed icon (#FFA300) centered inside; small 2px tail pointing down-left toward Echo"
+    },
+    "relationships": {
+      "related_assets": ["echo_hungry", "seed"],
+      "shared_with": "Contains seed icon matching seed asset",
+      "differences_from": "Other effects (persistent vs temporary, contains icon vs pure particle)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no glow",
+      "no animation",
+      "no text",
+      "no multiple icons",
+      "no shadow"
+    ]
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040411",
+  "asset_key": "friction_meter_bar",
+  "asset_name": "Friction Meter Bar",
+  "category": "ui",
+  "subcategory": "bottom_feedback",
+  "priority": "P0",
+  "execution_order": 11,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Friction meter stays centered at the lower screen and preserves the 240 px width defined in the GDD.",
+    "Color coding stays consistent with high-friction stone, low-friction slick floor, and maximum-brake feedback."
+  ],
+  "differences": [
+    "This atlas contains four named states for neutral, left-brake, right-brake, and both-brake feedback without adding text labels."
+  ],
+  "depends_on": [
+    "task_id_804040402",
+    "task_id_804040404",
+    "task_id_804040406",
+    "task_id_804040408",
+    "task_id_804040410"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_804040402",
+    "task_id_804040404",
+    "task_id_804040406",
+    "task_id_804040408",
+    "task_id_804040410"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040402",
+      "task_id_804040404",
+      "task_id_804040406",
+      "task_id_804040408",
+      "task_id_804040410",
+      "task_id_804040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Gauge size, lower-center placement, and friction-readout role grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Contrast tuning for the lower HUD against dark floor art grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use a TextureAtlas-backed ImageNode in the bottom HUD tree and switch frames directly from input state and contact state.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "ImageNode",
+      "TextureAtlas",
+      "FrictionMeterUi"
+    ],
+    "asset_loading": "Load ui/friction_meter_bar.png through AssetServer and keep the atlas handle in the friction-meter UI state keyed by asset_key.",
+    "runtime_notes": [
+      "Each frame is 240x8 px.",
+      "Atlas exposes neutral, left_brake, right_brake, and both_brake states.",
+      "Bottom anchor uses integer coordinates to preserve pixel sharpness."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Lower-center feedback bar that visualizes the current friction intensity without extra text.",
+    "screen_position": {
+      "anchor": "bottom_center",
+      "x_px": 640,
+      "y_px": 708
+    },
+    "layer": {
+      "name": "ui_bottom",
+      "z_index": 101
+    },
+    "usage": "Visible during gameplay only and updated on every input-state change."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 960,
+      "height": 8
+    },
+    "colors_hex": [
+      "#4A90A4",
+      "#3B3347",
+      "#E07B39",
+      "#0D0D0F",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "columns": 4,
+        "frame_size_px": {
+          "width": 240,
+          "height": 8
+        }
+      },
+      "state_clips": [
+        {
+          "state": "neutral",
+          "start_frame": 0,
+          "end_frame": 0,
+          "fps": 0,
+          "loop": false
+        },
+        {
+          "state": "left_brake",
+          "start_frame": 1,
+          "end_frame": 1,
+          "fps": 0,
+          "loop": false
+        },
+        {
+          "state": "right_brake",
+          "start_frame": 2,
+          "end_frame": 2,
+          "fps": 0,
+          "loop": false
+        },
+        {
+          "state": "both_brake",
+          "start_frame": 3,
+          "end_frame": 3,
+          "fps": 0,
+          "loop": false
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "friction_meter_bar.png",
+      "format": "png",
+      "size_px": {
+        "width": 960,
+        "height": 8
+      },
+      "notes": "Four 240x8 frames for the neutral and brake-direction states."
+    },
+    {
+      "artifact": "friction_meter_bar_slices.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "State map for neutral, left_brake, right_brake, and both_brake frames."
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas size is exactly 960x8 px with four 240x8 states.",
+    "Neutral, left_brake, right_brake, and both_brake states are visually distinct without using text labels.",
+    "Gauge remains readable against dark floors when anchored at y=708 px on the 1280x720 canvas."
+  ]
+}

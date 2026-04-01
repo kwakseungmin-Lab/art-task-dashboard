@@ -1,0 +1,20 @@
+{
+  "base_size": {
+    "width": "2-12px",
+    "height": "2-10px"
+  },
+  "color_scheme": {
+    "heart": "#FF004D",
+    "music_note": "#FFEC27",
+    "zzz": "#7E2553",
+    "feather": "#FFA300",
+    "dust": "#C2C3C7",
+    "sparkle": "#FFF1E8"
+  },
+  "shared_attributes": {
+    "sprite_type": "particle effects",
+    "rendering": "flat 2D",
+    "behavior": "temporary (spawn and despawn)",
+    "animation_type": "movement-based (position changes)"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.court_hall_front_1280x620",
+  "asset_name": "Court Hall Front Layer (1280x620)",
+  "category": "world",
+  "subcategory": "background_front",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_mid_1280x620"
+  ],
+  "blocks": [
+    "world.effect.candle_glow_radial_160x160",
+    "character.noble.standard_idle_6f_4fps",
+    "character.noble.guard_patrol_6f_6fps",
+    "character.noble.shield_idle_6f_4fps",
+    "character.noble.boss_idle_6f_4fps",
+    "obstacles.environment.stone_wall_segment_80x80",
+    "obstacles.environment.wood_pillar_24x120",
+    "obstacles.environment.candle_16x32",
+    "obstacles.environment.mirror_panel_8x64",
+    "obstacles.environment.chandelier_80x24",
+    "obstacles.environment.wine_barrel_48x48",
+    "obstacles.launchable.stone_ball_static_32x32",
+    "obstacles.launchable.candlestick_idle_4f_2fps",
+    "obstacles.launchable.wine_glass_break_8f_12fps",
+    "obstacles.launchable.gold_urn_static_36x44",
+    "obstacles.launchable.feather_quill_16x40_4f_8fps",
+    "obstacles.launchable.book_static_28x20",
+    "ui.hud.top_bar_1280x50",
+    "ui.controls.bottom_bar_1280x50"
+  ],
+  "blocked_by": [
+    "world.background.court_hall_mid_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.court_hall_far_1280x620",
+      "world.background.court_hall_mid_1280x620",
+      "obstacles.environment.stone_wall_segment_80x80"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "stage_background_front",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        50
+      ]
+    },
+    "layer": "world_front",
+    "usage": "Visible during puzzle play; defines floor trim, low wall cap, and near decorative frames that sit behind interactive assets.",
+    "adjacent_elements": [
+      "player object lane",
+      "stone wall segments",
+      "bottom control bar"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#D4A843",
+      "#A89880",
+      "#B56A52",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "flat floor strip with low wall cap and decorative frame corners that do not hide launchable assets",
+      "components": [
+        "floor_trim",
+        "low_wall_cap",
+        "left_frame_corner",
+        "right_frame_corner"
+      ]
+    },
+    "parallax": {
+      "depth_index": 3,
+      "scroll_factor_x": 0.85
+    },
+    "lighting": {
+      "floor_trim_hex": "#D4A843",
+      "frame_corner_hex": "#B56A52"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.court_hall_front_1280x620.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1280x620px and keeps the lower floor trim at 72px height across the full width.",
+    "Decorative frame corners stay inside the top 96px and outer 120px margins so the play lane remains open.",
+    "Only #E8D5C4, #D4A843, #A89880, #B56A52, and #3D2B1F are used in the painted layer."
+  ]
+}

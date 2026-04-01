@@ -1,0 +1,77 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.typography.bitmap_font_bw_8px",
+  "asset_name": "Bitmap Font — B/W 8px",
+  "category": "ui",
+  "subcategory": "typography",
+  "priority": "P0",
+  "execution_order": 5,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "font_atlas",
+    "layer": "ui",
+    "usage": "Primary UI font for HUD labels and queue text.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 128
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#000000"
+    ],
+    "glyph_height_px": 8,
+    "glyphs": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,:;!?+-/()[]%→←↑↓",
+    "layout_note": "Monospace 6×8 glyphs packed in a grid; include 1px spacing."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.typography.bitmap_font_bw_8px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "All glyphs legible at 1× without antialiasing."
+  ]
+}

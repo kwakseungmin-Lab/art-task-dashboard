@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "schema": "art_task_plan_asset_v5",
+    "game_name": "Pico_Echo",
+    "iteration": 5,
+    "plan_dir_name": "trial_3",
+    "generated_at_utc": "2026-03-04T06:56:07Z",
+    "git_ref": "art_task_plan/iter5_pipeline"
+  },
+  "task_id": "ui.pixel_font_3x5",
+  "id": "ui.pixel_font_3x5",
+  "asset_name": "Pixel font 3x5",
+  "category": "ui",
+  "subcategory": "bitmap_font",
+  "description": "Bitmap font glyph sheet for UI text. Each glyph is 3x5px, 1px spacing. Provide glyphs: A-Z, 0-9, space, '.', '!', '?', '♥'. Sheet layout: 16 columns x 6 rows of cells, cell size 4x6 (3x5 glyph + 1px padding right/bottom). Total sheet size 64x36px transparent. Glyph color #1D2B53 (navy) only.",
+  "execution_order": 60,
+  "priority": "P0",
+  "depends_on": [],
+  "blocks": [
+    "ui.hud_happiness_bar",
+    "ui.care_menu_panel",
+    "ui.status_bubble"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud_happiness_bar",
+      "ui.status_bubble"
+    ]
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1,
+    "snap_to_pixel_grid": true,
+    "canvas_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "ui_text_hex": "#1D2B53"
+  },
+  "specs": {
+    "glyph_size_px": {
+      "width": 3,
+      "height": 5
+    },
+    "cell_size_px": {
+      "width": 4,
+      "height": 6
+    },
+    "grid": {
+      "columns": 16,
+      "rows": 6
+    },
+    "sheet_size_px": {
+      "width": 64,
+      "height": 36
+    },
+    "glyph_color_hex": "#1D2B53",
+    "supported_chars": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .!?♥"
+  },
+  "context": {
+    "screen_position": {
+      "type": "not_applicable"
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "ui_text_rendering",
+      "status_labels"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/ui.pixel_font_3x5.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/ui.pixel_font_3x5.png",
+      "dimensions_px": {
+        "width": 64,
+        "height": 36
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 64x36 px with transparent background.",
+    "All glyph pixels use only #1D2B53.",
+    "Every supported character is present and fits within 3x5 without clipping."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

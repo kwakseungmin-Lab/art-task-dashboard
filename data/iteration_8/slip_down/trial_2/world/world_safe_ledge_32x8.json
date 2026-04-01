@@ -1,0 +1,149 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000011",
+  "asset_name": "Safe Ledge (32x8 one-way platform)",
+  "category": "world",
+  "subcategory": "one_way_platform",
+  "priority": "P1",
+  "execution_order": 110,
+  "variant_of": "task_id_802000010",
+  "variant_of_asset_key": "world_friction_surface_tileset_16x16",
+  "shared_properties": [
+    "Stone palette stays rooted in #3B3347 and #0D0D0F with a readable top contact strip that matches the world surface language.",
+    "The ledge aligns to the 16 px grid by using a 32 px width and a centered 8 px height footprint.",
+    "Outline thickness remains 1 px so the one-way platform edge reads cleanly against the shaft backdrop."
+  ],
+  "differences": [
+    "This variant compresses the surface language into a narrow 32x8 ledge that feels safe but temporary.",
+    "Top contact band uses 0.8-friction stone highlights while the underside darkens by one value step to separate the pass-through zone.",
+    "Collision readability favors a thin top lip with no decorative spikes, chains, or side supports."
+  ],
+  "depends_on": [
+    "task_id_802000010"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_802000010"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000001",
+      "task_id_802000005",
+      "task_id_802000010"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the 32x8 safe ledge size, pass-through behavior, and high-friction rescue role inside the vertical maze."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the dungeon stone mood so the ledge looks integrated rather than like a modern UI element."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player-to-platform scale so a 16x24 prisoner can briefly stabilize on the ledge without overcrowding it."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for parallax backdrops and TilemapChunk-backed textures for reusable 16x16 surface modules.",
+    "atlas_or_static": "mixed_static_and_tile_sheet",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "TileTextureIndex",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load world textures before gameplay, cache tile indices for high, medium, and low friction surfaces, and keep shaft layer handles in a WorldVisualRegistry resource.",
+    "runtime_notes": [
+      "Render the shaft backdrop from an offscreen 320x180 target and upscale by an integer factor of 4 to preserve pixel integrity.",
+      "Move parallax layers at 0.4x camera speed and keep their anchors fixed to the downward-only camera model.",
+      "Treat one-way ledges and exit gates as separate gameplay entities even when they share world art atlases."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "one_way_platform",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        600,
+        468
+      ]
+    },
+    "layer": "world",
+    "usage": "Small rescue landing used to reset tempo between dense hazard clusters.",
+    "adjacent_elements": [
+      "task_id_802000010",
+      "task_id_802000005"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 8
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#0D0D0F",
+      "#1A1A2E",
+      "#4E5940"
+    ],
+    "animation": null,
+    "collision_notes": [
+      "Top contact strip occupies y0-y1 across the full 32 px width.",
+      "Underside shadow occupies y5-y7 and never exceeds the horizontal footprint.",
+      "Decorative moss occupies fewer than 10 pixels so the ledge remains visually clean."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_safe_ledge_32x8.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Ledge asset is exactly 32x8 px with a continuous 32 px top edge and no holes larger than 1 px.",
+    "Top contact strip is visibly brighter than the underside by at least one palette step.",
+    "No animation, anti-aliasing, or hazard motifs are present so the ledge reads as a safe landing aid."
+  ],
+  "asset_key": "world_safe_ledge_32x8"
+}

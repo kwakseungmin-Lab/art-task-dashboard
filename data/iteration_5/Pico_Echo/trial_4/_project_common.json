@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "schema": "art_task_plan_project_common_v5",
+    "game_name": "Pico_Echo",
+    "game_title": "Pico Echo",
+    "iteration": 5,
+    "trial_index": 4,
+    "plan_dir": "trial_4",
+    "git_ref": "art_task_plan/iter5_pipeline",
+    "generator": "art_task_plan_generator",
+    "prompt_version": 5,
+    "generated_at_utc": "2026-03-05T07:19:05Z"
+  },
+  "project": {
+    "project_id": "pico_echo_iter5_trial_4",
+    "project_name": "Pico Echo",
+    "project_type": "game_art_task_plan"
+  },
+  "render_target": {
+    "canvas_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_aspect_ratio": 1,
+    "snap_to_pixel_grid": true,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "view": "2d_front"
+  },
+  "palette": {
+    "name": "pico8_default_16",
+    "primary": {
+      "name": "echo_body_orange",
+      "hex": "#FFA300"
+    },
+    "background": {
+      "name": "cream",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "echo_cheek_red",
+      "hex": "#FF004D"
+    },
+    "colors": [
+      {
+        "name": "black",
+        "hex": "#000000"
+      },
+      {
+        "name": "navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "dark_green",
+        "hex": "#008751"
+      },
+      {
+        "name": "brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "dark_gray",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "light_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "white",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "red",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "blue",
+        "hex": "#29ADFF"
+      },
+      {
+        "name": "lavender",
+        "hex": "#83769C"
+      },
+      {
+        "name": "pink",
+        "hex": "#FF77A8"
+      },
+      {
+        "name": "peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "max_colors": 16
+  },
+  "assets": [
+    {
+      "task_id": "world.cage_background",
+      "category": "world",
+      "file": "world/world.cage_background.json",
+      "primary_deliverable": "world_cage_background_128x128.png"
+    },
+    {
+      "task_id": "world.bowl_contents_atlas",
+      "category": "world",
+      "file": "world/world.bowl_contents_atlas.json",
+      "primary_deliverable": "world_bowl_contents_atlas_48x16.png"
+    },
+    {
+      "task_id": "world.vfx_music_note",
+      "category": "world",
+      "file": "world/world.vfx_music_note.json",
+      "primary_deliverable": "world_vfx_music_note_48x8.png"
+    },
+    {
+      "task_id": "world.vfx_zzz",
+      "category": "world",
+      "file": "world/world.vfx_zzz.json",
+      "primary_deliverable": "world_vfx_zzz_48x8.png"
+    },
+    {
+      "task_id": "character.echo_sprite_sheet",
+      "category": "character",
+      "file": "character/character.echo_sprite_sheet.json",
+      "primary_deliverable": "character_echo_spritesheet_512x512.png"
+    },
+    {
+      "task_id": "obstacles.poop_and_clean_sparkle_atlas",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.poop_and_clean_sparkle_atlas.json",
+      "primary_deliverable": "obstacles_poop_clean_sparkle_atlas_16x16.png"
+    },
+    {
+      "task_id": "obstacles.seed_sprite",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.seed_sprite.json",
+      "primary_deliverable": "obstacles_seed_sprite_8x8.png"
+    },
+    {
+      "task_id": "obstacles.particles_emotes_atlas",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.particles_emotes_atlas.json",
+      "primary_deliverable": "obstacles_particles_emotes_atlas_32x16.png"
+    },
+    {
+      "task_id": "ui.hud_atlas",
+      "category": "ui",
+      "file": "ui/ui.hud_atlas.json",
+      "primary_deliverable": "ui_hud_atlas_64x32.png"
+    },
+    {
+      "task_id": "ui.font_3x5_atlas",
+      "category": "ui",
+      "file": "ui/ui.font_3x5_atlas.json",
+      "primary_deliverable": "ui_font_3x5_atlas_64x24.png"
+    }
+  ]
+}

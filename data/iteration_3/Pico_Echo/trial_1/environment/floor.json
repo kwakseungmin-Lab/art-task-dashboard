@@ -1,0 +1,89 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art background",
+      "rendering": "single layer, no parallax",
+      "style": "minimal, clean, PICO-8 aesthetic",
+      "perspective": "front-facing 2D, no depth"
+    }
+  },
+  "asset": {
+    "asset_id": "floor",
+    "asset_name": "Cage Floor",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Bottom area of cage where poop accumulates, swipe target for cleaning",
+      "screen_position": "Bottom of screen, y=110 to y=128, full width (0 to 128)",
+      "adjacent_elements": ["poop (spawns on floor)", "food_bowl (on floor)", "water_bowl (on floor)", "happiness_bar (overlays bottom edge)"],
+      "usage_scenario": "Always visible. Player swipes this area to clean poop. Poop objects (2x2px) appear randomly on floor surface. Floor itself does not change appearance when dirty."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "128px",
+        "height": "18px"
+      },
+      "colors": {
+        "floor": "#FFCCAA"
+      },
+      "shape": "Horizontal rectangular area, bottom portion of screen",
+      "texture": "Flat solid color, no pattern",
+      "outline": "None (blends with background)",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No animation. Static environmental element."
+      },
+      "details": "Solid light tan color (#FFCCAA), darker than background (#FFF1E8). Extends from y=110 to y=128 (18px tall). Full screen width (128px). No texture, pattern, or grid. Poop objects render on top of this surface."
+    },
+    "relationships": {
+      "related_assets": ["poop", "food_bowl", "water_bowl", "sparkle_particle (cleaning effect)"],
+      "shared_with": "Warm tan color palette with environment",
+      "differences_from": "cage_background: darker tan vs lighter cream, bottom area vs full screen. Perch: area vs bar."
+    },
+    "explicit_negations": [
+      "No grid or tile pattern",
+      "No texture or grain",
+      "Floor color does not change when dirty",
+      "No shadows from objects above",
+      "No depth or 3D perspective",
+      "No newspaper or liner pattern",
+      "Does not show wear or stains",
+      "No gradients"
+    ]
+  }
+}

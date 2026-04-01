@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.building.viking_settlement_bw_atlas",
+  "asset_name": "Viking Settlement Buildings — BW Atlas",
+  "category": "world",
+  "subcategory": "building",
+  "priority": "P1",
+  "execution_order": 20,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.unit.warrior_idle_sheet_32x48_4f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "buildings_atlas",
+    "layer": "world_buildings",
+    "usage": "Core settlement buildings for fixed camera (house/warehouse/barracks/trading_post/shrine/infirmary + rubble).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 512
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "atlas": {
+      "packing_rule": "exact_rects_no_rotation",
+      "sprites": [
+        {
+          "id": "house_basic",
+          "size_px": {
+            "width": 64,
+            "height": 64
+          },
+          "frames": 2,
+          "note": "Window blink — 2 frames."
+        },
+        {
+          "id": "warehouse",
+          "size_px": {
+            "width": 96,
+            "height": 64
+          },
+          "frames": 1,
+          "note": "Static."
+        },
+        {
+          "id": "barracks",
+          "size_px": {
+            "width": 80,
+            "height": 80
+          },
+          "frames": 3,
+          "note": "Banner flutter — 3 frames."
+        },
+        {
+          "id": "trading_post",
+          "size_px": {
+            "width": 80,
+            "height": 64
+          },
+          "frames": 1,
+          "note": "Static."
+        },
+        {
+          "id": "shrine",
+          "size_px": {
+            "width": 64,
+            "height": 96
+          },
+          "frames": 1,
+          "note": "Static."
+        },
+        {
+          "id": "infirmary",
+          "size_px": {
+            "width": 64,
+            "height": 64
+          },
+          "frames": 1,
+          "note": "Static."
+        },
+        {
+          "id": "rubble_generic",
+          "size_px": {
+            "width": 64,
+            "height": 64
+          },
+          "frames": 1,
+          "note": "Destroyed placeholder."
+        }
+      ],
+      "layout_note": "Pack all frames into 512×512 with ≥2px padding (for thicker outline)."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.building.viking_settlement_bw_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 512×512px and fully transparent outside sprites.",
+    "All building silhouettes are readable at 1× scale with 2px outline.",
+    "Sprites respect grayscale-only palette."
+  ]
+}

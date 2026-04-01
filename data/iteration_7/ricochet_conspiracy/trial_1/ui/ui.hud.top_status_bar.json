@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.top_status_bar",
+  "asset_name": "Top Status Bar",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 200,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.serif_bitmap_16px_ascii96",
+      "ui.hud.bottom_control_bar",
+      "ui.screen.clear_overlay_card"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "hud",
+    "layer": "ui",
+    "usage": "Top bar for stage label, move count zone, and utility button wells.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.bottom_control_bar"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 56
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "long_hud_band",
+      "components": [
+        "stage_label_panel",
+        "move_counter_panel",
+        "three_button_wells"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.top_status_bar.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1280x56px and anchors to the top edge.",
+    "Left label zone is 280x40px and right utility group reserves three 56x40px wells.",
+    "No stage text is baked into the panel art."
+  ]
+}

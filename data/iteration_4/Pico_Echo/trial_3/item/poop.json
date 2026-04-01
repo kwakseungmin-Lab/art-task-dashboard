@@ -1,0 +1,134 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "task_plan_type": "Art Task Plan",
+    "task_plan_output_version": "v3",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "source_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+    "canvas": {
+      "resolution_px": "128x128",
+      "pixel_aspect_ratio": "1:1",
+      "coordinate_origin": "top_left",
+      "x_range_px": "0-127",
+      "y_range_px": "0-127",
+      "render_scale_rule": "nearest_neighbor_only"
+    },
+    "view": {
+      "camera_angle": "front",
+      "perspective": "none_2d"
+    },
+    "style": {
+      "art_style": "pixel_art",
+      "color_mode": "indexed",
+      "max_unique_colors": 16,
+      "palette_hex": [
+        "#FFA300",
+        "#FF004D",
+        "#FFEC27",
+        "#AB5236",
+        "#FFF1E8",
+        "#C2C3C7",
+        "#1D2B53",
+        "#FFCCAA",
+        "#5F574F",
+        "#00E436",
+        "#7E2553"
+      ],
+      "anti_aliasing": "forbidden",
+      "gradient": "forbidden",
+      "dither": "forbidden_unless_explicit",
+      "outline": "none_unless_explicit"
+    },
+    "file_spec": {
+      "format": "png",
+      "background": {
+        "sprites": "transparent_alpha_0",
+        "full_screen_background": "opaque"
+      }
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "engine_notes": {
+      "recommended_sprite_anchor": "center",
+      "default_anchor_px": [
+        64,
+        64
+      ]
+    }
+  },
+  "task_id": "pico_echo.item.poop",
+  "asset_name": "Poop_Sprite",
+  "category": "item",
+  "subcategory": "environmental",
+  "description": "Create poop sprite. Canvas 2x2 transparent. Fill all 4 pixels with #AB5236.",
+  "deliverables": [
+    {
+      "type": "item_sprite",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/item/poop_2x2.png",
+      "dimensions_px": "2x2",
+      "background": "transparent"
+    }
+  ],
+  "specs": {
+    "dimensions": "2x2",
+    "usage": {
+      "spawn_area": {
+        "y_min": 110,
+        "y_max": 125,
+        "x_min": 0,
+        "x_max": 127
+      },
+      "max_visible": 5
+    }
+  },
+  "context": {
+    "role": "interactive_item_or_spawned_decal",
+    "screen_location": "seed_in_bowl_or_beak; poop_on_floor_y_110_to_125",
+    "adjacent_elements": [
+      "cage_floor",
+      "food_bowl"
+    ],
+    "layer": "cage",
+    "usage": {
+      "spawn_rules": "see specs.usage"
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.environment.cage_food_bowl_full",
+      "pico_echo.environment.cage_food_bowl_low",
+      "pico_echo.vfx.vfx_seed_drop_to_bowl"
+    ],
+    "shared_constraints": [
+      "palette_hex == project.style.palette_hex"
+    ],
+    "differences": [
+      "item_type == poop"
+    ]
+  },
+  "depends_on": [
+    "pico_echo.environment.cage_floor"
+  ],
+  "execution_order": 18,
+  "priority": "P1",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.environment.cage_floor"
+  ],
+  "acceptance_criteria": [
+    "dimensions_px == 2x2",
+    "file_format == PNG",
+    "unique_colors_count <= 16",
+    "all_colors_in_project_palette_hex == true",
+    "no_antialiasing_pixels == true",
+    "no_gradient_pixels == true",
+    "all_nontransparent_pixels_color_hex == #AB5236"
+  ]
+}

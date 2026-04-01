@@ -1,0 +1,105 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position_default": {
+        "x": "64px",
+        "y": "60px"
+      },
+      "rendering": "nearest neighbor",
+      "transparency": "indexed color transparency"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_sleeping",
+    "asset_name": "Echo Sleeping State",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Sleep state during Echo's rest period (12-hour sleep cycle managed by TimeSystem)",
+      "screen_position": "Center at x=64px, y=60px on perch",
+      "adjacent_elements": [
+        "cage_perch (below at y=80px)",
+        "zzz_particle (appears to right of Echo at x=80-90px, y=40-50px)",
+        "cage_background"
+      ],
+      "usage_scenario": "Automatically triggered during sleep hours set by player. Echo cannot be interacted with during this state. ZZZ particles appear above/beside Echo. Transitions to idle when sleep period ends."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head tucked into back feathers. Body appears more rounded/compact than idle state. Head is turned backward and buried in wing/back area. Crest is flattened against head. Overall silhouette is more circular and compressed.",
+      "texture": "Pure pixel art, hand-drawn. Softer, more rounded appearance than alert states.",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 3,
+        "fps": 1,
+        "loop": true,
+        "description": "Frame 1: Head fully tucked, body still. Frame 2: Subtle breathing motion - body expands 1px vertically. Frame 3: Body contracts back to frame 1 size. Very slow, gentle breathing animation to show Echo is alive but asleep."
+      },
+      "details": "Eyes are not visible (hidden in feathers). Beak not visible. Cheek patch partially visible (2x2px instead of full 4x4px). Crest flattened to 1-2px height. Body width increases by 2-3px due to fluffed feathers. Feet remain visible gripping perch. Overall height reduced by 4-6px compared to idle."
+    },
+    "relationships": {
+      "related_assets": [
+        "echo_idle",
+        "zzz_particle",
+        "cage_perch"
+      ],
+      "shared_with": "Same color palette as all Echo states",
+      "differences_from": "Unlike idle: head not visible, eyes hidden, crest flattened, body more compact and rounded. Unlike other states: minimal animation (only breathing), no eye contact, no interaction possible."
+    },
+    "explicit_negations": [
+      "No visible eyes",
+      "No visible beak",
+      "No raised crest",
+      "No 3D shading",
+      "No gradients",
+      "No outline stroke",
+      "No motion blur",
+      "No nightcap or sleep accessories",
+      "No closed eyelids showing (eyes completely hidden)"
+    ]
+  }
+}

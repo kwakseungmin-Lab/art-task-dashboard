@@ -1,0 +1,88 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.cloud_large_static",
+  "asset_name": "Background — Cloud Large (static)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P2",
+  "execution_order": 120,
+  "variant_of": null,
+  "depends_on": [
+    "world.background.sky_fill_600x150"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.cloud_small_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "parallax_decor",
+    "layer": "world",
+    "usage": "Optional parallax cloud variant; scroll speed = ground * 0.5.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        650,
+        30
+      ]
+    },
+    "notes": "Matches GDD Background cloud spec: 92x27."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 27
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static"
+    },
+    "silhouette_notes": [
+      "Large cloud with 2-3 lobes; minimal shape complexity."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.cloud_large_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 92x27px.",
+    "Large cloud is proportionally similar to Small cloud; same palette and outline."
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "character.player.cosmos_large_transform_loop",
+  "asset_name": "Player (Large) Transform + Loop",
+  "category": "character",
+  "group_id": "character.player.cosmos",
+  "variant_role": "variant",
+  "priority": "P0",
+  "execution_order": 21,
+  "depends_on": [
+    "character.player.cosmos_base_run"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pillar.marble_break_anim"
+    ]
+  },
+  "context": {
+    "role": "player_character_large_state",
+    "screen_position": {
+      "type": "world_space",
+      "units": "px",
+      "pivot": "bottom_center"
+    },
+    "layer": "characters",
+    "usage": "Large state used while holding UP. Size 120x180. 4 frames: inflate then loop.",
+    "adjacent_elements": [
+      "obstacles.pillar.marble_static"
+    ]
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 480,
+      "height_px": 180
+    },
+    "frame_layout": {
+      "grid_columns": 4,
+      "grid_rows": 1,
+      "frame_size_px": [
+        120,
+        180
+      ],
+      "row_order": [
+        "large_loop"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#C47C2B"
+      },
+      "secondary": [
+        {
+          "name": "skin",
+          "hex": "#E8B87A"
+        },
+        {
+          "name": "outline",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "bulkier scaled-up hero with exaggerated shoulder/arm mass; readable at 120x180",
+      "components": [
+        "scaled_head",
+        "broader_torso",
+        "thicker_arms",
+        "thicker_legs"
+      ]
+    }
+  },
+  "description": "Create a 4-frame large-state animation at 120x180. Frame 1-2 show rapid expansion; frames 3-4 loop subtle breathing while large. Keep design consistent with base player.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/player_cosmos_large_transform_loop.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 480x180 px (4 frames)",
+    "Each frame is 120x180 px",
+    "Large silhouette remains within frame; feet stay on consistent baseline"
+  ]
+}

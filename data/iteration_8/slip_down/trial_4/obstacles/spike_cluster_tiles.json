@@ -1,0 +1,151 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040405",
+  "asset_key": "spike_cluster_tiles",
+  "asset_name": "Spike Cluster Tiles",
+  "category": "obstacles",
+  "subcategory": "static_hazard",
+  "priority": "P0",
+  "execution_order": 5,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Spike hazards keep a 16x16 px footprint per tile and a rust-red tip silhouette with one-pixel outlines.",
+    "Collision read stays immediate from a top-down glance during fast descent because every spike tip points into open travel space."
+  ],
+  "differences": [
+    "This sheet supplies four static spike variants for floor, left-wall, right-wall, and dense-cluster placements."
+  ],
+  "depends_on": [
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "blocks": [
+    "task_id_804040410",
+    "task_id_804040412"
+  ],
+  "blocked_by": [
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040402",
+      "task_id_804040404",
+      "task_id_804040407",
+      "task_id_804040410",
+      "task_id_804040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Hazard size, damage rule, and placement density grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Oxidized metal tone and dungeon hazard contrast grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout for four hazard variants while collision stays on separate rectangular or polygon hitboxes in gameplay code.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "HazardMarker"
+    ],
+    "asset_loading": "Load obstacles/spike_cluster_tiles.png through AssetServer and address variant frames by tile placement metadata.",
+    "runtime_notes": [
+      "Each variant frame is 16x16 px.",
+      "No animation timer is required because spikes are static hazards.",
+      "Leave one transparent pixel around outward points to avoid clipping when packed in the atlas."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Primary static damage hazard used in the tutorial band and every later dungeon section.",
+    "screen_position": {
+      "anchor": "tile_grid_origin",
+      "x_px": 0,
+      "y_px": 0
+    },
+    "layer": {
+      "name": "obstacle_static_hazard",
+      "z_index": 22
+    },
+    "usage": "Placed on floors and walls to punish incorrect friction timing without horizontal movement controls."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 16
+    },
+    "colors_hex": [
+      "#8B2020",
+      "#3B3347",
+      "#0D0D0F",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "mode": "variant_sheet",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "columns": 4,
+        "frame_size_px": {
+          "width": 16,
+          "height": 16
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "spike_cluster_tiles.png",
+      "format": "png",
+      "size_px": {
+        "width": 64,
+        "height": 16
+      },
+      "notes": "Four 16x16 spike variants for floor, wall-left, wall-right, and dense-cluster placements."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 64x16 px with four 16x16 variants.",
+    "Every variant reads as hazardous under grayscale preview because the spike tips stay brighter than the base plate.",
+    "Transparent padding prevents neighboring spike variants from bleeding during atlas sampling."
+  ]
+}

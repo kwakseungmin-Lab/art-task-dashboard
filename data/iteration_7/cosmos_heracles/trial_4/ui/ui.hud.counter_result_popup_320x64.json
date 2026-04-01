@@ -1,0 +1,148 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.counter_result_popup_320x64",
+  "asset_name": "Counter Result Popup",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 73,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.counter_gauge_radial_48px",
+    "obstacles.vfx.counter_success_spark_16x16",
+    "obstacles.vfx.perfect_counter_flash_1600x900"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.counter_gauge_radial_48px",
+    "obstacles.vfx.counter_success_spark_16x16",
+    "obstacles.vfx.perfect_counter_flash_1600x900"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.counter_gauge_radial_48px",
+      "obstacles.vfx.counter_success_spark_16x16",
+      "obstacles.vfx.perfect_counter_flash_1600x900"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        300,
+        -50
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.counter_gauge_radial_48px",
+      "obstacles.vfx.counter_success_spark_16x16",
+      "obstacles.vfx.perfect_counter_flash_1600x900"
+    ],
+    "layer": "ui",
+    "usage": "Two-state popup that displays COUNTER! or PERFECT!! near the right-center of the screen for 0.6 seconds.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 64
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#FFD966",
+      "#40E8D0",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "stateful",
+      "states": {
+        "counter": {
+          "frame_count": 1,
+          "fps": 0,
+          "loop": false,
+          "frame_size_px": {
+            "width": 320,
+            "height": 64
+          },
+          "display_duration_ms": 600
+        },
+        "perfect": {
+          "frame_count": 1,
+          "fps": 0,
+          "loop": false,
+          "frame_size_px": {
+            "width": 320,
+            "height": 64
+          },
+          "display_duration_ms": 600
+        }
+      },
+      "sheet_dimensions_px": {
+        "width": 640,
+        "height": 64
+      }
+    },
+    "shape": {
+      "silhouette": "wide centered text block with one baseline, one outer stroke, and no decorative tails beyond the 320px card",
+      "components": [
+        "COUNTER text state",
+        "PERFECT text state",
+        "1px outline",
+        "drop shadow block"
+      ]
+    },
+    "typography": {
+      "font_style": "pixel_bold",
+      "font_height_px": 32
+    },
+    "background_treatment": "transparent outside text and shadow pixels"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.counter_result_popup_320x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 640x64px with the COUNTER state in the left 320x64 half and the PERFECT state in the right 320x64 half.",
+    "The text baseline stays aligned between states and uses a 32px tall pixel font with a 1px outline.",
+    "The popup remains readable over the perfect flash by using #F0EFE9 and #FFD966 foreground pixels on a dark shadow block."
+  ]
+}

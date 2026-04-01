@@ -1,0 +1,18 @@
+{
+  "base_size": {
+    "width": "40px",
+    "height": "40px"
+  },
+  "color_scheme": {
+    "body": "#FFA300",
+    "cheek_patch": "#FF004D",
+    "crest": "#FFEC27",
+    "beak": "#AB5236",
+    "eyes": "#1D2B53"
+  },
+  "shared_attributes": {
+    "sprite_type": "hand-drawn pixel art",
+    "position_base": "perch at y=60",
+    "character": "Echo the cockatiel"
+  }
+}

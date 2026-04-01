@@ -1,0 +1,89 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art background",
+      "rendering": "single layer, no parallax",
+      "style": "minimal, clean, PICO-8 aesthetic",
+      "perspective": "front-facing 2D, no depth"
+    }
+  },
+  "asset": {
+    "asset_id": "perch",
+    "asset_name": "Wooden Perch",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Echo's primary resting place, horizontal bar for standing",
+      "screen_position": "Center horizontal, y=80, x=24 to x=104",
+      "adjacent_elements": ["Echo (standing on top at y=60)", "cage_background (behind)", "floor (below)"],
+      "usage_scenario": "Always visible. Echo stands on this perch in most states (idle, eating, happy, etc.). Static, never moves."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "80px",
+        "height": "4px"
+      },
+      "colors": {
+        "wood": "#AB5236"
+      },
+      "shape": "Horizontal rectangular bar, slightly rounded ends",
+      "texture": "Flat pixel art, minimal wood grain suggestion (1-2 horizontal lines)",
+      "outline": "1px darker brown (#5F574F) on top and bottom edges",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No animation. Static environmental element."
+      },
+      "details": "Horizontal bar 80px wide, 4px tall. Centered horizontally (x=24 to x=104). Brown wood color (#AB5236). Subtle wood grain: 1-2 horizontal lines in slightly darker shade. Rounded ends (1px radius). Echo's feet rest on top edge at y=80."
+    },
+    "relationships": {
+      "related_assets": ["Echo (all states)", "cage_background", "floor"],
+      "shared_with": "Brown color with Echo's beak and feet",
+      "differences_from": "cage_bars: horizontal vs vertical, brown vs gray, thicker vs thinner. floor: bar vs area."
+    },
+    "explicit_negations": [
+      "No 3D depth or cylinder shape",
+      "No realistic wood texture or grain detail",
+      "Does not sway or move",
+      "No shadows cast below",
+      "Not attached to cage bars visually",
+      "No rope or attachment visible",
+      "Does not bend under Echo's weight",
+      "No wear marks or scratches"
+    ]
+  }
+}

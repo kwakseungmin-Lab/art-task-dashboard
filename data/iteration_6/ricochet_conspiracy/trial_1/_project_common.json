@@ -1,0 +1,260 @@
+{
+  "schema_version": "art_task_plan_pkg@6",
+  "project": {
+    "project_id": "ricochet_conspiracy",
+    "project_name": "Ricochet Conspiracy"
+  },
+  "meta": {
+    "game_name": "ricochet_conspiracy",
+    "iteration": 6,
+    "trial_index": 1,
+    "plan_dir": "trial_1",
+    "created_at_utc": "2026-03-10T06:17:07Z",
+    "git_ref": "art_task_plan/iter6_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304195524/ricochet_conspiracy/ricochet_conspiracy.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v6.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "world.bg.court_hall_far",
+      "category": "world",
+      "file": "world/world.bg.court_hall_far.json"
+    },
+    {
+      "task_id": "world.bg.court_hall_mid",
+      "category": "world",
+      "file": "world/world.bg.court_hall_mid.json"
+    },
+    {
+      "task_id": "world.bg.court_hall_front",
+      "category": "world",
+      "file": "world/world.bg.court_hall_front.json"
+    },
+    {
+      "task_id": "obstacles.env.stone_wall_segment",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.env.stone_wall_segment.json"
+    },
+    {
+      "task_id": "obstacles.env.wood_pillar",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.env.wood_pillar.json"
+    },
+    {
+      "task_id": "obstacles.env.candle",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.env.candle.json"
+    },
+    {
+      "task_id": "obstacles.env.mirror",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.env.mirror.json"
+    },
+    {
+      "task_id": "obstacles.env.chandelier",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.env.chandelier.json"
+    },
+    {
+      "task_id": "obstacles.env.wine_barrel",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.env.wine_barrel.json"
+    },
+    {
+      "task_id": "obstacles.launchable.stone_ball",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.stone_ball.json"
+    },
+    {
+      "task_id": "obstacles.launchable.candlestick",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.candlestick.json"
+    },
+    {
+      "task_id": "obstacles.launchable.wine_glass",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.wine_glass.json"
+    },
+    {
+      "task_id": "obstacles.launchable.wine_glass_shard",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.wine_glass_shard.json"
+    },
+    {
+      "task_id": "obstacles.launchable.gold_urn",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.gold_urn.json"
+    },
+    {
+      "task_id": "obstacles.launchable.feather_quill",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.feather_quill.json"
+    },
+    {
+      "task_id": "obstacles.launchable.book",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.book.json"
+    },
+    {
+      "task_id": "obstacles.fx.fire_burst_radius64",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.fx.fire_burst_radius64.json"
+    },
+    {
+      "task_id": "obstacles.fx.explosion_radius96",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.fx.explosion_radius96.json"
+    },
+    {
+      "task_id": "character.noble.standard_idle",
+      "category": "character",
+      "file": "character/character.noble.standard_idle.json"
+    },
+    {
+      "task_id": "character.noble.standard_eliminated",
+      "category": "character",
+      "file": "character/character.noble.standard_eliminated.json"
+    },
+    {
+      "task_id": "character.noble.guard_idle",
+      "category": "character",
+      "file": "character/character.noble.guard_idle.json"
+    },
+    {
+      "task_id": "character.noble.shield_idle",
+      "category": "character",
+      "file": "character/character.noble.shield_idle.json"
+    },
+    {
+      "task_id": "character.noble.boss_idle",
+      "category": "character",
+      "file": "character/character.noble.boss_idle.json"
+    },
+    {
+      "task_id": "ui.hud.top_bar",
+      "category": "ui",
+      "file": "ui/ui.hud.top_bar.json"
+    },
+    {
+      "task_id": "ui.hud.bottom_control_bar",
+      "category": "ui",
+      "file": "ui/ui.hud.bottom_control_bar.json"
+    },
+    {
+      "task_id": "ui.button.hint",
+      "category": "ui",
+      "file": "ui/ui.button.hint.json"
+    },
+    {
+      "task_id": "ui.button.restart",
+      "category": "ui",
+      "file": "ui/ui.button.restart.json"
+    },
+    {
+      "task_id": "ui.button.menu",
+      "category": "ui",
+      "file": "ui/ui.button.menu.json"
+    },
+    {
+      "task_id": "ui.overlay.trajectory_dotted_line",
+      "category": "ui",
+      "file": "ui/ui.overlay.trajectory_dotted_line.json"
+    },
+    {
+      "task_id": "ui.overlay.object_selection_highlight",
+      "category": "ui",
+      "file": "ui/ui.overlay.object_selection_highlight.json"
+    },
+    {
+      "task_id": "ui.screen.clear_result_overlay",
+      "category": "ui",
+      "file": "ui/ui.screen.clear_result_overlay.json"
+    },
+    {
+      "task_id": "ui.screen.fail_overlay",
+      "category": "ui",
+      "file": "ui/ui.screen.fail_overlay.json"
+    },
+    {
+      "task_id": "ui.toast.message_panel",
+      "category": "ui",
+      "file": "ui/ui.toast.message_panel.json"
+    }
+  ]
+}

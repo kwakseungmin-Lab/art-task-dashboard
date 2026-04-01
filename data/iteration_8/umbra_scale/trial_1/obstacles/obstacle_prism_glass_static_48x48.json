@@ -1,0 +1,166 @@
+{
+  "task_id": "task_id_008101012",
+  "asset_key": "obstacle_prism_glass_static_48x48",
+  "asset_name": "Prism Glass Prop",
+  "category": "obstacles",
+  "subcategory": "refraction",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101002",
+    "task_id_008101003"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101002",
+    "task_id_008101003"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle for the prism and attach a prism-split behavior component consumed by the light routing system.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "PrismGlass",
+      "LightSplitBehavior"
+    ],
+    "asset_loading": "Load obstacles/obstacle_prism_glass_static_48x48.png through AssetServer and reuse one static texture for all prism placements.",
+    "runtime_notes": [
+      "The prism should look visually centered so three-way split angles feel fair when the player repositions it.",
+      "Keep inner facets bright enough to distinguish prism behavior from the plane mirror.",
+      "Do not imply rotation handles because the GDD specifies that prisms are not rotatable."
+    ]
+  },
+  "context": {
+    "role": "movable_prism",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1300,
+        670
+      ]
+    },
+    "layer": "obstacles_interactive",
+    "usage": "Moveable prism that splits one incoming beam into three outgoing directions to drive multi-target light puzzles.",
+    "adjacent_elements": [
+      "player_umbra_grab_4f_10fps",
+      "obstacle_plane_mirror_static_16x96",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#F5EFE0",
+      "#C9A84C",
+      "#D4682A",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Chunky square prism block with beveled gold edges, bright internal facets, and a slight triangular highlight pattern.",
+      "components": [
+        "outer_frame",
+        "inner_facets",
+        "center_core",
+        "base_shadow"
+      ]
+    },
+    "interaction": {
+      "moveable": true,
+      "rotatable": false,
+      "grip_range_px": 32
+    },
+    "optics": {
+      "behavior": "three_way_split",
+      "split_angles_degrees": [
+        0,
+        120,
+        -120
+      ]
+    }
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 48x48 px.",
+    "Facet structure is readable enough to distinguish the prism from the mirror at gameplay scale.",
+    "The silhouette stays symmetric so beam-split behavior feels centered and predictable."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101008",
+      "task_id_008101011",
+      "task_id_008101014",
+      "task_id_008101015",
+      "task_id_008101021"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_prism_glass_static_48x48.png",
+      "transparent_background": true
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.wine_glass_break_8f_12fps",
+  "asset_name": "Wine Glass Break (8f 12fps)",
+  "category": "obstacles",
+  "subcategory": "launchable_wine_glass",
+  "priority": "P1",
+  "execution_order": 170,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.wine_barrel_48x48",
+      "character.noble.standard_idle_6f_4fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "launchable_object",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Selected by the player as a light launchable that breaks into 4 to 6 shards on impact.",
+    "adjacent_elements": [
+      "wine barrel",
+      "standard noble"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 20,
+      "height": 32
+    },
+    "colors_hex": [
+      "#F5F0E8",
+      "#CFE0EA",
+      "#8B3A52",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": false,
+      "frame_size_px": [
+        20,
+        32
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "thin stemmed glass with a tall bowl and a narrow foot ring",
+      "components": [
+        "rim",
+        "bowl",
+        "stem",
+        "foot_ring",
+        "shard_silhouettes"
+      ]
+    },
+    "physics_tags": {
+      "mass_relative": 1,
+      "base_restitution": 0.5,
+      "shard_count_min": 4,
+      "shard_count_max": 6
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.wine_glass_break_8f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 160x32px with 8 columns, 1 row, and 0px spacing.",
+    "Intact bowl width stays at 12px in frame 1 and shard spread stays inside the 20x32 frame box in frames 2 to 8.",
+    "Only #F5F0E8, #CFE0EA, #8B3A52, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

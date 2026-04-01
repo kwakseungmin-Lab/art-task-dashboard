@@ -1,0 +1,169 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020108",
+  "asset_key": "obstacles_weight_block_values_1to5_32x32",
+  "asset_name": "Weight Block Set with Values 1 to 5 (32x32 each)",
+  "category": "obstacles",
+  "subcategory": "interactable_weight",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Every state uses a 32x32 px stone-and-gold block footprint sized for grab movement and torque placement.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while engraved numeral tones stay inside specs.colors_hex.",
+    "The block silhouette keeps flat top and bottom edges so placement on the scale assembly remains visually stable."
+  ],
+  "differences": [
+    "This state sheet contains five engraved numeral variants representing weight values 1 through 5 Units.",
+    "Heavier-value frames add denser gold inlay and deeper underside shading so mass escalation is readable beyond the numeral alone.",
+    "Corner wear increases slightly from value 1 to value 5 to hint at age and mass."
+  ],
+  "depends_on": [
+    "task_id_008020111"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020111"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020103",
+      "task_id_008020105",
+      "task_id_008020111",
+      "task_id_008020115"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds weight-block dimensions, grab behavior, and variable 1 to 5 Unit mass values."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the weathered gold-and-stone material treatment for mechanical puzzle pieces."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra-to-block scale for a clear push and drag posture."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle for numeric state variants.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "Transform",
+      "Visibility",
+      "WeightBlock"
+    ],
+    "asset_loading": "Load the weight block atlas during FloorLoading and index frames by authored weight value.",
+    "runtime_notes": [
+      "Map one atlas frame to each discrete weight value 1 through 5.",
+      "Keep the block pivot centered for stable dragging.",
+      "Avoid runtime text overlays on the block so all mass values stay grounded in authored art."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "movable_weight",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        860,
+        660
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Grab-movable weight block sheet used to author variable-mass pieces that alter scale torque.",
+    "adjacent_elements": [
+      "task_id_008020103",
+      "task_id_008020111"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "weight_1",
+        "weight_2",
+        "weight_3",
+        "weight_4",
+        "weight_5"
+      ],
+      "frame_count": 5,
+      "frame_size_px": [
+        32,
+        32
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 1
+      }
+    },
+    "engraving_notes": [
+      "Numeral inset width is 10 px.",
+      "Top bevel thickness is 2 px.",
+      "All five states preserve the identical outer silhouette."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_weight_block_values_1to5_32x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 160x32 px with 5 frames of 32x32 px and 0 px spacing.",
+    "Each block value remains distinguishable through both the numeral and the increasing material treatment.",
+    "The outer silhouette stays identical across all five frames so mass changes do not alter collision readability."
+  ]
+}

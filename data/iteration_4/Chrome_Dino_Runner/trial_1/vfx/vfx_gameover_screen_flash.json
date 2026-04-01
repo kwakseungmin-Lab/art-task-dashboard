@@ -1,0 +1,130 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_vfx_gameover_screen_flash",
+  "asset_name": "vfx_gameover_screen_flash",
+  "category": "vfx",
+  "subcategory": "overlay",
+  "description": "(Optional) Create a full-screen overlay sprite for a GameOver flash. Canvas 600x150 px. Solid fill #FF0000 with alpha=0.25 (RGBA 255,0,0,64). Export as PNG with transparency. Used for a single-frame flash duration 0.10 seconds.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/vfx/gameover_flash_overlay_600x150_rgba255_0_0_a64.png",
+      "type": "vfx_overlay",
+      "format": "PNG",
+      "notes": "Render above gameplay sprites and below UI text, duration 0.10s."
+    }
+  ],
+  "specs": {
+    "dimensions": "600x150",
+    "color_rgba": "(255,0,0,64)",
+    "base_color_hex": "#FF0000",
+    "alpha": 0.25,
+    "frames": 1,
+    "intended_duration_s": 0.1
+  },
+  "context": {
+    "role": "Flash feedback on collision / GameOver trigger.",
+    "screen_location": "Full screen overlay.",
+    "adjacent_elements": "Must not replace GameOver UI; it is drawn underneath UI text.",
+    "layer": "vfx_overlay",
+    "usage": "Triggered once at collision moment."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_character_player_dead",
+      "cdr_v1_vfx_score_milestone_flash"
+    ],
+    "shared_properties": [
+      "Full-screen 600x150 overlay"
+    ],
+    "differences": [
+      "GameOver flash uses #FF0000 with alpha 0.25; milestone flash uses #FFFFFF with alpha 0.15."
+    ]
+  },
+  "depends_on": [
+    "cdr_v1_environment_background_sky"
+  ],
+  "execution_order": 18,
+  "priority": "P2",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_v1_environment_background_sky"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 600x150 px.",
+    "All pixels have RGB #FF0000 and alpha=64 (0x40).",
+    "No other colors appear."
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "reflect_academy",
+    "project_name": "reflect_academy"
+  },
+  "meta": {
+    "plan_id": "reflect_academy__iter8__trial5",
+    "game_name": "reflect_academy",
+    "iteration": 8,
+    "trial_index": 5,
+    "plan_dir": "trial_5",
+    "created_at_utc": "2026-03-25T10:09:47Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md",
+    "run_id": "20260325_085239_53910769"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "reference_images": [
+    {
+      "label": "duel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png",
+      "purpose": "Ground the academy hall palette, duel camera framing, and card-row spacing."
+    },
+    {
+      "label": "player_concept",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/player.png",
+      "purpose": "Ground the student mage silhouette, wand pose, and robe proportion."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground projectile sizes, timing windows, HUD dimensions, and battle states."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "sprite_pipeline": "Author layered 2D sprites as transparent PNG or sprite sheets, render them with a fixed orthographic camera, and keep overlay UI on a dedicated camera.",
+    "ecs_model": "Use separate entities for player, enemy, projectile, hall, lane, and HUD widgets; animation states are driven by Timer components and CombatState enums.",
+    "asset_loading": "Load all trial_5 PNG assets during a Loading state with AssetServer and store handles in typed resources keyed by asset_key.",
+    "runtime_notes": [
+      "Keep duel world sprites on integer-aligned transforms after raster export so combat readability stays stable.",
+      "Use separate z-bands for hall background, characters, projectiles, lane guide, and overlay UI.",
+      "Drive timing windows from Bevy Time delta and fixed combat timestamps rather than frame-count assumptions."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "file_stem_equals_asset_key"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "enemy_spell_warning",
+      "label": "Enemy cast warning and attribute forecast",
+      "description": "Enemy cast pose, warning icon, and lane guide must communicate the incoming spell during the 0.5 second forecast beat.",
+      "critical_states": [
+        "cast_warning",
+        "attribute_preview",
+        "projectile_launch"
+      ],
+      "task_ids": [
+        "task_id_000008502",
+        "task_id_000008505",
+        "task_id_000008506",
+        "task_id_000008507",
+        "task_id_000008511"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000008509",
+        "task_id_000008511"
+      ]
+    },
+    {
+      "mechanic_id": "card_commit_and_cost",
+      "label": "Card selection and cost commit",
+      "description": "Player idle read, hand strip, and HUD cost rail must make the five-card hand and cost budget readable in one glance.",
+      "critical_states": [
+        "hand_idle",
+        "card_hover",
+        "cost_blocked"
+      ],
+      "task_ids": [
+        "task_id_000008501",
+        "task_id_000008503",
+        "task_id_000008508",
+        "task_id_000008510"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000008508",
+        "task_id_000008510"
+      ]
+    },
+    {
+      "mechanic_id": "timed_reflection_resolution",
+      "label": "Good and Perfect reflection timing",
+      "description": "Player cast burst, projectile sheets, lane guide, and timing bar must resolve the Good and Perfect timing windows with no ambiguity.",
+      "critical_states": [
+        "good_timing",
+        "perfect_timing",
+        "projectile_reflect"
+      ],
+      "task_ids": [
+        "task_id_000008502",
+        "task_id_000008504",
+        "task_id_000008506",
+        "task_id_000008507",
+        "task_id_000008509"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000008509",
+        "task_id_000008510"
+      ]
+    },
+    {
+      "mechanic_id": "duel_hp_and_round_readability",
+      "label": "HP, round, and duel state readability",
+      "description": "Backdrop, combatant sheets, and HUD bars must keep player HP, enemy HP, round timing, and damage state readable through the full duel loop.",
+      "critical_states": [
+        "round_start",
+        "active_duel",
+        "damage_flash"
+      ],
+      "task_ids": [
+        "task_id_000008501",
+        "task_id_000008503",
+        "task_id_000008505",
+        "task_id_000008510"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000008510",
+        "task_id_000008511"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_000008501",
+      "asset_key": "world_academy_duel_hall_1920x1080",
+      "category": "world",
+      "file": "world/world_academy_duel_hall_1920x1080.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008502",
+      "asset_key": "world_reflection_lane_1600x180",
+      "category": "world",
+      "file": "world/world_reflection_lane_1600x180.json",
+      "execution_order": 20,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008503",
+      "asset_key": "character_player_reflector_idle_8f_6fps",
+      "category": "character",
+      "file": "character/character_player_reflector_idle_8f_6fps.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008504",
+      "asset_key": "character_player_reflect_cast_6f_10fps",
+      "category": "character",
+      "file": "character/character_player_reflect_cast_6f_10fps.json",
+      "execution_order": 40,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008505",
+      "asset_key": "character_enemy_duelist_cast_6f_8fps",
+      "category": "character",
+      "file": "character/character_enemy_duelist_cast_6f_8fps.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008506",
+      "asset_key": "obstacles_fire_spell_projectile_6f_12fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_fire_spell_projectile_6f_12fps.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008507",
+      "asset_key": "obstacles_thunder_spell_projectile_6f_14fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_thunder_spell_projectile_6f_14fps.json",
+      "execution_order": 70,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008508",
+      "asset_key": "ui_hand_card_strip_440x140",
+      "category": "ui",
+      "file": "ui/ui_hand_card_strip_440x140.json",
+      "execution_order": 80,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008509",
+      "asset_key": "ui_timing_bar_600x30",
+      "category": "ui",
+      "file": "ui/ui_timing_bar_600x30.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008510",
+      "asset_key": "ui_battle_hud_bars_520x160",
+      "category": "ui",
+      "file": "ui/ui_battle_hud_bars_520x160.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000008511",
+      "asset_key": "ui_attribute_warning_icon_40x40",
+      "category": "ui",
+      "file": "ui/ui_attribute_warning_icon_40x40.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "asset_name": "Player Transform Form 120x180",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 21,
+  "variant_of": "character.player.heracles_form_64x96",
+  "shared_properties": {
+    "camera_angle": "side_orthographic",
+    "facing": "right",
+    "bronze_armor_hex": "#C47C2B",
+    "skin_hex": "#E8B87A"
+  },
+  "differences": {
+    "dimensions_px": {
+      "from": [
+        64,
+        96
+      ],
+      "to": [
+        120,
+        180
+      ]
+    },
+    "frame_count": {
+      "from": 6,
+      "to": 4
+    },
+    "silhouette_change": "torso and shoulders expand while head remains one profile unit."
+  },
+  "depends_on": [
+    "character.player.heracles_form_64x96"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.heracles_form_64x96",
+    "world.floor.star_floor_strip"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pillar.standard_sheet",
+      "ui.hud.size_state_indicator"
+    ]
+  },
+  "context": {
+    "role": "player_transform_form",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 400,
+      "y": 640
+    },
+    "adjacent_elements": [
+      "obstacles.pillar.standard_sheet",
+      "world.floor.star_floor_strip"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Visible only while the up input is held; top-left y 640 keeps ground contact y 820."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#FFD966",
+      "#C47C2B",
+      "#E8B87A"
+    ],
+    "animation": {
+      "type": "loop",
+      "frame_count": 4,
+      "frame_time_s": 0.1,
+      "loop": true,
+      "sprite_sheet_layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Humanoid side profile with head height 20 px, torso height 60 px, and leg height 100 px.",
+      "components": [
+        "head 20x20",
+        "double shoulder plate",
+        "torso 44x60",
+        "forearm pair 12x44",
+        "leg pair 24x100",
+        "star clasp 12x12"
+      ]
+    },
+    "face": {
+      "eyes": "3 px sclera with 1 px pupil",
+      "mouth": "2 px horizontal line",
+      "nose": "3 px forward wedge"
+    },
+    "appendages": {
+      "arms": "2",
+      "legs": "2",
+      "tail": "none",
+      "accessories": [
+        "double bronze shoulder guard",
+        "belt star clasp"
+      ]
+    },
+    "texture": "bronze_plate_plus_cloth",
+    "collision_box_px": {
+      "width": 120,
+      "height": 180
+    },
+    "shading_model": "two_tone_flat"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.heracles_form_120x180.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet bounding box is exactly 120x180 px per frame.",
+    "Sheet contains exactly 4 frames in one row.",
+    "Ground contact remains aligned to y 820 across all 4 frames.",
+    "Armor occupies at least 30 percent of visible pixels and uses #C47C2B."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "character.player.heracles_form_120x180",
+  "category": "character",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

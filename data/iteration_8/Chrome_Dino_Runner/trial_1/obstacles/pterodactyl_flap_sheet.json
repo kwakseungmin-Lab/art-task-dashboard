@@ -1,0 +1,166 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000008",
+  "asset_key": "pterodactyl_flap_sheet",
+  "asset_name": "Pterodactyl Flap Sheet",
+  "category": "obstacles",
+  "subcategory": "air_obstacle",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Primary painted tone uses #535353 with transparent background only.",
+    "Sprite footprint stays within 92x80 px per frame.",
+    "Beak, wing, and tail landmarks keep 2 px outline weight."
+  ],
+  "differences": [
+    "Two frames alternate raised and lowered wings at 10 FPS for airborne motion readability.",
+    "Low flight uses y=50 and high flight uses y=80 while the sprite art remains unchanged.",
+    "Body posture stays horizontal so duck timing stays readable against the sky field."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000003",
+      "task_id_801000009",
+      "task_id_801000012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    },
+    {
+      "label": "offline_sprite_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "2x atlas for silhouette spacing, obstacle spacing, and hit-readability checks."
+    },
+    {
+      "label": "run_loop_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/t-rex-runner-19janil.gif",
+      "purpose": "Run cadence, jump silhouette timing, and restart screen pacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_horizontal_2_frame",
+    "ecs_components": [
+      "ObstacleTag",
+      "AirObstacle",
+      "AnimationTimer",
+      "ColliderAabb",
+      "ScrollVelocity"
+    ],
+    "asset_loading": "Load one 184x80 PNG atlas during Loading state and build a 92x80 TextureAtlasLayout before score 200 unlocks the obstacle.",
+    "runtime_notes": [
+      "Advance the atlas index every 0.1 seconds for a 10 FPS flap loop.",
+      "Spawn the transform anchor at x=650 with lane heights y=50 or y=80.",
+      "Cull the entity after x drops below -100."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "air_obstacle_flap",
+    "screen_position": {
+      "type": "spawn_anchor_px",
+      "position_px": [
+        650,
+        50
+      ]
+    },
+    "layer": "obstacle_air",
+    "usage": "Spawns after score 200 and challenges duck timing or late jump timing."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 80
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        92,
+        80
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "hitbox_px": {
+      "width": 89,
+      "height": 77,
+      "offset_px": [
+        2,
+        2
+      ]
+    },
+    "motion_profile": {
+      "speed_window_px_per_s": [
+        300,
+        900
+      ],
+      "spawn_x_px": 650,
+      "height_variants_px": [
+        50,
+        80
+      ]
+    },
+    "shape_notes": [
+      "Beak length stays at 18 px.",
+      "Wingtip vertical travel spans 14 px between the two frames.",
+      "Tail tip occupies the rear 10 px of the body footprint."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/pterodactyl_flap_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet canvas is exactly 184x80 px with no gutter between frames.",
+    "Raised-wing and lowered-wing poses remain readable at 1x scale.",
+    "Collider reference area maps cleanly to an 89x77 px obstacle hitbox."
+  ]
+}

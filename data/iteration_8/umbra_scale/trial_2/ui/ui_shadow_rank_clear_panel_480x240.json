@@ -1,0 +1,170 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020118",
+  "asset_key": "ui_shadow_rank_clear_panel_480x240",
+  "asset_name": "Shadow Rank Clear Panel (480x240, 4 states)",
+  "category": "ui",
+  "subcategory": "clear_screen",
+  "priority": "P1",
+  "execution_order": 180,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The clear panel occupies a 480x240 px centered overlay designed for post-floor feedback without covering the entire scene.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while rank-state colors stay inside specs.colors_hex.",
+    "Layout reserves distinct regions for rank letter, clear time, Par Time comparison, and Shadow Shard count."
+  ],
+  "differences": [
+    "This state sheet includes S, A, B, and C rank frame variants rather than drawing every rank with runtime typography alone.",
+    "Higher ranks intensify gold filigree and amber spotlight wedges, while lower ranks keep a calmer trim treatment.",
+    "A central 96 px medallion frame is reserved for the rank letter and supports a strong end-of-floor focal point."
+  ],
+  "depends_on": [
+    "task_id_008020112",
+    "task_id_008020116"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020112",
+    "task_id_008020116"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020112",
+      "task_id_008020116"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds Shadow Rank feedback, Par Time comparison, and floor-clear summary flow."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the celebratory gold-and-violet finish used after a solved floor."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds the need to keep solved-scene visibility behind the results overlay."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle on the overlay camera.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "Style",
+      "UiImage",
+      "Visibility",
+      "HudWidget"
+    ],
+    "asset_loading": "Load the clear-panel atlas during FloorLoading and select the authored frame that matches the computed floor rank.",
+    "runtime_notes": [
+      "Fade the overlay in after the exit-door sequence completes.",
+      "Keep runtime text inside reserved slots for clear time, Par Time delta, and shard count.",
+      "Preserve enough transparency around the panel perimeter that the solved floor remains faintly visible."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "clear_results_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "ui",
+    "usage": "Centered clear-screen overlay used after each floor to display rank, clear time, and collectible summary.",
+    "adjacent_elements": [
+      "task_id_008020112",
+      "task_id_008020116"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 480,
+      "height": 240
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1C1826",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "rank_s",
+        "rank_a",
+        "rank_b",
+        "rank_c"
+      ],
+      "frame_count": 4,
+      "frame_size_px": [
+        480,
+        240
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "layout_notes": [
+      "Central rank medallion diameter is 96 px.",
+      "Time panel width is 140 px.",
+      "Shard summary panel width is 112 px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_shadow_rank_clear_panel_480x240.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 1920x240 px with four 480x240 frames and 0 px spacing.",
+    "All four rank variants remain readable and distinct through trim intensity, medallion treatment, and accent use.",
+    "Reserved text regions fit clear time, Par Time delta, and Shadow Shard count without clipping borders."
+  ]
+}

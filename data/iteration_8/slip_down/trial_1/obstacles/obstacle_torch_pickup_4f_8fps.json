@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008001013",
+  "asset_key": "obstacle_torch_pickup_4f_8fps",
+  "asset_name": "Recovery Torch Pickup",
+  "category": "obstacles",
+  "subcategory": "pickup",
+  "priority": "P1",
+  "execution_order": 130,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008001002"
+  ],
+  "blocks": [
+    "task_id_008001014"
+  ],
+  "blocked_by": [
+    "task_id_008001002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008001008",
+      "task_id_008001014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the pickup idle flame and despawn the entity on player overlap after the heal event fires.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Pickup",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/obstacle_torch_pickup_4f_8fps.png through AssetServer and build a four-frame atlas for pickup instances.",
+    "runtime_notes": [
+      "Pickup restores one HP up to the cap of three.",
+      "The flame loop continues even if the pickup is attached to a moving platform section.",
+      "Warm color accent stays isolated to the flame so the HUD torch motif can echo it cleanly."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "health_recovery_pickup",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        520,
+        400
+      ]
+    },
+    "layer": "obstacles_pickup",
+    "usage": "Small hanging torch pickup that restores one HP and offers a warm visual counterpoint inside the cold shaft.",
+    "adjacent_elements": [
+      "world_friction_tilekit_16px",
+      "player_prisoner_hit_2f_12fps",
+      "ui_hp_torch_strip_3slot_24x8"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 16
+    },
+    "colors_hex": [
+      "#F5A623",
+      "#3D2B00",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Tiny wall torch with a dark handle, bright flame core, and one flickering outer ember.",
+      "components": [
+        "handle",
+        "flame_core",
+        "outer_ember"
+      ]
+    },
+    "interaction": {
+      "effect": "heal_one_hp",
+      "max_hp_cap": 3
+    },
+    "lighting": "Warm ember flicker against a dark handle."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_torch_pickup_4f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 32x16 px with four 8x16 frames.",
+    "The flame core remains visible in all frames and never drops below 4 px in height.",
+    "Handle silhouette stays anchored to the lower center of each frame."
+  ]
+}

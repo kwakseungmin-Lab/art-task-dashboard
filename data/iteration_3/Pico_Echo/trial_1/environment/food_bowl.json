@@ -1,0 +1,90 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art background",
+      "rendering": "single layer, no parallax",
+      "style": "minimal, clean, PICO-8 aesthetic",
+      "perspective": "front-facing 2D, no depth"
+    }
+  },
+  "asset": {
+    "asset_id": "food_bowl",
+    "asset_name": "Food Bowl (3 States)",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Container for seeds, player interaction target for feeding",
+      "screen_position": "Bottom-left at (16, 100)",
+      "adjacent_elements": ["water_bowl (to the right)", "floor (below)", "seed (inside when full)", "Echo (looks at when hungry)"],
+      "usage_scenario": "Player taps bowl to fill with seeds. Bowl has 3 visual states: Full (2), Low (1), Empty (0). Depletes over 30 minutes per level. Echo eats from this when fed."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "16px",
+        "height": "12px"
+      },
+      "colors": {
+        "bowl": "#AB5236",
+        "seeds": "#FFA300"
+      },
+      "shape": "Simple bowl viewed from above, oval/circular top view",
+      "texture": "Flat pixel art, no gradients",
+      "outline": "1px dark brown (#5F574F) outline",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 3,
+        "fps": 0,
+        "loop": false,
+        "description": "3 separate states, not animated. State changes based on food_level variable: 0=Empty, 1=Low, 2=Full."
+      },
+      "details": "State 0 (Empty): Brown bowl outline only, hollow interior. State 1 (Low): 3-4 seed pixels (3x3px #FFA300) scattered in bowl. State 2 (Full): 6-8 seed pixels filling bowl interior. Bowl shape: oval 16px wide, 12px tall. Seeds are irregular 3x3px golden dots."
+    },
+    "relationships": {
+      "related_assets": ["seed", "water_bowl", "echo_eating", "echo_hungry", "floor"],
+      "shared_with": "Brown color with perch and Echo's beak",
+      "differences_from": "water_bowl: larger vs smaller, seeds vs water, brown vs blue interior. Seed: container vs content."
+    },
+    "explicit_negations": [
+      "No 3D depth or perspective",
+      "Bowl does not tip or move",
+      "Seeds do not animate or bounce",
+      "No shine or reflection on bowl",
+      "No gradual depletion animation (instant state change)",
+      "No cracks or wear on bowl",
+      "Seeds do not overflow bowl edges",
+      "No food other than seeds"
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.vfx.trajectory_prediction_dots",
+  "asset_name": "UI VFX — Trajectory Prediction Dots",
+  "category": "ui",
+  "subcategory": "vfx",
+  "priority": "P0",
+  "execution_order": 190,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "2px_brush"
+  },
+  "context": {
+    "role": "trajectory_preview",
+    "layer": "ui",
+    "usage": "16x16 dot/dash sprite used to draw predicted trajectory lines (60% alpha in engine).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#8BA7C7",
+      "#8B3A52",
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#C8B4E0"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.vfx.trajectory_prediction_dots.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 16x16px with centered dot/dash.",
+    "Uses #F5F0E8 (ivory/white) only; no colored fringes.",
+    "Looks clean when repeated along a curve."
+  ]
+}

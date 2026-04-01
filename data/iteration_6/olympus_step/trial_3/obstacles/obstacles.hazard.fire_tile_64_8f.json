@@ -1,0 +1,126 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.hazard.fire_tile_64_8f",
+  "asset_name": "Hazard Tile — FIRE (64px, 8 frames)",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_emissive",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tile_animation",
+    "layer": "world",
+    "usage": "Static hazard tile present on all stages. Instant failure on landing.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 64
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "frame_size_px": {
+      "width": 64,
+      "height": 64
+    },
+    "frame_count": 8,
+    "fps": 8,
+    "frames": [
+      {
+        "id": "loop_1",
+        "note": "Loop frame"
+      },
+      {
+        "id": "loop_2",
+        "note": "Loop frame"
+      },
+      {
+        "id": "loop_3",
+        "note": "Loop frame"
+      },
+      {
+        "id": "loop_4",
+        "note": "Loop frame"
+      },
+      {
+        "id": "loop_5",
+        "note": "Loop frame"
+      },
+      {
+        "id": "loop_6",
+        "note": "Loop frame"
+      },
+      {
+        "id": "loop_7",
+        "note": "Loop frame"
+      },
+      {
+        "id": "loop_8",
+        "note": "Loop frame"
+      }
+    ],
+    "layout_note": "Single-row strip 512×64. Keep border stable; emissive flame uses Hellfire Red + Zeus Gold accents."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.fire_tile_64_8f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Loops seamlessly (8 -> 1).",
+    "No pixels outside 64×64 bounds."
+  ]
+}

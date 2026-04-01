@@ -1,0 +1,135 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000010",
+  "asset_key": "podium_window_set",
+  "asset_name": "Podium and Window Set",
+  "category": "world",
+  "subcategory": "stage_props",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Stage props use the same academy hall material language with carved wood, gold trim, and dark panel shadows.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while window light colors appear inside specs.colors_hex.",
+    "The asset is authored for transparent compositing so the backdrop remains the dominant opaque layer."
+  ],
+  "differences": [
+    "The set provides the raised enemy podium, lower player platform edge, and arched window accents that frame the duel vertically.",
+    "Window glow concentrates behind the enemy half of the arena to reinforce the upper threat source.",
+    "Prop density avoids the projectile lane so the center of the screen remains reserved for combat reads."
+  ],
+  "depends_on": [
+    "task_id_801000008"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000008"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000001",
+      "task_id_801000004",
+      "task_id_801000008"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "StagePropTag",
+      "Transform",
+      "Visibility",
+      "Sprite"
+    ],
+    "asset_loading": "Load podium_window_set.png during Loading and spawn it above the backdrop but below characters.",
+    "runtime_notes": [
+      "Use transparent pixels around the podium and window clusters so character feet and projectile silhouettes remain unobstructed.",
+      "Keep the enemy podium anchor aligned with the enemy_caster_duel_loop world position.",
+      "Do not animate the prop layer during combat."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "duel_stage_support_props",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world",
+    "usage": "Static support layer that frames the combatants and clarifies each lane without adding gameplay noise."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 600
+    },
+    "colors_hex": [
+      "#5C3317",
+      "#D4AF37",
+      "#2B1B17",
+      "#C8A96B",
+      "#FFF1B8"
+    ],
+    "animation": null,
+    "composition": [
+      "Enemy podium occupies the upper-right quadrant.",
+      "Player platform trim occupies the lower-left edge only.",
+      "Window glow stays behind the enemy lane and avoids the center projectile corridor."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/podium_window_set.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1920x600 px with transparent pixels outside the prop art.",
+    "The player and enemy anchor zones remain unobscured when character sprites are composited in place.",
+    "Window glow does not reduce contrast for thunder or fire projectiles passing through the center lane."
+  ]
+}

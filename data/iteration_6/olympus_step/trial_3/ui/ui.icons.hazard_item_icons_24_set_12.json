@@ -1,0 +1,105 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.icons.hazard_item_icons_24_set_12",
+  "asset_name": "UI Icons — Hazards/Items Set (24px × 12)",
+  "category": "ui",
+  "subcategory": "icons",
+  "priority": "P1",
+  "execution_order": 58,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "icon_set",
+    "layer": "ui",
+    "usage": "Icons for HUD/tooltips: FIRE, BOLT, GUARD, FOG, BOMB, BLOCK, SHARD, AMP, SEAL, GOAL, RANGE, JUMP.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 288,
+      "height": 24
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "icon_size_px": {
+      "width": 24,
+      "height": 24
+    },
+    "icon_count": 12,
+    "included_icons": [
+      "fire",
+      "bolt",
+      "guard",
+      "fog",
+      "bomb",
+      "block",
+      "shard",
+      "amp",
+      "seal",
+      "goal",
+      "range",
+      "jump"
+    ],
+    "layout_note": "Single-row strip 288×24. Transparent; consistent padding/stroke weight."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.icons.hazard_item_icons_24_set_12.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "All icons recognizable at 1×.",
+    "Consistent silhouette/padding across set."
+  ]
+}

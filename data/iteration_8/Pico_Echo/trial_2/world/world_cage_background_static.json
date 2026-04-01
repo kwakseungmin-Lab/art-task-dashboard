@@ -1,0 +1,133 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020019",
+  "asset_name": "Cage Interior Background (static base layer)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 210,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "background",
+    "layer": "world",
+    "usage": "Full-screen base layer behind cage bars; warm cream tone.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#FFF1E8",
+      "#C2C3C7"
+    ],
+    "animation": null,
+    "composition": [
+      "Base fill is #FFF1E8.",
+      "Add 6-10 subtle 1px specks using #C2C3C7; keep total speck pixels under 0.7% of the canvas."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_cage_background_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Background is exactly 128x128px and fully opaque.",
+    "At least 99% of pixels are #FFF1E8; remaining pixels may be #C2C3C7 only.",
+    "No gradients, patterns, or anti-aliasing; all pixels are solid colors."
+  ],
+  "shared_properties": [
+    "Asset preserves the front-facing 128x128 cage composition.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering keeps the room calm and readable behind gameplay."
+  ],
+  "differences": [
+    "This layer establishes the warm indoor cage backdrop for every scene.",
+    "The base remains mostly cream so Echo stays visually dominant.",
+    "Static rendering keeps the background quiet during repeated care loops."
+  ],
+  "asset_key": "world_cage_background_static",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "cockatiel_reference_photo",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Cockatiel_3.jpg",
+      "purpose": "Grounds real cockatiel perch scale and cage context around Echo."
+    },
+    {
+      "label": "pico_8_topic_art",
+      "url": "https://raw.githubusercontent.com/github/explore/main/topics/pico-8/pico-8.png",
+      "purpose": "Grounds toy-like handheld framing and low-resolution room composition."
+    },
+    {
+      "label": "pixel_art_topic_art",
+      "url": "https://raw.githubusercontent.com/github/explore/main/topics/pixel-art/pixel-art.png",
+      "purpose": "Grounds crisp background layering, flat fills, and one-pixel structural lines for the cage scene."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle with a single nearest-neighbor texture.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer in the Loading state and store the handle in a typed resource before gameplay starts.",
+    "runtime_notes": [
+      "Snap transforms to whole pixels before render extraction.",
+      "Reuse handles through spawn pools or visibility toggles instead of swapping textures in-place.",
+      "Keep interaction or collision tuning separate from the art bundle."
+    ]
+  }
+}

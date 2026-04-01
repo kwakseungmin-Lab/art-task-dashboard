@@ -1,0 +1,146 @@
+{
+  "task_id": "world.vfx_particles_atlas",
+  "asset_name": "VFX_Particles_Atlas_32x32",
+  "category": "world",
+  "subcategory": "vfx_atlas",
+  "description": "Create a 32x32 px VFX particle atlas (transparent background) using the PICO-8 palette. Atlas is a 4x4 grid of 8x8 cells. Provide at least these particle sprites (each within an 8x8 cell): heart (pink/red), music note (yellow), ZZZ glyph (navy), feather (orange), sparkle/star (cream). Keep 1 px outline (#1D2B53) where appropriate and no anti-aliasing.",
+  "execution_order": 70,
+  "priority": "P1",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo_sprite_sheet",
+      "ui.status_bubble"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "grid": {
+      "columns": 4,
+      "rows": 4,
+      "cell_px": {
+        "width": 8,
+        "height": 8
+      }
+    },
+    "cells": [
+      {
+        "index": 0,
+        "name": "heart",
+        "x": 0,
+        "y": 0,
+        "colors_hex": [
+          "#1D2B53",
+          "#FF004D",
+          "#FF77A8"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "music_note",
+        "x": 8,
+        "y": 0,
+        "colors_hex": [
+          "#1D2B53",
+          "#FFEC27",
+          "#FFA300"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "zzz",
+        "x": 16,
+        "y": 0,
+        "colors_hex": [
+          "#1D2B53",
+          "#C2C3C7"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "feather",
+        "x": 24,
+        "y": 0,
+        "colors_hex": [
+          "#1D2B53",
+          "#FFA300",
+          "#FFEC27"
+        ]
+      },
+      {
+        "index": 4,
+        "name": "sparkle",
+        "x": 0,
+        "y": 8,
+        "colors_hex": [
+          "#1D2B53",
+          "#FFF1E8",
+          "#C2C3C7"
+        ]
+      }
+    ]
+  },
+  "context": {
+    "role": "Shared VFX sprites used for feedback (petting/cleaning/singing/sleeping).",
+    "screen_position": {
+      "type": "not_applicable",
+      "reason": "spawned_as_particles"
+    },
+    "layer": "world_vfx",
+    "usage": [
+      "vfx",
+      "particles"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/vfx_particles_atlas_32x32.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/vfx_particles_atlas_32x32.png",
+      "dimensions_px": {
+        "width": 32,
+        "height": 32
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 32x32 px with transparent background.",
+    "All sprites stay within their 8x8 cell boundaries in the 4x4 grid.",
+    "Only colors from project_common.palette_hex are used; no anti-aliasing pixels exist."
+  ]
+}

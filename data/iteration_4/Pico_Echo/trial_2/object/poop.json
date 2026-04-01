@@ -1,0 +1,141 @@
+{
+  "task_id": "pico_echo.object.poop",
+  "asset_name": "Poop (2x2)",
+  "category": "object",
+  "subcategory": "waste",
+  "description": "Sprite 2x2px transparent. All 4 pixels #AB5236.",
+  "project": {
+    "game_name": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style_family": "pixel_art",
+      "style_reference": "PICO-8 default palette",
+      "view": "2D_front_facing",
+      "canvas_px": {
+        "width": 128,
+        "height": 128
+      },
+      "color_constraints": {
+        "mode": "indexed_color",
+        "max_colors": 16,
+        "palette_name": "PICO8_16",
+        "palette_hex": [
+          "#000000",
+          "#1D2B53",
+          "#7E2553",
+          "#008751",
+          "#AB5236",
+          "#5F574F",
+          "#C2C3C7",
+          "#FFF1E8",
+          "#FF004D",
+          "#FFA300",
+          "#FFEC27",
+          "#00E436",
+          "#29ADFF",
+          "#83769C",
+          "#FF77A8",
+          "#FFCCAA"
+        ],
+        "alpha": "binary"
+      },
+      "rendering": {
+        "scaling": "nearest_neighbor",
+        "outline": {
+          "enabled": true,
+          "color": "#1D2B53",
+          "thickness_px": 1
+        },
+        "shading": {
+          "enabled": true,
+          "steps": 2,
+          "shadow_color": "#5F574F"
+        }
+      }
+    },
+    "layer_order_top_to_bottom": [
+      "ui",
+      "vfx",
+      "character",
+      "object",
+      "environment"
+    ],
+    "source_gdd_paths": [
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Echo.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md"
+    ]
+  },
+  "deliverables": [
+    {
+      "path": "game_assets/pico_echo/object/poop.png",
+      "format": "PNG",
+      "type": "sprite"
+    }
+  ],
+  "specs": {
+    "dimensions_px": "2x2",
+    "format": "PNG",
+    "color_mode": "indexed",
+    "max_colors": 16,
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "animation": null
+  },
+  "context": {
+    "role": "poop object",
+    "screen_location": "floor y=110..125 random x",
+    "adjacent_elements": [
+      "floor"
+    ],
+    "layer": "object",
+    "usage": "0..5"
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.vfx.poop_fade",
+      "pico_echo.character.echo_dirty"
+    ],
+    "shared_constraints": [
+      "#AB5236"
+    ],
+    "differences": [
+      "spawned"
+    ]
+  },
+  "depends_on": [
+    "pico_echo.environment.cage_floor"
+  ],
+  "execution_order": 10,
+  "priority": "P0",
+  "blocks": [
+    "pico_echo.character.echo_dirty"
+  ],
+  "blocked_by": [
+    "pico_echo.environment.cage_floor"
+  ],
+  "acceptance_criteria": [
+    "PNG exactly 2x2px",
+    "All pixels #AB5236"
+  ],
+  "source_gdd": [
+    "Poop.md"
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "slip_down",
+    "project_name": "Slip Down"
+  },
+  "meta": {
+    "plan_id": "slip_down__iter8__trial4",
+    "game_name": "slip_down",
+    "iteration": 8,
+    "trial_index": 4,
+    "plan_dir": "trial_4",
+    "created_at_utc": "2026-03-25T16:46:39Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down S3 GDD",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Primary ideation source used for mechanic definitions, numeric timings, and engine constraints."
+    },
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "GitHub-readable mirror for traceable review of mechanic and UI requirements."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Dungeon lighting, material wear, and emotional tone grounding."
+    },
+    {
+      "label": "Slip Down player concept",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/player.png?raw=1",
+      "purpose": "Player silhouette, costume palette, and pose grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 0.13 SpriteBundle art with ImagePlugin::default_nearest(), a 320x180 internal render target, and integer-scaled presentation to 1280x720 output.",
+    "ecs_model": "Each asset maps to a deterministic visual recipe keyed by asset_key while collision, movement, and score logic stay in separate gameplay components.",
+    "asset_loading": "Load exported png files through AssetServer during Loading and cache handles in a SlipDownArtHandles resource keyed by asset_key.",
+    "runtime_notes": [
+      "Camera follows the player downward only and keeps the actor near the upper third of the viewport.",
+      "Tile-based world art aligns to 16x16 px cells and animated atlases advance in FixedUpdate at 60 FPS.",
+      "Parallax background dust scrolls at 0.4x camera speed and all UI anchors use integer coordinates."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "<asset_key>.png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "friction_control_descent",
+      "label": "Friction Control Descent",
+      "description": "Left and right inputs alter wall and floor friction to shape the falling route without any jump action.",
+      "critical_states": [
+        "free_fall",
+        "left_brake",
+        "right_brake",
+        "both_brake"
+      ],
+      "task_ids": [
+        "task_id_804040402",
+        "task_id_804040404",
+        "task_id_804040406",
+        "task_id_804040408",
+        "task_id_804040411"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_804040411"
+      ]
+    },
+    {
+      "mechanic_id": "hazard_damage_survival",
+      "label": "Hazard Damage Survival",
+      "description": "Spikes, saws, and limited healing pressure the player to preserve HP while descending.",
+      "critical_states": [
+        "hazard_contact",
+        "invulnerability_window",
+        "hp_loss",
+        "torch_recover"
+      ],
+      "task_ids": [
+        "task_id_804040404",
+        "task_id_804040405",
+        "task_id_804040407",
+        "task_id_804040409",
+        "task_id_804040410"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_804040410"
+      ]
+    },
+    {
+      "mechanic_id": "depth_ambiguity_tension",
+      "label": "Depth Ambiguity Tension",
+      "description": "The dungeon descent hides explicit progress information and relies on backdrop, timing, and overlays to sustain pressure.",
+      "critical_states": [
+        "entry_band",
+        "deep_zone",
+        "abyss_zone",
+        "pause_break"
+      ],
+      "task_ids": [
+        "task_id_804040401",
+        "task_id_804040402",
+        "task_id_804040404",
+        "task_id_804040410",
+        "task_id_804040412"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_804040410",
+        "task_id_804040412"
+      ]
+    },
+    {
+      "mechanic_id": "escape_gate_resolution",
+      "label": "Escape Gate Resolution",
+      "description": "The exit room closes the run with a glowing gate, clear overlay, and final survival readout.",
+      "critical_states": [
+        "final_room_arrival",
+        "gate_contact",
+        "clear_overlay",
+        "title_return"
+      ],
+      "task_ids": [
+        "task_id_804040403",
+        "task_id_804040404",
+        "task_id_804040410",
+        "task_id_804040412"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_804040410",
+        "task_id_804040412"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_804040401",
+      "asset_key": "dungeon_descent_backdrop",
+      "category": "world",
+      "file": "world/dungeon_descent_backdrop.json",
+      "execution_order": 1,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040402",
+      "asset_key": "friction_surface_tileset",
+      "category": "world",
+      "file": "world/friction_surface_tileset.json",
+      "execution_order": 2,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040403",
+      "asset_key": "exit_gate_altar_sheet",
+      "category": "world",
+      "file": "world/exit_gate_altar_sheet.json",
+      "execution_order": 3,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040404",
+      "asset_key": "prisoner_descent_state_sheet",
+      "category": "character",
+      "file": "character/prisoner_descent_state_sheet.json",
+      "execution_order": 4,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040405",
+      "asset_key": "spike_cluster_tiles",
+      "category": "obstacles",
+      "file": "obstacles/spike_cluster_tiles.json",
+      "execution_order": 5,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040406",
+      "asset_key": "moving_platform_sheet",
+      "category": "obstacles",
+      "file": "obstacles/moving_platform_sheet.json",
+      "execution_order": 6,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040407",
+      "asset_key": "saw_blade_rotor_sheet",
+      "category": "obstacles",
+      "file": "obstacles/saw_blade_rotor_sheet.json",
+      "execution_order": 7,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040408",
+      "asset_key": "wind_vent_fx_sheet",
+      "category": "obstacles",
+      "file": "obstacles/wind_vent_fx_sheet.json",
+      "execution_order": 8,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040409",
+      "asset_key": "torch_pickup_sheet",
+      "category": "obstacles",
+      "file": "obstacles/torch_pickup_sheet.json",
+      "execution_order": 9,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040410",
+      "asset_key": "survival_hud_panel",
+      "category": "ui",
+      "file": "ui/survival_hud_panel.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040411",
+      "asset_key": "friction_meter_bar",
+      "category": "ui",
+      "file": "ui/friction_meter_bar.json",
+      "execution_order": 11,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_804040412",
+      "asset_key": "pause_game_over_overlay_sheet",
+      "category": "ui",
+      "file": "ui/pause_game_over_overlay_sheet.json",
+      "execution_order": 12,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

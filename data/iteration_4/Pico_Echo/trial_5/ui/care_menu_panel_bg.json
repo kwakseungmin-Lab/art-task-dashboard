@@ -1,0 +1,150 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.ui.care_menu_panel_bg",
+  "asset_name": "Care menu panel background",
+  "category": "ui",
+  "subcategory": "hud",
+  "description": "Sprite 32x12px. Fill entire sprite with #1D2B53 at 50% alpha (alpha=0.5). No other colors. Used as the popup panel behind 3 care icons.",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/ui/hud/care_menu_panel_bg_32x12.png",
+      "format": "png",
+      "type": "ui_sprite"
+    }
+  ],
+  "specs": {
+    "dimensions": "32x12",
+    "palette_hex": [
+      "#1D2B53"
+    ],
+    "alpha": "50_percent_uniform"
+  },
+  "context": {
+    "role": "Background panel shown when CareMenu is visible.",
+    "screen_location": "Bottom-right around x=92..127,y=104..115.",
+    "adjacent_elements": [
+      "icon_feed_seed_8x8",
+      "icon_clean_broom_8x8",
+      "icon_pet_hand_8x8"
+    ],
+    "layer": "ui",
+    "usage": "Shown only when menu open."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.ui.icon_feed_seed_8x8",
+      "pico_echo.ui.icon_clean_broom_8x8",
+      "pico_echo.ui.icon_pet_hand_8x8"
+    ],
+    "shared_properties": [
+      "Uses #1D2B53"
+    ],
+    "differences": [
+      "Panel uses alpha=0.5; icons are opaque pixels."
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 26,
+  "priority": "P1",
+  "blocks": [
+    "pico_echo.ui.icon_feed_seed_8x8",
+    "pico_echo.ui.icon_clean_broom_8x8",
+    "pico_echo.ui.icon_pet_hand_8x8"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Canvas is exactly 32x12px.",
+    "All pixels are #1D2B53 with uniform alpha=0.5.",
+    "No other colors used."
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.fx.pillar_break_burst",
+  "asset_name": "Pillar Break Burst FX",
+  "category": "world",
+  "subcategory": "fx",
+  "priority": "P1",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pillar.standard_breakable",
+      "obstacles.pillar.rotating_breakable",
+      "obstacles.collectible.star_shard"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "impact_feedback",
+    "screen_position": {
+      "type": "relative_to_entity",
+      "entity": "obstacle_contact_point",
+      "x_offset_px": 0,
+      "y_offset_px": -32
+    },
+    "layer": "world_fx",
+    "usage": "Six-frame burst of marble chips and star sparks spawned when large form destroys a pillar."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#FFD966",
+      "#E84040"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 6,
+      "fps": 18,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 6,
+        "order": "left_to_right"
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.fx.pillar_break_burst.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 384x64px with six 64x64 frames.",
+    "Frames 1-3 keep debris clustered near the pillar center, then spread outward by frame 6.",
+    "At least eight bright fragments remain readable against the deep-space background in the first two frames."
+  ]
+}

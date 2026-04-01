@@ -1,0 +1,181 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050007",
+  "asset_key": "twilight_tower_tileset",
+  "asset_name": "Twilight Tower Tileset",
+  "category": "world",
+  "subcategory": "architecture_tileset",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The tileset establishes the core palette, art deco geometry, and hard-edge lighting language used by all other assets.",
+    "All modules are authored for transparent-background or masked composition inside a fixed 16:9 orthographic scene.",
+    "The grid and trim proportions align to the same spatial contract used by ladders, scales, mirrors, and the player hitbox."
+  ],
+  "differences": [
+    "This asset focuses on modular architectural coverage rather than single interactive props.",
+    "Gold trim is concentrated on traversable and important collision edges while background panels remain muted.",
+    "The atlas includes both collision-bearing pieces and non-collision decoration to support multiple floor layouts."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_008050001",
+    "task_id_008050003",
+    "task_id_008050004",
+    "task_id_008050005",
+    "task_id_008050006",
+    "task_id_008050008",
+    "task_id_008050011"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050005",
+      "task_id_008050008",
+      "task_id_008050011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_8x4",
+    "ecs_components": [
+      "TowerTilesetTag",
+      "TilemapVisual",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load twilight_tower_tileset.png during Loading and slice it into one atlas that covers walls, platforms, decorative trims, and ladder-compatible attachment surfaces on a 16 px modular grid.",
+    "runtime_notes": [
+      "Author every tile on a 16 px cadence so Bevy tile placement, ladder snapping, and scale alignment can all share one grid.",
+      "Reserve highest contrast for silhouettes and puzzle props; background ornament should never outshine the beam or player.",
+      "Support parallax by separating background-only decorative tiles from collision-bearing wall and platform tiles in the atlas metadata."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tower_architecture_and_platform_grid",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "world",
+    "usage": "Provides tower walls, ledges, arched windows, columns, and ladder mount surfaces for every puzzle floor."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1024,
+      "height": 512
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        1024,
+        512
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "tile_metrics_px": {
+      "grid_size": 16,
+      "atlas_columns": 8,
+      "atlas_rows": 4,
+      "preferred_module_sizes": [
+        16,
+        32,
+        48,
+        64
+      ]
+    },
+    "composition": {
+      "foreground_modules": [
+        "platform_edge",
+        "scale_anchor_base",
+        "ladder_mount",
+        "door_frame"
+      ],
+      "midground_modules": [
+        "column",
+        "arched_window",
+        "ornamental_band"
+      ],
+      "background_modules": [
+        "distant_tower_panel",
+        "twilight_sky_gap",
+        "decorative_grille"
+      ]
+    },
+    "readability_notes": [
+      "Playable ledges use the brightest gold trim in the tileset so safe footing reads before background ornament.",
+      "Background wall panels stay lower contrast than the player silhouette and light beam.",
+      "Window openings and void gaps preserve enough negative space for shadow masks to remain readable."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/twilight_tower_tileset.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1024x512 px and all modules align to a 16 px grid without fractional borders.",
+    "Traversable platform edges remain readable at 50% preview scale over the twilight backdrop.",
+    "No decorative tile uses a brighter highlight than the authored light emitter core."
+  ]
+}

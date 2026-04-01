@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit Pixel Art",
+    "theme": "Prehistoric Desert",
+    "mood": "Minimal, Retro, Focus-Demanding",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px outline included in sprites",
+    "rendering": "Pixel-perfect, no anti-aliasing"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "Variable (tiling/full screen)",
+      "height": "2-150px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "background": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "Minimal pixel art",
+      "color_mode": "Monochrome or background color",
+      "movement": "Scrolling or static",
+      "collision_layer": "Layer 2 (Ground) or no collision (Background)",
+      "rendering_priority": "Background layer (lowest)"
+    }
+  },
+  "asset": {
+    "asset_id": "cloud_small",
+    "asset_name": "Small Cloud (Optional)",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Optional decorative cloud element to add depth and atmosphere without distracting from gameplay",
+      "screen_position": "Spawns at x=650px (screen_width + 50), random y between 10-40px, scrolls left at Current_Speed * 0.5 (parallax effect)",
+      "adjacent_elements": ["background_sky", "cloud_large", "pterodactyl_fly"],
+      "usage_scenario": "Optional visual enhancement, spawns randomly every 5-10 seconds with 30% probability, maximum 3 clouds on screen, scrolls at half speed for depth perception"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "46px",
+        "height": "14px"
+      },
+      "colors": {
+        "cloud": "#535353"
+      },
+      "shape": "Simple pixel art cloud with rounded bumpy top",
+      "texture": "Solid pixel blocks, no gradients",
+      "outline": "None (cloud shape defined by filled pixels)",
+      "shadow": "None",
+      "animation": {
+        "type": "position-based scrolling",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Horizontal scrolling at -Current_Speed * 0.5 px/s (parallax effect), despawns when X < -100px"
+      },
+      "details": "Minimalist cloud shape with 2-3 rounded bumps on top, simple silhouette in Primary color, small size to avoid visual clutter"
+    },
+    "relationships": {
+      "related_assets": ["cloud_large", "background_sky", "pterodactyl_fly"],
+      "shared_with": "Same color and parallax speed (50%) as cloud_large",
+      "differences_from": "cloud_large is 92x27px (double size), pterodactyl_fly scrolls at 100% speed and has collision, clouds have no collision and scroll at 50% speed"
+    },
+    "explicit_negations": [
+      "No gradients or color variations",
+      "No anti-aliasing or smooth edges",
+      "No animation or shape morphing",
+      "No shadows or lighting effects",
+      "No transparency or alpha blending",
+      "No vertical movement or bobbing",
+      "No rotation",
+      "No scaling during movement",
+      "No collision detection (purely decorative)",
+      "No dense placement (maximum 3 clouds on screen)",
+      "No bright or contrasting colors (Primary #535353 only)"
+    ]
+  }
+}

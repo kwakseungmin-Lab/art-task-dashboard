@@ -1,0 +1,156 @@
+{
+  "task_id": "cdr_v2_ui_game_over_screen",
+  "asset_name": "UI - Game Over Screen",
+  "category": "ui",
+  "subcategory": "widget",
+  "description": "Text-only screen, no overlay.\nReference: 600x150; center (300,75).\nAll text color: #535353.\nElements centered at x=300:\n- 'GAME OVER' y=45 size=24px (8px font scaled 3x)\n- 'SCORE: 00000' y=75 size=16px (8px font scaled 2x)\n- 'HI 00000' y=95 size=16px (8px font scaled 2x)\n- 'PRESS SPACE TO RESTART' y=125 size=12px (6px font scaled 2x)\nOptional blink: instruction line toggles every 0.5s.",
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_id": "chrome_dino_runner",
+    "art_task_plan_version": 2,
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+    "rendering": {
+      "style": "pixel_art",
+      "pixel_perfect": true,
+      "anti_aliasing": "disabled",
+      "target_fps": 60
+    },
+    "canvas": {
+      "base_resolution_px": "600x150",
+      "scale_support": {
+        "authoring_scale": "1x",
+        "runtime_scales": [
+          "1x",
+          "2x"
+        ],
+        "scaling_filter": "nearest_neighbor"
+      },
+      "coordinate_system": {
+        "origin": "bottom_left",
+        "x_axis": "right",
+        "y_axis": "up",
+        "ground_y_px": 0
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash_white": "#FFFFFF",
+      "transparent": "alpha=0"
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353"
+      },
+      "fill": {
+        "enabled": false,
+        "fill_color": "transparent"
+      },
+      "internal_detail": {
+        "enabled": true,
+        "line_thickness_px": 1,
+        "color": "#535353"
+      },
+      "allowed_hex_colors_for_sprites": [
+        "#535353"
+      ],
+      "background": "transparent"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "RGBA",
+      "bit_depth_per_channel": 8,
+      "compression": "lossless",
+      "file_naming": "snake_case"
+    }
+  },
+  "deliverables": [
+    {
+      "path": "GameAssets/chrome_dino_runner/ui/widgets/game_over_screen_spec.png",
+      "type": "ui_spec_image",
+      "format": "png",
+      "scale": "1x"
+    }
+  ],
+  "specs": {
+    "dimensions": "600x150 (reference)",
+    "elements": [
+      {
+        "text": "GAME OVER",
+        "render_size_px": 24,
+        "x": 300,
+        "y": 45,
+        "font_task_id": "cdr_v2_typography_font_pixel_mono_8px"
+      },
+      {
+        "text": "SCORE: 00000",
+        "render_size_px": 16,
+        "x": 300,
+        "y": 75,
+        "font_task_id": "cdr_v2_typography_font_pixel_mono_8px"
+      },
+      {
+        "text": "HI 00000",
+        "render_size_px": 16,
+        "x": 300,
+        "y": 95,
+        "font_task_id": "cdr_v2_typography_font_pixel_mono_8px"
+      },
+      {
+        "text": "PRESS SPACE TO RESTART",
+        "render_size_px": 12,
+        "x": 300,
+        "y": 125,
+        "font_task_id": "cdr_v2_typography_font_pixel_mono_6px",
+        "blink": {
+          "enabled": true,
+          "interval_s": 0.5
+        }
+      }
+    ]
+  },
+  "context": {
+    "role": "Displayed when Player is dead.",
+    "screen_location": "Centered.",
+    "adjacent_elements": "Over gameplay; no overlay panel.",
+    "layer": "ui",
+    "usage": "shown_on_game_over"
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v2_character_player_dead",
+      "cdr_v2_typography_font_pixel_mono_8px",
+      "cdr_v2_typography_font_pixel_mono_6px"
+    ],
+    "shared_properties": [
+      "#535353"
+    ],
+    "differences": [
+      "4-line centered layout"
+    ]
+  },
+  "depends_on": [
+    "cdr_v2_project_common",
+    "cdr_v2_typography_font_pixel_mono_8px",
+    "cdr_v2_typography_font_pixel_mono_6px",
+    "cdr_v2_character_player_dead"
+  ],
+  "execution_order": 130,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_v2_project_common",
+    "cdr_v2_typography_font_pixel_mono_8px",
+    "cdr_v2_typography_font_pixel_mono_6px",
+    "cdr_v2_character_player_dead"
+  ],
+  "acceptance_criteria": [
+    "Spec PNG exists.",
+    "Y positions exactly 45, 75, 95, 125.",
+    "No overlay panel.",
+    "Blink interval 0.5s (if enabled)."
+  ]
+}

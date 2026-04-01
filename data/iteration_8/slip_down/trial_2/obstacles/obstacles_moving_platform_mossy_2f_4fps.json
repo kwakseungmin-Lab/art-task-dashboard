@@ -1,0 +1,164 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000005",
+  "asset_name": "Moving Platform (48x16, 2 frames, 4fps)",
+  "category": "obstacles",
+  "subcategory": "moving_surface",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": [
+    "Platform footprint remains 48x16 px so riders have exactly three 16 px tiles of landing space.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while moss and stone colors stay inside specs.colors_hex.",
+    "Top collision strip occupies the upper 4 px with readable stone lip highlights across both frames."
+  ],
+  "differences": [
+    "Two frames alternate moss strands and chain sway by 1 px to keep the moving platform alive without changing its collision outline.",
+    "Underside chain anchors extend 3 px below the slab to signal a suspended traversal surface.",
+    "The authored surface reads as medium friction through moss-green top fill rather than slick blue or bare purple stone."
+  ],
+  "depends_on": [
+    "task_id_802000010"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_802000010"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000001",
+      "task_id_802000010",
+      "task_id_802000011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the 48x16 moving platform size, 60 px per second lateral motion, and mossy medium-friction role inside later shaft zones."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the damp dungeon material language and hanging platform silhouette needed for mid-run traversal variety."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player-to-platform scale so the 16x24 prisoner has a believable standing footprint on the 48x16 slab."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for static hazards or SpriteSheetBundle for animated hazards, all rendered with nearest-neighbor sampling.",
+    "atlas_or_static": "mixed_static_and_texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load hazard textures and atlases during the shared Loading state and expose handles through HazardVisualRegistry keyed by asset_key.",
+    "runtime_notes": [
+      "Keep collision volumes in gameplay components rather than inferring them from visual pixels.",
+      "Align every hazard origin to the 16x16 grid unless the authored size is 24x24 or 48x16 by design.",
+      "Use visibility toggles or atlas index changes instead of runtime texture swaps to avoid hitching during repeated descent loops."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "moving_surface",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        468,
+        412
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Horizontal traversal surface used from the puddle layer onward.",
+    "adjacent_elements": [
+      "task_id_802000010",
+      "task_id_802000011"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 16
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#4E5940",
+      "#0D0D0F",
+      "#1A1A2E",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 4,
+      "loop": true,
+      "frame_size_px": [
+        48,
+        16
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "motion_rules": {
+      "travel_range_px": 80,
+      "speed_px_per_sec": 60,
+      "reversal_trigger": "reverse_on_wall_contact"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_moving_platform_mossy_2f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x16 px with 2 frames of 48x16 px and 0 px spacing.",
+    "Top surface contains a continuous 48 px landing strip with no holes larger than 1 px.",
+    "Frame-to-frame animation changes only decorative moss and chain pixels while the collision outline remains identical."
+  ],
+  "asset_key": "obstacles_moving_platform_mossy_2f_4fps",
+  "variant_of_asset_key": null
+}

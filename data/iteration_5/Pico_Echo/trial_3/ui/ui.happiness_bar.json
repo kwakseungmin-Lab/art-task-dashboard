@@ -1,0 +1,104 @@
+{
+  "task_id": "ui.happiness_bar",
+  "asset_name": "Happiness_Bar_128x6",
+  "category": "ui",
+  "subcategory": "hud_bar",
+  "description": "Create a single HUD happiness bar sprite, 128x6 px, transparent background. The bar is rendered as a 1 px outline (#1D2B53) around a 128x6 rectangle. The interior fill (x=1..126,y=1..4) uses #5F574F as the empty-state base fill. Runtime can render a variable fill amount by masking the interior fill area; recommended fill colors: full=#00E436, mid=#FFEC27, low=#FFA300.",
+  "execution_order": 140,
+  "priority": "P1",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.pixel_font_3x5",
+      "ui.status_bubble"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 6
+    },
+    "outline_hex": "#1D2B53",
+    "empty_fill_hex": "#5F574F",
+    "recommended_runtime_fill_hex": {
+      "full": "#00E436",
+      "mid": "#FFEC27",
+      "low": "#FFA300"
+    },
+    "fillable_rect_px": {
+      "x": 1,
+      "y": 1,
+      "width": 126,
+      "height": 4
+    },
+    "recommended_screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 122,
+      "anchor": "top_left"
+    }
+  },
+  "context": {
+    "role": "Primary HUD happiness indicator shown at the bottom of the screen.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 122,
+      "anchor": "top_left"
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "hud",
+      "status"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/happiness_bar_128x6.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/happiness_bar_128x6.png",
+      "dimensions_px": {
+        "width": 128,
+        "height": 6
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 128x6 px with transparent background.",
+    "Outline is exactly 1 px thick using #1D2B53 around the full 128x6 rectangle.",
+    "Interior fillable area is exactly x=1..126,y=1..4 and is filled with #5F574F (no holes).",
+    "No colors outside project_common.palette_hex are used."
+  ]
+}

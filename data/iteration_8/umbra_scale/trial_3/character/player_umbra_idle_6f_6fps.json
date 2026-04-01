@@ -1,0 +1,189 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003005",
+  "asset_key": "player_umbra_idle_6f_6fps",
+  "asset_name": "Umbra Idle Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001",
+    "task_id_008003002"
+  ],
+  "blocks": [
+    "task_id_008003006",
+    "task_id_008003007",
+    "task_id_008003008",
+    "task_id_008003009",
+    "task_id_008003017",
+    "task_id_008003022"
+  ],
+  "blocked_by": [
+    "task_id_008003001",
+    "task_id_008003002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003006",
+      "task_id_008003007",
+      "task_id_008003008",
+      "task_id_008003009",
+      "task_id_008003017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra silhouette, limb taper, eye glow placement, and cloak-like vapor edge anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the player state machine and keep the standing origin at the center of the rear foot across all Umbra states.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "UmbraActor",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_umbra_idle_6f_6fps.png through AssetServer during player spawn and register it inside UmbraScaleArtManifest.",
+    "runtime_notes": [
+      "Idle loop plays at 6 fps whenever movement and exposure flags are both inactive.",
+      "The sprite swaps cleanly with run, jump, and exposure variants without moving the collision capsule.",
+      "Silhouette readability must hold against both dark shadow pools and bright beam edges."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "player_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        416,
+        624
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Default stance while the player studies beam direction and prepares the next mirror or scale move from a safe shadow pocket.",
+    "adjacent_elements": [
+      "world_shadow_safezone_overlay_1920x1080",
+      "obstacle_scale_platform_dual_520x96",
+      "ui_hud_hp_exposure_panel_240x80"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#2D1B4E",
+      "#C9A84C",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 6,
+      "fps": 6,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 6,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compact living shadow with tapered limbs, a cloak-like trailing lower body, and one bright eye slit under a pointed head crest.",
+      "components": [
+        "head_crest",
+        "eye_slit",
+        "torso_core",
+        "left_arm",
+        "right_arm",
+        "trailing_lower_body"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "glow_slit",
+        "size_px": [
+          4,
+          2
+        ]
+      },
+      "mouth": null,
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 12
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 14
+      },
+      "tail": "vapor_hem",
+      "accessories": "Small gold chest sigil and a thin light catch on the eye edge."
+    },
+    "texture": "Smooth silhouette fill with a faint teal rim inside the lower body and a single gold sigil notch.",
+    "shading": "Deep black core with narrow teal lift in the lower torso and a bright eye edge."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_umbra_idle_6f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x48 px with six 32x48 frames.",
+    "The eye slit stays on the upper third of the head in every frame and never exceeds 4x2 px.",
+    "The standing footprint remains inside a 20 px width so the animation does not drift off narrow platforms."
+  ]
+}

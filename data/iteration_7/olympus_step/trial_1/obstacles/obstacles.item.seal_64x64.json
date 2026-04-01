@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.item.seal_64x64",
+  "asset_name": "Pickup — Seal Stone (64x64)",
+  "category": "obstacles",
+  "subcategory": "pickup",
+  "priority": "P1",
+  "execution_order": 48,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "pickup_disable_hazard",
+    "layer": "pickup",
+    "usage": "Collectible that disables a specified hazard tile for 2 turns after pickup.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "grid_rules": {
+      "tile_size_px": [
+        64,
+        64
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#6B7280",
+      "#1E1B4B",
+      "#FBBF24",
+      "#F8FAFC"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "icon_notes": [
+      "Carved rune circle with 2 concentric rings, outer ring radius 22px.",
+      "Center rune uses #FBBF24 with #1E1B4B outline."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.item.seal_64x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Asset is exactly 64x64px and is visually readable at 100% scale.",
+    "Rune circle has two rings with 1px stroke each and does not touch the tile border (minimum 6px margin).",
+    "Uses only listed colors and transparency; no anti-aliasing."
+  ]
+}

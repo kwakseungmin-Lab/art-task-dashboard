@@ -1,0 +1,83 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "objects",
+  "category_common": {
+    "base_size": {
+      "width": "2-3px",
+      "height": "2-3px"
+    },
+    "color_scheme": {
+      "seed": "#FFA300",
+      "poop": "#AB5236"
+    },
+    "shared_attributes": {
+      "object_type": "small interactive/spawnable items",
+      "design_principle": "minimal pixel representation, clear at tiny scale"
+    }
+  },
+  "asset": {
+    "asset_id": "poop",
+    "asset_name": "Poop",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "waste object that spawns on floor, triggers dirty state when 3+ present, removed by cleaning",
+      "screen_position": "floor area (y=110-125, random x positions)",
+      "adjacent_elements": ["floor (surface)", "Echo (producer)", "particle_sparkle (when cleaned)"],
+      "usage_scenario": "spawns every 20 minutes, max 5 visible, 3+ triggers Echo dirty state, player swipes floor to remove all"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "2px",
+        "height": "2px"
+      },
+      "colors": {
+        "poop": "#AB5236"
+      },
+      "shape": "small irregular blob, 2x2px",
+      "texture": "solid color, no internal detail",
+      "outline": "none (too small)",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "static sprite, no animation, spawns at random floor positions, removed all at once when cleaned"
+      },
+      "details": "brown color (#AB5236) matching perch/bowls, 2x2px irregular shape, spawns at random x positions on floor (y=110-125), max 5 instances visible simultaneously"
+    },
+    "relationships": {
+      "related_assets": ["floor", "echo_dirty", "particle_sparkle"],
+      "shared_with": "shares brown color (#AB5236) with perch and bowls",
+      "differences_from": "spawnable object (appears over time), triggers gameplay state (dirty), removed by player action (cleaning), unlike static environment elements"
+    },
+    "explicit_negations": [
+      "no realistic detail or texture",
+      "no animation or movement",
+      "no outline (would obscure at 2x2px)",
+      "no smell lines or stink effects",
+      "no individual removal (all cleaned at once)",
+      "no color variation or aging"
+    ]
+  }
+}

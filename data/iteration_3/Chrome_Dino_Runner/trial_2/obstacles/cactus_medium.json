@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline",
+    "rendering": "pixel-perfect, no anti-aliasing"
+  },
+  "category": "obstacles",
+  "category_common": {
+    "base_size": {
+      "width": "34-102px",
+      "height": "70-100px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art obstacles",
+      "outline": "2px solid",
+      "movement": "right to left scrolling at Current_Speed",
+      "spawn_position": "screen_width + 50px",
+      "despawn_position": "-100px",
+      "collision_layer": "1 (Obstacles)"
+    }
+  },
+  "asset": {
+    "asset_id": "cactus_medium",
+    "asset_name": "Medium Cactus (Double Group)",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Ground obstacle requiring player to jump, wider than small variant",
+      "screen_position": "spawns at x=screen_width+50px, y=0px (ground level), scrolls left",
+      "adjacent_elements": ["ground", "player", "other obstacles"],
+      "usage_scenario": "Common obstacle, appears from game start, requires same jump height as small but wider hitbox"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "68px",
+        "height": "70px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "Two vertical desert cacti placed side-by-side forming a group",
+      "texture": "flat pixel art, no gradients",
+      "outline": "2px solid outline",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static sprite, no animation"
+      },
+      "details": "Two cacti with similar height (70px), placed close together, each with spiky arms, combined width 68px"
+    },
+    "relationships": {
+      "related_assets": ["cactus_small", "cactus_large", "player_jump", "ground"],
+      "shared_with": "Same height as cactus_small (70px), same visual style",
+      "differences_from": "cactus_small is 34px wide (single cactus), cactus_large is 102x100px (3 cacti, taller)"
+    },
+    "explicit_negations": [
+      "no gradients or color blending",
+      "no anti-aliasing",
+      "no animation or movement beyond scrolling",
+      "no color variations",
+      "no shadows",
+      "no gaps between the two cacti (solid group)",
+      "no flowers or decorations"
+    ]
+  }
+}

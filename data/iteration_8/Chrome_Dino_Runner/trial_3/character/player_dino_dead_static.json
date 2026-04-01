@@ -1,0 +1,182 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003005",
+  "asset_name": "Player Dino Dead Pose",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": "task_id_008003001",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000.",
+    "2px outline width.",
+    "Side-profile T-Rex body components: head, torso, forearms, hind legs, tail."
+  ],
+  "differences": [
+    "Eye changes to a 6x6 px dead mark.",
+    "Head pitch rotates downward by about 8 degrees.",
+    "Hind legs lock into a non-running pose."
+  ],
+  "depends_on": [
+    "task_id_008003001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003001",
+      "task_id_008003013"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_dead",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "layer": "character",
+    "usage": "Used on collision freeze before restart input is accepted.",
+    "adjacent_elements": [
+      "world_ground_line_1200x2",
+      "obstacle_cactus_small_static"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Side-profile T-Rex silhouette with 2px outline, single-body fill, and background cutout for eye and mouth details.",
+      "components": [
+        "head",
+        "eye_cutout",
+        "mouth_line",
+        "torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "single rectangular cutout",
+        "size_px": [
+          6,
+          6
+        ]
+      },
+      "mouth": {
+        "shape": "1 px horizontal mouth line",
+        "length_px": 12
+      },
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 10
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 26
+      },
+      "tail": {
+        "length_px": 28
+      },
+      "accessories": null
+    },
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_dino_dead_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Asset canvas is exactly 88x94 px per frame.",
+    "Primary body fill remains #535353 and background cutout stays transparent.",
+    "Leg, tail, and head pixels stay aligned to whole-pixel positions with no anti-aliasing."
+  ],
+  "asset_key": "player_dino_dead_static",
+  "variant_of_asset_key": "player_dino_idle_2f_6fps",
+  "reference_images": [
+    {
+      "label": "player_dino_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/player_dinosaur.png?raw=1",
+      "purpose": "Player silhouette, jump posture, and run loop proportion anchor."
+    },
+    {
+      "label": "pixel_art_moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png?raw=1",
+      "purpose": "Pixel-art outline, low-detail silhouette, and monochrome contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle for player states so animation frames share one logical entity per state.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "RunnerPlayer",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_dino_dead_static.png through AssetServer and register the handle under player_dino_dead_static.",
+    "runtime_notes": [
+      "Keep source pixels unfiltered with nearest-neighbor sampling and integer world transforms.",
+      "Spawn order follows execution_order so downstream setup can validate deterministic asset availability.",
+      "Collision and UI code read logical dimensions from specs.dimensions_px rather than texture metadata."
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.book",
+  "asset_name": "Book (Launchable, 90° Redirect Surfaces)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P2",
+  "execution_order": 26,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "launchable_projectile",
+    "layer": "gameplay",
+    "usage": "Flat surface; when reflecting, can redirect other objects by ~90° (visual uses crisp flat silhouette)",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 28,
+      "height": 20
+    },
+    "colors_hex": [
+      "#8BA7C7",
+      "#3D2B1F",
+      "#D4A843"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.book.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Book sprite is exactly 28x20px and clearly rectangular with visible spine.",
+    "Has a visually flat edge that can be used as a reflection surface; edge line is straight within 1px tolerance.",
+    "Uses noble blue #8BA7C7 as cover fill, with gold #D4A843 for a small emblem area (<= 20% of pixels)."
+  ]
+}

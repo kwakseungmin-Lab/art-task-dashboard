@@ -1,0 +1,190 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003009",
+  "asset_key": "enemy_champion_idle_8f_8fps",
+  "asset_name": "Enemy Champion Idle Loop",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003003"
+  ],
+  "blocks": [
+    "task_id_008003010",
+    "task_id_008003011",
+    "task_id_008003019"
+  ],
+  "blocked_by": [
+    "task_id_008003003"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003010",
+      "task_id_008003012",
+      "task_id_008003019"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for enemy state animation and keep the champion root pivot consistent across every state.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "EnemyCaster",
+      "Transform"
+    ],
+    "asset_loading": "Load character/enemy_champion_idle_8f_8fps.png through AssetServer during enemy setup and cache the atlas under enemy_champion_idle_8f_8fps.",
+    "runtime_notes": [
+      "Enemy remains in world space near the upper-right staging area.",
+      "Animation timer loops at 8 fps until a cast or defeat event replaces the state.",
+      "Forecast icon offset is authored against the idle head height."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "enemy_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1450,
+        270
+      ]
+    },
+    "layer": "character_enemy",
+    "usage": "Default upper-class duelist stance between spell volleys and before forecast icons appear.",
+    "adjacent_elements": [
+      "world_spell_lane_overlay_960x220",
+      "ui_enemy_forecast_icon_atlas_8x40",
+      "ui_hp_bars_dual_440x32"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_front",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#E74C3C",
+      "#1A1A2E",
+      "#D4AF37",
+      "#FFFACD",
+      "#2B1B17"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Academy champion with a high collar, long cape panels, and a staff focus held near the shoulder.",
+      "components": [
+        "head",
+        "long_hair",
+        "high_collar",
+        "cape_panels",
+        "staff",
+        "gloves",
+        "boots",
+        "torso"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "narrow_almond",
+        "size_px": [
+          18,
+          7
+        ]
+      },
+      "mouth": {
+        "shape": "calm_line",
+        "length_px": 13
+      },
+      "nose": {
+        "shape": "straight_bridge",
+        "length_px": 9
+      }
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 60
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 74
+      },
+      "tail": null,
+      "accessories": "Staff focus, cape clasp, and shoulder sigil."
+    },
+    "texture": "Layered cape cloth, polished staff metal, and a bright gemstone at the staff head.",
+    "shading": "Soft gradient shading with cool rim light along the left edge."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/enemy_champion_idle_8f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 960x180 px with eight 120x180 frames.",
+    "Staff tip remains inside a 28 px motion envelope so forecast icon placement stays stable above the head.",
+    "Cape silhouette keeps a readable negative gap between the torso and rear arm in every frame."
+  ]
+}

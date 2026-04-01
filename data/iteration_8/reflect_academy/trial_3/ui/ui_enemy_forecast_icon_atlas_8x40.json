@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003019",
+  "asset_key": "ui_enemy_forecast_icon_atlas_8x40",
+  "asset_name": "Enemy Forecast Icon Atlas",
+  "category": "ui",
+  "subcategory": "telegraph_ui",
+  "priority": "P0",
+  "execution_order": 190,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003010"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003010"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003010",
+      "task_id_008003012",
+      "task_id_008003013",
+      "task_id_008003014",
+      "task_id_008003015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the world-space forecast badge and select the frame index by element type.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "UiImage",
+      "Style",
+      "ForecastIconWidget"
+    ],
+    "asset_loading": "Load ui/ui_enemy_forecast_icon_atlas_8x40.png through AssetServer and build an eight-frame atlas for the forecast widget.",
+    "runtime_notes": [
+      "Forecast badge follows the enemy head anchor in world space.",
+      "Element selection happens by atlas index rather than by swapping textures.",
+      "Icon frame size must remain legible during the 0.5 second telegraph."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "forecast_indicator",
+    "screen_position": {
+      "type": "relative_to_entity",
+      "entity": "enemy_champion_cast_6f_12fps",
+      "offset_px": [
+        30,
+        -60
+      ]
+    },
+    "layer": "ui_worldspace",
+    "usage": "World-space icon atlas that previews the incoming spell element above the enemy during telegraph time.",
+    "adjacent_elements": [
+      "enemy_champion_cast_6f_12fps",
+      "projectile_fire_fly_6f_12fps",
+      "world_spell_lane_overlay_960x220"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space",
+      "facing": "centered"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FF4500",
+      "#1E90FF",
+      "#FFD700",
+      "#98FB98",
+      "#B0E0E6",
+      "#9B59B6",
+      "#FFFACD",
+      "#2C2C2C"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Octagonal badge with a centered element glyph and a thin glow ring.",
+      "components": [
+        "badge_frame",
+        "element_glyph",
+        "glow_ring"
+      ]
+    },
+    "lighting": "Each glyph carries a bright center highlight while the octagonal frame stays gold and navy."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_enemy_forecast_icon_atlas_8x40.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 320x40 px with eight 40x40 icon frames.",
+    "Each element glyph stays centered within a 24 px inner circle.",
+    "Gold frame thickness remains 2 px on every icon so color changes do not alter silhouette weight."
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000003",
+  "asset_key": "dino_low_profile",
+  "asset_name": "Player Dino Low Profile Sheet",
+  "category": "character",
+  "subcategory": "player_motion",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": "task_id_801000001",
+  "variant_of_asset_key": "dino_runner_core",
+  "shared_properties": [
+    "Primary painted tone remains #535353 with transparent cutouts only.",
+    "Neck, torso, and tail landmarks stay aligned to the run-core grid.",
+    "Outline weight stays at 2 px for readable crouch volume."
+  ],
+  "differences": [
+    "Canvas widens to 118x60 px to cover the crouched hitbox footprint.",
+    "Two frames alternate hind-leg contact while the head and neck stay low.",
+    "Back line drops to keep the top silhouette below low-flying pterodactyl wings."
+  ],
+  "depends_on": [
+    "task_id_801000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000001",
+      "task_id_801000008",
+      "task_id_801000010"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    },
+    {
+      "label": "offline_sprite_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "2x atlas for silhouette spacing, obstacle spacing, and hit-readability checks."
+    },
+    {
+      "label": "run_loop_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/t-rex-runner-19janil.gif",
+      "purpose": "Run cadence, jump silhouette timing, and restart screen pacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_horizontal_2_frame",
+    "ecs_components": [
+      "RunnerTag",
+      "DuckState",
+      "AnimationTimer",
+      "ColliderAabb"
+    ],
+    "asset_loading": "Load one 236x60 PNG atlas during Loading state and build a 118x60 TextureAtlasLayout for the duck state.",
+    "runtime_notes": [
+      "Advance the atlas index every 0.0833 seconds for a 12 FPS crouch loop.",
+      "Swap to the duck collider before horizontal obstacle overlap checks run.",
+      "Place the transform anchor at x=80 and y=90 so the lower silhouette stays on the ground line."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "runner_duck_state",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        90
+      ]
+    },
+    "layer": "character",
+    "usage": "Displayed while the down input is active and the runner is grounded."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 118,
+      "height": 60
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        118,
+        60
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "hitbox_px": {
+      "width": 59,
+      "height": 55,
+      "offset_px": [
+        29,
+        3
+      ]
+    },
+    "motion_profile": {
+      "baseline_y": 0,
+      "clearance_gain_px": 35,
+      "speed_window_px_per_s": [
+        300,
+        900
+      ]
+    },
+    "silhouette_notes": [
+      "Head crest stays at least 28 px lower than the run core silhouette.",
+      "Tail occupies a 34 px span and stays parallel to the ground line.",
+      "Forearm cluster compresses into a 10x6 px area ahead of the torso."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/dino_low_profile.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet canvas is exactly 236x60 px with no gutter between frames.",
+    "Top silhouette stays below y=40 within the 60 px frame height.",
+    "Collider reference area maps cleanly to a 59x55 px crouch hitbox."
+  ]
+}

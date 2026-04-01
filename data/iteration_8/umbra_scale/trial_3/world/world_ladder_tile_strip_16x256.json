@@ -1,0 +1,151 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003004",
+  "asset_key": "world_ladder_tile_strip_16x256",
+  "asset_name": "Ladder Tile Strip",
+  "category": "world",
+  "subcategory": "traversal_tile",
+  "priority": "P1",
+  "execution_order": 40,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001"
+  ],
+  "blocks": [
+    "task_id_008003007"
+  ],
+  "blocked_by": [
+    "task_id_008003001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003007",
+      "task_id_008003018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle or tilemap slices for climb volumes with a repeated 16x16 rung pattern authored in a single vertical strip.",
+    "atlas_or_static": "static_image",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "LadderVolume",
+      "ClimbSurfaceTag"
+    ],
+    "asset_loading": "Load world/world_ladder_tile_strip_16x256.png through AssetServer and slice it into repeated rung segments inside the level loader.",
+    "runtime_notes": [
+      "Visual rungs align with Rapier ladder sensors on a 16 px grid.",
+      "Top and bottom caps remain readable against both void black and violet wall segments.",
+      "No animation timer is required for this traversal strip."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "ladder_surface",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        304,
+        352
+      ]
+    },
+    "layer": "world_traversal",
+    "usage": "Reusable ladder art for vertical traversal lanes between mirror stations and upper door platforms.",
+    "adjacent_elements": [
+      "world_tower_chamber_backdrop_1920x1080",
+      "player_umbra_jump_4f_12fps",
+      "ui_floor_timer_header_320x48"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 256
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#2D1B4E",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 1,
+        "order": "single"
+      }
+    },
+    "shape": {
+      "silhouette": "Narrow ladder strip with gold side rails, evenly spaced rungs, and a darker anchor plate at both ends.",
+      "components": [
+        "left_rail",
+        "right_rail",
+        "rungs",
+        "top_cap",
+        "bottom_cap"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Clean metal rails with shallow wear marks and low contrast rung shadows.",
+    "shading": "Simple vertical highlight along the inner rail edges with deep black gaps between rungs."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_ladder_tile_strip_16x256.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Ladder strip is exactly 16x256 px.",
+    "Rungs repeat every 16 px and each rung spans the full 16 px width between rails.",
+    "Top and bottom caps each reserve 8 px of solid anchor art for clean tile joins."
+  ]
+}

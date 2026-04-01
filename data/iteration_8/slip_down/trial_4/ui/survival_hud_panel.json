@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040410",
+  "asset_key": "survival_hud_panel",
+  "asset_name": "Survival HUD Panel",
+  "category": "ui",
+  "subcategory": "top_hud",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "HUD presents HP icons on the left and the MM:SS timer on the right with no progress bar or floor counter.",
+    "Pixel-font framing and icon spacing stay clean at 1280x720 output without fractional scaling."
+  ],
+  "differences": [
+    "This sheet combines full HP icon, empty HP icon, timer plate, and small separator ornaments in one UI atlas for the top HUD."
+  ],
+  "depends_on": [
+    "task_id_804040404",
+    "task_id_804040405",
+    "task_id_804040409"
+  ],
+  "blocks": [
+    "task_id_804040411",
+    "task_id_804040412"
+  ],
+  "blocked_by": [
+    "task_id_804040404",
+    "task_id_804040405",
+    "task_id_804040409"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040404",
+      "task_id_804040405",
+      "task_id_804040407",
+      "task_id_804040409",
+      "task_id_804040411",
+      "task_id_804040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "HUD layout, HP count, timer placement, and absent-progress rule grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Low-saturation UI framing against the dungeon backdrop grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageNode slices inside a top-anchored UI tree, with health icons and timer plate drawn from one atlas-backed texture.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "ImageNode",
+      "TextureAtlas",
+      "HudRoot",
+      "HudTimerText"
+    ],
+    "asset_loading": "Load ui/survival_hud_panel.png through AssetServer and cache the atlas handle in the HUD setup resource keyed by asset_key.",
+    "runtime_notes": [
+      "Atlas width is 192 px and height is 24 px.",
+      "HP icons are authored at 8x8 px and timer plate supports pixel-font overlays.",
+      "Top HUD anchors to the safe area with integer coordinates only."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Top-screen survival HUD that shows HP and elapsed time while preserving the no-progress philosophy.",
+    "screen_position": {
+      "anchor": "top_left",
+      "x_px": 8,
+      "y_px": 8
+    },
+    "layer": {
+      "name": "ui_top",
+      "z_index": 100
+    },
+    "usage": "Visible during active play and hidden during title, pause, game over, and clear overlays."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 24
+    },
+    "colors_hex": [
+      "#F5A623",
+      "#3D2B00",
+      "#D6D0C4",
+      "#0D0D0F",
+      "#3B3347"
+    ],
+    "animation": {
+      "mode": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "survival_hud_panel.png",
+      "format": "png",
+      "size_px": {
+        "width": 192,
+        "height": 24
+      },
+      "notes": "Atlas containing filled and empty HP icons plus the timer plate and corner ornaments."
+    },
+    {
+      "artifact": "survival_hud_panel_slices.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Slice map for HP icons, timer plate, and corner ornaments used by the HUD tree."
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas size is exactly 192x24 px and contains the full HP icon, empty HP icon, and timer plate slices.",
+    "No progress bar, floor counter, or minimap ornament is present in the atlas.",
+    "HP icon silhouettes remain readable at 8x8 px and the timer plate leaves enough empty area for MM:SS text."
+  ]
+}

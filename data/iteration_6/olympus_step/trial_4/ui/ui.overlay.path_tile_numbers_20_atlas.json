@@ -1,0 +1,123 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.overlay.path_tile_numbers_20_atlas",
+  "asset_name": "Path Tile Numbers — 20px Atlas",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.typography.parchment_bitmap_font_8px"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.typography.parchment_bitmap_font_8px"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "overlay_numbers",
+    "layer": "ui_overlay",
+    "usage": "20×20 number badges on path tiles (1..).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 256
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#C17B2F",
+      "#D4C5A9",
+      "#6B7280",
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#F59E0B",
+      "#DC2626",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC"
+    ],
+    "tile_size_px": {
+      "width": 20,
+      "height": 20
+    },
+    "entries": [
+      {
+        "id": "badge_01",
+        "note": "1 centered; cyan border."
+      },
+      {
+        "id": "badge_02",
+        "note": "2 centered; cyan border."
+      },
+      {
+        "id": "badge_03",
+        "note": "3 centered; cyan border."
+      },
+      {
+        "id": "badge_04",
+        "note": "4 centered; cyan border."
+      },
+      {
+        "id": "badge_05",
+        "note": "5 centered; cyan border."
+      },
+      {
+        "id": "badge_06",
+        "note": "6 centered; cyan border."
+      }
+    ],
+    "layout_note": "Pack 20×20 sprites into 256×256 atlas; transparent background."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.path_tile_numbers_20_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is 256×256px and includes at least badges 1..6.",
+    "Readable over any tile using dark outline + cyan border.",
+    "Number glyph stroke matches parchment font."
+  ]
+}

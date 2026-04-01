@@ -1,0 +1,91 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "ui.hud.topbar",
+  "asset_name": "HUD Top Bar (HP Hearts + Score + Zone)",
+  "category": "ui",
+  "group_id": "ui.hud.topbar",
+  "variant_role": "standalone",
+  "priority": "P0",
+  "execution_order": 30,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.collectible.star_shard_spin"
+    ]
+  },
+  "context": {
+    "role": "hud",
+    "screen_position": {
+      "type": "screen_space",
+      "anchor": "top",
+      "margin_px": [
+        20,
+        20
+      ]
+    },
+    "layer": "ui",
+    "usage": "Top HUD elements: 5 hearts (filled/empty), score label, zone label. Designed for 1600x900.",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 1600,
+      "height_px": 96
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "ui_2d",
+      "facing": "none"
+    },
+    "colors": {
+      "main": {
+        "hex": "#F0EFE9"
+      },
+      "secondary": [
+        {
+          "name": "danger_red",
+          "hex": "#E84040"
+        },
+        {
+          "name": "counter_cyan",
+          "hex": "#40E8D0"
+        },
+        {
+          "name": "deep_space",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "clean pixel HUD with readable typography placeholders and heart icons",
+      "components": [
+        "hearts_row",
+        "score_label",
+        "zone_label",
+        "divider_lines"
+      ]
+    }
+  },
+  "description": "Create a 1600x96 px HUD top bar sprite. Include: (1) 5 heart icons at 32px each with filled+empty states; (2) SCORE: 000000 text block placeholder centered; (3) ZONE: 1-1 text placeholder right. Use #F0EFE9 for text, #E84040 for filled hearts.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "ui/hud_topbar.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1600x96 px",
+    "Heart icons are exactly 32x32 px and visually distinct in filled vs empty",
+    "Text blocks are readable at 1x and align to a consistent baseline"
+  ]
+}

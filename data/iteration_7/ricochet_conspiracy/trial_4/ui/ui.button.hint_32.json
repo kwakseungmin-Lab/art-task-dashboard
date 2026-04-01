@@ -1,0 +1,90 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.button.hint_32",
+  "asset_name": "UI — Hint button (32x32)",
+  "category": "ui",
+  "subcategory": "button",
+  "priority": "P2",
+  "execution_order": 560,
+  "variant_of": null,
+  "depends_on": [
+    "ui.hud.top_bar_1280x50"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.top_bar_1280x50"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_brown",
+      "hex": "#2D1F1A"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "pale_gold",
+      "hex": "#D6B27A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "thin"
+  },
+  "context": {
+    "role": "button",
+    "layer": "ui",
+    "usage": "Hint (H).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        16,
+        9
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#D6B27A",
+      "#2D1F1A",
+      "#F4E9DA"
+    ],
+    "icon_notes": [
+      "Lightbulb + dotted arc."
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.button.hint_32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Deliverable PNG matches the specified pixel dimensions (or sprite-sheet total size) with transparent background.",
+    "Uses the project palette as a guideline; any additional colors are limited and documented in specs.colors_hex.",
+    "Silhouette/readability holds at 100% and 50% zoom; no muddy edges or unintended blurs."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

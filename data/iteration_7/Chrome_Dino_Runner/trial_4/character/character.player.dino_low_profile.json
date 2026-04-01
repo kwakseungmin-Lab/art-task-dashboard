@@ -1,0 +1,114 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.dino_low_profile",
+  "asset_name": "Player Dino — duck sheet",
+  "category": "character",
+  "subcategory": "player_motion",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "Body height drops to support the low pterodactyl lane.",
+    "Neck stretches forward to lengthen the profile.",
+    "Leg rhythm stays readable while the hit area is reduced."
+  ],
+  "depends_on": [
+    "character.player.dino_runner_core"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.dino_runner_core"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_runner_core",
+      "obstacles.pterodactyl_flap_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "duck_pose",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        84
+      ]
+    },
+    "layer": "character",
+    "usage": "Two-frame low-profile sheet used while the player holds the down input for low air hazards."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 118,
+      "height": 60
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        118,
+        60
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Back line stays nearly horizontal for 40px to stress the lowered posture.",
+      "Front claw cluster stays behind the nose tip by at least 8px.",
+      "Each frame shifts leg placement by 4 to 6px to keep motion active."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_low_profile.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 236x60px with 0px gutter.",
+    "Top silhouette sits at least 20px lower than the ground motion core frame.",
+    "Forward nose point remains inside the 118px width with no clipped outline."
+  ]
+}

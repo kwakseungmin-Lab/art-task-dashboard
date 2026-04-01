@@ -1,0 +1,219 @@
+{
+  "schema_version": "art_task_plan_pkg@6",
+  "project": {
+    "project_id": "pico_echo",
+    "project_name": "Pico_Echo"
+  },
+  "meta": {
+    "game_name": "Pico_Echo",
+    "iteration": 6,
+    "trial_index": 2,
+    "plan_dir": "trial_2",
+    "created_at_utc": "2026-03-10T06:06:43Z",
+    "git_ref": "art_task_plan/iter6_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v6.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "character.echo.idle_4f_2fps",
+      "category": "character",
+      "file": "character/character.echo.idle_4f_2fps.json"
+    },
+    {
+      "task_id": "character.echo.eating_6f_4fps",
+      "category": "character",
+      "file": "character/character.echo.eating_6f_4fps.json"
+    },
+    {
+      "task_id": "character.echo.sleeping_3f_1fps",
+      "category": "character",
+      "file": "character/character.echo.sleeping_3f_1fps.json"
+    },
+    {
+      "task_id": "character.echo.happy_8f_4fps",
+      "category": "character",
+      "file": "character/character.echo.happy_8f_4fps.json"
+    },
+    {
+      "task_id": "character.echo.preening_5f_3fps",
+      "category": "character",
+      "file": "character/character.echo.preening_5f_3fps.json"
+    },
+    {
+      "task_id": "character.echo.dirty_3f_2fps",
+      "category": "character",
+      "file": "character/character.echo.dirty_3f_2fps.json"
+    },
+    {
+      "task_id": "character.echo.hungry_4f_2fps",
+      "category": "character",
+      "file": "character/character.echo.hungry_4f_2fps.json"
+    },
+    {
+      "task_id": "character.echo.singing_8f_4fps",
+      "category": "character",
+      "file": "character/character.echo.singing_8f_4fps.json"
+    },
+    {
+      "task_id": "obstacles.cage.seed_bowl_3state",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cage.seed_bowl_3state.json"
+    },
+    {
+      "task_id": "obstacles.cage.water_bowl_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cage.water_bowl_static.json"
+    },
+    {
+      "task_id": "obstacles.item.seed_3x3",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.seed_3x3.json"
+    },
+    {
+      "task_id": "obstacles.item.poop_2x2",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.poop_2x2.json"
+    },
+    {
+      "task_id": "obstacles.effect.heart_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.heart_particle_3f.json"
+    },
+    {
+      "task_id": "obstacles.effect.note_particle_4f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.note_particle_4f.json"
+    },
+    {
+      "task_id": "obstacles.effect.zzz_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.zzz_particle_3f.json"
+    },
+    {
+      "task_id": "obstacles.effect.feather_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.feather_particle_3f.json"
+    },
+    {
+      "task_id": "obstacles.effect.dust_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.dust_particle_3f.json"
+    },
+    {
+      "task_id": "obstacles.effect.sparkle_clean_4f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.sparkle_clean_4f.json"
+    },
+    {
+      "task_id": "world.cage.background_static",
+      "category": "world",
+      "file": "world/world.cage.background_static.json"
+    },
+    {
+      "task_id": "world.cage.bars_foreground",
+      "category": "world",
+      "file": "world/world.cage.bars_foreground.json"
+    },
+    {
+      "task_id": "world.cage.perch_static",
+      "category": "world",
+      "file": "world/world.cage.perch_static.json"
+    },
+    {
+      "task_id": "world.cage.floor_clean_dirty_2f",
+      "category": "world",
+      "file": "world/world.cage.floor_clean_dirty_2f.json"
+    },
+    {
+      "task_id": "world.overlay.night_dim",
+      "category": "world",
+      "file": "world/world.overlay.night_dim.json"
+    },
+    {
+      "task_id": "ui.font.minipixel_3x5_ascii_96glyph",
+      "category": "ui",
+      "file": "ui/ui.font.minipixel_3x5_ascii_96glyph.json"
+    },
+    {
+      "task_id": "ui.hud.happiness_bar_128x1",
+      "category": "ui",
+      "file": "ui/ui.hud.happiness_bar_128x1.json"
+    },
+    {
+      "task_id": "ui.hud.relationship_label",
+      "category": "ui",
+      "file": "ui/ui.hud.relationship_label.json"
+    },
+    {
+      "task_id": "ui.menu.care_popup_panel",
+      "category": "ui",
+      "file": "ui/ui.menu.care_popup_panel.json"
+    },
+    {
+      "task_id": "ui.icon.feed_seed",
+      "category": "ui",
+      "file": "ui/ui.icon.feed_seed.json"
+    },
+    {
+      "task_id": "ui.icon.clean_broom",
+      "category": "ui",
+      "file": "ui/ui.icon.clean_broom.json"
+    },
+    {
+      "task_id": "ui.icon.pet_hand",
+      "category": "ui",
+      "file": "ui/ui.icon.pet_hand.json"
+    },
+    {
+      "task_id": "ui.bubble.seed_request_icon",
+      "category": "ui",
+      "file": "ui/ui.bubble.seed_request_icon.json"
+    },
+    {
+      "task_id": "ui.cursor.touch_indicator_2f",
+      "category": "ui",
+      "file": "ui/ui.cursor.touch_indicator_2f.json"
+    }
+  ]
+}

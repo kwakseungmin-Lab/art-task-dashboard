@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.ground.star_floor_strip",
+  "asset_name": "Star Floor Strip Tile",
+  "category": "world",
+  "subcategory": "ground",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.base_run",
+      "obstacles.pillar.standard_breakable",
+      "obstacles.gap.narrow_passage"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "ground_plane",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 820
+    },
+    "layer": "world_ground",
+    "usage": "Repeating 20px-tall floor strip that anchors the player baseline across every zone."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 20
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#C47C2B",
+      "#FFD966",
+      "#6B6357"
+    ],
+    "animation": {
+      "type": "tile_scroll",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 1,
+        "order": "left_to_right"
+      },
+      "parallax_multiplier": 1.0
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground.star_floor_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Tile is exactly 256x20px and repeats without a visible seam every 256px.",
+    "Top edge reads as a stable collision line with no spikes taller than 4px.",
+    "Star-gold accents stay sparse so breakable pillars remain the dominant obstacle shape."
+  ]
+}

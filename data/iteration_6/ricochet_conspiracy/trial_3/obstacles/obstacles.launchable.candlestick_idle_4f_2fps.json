@@ -1,0 +1,99 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.candlestick_idle_4f_2fps",
+  "asset_name": "Launchable Object — Candlestick (Idle flame, 4 frames, 2fps)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "projectile",
+    "layer": "world",
+    "usage": "Selectable launchable object. Idle flame flicker used when object is at rest before launch.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 48
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 24,
+        "height": 48
+      },
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      },
+      "frame_count": 4,
+      "directions": null,
+      "note": "Flame flicker; keep candle body stable for collision consistency."
+    },
+    "animation": {
+      "type": "loop",
+      "fps": 2,
+      "notes": "Idle flame flicker."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.candlestick_idle_4f_2fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x48px (4x1) with 24x48px frames; candlestick body alignment is stable across frames.",
+    "Flame colors use #E8704A highlight and #F5F0E8 core; no anti-aliasing; 1px outline #3D2B1F.",
+    "Object reads clearly against dusty-rose background #E8D5C4 at 1:1 scale."
+  ]
+}

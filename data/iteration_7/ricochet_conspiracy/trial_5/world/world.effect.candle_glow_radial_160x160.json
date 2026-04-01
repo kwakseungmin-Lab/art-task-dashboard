@@ -1,0 +1,112 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.effect.candle_glow_radial_160x160",
+  "asset_name": "Candle Glow Radial FX (160x160)",
+  "category": "world",
+  "subcategory": "lighting_fx",
+  "priority": "P1",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.candle_16x32",
+      "obstacles.environment.chandelier_80x24"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "lighting_fx",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_fx",
+    "usage": "Spawned when a candle or chandelier light source is active; adds a radial halo with fixed 80px radius and warm edge fade.",
+    "adjacent_elements": [
+      "candle sprite",
+      "chandelier sprite"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 160
+    },
+    "colors_hex": [
+      "#E8704A",
+      "#F2B45A",
+      "#F5F0E8",
+      "#000000"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "centered soft halo with circular edge fade and no hard square corner",
+      "components": [
+        "inner_glow_disc",
+        "mid_glow_ring",
+        "outer_fade_ring"
+      ]
+    },
+    "fx": {
+      "radius_px": 80,
+      "opacity_percent": 40,
+      "blend_mode": "additive"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.effect.candle_glow_radial_160x160.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 160x160px and the brightest disc stays within a 32px radius from the center point.",
+    "Opacity falls to 0 by the 80px radius so the outer edge has no visible square corner.",
+    "Only #E8704A, #F2B45A, #F5F0E8, black alpha, and transparency are used in the effect sheet."
+  ]
+}

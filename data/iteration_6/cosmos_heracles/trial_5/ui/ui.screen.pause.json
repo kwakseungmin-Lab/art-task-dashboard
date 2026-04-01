@@ -1,0 +1,113 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.screen.pause",
+  "asset_name": "Pause Overlay — PAUSED + RESUME/QUIT prompts",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P2",
+  "execution_order": 270,
+  "variant_of": null,
+  "depends_on": [
+    "ui.atlas.core"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.atlas.core"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_white",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "ui_screen",
+    "layer": "ui",
+    "usage": "Esc toggles pause. Semi-transparent overlay with menu prompts.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "overlay": {
+      "alpha": 0.6,
+      "color_hex": "#0B0C1E"
+    },
+    "text": [
+      {
+        "id": "paused",
+        "value": "PAUSED",
+        "center_px": [
+          800,
+          360
+        ],
+        "size_px": 48
+      },
+      {
+        "id": "resume",
+        "value": "[SPACE] RESUME",
+        "center_px": [
+          800,
+          460
+        ],
+        "size_px": 28
+      },
+      {
+        "id": "quit",
+        "value": "[ESC] QUIT",
+        "center_px": [
+          800,
+          520
+        ],
+        "size_px": 24
+      }
+    ],
+    "colors_hex": [
+      "#F0EFE9",
+      "#FFD966",
+      "#0B0C1E"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.pause.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay darkens gameplay sufficiently while keeping paused frame visible.",
+    "Text is centered and readable with consistent baselines.",
+    "Prompts match the GDD mapping (Space resume, Esc quit)."
+  ]
+}

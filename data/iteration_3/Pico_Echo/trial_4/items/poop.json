@@ -1,0 +1,84 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "items",
+  "category_common": {
+    "base_size": {
+      "width": "2-3px",
+      "height": "2-3px"
+    },
+    "color_scheme": {
+      "primary": "#FFA300",
+      "secondary": "#AB5236"
+    },
+    "shared_attributes": {
+      "sprite_type": "small pixel art objects",
+      "animation_method": "static or simple state changes",
+      "layer_order": 2
+    }
+  },
+  "asset": {
+    "asset_id": "poop",
+    "asset_name": "Bird Droppings",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Waste item that accumulates on floor, triggers dirty state at 3+",
+      "screen_position": "Random positions on floor area (y=110 to y=125, x=random)",
+      "adjacent_elements": ["floor", "echo_dirty", "sparkle_particle"],
+      "usage_scenario": "Spawns every 20 minutes, up to 5 visible, removed by player swipe cleaning action"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "2px",
+        "height": "2px"
+      },
+      "colors": {
+        "poop": "#AB5236"
+      },
+      "shape": "Small irregular blob/dot",
+      "texture": "Flat color, minimal detail",
+      "outline": "None (too small)",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static poop sprite, no animation. Disappears instantly when cleaned."
+      },
+      "details": "Brown (#AB5236) 2x2px irregular shape, appears at random x positions on floor, maximum 5 visible at once, each poop is identical sprite"
+    },
+    "relationships": {
+      "related_assets": ["floor", "echo_dirty", "sparkle_particle", "dust_particle"],
+      "shared_with": "All poop items use same sprite",
+      "differences_from": "seed (color, size, and location)"
+    },
+    "explicit_negations": [
+      "No stink lines or smell indicators",
+      "No animation or movement",
+      "No size variations",
+      "No color variations or aging",
+      "No gradual accumulation animation (instant spawn)",
+      "No permanent stains after removal"
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position_default": {
+        "x": "64px",
+        "y": "60px"
+      },
+      "rendering": "nearest neighbor",
+      "transparency": "indexed color transparency"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_preening",
+    "asset_name": "Echo Preening State",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Autonomous grooming behavior that Echo performs randomly during idle time (30% chance)",
+      "screen_position": "Center at x=64px, y=60px, head turns to side during animation",
+      "adjacent_elements": [
+        "cage_perch (below at y=80px)",
+        "feather_particle (spawns to left/right at x=50-78px, y=55-65px)",
+        "cage_background"
+      ],
+      "usage_scenario": "Randomly triggered when Echo is in idle state with 30% probability. Shows natural bird behavior of grooming feathers. Feather particles drift sideways. Lasts approximately 1.7 seconds then returns to idle. No player interaction required."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head turned to side (profile view of head while body remains frontal). Beak touches wing/body area. Crest tilted to side following head rotation. One wing slightly raised.",
+      "texture": "Pure pixel art, hand-drawn",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 5,
+        "fps": 3,
+        "loop": false,
+        "description": "Frame 1: Head starts turning left. Frame 2: Head fully turned, beak approaches wing. Frame 3: Beak touches wing, preening motion. Frame 4: Head turns to right side, beak to right wing. Frame 5: Head returns to forward position. Total duration: 1.67 seconds."
+      },
+      "details": "Head rotates approximately 60-70 degrees to side (profile view). Beak is 3x2px in profile. One eye visible when head turned (2x2px). Crest tilts with head rotation. Wing raises 2-3px when being preened. Feather particles (2x2px, #FFA300) spawn at frames 3 and 4, drift horizontally 8-10px over 0.5 seconds."
+    },
+    "relationships": {
+      "related_assets": [
+        "echo_idle",
+        "feather_particle",
+        "cage_perch"
+      ],
+      "shared_with": "Same color palette and base size as all Echo states",
+      "differences_from": "Unlike idle: head rotated to side profile, beak touches body, wing raised. Unlike sleeping: eyes open, active movement. Unlike happy: no crest raise, no swaying, different particle type (feathers not hearts)."
+    },
+    "explicit_negations": [
+      "No 3D shading",
+      "No gradients",
+      "No outline stroke",
+      "No motion blur",
+      "No detailed feather texture",
+      "No dust clouds",
+      "No exaggerated movements",
+      "No full body rotation (only head turns)"
+    ]
+  }
+}

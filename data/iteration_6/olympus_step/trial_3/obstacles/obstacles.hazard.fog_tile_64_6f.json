@@ -1,0 +1,118 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.hazard.fog_tile_64_6f",
+  "asset_name": "Hazard Tile — FOG (64px, 6 frames)",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P1",
+  "execution_order": 26,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "soft_dither",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tile_animation",
+    "layer": "world",
+    "usage": "Curse fog overlay (semi-transparent). Expands 1 tile/turn (max 3). Landing fails.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 384,
+      "height": 64
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "frame_size_px": {
+      "width": 64,
+      "height": 64
+    },
+    "frame_count": 6,
+    "fps": 3,
+    "frames": [
+      {
+        "id": "swirl_1",
+        "note": "Swirl"
+      },
+      {
+        "id": "swirl_2",
+        "note": "Swirl"
+      },
+      {
+        "id": "swirl_3",
+        "note": "Swirl"
+      },
+      {
+        "id": "swirl_4",
+        "note": "Swirl"
+      },
+      {
+        "id": "swirl_5",
+        "note": "Swirl"
+      },
+      {
+        "id": "swirl_6",
+        "note": "Swirl"
+      }
+    ],
+    "layout_note": "Transparent overlay; indigo/slate dithering; center slightly brighter."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.fog_tile_64_6f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Semi-transparent; base tile visible.",
+    "Animation subtle; does not distract from path lines."
+  ]
+}

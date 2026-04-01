@@ -1,0 +1,99 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.item.seal",
+  "asset_name": "Pickup - Seal Stone (Disable Hazard 2 Turns)",
+  "category": "obstacles",
+  "subcategory": "item",
+  "priority": "P2",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "pickup",
+    "layer": "obstacles",
+    "usage": "64x64px seal stone placed on a tile; when collected, disables a designated hazard tile for 2 turns",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "sprite_dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "animation": {
+      "type": "loop",
+      "frame_count": 4,
+      "fps": 2,
+      "notes": "2.0s loop; runes pulse softly"
+    },
+    "colors_hex": [
+      "#FBBF24",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#F8FAFC",
+      "#1C1917"
+    ],
+    "rune_shape_rules": {
+      "must_include": "circular rune with 4 cardinal marks",
+      "line_thickness_px": 2
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.item.seal.png",
+      "transparent_background": true,
+      "layout": "horizontal_strip",
+      "frame_size_px": {
+        "width": 64,
+        "height": 64
+      },
+      "frame_count": 4
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG has exactly 4 frames in a single horizontal strip; each frame is 64x64px, total image size is 256x64px.",
+    "Rune pulse uses #FBBF24 and #F8FAFC highlights while the stone body remains primarily #1E1B4B/#D4C5A9.",
+    "Background is fully transparent and no pixel exceeds the 64x64 frame bounding box."
+  ]
+}

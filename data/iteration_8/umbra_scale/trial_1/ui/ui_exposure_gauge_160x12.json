@@ -1,0 +1,159 @@
+{
+  "task_id": "task_id_008101017",
+  "asset_key": "ui_exposure_gauge_160x12",
+  "asset_name": "Exposure Gauge HUD",
+  "category": "ui",
+  "subcategory": "hud_meter",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101009"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101009"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the frame and a child node or material mask for the fill amount.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "ExposureGauge"
+    ],
+    "asset_loading": "Load ui/ui_exposure_gauge_160x12.png through AssetServer and pair it with a code-driven fill mask.",
+    "runtime_notes": [
+      "The fill region should support smooth per-frame updates from 0 to 100 percent.",
+      "Frame art must remain readable above the top-left HUD cluster without visually merging into the dark backdrop.",
+      "Warning coloration should intensify near 75 percent while preserving the gauge outline."
+    ]
+  },
+  "context": {
+    "role": "hud_exposure_gauge",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        96,
+        56
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Top-left exposure gauge showing the current light damage buildup beneath the HP row.",
+    "adjacent_elements": [
+      "player_umbra_exposure_5f_12fps",
+      "ui_hp_and_echo_tokens_sheet_192x32",
+      "ui_floor_timer_strip_240x48"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 12
+    },
+    "colors_hex": [
+      "#1C1826",
+      "#D4682A",
+      "#F5EFE0",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Thin framed bar with a clear fill lane, threshold ticks, and dark side caps.",
+      "components": [
+        "outer_frame",
+        "fill_lane",
+        "threshold_tick_50",
+        "threshold_tick_75",
+        "end_cap"
+      ]
+    },
+    "meter": {
+      "fill_direction": "left_to_right",
+      "warning_thresholds_percent": [
+        50,
+        75,
+        100
+      ]
+    }
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 160x12 px.",
+    "The fill lane occupies the majority of the width with visible frame borders on all sides.",
+    "Threshold markers remain legible at gameplay scale without cluttering the compact meter."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101009",
+      "task_id_008101016",
+      "task_id_008101018",
+      "task_id_008101020",
+      "task_id_008101021"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_exposure_gauge_160x12.png",
+      "transparent_background": true
+    }
+  ]
+}

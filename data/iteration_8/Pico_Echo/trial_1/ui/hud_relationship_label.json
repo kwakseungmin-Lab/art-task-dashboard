@@ -1,0 +1,147 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000026",
+  "asset_key": "hud_relationship_label",
+  "asset_name": "Relationship Level Label (Stranger → Best Friend)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 330,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Asset remains readable at 1x scale on the 128x128 playfield.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering keeps the interface crisp without hiding gameplay."
+  ],
+  "differences": [
+    "This label communicates relationship rank in a compact HUD footprint.",
+    "Text treatment must stay readable with the mini pixel font.",
+    "The badge must not compete with Echo for scene focus."
+  ],
+  "depends_on": [
+    "task_id_801000024"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000024"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000024"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "hud_widget_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md",
+      "purpose": "Grounds HUD layout, icon sizing, and bottom-screen information density."
+    },
+    {
+      "label": "care_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/CareSystem.md",
+      "purpose": "Grounds care popup behavior, icon semantics, and interaction feedback states."
+    },
+    {
+      "label": "relationship_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/RelationshipSystem.md",
+      "purpose": "Grounds relationship label semantics and progression display needs."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Static sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "UiNodeMarker"
+    ],
+    "asset_loading": "Load hud_relationship_label.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_text",
+    "layer": "ui",
+    "usage": "Displays relationship tier text at top-center.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_center",
+      "offset_px": [
+        0,
+        4
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 8
+    },
+    "colors_hex": [
+      "#1D2B53",
+      "#FFF1E8"
+    ],
+    "animation": null,
+    "text_layout": {
+      "max_chars": 14,
+      "padding_px": [
+        2,
+        1,
+        2,
+        1
+      ],
+      "background_fill_hex": "#FFF1E8",
+      "border_hex": "#1D2B53",
+      "font_glyph_size_px": [
+        3,
+        5
+      ],
+      "font_foreground_hex": "#1D2B53"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/hud_relationship_label.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Label asset is exactly 80x8px with a 1px border in #1D2B53.",
+    "Interior is filled with #FFF1E8 and supports rendering up to 14 characters using 3x5 glyphs in #1D2B53.",
+    "When placed at top-center with 4px y offset, it remains inside the 128x128 canvas and leaves the bottom HUD row (y=127) unobstructed."
+  ]
+}

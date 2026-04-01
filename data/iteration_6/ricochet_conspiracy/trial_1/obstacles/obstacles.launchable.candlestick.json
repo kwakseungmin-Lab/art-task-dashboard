@@ -1,0 +1,133 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.candlestick",
+  "asset_name": "Candlestick (Launchable, Flame Flicker)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P0",
+  "execution_order": 21,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "launchable_projectile",
+    "layer": "gameplay",
+    "usage": "Bounce coefficient 0.7; emits flame particles while moving; ignites candles on contact",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 48
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#E8704A",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "stateful",
+      "states": {
+        "idle_flicker": {
+          "fps": 2,
+          "frame_count": 4
+        },
+        "moving_flicker": {
+          "fps": 8,
+          "frame_count": 4
+        },
+        "ignite_burst": {
+          "fps": 12,
+          "frame_count": 6,
+          "notes": "brief flare for candle ignition moment"
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.candlestick.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Candlestick sprite is exactly 24x48px; base stays within bottom 6px region to suggest stable contact point.",
+    "Idle flicker is 4 frames at 2fps; moving flicker reuses 4 frames at 8fps with higher flame amplitude.",
+    "Flame colors use #E8704A and #D4A843 only; no neon yellow outside #D4A843."
+  ]
+}

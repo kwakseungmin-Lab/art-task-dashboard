@@ -1,0 +1,127 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.fail_overlay_card",
+  "asset_name": "Fail Overlay Card",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 330,
+  "variant_of": "ui.screen.clear_overlay_card",
+  "shared_properties": [
+    "panel_frame_size",
+    "center_anchor_layout",
+    "button_well_spacing"
+  ],
+  "differences": [
+    "uses_two_option_layout",
+    "uses_darkened_backdrop",
+    "removes_star_row"
+  ],
+  "depends_on": [
+    "ui.screen.clear_overlay_card",
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.screen.clear_overlay_card",
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.screen.clear_overlay_card",
+      "ui.button.restart_square",
+      "ui.button.hint_square"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "result_overlay",
+    "layer": "ui",
+    "usage": "Centered overlay card for fail state with retry and hint action wells.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.top_status_bar"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 200
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#8B3A52"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "rounded_panel_card_with_two_action_rows",
+      "components": [
+        "panel_frame",
+        "title_slot",
+        "left_action_well",
+        "right_action_well",
+        "dark_backdrop"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "backdrop_opacity_percent": 60,
+    "button_well_px": {
+      "width": 120,
+      "height": 36
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.fail_overlay_card.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 320x200px with a centered inner frame of 280x152px.",
+    "Two action wells each measure 120x36px and keep a 16px gap.",
+    "Backdrop tint uses #3D2B1F with 60% opacity metadata."
+  ]
+}

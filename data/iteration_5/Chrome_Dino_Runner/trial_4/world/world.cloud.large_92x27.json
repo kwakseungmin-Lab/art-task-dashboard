@@ -1,0 +1,98 @@
+{
+  "task_id": "world.cloud.large_92x27",
+  "id": "cloud_large_92x27",
+  "asset_name": "Cloud Large (92x27)",
+  "category": "world",
+  "subcategory": "background_prop",
+  "display_name": "Cloud Large (92x27)",
+  "description": "Create asset for task_id 'world.cloud.large_92x27' as specified in specs/context.",
+  "execution_order": 16,
+  "priority": "P1",
+  "depends_on": [
+    "world.background.sky_fill_600x150"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.sky_fill_600x150"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 600,
+        "height": 150
+      },
+      "frame_rate_target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      },
+      "baseline_y_px": 148
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "highlight_optional_hex": "#FF0000"
+    },
+    "style": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 27
+    },
+    "colors_hex": [
+      "#535353"
+    ],
+    "transparent_background": true
+  },
+  "context": {
+    "role": "parallax_background_cloud",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        10
+      ]
+    },
+    "layer": "world_background",
+    "usage": [
+      "in_game"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/cloud_large_92x27.aseprite",
+      "notes": "Single-frame cloud sprite, minimal silhouette."
+    },
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/cloud_large_92x27.png",
+      "dimensions_px": {
+        "width": 92,
+        "height": 27
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 92x27 px on transparent background.",
+    "All visible pixels are #535353 only; no anti-aliasing.",
+    "Silhouette reads as a cloud at 1x scale."
+  ]
+}

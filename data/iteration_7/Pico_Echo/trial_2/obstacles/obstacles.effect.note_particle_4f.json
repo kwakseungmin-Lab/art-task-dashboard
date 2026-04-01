@@ -1,0 +1,112 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.effect.note_particle_4f",
+  "asset_name": "Music Note Particle (singing)",
+  "category": "obstacles",
+  "subcategory": "particle",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "sing_fx",
+    "layer": "effects",
+    "usage": "Short-lived particle spawned near Echo; drifts upward by 8px and fades.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 8
+    },
+    "colors_hex": [
+      "#FFEC27",
+      "#1D2B53",
+      "#FFF1E8"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 4,
+      "loop": false,
+      "frame_size_px": [
+        8,
+        8
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "motion": {
+      "drift_px": [
+        0,
+        -8
+      ],
+      "duration_sec": 1.0,
+      "fade_out": true
+    },
+    "shape": "note"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.effect.note_particle_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 32x8px (4 frames × 8x8) with 0px spacing.",
+    "Every frame contains at least 4 opaque pixels for readability.",
+    "Uses only the listed colors and transparency; no gradients or anti-aliasing."
+  ],
+  "shared_properties": [
+    "Asset remains readable at 1x scale within the warm cage scene.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering and 1px outlines keep interaction targets crisp."
+  ],
+  "differences": [
+    "This effect supports the singing state with a musical rise motion.",
+    "Four frames provide readable directional motion in a tiny footprint.",
+    "The note shape must stay identifiable without text labels."
+  ]
+}

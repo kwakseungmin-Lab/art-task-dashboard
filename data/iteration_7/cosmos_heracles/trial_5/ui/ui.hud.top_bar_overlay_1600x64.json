@@ -1,0 +1,141 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.top_bar_overlay_1600x64",
+  "asset_name": "HUD Top Bar Overlay",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "obstacles.pickup.star_shard_sheet_16x16"
+  ],
+  "blocks": [
+    "ui.screen.pause_menu_panel_480x270",
+    "ui.screen.zone_clear_banner_640x160",
+    "ui.screen.death_retry_panel_640x200"
+  ],
+  "blocked_by": [
+    "obstacles.pickup.star_shard_sheet_16x16"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pickup.star_shard_sheet_16x16",
+      "ui.hud.counter_gauge_radial_48px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.counter_gauge_radial_48px",
+      "ui.hud.counter_result_popup_320x64",
+      "character.player.cosmos_heracles.core_states_sheet"
+    ],
+    "layer": "ui",
+    "usage": "Persistent gameplay HUD showing HP hearts, zero-padded score, and zone label within the top 64px of the screen.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 64
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#E84040",
+      "#FFD966",
+      "#0B0C1E"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "thin full-width bar with left heart cluster, centered score block, and right zone block",
+      "components": [
+        "heart slot row",
+        "score text block",
+        "zone text block",
+        "top border line"
+      ]
+    },
+    "layout": {
+      "hp_area_px": {
+        "x": 20,
+        "y": 16,
+        "width": 180,
+        "height": 32
+      },
+      "score_area_px": {
+        "x": 680,
+        "y": 14,
+        "width": 240,
+        "height": 32
+      },
+      "zone_area_px": {
+        "x": 1380,
+        "y": 16,
+        "width": 180,
+        "height": 28
+      }
+    },
+    "typography": {
+      "font_style": "pixel_mono",
+      "score_font_height_px": 24,
+      "zone_font_height_px": 20,
+      "glyph_color_hex": "#F0EFE9"
+    },
+    "background_treatment": "transparent outside HUD elements"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.top_bar_overlay_1600x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "HUD canvas is exactly 1600x64px and aligns all major elements to integer pixels.",
+    "The HP section contains exactly 5 heart slots of 32px each and the score field supports 6 digits of zero padding.",
+    "The overlay keeps at least 8px top padding and uses a 24px score font and 20px zone font with no anti-aliasing."
+  ]
+}

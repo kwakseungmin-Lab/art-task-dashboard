@@ -1,0 +1,305 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "assets": [
+    {
+      "task_id": "cdr_environment_background_sky",
+      "asset_name": "background_sky",
+      "category": "environment",
+      "subcategory": "background",
+      "plan_file": "environment/background_sky_trial_4.json",
+      "execution_order": 1,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_environment_ground_line",
+      "asset_name": "ground_line",
+      "category": "environment",
+      "subcategory": "ground",
+      "plan_file": "environment/ground_line_trial_4.json",
+      "execution_order": 2,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_environment_ground_texture",
+      "asset_name": "ground_texture",
+      "category": "environment",
+      "subcategory": "ground",
+      "plan_file": "environment/ground_texture_trial_4.json",
+      "execution_order": 3,
+      "priority": "P2"
+    },
+    {
+      "task_id": "cdr_character_player_idle",
+      "asset_name": "player_idle",
+      "category": "character",
+      "subcategory": "player",
+      "plan_file": "character/player_idle_trial_4.json",
+      "execution_order": 4,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_character_player_run",
+      "asset_name": "player_run",
+      "category": "character",
+      "subcategory": "player",
+      "plan_file": "character/player_run_trial_4.json",
+      "execution_order": 5,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_character_player_jump",
+      "asset_name": "player_jump",
+      "category": "character",
+      "subcategory": "player",
+      "plan_file": "character/player_jump_trial_4.json",
+      "execution_order": 6,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_character_player_duck",
+      "asset_name": "player_duck",
+      "category": "character",
+      "subcategory": "player",
+      "plan_file": "character/player_duck_trial_4.json",
+      "execution_order": 7,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_character_player_dead",
+      "asset_name": "player_dead",
+      "category": "character",
+      "subcategory": "player",
+      "plan_file": "character/player_dead_trial_4.json",
+      "execution_order": 8,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_obstacle_cactus_small",
+      "asset_name": "cactus_small",
+      "category": "obstacle",
+      "subcategory": "cactus",
+      "plan_file": "obstacle/cactus_small_trial_4.json",
+      "execution_order": 9,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_obstacle_cactus_medium",
+      "asset_name": "cactus_medium",
+      "category": "obstacle",
+      "subcategory": "cactus",
+      "plan_file": "obstacle/cactus_medium_trial_4.json",
+      "execution_order": 10,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_obstacle_cactus_large",
+      "asset_name": "cactus_large",
+      "category": "obstacle",
+      "subcategory": "cactus",
+      "plan_file": "obstacle/cactus_large_trial_4.json",
+      "execution_order": 11,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_obstacle_pterodactyl_fly",
+      "asset_name": "pterodactyl_fly",
+      "category": "obstacle",
+      "subcategory": "pterodactyl",
+      "plan_file": "obstacle/pterodactyl_fly_trial_4.json",
+      "execution_order": 12,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_environment_cloud_small",
+      "asset_name": "cloud_small",
+      "category": "environment",
+      "subcategory": "cloud",
+      "plan_file": "environment/cloud_small_trial_4.json",
+      "execution_order": 13,
+      "priority": "P3"
+    },
+    {
+      "task_id": "cdr_environment_cloud_large",
+      "asset_name": "cloud_large",
+      "category": "environment",
+      "subcategory": "cloud",
+      "plan_file": "environment/cloud_large_trial_4.json",
+      "execution_order": 14,
+      "priority": "P3"
+    },
+    {
+      "task_id": "cdr_typography_font_pixel_mono_16px",
+      "asset_name": "font_pixel_mono_16px",
+      "category": "typography",
+      "subcategory": "bitmap_font",
+      "plan_file": "typography/font_pixel_mono_16px_trial_4.json",
+      "execution_order": 15,
+      "priority": "P0"
+    },
+    {
+      "task_id": "cdr_typography_font_pixel_mono_24px",
+      "asset_name": "font_pixel_mono_24px",
+      "category": "typography",
+      "subcategory": "bitmap_font",
+      "plan_file": "typography/font_pixel_mono_24px_trial_4.json",
+      "execution_order": 16,
+      "priority": "P1"
+    },
+    {
+      "task_id": "cdr_typography_font_pixel_mono_12px",
+      "asset_name": "font_pixel_mono_12px",
+      "category": "typography",
+      "subcategory": "bitmap_font",
+      "plan_file": "typography/font_pixel_mono_12px_trial_4.json",
+      "execution_order": 17,
+      "priority": "P1"
+    },
+    {
+      "task_id": "cdr_ui_score_display_mock",
+      "asset_name": "ui_score_display_mock",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "ui/ui_score_display_mock_trial_4.json",
+      "execution_order": 18,
+      "priority": "P1"
+    },
+    {
+      "task_id": "cdr_ui_game_over_screen_mock",
+      "asset_name": "ui_game_over_screen_mock",
+      "category": "ui",
+      "subcategory": "screen",
+      "plan_file": "ui/ui_game_over_screen_mock_trial_4.json",
+      "execution_order": 19,
+      "priority": "P1"
+    },
+    {
+      "task_id": "cdr_vfx_score_milestone_flash_white",
+      "asset_name": "vfx_score_milestone_flash_white",
+      "category": "vfx",
+      "subcategory": "screen_flash",
+      "plan_file": "vfx/vfx_score_milestone_flash_white_trial_4.json",
+      "execution_order": 20,
+      "priority": "P2"
+    },
+    {
+      "task_id": "cdr_vfx_game_over_flash_red",
+      "asset_name": "vfx_game_over_flash_red",
+      "category": "vfx",
+      "subcategory": "screen_flash",
+      "plan_file": "vfx/vfx_game_over_flash_red_trial_4.json",
+      "execution_order": 21,
+      "priority": "P3"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000015",
+  "asset_key": "combo_damage_popup_sheet",
+  "asset_name": "Combo and Damage Popup Sheet",
+  "category": "ui",
+  "subcategory": "combat_feedback",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Feedback popups are authored for transparent background compositing above combat actors and projectiles.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while reward-state colors appear inside specs.colors_hex.",
+    "Typography stays bold and readable for brief one-second appearances."
+  ],
+  "differences": [
+    "The sheet contains Perfect, Good, Combo, Damage, Heal, and Shield popup variants for common duel outcomes.",
+    "Perfect emphasizes cyan-white energy, Good uses lime, Combo uses gold, Damage uses crimson, Heal uses emerald, and Shield uses pale gold.",
+    "Each popup uses a distinct silhouette plate so feedback remains readable even when numeric text is layered separately."
+  ],
+  "depends_on": [
+    "task_id_801000007"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000007"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000003",
+      "task_id_801000007",
+      "task_id_801000011",
+      "task_id_801000012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_3x2",
+    "ecs_components": [
+      "CombatPopupTag",
+      "UiImage",
+      "Style",
+      "Visibility"
+    ],
+    "asset_loading": "Load combo_damage_popup_sheet.png during Loading and build a 3x2 atlas for transient combat feedback widgets.",
+    "runtime_notes": [
+      "Play popup motion through transform tweening or UI translation while the authored sprite remains static.",
+      "Keep the atlas order deterministic so combat code can map result states directly to frames.",
+      "Fade alpha over time rather than scaling down the art aggressively so outline legibility remains intact."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "combat_result_popups",
+    "screen_position": {
+      "type": "dynamic_path",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui",
+    "usage": "Short-lived popup plates shown near impact points or combo counters after duel results resolve."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 540,
+      "height": 128
+    },
+    "colors_hex": [
+      "#00FFFF",
+      "#ADFF2F",
+      "#D4AF37",
+      "#E74C3C",
+      "#2ECC71",
+      "#FFFACD",
+      "#1A1A2E"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        180,
+        64
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    "layout_notes": [
+      "Each popup frame reserves a centered 128x28 px text zone.",
+      "Outer glow stays inside the 180x64 frame bounds.",
+      "No frame should exceed 70% opaque coverage so layered numbers remain legible."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/combo_damage_popup_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 540x128 px for six 180x64 frames with no frame gutter.",
+    "All popup frames remain legible against both dark backdrop and bright projectile effects.",
+    "Perfect, Good, Combo, Damage, Heal, and Shield frames remain distinguishable by color and silhouette."
+  ]
+}

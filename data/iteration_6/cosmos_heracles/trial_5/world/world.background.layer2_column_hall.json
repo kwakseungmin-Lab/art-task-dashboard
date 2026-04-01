@@ -1,0 +1,98 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.layer2_column_hall",
+  "asset_name": "Parallax Background Layer 2 — Interior Column Hall",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "depends_on": [
+    "world.tileset.temple_marble"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.tileset.temple_marble"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pillar.standard_breakable",
+      "obstacles.pillar.rotating"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "none",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "parallax_bg",
+    "layer": "world",
+    "usage": "Layer 2: closer background columns and wall reliefs to sell depth, scrolling at 0.6x speed behind gameplay.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "parallax_multiplier": 0.6,
+    "tiling": {
+      "horizontal": true,
+      "vertical": false
+    },
+    "features": [
+      "repeating_columns",
+      "wall_reliefs_constellations",
+      "soft_shadow_bands"
+    ],
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E",
+      "#FFD966"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.layer2_column_hall.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Columns are readable but low-contrast compared to foreground tiles/obstacles.",
+    "Background does not introduce vertical jitter patterns that could interfere with rhythm timing cues.",
+    "Horizontally tileable with no visible seam."
+  ]
+}

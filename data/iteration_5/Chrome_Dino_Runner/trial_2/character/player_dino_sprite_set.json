@@ -1,0 +1,200 @@
+{
+  "task_id": "character.player_dino_sprite_set",
+  "asset_name": "Player Dino Sprite Set",
+  "category": "character",
+  "subcategory": "player_character",
+  "priority": "critical",
+  "execution_order": 10,
+  "project_common": {
+    "project_id": "chrome_dino_runner_iter5_trial2_art_task_plan",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 2,
+    "canvas_px": [
+      600,
+      150
+    ],
+    "pixel_perfect": true,
+    "anti_aliasing": "none",
+    "palette_hex": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash": "#FFFFFF"
+    },
+    "outline_px": 2,
+    "outline_color_hex": "#535353"
+  },
+  "description": "Create the player T-Rex pixel art sprite set for idle, run, jump, duck, and dead states.",
+  "context": {
+    "role": "Primary controllable character. Visible during all gameplay states.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 100,
+      "y": 128,
+      "anchor": "bottom_left"
+    },
+    "layer": 30,
+    "usage": {
+      "states": [
+        "idle_pre_start",
+        "running",
+        "jumping",
+        "ducking",
+        "dead_game_over"
+      ],
+      "inputs": {
+        "jump": [
+          "Space",
+          "tap"
+        ],
+        "duck": [
+          "Down",
+          "swipe_down"
+        ]
+      }
+    }
+  },
+  "specs": {
+    "style": {
+      "art_style": "8_bit_pixel_art",
+      "color_usage": {
+        "allowed_hex": [
+          "#535353"
+        ],
+        "background_transparent": true
+      },
+      "outline": {
+        "enabled": true,
+        "outline_px": 2,
+        "outline_hex": "#535353"
+      },
+      "anti_aliasing": "none"
+    },
+    "sprite_dimensions_px": {
+      "idle": {
+        "width": 88,
+        "height": 94
+      },
+      "run": {
+        "width": 88,
+        "height": 94
+      },
+      "jump": {
+        "width": 88,
+        "height": 94
+      },
+      "duck": {
+        "width": 118,
+        "height": 60
+      },
+      "dead": {
+        "width": 88,
+        "height": 94
+      }
+    },
+    "animation": {
+      "idle": {
+        "frame_count": 2,
+        "fps": 6,
+        "loop": true
+      },
+      "run": {
+        "frame_count": 2,
+        "fps": 12,
+        "loop": true
+      },
+      "jump": {
+        "frame_count": 1,
+        "fps": 0,
+        "loop": false
+      },
+      "duck": {
+        "frame_count": 2,
+        "fps": 12,
+        "loop": true
+      },
+      "dead": {
+        "frame_count": 1,
+        "fps": 0,
+        "loop": false
+      }
+    },
+    "export": {
+      "format": "png",
+      "background": "transparent",
+      "recommended_pivot": {
+        "type": "bottom_center",
+        "x_px_from_left": 44,
+        "y_px_from_bottom": 0
+      },
+      "sprite_sheet_layout": {
+        "file": "character_dino_sprite_sheet.png",
+        "rows": 1,
+        "frame_order": [
+          "idle_0",
+          "idle_1",
+          "run_0",
+          "run_1",
+          "jump_0",
+          "duck_0",
+          "duck_1",
+          "dead_0"
+        ],
+        "frame_size_px": {
+          "width": 118,
+          "height": 94
+        },
+        "notes": "Use a uniform frame cell (118x94). Center smaller states within the cell without scaling."
+      }
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus_sprite_set",
+      "obstacles.pterodactyl_fly_sprite",
+      "world.ground_tile",
+      "ui.score_display",
+      "ui.game_over_screen"
+    ]
+  },
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "type": "png_sprite_sheet",
+      "file": "character_dino_sprite_sheet.png",
+      "transparent_background": true,
+      "color_hex": [
+        "#535353"
+      ],
+      "frame_cell_px": [
+        118,
+        94
+      ],
+      "total_frames": 8
+    },
+    {
+      "type": "png_frames",
+      "files": [
+        "dino_idle_0.png",
+        "dino_idle_1.png",
+        "dino_run_0.png",
+        "dino_run_1.png",
+        "dino_jump_0.png",
+        "dino_duck_0.png",
+        "dino_duck_1.png",
+        "dino_dead_0.png"
+      ],
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "All exported PNG files have fully transparent background outside sprite pixels (alpha=0).",
+    "Only #535353 is used for non-transparent pixels; no additional colors and no semi-transparent pixels.",
+    "Run animation loops seamlessly at 12 fps with exactly 2 frames and no visible jitter in the feet contact point.",
+    "Duck animation uses a 118x60 sprite area and keeps the bottom alignment consistent with the running pose when anchored at bottom_left y=128.",
+    "Dead frame clearly communicates game over using an unambiguous eye state (closed or X-shape) while staying within the 88x94 bounds."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "project_common": {
+    "project": {
+      "project_id": "chrome_dino_runner",
+      "project_name": "Chrome Dino Runner",
+      "iteration": 5,
+      "trial": 5
+    },
+    "canvas": {
+      "resolution_px": { "width": 600, "height": 150 },
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "baseline_y_px": 148,
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      }
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "accent_hex": "#FF0000"
+    },
+    "style": {
+      "art_style": "pixel_art_8bit_minimal",
+      "theme": "prehistoric_desert",
+      "outline": { "enabled": true, "thickness_px": 2, "color_hex": "#535353" },
+      "max_colors_total": 3
+    },
+    "export_defaults": {
+      "format": "png",
+      "scale": "1x",
+      "transparent_background_default": true
+    }
+  },
+  "task_id": "world.background.cloud.large",
+  "asset_name": "Cloud Large",
+  "category": "world",
+  "subcategory": "background_cloud",
+  "execution_order": 16,
+  "priority": "P1",
+  "depends_on": ["world.background.sky_fill"],
+  "blocks": [],
+  "blocked_by": ["world.background.sky_fill"],
+  "relationships": {
+    "related_task_ids": ["world.background.cloud.small", "obstacles.pterodactyl.fly"]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_5/world/cloud_large/cloud_large_92x27.png",
+      "dimensions_px": { "width": 92, "height": 27 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 92x27 px with transparent background.",
+    "Visible pixels use only #535353.",
+    "Cloud silhouette fits fully inside 92x27 without touching the frame edge (at least 1 px transparent margin on all sides)."
+  ],
+  "description": "Large background cloud used for parallax motion. Sprite canvas is 92x27 px. Use #535353 only with transparent background.",
+  "specs": {
+    "dimensions_px": { "width": 92, "height": 27 },
+    "allowed_colors_hex": ["#535353"],
+    "transparent_background": true,
+    "parallax": { "speed_multiplier": 0.5 }
+  },
+  "context": {
+    "role": "background_decor",
+    "screen_position": { "type": "absolute_px", "x": 260, "y": 35, "anchor": "top_left" },
+    "layer": "world",
+    "usage": ["in_game", "background_motion"]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020113",
+  "asset_key": "world_shadow_safe_zone_overlay_96x96_static",
+  "asset_name": "Shadow Safe Zone Overlay Tile (96x96 static)",
+  "category": "world",
+  "subcategory": "shadow_zone",
+  "priority": "P1",
+  "execution_order": 130,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The overlay uses a 96x96 px modular tile that can repeat across floor regions where Umbra is protected from exposure buildup.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while teal shadow tones stay inside specs.colors_hex.",
+    "The tile keeps soft interior falloff and sharp outer-edge readability so players can judge safety boundaries quickly."
+  ],
+  "differences": [
+    "The center area is deepest teal with faint gold dust specks that mark a stable refuge from direct light.",
+    "The outer 8 px rim brightens slightly to communicate the border where safe shadow ends and beam danger begins.",
+    "Subtle floor texture shows through the overlay so it reads as lighting state over geometry rather than a new floor tile."
+  ],
+  "depends_on": [
+    "task_id_008020110",
+    "task_id_008020109"
+  ],
+  "blocks": [
+    "task_id_008020114"
+  ],
+  "blocked_by": [
+    "task_id_008020110",
+    "task_id_008020109"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020101",
+      "task_id_008020104",
+      "task_id_008020109",
+      "task_id_008020114",
+      "task_id_008020117"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds exposure reduction in full shadow and the distinction between safe and dangerous light coverage."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the teal refuge treatment used for shadow-safe regions."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette contrast against protected darkness."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle layered under characters and over static floor geometry.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "ShadowMaskTile"
+    ],
+    "asset_loading": "Load the shadow-safe tile during FloorLoading and stamp it through level data where safe darkness exists.",
+    "runtime_notes": [
+      "Multiply this overlay with beam masks and floor textures rather than replacing the base geometry art.",
+      "Keep alpha edges authored in-texture so the boundary remains deterministic.",
+      "Render the overlay below Umbra and Echo silhouettes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "safe_shadow_region",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        540,
+        676
+      ]
+    },
+    "layer": "world",
+    "usage": "Authorable world overlay that marks player-safe darkness zones and visually contrasts with exposure hazards.",
+    "adjacent_elements": [
+      "task_id_008020101",
+      "task_id_008020104",
+      "task_id_008020109"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#2D1B4E",
+      "#C9A84C"
+    ],
+    "animation": null,
+    "overlay_notes": [
+      "Bright boundary rim thickness is 8 px.",
+      "Center gradient preserves at least 60 percent dark coverage.",
+      "Dust specks occupy fewer than 20 visible pixels."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_shadow_safe_zone_overlay_96x96_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay tile is exactly 96x96 px and keeps a readable safe-dark center with a controlled boundary rim.",
+    "Teal shadow treatment remains distinct from beam hazard whites and amber emitter accents.",
+    "Underlying floor silhouette can still be perceived through the overlay so the region reads as lighting state rather than solid geometry."
+  ]
+}

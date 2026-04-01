@@ -1,0 +1,134 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.menu.pause_menu_400x300",
+  "asset_name": "Pause Menu Panel — 400×300",
+  "category": "ui",
+  "subcategory": "menu",
+  "priority": "P2",
+  "execution_order": 26,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.buttons.confirm_cancel_160x48_atlas",
+      "ui.typography.bitmap_font_bw_8px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "pause_menu",
+    "layer": "ui_modal",
+    "usage": "Pause menu with three buttons (Resume/Settings/Title). Centered on screen.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 300
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "layout_rules": {
+      "button_size_px": {
+        "width": 240,
+        "height": 48
+      },
+      "button_spacing_px": 16,
+      "button_start_y_px": 96
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.menu.pause_menu_400x300.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Menu is exactly 400x300px with a clear title area and three button slots.",
+    "All edges align to pixel grid; no blurry lines.",
+    "Panel remains readable regardless of world background luminance."
+  ]
+}

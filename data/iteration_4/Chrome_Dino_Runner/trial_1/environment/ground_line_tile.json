@@ -1,0 +1,134 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_environment_ground_line_tile",
+  "asset_name": "ground_line_tile",
+  "category": "environment",
+  "subcategory": "ground",
+  "description": "Create a seamless horizontal ground line tile PNG. Canvas 1200x2 px. All non-transparent pixels must be #535353. The line occupies the full 1200x2 area (no gaps). Background must be transparent outside the 2px tall line (if any extra pixels exist: they must be fully transparent).",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/environment/ground/ground_line_tile_1200x2_1x.png",
+      "type": "sprite",
+      "format": "PNG",
+      "notes": "Tiled horizontally; scroll speed = Current_Speed."
+    }
+  ],
+  "specs": {
+    "dimensions": "1200x2",
+    "tileable": true,
+    "line_thickness_px": 2,
+    "colors_hex": [
+      "#535353"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Defines the ground level line (y = 0) and provides motion cue via scrolling.",
+    "screen_location": "Draw at screen y=0 (ground baseline).",
+    "adjacent_elements": "Player feet contact this line; cacti sit on this line; background sky behind it.",
+    "layer": "foreground_environment (behind obstacles/player but in front of background sky)",
+    "usage": "Always visible during Running and GameOver states."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_environment_ground_texture_tile"
+    ],
+    "shared_properties": [
+      "Primary color #535353",
+      "Scroll speed ties to DifficultySystem"
+    ],
+    "differences": [
+      "Texture tile (optional) adds small details; this is only the 2px baseline line."
+    ]
+  },
+  "depends_on": [
+    "cdr_v1_environment_background_sky"
+  ],
+  "execution_order": 2,
+  "priority": "P0",
+  "blocks": [
+    "cdr_v1_obstacle_cactus_small",
+    "cdr_v1_character_player_idle"
+  ],
+  "blocked_by": [
+    "cdr_v1_environment_background_sky"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 1200x2 px.",
+    "All pixels are #535353 (83,83,83) with alpha=255 (no anti-aliased edge pixels).",
+    "When tiled seamlessly, there is no visible seam at x=0/1199 boundary."
+  ]
+}

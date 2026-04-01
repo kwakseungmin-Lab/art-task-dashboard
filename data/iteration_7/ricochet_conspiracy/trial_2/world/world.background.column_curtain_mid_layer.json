@@ -1,0 +1,112 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.column_curtain_mid_layer",
+  "asset_name": "Court Column Curtain Mid Layer",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_window_far_layer"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_window_far_layer"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.court_window_far_layer",
+      "world.background.arch_front_layer",
+      "world.prop.curtain_banner_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "background_mid",
+    "layer": "world_background_mid",
+    "usage": "Mid depth layer with six stone columns and four curtain drops for stage framing.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 50
+    },
+    "adjacent_elements": [
+      "world.background.court_window_far_layer",
+      "world.background.arch_front_layer"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#A89880",
+      "#8B3A52"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "six_column_row_with_four_tall_curtain_panels",
+      "components": [
+        "column_row",
+        "curtain_left_pair",
+        "curtain_right_pair",
+        "tie_ribbons"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "view_depth": "mid",
+    "tile_mode": "single_panel"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.column_curtain_mid_layer.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1280x620px and column bases align on a shared y=508px baseline.",
+    "Six columns use 24px shafts and keep even 176px center spacing.",
+    "Curtain drops use #8B3A52 and reserve a 640px clear lane at stage center."
+  ]
+}

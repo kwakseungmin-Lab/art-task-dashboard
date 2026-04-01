@@ -1,0 +1,199 @@
+{
+  "task_id": "ui.hud_happiness_bar",
+  "id": "ui.hud_happiness_bar",
+  "asset_name": "HUD Happiness Bar",
+  "category": "ui",
+  "subcategory": "hud_meter",
+  "description": "Bottom HUD happiness bar with 11 fill states (0-10).",
+  "execution_order": 40,
+  "priority": "P0",
+  "depends_on": [
+    "world.cage_background"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.cage_background"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage_background",
+      "ui.pixel_font_3x5"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 128,
+        "height": 128
+      },
+      "pixel_aspect_ratio": 1,
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      }
+    },
+    "rendering": {
+      "camera": "2d_front",
+      "snap_to_pixel_grid": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor"
+    },
+    "palette": {
+      "name": "pico8_default_16",
+      "colors": [
+        {
+          "name": "black",
+          "hex": "#000000"
+        },
+        {
+          "name": "navy",
+          "hex": "#1D2B53"
+        },
+        {
+          "name": "purple",
+          "hex": "#7E2553"
+        },
+        {
+          "name": "dark_green",
+          "hex": "#008751"
+        },
+        {
+          "name": "brown",
+          "hex": "#AB5236"
+        },
+        {
+          "name": "dark_gray",
+          "hex": "#5F574F"
+        },
+        {
+          "name": "light_gray",
+          "hex": "#C2C3C7"
+        },
+        {
+          "name": "cream",
+          "hex": "#FFF1E8"
+        },
+        {
+          "name": "pink",
+          "hex": "#FF004D"
+        },
+        {
+          "name": "orange",
+          "hex": "#FFA300"
+        },
+        {
+          "name": "yellow",
+          "hex": "#FFEC27"
+        },
+        {
+          "name": "green",
+          "hex": "#00E436"
+        },
+        {
+          "name": "blue",
+          "hex": "#29ADFF"
+        },
+        {
+          "name": "lavender",
+          "hex": "#83769C"
+        },
+        {
+          "name": "light_pink",
+          "hex": "#FF77A8"
+        },
+        {
+          "name": "peach",
+          "hex": "#FFCCAA"
+        }
+      ]
+    },
+    "style": {
+      "art_style": "hand-drawn pixel art with a strict 16-color PICO-8 palette limit",
+      "view": "front-facing 2D",
+      "lighting": "indoor warm light approximated by a cream background (#FFF1E8) and low-contrast shading",
+      "line_weight_px": 1,
+      "dithering": "Allowed only on large flat surfaces using a 2x2 checker pattern."
+    }
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1
+  },
+  "specs": {
+    "sheet_dimensions_px": {
+      "width": 128,
+      "height": 88
+    },
+    "frame_dimensions_px": {
+      "width": 128,
+      "height": 8
+    },
+    "frame_count": 11,
+    "layout": "vertical_stack_top_to_bottom",
+    "outline_hex": "#1D2B53",
+    "fill_hex": "#FF004D",
+    "empty_hex": "#C2C3C7",
+    "placement_on_canvas_px": {
+      "x": 0,
+      "y": 120,
+      "anchor": "top_left"
+    }
+  },
+  "context": {
+    "role": "player_feedback_meter",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 120,
+      "anchor": "top_left"
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "in_game",
+      "hud"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/ui/hud_happiness_bar.png",
+      "dimensions_px": {
+        "width": 128,
+        "height": 88
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 128x88 px with transparent background and 11 frames of 128x8 stacked vertically.",
+    "Frame 0 has 0 filled segments and frame 10 has a continuous filled bar using #FF004D.",
+    "All outlines use #1D2B53 and no colors outside the 16-color palette are present."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

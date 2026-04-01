@@ -1,0 +1,19 @@
+{
+  "category": "characters",
+  "base_size": {
+    "width": "40px",
+    "height": "40px"
+  },
+  "color_scheme": {
+    "primary": "#FFA300",
+    "secondary": "#FF004D",
+    "accent": "#FFEC27"
+  },
+  "shared_attributes": {
+    "sprite_type": "hand-drawn pixel art",
+    "animation_method": "frame-by-frame",
+    "position_reference": "perch at y=80px",
+    "layer_order": 3,
+    "outline": "1px dark outline on key features only"
+  }
+}

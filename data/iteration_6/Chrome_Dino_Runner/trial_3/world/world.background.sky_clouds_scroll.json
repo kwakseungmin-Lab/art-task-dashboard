@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.sky_clouds_scroll",
+  "asset_name": "World — Background Sky + Clouds (600x150, parallax)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 220,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player_dino.run_2f_12fps",
+      "obstacles.cactus.small_static_34x70"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background",
+    "layer": "world",
+    "usage": "Sky fill + optional clouds; scrolls at 0.5× parallax relative to ground.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 150
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        600,
+        150
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "scrolling": {
+      "enabled": true,
+      "parallax_factor": 0.5,
+      "speed_px_per_sec_range": [
+        150,
+        450
+      ]
+    },
+    "elements": {
+      "cloud_sizes_px": [
+        [
+          46,
+          14
+        ],
+        [
+          92,
+          27
+        ]
+      ],
+      "cloud_count_range": [
+        0,
+        4
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.sky_clouds_scroll.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 600x150px.",
+    "Background is a flat #F7F7F7 fill; clouds use #535353 with crisp pixel edges.",
+    "No gradients, shading, or anti-aliasing anywhere."
+  ]
+}

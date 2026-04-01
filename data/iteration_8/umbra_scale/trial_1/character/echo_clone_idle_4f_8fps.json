@@ -1,0 +1,162 @@
+{
+  "task_id": "task_id_008101010",
+  "asset_key": "echo_clone_idle_4f_8fps",
+  "asset_name": "Echo Clone Idle Loop",
+  "category": "character",
+  "subcategory": "summon",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101003",
+    "task_id_008101005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101003",
+    "task_id_008101005"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for each deployed echo clone and modulate alpha to 0.5 in the material or color tint.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "EchoClone",
+      "Transform"
+    ],
+    "asset_loading": "Load character/echo_clone_idle_4f_8fps.png during Loading and reuse one atlas for all echo instances.",
+    "runtime_notes": [
+      "Echo clones should share the Umbra proportion family while reading lighter and more static than the player.",
+      "Keep the pivot centered so clones can sit cleanly on either scale deck.",
+      "Do not animate broad movement; the clone is a placed weight marker, not a second controllable character."
+    ]
+  },
+  "context": {
+    "role": "echo_weight_summon",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1110,
+        760
+      ]
+    },
+    "layer": "character_echo",
+    "usage": "Deployable semi-transparent echo that acts as an extra weight source on the scale puzzle and a readable remaining-charge icon reference.",
+    "adjacent_elements": [
+      "world_scale_assembly_512x96",
+      "obstacle_weight_block_set_5states_32x32",
+      "ui_hp_and_echo_tokens_sheet_192x32"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 36
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "A reduced Umbra silhouette with softer edges, smaller eye glow, and a steadier lower body to read as a placed afterimage.",
+      "components": [
+        "mini_head_crest",
+        "small_eye_glow",
+        "compact_torso",
+        "soft_wisp_base"
+      ]
+    },
+    "material": {
+      "opacity": 0.5,
+      "weight_units": 1.0
+    }
+  },
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x36 px with four 24x36 frames.",
+    "The clone reads as a clear subset of the player silhouette while remaining visibly lighter and more spectral.",
+    "The lower edge stays visually stable so the clone can be interpreted as a placed weight source on the scale."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101003",
+      "task_id_008101005",
+      "task_id_008101013",
+      "task_id_008101016",
+      "task_id_008101019"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/echo_clone_idle_4f_8fps.png",
+      "transparent_background": true
+    }
+  ]
+}

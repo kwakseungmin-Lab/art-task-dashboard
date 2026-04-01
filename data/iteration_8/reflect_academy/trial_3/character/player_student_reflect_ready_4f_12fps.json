@@ -1,0 +1,196 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003006",
+  "asset_key": "player_student_reflect_ready_4f_12fps",
+  "asset_name": "Player Reflect Ready Pose",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": "task_id_008003005",
+  "variant_of_asset_key": "player_student_idle_8f_8fps",
+  "shared_properties": [
+    "120x180 frame size and three quarter front body proportions.",
+    "Academy coat base palette with gold trim and navy robe panels.",
+    "Rightward facing combat stance rooted to the duel platform."
+  ],
+  "differences": [
+    "Front arm rotates into a shield angle in front of the chest.",
+    "Card hand opens and reveals a brighter cyan rune circle.",
+    "Coat hem lifts upward by about 10 px to signal incoming action."
+  ],
+  "depends_on": [
+    "task_id_008003005"
+  ],
+  "blocks": [
+    "task_id_008003007",
+    "task_id_008003017"
+  ],
+  "blocked_by": [
+    "task_id_008003005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003012",
+      "task_id_008003016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the ready state and keep the same root transform as the idle state.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerReflector",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_student_reflect_ready_4f_12fps.png through AssetServer and register the state handle under player_student_reflect_ready_4f_12fps.",
+    "runtime_notes": [
+      "Ready state can replace idle instantly without position drift.",
+      "Loop duration stays at one third of a second to support a 0.5 second telegraph window.",
+      "Rune glow should remain readable even when the screen-space hand cards overlap the lower torso region."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "player_reflect_ready",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        360,
+        640
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Shown during the 0.5 second telegraph window after a card is primed and before contact.",
+    "adjacent_elements": [
+      "projectile_fire_fly_6f_12fps",
+      "ui_timing_bar_600x30",
+      "ui_hand_card_strip_5x80x120"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#F2E2C4",
+      "#00FFFF",
+      "#5C3317"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 12,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Player silhouette compresses slightly with the lead arm raised into a curved guard.",
+      "components": [
+        "head",
+        "raised_guard_arm",
+        "open_card_hand",
+        "robe_collar",
+        "coat_body",
+        "boots",
+        "sash"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "focused_almond",
+        "size_px": [
+          18,
+          8
+        ]
+      },
+      "mouth": {
+        "shape": "firm_line",
+        "length_px": 12
+      },
+      "nose": {
+        "shape": "small_bridge",
+        "length_px": 8
+      }
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 58
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 72
+      },
+      "tail": null,
+      "accessories": "Focus bracer glow and crest brooch."
+    },
+    "texture": "Cloth folds tighten around the elbows and the bracer emits a narrow cyan halo.",
+    "shading": "Soft gradient shading with brighter cyan highlights near the guard hand."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_student_reflect_ready_4f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 480x180 px with four 120x180 frames.",
+    "Raised guard arm keeps a 24 px clear silhouette gap from the face in every frame.",
+    "Cyan rune halo remains inside a 36 px radius so it does not collide with the timing bar overlay."
+  ]
+}

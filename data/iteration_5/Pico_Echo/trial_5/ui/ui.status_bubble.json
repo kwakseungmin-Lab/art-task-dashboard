@@ -1,0 +1,102 @@
+{
+  "task_id": "ui.status_bubble",
+  "id": "ui.status_bubble",
+  "asset_name": "Status bubble",
+  "category": "ui",
+  "subcategory": "status_indicator",
+  "description": "Speech bubble container used to show small 8x8 status icons near Echo (hungry, sleeping).",
+  "execution_order": 72,
+  "priority": "P1",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo_sprite_sheet",
+      "obstacles.seed",
+      "ui.thought_bubble_seed"
+    ]
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 12,
+      "height": 10
+    },
+    "background_hex": "#FFF1E8",
+    "outline_hex": "#1D2B53",
+    "tail": {
+      "direction": "down_left",
+      "length_px": 3
+    },
+    "icon_slot": {
+      "x": 2,
+      "y": 1,
+      "w": 8,
+      "h": 8
+    }
+  },
+  "context": {
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 78,
+      "y": 40,
+      "origin": "canvas_top_left"
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "ui_overlay",
+      "contextual"
+    ],
+    "role": "ui_status_container"
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/ui/status_bubble.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/ui/status_bubble.png",
+      "dimensions_px": {
+        "width": 12,
+        "height": 10
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 12x10 px with transparent background.",
+    "Bubble fill uses #FFF1E8 and outline uses #1D2B53 with 1px thickness.",
+    "Icon slot is exactly 8x8 px at x=2,y=1 and fits inside the outline.",
+    "All colors are within palette_hex."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

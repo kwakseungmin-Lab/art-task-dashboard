@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.clear_overlay_card",
+  "asset_name": "Clear Overlay Card",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 320,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "blocks": [
+    "ui.screen.fail_overlay_card"
+  ],
+  "blocked_by": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.serif_bitmap_16px_ascii96",
+      "character.noble.boss_command_sheet",
+      "ui.button.restart_square"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "result_overlay",
+    "layer": "ui",
+    "usage": "Centered overlay card for clear state with star row, score row, and two action wells.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.top_status_bar"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 480,
+      "height": 272
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#C8B4E0"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "rounded_panel_card_with_star_row",
+      "components": [
+        "panel_frame",
+        "star_row_slots",
+        "score_row",
+        "left_action_well",
+        "right_action_well"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "star_slot_count": 3,
+    "button_well_px": {
+      "width": 140,
+      "height": 40
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.clear_overlay_card.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 480x272px and keeps a centered panel frame of 432x224px.",
+    "Star row reserves 3 slots of 48x48px each.",
+    "Action wells each measure 140x40px and align on one baseline."
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.screen.ending",
+  "asset_name": "Ending Screen — final score + TITLE prompt",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P2",
+  "execution_order": 300,
+  "variant_of": null,
+  "depends_on": [
+    "ui.atlas.core",
+    "world.background.layer0_space_nebula"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.atlas.core"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_white",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "ui_screen",
+    "layer": "ui",
+    "usage": "Shown after escape sequence. Displays ending caption and final score.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "text": [
+      {
+        "value": "VICTORY",
+        "size_px": 56,
+        "center_px": [
+          800,
+          320
+        ]
+      },
+      {
+        "value": "FINAL SCORE: 000000",
+        "size_px": 32,
+        "center_px": [
+          800,
+          440
+        ]
+      },
+      {
+        "value": "[SPACE] TITLE",
+        "size_px": 28,
+        "center_px": [
+          800,
+          560
+        ]
+      }
+    ],
+    "colors_hex": [
+      "#F0EFE9",
+      "#FFD966",
+      "#0B0C1E"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.ending.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Victory headline is readable and centered.",
+    "Final score line fits at 32px with 6 digits.",
+    "Prompt matches mapping (Space returns to title)."
+  ]
+}

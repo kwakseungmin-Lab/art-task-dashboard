@@ -1,0 +1,80 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.cursor.pointer_bw_16",
+  "asset_name": "Mouse Cursor Pointer — B/W 16px",
+  "category": "ui",
+  "subcategory": "cursor",
+  "priority": "P1",
+  "execution_order": 12,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "cursor",
+    "layer": "ui",
+    "usage": "In-game cursor for UI interactions.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#111111",
+      "#000000"
+    ],
+    "hotspot_px": {
+      "x": 1,
+      "y": 1
+    },
+    "layout_note": "Standard pointer with 1px outline."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.cursor.pointer_bw_16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Hotspot is at (1,1) and tip pixel is clearly defined."
+  ]
+}

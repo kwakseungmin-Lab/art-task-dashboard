@@ -1,0 +1,118 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.chandelier_swing_sheet",
+  "asset_name": "Chandelier Swing Sheet",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.candlestick_sprite",
+      "world.background.curtain_column_mid_layer"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "hanging_environment_object",
+    "layer": "world_objects",
+    "usage": "3-frame chandelier sheet for ceiling hazard and room accent.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.background.curtain_column_mid_layer"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 64
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#D4A843",
+      "#F5F0E8",
+      "#E8704A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "directions": 1,
+      "frame_count_per_direction": 3,
+      "fps": 3,
+      "loop": true,
+      "sheet_layout": {
+        "rows": 1,
+        "cols": 3,
+        "frame_size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "ordering": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "wide_hanging_fixture",
+      "components": [
+        "top_chain",
+        "center_ring",
+        "left_candle_arm",
+        "right_candle_arm",
+        "flame_group"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.chandelier_swing_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 192x64px with 3 frames sized 64x64px.",
+    "Chain anchor stays centered at x=32 on every frame.",
+    "Flame group uses #E8704A and keeps 3 candle tips visible in each frame."
+  ]
+}

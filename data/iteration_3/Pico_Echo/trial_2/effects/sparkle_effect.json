@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects",
+      "rendering": "flat 2D",
+      "behavior": "temporary (spawn and despawn)",
+      "animation_type": "movement-based (position changes)"
+    }
+  },
+  "asset": {
+    "asset_id": "sparkle_effect",
+    "asset_name": "Sparkle Particle Effect",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Visual feedback for successful cleaning",
+      "screen_position": "Spawns on floor area at y=110-125, random x positions",
+      "adjacent_elements": ["floor", "poop"],
+      "usage_scenario": "Triggered when player cleans cage; 3-5 sparkles spawn across floor; fade out after 0.5 seconds"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "2px",
+        "height": "2px"
+      },
+      "colors": {
+        "main": "#FFF1E8"
+      },
+      "shape": "Small star/cross shape (+ or ✦)",
+      "texture": "Flat pixel art; solid color",
+      "outline": "None; pure color fill",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 4,
+        "loop": false,
+        "description": "Frame 1: full brightness star shape, Frame 2: despawn"
+      },
+      "details": "2x2px star/cross shape; #FFF1E8 (white/cream); 3-5 sparkles spawn at random floor positions after cleaning; appear for 0.5s then despawn"
+    },
+    "relationships": {
+      "related_assets": ["floor", "poop"],
+      "shared_with": "Same color as background (#FFF1E8) but stands out on floor (#FFCCAA)",
+      "differences_from": "All other effects (cleaning-specific, shortest duration)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no glow or bloom",
+      "no rotation",
+      "no scaling animation",
+      "no motion blur",
+      "no trails"
+    ]
+  }
+}

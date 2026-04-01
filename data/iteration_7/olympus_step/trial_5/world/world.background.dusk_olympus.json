@@ -1,0 +1,93 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.dusk_olympus",
+  "asset_name": "Background - Dusk Olympus Sky (Static)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "background",
+    "layer": "world",
+    "usage": "Full-screen background behind the 12x9 grid map; twilight amber to indigo gradient with subtle clouds",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "composition": {
+      "horizon_y_px": 620,
+      "gradient_top_hex": "#1E1B4B",
+      "gradient_bottom_hex": "#C17B2F",
+      "cloud_layers": 2,
+      "cloud_opacity": [
+        0.2,
+        0.12
+      ]
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#C17B2F",
+      "#6B7280",
+      "#D4C5A9"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.dusk_olympus.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Image size is exactly 1920x1080px and fills the full viewport without tiling artifacts.",
+    "Top region is dominated by #1E1B4B-family pixels and bottom region by #C17B2F-family pixels, with no banding wider than 2px.",
+    "No UI-like straight borders or text shapes appear; background remains purely environmental."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.top_bar_frame_1280x50",
+  "asset_name": "HUD — Top Bar Frame (1280x50)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 420,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.bitmap_serif_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_serif_16px_ascii96"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_frame",
+    "layer": "ui",
+    "usage": "Top HUD background frame that contains stage name, move counter, hint/restart/menu buttons.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 50
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#3D2B1F",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "ui_frame": {
+      "border_thickness_px": 2,
+      "corner_radius_px": 0,
+      "note": "Keep 2px border; leave inner padding 8px for text."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.top_bar_frame_1280x50.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "UI frame is exactly 1280x50px with a 2px border using #3D2B1F; interior uses #E8D5C4.",
+    "Provides clear padding regions for stage name (left) and counters/buttons (right) without clutter.",
+    "All edges are crisp pixel lines; no anti-aliasing; transparent background outside the bar."
+  ]
+}

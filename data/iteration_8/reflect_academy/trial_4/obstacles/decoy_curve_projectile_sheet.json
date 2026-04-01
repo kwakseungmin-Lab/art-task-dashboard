@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040407",
+  "asset_key": "decoy_curve_projectile_sheet",
+  "asset_name": "Decoy Curve Projectile Sheet",
+  "category": "obstacles",
+  "subcategory": "projectile_feint",
+  "priority": "P1",
+  "execution_order": 7,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Decoy frames use 160x160 px cells and preserve the same centerline used by the main projectile atlas.",
+    "Opacity bands stay readable over the dark hall background without replacing the main element palette."
+  ],
+  "differences": [
+    "This asset adds eight frames for fake-warning and curved-flight telegraphs used in advanced academy duels."
+  ],
+  "depends_on": [
+    "task_id_825040402",
+    "task_id_825040403",
+    "task_id_825040406"
+  ],
+  "blocks": [
+    "task_id_825040411"
+  ],
+  "blocked_by": [
+    "task_id_825040402",
+    "task_id_825040403",
+    "task_id_825040406"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040405",
+      "task_id_825040406",
+      "task_id_825040411"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "Curve projectile rule, fake telegraph cadence, and advanced duel pacing grounding."
+    },
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Decoy readability against the hall lighting and lane glow grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with eight frames and apply the asset to a warning-trail entity that moves on a sine-path Transform system.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "DecoyProjectileVisual",
+      "ProjectileMarker"
+    ],
+    "asset_loading": "Load obstacles/decoy_curve_projectile_sheet.png through AssetServer and keep the handle in the projectile art table.",
+    "runtime_notes": [
+      "Animate at 10 fps with loop enabled for the feint travel phase.",
+      "Use the same spawn origin as elemental_projectile_state_sheet so collision checks stay aligned.",
+      "Apply additive blend to the outer ring while leaving the core sprite alpha-clipped."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Advanced telegraph and feint projectile art for fake warnings and curved flight.",
+    "screen_position": {
+      "anchor": "center",
+      "x_px": 1040,
+      "y_px": 500
+    },
+    "layer": {
+      "name": "projectile_decoy",
+      "z_index": 36
+    },
+    "usage": "Spawned during grade-4 and higher duels when fake warnings or curve patterns are active."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 640,
+      "height": 320
+    },
+    "colors_hex": [
+      "#B0E0E6",
+      "#9B59B6",
+      "#FFD700",
+      "#00FFFF",
+      "#2B1B17"
+    ],
+    "animation": {
+      "mode": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 10,
+      "loop": true,
+      "layout": {
+        "rows": 2,
+        "columns": 4,
+        "frame_size_px": {
+          "width": 160,
+          "height": 160
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "decoy_curve_projectile_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 640,
+        "height": 320
+      },
+      "notes": "Eight-frame atlas for fake-warning and curve-path telegraphs."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 640x320 px with eight 160x160 frames arranged as 4 columns by 2 rows.",
+    "Outer warning ring thickness stays between 8 px and 12 px in every frame.",
+    "Core trail never exceeds a 96 px diameter circle, leaving transparent buffer for curve motion readability."
+  ]
+}

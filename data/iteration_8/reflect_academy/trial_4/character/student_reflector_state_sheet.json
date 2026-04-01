@@ -1,0 +1,206 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040404",
+  "asset_key": "student_reflector_state_sheet",
+  "asset_name": "Student Reflector State Sheet",
+  "category": "character",
+  "subcategory": "player_duelist",
+  "priority": "P0",
+  "execution_order": 4,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Player sheet keeps a 120x180 px body scale per frame and a robe silhouette that reads cleanly against the duel lane.",
+    "All state clips keep the wand hand on the screen-right side to preserve counter-cast direction clarity."
+  ],
+  "differences": [
+    "This sheet packs Idle, Reflect_Ready, Reflect_Success, and Reflect_Fail states into one deterministic atlas with 22 total frames."
+  ],
+  "depends_on": [
+    "task_id_825040402",
+    "task_id_825040403"
+  ],
+  "blocks": [
+    "task_id_825040406",
+    "task_id_825040408",
+    "task_id_825040409",
+    "task_id_825040410",
+    "task_id_825040411",
+    "task_id_825040412"
+  ],
+  "blocked_by": [
+    "task_id_825040402",
+    "task_id_825040403"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040405",
+      "task_id_825040406",
+      "task_id_825040408",
+      "task_id_825040409",
+      "task_id_825040410",
+      "task_id_825040411",
+      "task_id_825040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy player concept",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/player.png?raw=1",
+      "purpose": "Student body proportion, robe sleeve length, and wand pose grounding."
+    },
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Camera scale, floor contact, and duel-stage pose framing grounding."
+    },
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "State counts, 120x180 frame size, and gameplay role grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with 22 frames and a state-clip table stored in a ReflectStateVisual component.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "ReflectStateVisual",
+      "PlayerMarker"
+    ],
+    "asset_loading": "Load character/student_reflector_state_sheet.png through AssetServer and pair it with a clip-map resource keyed by asset_key.",
+    "runtime_notes": [
+      "Spawn frame origin at x=420 px and y=220 px measured from the lower-left of the battle canvas.",
+      "Clip ranges are Idle 0-7, Reflect_Ready 8-11, Reflect_Success 12-17, Reflect_Fail 18-21.",
+      "Keep foot contact aligned to y=170 px in every frame so the lane baseline stays locked."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Primary player duelist art used for all reflection timing outcomes.",
+    "screen_position": {
+      "anchor": "bottom_left",
+      "x_px": 420,
+      "y_px": 170
+    },
+    "layer": {
+      "name": "character_player",
+      "z_index": 30
+    },
+    "usage": "Visible whenever the player is on the duel floor, including idle, ready, success, and fail results."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1320,
+      "height": 360
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#2B1B17",
+      "#D4AF37",
+      "#2ECC71",
+      "#00FFFF",
+      "#ADFF2F",
+      "#FFFACD"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 22,
+      "fps": 8,
+      "loop": false,
+      "layout": {
+        "rows": 2,
+        "columns": 11,
+        "frame_size_px": {
+          "width": 120,
+          "height": 180
+        }
+      },
+      "state_clips": [
+        {
+          "state": "idle",
+          "start_frame": 0,
+          "end_frame": 7,
+          "fps": 8,
+          "loop": true
+        },
+        {
+          "state": "reflect_ready",
+          "start_frame": 8,
+          "end_frame": 11,
+          "fps": 10,
+          "loop": true
+        },
+        {
+          "state": "reflect_success",
+          "start_frame": 12,
+          "end_frame": 17,
+          "fps": 12,
+          "loop": false
+        },
+        {
+          "state": "reflect_fail",
+          "start_frame": 18,
+          "end_frame": 21,
+          "fps": 10,
+          "loop": false
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "student_reflector_state_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 1320,
+        "height": 360
+      },
+      "notes": "22-frame atlas arranged as 11 columns by 2 rows."
+    },
+    {
+      "artifact": "student_reflector_state_sheet_clips.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "State clip map for Idle, Reflect_Ready, Reflect_Success, and Reflect_Fail."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 1320x360 px with 22 used frames at 120x180 px each.",
+    "Idle uses 8 frames, Reflect_Ready uses 4 frames, Reflect_Success uses 6 frames, and Reflect_Fail uses 4 frames with the clip ranges declared in specs.animation.state_clips.",
+    "Every frame keeps the robe hem aligned to y=170 px and the wand tip inside the 120x180 frame bounds."
+  ]
+}

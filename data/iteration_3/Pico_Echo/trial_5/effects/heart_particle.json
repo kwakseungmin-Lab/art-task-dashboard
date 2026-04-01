@@ -1,0 +1,98 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-12px",
+      "note": "Varies by effect type - particles are 2-4px, speech bubble is 12x10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8",
+      "bubble_bg": "#FFF1E8",
+      "bubble_outline": "#1D2B53"
+    },
+    "shared_attributes": {
+      "rendering": "animated particles or static overlays",
+      "layer": "foreground (on top of all other elements)",
+      "style": "simple iconic pixel art",
+      "lifespan": "0.5-2 seconds (particles auto-destroy)"
+    }
+  },
+  "asset": {
+    "asset_id": "heart_particle",
+    "asset_name": "Heart Particle Effect",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Visual feedback particle that appears when player pets Echo, indicating affection",
+      "screen_position": "Spawns above Echo's head at x=64px, y=30-40px, then rises upward to y=10-20px",
+      "adjacent_elements": [
+        "echo_happy (this particle spawns during happy state animation)",
+        "cage_background (particles render on top)"
+      ],
+      "usage_scenario": "3 heart particles spawn sequentially during echo_happy animation (at frames 2, 4, 6). Each heart rises upward 20-30px over 1 second while fading out. Communicates positive emotional response to petting."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "4px",
+        "height": "4px"
+      },
+      "colors": {
+        "primary": "#FF004D"
+      },
+      "shape": "Classic heart icon shape. 4x4px pixel heart with two rounded lobes at top and point at bottom.",
+      "texture": "Pure pixel art, solid color",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "particle",
+        "frames": 4,
+        "fps": 4,
+        "loop": false,
+        "description": "Frame 1: Heart appears at full opacity at spawn position. Frame 2: Heart moves up 8px. Frame 3: Heart moves up another 8px, begins fade (75% opacity). Frame 4: Heart moves up final 8px, fades to 25% opacity then disappears. Total vertical movement: 24px upward. Total duration: 1 second."
+      },
+      "details": "Heart shape: 4x4px in #FF004D. Pixel pattern: Row 1: ■□■ (2 pixels), Row 2: ■■■■ (4 pixels), Row 3: □■■□ (2 pixels center), Row 4: □□■□ (1 pixel center point). Spawns at x=64±5px (slight random offset), y=35px. Rises to y=10px. 3 hearts spawn per happy animation with 0.5 second intervals."
+    },
+    "relationships": {
+      "related_assets": [
+        "echo_happy",
+        "cage_background"
+      ],
+      "shared_with": "Same pink color (#FF004D) as Echo's cheek patches",
+      "differences_from": "Unlike music notes: heart shape (not note), spawns during petting (not singing). Unlike other particles: larger size (4x4 vs 2-3px), pink color, upward movement."
+    },
+    "explicit_negations": [
+      "No 3D shading or gradients",
+      "No outline stroke",
+      "No rotation during movement",
+      "No size scaling (stays 4x4px)",
+      "No motion blur",
+      "No sparkle or glow",
+      "No bounce or wobble",
+      "No horizontal movement (only vertical)"
+    ]
+  }
+}

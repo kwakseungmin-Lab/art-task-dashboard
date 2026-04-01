@@ -1,0 +1,104 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.widget.counter_gauge_ring",
+  "asset_name": "Counter Gauge Ring",
+  "category": "ui",
+  "subcategory": "widget",
+  "priority": "P0",
+  "execution_order": 320,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.counter_pose",
+      "ui.popup.counter_result_burst",
+      "character.boss.cyclops",
+      "character.enemy.medusa",
+      "character.enemy.cerberus",
+      "character.boss.hydra"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "counter_widget",
+    "screen_position": {
+      "type": "relative_to_entity",
+      "entity": "active_enemy_center",
+      "x_offset_px": 0,
+      "y_offset_px": -20
+    },
+    "layer": "ui_hud",
+    "usage": "Forty-eight-pixel ring shown above the active enemy during the counter countdown."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 576,
+      "height": 48
+    },
+    "frame_size_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#40E8D0",
+      "#FFD966",
+      "#E84040",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "state_atlas",
+      "frame_count": 12,
+      "fps": 12,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 12,
+        "order": "left_to_right"
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.widget.counter_gauge_ring.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 576x48px with twelve 48x48 countdown states.",
+    "Ring thickness stays at least 4px so the gauge remains readable over bright bosses.",
+    "Final warning state uses danger red without obscuring the empty center needed for enemy readability."
+  ]
+}

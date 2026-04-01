@@ -1,0 +1,114 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.overlay.grid_lines_768x576",
+  "asset_name": "Grid Lines Overlay (12x9 tiles, 768x576)",
+  "category": "world",
+  "subcategory": "overlay",
+  "priority": "P1",
+  "execution_order": 24,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "grid_overlay",
+    "layer": "world_overlay",
+    "usage": "Thin 1px grid lines shown to clarify tile boundaries on the map area only.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "grid_rules": {
+      "tile_size_px": [
+        64,
+        64
+      ],
+      "grid_size_tiles": [
+        12,
+        9
+      ],
+      "map_area_px": [
+        768,
+        576
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 768,
+      "height": 576
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#6B7280"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        768,
+        576
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "line_rules": {
+      "line_width_px": 1,
+      "outer_border": true,
+      "inner_lines": true,
+      "alpha_percent": 60
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.overlay.grid_lines_768x576.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay is exactly 768x576px with transparent background outside lines.",
+    "Contains vertical lines at x = 0, 64, 128, ... , 768 and horizontal lines at y = 0, 64, 128, ... , 576.",
+    "Line color is #6B7280 at 60% opacity and outline/border is #1E1B4B at 60% opacity."
+  ]
+}

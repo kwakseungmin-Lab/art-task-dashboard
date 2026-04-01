@@ -1,0 +1,219 @@
+{
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": "v4",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "base_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "camera": {
+      "view": "2d_front",
+      "projection": "orthographic",
+      "rotation_deg": 0,
+      "tilt_deg": 0
+    },
+    "rendering": {
+      "style": "hand_drawn_pixel_art",
+      "pixel_grid": {
+        "enabled": true,
+        "pixel_size_px": 1,
+        "anti_aliasing": false
+      },
+      "scaling": "nearest_neighbor",
+      "color_mode": "indexed",
+      "max_colors": 16,
+      "dithering": {
+        "allowed": false,
+        "pattern": "none"
+      },
+      "gradients": {
+        "allowed": false
+      },
+      "outline": {
+        "default": {
+          "enabled": false,
+          "thickness_px": 0,
+          "color": null
+        },
+        "ui_border": {
+          "enabled": true,
+          "thickness_px": 1,
+          "color": "#1D2B53"
+        }
+      }
+    },
+    "palette_pico8_16": [
+      {
+        "index": 0,
+        "name": "black",
+        "hex": "#000000"
+      },
+      {
+        "index": 1,
+        "name": "dark_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "index": 2,
+        "name": "dark_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "index": 3,
+        "name": "dark_green",
+        "hex": "#008751"
+      },
+      {
+        "index": 4,
+        "name": "brown",
+        "hex": "#AB5236"
+      },
+      {
+        "index": 5,
+        "name": "dark_gray",
+        "hex": "#5F574F"
+      },
+      {
+        "index": 6,
+        "name": "light_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "index": 7,
+        "name": "cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "index": 8,
+        "name": "red_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "index": 9,
+        "name": "orange",
+        "hex": "#FFA300"
+      },
+      {
+        "index": 10,
+        "name": "yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "index": 11,
+        "name": "green",
+        "hex": "#00E436"
+      },
+      {
+        "index": 12,
+        "name": "blue",
+        "hex": "#29ADFF"
+      },
+      {
+        "index": 13,
+        "name": "lavender",
+        "hex": "#83769C"
+      },
+      {
+        "index": 14,
+        "name": "light_pink",
+        "hex": "#FF77A8"
+      },
+      {
+        "index": 15,
+        "name": "peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "layer_order": [
+      "background",
+      "cage_environment",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "export": {
+      "file_format": "png",
+      "background": "transparent",
+      "compression": "lossless",
+      "metadata": {
+        "include": false
+      }
+    },
+    "asset_naming": {
+      "case": "snake_case",
+      "separator": "_",
+      "task_id_prefix": "pico_echo"
+    },
+    "asset_output_root": {
+      "source": "art/pico_echo/source",
+      "export": "art/pico_echo/export"
+    }
+  },
+  "task_id": "pico_echo.environment.cage_perch",
+  "asset_name": "cage_perch",
+  "category": "environment",
+  "subcategory": "cage",
+  "description": "Create a perch sprite for Echo to stand on. Sprite canvas 80x4px. Fill the perch body with #AB5236. Add 1px highlight pixels (#FFCCAA) at x=0..79 on y=0 only (top edge highlight). All other pixels outside the 4px height must not exist; background must be transparent.",
+  "deliverables": [
+    {
+      "type": "source",
+      "path": "art/pico_echo/source/environment/cage_perch.aseprite",
+      "format": "aseprite",
+      "notes": "Aseprite source file with layers and frames (no palette outside pico8_16)."
+    },
+    {
+      "type": "export",
+      "path": "art/pico_echo/export/environment/cage_perch.png",
+      "format": "png",
+      "notes": "PNG export (indexed color, 16-color palette, nearest-neighbor scaling)."
+    }
+  ],
+  "specs": {
+    "dimensions": "80x4",
+    "placement": {
+      "screen_x": 24,
+      "screen_y": 80
+    },
+    "colors": {
+      "base": "#AB5236",
+      "highlight": "#FFCCAA"
+    }
+  },
+  "context": {
+    "role": "Perch where Echo stands in Idle/Hungry/Dirty states.",
+    "screen_location": "Placed at world position x=24..103, y=80..83 in the 128x128 screen.",
+    "adjacent_elements": [
+      "Echo sprites (40x40) anchored around y≈60",
+      "cage_backwall"
+    ],
+    "layer": "cage_environment",
+    "usage": "Always visible."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.character.echo_idle"
+    ],
+    "relationship_notes": [
+      "Echo feet in most states should visually overlap this perch; therefore generate perch before Echo to validate alignment."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.environment.cage_backwall"
+  ],
+  "execution_order": 2,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.environment.cage_backwall"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 80x4 px.",
+    "Top row y=0 is #FFCCAA for all x=0..79.",
+    "Rows y=1..3 are #AB5236 for all x=0..79.",
+    "Background outside the sprite silhouette must be fully transparent (alpha=0).",
+    "Allowed colors: only pico8_16 palette. Hard fail if any pixel uses a hex value not in the palette list."
+  ]
+}

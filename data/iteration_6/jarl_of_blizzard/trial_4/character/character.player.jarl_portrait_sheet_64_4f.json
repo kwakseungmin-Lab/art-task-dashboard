@@ -1,0 +1,108 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.jarl_portrait_sheet_64_4f",
+  "asset_name": "Jarl Portrait (HUD) — 64×64 Sheet (4 frames)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P1",
+  "execution_order": 10,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.winter_round_bw_panels_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "ui_portrait",
+    "layer": "ui_hud",
+    "usage": "Top-left portrait used across all phases. Expression varies by blizzard intensity tiers (calm/windy/heavy/panic).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": {
+        "x": 16,
+        "y": 16
+      }
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 4,
+      "fps": 2,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 4,
+        "frame_size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "order": [
+          "calm",
+          "windy",
+          "heavy",
+          "panic"
+        ],
+        "padding_px": 0
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.jarl_portrait_sheet_64_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 256×64px; each frame exactly 64×64px; no spacing.",
+    "Strict grayscale only: use the provided 8-step palette; no colored pixels or anti-aliasing.",
+    "At 1× scale, the four expressions are clearly distinguishable and readable against both #000000 and #E0E0E0 backgrounds."
+  ]
+}

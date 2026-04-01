@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.echo.dirty_3f_2fps",
+  "asset_name": "Echo (Cockatiel) — Dirty (3 frames, 2fps loop)",
+  "category": "character",
+  "subcategory": "player_pet",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": "character.echo.idle_4f_2fps",
+  "depends_on": [
+    "character.echo.idle_4f_2fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.echo.idle_4f_2fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo.idle_4f_2fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "dirty",
+    "layer": "character",
+    "usage": "Echo behavior state: dirty.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        44,
+        42
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#AB5236",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 3,
+      "fps": 2,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      },
+      "loop": true
+    },
+    "pose_notes": [
+      "Eye shape indicates discomfort (half-lidded).",
+      "Include 2-3 dust specks around body using #C2C3C7."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.echo.dirty_3f_2fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 120x40px (3 frames × 40x40) with 0px spacing.",
+    "Animation plays at 2fps and respects loop/play_count settings in specs.animation.",
+    "Sprite remains readable at 1x scale on a 128x128 canvas; no anti-aliasing and only listed colors are used."
+  ],
+  "shared_properties": [
+    "Echo keeps crest, cheek patch, beak, and tail readable in every occupied frame.",
+    "Body footprint stays inside 40x40px and remains centered near x44 y42.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D."
+  ],
+  "differences": [
+    "State_dirty uses 3 frames at 2fps with a persistent discomfort loop.",
+    "Brow angle and beak line communicate discomfort without changing body footprint.",
+    "Pose leaves head clearance for the dust particle effect."
+  ]
+}

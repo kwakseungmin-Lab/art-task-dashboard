@@ -1,0 +1,158 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000002",
+  "asset_key": "dino_air_pose",
+  "asset_name": "Player Dino Air Pose",
+  "category": "character",
+  "subcategory": "player_motion",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": "task_id_801000001",
+  "variant_of_asset_key": "dino_runner_core",
+  "shared_properties": [
+    "Body footprint stays within 88x94 px.",
+    "Primary painted tone remains #535353 with transparent cutouts only.",
+    "Head, torso, and tail landmarks keep the run-core proportion grid."
+  ],
+  "differences": [
+    "Both feet lift clear of the baseline to read airborne travel at the jump apex.",
+    "Tail angle rises by 8 px relative to the grounded body line.",
+    "Jaw line closes into a focused expression with one open eye."
+  ],
+  "depends_on": [
+    "task_id_801000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000001",
+      "task_id_801000010",
+      "task_id_801000005"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    },
+    {
+      "label": "run_loop_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/t-rex-runner-19janil.gif",
+      "purpose": "Run cadence, jump silhouette timing, and restart screen pacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "RunnerTag",
+      "AirborneState",
+      "ColliderAabb",
+      "VelocityY"
+    ],
+    "asset_loading": "Load one 88x94 PNG during Loading state and swap the sprite handle when the runner enters the airborne state.",
+    "runtime_notes": [
+      "Keep the transform anchor at x=80 and y=32 while vertical velocity is nonzero.",
+      "Reuse the grounded collider width of 44 px and height of 90 px for predictable collision timing.",
+      "Bind the sprite swap to the jump state machine transition before gravity integration runs."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "runner_airborne_state",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        32
+      ]
+    },
+    "layer": "character",
+    "usage": "Displayed from takeoff until landing while vertical velocity remains nonzero."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "hitbox_px": {
+      "width": 44,
+      "height": 90,
+      "offset_px": [
+        22,
+        2
+      ]
+    },
+    "jump_profile": {
+      "initial_velocity_y_px_per_frame": -15,
+      "gravity_px_per_frame2": 0.6,
+      "peak_height_px": 90
+    },
+    "silhouette_notes": [
+      "Hind legs tuck upward by 10 px relative to the run core baseline.",
+      "Tail tip rises 8 px to counterbalance the torso.",
+      "Mouth line stays horizontal and spans 12 px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/dino_air_pose.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 88x94 px and keeps transparent padding outside the silhouette.",
+    "All foot pixels sit above the ground contact line to remove grounded ambiguity.",
+    "The sprite reads clearly against #F7F7F7 without anti-aliased edges."
+  ]
+}

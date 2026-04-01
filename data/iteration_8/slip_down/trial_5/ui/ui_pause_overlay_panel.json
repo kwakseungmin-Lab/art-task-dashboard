@@ -1,0 +1,158 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050016",
+  "asset_name": "Pause Overlay Panel",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": [
+    "Overlay canvas stays 200x120px so it fits within the 320x180 internal frame without touching screen edges.",
+    "Text styling aligns to the 8px HUD font scale used by the timer glyph atlas.",
+    "Panel treatment remains low-saturation and semi-transparent so gameplay context is still visible underneath."
+  ],
+  "differences": [
+    "Panel includes title and menu labels for PAUSED, CONTINUE, RESTART, and QUIT within one centered composition.",
+    "Border corners use brighter stone accents to separate the pause state from the darker gameplay field.",
+    "Interior fill uses a restrained alpha-ready pattern rather than a fully opaque slab."
+  ],
+  "depends_on": [
+    "task_id_008050014"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008050014"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050014",
+      "task_id_008050017",
+      "task_id_008050018"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "pause_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        60,
+        30
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Centered pause-state overlay triggered by ESC during active play.",
+    "adjacent_elements": [
+      "task_id_008050014",
+      "task_id_008050017",
+      "task_id_008050018"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_screen",
+      "facing": "forward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 120
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#3B3347",
+      "#D6D0C4",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        200,
+        120
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Centered rectangular panel with inner frame and menu text blocks.",
+      "tiling": "Not tiled.",
+      "collision_read": "UI-only asset with no collision meaning."
+    },
+    "text_content": [
+      "PAUSED",
+      "CONTINUE",
+      "RESTART",
+      "QUIT"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_pause_overlay_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 200x120px.",
+    "All four menu labels sit on an 8px baseline grid and remain readable at 1x scale.",
+    "Panel opacity treatment allows dark gameplay silhouettes to remain visible behind the overlay."
+  ],
+  "asset_key": "ui_pause_overlay_panel",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds HUD contrast, muted dungeon palette, and low-saturation screen overlays for the active widget."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "ImageBundle for the panel with child UI text or atlas-driven labels anchored inside the frame.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Style",
+      "UiNode",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer during the Loading state and keep the overlay handle in a pause UI resource.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Toggle visibility for pause entry instead of spawning and despawning the panel every time.",
+      "Keep the panel anchored to the centered 200x120 safe area to preserve deterministic layout."
+    ]
+  }
+}

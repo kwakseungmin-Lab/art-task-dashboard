@@ -1,0 +1,136 @@
+{
+  "schema_version": "art_task@7",
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "task_id": "ui.widget.status_bubble_set",
+  "asset_name": "Status Bubble Set — hungry, sleeping, happy",
+  "category": "ui",
+  "subcategory": "status_widget",
+  "priority": "P1",
+  "execution_order": 90,
+  "variant_of": null,
+  "shared_properties": [
+    "Speech-bubble frame stays 12x10px for all status cues.",
+    "Cream fill and navy border preserve readability over the warm room background.",
+    "Icons stay minimal and legible near Echo head space."
+  ],
+  "differences": [
+    "This file carries event-driven cue bubbles only.",
+    "Persistent meter and care buttons stay outside this task."
+  ],
+  "depends_on": [
+    "character.echo.behavior_core_sheet_21f"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.echo.behavior_core_sheet_21f"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo.behavior_core_sheet_21f",
+      "character.echo.affection_rest_sheet_20f",
+      "ui.menu.care_popup_icons"
+    ]
+  },
+  "context": {
+    "role": "status_indicator",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        84,
+        34
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Event bubble that appears near Echo during hunger, sleep, or positive care reactions.",
+    "viewpoint": {
+      "camera_angle": "screen_space_orthographic",
+      "facing": "screen_facing_0deg"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 12,
+      "height": 10
+    },
+    "colors_hex": [
+      "#FFF1E8",
+      "#1D2B53",
+      "#FFA300",
+      "#7E2553",
+      "#FF004D"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "hungry_seed",
+        "sleeping_zzz",
+        "happy_heart"
+      ],
+      "frame_count": 3,
+      "frame_size_px": [
+        12,
+        10
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "icon_rules": [
+      "hungry_seed centers a 3x3 seed icon using #FFA300.",
+      "sleeping_zzz uses #7E2553 for a compact ZZZ glyph.",
+      "happy_heart uses #FF004D for a 4x4 heart icon.",
+      "Every state keeps a 1px navy outline and a 1px tail pointing toward Echo."
+    ],
+    "shape": {
+      "silhouette": "12x10 rounded speech bubble with a 1px tail and one centered status glyph.",
+      "components": [
+        "rounded bubble body",
+        "1px tail",
+        "seed glyph state",
+        "ZZZ glyph state",
+        "heart glyph state"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.widget.status_bubble_set.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 36x10px with three 12x10 states.",
+    "Bubble border uses #1D2B53 and fill uses #FFF1E8 in every state.",
+    "Each icon remains readable at 1x scale when placed near world position x=84 y=34.",
+    "Bubble tail points down-left so it visually belongs to Echo instead of the care menu."
+  ]
+}

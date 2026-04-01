@@ -1,0 +1,337 @@
+{
+    "task_id": "obstacles.particles_emotes_atlas",
+    "asset_name": "Emote_Particles_Atlas_32x16",
+    "category": "obstacles",
+    "subcategory": "vfx_particles",
+    "description": "Create a transparent sprite atlas (32x16 px) containing small particle sprites used for emotes: heart, music note, ZZZ, feather, and dust. The atlas is a 4x2 grid of 8x8 cells. All unused pixels must be fully transparent.",
+    "execution_order": 35,
+    "priority": "P2",
+    "context": {
+        "role": "lightweight particles rendered above Echo",
+        "screen_position": {
+            "type": "absolute_px",
+            "x": 0,
+            "y": 0,
+            "anchor": "top_left"
+        },
+        "layer": "vfx",
+        "usage": "Particles are spawned by code and move; each sprite is drawn at 1x scale without rotation."
+    },
+    "relationships": {
+        "related_task_ids": [
+            "character.echo_sprite_sheet",
+            "world.cage_background"
+        ]
+    },
+    "depends_on": [
+        "character.echo_sprite_sheet"
+    ],
+    "blocks": [],
+    "blocked_by": [],
+    "deliverables": [
+        {
+            "file": "obstacles_particles_emotes_atlas_32x16.png",
+            "format": "png",
+            "transparent_background": true,
+            "notes": "Unused pixels are alpha=0."
+        }
+    ],
+    "acceptance_criteria": [
+        "The atlas image is exactly 32x16 px with transparent background.",
+        "Every non-transparent pixel color is one of the 16 hex values in specs.palette_hex.",
+        "Cell size is exactly 8x8 px and sprite pixels do not exceed their cell boundaries.",
+        "Heart sprite is exactly 2x2 px using #FF004D and is centered in its cell.",
+        "All unused pixels are fully transparent (alpha=0)."
+    ],
+    "specs": {
+        "atlas_dimensions_px": {
+            "width": 32,
+            "height": 16
+        },
+        "cell_dimensions_px": {
+            "width": 8,
+            "height": 8
+        },
+        "grid": {
+            "columns": 4,
+            "rows": 2
+        },
+        "palette_hex": [
+            "#000000",
+            "#1D2B53",
+            "#7E2553",
+            "#008751",
+            "#AB5236",
+            "#5F574F",
+            "#C2C3C7",
+            "#FFF1E8",
+            "#FF004D",
+            "#FFA300",
+            "#FFEC27",
+            "#00E436",
+            "#29ADFF",
+            "#83769C",
+            "#FF77A8",
+            "#FFCCAA"
+        ],
+        "max_colors": 16,
+        "sprites": {
+            "heart": {
+                "cell_col": 0,
+                "cell_row": 0,
+                "color_hex": "#FF004D",
+                "pixels_in_cell": [
+                    [
+                        3,
+                        3
+                    ],
+                    [
+                        4,
+                        3
+                    ],
+                    [
+                        3,
+                        4
+                    ],
+                    [
+                        4,
+                        4
+                    ]
+                ]
+            },
+            "music_note": {
+                "cell_col": 1,
+                "cell_row": 0,
+                "fill_color_hex": "#FFEC27",
+                "pixels_in_cell": [
+                    [
+                        2,
+                        1
+                    ],
+                    [
+                        3,
+                        1
+                    ],
+                    [
+                        4,
+                        1
+                    ],
+                    [
+                        4,
+                        2
+                    ],
+                    [
+                        4,
+                        3
+                    ],
+                    [
+                        4,
+                        4
+                    ],
+                    [
+                        3,
+                        4
+                    ],
+                    [
+                        2,
+                        4
+                    ],
+                    [
+                        2,
+                        5
+                    ],
+                    [
+                        3,
+                        5
+                    ]
+                ]
+            },
+            "zzz": {
+                "cell_col": 2,
+                "cell_row": 0,
+                "color_hex": "#1D2B53",
+                "pixels_in_cell": [
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        2,
+                        1
+                    ],
+                    [
+                        3,
+                        1
+                    ],
+                    [
+                        4,
+                        1
+                    ],
+                    [
+                        5,
+                        1
+                    ],
+                    [
+                        5,
+                        2
+                    ],
+                    [
+                        4,
+                        3
+                    ],
+                    [
+                        3,
+                        4
+                    ],
+                    [
+                        2,
+                        5
+                    ],
+                    [
+                        1,
+                        5
+                    ],
+                    [
+                        1,
+                        6
+                    ],
+                    [
+                        2,
+                        6
+                    ],
+                    [
+                        3,
+                        6
+                    ],
+                    [
+                        4,
+                        6
+                    ],
+                    [
+                        5,
+                        6
+                    ]
+                ]
+            },
+            "feather": {
+                "cell_col": 3,
+                "cell_row": 0,
+                "fill_color_hex": "#FFA300",
+                "outline_color_hex": "#FFCCAA",
+                "pixels_by_color": {
+                    "#FFCCAA": [
+                        [
+                            3,
+                            1
+                        ],
+                        [
+                            4,
+                            2
+                        ],
+                        [
+                            5,
+                            3
+                        ],
+                        [
+                            4,
+                            4
+                        ],
+                        [
+                            3,
+                            5
+                        ],
+                        [
+                            2,
+                            6
+                        ]
+                    ],
+                    "#FFA300": [
+                        [
+                            2,
+                            2
+                        ],
+                        [
+                            3,
+                            2
+                        ],
+                        [
+                            3,
+                            3
+                        ],
+                        [
+                            4,
+                            3
+                        ],
+                        [
+                            3,
+                            4
+                        ],
+                        [
+                            2,
+                            4
+                        ],
+                        [
+                            2,
+                            5
+                        ]
+                    ]
+                }
+            },
+            "dust": {
+                "cell_col": 0,
+                "cell_row": 1,
+                "color_hex": "#C2C3C7",
+                "pixels_in_cell": [
+                    [
+                        3,
+                        3
+                    ],
+                    [
+                        4,
+                        3
+                    ],
+                    [
+                        3,
+                        4
+                    ],
+                    [
+                        4,
+                        4
+                    ]
+                ]
+            }
+        }
+    },
+    "project_common": {
+        "game_name": "Pico_Echo",
+        "iteration": 5,
+        "trial_index": 1,
+        "canvas_px": {
+            "width": 128,
+            "height": 128
+        },
+        "palette_hex": [
+            "#000000",
+            "#1D2B53",
+            "#7E2553",
+            "#008751",
+            "#AB5236",
+            "#5F574F",
+            "#C2C3C7",
+            "#FFF1E8",
+            "#FF004D",
+            "#FFA300",
+            "#FFEC27",
+            "#00E436",
+            "#29ADFF",
+            "#83769C",
+            "#FF77A8",
+            "#FFCCAA"
+        ],
+        "pixel_art": {
+            "snap_to_pixel_grid": true,
+            "anti_aliasing": false,
+            "scaling_filter": "nearest_neighbor"
+        }
+    }
+}

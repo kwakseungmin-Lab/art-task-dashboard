@@ -1,0 +1,173 @@
+{
+  "task_id": "task_id_000008508",
+  "asset_key": "ui_hand_card_strip_440x140",
+  "asset_name": "Hand Card Strip — five-slot selection row",
+  "subcategory": "hand",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the project core palette copy #D4AF37/#2B1B17/#00FFFF.",
+    "Five card slots fit the documented 80x120 px card size with 10 px horizontal gaps.",
+    "Panel anchors to the bottom-center overlay camera zone."
+  ],
+  "differences": [
+    "This file carries the full hand strip with idle, hover, and disabled-cost states.",
+    "Card art thumbnails stay outside this task and can be layered inside the slot windows at runtime."
+  ],
+  "depends_on": [
+    "task_id_000008501",
+    "task_id_000008503"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000008501",
+    "task_id_000008503"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000008503",
+      "task_id_000008509",
+      "task_id_000008510"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "duel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png",
+      "purpose": "Ground card-row density and slot spacing."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground 80x120 px card slots, five-card hand limit, and cost strip placement."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_3x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "UiNodeAnchor",
+      "HandCardStrip"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_5/ui_hand_card_strip_440x140.png with AssetServer during Loading state and store the handle under ui_hand_card_strip_440x140.",
+    "runtime_notes": [
+      "Create a 3-column TextureAtlasLayout for idle, hover, and disabled-cost states.",
+      "Anchor the strip to the overlay camera at x=740 y=920.",
+      "Render card thumbnails as child entities clipped inside the 80x120 slot windows."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hand_card_row",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        740,
+        920
+      ]
+    },
+    "layer": "ui",
+    "usage": "Persistent overlay row for card selection, hover confirmation, and disabled-cost feedback."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 440,
+      "height": 140
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#BDC3C7",
+      "#8E44AD",
+      "#2B1B17",
+      "#00FFFF"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "idle",
+        "hover_focus",
+        "cost_disabled"
+      ],
+      "frame_count": 3,
+      "frame_size_px": [
+        440,
+        140
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "slot_layout": {
+      "slot_count": 5,
+      "slot_size_px": [
+        80,
+        120
+      ],
+      "horizontal_gap_px": 10,
+      "outer_padding_px": [
+        0,
+        10,
+        0,
+        10
+      ]
+    },
+    "shape": {
+      "silhouette": "Five-card horizontal strip with gold frames, navy panel fill, and a slim cost rail.",
+      "components": [
+        "five card slots",
+        "cost rail",
+        "hover glow frame",
+        "disabled cost overlay"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_hand_card_strip_440x140.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet canvas is exactly 1320x140 px with three 440x140 states.",
+    "Each card slot window is exactly 80x120 px and the horizontal gap is exactly 10 px.",
+    "Disabled-cost state darkens the slot fill while preserving the gold frame outline at 2 px thickness."
+  ],
+  "schema_version": "art_task@8",
+  "category": "ui"
+}

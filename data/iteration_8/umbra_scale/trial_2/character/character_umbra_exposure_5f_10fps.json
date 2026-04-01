@@ -1,0 +1,168 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020104",
+  "asset_key": "character_umbra_exposure_5f_10fps",
+  "asset_name": "Umbra Exposure Damage State (5 frames, 10fps)",
+  "category": "character",
+  "subcategory": "player_state",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": "task_id_008020101",
+  "variant_of_asset_key": "character_umbra_idle_6f_8fps",
+  "shared_properties": [
+    "Umbra keeps the 32x48 px silhouette envelope and center-bottom pivot established by the idle base state.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while flare colors stay inside specs.colors_hex.",
+    "Eye-glow position and mist-fringe contour remain recognizable so the state still reads as Umbra."
+  ],
+  "differences": [
+    "Five frames add intense white-edge bloom and torso contraction to show direct light contact increasing exposure.",
+    "The flare pattern alternates between left and right body edges to stay readable under multiple beam directions.",
+    "Amber fracture lines appear only on peak danger frames to signal imminent HP loss."
+  ],
+  "depends_on": [
+    "task_id_008020101"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020101"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020101",
+      "task_id_008020109",
+      "task_id_008020113",
+      "task_id_008020114"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds exposure buildup, HP loss, and the exposure animation state in the GDD."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the contrast between safe darkness and hazardous white light."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette so the damage state remains recognizable."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with exposure-state timers.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility",
+      "UmbraActor",
+      "ExposureState"
+    ],
+    "asset_loading": "Load the exposure atlas during FloorLoading and use it while ExposureState indicates active beam contact.",
+    "runtime_notes": [
+      "Pulse frames at 10 fps while exposure is nonzero.",
+      "Render the sheet above shadow-safe overlays.",
+      "Avoid procedural color shifts beyond the authored atlas frames."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "exposure_damage_state",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        940,
+        648
+      ]
+    },
+    "layer": "character",
+    "usage": "Damage feedback state used whenever Umbra overlaps a light-danger region and the exposure meter is climbing.",
+    "adjacent_elements": [
+      "task_id_008020109",
+      "task_id_008020113",
+      "task_id_008020114"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 5,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        48
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 1
+      }
+    },
+    "pose_notes": [
+      "Peak flare expands 2 px beyond the shoulder line.",
+      "Amber fracture lines occupy fewer than 12 visible pixels per frame.",
+      "The lowest mist fringe remains anchored to the baseline."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_umbra_exposure_5f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 160x48 px with 5 frames of 32x48 px and 0 px spacing.",
+    "White-edge bloom reads as beam danger without hiding Umbra silhouette identity.",
+    "The state is visually distinct from idle, run, and grab within one glance."
+  ]
+}

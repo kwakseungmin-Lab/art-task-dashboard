@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050014",
+  "asset_name": "Survival Timer Digits 8px",
+  "category": "ui",
+  "subcategory": "hud_font",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": [
+    "Timer glyphs keep a strict 8px cap height to match the Press Start 2P HUD scale in the GDD.",
+    "Digits remain monochrome so time readout does not overpower gameplay art.",
+    "Each glyph cell preserves consistent side bearings for stable MM:SS composition."
+  ],
+  "differences": [
+    "Atlas is 88x8px with glyph cells for numerals 0 through 9 plus a colon.",
+    "The glyph set is optimized for right-aligned timer layout at the top-right safe area.",
+    "Colon spacing is narrower than numeral spacing so the MM:SS grouping stays compact."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050001",
+      "task_id_008050016",
+      "task_id_008050017",
+      "task_id_008050018"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_timer",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        224,
+        8
+      ]
+    },
+    "layer": "ui",
+    "usage": "Monospaced bitmap digits used to render the survival timer in MM:SS format.",
+    "adjacent_elements": [
+      "task_id_008050001",
+      "task_id_008050016",
+      "task_id_008050017",
+      "task_id_008050018"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_screen",
+      "facing": "forward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 8
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 11,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        8,
+        8
+      ],
+      "layout": {
+        "columns": 11,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Blocky 8px HUD glyphs with square corners and open counters.",
+      "tiling": "Not tiled.",
+      "collision_read": "UI-only asset with no collision meaning."
+    },
+    "glyphs": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      ":"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_survival_timer_digits_8px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas size is exactly 88x8px with eleven 8x8px glyph cells.",
+    "Digits compose a readable MM:SS timer within a 40px-wide live HUD string.",
+    "The colon glyph remains legible at 1x scale and does not collapse into the numeral stems."
+  ],
+  "asset_key": "ui_survival_timer_digits_8px",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds HUD contrast, muted dungeon palette, and low-saturation screen overlays for the active widget."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Texture-atlas-backed UI glyph rendering for a screen-space timer node.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "Style",
+      "UiNode",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer during the Loading state and store the atlas in a timer HUD resource.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Compose MM:SS from atlas indices instead of rasterizing dynamic text at runtime.",
+      "Right-align the timer node to whole pixels so digit spacing stays crisp."
+    ]
+  }
+}

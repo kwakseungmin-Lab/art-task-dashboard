@@ -1,0 +1,123 @@
+{
+  "schema_version": "art_task@7",
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "task_id": "world.cage.foreground_bar_overlay",
+  "asset_name": "Cage Foreground Bars Overlay",
+  "category": "world",
+  "subcategory": "environment_overlay",
+  "priority": "P1",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": [
+    "Uses the locked 128x128 cage framing.",
+    "Keeps front-facing cozy pet-room mood.",
+    "Reads cleanly at 1x scale with 1px pixel edges."
+  ],
+  "differences": [
+    "This file is transparent outside the bars and top rim.",
+    "The room shell color fields stay outside this task."
+  ],
+  "depends_on": [
+    "world.cage.room_shell_static"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.cage.room_shell_static"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage.room_shell_static",
+      "character.echo.behavior_core_sheet_21f"
+    ]
+  },
+  "context": {
+    "role": "foreground_frame",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_foreground",
+    "usage": "Transparent front bars add cage depth while leaving Echo and UI readable.",
+    "viewpoint": {
+      "camera_angle": "front_2d_orthographic",
+      "facing": "screen_facing_0deg"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#C2C3C7",
+      "#1D2B53"
+    ],
+    "animation": null,
+    "bar_layout": {
+      "vertical_bar_count": 7,
+      "bar_width_px": 1,
+      "gap_pattern_px": [
+        15,
+        16,
+        15,
+        16,
+        15,
+        16
+      ],
+      "top_rim_height_px": 6
+    },
+    "shape": {
+      "silhouette": "128x128 transparent overlay with seven 1px vertical bars, a 6px top rim, and open interior visibility.",
+      "components": [
+        "7 vertical bars",
+        "6px top rim",
+        "left frame rail",
+        "right frame rail",
+        "transparent interior"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.cage.foreground_bar_overlay.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay canvas is 128x128px with transparency outside the cage bars and top rim.",
+    "Seven 1px vertical bars extend from y=6 to y=109 and do not cover the full 40x40 Echo body box.",
+    "All opaque pixels use #C2C3C7 or #1D2B53 only.",
+    "Bottom floor area from y=110 to y=127 stays transparent so cleanup states remain visible."
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000802",
+  "asset_key": "world_cage_foreground_bar_overlay",
+  "asset_name": "Cage Foreground Bars Overlay",
+  "category": "world",
+  "subcategory": "environment_overlay",
+  "priority": "P1",
+  "execution_order": 20,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the locked 128x128 cage framing.",
+    "Keeps the front-facing cozy pet-room mood.",
+    "Reads cleanly at 1x scale with 1px pixel edges."
+  ],
+  "differences": [
+    "This file is transparent outside the bars and top rim.",
+    "The room shell color fields stay outside this task."
+  ],
+  "depends_on": [
+    "task_id_000000801"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000801"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000801",
+      "task_id_000000805"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "proxy_environment_spacing",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_A2/_ReferenceImages/background.png",
+      "purpose": "Proxy environment reference for bar spacing and top-rim framing."
+    },
+    {
+      "label": "proxy_character_silhouette",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/echo_detective/_images/player.png",
+      "purpose": "Proxy sprite reference for leaving the Echo body box readable behind the bars."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static_texture_overlay",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "CageForegroundBars"
+    ],
+    "asset_loading": "Load assets/art/pico_echo/trial_5/world_cage_foreground_bar_overlay.png with AssetServer during Loading state and store the handle under world_cage_foreground_bar_overlay.",
+    "runtime_notes": [
+      "Render this overlay at a higher z value than Echo so the front bars sell cage depth.",
+      "Keep the lower floor area transparent so cleanup feedback remains visible.",
+      "Use integer translation values so the 1px bars do not flicker."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FFA300"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "foreground_frame",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_foreground",
+    "usage": "Transparent front bars add cage depth while leaving Echo and UI readable."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#C2C3C7",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "static_sprite",
+      "frame_count": 1,
+      "loop": false,
+      "frame_size_px": [
+        128,
+        128
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "bar_layout": {
+      "vertical_bar_count": 7,
+      "bar_width_px": 1,
+      "gap_pattern_px": [
+        15,
+        16,
+        15,
+        16,
+        15,
+        16
+      ],
+      "top_rim_height_px": 6
+    },
+    "shape": {
+      "silhouette": "128x128 transparent overlay with seven 1px vertical bars, a 6px top rim, and open interior visibility.",
+      "components": [
+        "7 vertical bars",
+        "6px top rim",
+        "left frame rail",
+        "right frame rail",
+        "transparent interior"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_cage_foreground_bar_overlay.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay canvas is 128x128px with transparency outside the cage bars and top rim.",
+    "Seven 1px vertical bars extend from y=6 to y=109 and do not cover the full 40x40 Echo body box.",
+    "All opaque pixels use #C2C3C7 or #1D2B53 only.",
+    "Bottom floor area from y=110 to y=127 stays transparent so cleanup states remain visible."
+  ]
+}

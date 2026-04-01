@@ -1,0 +1,99 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.dino_duck_2f_12fps",
+  "asset_name": "Player Dino — Duck (2 frames, 12fps loop)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P1",
+  "execution_order": 40,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_run_2f_12fps",
+      "obstacles.pterodactyl.fly_2f_10fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "duck",
+    "layer": "character",
+    "usage": "Used when player holds Down/Swipe Down; lower hitbox.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        84
+      ]
+    },
+    "notes": "Matches GDD Player sprite spec: 118x60, 2 frames @ 12fps."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 118,
+      "height": 60
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        118,
+        60
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Body lowered; head forward; tail extended.",
+      "Ensure bounding box is wider than run pose (118px)."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_duck_2f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 236x60px (2×118x60).",
+    "Duck silhouette is clearly lower than run; top of head at least 20px lower than run pose."
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "task_id": "obstacles.seed_sprite",
+  "asset_name": "Seed_Sprite_3x3_in_8x8",
+  "category": "obstacles",
+  "subcategory": "collectible_food",
+  "description": "Create a transparent 8x8 px sprite containing a 3x3 seed particle centered at x=2..4, y=2..4. The seed uses #FFEC27 for the main pixels and #FFA300 for one highlight pixel. All other pixels must be fully transparent.",
+  "execution_order": 25,
+  "priority": "P1",
+  "context": {
+    "role": "seed icon used for hungry indicators and food visuals",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "anchor": "top_left"
+    },
+    "layer": "world_overlay",
+    "usage": "Used in UI bubble and optional particle spawns; sprite is drawn at 1x scale."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud_atlas",
+      "world.bowl_contents_atlas"
+    ]
+  },
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "file": "obstacles_seed_sprite_8x8.png",
+      "format": "png",
+      "transparent_background": true,
+      "notes": "All pixels except the 3x3 seed are alpha=0."
+    }
+  ],
+  "acceptance_criteria": [
+    "The output image is exactly 8x8 px with transparent background.",
+    "Seed occupies exactly a 3x3 pixel area at x=2..4, y=2..4.",
+    "Seed colors are only #FFEC27 and #FFA300.",
+    "All other pixels are fully transparent (alpha=0)."
+  ],
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 8
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "seed": {
+      "rect_px": {
+        "x_start": 2,
+        "x_end": 4,
+        "y_start": 2,
+        "y_end": 4
+      },
+      "main_color_hex": "#FFEC27",
+      "highlight_color_hex": "#FFA300",
+      "highlight_pixel_in_seed_rect": [
+        0,
+        0
+      ]
+    }
+  },
+  "project_common": {
+    "game_name": "Pico_Echo",
+    "iteration": 5,
+    "trial_index": 4,
+    "canvas_px": {
+      "width": 128,
+      "height": 128
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "pixel_art": {
+      "snap_to_pixel_grid": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor"
+    }
+  }
+}

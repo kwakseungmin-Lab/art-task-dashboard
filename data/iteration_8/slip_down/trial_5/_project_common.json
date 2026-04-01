@@ -1,0 +1,336 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "slip_down",
+    "project_name": "SLIP DOWN"
+  },
+  "meta": {
+    "plan_id": "slip_down__iter8__trial5",
+    "game_name": "slip_down",
+    "iteration": 8,
+    "trial_index": 5,
+    "plan_dir": "trial_5",
+    "created_at_utc": "2026-03-25T08:52:39Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md",
+    "run_id": "20260325_085239_53910769"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the prison shaft palette, cold stone atmosphere, and vertical descent composition."
+    },
+    {
+      "label": "slip_down_player_reference",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds the prisoner silhouette, cloth rhythm, and 16x24px character scale used in gameplay."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 0.13 2D sprites with ImagePlugin::default_nearest(), SpriteBundle for static art, TextureAtlasLayout plus SpriteSheetBundle for animated sheets, and bevy_ecs_tilemap for 16x16 shaft surfaces.",
+    "ecs_model": "Store handles in resources and drive art swaps with components such as DescenderState, FrictionSurface, HazardTag, GoalGateTag, and HudWidgetTag.",
+    "asset_loading": "Preload all package textures through AssetServer during a Loading state, cache atlas layouts in typed resources, and keep screen-space UI assets in dedicated HUD resources.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Run descent physics in FixedUpdate at 60 FPS with manual Transform updates instead of rapier2d.",
+      "Keep the backdrop on a 0.4x parallax layer and keep the HUD free of any progress bar or floor counter."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "friction_descent_control",
+      "label": "Friction Descent Control",
+      "description": "Covers free-fall, wall braking, slick floor acceleration, and medium-friction resets that define route selection without any jump input.",
+      "critical_states": [
+        "free_fall",
+        "left_wall_brake",
+        "dual_wall_brake",
+        "slick_floor_surge",
+        "medium_friction_reset"
+      ],
+      "task_ids": [
+        "task_id_008050005",
+        "task_id_008050006",
+        "task_id_008050002",
+        "task_id_008050003",
+        "task_id_008050004",
+        "task_id_008050015"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008050015"
+      ]
+    },
+    {
+      "mechanic_id": "hazard_damage_loop",
+      "label": "Hazard Damage Loop",
+      "description": "Covers hazard contact, damage flash, HP readability, and the fail-state summary after health loss.",
+      "critical_states": [
+        "hazard_contact",
+        "damage_flash",
+        "invulnerability_window",
+        "hp_drop",
+        "game_over"
+      ],
+      "task_ids": [
+        "task_id_008050005",
+        "task_id_008050007",
+        "task_id_008050008",
+        "task_id_008050009",
+        "task_id_008050013",
+        "task_id_008050017"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008050013",
+        "task_id_008050017"
+      ]
+    },
+    {
+      "mechanic_id": "moving_force_route_flow",
+      "label": "Moving Force Route Flow",
+      "description": "Covers moving platform timing, wind vent acceleration, timer persistence, and the backdrop cues that frame the downward route.",
+      "critical_states": [
+        "platform_board",
+        "platform_release",
+        "wind_accelerate",
+        "camera_follow",
+        "shaft_readability"
+      ],
+      "task_ids": [
+        "task_id_008050001",
+        "task_id_008050010",
+        "task_id_008050011",
+        "task_id_008050014",
+        "task_id_008050015"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008050014",
+        "task_id_008050015"
+      ]
+    },
+    {
+      "mechanic_id": "run_state_overlays_and_goal",
+      "label": "Run State Overlays and Goal",
+      "description": "Covers the pause overlay, exit gate, and end-state panels used for restart or clear confirmation.",
+      "critical_states": [
+        "pause_menu",
+        "restart_ready",
+        "exit_contact",
+        "clear_hold",
+        "title_return"
+      ],
+      "task_ids": [
+        "task_id_008050012",
+        "task_id_008050016",
+        "task_id_008050017",
+        "task_id_008050018",
+        "task_id_008050014"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008050014",
+        "task_id_008050016",
+        "task_id_008050017",
+        "task_id_008050018"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_008050001",
+      "asset_key": "world_abyss_depth_backdrop",
+      "category": "world",
+      "file": "world/world_abyss_depth_backdrop.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050002",
+      "asset_key": "world_stone_wall_high_friction_strip",
+      "category": "world",
+      "file": "world/world_stone_wall_high_friction_strip.json",
+      "execution_order": 20,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050003",
+      "asset_key": "world_slick_floor_strip",
+      "category": "world",
+      "file": "world/world_slick_floor_strip.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050004",
+      "asset_key": "world_mossy_floor_strip",
+      "category": "world",
+      "file": "world/world_mossy_floor_strip.json",
+      "execution_order": 40,
+      "variant_of": "task_id_008050003",
+      "variant_of_asset_key": "world_slick_floor_strip"
+    },
+    {
+      "task_id": "task_id_008050005",
+      "asset_key": "character_prisoner_fall_4f_8fps",
+      "category": "character",
+      "file": "character/character_prisoner_fall_4f_8fps.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050006",
+      "asset_key": "character_prisoner_wall_brace_2f_6fps",
+      "category": "character",
+      "file": "character/character_prisoner_wall_brace_2f_6fps.json",
+      "execution_order": 60,
+      "variant_of": "task_id_008050005",
+      "variant_of_asset_key": "character_prisoner_fall_4f_8fps"
+    },
+    {
+      "task_id": "task_id_008050007",
+      "asset_key": "character_prisoner_hurt_flash_2f_12fps",
+      "category": "character",
+      "file": "character/character_prisoner_hurt_flash_2f_12fps.json",
+      "execution_order": 70,
+      "variant_of": "task_id_008050005",
+      "variant_of_asset_key": "character_prisoner_fall_4f_8fps"
+    },
+    {
+      "task_id": "task_id_008050008",
+      "asset_key": "obstacles_spike_cluster_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_spike_cluster_static.json",
+      "execution_order": 80,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050009",
+      "asset_key": "obstacles_saw_blade_spin_8f_24fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_saw_blade_spin_8f_24fps.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050010",
+      "asset_key": "obstacles_moving_platform_moss_2f_4fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_moving_platform_moss_2f_4fps.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050011",
+      "asset_key": "obstacles_wind_vent_glow_4f_8fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_wind_vent_glow_4f_8fps.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050012",
+      "asset_key": "world_exit_gate_6f_6fps",
+      "category": "world",
+      "file": "world/world_exit_gate_6f_6fps.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050013",
+      "asset_key": "ui_hp_torch_icons",
+      "category": "ui",
+      "file": "ui/ui_hp_torch_icons.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050014",
+      "asset_key": "ui_survival_timer_digits_8px",
+      "category": "ui",
+      "file": "ui/ui_survival_timer_digits_8px.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050015",
+      "asset_key": "ui_friction_gauge_bar",
+      "category": "ui",
+      "file": "ui/ui_friction_gauge_bar.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050016",
+      "asset_key": "ui_pause_overlay_panel",
+      "category": "ui",
+      "file": "ui/ui_pause_overlay_panel.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050017",
+      "asset_key": "ui_game_over_summary_panel",
+      "category": "ui",
+      "file": "ui/ui_game_over_summary_panel.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050018",
+      "asset_key": "ui_clear_summary_panel",
+      "category": "ui",
+      "file": "ui/ui_clear_summary_panel.json",
+      "execution_order": 180,
+      "variant_of": "task_id_008050017",
+      "variant_of_asset_key": "ui_game_over_summary_panel"
+    }
+  ]
+}

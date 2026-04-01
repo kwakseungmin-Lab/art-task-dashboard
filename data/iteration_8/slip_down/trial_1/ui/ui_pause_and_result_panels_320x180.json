@@ -1,0 +1,161 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008001017",
+  "asset_key": "ui_pause_and_result_panels_320x180",
+  "asset_name": "Pause and Result Panel Set",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P1",
+  "execution_order": 170,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008001014",
+    "task_id_008001016"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008001014",
+    "task_id_008001016"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008001003",
+      "task_id_008001008",
+      "task_id_008001014",
+      "task_id_008001016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use one ImageBundle sheet for full-screen overlays and toggle sub-rect usage according to the active overlay state.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "HudOverlay",
+      "FullscreenPanel"
+    ],
+    "asset_loading": "Load ui/ui_pause_and_result_panels_320x180.png through AssetServer and display it on a centered overlay node when pause, fail, or clear states activate.",
+    "runtime_notes": [
+      "Panel sheet aligns to the 320x180 internal canvas and scales uniformly to the 1280x720 presentation.",
+      "Overlay capture hides the friction gauge while preserving timer and record text anchors.",
+      "Game-over and clear states reuse the same panel sheet to reduce style drift."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "overlay_panel_set",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        360
+      ]
+    },
+    "layer": "ui_fullscreen",
+    "usage": "Full-screen panel sheet for pause, game over, and clear states inside the 320x180 internal canvas.",
+    "adjacent_elements": [
+      "ui_hp_torch_strip_3slot_24x8",
+      "ui_survival_timer_48x16",
+      "world_exit_gate_6f_32x32"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 180
+    },
+    "colors_hex": [
+      "#0D0D0F",
+      "#D6D0C4",
+      "#E07B39",
+      "#C8A84B",
+      "#8B2020"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single panel sheet containing pause frame, game-over frame, and clear frame zones with centered title blocks and button callouts.",
+      "components": [
+        "pause_frame",
+        "game_over_frame",
+        "clear_frame",
+        "title_block",
+        "button_callouts"
+      ]
+    },
+    "layout": {
+      "anchor": "center",
+      "internal_canvas_px": [
+        320,
+        180
+      ]
+    },
+    "ui_states": [
+      "pause",
+      "game_over",
+      "clear"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_pause_and_result_panels_320x180.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 320x180 px.",
+    "Pause, game-over, and clear zones remain visually distinct through border color and title treatment.",
+    "Centered title block leaves at least 16 px of margin from the outer frame on all sides."
+  ]
+}

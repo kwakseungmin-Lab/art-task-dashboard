@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000003",
+  "asset_name": "Prisoner Hit Flash (2 frames, 12fps)",
+  "category": "character",
+  "subcategory": "damage_state",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": "task_id_802000001",
+  "variant_of_asset_key": "character_prisoner_fall_4f_8fps",
+  "shared_properties": [
+    "Prisoner silhouette stays inside 16x24 px with the cuffed wrists, cropped hair, and orange shoulder stripe preserved.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while the hit flash color stays inside specs.colors_hex.",
+    "The pose remains aligned to the downward centerline so invulnerability feedback can swap in without shifting collision perception."
+  ],
+  "differences": [
+    "Two frames alternate between a normal outline and a red-tinted flash overlay that covers at least 65% of occupied pixels.",
+    "The torso shakes laterally by 2 px between frames to reinforce the 4 px screen-shake event described in the GDD.",
+    "Hands open and knees spread by 1 px to convey damage impact instead of controlled descent."
+  ],
+  "depends_on": [
+    "task_id_802000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_802000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000001",
+      "task_id_802000004",
+      "task_id_802000006",
+      "task_id_802000014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the 0.2 second damage flash, 1.5 second invulnerability window, and no-knockback hit response for the player sprite."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the oppressive dungeon contrast so the hit flash can spike against a dark shaft without over-brightening the scene."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds the prisoner base silhouette so the hurt sheet remains recognizably the same character during impact."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with TextureAtlasLayout and a fixed-step animation timer driven by Bevy 0.13 FixedUpdate.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer during a Loading state, register the atlas handle by task_id and asset_key, and keep animation metadata in a typed DescentActorVisual resource.",
+    "runtime_notes": [
+      "Advance frames at the authored fps inside FixedUpdate so movement logic and animation cadence stay locked at 60 FPS.",
+      "Use flip_x for mirrored wall contact instead of authoring an extra right-facing sheet.",
+      "Snap the actor Transform to whole pixels after motion integration so the 16x24 silhouette stays crisp on the 4x upscale."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "damage_flash",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        632,
+        224
+      ]
+    },
+    "layer": "character",
+    "usage": "Player visual used immediately after spike or saw contact.",
+    "adjacent_elements": [
+      "task_id_802000004",
+      "task_id_802000006"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#E07B39",
+      "#3B3347",
+      "#0D0D0F",
+      "#8B2020",
+      "#F5A623"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        16,
+        24
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "impact_notes": [
+      "Flash frame replaces mid-tone cloth pixels with #8B2020 and #F5A623 accents.",
+      "Frame offset alternates between x0 and x2 within the 16 px width to support a jitter effect.",
+      "Head remains fully inside the canvas so the hurt sheet does not clip during rapid swaps."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_prisoner_hit_flash_2f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 32x24 px with 2 frames of 16x24 px and 0 px spacing.",
+    "Flash cadence supports a visible 12 fps alternation and the bright frame covers at least 65% of occupied pixels with damage hues.",
+    "Character identity stays readable after tinting and no anti-aliased blends appear."
+  ],
+  "asset_key": "character_prisoner_hit_flash_2f_12fps"
+}

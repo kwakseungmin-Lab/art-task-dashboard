@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.ground.texture_1200x10",
+  "asset_name": "Ground Texture Strip",
+  "category": "world",
+  "subcategory": "ground",
+  "priority": "P1",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [
+    "world.ground.line_1200x2"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.ground.line_1200x2"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.ground.line_1200x2",
+      "obstacles.cactus.small_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_texture",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        140
+      ]
+    },
+    "layer": "world_front",
+    "usage": "Adds sparse rock and scrub pixels below the ground baseline inside a 10 px band.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "obstacles.cactus.small_static"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 10
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Horizontal texture band with isolated rock clusters and scrub marks distributed across 1200 px width.",
+      "components": [
+        "rock_cluster_small",
+        "rock_cluster_medium",
+        "scrub_mark"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground.texture_1200x10.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 1200x10 px.",
+    "Opaque pixel density stays below 20 percent of the 12000 px area.",
+    "Texture band tiles seamlessly at the left and right edges."
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "project_common": {
+    "project": {
+      "project_id": "chrome_dino_runner",
+      "project_name": "Chrome Dino Runner",
+      "iteration": 5,
+      "trial": 5
+    },
+    "canvas": {
+      "resolution_px": { "width": 600, "height": 150 },
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "baseline_y_px": 148,
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      }
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "accent_hex": "#FF0000"
+    },
+    "style": {
+      "art_style": "pixel_art_8bit_minimal",
+      "theme": "prehistoric_desert",
+      "outline": { "enabled": true, "thickness_px": 2, "color_hex": "#535353" },
+      "max_colors_total": 3
+    },
+    "export_defaults": {
+      "format": "png",
+      "scale": "1x",
+      "transparent_background_default": true
+    }
+  },
+  "task_id": "character.player.idle",
+  "asset_name": "Player Idle Pose (single frame)",
+  "category": "character",
+  "subcategory": "player_state_idle",
+  "execution_order": 10,
+  "priority": "P0",
+  "depends_on": [],
+  "blocks": [
+    "character.player.run",
+    "character.player.jump",
+    "character.player.duck",
+    "character.player.dead"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.ground.line",
+      "world.ground.texture",
+      "ui.widget.score_display"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_5/character/player_idle/player_idle_88x94.png",
+      "dimensions_px": { "width": 88, "height": 94 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 88x94 px with transparent background.",
+    "Visible pixels use only #535353 (no other color codes).",
+    "Sprite baseline aligns so the lowest visible foot pixel sits at y=148 when drawn with anchor=top_left at (x=100,y=54) on a 600x150 canvas."
+  ],
+  "description": "Single-frame idle pose for the player dino used as the base silhouette for other states. Canvas for the sprite is 88x94 px. Use #535353 only with a 2 px outline in #535353 and transparent background.",
+  "specs": {
+    "dimensions_px": { "width": 88, "height": 94 },
+    "outline": { "enabled": true, "thickness_px": 2, "color_hex": "#535353" },
+    "allowed_colors_hex": ["#535353"],
+    "transparent_background": true,
+    "animation": { "frame_count": 1, "fps": 6, "loop": true }
+  },
+  "context": {
+    "role": "player_character",
+    "screen_position": { "type": "absolute_px", "x": 100, "y": 54, "anchor": "top_left" },
+    "layer": "character",
+    "usage": ["in_game", "running_mode"]
+  }
+}

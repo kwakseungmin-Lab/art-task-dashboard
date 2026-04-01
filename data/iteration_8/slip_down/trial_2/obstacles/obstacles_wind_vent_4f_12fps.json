@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000007",
+  "asset_name": "Wind Vent (16x16, 4 frames, 12fps)",
+  "category": "obstacles",
+  "subcategory": "force_emitter",
+  "priority": "P1",
+  "execution_order": 70,
+  "variant_of": null,
+  "shared_properties": [
+    "Vent footprint remains 16x16 px with a gridded stone housing aligned to the dungeon tile grid.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while airflow colors stay inside specs.colors_hex.",
+    "Air direction always reads downward through vertical streaks rather than radial bursts."
+  ],
+  "differences": [
+    "Four frames animate bright airflow streaks and grille highlights to indicate a 200 px per second downward force field.",
+    "Slick-blue wind channels occupy the central 6 px column and pulse every other frame for readability.",
+    "Stone casing remains static while only inner flow lines animate so collision interpretation stays stable."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000001",
+      "task_id_802000016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the 16x16 wind vent, downward acceleration rule, and late-run environmental hazard behavior."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the damp dungeon ambience and cool-color accent used for non-contact environmental forces."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player scale so the airflow opening feels aligned to the 16x24 prisoner body width."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for static hazards or SpriteSheetBundle for animated hazards, all rendered with nearest-neighbor sampling.",
+    "atlas_or_static": "mixed_static_and_texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load hazard textures and atlases during the shared Loading state and expose handles through HazardVisualRegistry keyed by asset_key.",
+    "runtime_notes": [
+      "Keep collision volumes in gameplay components rather than inferring them from visual pixels.",
+      "Align every hazard origin to the 16x16 grid unless the authored size is 24x24 or 48x16 by design.",
+      "Use visibility toggles or atlas index changes instead of runtime texture swaps to avoid hitching during repeated descent loops."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "force_emitter",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        688,
+        264
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Environmental block that accelerates the player downward inside abyss routes.",
+    "adjacent_elements": [
+      "task_id_802000010"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#4A90A4",
+      "#8FA8B8",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        16,
+        16
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "flow_notes": [
+      "Central vent slot is 6 px wide and occupies x5-x10.",
+      "Each frame includes at least two vertical airflow streaks from y3 to y13.",
+      "Outer casing keeps a 1 px outline on all four edges."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_wind_vent_4f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 64x16 px with 4 frames of 16x16 px and 0 px spacing.",
+    "Every frame preserves a static 16x16 casing while only airflow lines and inner glow pixels change.",
+    "Airflow colors include #4A90A4 or #8FA8B8 in every frame so the force source is readable without text."
+  ],
+  "asset_key": "obstacles_wind_vent_4f_12fps",
+  "variant_of_asset_key": null
+}

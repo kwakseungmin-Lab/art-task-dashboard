@@ -1,0 +1,142 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 3,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "world.clouds.set",
+  "asset_name": "clouds_set",
+  "category": "world",
+  "subcategory": "background",
+  "description": "Two cloud sprite variants for parallax background: small 46x14 and large 92x27. Use #535353 on transparent background.",
+  "context": {
+    "role": "parallax_clouds",
+    "layer": "world_background",
+    "usage": "Decorative background elements that move at 50% of ground speed.",
+    "screen_position": {
+      "type": "range_px",
+      "x_range_px": [
+        -100,
+        700
+      ],
+      "y_range_px": [
+        10,
+        40
+      ],
+      "anchor": "top_left"
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "world.background.sky_fill_600x150"
+    ]
+  },
+  "depends_on": [
+    "world.background.sky_fill_600x150"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.sky_fill_600x150"
+  ],
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Art/Source/Chrome_Dino_Runner/world/clouds_set.aseprite",
+      "notes": "Two sprites on separate layers: cloud_small_46x14, cloud_large_92x27."
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/world/cloud_small_46x14/cloud_small_46x14.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 46,
+        "height": 14
+      }
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/world/cloud_large_92x27/cloud_large_92x27.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 92,
+        "height": 27
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "cloud_small_46x14.png is exactly 46x14 px with a transparent background.",
+    "cloud_large_92x27.png is exactly 92x27 px with a transparent background.",
+    "All non-transparent pixels use #535353 only.",
+    "Silhouette reads as a cloud at 1x scale with no single-pixel noise."
+  ],
+  "priority": "P0",
+  "execution_order": 15,
+  "specs": {
+    "variants": [
+      {
+        "name": "cloud_small_46x14",
+        "dimensions_px": {
+          "width": 46,
+          "height": 14
+        },
+        "color_hex": "#535353",
+        "transparent_background": true
+      },
+      {
+        "name": "cloud_large_92x27",
+        "dimensions_px": {
+          "width": 92,
+          "height": 27
+        },
+        "color_hex": "#535353",
+        "transparent_background": true
+      }
+    ],
+    "parallax": {
+      "scroll_speed_multiplier": 0.5
+    },
+    "spawn_rules": {
+      "spawn_interval_seconds_range": [
+        5,
+        10
+      ],
+      "spawn_probability": 0.3,
+      "max_on_screen": 3,
+      "y_range_px": [
+        10,
+        40
+      ],
+      "despawn_x_px": -100,
+      "respawn_x_px": 700
+    }
+  }
+}

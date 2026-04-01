@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline",
+    "rendering": "pixel-perfect, no anti-aliasing"
+  },
+  "category": "obstacles",
+  "category_common": {
+    "base_size": {
+      "width": "34-102px",
+      "height": "70-100px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art obstacles",
+      "outline": "2px solid",
+      "movement": "right to left scrolling at Current_Speed",
+      "spawn_position": "screen_width + 50px",
+      "despawn_position": "-100px",
+      "collision_layer": "1 (Obstacles)"
+    }
+  },
+  "asset": {
+    "asset_id": "pterodactyl_fly_low",
+    "asset_name": "Pterodactyl Flying Low",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Flying obstacle requiring player to duck, appears after score 200+",
+      "screen_position": "spawns at x=screen_width+50px, y=50px (ground+50px), scrolls left",
+      "adjacent_elements": ["player", "ground (below)", "background", "other obstacles"],
+      "usage_scenario": "Mid-difficulty obstacle appearing after 200 points, forces player to use duck action to avoid collision"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "92px",
+        "height": "80px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "Pterodactyl (pteranodon) with long beak and extended wings in flying pose",
+      "texture": "flat pixel art, no gradients",
+      "outline": "2px solid outline",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 10,
+        "loop": true,
+        "description": "Frame 1: wings raised upward. Frame 2: wings lowered downward. Creates flapping wing animation"
+      },
+      "details": "Pterodactyl with long pointed beak, wings spread in flight, body horizontal, flying at 50px above ground level"
+    },
+    "relationships": {
+      "related_assets": ["pterodactyl_fly_high", "player_duck", "player_jump", "ground", "background"],
+      "shared_with": "Same sprite as pterodactyl_fly_high, only differs in Y position (50px vs 80px)",
+      "differences_from": "pterodactyl_fly_high spawns at y=80px (higher), cactus variants are ground-based (y=0px)"
+    },
+    "explicit_negations": [
+      "no gradients or color blending",
+      "no anti-aliasing",
+      "no motion blur or flight trails",
+      "no color variations",
+      "no shadows",
+      "no environmental effects",
+      "no additional decorations or details"
+    ]
+  }
+}

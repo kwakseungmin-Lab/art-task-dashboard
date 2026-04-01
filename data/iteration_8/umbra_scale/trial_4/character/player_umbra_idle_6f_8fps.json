@@ -1,0 +1,174 @@
+{
+  "task_id": "task_id_008004011",
+  "asset_key": "player_umbra_idle_6f_8fps",
+  "asset_name": "Umbra Idle Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008004001",
+    "task_id_008004002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004012",
+      "task_id_008004013",
+      "task_id_008004014",
+      "task_id_008004015",
+      "task_id_008004016"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle with one player atlas and swap states through a PlayerStateSprite component.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerStateSprite",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_umbra_idle_6f_8fps.png through AssetServer before the player entity spawns.",
+    "runtime_notes": [
+      "Feet stay planted on a shared baseline across all six frames.",
+      "Horn tips and hand silhouettes remain readable in complete shadow.",
+      "Frame timing favors a calm 8 fps pulse while waiting in safety."
+    ]
+  },
+  "context": {
+    "role": "player_idle_shadow",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        520,
+        720
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Baseline in-shadow idle loop used before movement, grab actions, and scale balancing.",
+    "adjacent_elements": [
+      "world_shadow_safe_zone_tilekit_32px",
+      "player_umbra_run_8f_12fps",
+      "ui_hp_orbs_strip_3slot_72x24"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#C9A84C",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 6,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 6,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compact shadow creature with curved horn tips, a narrow torso, tapering arms, and a soft teal inner glow.",
+      "components": [
+        "horns",
+        "head_core",
+        "torso",
+        "arms",
+        "legs",
+        "inner_glow"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "glow_slit",
+        "size_px": [
+          6,
+          2
+        ]
+      },
+      "mouth": null,
+      "nose": null
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_umbra_idle_6f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x48 px with six 32x48 frames.",
+    "Feet share a stable baseline across all frames within 1 px.",
+    "Inner glow remains visible without overpowering the silhouette edge."
+  ],
+  "blocked_by": [
+    "task_id_008004001",
+    "task_id_008004002"
+  ],
+  "blocks": [
+    "task_id_008004012",
+    "task_id_008004013",
+    "task_id_008004014",
+    "task_id_008004015",
+    "task_id_008004016",
+    "task_id_008004020"
+  ],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

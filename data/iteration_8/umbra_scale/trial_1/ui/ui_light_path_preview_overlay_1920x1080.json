@@ -1,0 +1,161 @@
+{
+  "task_id": "task_id_008101021",
+  "asset_key": "ui_light_path_preview_overlay_1920x1080",
+  "asset_name": "Light Path Preview Overlay",
+  "category": "ui",
+  "subcategory": "full_screen_overlay",
+  "priority": "P0",
+  "execution_order": 210,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101014",
+    "task_id_008101015",
+    "task_id_008101011",
+    "task_id_008101012"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101014",
+    "task_id_008101015",
+    "task_id_008101011",
+    "task_id_008101012"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle or a full-screen material pass tinted over the gameplay camera when the Tab preview toggle is active.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "LightPreviewOverlay"
+    ],
+    "asset_loading": "Load ui/ui_light_path_preview_overlay_1920x1080.png through AssetServer and keep it hidden until the preview toggle is enabled.",
+    "runtime_notes": [
+      "Overlay targets 50 percent transparency so the underlying puzzle remains visible.",
+      "Live beam geometry and safe shadow pockets can be composited over this authored frame or masked through it.",
+      "The overlay should switch instantly without fade because it functions as an analysis aid."
+    ]
+  },
+  "context": {
+    "role": "light_path_preview",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "ui_overlay_fullscreen",
+    "usage": "Full-screen Tab-toggle overlay that previews active beams and hazard zones at half opacity to support route planning.",
+    "adjacent_elements": [
+      "obstacle_plane_mirror_static_16x96",
+      "obstacle_prism_glass_static_48x48",
+      "obstacle_moving_light_core_6f_32x32"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#F5EFE0",
+      "#D4682A",
+      "#1A4A52",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Transparent full-screen overlay with beam lanes, impact flares, and darkened shadow pockets reserved for safe-route guidance.",
+      "components": [
+        "beam_lane_guides",
+        "impact_flares",
+        "shadow_safe_pockets",
+        "edge_vignette"
+      ]
+    },
+    "overlay": {
+      "opacity": 0.5,
+      "toggle_input": "Tab",
+      "coverage": "full_screen"
+    }
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 1920x1080 px.",
+    "Authored overlay supports 50 percent opacity without obscuring the core silhouette read of the level.",
+    "Beam guide lanes and shadow-safe pockets remain visually distinguishable from one another when tinted at runtime."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101011",
+      "task_id_008101012",
+      "task_id_008101014",
+      "task_id_008101015",
+      "task_id_008101017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_light_path_preview_overlay_1920x1080.png",
+      "transparent_background": true
+    }
+  ]
+}

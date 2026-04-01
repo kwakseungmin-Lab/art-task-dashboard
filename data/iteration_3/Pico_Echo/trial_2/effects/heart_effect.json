@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects",
+      "rendering": "flat 2D",
+      "behavior": "temporary (spawn and despawn)",
+      "animation_type": "movement-based (position changes)"
+    }
+  },
+  "asset": {
+    "asset_id": "heart_effect",
+    "asset_name": "Heart Particle Effect",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Visual feedback for petting interaction",
+      "screen_position": "Spawns above Echo at x=64, y=40; floats upward",
+      "adjacent_elements": ["echo_happy"],
+      "usage_scenario": "Triggered when player pets Echo; 3 hearts spawn and float upward; despawn after 1 second"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "4px",
+        "height": "4px"
+      },
+      "colors": {
+        "main": "#FF004D"
+      },
+      "shape": "Classic heart shape (♥) in pixel art",
+      "texture": "Flat pixel art; solid color",
+      "outline": "None; pure color fill",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 4,
+        "fps": 4,
+        "loop": false,
+        "description": "Frame 1: spawn at y=40, Frame 2: move to y=35, Frame 3: move to y=30, Frame 4: fade/despawn"
+      },
+      "details": "4x4px heart shape; #FF004D (pink); 3 hearts spawn simultaneously with slight x-offset (-2, 0, +2); float upward at 5px/second; despawn after reaching y=25"
+    },
+    "relationships": {
+      "related_assets": ["echo_happy"],
+      "shared_with": "Same color as Echo's cheek patch (#FF004D)",
+      "differences_from": "music_note_effect (shape and trigger)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no glow",
+      "no rotation",
+      "no scaling animation",
+      "no motion blur",
+      "no trails"
+    ]
+  }
+}

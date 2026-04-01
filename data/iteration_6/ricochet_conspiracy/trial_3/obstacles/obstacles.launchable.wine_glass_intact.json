@@ -1,0 +1,94 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.wine_glass_intact",
+  "asset_name": "Launchable Object — Wine Glass (Intact)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "projectile",
+    "layer": "world",
+    "usage": "Light launchable object that can shatter on impact. Intact state used before collision.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 20,
+      "height": 32
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#F5F0E8",
+      "#C8B4E0",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 20,
+        "height": 32
+      },
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      },
+      "frame_count": 1,
+      "directions": null,
+      "note": "Glass outline should be delicate but readable at 1px."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.wine_glass_intact.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 20x32px; silhouette reads as a wine glass at 100% zoom with a 1px outline.",
+    "Uses ivory #F5F0E8 highlights; no anti-aliasing; keep interior mostly transparent to imply glass.",
+    "Center of mass visually near the bowl; stem is thin but continuous (no broken pixels)."
+  ]
+}

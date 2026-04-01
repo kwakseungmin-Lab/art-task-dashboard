@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.size_state_indicator_set_64px",
+  "asset_name": "Size State Indicator Set",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 72,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles.core_states_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": [
+        20,
+        -20
+      ]
+    },
+    "adjacent_elements": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "world.decor.star_floor_strip_1600x20",
+      "ui.hud.top_bar_overlay_1600x64"
+    ],
+    "layer": "ui",
+    "usage": "Three-icon state indicator anchored to the lower-left corner to show large, base, and small forms during gameplay.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 64
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#FFD966",
+      "#40E8D0",
+      "#0B0C1E"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "three 64px square icon cells with distinct up, neutral, and down form silhouettes",
+      "components": [
+        "large-form icon",
+        "base-form icon",
+        "small-form icon",
+        "selection frame"
+      ]
+    },
+    "layout": {
+      "cell_size_px": 64,
+      "state_order": [
+        "large",
+        "base",
+        "small"
+      ],
+      "active_frame_thickness_px": 2
+    },
+    "background_treatment": "transparent outside icon cells"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.size_state_indicator_set_64px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Indicator sheet is exactly 192x64px with 3 equal 64x64px cells.",
+    "The large, base, and small icons are visually distinct and map one-to-one to the three player collision sizes.",
+    "The active selection frame is exactly 2px thick and aligns to integer pixels in all cells."
+  ]
+}

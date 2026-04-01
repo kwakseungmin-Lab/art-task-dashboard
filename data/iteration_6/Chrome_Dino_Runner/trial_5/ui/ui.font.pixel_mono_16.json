@@ -1,0 +1,84 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.font.pixel_mono_16",
+  "asset_name": "UI Font - Pixel Monospace 16px",
+  "category": "ui",
+  "subcategory": "font",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ui_font",
+    "layer": "ui",
+    "usage": "Bitmap font for HUD and Game Over texts",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "origin": "top_left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 32
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.font.pixel_mono_16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Bitmap font sheet is exactly 160x32px and contains glyphs for digits 0-9 and uppercase letters A-Z plus space and colon.",
+    "Each glyph fits within a 10x16px cell on a fixed grid with consistent baseline alignment.",
+    "Uses only #535353 for glyph pixels and transparent/#F7F7F7 for background; no anti-aliasing."
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003014",
+  "asset_key": "ui_hp_torch_strip_3slot_24x8",
+  "asset_name": "HP Torch HUD Strip",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003013"
+  ],
+  "blocks": [
+    "task_id_008003017"
+  ],
+  "blocked_by": [
+    "task_id_008003013"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003008",
+      "task_id_008003013",
+      "task_id_008003017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the HUD strip and swap texture regions or whole images according to the HP state.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "HudOverlay"
+    ],
+    "asset_loading": "Load ui/ui_hp_torch_strip_3slot_24x8.png through AssetServer during HUD bootstrap and anchor it to the upper-left safe margin.",
+    "runtime_notes": [
+      "HUD offset uses the 8 px margin from the GDD, scaled into the 1280x720 output.",
+      "The strip sits in UI space and never scrolls with the world camera.",
+      "Texture swaps follow HP changes with no tweening to preserve crisp pixel art."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "hud_health_indicator",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        32,
+        32
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Top-left HUD strip that shows three torch icons, with filled and dim states for current health.",
+    "adjacent_elements": [
+      "obstacle_torch_pickup_4f_8fps",
+      "player_prisoner_hit_2f_12fps",
+      "ui_pause_and_result_panels_320x180"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 8
+    },
+    "colors_hex": [
+      "#F5A623",
+      "#3D2B00",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Three-slot torch icon strip with bright, dim, and empty torch states arranged in a single row.",
+      "components": [
+        "torch_slot_1",
+        "torch_slot_2",
+        "torch_slot_3"
+      ]
+    },
+    "layout": {
+      "anchor": "top_left",
+      "margin_px": [
+        32,
+        32
+      ]
+    },
+    "ui_states": [
+      "hp_three",
+      "hp_two",
+      "hp_one",
+      "hp_zero"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_hp_torch_strip_3slot_24x8.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 24x8 px.",
+    "Each torch slot occupies an 8x8 region with a one-pixel gutter-free alignment.",
+    "Filled and dim torch states remain readable against the dark vignette in the upper-left corner."
+  ]
+}

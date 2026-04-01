@@ -1,0 +1,155 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003004",
+  "asset_key": "world_abyss_dust_particles_3f_4fps",
+  "asset_name": "Abyss Dust Particle Loop",
+  "category": "world",
+  "subcategory": "ambient_fx",
+  "priority": "P2",
+  "execution_order": 40,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003001",
+      "task_id_008003005",
+      "task_id_008003010"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for a pooled ambient particle emitter that spawns small quads across the shaft.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "DustParticle",
+      "Transform"
+    ],
+    "asset_loading": "Load world/world_abyss_dust_particles_3f_4fps.png through AssetServer and reuse the atlas for every particle instance.",
+    "runtime_notes": [
+      "Particles drift with the camera at a slower rate than hazards.",
+      "Emitter density rises after the dark zone begins, matching late-run tension.",
+      "The 4x4 source art stays crisp after the fixed 4x scale."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "ambient_descent_particles",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        180
+      ]
+    },
+    "layer": "world_fx_back",
+    "usage": "Ambient particle strip for falling dust and grit that reinforce constant downward motion in empty sections.",
+    "adjacent_elements": [
+      "world_dungeon_backdrop_parallax_1280x720",
+      "player_prisoner_fall_4f_8fps",
+      "obstacle_saw_blade_8f_24fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_particle_sheet",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 4,
+      "height": 4
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#3B3347",
+      "#8FA8B8"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 3,
+      "fps": 4,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 3,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Tiny drifting grit cluster with one bright fleck and two dim stone fragments.",
+      "components": [
+        "bright_fleck",
+        "mid_grit",
+        "dim_grit"
+      ]
+    },
+    "emission": {
+      "spawn_rate_per_second": 18,
+      "lifetime_seconds": 2.5
+    },
+    "motion": {
+      "fall_speed_px_per_second": 18
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_abyss_dust_particles_3f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 12x4 px with three 4x4 frames.",
+    "At least one particle shifts 1 px downward between consecutive frames.",
+    "The brightest fleck uses #8FA8B8 and occupies no more than three pixels in any frame."
+  ]
+}

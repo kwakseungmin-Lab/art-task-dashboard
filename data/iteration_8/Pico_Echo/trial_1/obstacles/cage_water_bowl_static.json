@@ -1,0 +1,128 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000010",
+  "asset_key": "cage_water_bowl_static",
+  "asset_name": "Water Bowl (static)",
+  "category": "obstacles",
+  "subcategory": "cage_object",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Asset remains readable at 1x scale within the warm cage scene.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering and 1px outlines keep interaction targets crisp."
+  ],
+  "differences": [
+    "This prop stays static and signals hydration support without animation.",
+    "The bowl silhouette stays compact so it does not crowd the play area.",
+    "Water surface contrast stays readable against the warm cage palette."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "reference_images": [
+    {
+      "label": "behavior_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/BehaviorSystem.md",
+      "purpose": "Grounds effect timing and state-linked particle usage."
+    },
+    {
+      "label": "art_direction_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "purpose": "Grounds palette discipline, pixel density, and warm household presentation."
+    },
+    {
+      "label": "cage_object_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "purpose": "Grounds cage-prop placement and relative scale inside the 128x128 enclosure."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Static sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "CareInteractionMarker"
+    ],
+    "asset_loading": "Load cage_water_bowl_static.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "interactable",
+    "layer": "obstacles",
+    "usage": "Static prop next to seed bowl; can be tapped but does not change state in MVP.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        36,
+        78
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 14,
+      "height": 9
+    },
+    "colors_hex": [
+      "#C2C3C7",
+      "#1D2B53",
+      "#FFF1E8"
+    ],
+    "animation": null,
+    "shape_notes": [
+      "Bowl is an oval outline with a 1px highlight gap at top-left."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/cage_water_bowl_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Water bowl is exactly 14x9px and aligns to whole pixels.",
+    "Uses #1D2B53 for 1px outline and #C2C3C7 for body; interior is transparent or #FFF1E8 (no gradients).",
+    "Does not visually compete with the seed bowl (lower contrast and fewer detail pixels)."
+  ]
+}

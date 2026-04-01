@@ -1,0 +1,124 @@
+{
+  "asset_name": "Zone 3 Altar Parallax 1600x900",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 13,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.enemy.cerberus_state_sheet",
+      "character.boss.hydra_state_sheet"
+    ]
+  },
+  "context": {
+    "role": "background_zone_3",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "character.enemy.cerberus_state_sheet",
+      "character.boss.hydra_state_sheet"
+    ],
+    "layer": "background_layers_0_to_2",
+    "usage": "Used during Zone 3 traversal, Zone 3 boss arena, and the escape sequence lead-out from second 195 to second 330."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#FFD966",
+      "#E84040"
+    ],
+    "animation": {
+      "type": "none",
+      "frame_count": 1,
+      "frame_time_s": 0.0,
+      "loop": false
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 0.85
+    },
+    "shape": {
+      "silhouette": "High altar chamber with twin stair masses rising to x 800 y 300 and a red hazard fissure band at y 700 to 760.",
+      "components": [
+        "layer0 star void",
+        "layer1 altar silhouette",
+        "layer2 broken columns",
+        "hazard fissure band"
+      ]
+    },
+    "parallax_layers": [
+      {
+        "name": "layer0_star_void",
+        "scroll_multiplier": 0.1
+      },
+      {
+        "name": "layer1_altar_mass",
+        "scroll_multiplier": 0.3
+      },
+      {
+        "name": "layer2_broken_columns",
+        "scroll_multiplier": 0.6
+      }
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.zone3_altar_parallax.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Background canvas is exactly 1600x900 px.",
+    "Twin stair masses mirror around x 800 with maximum horizontal delta of 8 px.",
+    "Hazard fissure band occupies y 700 to 760 and uses #E84040 in at least 20 px clusters.",
+    "Parallax metadata lists three layers with multipliers 0.1, 0.3, and 0.6."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "world.background.zone3_altar_parallax",
+  "category": "world",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

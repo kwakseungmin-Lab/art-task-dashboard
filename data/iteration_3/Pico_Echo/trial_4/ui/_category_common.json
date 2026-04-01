@@ -1,0 +1,19 @@
+{
+  "category": "ui",
+  "base_size": {
+    "width": "varies by element",
+    "height": "2-12px"
+  },
+  "color_scheme": {
+    "primary": "#1D2B53",
+    "secondary": "#FFF1E8",
+    "accent": "#00E436"
+  },
+  "shared_attributes": {
+    "sprite_type": "user interface elements",
+    "animation_method": "minimal or state-based",
+    "layer_order": 5,
+    "rendering": "top overlay layer, always visible or on-demand",
+    "pixel_font": "3x5px characters"
+  }
+}

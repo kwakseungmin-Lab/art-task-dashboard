@@ -1,0 +1,134 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.control.power_slider",
+  "asset_name": "Power Slider",
+  "category": "ui",
+  "subcategory": "control_widget",
+  "priority": "P1",
+  "execution_order": 22,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This asset visualizes numeric power steps and active focus feedback."
+  ],
+  "depends_on": [
+    "ui.hud.bottom_bar"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.bottom_bar"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.trajectory_guide",
+      "obstacles.launchable.candlestick"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "power_input_widget",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 540,
+      "y": 680,
+      "width": 200,
+      "height": 30,
+      "anchor": "top_left"
+    },
+    "layer": "ui_control",
+    "usage": "Used in the bottom HUD to display 10% to 100% rebound force in 5% steps.",
+    "viewpoint": {
+      "camera_angle": "ui_front",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "ui.hud.bottom_bar",
+      "ui.overlay.trajectory_guide",
+      "ui.button.hint"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 30
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#E8D5C4",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#E8704A"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "idle",
+      "states": [
+        {
+          "name": "idle",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "focus",
+          "frame_count": 2,
+          "fps": 8
+        }
+      ]
+    },
+    "notes": [
+      "Track width is 160 px and thumb width is 16 px.",
+      "Ten step markers divide the range into 5% increments from 10% to 100%."
+    ],
+    "shape": {
+      "silhouette": "horizontal slider rail with left minimum cap, right maximum cap, and a circular knob",
+      "components": [
+        "slider rail",
+        "left cap",
+        "right cap",
+        "circular knob",
+        "tick marks"
+      ]
+    }
+  },
+  "deliverables": [
+    "Static slider asset 200x30 px.",
+    "2-frame focus response for hover or active state.",
+    "Layout preview with ten step markers."
+  ],
+  "acceptance_criteria": [
+    "Widget size is exactly 200x30 px.",
+    "Track width is exactly 160 px and thumb width is exactly 16 px.",
+    "Ten step markers are visible and evenly spaced across the track."
+  ]
+}

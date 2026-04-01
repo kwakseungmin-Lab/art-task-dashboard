@@ -1,0 +1,92 @@
+{
+  "task_id": "ui.text.start_prompt_press_space",
+  "id": "text_start_prompt_press_space",
+  "asset_name": "UI Text: Start Prompt (Press SPACE)",
+  "category": "ui",
+  "subcategory": "text",
+  "display_name": "UI Text: Start Prompt (Press SPACE)",
+  "description": "Create asset for task_id 'ui.text.start_prompt_press_space' as specified in specs/context.",
+  "execution_order": 80,
+  "priority": "P1",
+  "depends_on": [
+    "ui.font.bitmap_mono_16"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_mono_16"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 600,
+        "height": 150
+      },
+      "frame_rate_target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      },
+      "baseline_y_px": 148
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "highlight_optional_hex": "#FF0000"
+    },
+    "style": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "specs": {
+    "string": "PRESS SPACE TO START",
+    "font_size_px": 12,
+    "color_hex": "#535353",
+    "blink_optional": {
+      "interval_s": 0.5
+    }
+  },
+  "context": {
+    "role": "start_screen_prompt",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        20
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "start_screen"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/text_start_prompt_press_space.png",
+      "dimensions_px": {
+        "width": 300,
+        "height": 40
+      },
+      "background": "transparent",
+      "notes": "Text sprite or mock for bitmap-text rendering."
+    }
+  ],
+  "acceptance_criteria": [
+    "Text reads clearly at 1x scale on #F7F7F7 background.",
+    "Uses bitmap font style consistent with ScoreDisplay.",
+    "No anti-aliasing; single color #535353."
+  ]
+}

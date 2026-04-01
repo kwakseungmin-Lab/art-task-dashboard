@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.state_overlays",
+  "asset_name": "State Overlay Banner Atlas",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P2",
+  "execution_order": 360,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.screen.title_logo",
+      "ui.popup.counter_result_burst"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "screen_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 480,
+      "y_px": 320
+    },
+    "layer": "ui_screen",
+    "usage": "Centered atlas containing pause, zone clear, death, and ending banners for non-gameplay states."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 128
+    },
+    "frame_size_px": {
+      "width": 320,
+      "height": 128
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#C47C2B",
+      "#FFD966",
+      "#E84040",
+      "#40E8D0",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "state_atlas",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.state_overlays.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 1280x128px with four 320x128 state banners.",
+    "Pause, clear, death, and ending states each use a distinct headline treatment that reads in one glance.",
+    "All four banners stay centered and legible against a 50 percent darkened gameplay frame."
+  ]
+}

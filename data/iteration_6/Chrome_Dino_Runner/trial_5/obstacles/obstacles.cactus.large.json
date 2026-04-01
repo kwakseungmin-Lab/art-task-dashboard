@@ -1,0 +1,98 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.cactus.large",
+  "asset_name": "Cactus - Large (Triple)",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": "obstacles.cactus.small",
+  "shared_properties": {
+    "palette_primary_hex": "#535353",
+    "outline": "2px",
+    "ground_baseline_y_px": 0
+  },
+  "differences": {
+    "grouping": "three stems",
+    "bounding_box_px": {
+      "width": 102,
+      "height": 100
+    }
+  },
+  "depends_on": [
+    "obstacles.cactus.small"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus.small"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "obstacle",
+    "layer": "gameplay",
+    "usage": "Ground obstacle variant with three cactus stems grouped; taller profile",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 650,
+      "y": 0,
+      "origin": "ground_baseline"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 102,
+      "height": 100
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus.large.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Single-frame sprite is exactly 102x100px and clearly shows a three-stem cactus group silhouette with height variation.",
+    "Uses only #535353 for pixels and transparent/#F7F7F7 for non-obstacle pixels; no extra colors.",
+    "Bottom edges align to the ground baseline and the silhouette remains readable without interior noise."
+  ]
+}

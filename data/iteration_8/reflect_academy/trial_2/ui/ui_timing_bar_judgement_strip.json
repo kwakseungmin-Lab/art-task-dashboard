@@ -1,0 +1,174 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000928",
+  "asset_key": "ui_timing_bar_judgement_strip",
+  "asset_name": "Timing Bar and Judgement Strip — perfect, good, miss, and combo states",
+  "category": "ui",
+  "subcategory": "timing_widget",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The strip centers near the bottom of the screen and stays readable while the player watches the incoming lane.",
+    "Perfect and good windows rely on strong cyan and lime contrast against the dark bar body.",
+    "The widget must support repeated fast judgments without visual smearing."
+  ],
+  "differences": [
+    "This task covers the HUD timing widget instead of the world-space lane art.",
+    "Projectile bodies and telegraph markers are handled by obstacle tasks."
+  ],
+  "depends_on": [
+    "task_id_000000922",
+    "task_id_000000923",
+    "task_id_000000924"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000922",
+    "task_id_000000923",
+    "task_id_000000924"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000922",
+      "task_id_000000923",
+      "task_id_000000924",
+      "task_id_000000925",
+      "task_id_000000927",
+      "task_id_000000929"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for balancing bright judgment cues against the dark academy interface palette."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for preserving clear line-of-sight between the lower UI strip and the student pose."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_4x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "TimingBar",
+      "OverlayUi",
+      "JudgementFlash"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/ui_timing_bar_judgement_strip.png during DuelLoading and cache the atlas under ui_timing_bar_judgement_strip.",
+    "runtime_notes": [
+      "Use four atlas states named idle, good, perfect, and miss.",
+      "Anchor the widget to the overlay camera at x=960 y=860 and keep the judgment marker centered.",
+      "Drive the state swaps from timing results while the moving tick indicator is rendered as a separate runtime sprite."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "timing_judgement_widget",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        860
+      ]
+    },
+    "layer": "ui",
+    "usage": "Primary player-facing timing strip for reflection input quality and combo confirmation."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 900,
+      "height": 64
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#00FFFF",
+      "#ADFF2F",
+      "#E74C3C",
+      "#FFFFFF"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "idle",
+        "good",
+        "perfect",
+        "miss"
+      ],
+      "frame_count": 4,
+      "frame_size_px": [
+        900,
+        64
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "timing_windows": {
+      "perfect_sec": 0.1,
+      "good_sec": 0.25,
+      "miss_behavior": "falls back to red flash and empty center marker"
+    },
+    "shape": {
+      "silhouette": "Long beveled timing strip with central hit marker, inner target band, and judgement flare caps.",
+      "components": [
+        "outer frame",
+        "inner target band",
+        "center hit marker",
+        "perfect highlight",
+        "good highlight",
+        "miss flash"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_timing_bar_judgement_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 3600x64px with four 900x64 states and no padding.",
+    "Perfect and good windows are visually separable at first glance through both width and hue.",
+    "The widget centers cleanly at x=960 y=860 and leaves the card hand visible below it.",
+    "Miss state clearly communicates failure without obscuring the incoming projectile path."
+  ]
+}

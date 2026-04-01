@@ -1,0 +1,83 @@
+{
+  "task_id": "ui.status_bubble",
+  "asset_name": "status_bubble_12x10",
+  "category": "ui",
+  "subcategory": "status_widget",
+  "description": "Create a 12x10 px status bubble sprite with transparent background. Bubble fill uses #FFF1E8. Bubble outline uses #1D2B53 with thickness 1px. Include a 2px wide tail at bottom-left using outline and fill colors within the 12x10 bounds.",
+  "execution_order": 140,
+  "priority": "P1",
+  "specs": {
+    "dimensions_px": {
+      "width": 12,
+      "height": 10
+    },
+    "fill_hex": "#FFF1E8",
+    "outline_hex": "#1D2B53",
+    "outline_thickness_px": 1,
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": true
+  },
+  "context": {
+    "role": "Bubble container used near Echo to show state icons (seed, sleep).",
+    "layer": "ui_overlay",
+    "screen_position": {
+      "type": "relative_to_element",
+      "element_task_id": "character.echo_sprite_sheet",
+      "offset_px": {
+        "x": 22,
+        "y": -10
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/ui/status_bubble_12x10/status_bubble_12x10.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/ui/status_bubble_12x10/status_bubble_12x10.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo_sprite_sheet",
+      "ui.pixel_font_3x5"
+    ]
+  },
+  "depends_on": [
+    "character.echo_sprite_sheet"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.echo_sprite_sheet"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 12x10 px with transparent background.",
+    "Non-transparent pixels use only #FFF1E8 and #1D2B53.",
+    "Outline thickness is 1px around bubble perimeter."
+  ]
+}

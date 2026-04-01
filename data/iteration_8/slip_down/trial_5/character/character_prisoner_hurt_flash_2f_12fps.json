@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050007",
+  "asset_name": "Prisoner Hurt Flash Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P1",
+  "execution_order": 70,
+  "variant_of": "task_id_008050005",
+  "shared_properties": [
+    "Base prisoner proportions, tunic layout, and 16x24px collision footprint stay aligned with the fall loop.",
+    "Primary cloth color remains #D6D0C4 beneath the damage flash treatment.",
+    "Outline weight stays at 1px so the hurt state remains readable against dark dungeon backgrounds."
+  ],
+  "differences": [
+    "Sprite sheet is 32x24px with two frames tuned for a fast 12 FPS damage pulse.",
+    "Accent red flash pixels and a brief torso recoil replace the neutral descent posture.",
+    "Face and shoulder clusters tighten inward to signal impact during the 1.5 second invulnerability window."
+  ],
+  "depends_on": [
+    "task_id_008050005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008050005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050005",
+      "task_id_008050008",
+      "task_id_008050009",
+      "task_id_008050013",
+      "task_id_008050017"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "player_hurt_flash",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        152,
+        60
+      ]
+    },
+    "layer": "character",
+    "usage": "Damage feedback pose used after hazard contact and during invulnerability flicker.",
+    "adjacent_elements": [
+      "task_id_008050005",
+      "task_id_008050008",
+      "task_id_008050009",
+      "task_id_008050013",
+      "task_id_008050017"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#E07B39",
+      "#8B2020",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        16,
+        24
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Recoiling prisoner with compressed torso and sharper shoulder angle.",
+      "tiling": "Not tiled.",
+      "collision_read": "The hurt flash stays within the stable 16x24px footprint for invulnerability readability."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_prisoner_hurt_flash_2f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 32x24px with two 16x24px frames.",
+    "Red flash coverage stays between 20% and 35% of the painted pixels so the damage cue reads immediately.",
+    "The hurt loop feels sharper than the fall loop at 12 FPS while keeping the player silhouette recognizable."
+  ],
+  "asset_key": "character_prisoner_hurt_flash_2f_12fps",
+  "variant_of_asset_key": "character_prisoner_fall_4f_8fps",
+  "reference_images": [
+    {
+      "label": "slip_down_player_reference",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds prisoner proportions, cloth folds, and animation posing for the active sprite."
+    },
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds dungeon lighting, palette temperature, and surrounding tile contrast for the active sprite."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with a TextureAtlasLayout and short invulnerability flash timer.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer during the Loading state and bind it as the damage-state atlas in the player resource.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Drive gameplay motion in FixedUpdate at 60 FPS and keep art timing on deterministic timers.",
+      "Combine atlas swaps with a visibility flicker timer instead of recoloring the sprite at runtime."
+    ]
+  }
+}

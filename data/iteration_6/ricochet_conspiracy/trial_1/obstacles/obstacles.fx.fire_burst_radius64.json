@@ -1,0 +1,131 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.fx.fire_burst_radius64",
+  "asset_name": "Fire Burst FX (64px Radius)",
+  "category": "obstacles",
+  "subcategory": "fx",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "obstacles.env.candle",
+    "obstacles.launchable.candlestick"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.env.candle",
+      "obstacles.launchable.candlestick"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "area_fx",
+    "layer": "fx",
+    "usage": "Triggered by candle ignition; effective radius 64px; duration 0.5s",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#E8704A",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "animation": {
+      "type": "sequence",
+      "states": {
+        "burst": {
+          "fps": 12,
+          "frame_count": 6,
+          "notes": "0.5s; expands to 64px radius then fades"
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.fx.fire_burst_radius64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet frame size is exactly 128x128px per frame; center of burst is at (64,64).",
+    "Animation is 6 frames at 12fps and ends with <= 5% opaque pixels remaining (fade-out).",
+    "Maximum visible radius of the burst is 64px (no pixels outside a 128x128 circle boundary centered at (64,64))."
+  ]
+}

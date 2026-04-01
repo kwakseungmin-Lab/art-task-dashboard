@@ -1,0 +1,170 @@
+{
+  "task_id": "task_id_008101007",
+  "asset_key": "player_umbra_jump_4f_12fps",
+  "asset_name": "Umbra Jump Arc",
+  "category": "character",
+  "subcategory": "player_motion",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": "task_id_008101005",
+  "variant_of_asset_key": "player_umbra_idle_6f_12fps",
+  "shared_properties": [
+    "Body footprint stays within the same 32x48 logical bounds as the idle asset.",
+    "Eye-glow placement and head crest silhouette remain identical to the base player design.",
+    "Color treatment stays limited to black mass, soft teal inner glow, and a tiny exposure-white highlight."
+  ],
+  "differences": [
+    "Adds compressed takeoff, airborne stretch, apex tuck, and landing anticipation poses across four frames.",
+    "Lower wisps curl downward at the apex to show vertical hang time.",
+    "The forward arm reaches slightly upward to separate jump from run motion."
+  ],
+  "depends_on": [
+    "task_id_008101005",
+    "task_id_008101002"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101005",
+    "task_id_008101002"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Reuse the player SpriteSheetBundle and advance the jump atlas by movement state rather than by loop count alone.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "UmbraPlayer",
+      "AirborneState"
+    ],
+    "asset_loading": "Load character/player_umbra_jump_4f_12fps.png during Loading and store the atlas handle as the jump state.",
+    "runtime_notes": [
+      "Jump playback should align with the 620 px per second takeoff velocity described in the GDD.",
+      "Frame 3 should read as the apex pose and can hold briefly if vertical velocity approaches zero.",
+      "Feet and torso anchors must blend cleanly back into idle or run on landing."
+    ]
+  },
+  "context": {
+    "role": "player_jump",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        560,
+        700
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Short hop state used to cross gaps, clear deck edges, and reposition on lit platforms without losing silhouette readability.",
+    "adjacent_elements": [
+      "world_scale_assembly_512x96",
+      "world_tower_tilekit_32px",
+      "obstacle_plane_mirror_static_16x96"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 12,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compact jump cycle with crouched takeoff, stretched ascent, tucked apex, and ready-to-land posture.",
+      "components": [
+        "compressed_legs",
+        "stretched_torso",
+        "raised_arm",
+        "apex_wisp_curl"
+      ]
+    },
+    "motion": {
+      "travel_style": "jump_arc",
+      "max_height_px": 180
+    }
+  },
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 128x48 px with four 32x48 frames.",
+    "Frame sequence clearly reads takeoff, ascent, apex, and landing anticipation without relying on motion blur.",
+    "The apex frame keeps the eye glow visible even when the silhouette compresses."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101005",
+      "task_id_008101006",
+      "task_id_008101008",
+      "task_id_008101003",
+      "task_id_008101011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_umbra_jump_4f_12fps.png",
+      "transparent_background": true
+    }
+  ]
+}

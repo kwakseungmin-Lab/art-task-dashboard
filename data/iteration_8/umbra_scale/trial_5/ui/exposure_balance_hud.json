@@ -1,0 +1,189 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050009",
+  "asset_key": "exposure_balance_hud",
+  "asset_name": "Exposure and Balance HUD",
+  "category": "ui",
+  "subcategory": "gameplay_hud",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The HUD uses the same project palette and art deco gold trim while preserving maximum contrast over dark and bright gameplay states.",
+    "All authored panels assume transparent-background UI composition above the world and beam layers.",
+    "Every module leaves deterministic safe zones for runtime text and fill masks to satisfy output contract stability."
+  ],
+  "differences": [
+    "This asset packages five gameplay readouts in one atlas because they always appear together during active puzzle play.",
+    "The scale callout plates are designed to float near the world axle while still using UI-space art.",
+    "Exposure, Echo, and timer treatments deliberately use different accent colors to reduce misreads under pressure."
+  ],
+  "depends_on": [
+    "task_id_008050001",
+    "task_id_008050002",
+    "task_id_008050005",
+    "task_id_008050006"
+  ],
+  "blocks": [
+    "task_id_008050010",
+    "task_id_008050012"
+  ],
+  "blocked_by": [
+    "task_id_008050001",
+    "task_id_008050002",
+    "task_id_008050005",
+    "task_id_008050006"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050001",
+      "task_id_008050002",
+      "task_id_008050005",
+      "task_id_008050006",
+      "task_id_008050010",
+      "task_id_008050012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_3x2",
+    "ecs_components": [
+      "UmbraHudRoot",
+      "UiImage",
+      "Style",
+      "Visibility"
+    ],
+    "asset_loading": "Load exposure_balance_hud.png during Loading, build a 3x2 atlas for HP, exposure, floor/time, weight-angle, and echo counter modules, and bind task_id-based handles into the HUD setup system.",
+    "runtime_notes": [
+      "Place all authored panel art in UI space rather than world space so the HUD ignores camera pan and zoom.",
+      "Leave clear mask zones for runtime-filled exposure bars, HP depletion, timer text, and weight-angle text overlays.",
+      "Keep the top-left and top-center modules separated enough that long timer strings do not overlap the HP or exposure bar art."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "live_puzzle_readout_hud",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        48
+      ]
+    },
+    "layer": "ui",
+    "usage": "Shows HP, exposure, floor, timer, live scale weights and angle, plus remaining Echo count during gameplay."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 960,
+      "height": 240
+    },
+    "colors_hex": [
+      "#1C1826",
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        320,
+        120
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    "layout_notes": [
+      "Reserve a 160x12 px horizontal exposure fill zone below the HP hearts in the top-left module.",
+      "Reserve a centered 240x48 px text-safe zone for FLOOR XX / 30 and MM:SS.ss in the top-center module.",
+      "Reserve a dynamic text-safe zone above and below the scale axle callout panel for L and R weights plus angle text.",
+      "Reserve two 20x30 px echo slots in the top-right module with 8 px spacing."
+    ],
+    "ui_anchor_map": {
+      "hp_panel": [
+        16,
+        16
+      ],
+      "exposure_bar": [
+        16,
+        56
+      ],
+      "floor_and_timer": [
+        840,
+        16
+      ],
+      "echo_counter": [
+        1680,
+        16
+      ],
+      "scale_weight_callout": [
+        912,
+        336
+      ],
+      "scale_angle_callout": [
+        912,
+        388
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/exposure_balance_hud.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 960x240 px for six 320x120 modules with no frame gutter.",
+    "The exposure bar leaves a clean 160x12 px mask zone and the HP hearts remain readable at 75% preview scale.",
+    "No authored ornament intrudes into the text-safe zones reserved for floor, timer, weight, or angle strings."
+  ]
+}

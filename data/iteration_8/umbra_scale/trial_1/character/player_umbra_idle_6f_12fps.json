@@ -1,0 +1,193 @@
+{
+  "task_id": "task_id_008101005",
+  "asset_key": "player_umbra_idle_6f_12fps",
+  "asset_name": "Umbra Idle Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101001",
+    "task_id_008101002"
+  ],
+  "blocks": [
+    "task_id_008101006",
+    "task_id_008101007",
+    "task_id_008101008",
+    "task_id_008101009",
+    "task_id_008101010",
+    "task_id_008101016",
+    "task_id_008101017"
+  ],
+  "blocked_by": [
+    "task_id_008101001",
+    "task_id_008101002"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the player state atlas and swap animation clips on one UmbraPlayer entity.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "UmbraPlayer",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_umbra_idle_6f_12fps.png during Loading and register the six-frame atlas under the Umbra idle state key.",
+    "runtime_notes": [
+      "Keep the pivot centered on the torso so run, jump, grab, and exposure variants inherit consistent collider alignment.",
+      "The eye glow should remain visible without exceeding the silhouette-first art direction.",
+      "Idle motion must feel alive but restrained because puzzle planning happens while the player stands still."
+    ]
+  },
+  "context": {
+    "role": "player_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        320,
+        760
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Default grounded state when the player is safe in shadow and not currently moving, jumping, or grabbing objects.",
+    "adjacent_elements": [
+      "world_tower_tilekit_32px",
+      "ui_hp_and_echo_tokens_sheet_192x32",
+      "ui_exposure_gauge_160x12"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 6,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Small shadow creature with tapered head crest, bright eye pair, rounded torso, and a cloak-like lower body that frays into wisps.",
+      "components": [
+        "head_crest",
+        "eye_glow",
+        "torso_mass",
+        "arm_stubs",
+        "wisp_hem",
+        "feet"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "glowing almond pair",
+        "size_px": [
+          4,
+          2
+        ]
+      },
+      "mouth": null,
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 8
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 9
+      },
+      "tail": null,
+      "accessories": "None"
+    },
+    "texture": "Mostly solid silhouette with one soft teal inner rim near the eyes and upper torso.",
+    "shading": "Sharp shadow mass with minimal edge glow only where the form would separate from the background."
+  },
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x48 px with six 32x48 frames.",
+    "The eye glow remains readable in every frame while the outer silhouette stays predominantly black.",
+    "All frames fit inside a stable 32x48 footprint so physics alignment does not shift between states."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101006",
+      "task_id_008101007",
+      "task_id_008101008",
+      "task_id_008101009",
+      "task_id_008101016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_umbra_idle_6f_12fps.png",
+      "transparent_background": true
+    }
+  ]
+}

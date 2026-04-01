@@ -1,0 +1,112 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.tiles.snow_ground_16_atlas",
+  "asset_name": "Snow Ground Tiles — 16×16 Atlas",
+  "category": "world",
+  "subcategory": "tiles",
+  "priority": "P1",
+  "execution_order": 22,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_tiles",
+    "layer": "world_ground",
+    "usage": "Base ground tiles for settlement area under varying whiteout intensity.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 256
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "atlas": {
+      "packing_rule": "grid_16px",
+      "tile_size_px": {
+        "width": 16,
+        "height": 16
+      },
+      "tiles": [
+        {
+          "id": "snow_flat_a",
+          "note": "Clean flat snow."
+        },
+        {
+          "id": "snow_flat_b",
+          "note": "Slight noise variation."
+        },
+        {
+          "id": "snow_tracks",
+          "note": "Footprints/drag marks."
+        },
+        {
+          "id": "ice_patch",
+          "note": "Darker slick patch."
+        },
+        {
+          "id": "stone_edge",
+          "note": "Dark rocks on edge."
+        }
+      ],
+      "layout_note": "16×16 grid, reserve empty tiles for future expansion."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tiles.snow_ground_16_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 256×256px (16×16 tiles).",
+    "Tiles are seamless when repeated; no obvious tiling seams.",
+    "Contrast remains readable when overlaid by white noise blizzard."
+  ]
+}

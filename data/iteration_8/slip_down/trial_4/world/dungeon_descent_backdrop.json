@@ -1,0 +1,148 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040401",
+  "asset_key": "dungeon_descent_backdrop",
+  "asset_name": "Dungeon Descent Backdrop",
+  "category": "world",
+  "subcategory": "parallax_backdrop",
+  "priority": "P1",
+  "execution_order": 1,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Backdrop keeps a 16x16 px masonry rhythm and low-saturation dungeon palette tuned for a 320x180 internal render scaled to 1280x720 output.",
+    "The center shaft stays darker than the wall edges so the falling route stays readable during fast descent."
+  ],
+  "differences": [
+    "This asset delivers a tall looping shaft backdrop with a separate dust band region prepared inside the same sheet for parallax slicing."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_804040402",
+    "task_id_804040403",
+    "task_id_804040404",
+    "task_id_804040407",
+    "task_id_804040408",
+    "task_id_804040410",
+    "task_id_804040412"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040402",
+      "task_id_804040403",
+      "task_id_804040404",
+      "task_id_804040410",
+      "task_id_804040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Dungeon depth, cold lighting, and stone surface mood grounding."
+    },
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Backdrop parallax speed, camera rules, and stage timeline grounding."
+    },
+    {
+      "label": "Slip Down S3 GDD",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Primary source for palette, resolution, and vertical descent tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use layered SpriteBundle instances for the stone shaft and dust strip, with a ParallaxLayer marker controlling the 0.4x scroll rate.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "ParallaxLayer",
+      "DungeonBackdrop"
+    ],
+    "asset_loading": "Load world/dungeon_descent_backdrop.png through AssetServer during Loading and keep the handle in SlipDownArtHandles keyed by asset_key.",
+    "runtime_notes": [
+      "Backdrop width is authored for 1280 px output while preserving 16 px tile cadence.",
+      "Dust strip slices scroll at 0.4x camera speed and never move upward.",
+      "Keep the central fall lane visually open for obstacle silhouettes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Primary vertical shaft background visible through the full descent loop.",
+    "screen_position": {
+      "anchor": "top_left",
+      "x_px": 0,
+      "y_px": 0
+    },
+    "layer": {
+      "name": "world_backdrop",
+      "z_index": 0
+    },
+    "usage": "Visible from the opening room through the exit gate sequence with camera movement restricted to downward travel."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 1440
+    },
+    "colors_hex": [
+      "#0D0D0F",
+      "#1A1A2E",
+      "#3B3347",
+      "#4E5940",
+      "#8B2020"
+    ],
+    "animation": {
+      "mode": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "dungeon_descent_backdrop.png",
+      "format": "png",
+      "size_px": {
+        "width": 1280,
+        "height": 1440
+      },
+      "notes": "Single tall backdrop sheet with a lower-contrast dust region for parallax slicing."
+    }
+  ],
+  "acceptance_criteria": [
+    "Backdrop file size is exactly 1280x1440 px and preserves a readable central lane across the full height.",
+    "Stone walls use only the declared dungeon palette and keep 16x16 px block cadence with no anti-aliased edges.",
+    "Dust strip region supports 0.4x parallax motion without exposing a visible seam during one full screen-height loop."
+  ]
+}

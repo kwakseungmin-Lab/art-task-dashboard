@@ -1,0 +1,151 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.cosmos_heracles_small_variant",
+  "asset_name": "Cosmos Heracles small form loop",
+  "category": "character",
+  "subcategory": "player_animation_small",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "character.player.cosmos_heracles_base",
+  "shared_properties": [
+    "primary #C47C2B",
+    "background #0B0C1E",
+    "accent #FFD966",
+    "hero lineage"
+  ],
+  "differences": [
+    "frame_size 40x40",
+    "4_frame_compact_form_loop",
+    "narrow_gap_pass_profile"
+  ],
+  "depends_on": [
+    "character.player.cosmos_heracles_base"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.cosmos_heracles_base"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles_base",
+      "obstacles.gate.narrow_passage"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art_16x16_upscaled",
+    "detail_level": "dense_16x16_cluster",
+    "shading": "two_tone_plus_one_highlight",
+    "outline": "1px_deep_space_outline"
+  },
+  "context": {
+    "role": "player_character",
+    "screen_position": {
+      "mode": "fixed_world_anchor",
+      "anchor_px": {
+        "x": 400,
+        "y": 820
+      },
+      "pivot": "bottom_center",
+      "type": "absolute_px"
+    },
+    "layer": "foreground_characters",
+    "usage": "Compressed hero form used for 50 px narrow-gap traversal with a compact armor read.",
+    "adjacent_elements": [
+      "narrow passage clearance gap",
+      "star floor strip under boots",
+      "lower left size indicator"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 40
+    },
+    "colors_hex": [
+      "#C47C2B",
+      "#E8B87A",
+      "#0B0C1E",
+      "#FFD966"
+    ],
+    "animation": {
+      "frame_count": 4,
+      "fps": 10,
+      "loop": "loop",
+      "frame_size_px": {
+        "width": 40,
+        "height": 40
+      },
+      "states": [
+        "small_transform_hold"
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    },
+    "shape": {
+      "silhouette": "compact crouched hero orb with folded limbs",
+      "components": [
+        "compressed bronze torso",
+        "tucked knees",
+        "shortened arms",
+        "small head crest"
+      ]
+    },
+    "face": {
+      "eyes": "focused_brown_pixels",
+      "mouth": "hidden",
+      "nose": "hidden"
+    },
+    "appendages": {
+      "arms": "two_human_arms_folded",
+      "legs": "two_human_legs_folded",
+      "tail": "none",
+      "accessories": [
+        "lion_cloak",
+        "bronze_bracers"
+      ]
+    },
+    "texture": "compressed_bronze_plate_over_skin_and_cloth",
+    "shading": "two_tone_with_gold_highlight"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/character.player.cosmos_heracles_small_variant.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Output sheet size is exactly 160x40 px.",
+    "Core palette remains primary #C47C2B, background #0B0C1E, accent #FFD966 with asset-local colors confined to specs.colors_hex.",
+    "Animation metadata is exactly frame_count 4, fps 10, loop loop.",
+    "Deliverable path is exactly character/character.player.cosmos_heracles_small_variant.png with transparent background enabled.",
+    "Each frame is exactly 40x40 px and keeps the helmet crest inside the collision box.",
+    "The sheet communicates crouched mass suitable for a 50 px passage without stray pixels above y 40.",
+    "specs.viewpoint.camera_angle is orthographic_side and specs.viewpoint.facing is right.",
+    "specs.shape.silhouette describes a compact crouched hero orb with folded limbs."
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.stage.floor_marble_tile_64",
+  "asset_name": "World Stage — Marble Floor Tile (64px tile)",
+  "category": "world",
+  "subcategory": "stage",
+  "priority": "P1",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "2px_brush"
+  },
+  "context": {
+    "role": "stage_floor",
+    "layer": "world_background",
+    "usage": "Seamless 64x64 floor tile used for the 1280x620 puzzle area.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#8BA7C7",
+      "#8B3A52",
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#C8B4E0"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.stage.floor_marble_tile_64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Tile is 64x64px and tiles seamlessly both directions.",
+    "Pattern is subtle; avoid strong linear guides that mimic trajectory UI.",
+    "Color uses warm gray (#A89880) and dusty rose tints."
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.sky_day_field",
+  "asset_name": "World — daytime sky field",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 200,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This asset is a full-screen field rather than a tile or sprite.",
+    "The background remains visually quiet to preserve obstacle contrast.",
+    "No horizon ornament is introduced inside this file."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "world.cloud_pass_small"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.cloud_pass_small",
+      "ui.hud.score_rack"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background_field",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world",
+    "usage": "Static day-sky field that establishes the empty horizon behind all gameplay objects."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 150
+    },
+    "colors_hex": [
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "composition": [
+      "Fill the full canvas with #F7F7F7.",
+      "Leave all decorative pixels to cloud and ground tasks.",
+      "Avoid gradients and anti-aliased edges."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.sky_day_field.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 600x150px.",
+    "Painted region is a flat fill that uses only #F7F7F7.",
+    "No texture cluster exceeds 0.5 percent of the full canvas area."
+  ]
+}

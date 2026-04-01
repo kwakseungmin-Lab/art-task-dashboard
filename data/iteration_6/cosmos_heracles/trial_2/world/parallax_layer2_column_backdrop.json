@@ -1,0 +1,90 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "world.parallax.layer2_column_backdrop",
+  "asset_name": "Parallax Layer 2: Temple Column Backdrop",
+  "category": "world",
+  "group_id": "world.parallax.layer2",
+  "variant_role": "standalone",
+  "priority": "P0",
+  "execution_order": 3,
+  "depends_on": [
+    "world.parallax.layer1_temple_silhouette"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pillar.marble_static"
+    ]
+  },
+  "context": {
+    "role": "background_parallax",
+    "screen_position": {
+      "type": "screen_space",
+      "anchor": "full_screen",
+      "resolution_px": [
+        1600,
+        900
+      ]
+    },
+    "layer": "parallax_layer2",
+    "usage": "Near background: repeating columns and arches (scroll speed x0.6).",
+    "adjacent_elements": [
+      "world.ground.star_floor_strip"
+    ]
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 1024,
+      "height_px": 900
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#6B6357"
+      },
+      "secondary": [
+        {
+          "name": "marble_ivory",
+          "hex": "#D9D0BE"
+        },
+        {
+          "name": "deep_space",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "medium-detail columns/arches behind gameplay, with clear vertical rhythm",
+      "components": [
+        "column_shafts",
+        "arches",
+        "broken_rubble"
+      ]
+    }
+  },
+  "description": "Create a horizontally tiling column backdrop for Layer 2. Use marble ivory (#D9D0BE) with shadow (#6B6357). Keep detail moderate; avoid shapes that look like collidable obstacles.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "world/parallax_layer2_column_backdrop.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1024x900 px",
+    "Tiles seamlessly horizontally",
+    "Column edges remain readable at 1x scale with 16px grid sensibility"
+  ]
+}

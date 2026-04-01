@@ -1,0 +1,87 @@
+{
+  "task_id": "ui.care_menu_panel",
+  "asset_name": "care_menu_panel_44x16",
+  "category": "ui",
+  "subcategory": "panel",
+  "description": "Create a 44x16 px care menu panel sprite with no transparency. Draw a 1px border rectangle using #C2C3C7 on the outer edge. Fill the interior (x=1..42, y=1..14) with solid #1D2B53.",
+  "execution_order": 120,
+  "priority": "P1",
+  "specs": {
+    "dimensions_px": {
+      "width": 44,
+      "height": 16
+    },
+    "border_hex": "#C2C3C7",
+    "fill_hex": "#1D2B53",
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": false
+  },
+  "context": {
+    "role": "Background panel behind care icons when CareMenu is shown.",
+    "layer": "ui_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 84,
+      "y": 108,
+      "anchor": "top_left"
+    },
+    "contains_icons": [
+      "ui.icon_feed",
+      "ui.icon_clean",
+      "ui.icon_pet"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/ui/care_menu_panel_44x16/care_menu_panel_44x16.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/ui/care_menu_panel_44x16/care_menu_panel_44x16.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.icon_feed",
+      "ui.icon_clean",
+      "ui.icon_pet"
+    ]
+  },
+  "depends_on": [],
+  "blocks": [
+    "ui.icon_feed",
+    "ui.icon_clean",
+    "ui.icon_pet"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 44x16 px.",
+    "All pixels are opaque (alpha=255).",
+    "Border is #C2C3C7 for the outer edge (x=0 or x=43 or y=0 or y=15).",
+    "Interior pixels are #1D2B53."
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.scene.village_overview_background",
+  "asset_name": "Village Overview Background (static)",
+  "category": "world",
+  "subcategory": "scene",
+  "priority": "P0",
+  "execution_order": 25,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.tiles.snow_ground_16_atlas",
+      "world.building.house_sheet_64x64_2f",
+      "world.fx.blizzard_overlay_light"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "background",
+    "layer": "world_background",
+    "usage": "Static village overview backdrop for the full 1920x1080 camera-locked scene.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "composition_rules": {
+      "horizon_line_y_px": 320,
+      "village_area_bbox_px": {
+        "x": 160,
+        "y": 260,
+        "w": 1280,
+        "h": 720
+      },
+      "ui_safe_margins_px": {
+        "top": 96,
+        "right": 420,
+        "bottom": 120,
+        "left": 200
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.scene.village_overview_background.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Background is exactly 1920x1080px and uses only grayscale palette.",
+    "UI safe margins are visually calm (low detail) so HUD and panels remain readable.",
+    "Ground texture aligns with 16x16 tile look (no high-frequency noise that causes shimmer)."
+  ]
+}

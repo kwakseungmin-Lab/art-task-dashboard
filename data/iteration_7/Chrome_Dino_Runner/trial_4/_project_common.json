@@ -1,0 +1,166 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner"
+  },
+  "meta": {
+    "plan_id": "Chrome_Dino_Runner__iter7__trial4",
+    "game_name": "Chrome_Dino_Runner",
+    "iteration": 7,
+    "trial_index": 4,
+    "plan_dir": "trial_4",
+    "created_at_utc": "2026-03-17T18:15:18Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "assets": [
+    {
+      "task_id": "character.player.dino_runner_core",
+      "category": "character",
+      "file": "character/character.player.dino_runner_core.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.dino_air_pose",
+      "category": "character",
+      "file": "character/character.player.dino_air_pose.json",
+      "execution_order": 20,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.dino_low_profile",
+      "category": "character",
+      "file": "character/character.player.dino_low_profile.json",
+      "execution_order": 30,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.dino_crash_pose",
+      "category": "character",
+      "file": "character/character.player.dino_crash_pose.json",
+      "execution_order": 40,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.cactus_single",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus_single.json",
+      "execution_order": 100,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.cactus_pair_cluster",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus_pair_cluster.json",
+      "execution_order": 110,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.cactus_triplet_cluster",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus_triplet_cluster.json",
+      "execution_order": 120,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.pterodactyl_flap_sheet",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pterodactyl_flap_sheet.json",
+      "execution_order": 130,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.sky_day_field",
+      "category": "world",
+      "file": "world/world.sky_day_field.json",
+      "execution_order": 200,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.ground_runner_strip",
+      "category": "world",
+      "file": "world/world.ground_runner_strip.json",
+      "execution_order": 210,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.ground_pebble_overlay",
+      "category": "world",
+      "file": "world/world.ground_pebble_overlay.json",
+      "execution_order": 220,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.cloud_pass_small",
+      "category": "world",
+      "file": "world/world.cloud_pass_small.json",
+      "execution_order": 230,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.font.score_digits",
+      "category": "ui",
+      "file": "ui/ui.font.score_digits.json",
+      "execution_order": 300,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.score_rack",
+      "category": "ui",
+      "file": "ui/ui.hud.score_rack.json",
+      "execution_order": 310,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.banner.game_over_message",
+      "category": "ui",
+      "file": "ui/ui.banner.game_over_message.json",
+      "execution_order": 320,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.prompt.restart_hint",
+      "category": "ui",
+      "file": "ui/ui.prompt.restart_hint.json",
+      "execution_order": 330,
+      "variant_of": null
+    }
+  ]
+}

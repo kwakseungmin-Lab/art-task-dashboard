@@ -1,0 +1,164 @@
+{
+  "task_id": "task_id_008004006",
+  "asset_key": "obstacle_moving_searchlight_4f_32x32",
+  "asset_name": "Moving Searchlight Sweep",
+  "category": "obstacles",
+  "subcategory": "light_hazard",
+  "priority": "P1",
+  "execution_order": 60,
+  "variant_of": "task_id_008004005",
+  "variant_of_asset_key": "obstacle_fixed_light_emitter_static_32x32",
+  "shared_properties": [
+    "32x32 brass housing with an amber lens and dark rear fins.",
+    "Core palette #C9A84C/#0D0B14/#D4682A.",
+    "Beam origin remains centered on the front lens axis."
+  ],
+  "differences": [
+    "Four frames add carriage sway and lens pulse for rail-driven movement.",
+    "Rear bracket extends 6 px with a counterweight to communicate travel direction.",
+    "Lens core brightens to #F5EFE0 during the forward sweep frames."
+  ],
+  "depends_on": [
+    "task_id_008004005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004005",
+      "task_id_008004007",
+      "task_id_008004014"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the four-frame housing animation and move the entity along a rail through a SearchlightPatrol component.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "SearchlightPatrol",
+      "LightEmitter",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/obstacle_moving_searchlight_4f_32x32.png through AssetServer before patrol routes are spawned.",
+    "runtime_notes": [
+      "Patrol motion uses gameplay data with a 120 px per second sweep rate.",
+      "Frame timing remains independent from patrol interpolation.",
+      "Searchlight pivot matches the fixed emitter to simplify beam scripts."
+    ]
+  },
+  "context": {
+    "role": "moving_searchlight",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        200
+      ]
+    },
+    "layer": "obstacles_light",
+    "usage": "Rail-driven moving light hazard used in late floors where the safe path shifts over time.",
+    "adjacent_elements": [
+      "obstacle_fixed_light_emitter_static_32x32",
+      "obstacle_plane_mirror_16x96",
+      "player_umbra_exposure_5f_12fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Searchlight housing with a slim rail trolley, counterweight arm, and pulsing front lens.",
+      "components": [
+        "lens_ring",
+        "rail_trolley",
+        "counterweight_arm",
+        "rear_fins"
+      ]
+    },
+    "motion": {
+      "path": "horizontal_ping_pong",
+      "range_px": 256,
+      "speed_px_per_second": 120
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_moving_searchlight_4f_32x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 128x32 px with four 32x32 frames.",
+    "Counterweight and trolley details remain readable at 1x scale.",
+    "Lens pulse changes brightness without shifting the beam origin."
+  ],
+  "blocked_by": [
+    "task_id_008004005"
+  ],
+  "blocks": [],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

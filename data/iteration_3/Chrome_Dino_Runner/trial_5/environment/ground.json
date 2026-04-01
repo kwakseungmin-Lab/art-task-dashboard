@@ -1,0 +1,79 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scaling supported",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "variable",
+      "height": "variable"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "background": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "8-bit pixel art environmental elements",
+      "purpose": "provide spatial context and visual feedback",
+      "rendering": "background layers, no collision with player",
+      "scrolling": "parallax or synchronized with game speed"
+    }
+  },
+  "asset": {
+    "asset_id": "ground",
+    "asset_name": "Ground Line and Texture",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Defines ground level and provides scrolling visual feedback",
+      "screen_position": "y=0 (ground level), spans entire screen width with tiling",
+      "adjacent_elements": ["player_run", "player_duck", "cactus_small", "cactus_medium", "cactus_large", "background_sky"],
+      "usage_scenario": "Always visible, scrolls left at Current_Speed (300-900 px/s) to create movement illusion"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "1200px",
+        "height": "2px (line) + 10px (optional texture)"
+      },
+      "colors": {
+        "line": "#535353",
+        "texture": "#535353"
+      },
+      "shape": "Horizontal line with optional small rocks/grass texture below",
+      "texture": "Pixel art, minimal texture pattern",
+      "outline": "none (line itself is 2px thick)",
+      "shadow": "none",
+      "animation": {
+        "type": "position-based scrolling",
+        "frames": 1,
+        "fps": 0,
+        "loop": true,
+        "description": "Tiles seamlessly, x-position decreases by Current_Speed, loops when x < -1200px by adding 1200px"
+      },
+      "details": "2px horizontal line at y=0, optional small rocks or grass pixels below line (10px height max), minimal pattern to avoid distraction"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_jump", "player_duck", "cactus_small", "cactus_medium", "cactus_large", "background_sky"],
+      "shared_with": "Provides y=0 reference for all ground-based objects",
+      "differences_from": "background_sky is static color, ground scrolls at 100% game speed vs background clouds at 50%"
+    },
+    "explicit_negations": [
+      "No complex terrain variations",
+      "No height changes or hills",
+      "No shadows or lighting effects",
+      "No animated texture elements",
+      "No color gradients",
+      "No decorative details that distract from gameplay"
+    ]
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050003",
+  "asset_key": "mirror_reflector_panel",
+  "asset_name": "Mirror Reflector Panel",
+  "category": "obstacles",
+  "subcategory": "movable_reflector",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The obstacle follows the same art deco gold trim language and hard-edge contrast used by the broader tower architecture.",
+    "All authored highlights stay within the project palette and avoid blurry bloom so the beam shader remains visually distinct.",
+    "The object is drawn for transparent-background compositing on a 16:9 orthographic scene."
+  ],
+  "differences": [
+    "This asset prioritizes a clean reflection plane and visible pivot hardware over background ornament.",
+    "The bright interior strip is intentionally narrow so the reflected beam, not the frame, carries the main luminance.",
+    "The silhouette remains slender enough to fit on cramped puzzle floors without obscuring ladder rungs or door silhouettes."
+  ],
+  "depends_on": [
+    "task_id_008050007"
+  ],
+  "blocks": [
+    "task_id_008050006",
+    "task_id_008050010"
+  ],
+  "blocked_by": [
+    "task_id_008050007"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050004",
+      "task_id_008050006",
+      "task_id_008050010",
+      "task_id_008050011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "MirrorReflectorTag",
+      "GrabInteractable",
+      "Transform",
+      "Visibility",
+      "Sprite"
+    ],
+    "asset_loading": "Load mirror_reflector_panel.png during Loading and register pivot metadata so runtime rotation always occurs around the visual centerline.",
+    "runtime_notes": [
+      "Author the mirror art with the reflective plane centered so 15 degree step rotation does not create a perceived collision drift.",
+      "Keep trim geometry lightweight because multiple mirrors can be visible in one room and the beam path must remain the brightest element.",
+      "The mirror sprite should support horizontal flipping for left and right facing puzzle layouts without losing the bevel highlight logic."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "grabbable_light_reflector",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        860,
+        420
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Placed in puzzle rooms so the player can grab, move, and rotate reflected light paths into new shadow-safe routes."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 192
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        64,
+        192
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "interaction_profile": {
+      "grab_radius_px": 32,
+      "rotation_step_degrees": 15,
+      "object_weight_unit": 4.0,
+      "max_reflections_supported": 4
+    },
+    "collision_profile": {
+      "opaque_to_light": true,
+      "blocks_player": false
+    },
+    "readability_notes": [
+      "The reflective strip is the brightest vertical element and sits inside a gold mechanical frame.",
+      "Pivot hardware is visible at both ends so players understand the object can rotate.",
+      "The frame thickness stays consistent at 6 px along the full panel length."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/mirror_reflector_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 64x192 px and centered on the rotation axis with no extra transparent padding larger than 4 px on either side.",
+    "The reflective face stays readable at 50% preview scale against both dark and amber test backgrounds.",
+    "Gold frame thickness and bevel direction remain symmetrical when the sprite is rotated in 15 degree increments."
+  ]
+}

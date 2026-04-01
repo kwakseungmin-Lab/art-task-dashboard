@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.button.menu_60x24",
+  "asset_name": "Menu Button (60x24)",
+  "category": "ui",
+  "subcategory": "hud_button",
+  "priority": "P1",
+  "execution_order": 240,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.top_bar_1280x50"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.top_bar_1280x50"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.top_bar_1280x50",
+      "ui.screen.fail_overlay_320x200",
+      "ui.screen.clear_overlay_400x300"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "hud_button",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -76,
+        18
+      ]
+    },
+    "layer": "ui",
+    "usage": "Visible in the top HUD and result screens; opens the pause or stage navigation menu with a 3-line icon.",
+    "adjacent_elements": [
+      "top HUD bar",
+      "restart button"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_2d",
+      "facing": "viewer"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 60,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#F5F0E8",
+      "#A89880",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "rounded button plate with a 3-line menu icon and a centered label zone",
+      "components": [
+        "button_plate",
+        "border",
+        "menu_icon",
+        "label_zone"
+      ]
+    },
+    "ui_behavior": {
+      "states": [
+        "idle"
+      ],
+      "label_key": "menu",
+      "hotkey": "ESC"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.button.menu_60x24.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 60x24px and the menu icon uses 3 horizontal lines each 10px wide and 1px tall.",
+    "Label zone stays centered within a 34x12 rectangle and the outer border stays 1px thick.",
+    "Only #D4A843, #F5F0E8, #A89880, and #3D2B1F are used on the UI sheet."
+  ]
+}

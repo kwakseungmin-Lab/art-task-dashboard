@@ -1,0 +1,209 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040404",
+  "asset_key": "prisoner_descent_state_sheet",
+  "asset_name": "Prisoner Descent State Sheet",
+  "category": "character",
+  "subcategory": "player_actor",
+  "priority": "P0",
+  "execution_order": 4,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Player body scale stays 16x24 px per frame and keeps the chained-prisoner silhouette visible against dark walls.",
+    "All clips preserve a centered torso pivot so downward camera tracking feels stable across fall, friction, and hit states."
+  ],
+  "differences": [
+    "This atlas combines fall_loop, friction_left, friction_right, and hit_flash states in one deterministic ten-frame sheet."
+  ],
+  "depends_on": [
+    "task_id_804040401",
+    "task_id_804040402"
+  ],
+  "blocks": [
+    "task_id_804040405",
+    "task_id_804040406",
+    "task_id_804040407",
+    "task_id_804040408",
+    "task_id_804040409",
+    "task_id_804040410",
+    "task_id_804040411",
+    "task_id_804040412"
+  ],
+  "blocked_by": [
+    "task_id_804040401",
+    "task_id_804040402"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040402",
+      "task_id_804040403",
+      "task_id_804040405",
+      "task_id_804040406",
+      "task_id_804040407",
+      "task_id_804040408",
+      "task_id_804040409",
+      "task_id_804040410",
+      "task_id_804040411",
+      "task_id_804040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down player concept",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/player.png?raw=1",
+      "purpose": "Prisoner body proportion, chain placement, and fall pose grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Shadow contrast and dungeon lighting grounding."
+    },
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Frame counts, sprite size, hit effect timing, and friction pose grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with a PlayerVisualState component that swaps clips by movement and damage state.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerVisualState",
+      "PlayerMarker"
+    ],
+    "asset_loading": "Load character/prisoner_descent_state_sheet.png through AssetServer and pair it with a clip table keyed by asset_key.",
+    "runtime_notes": [
+      "Each frame is 16x24 px.",
+      "Fall loop uses four frames at 8 FPS.",
+      "Friction clips and hit clip keep the feet aligned to the same baseline for collision readability."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Primary playable character art used during all descent, braking, and damage states.",
+    "screen_position": {
+      "anchor": "screen_center",
+      "x_px": 640,
+      "y_px": 240
+    },
+    "layer": {
+      "name": "character_player",
+      "z_index": 30
+    },
+    "usage": "Visible whenever the player is active in the shaft and during the clear-room arrival state."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 48
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#E07B39",
+      "#0D0D0F",
+      "#8B2020",
+      "#3B3347"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 10,
+      "fps": 8,
+      "loop": false,
+      "layout": {
+        "rows": 2,
+        "columns": 5,
+        "frame_size_px": {
+          "width": 16,
+          "height": 24
+        }
+      },
+      "state_clips": [
+        {
+          "state": "fall_loop",
+          "start_frame": 0,
+          "end_frame": 3,
+          "fps": 8,
+          "loop": true
+        },
+        {
+          "state": "friction_left",
+          "start_frame": 4,
+          "end_frame": 5,
+          "fps": 6,
+          "loop": true
+        },
+        {
+          "state": "friction_right",
+          "start_frame": 6,
+          "end_frame": 7,
+          "fps": 6,
+          "loop": true
+        },
+        {
+          "state": "hit_flash",
+          "start_frame": 8,
+          "end_frame": 9,
+          "fps": 12,
+          "loop": false
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "prisoner_descent_state_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 80,
+        "height": 48
+      },
+      "notes": "Ten-frame atlas arranged as five columns by two rows."
+    },
+    {
+      "artifact": "prisoner_descent_state_sheet_clips.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Clip map for fall_loop, friction_left, friction_right, and hit_flash states."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 80x48 px with ten 16x24 frames.",
+    "Fall loop uses four frames, friction_left uses two frames, friction_right uses two frames, and hit_flash uses two frames with the declared clip ranges.",
+    "All frames keep the body centered so camera-follow jitter does not appear when clips switch inside FixedUpdate."
+  ]
+}

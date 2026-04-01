@@ -1,0 +1,193 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003011",
+  "asset_key": "enemy_champion_defeated_8f_8fps",
+  "asset_name": "Enemy Champion Defeated Pose",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P1",
+  "execution_order": 110,
+  "variant_of": "task_id_008003009",
+  "variant_of_asset_key": "enemy_champion_idle_8f_8fps",
+  "shared_properties": [
+    "120x180 frame size and champion costume silhouette.",
+    "High collar, cape panels, and staff prop silhouette.",
+    "Leftward facing root position on the upper-right anchor."
+  ],
+  "differences": [
+    "Torso collapses downward by about 18 px across the sequence.",
+    "Staff tilts away from the body and exits the main attack line.",
+    "Cape panels fall vertically and the glow on the staff head fades out."
+  ],
+  "depends_on": [
+    "task_id_008003009"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003009"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003018",
+      "task_id_008003020",
+      "task_id_008003009"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the defeat sequence and hold the final frame until the scene transitions.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "EnemyCaster",
+      "Transform"
+    ],
+    "asset_loading": "Load character/enemy_champion_defeated_8f_8fps.png through AssetServer and cache the atlas under enemy_champion_defeated_8f_8fps.",
+    "runtime_notes": [
+      "Defeat sequence plays once at 8 fps and then pauses on frame 8.",
+      "The upper-right HP bar can drain during the first half of the sequence.",
+      "Reward transition can begin after the final frame with no additional pose swap."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "enemy_defeated",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1450,
+        270
+      ]
+    },
+    "layer": "character_enemy",
+    "usage": "Shown after enemy HP reaches zero and before reward card selection returns the player to the lobby.",
+    "adjacent_elements": [
+      "ui_hp_bars_dual_440x32",
+      "ui_round_combo_panel_180x64",
+      "world_academy_hall_background_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_front",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#E74C3C",
+      "#1A1A2E",
+      "#D4AF37",
+      "#FFFACD",
+      "#2B1B17"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Falling champion silhouette with dropped shoulders, lowered staff, and hanging cape.",
+      "components": [
+        "head",
+        "long_hair",
+        "high_collar",
+        "collapsed_torso",
+        "staff",
+        "cape_panels",
+        "boots"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "closed_line",
+        "size_px": [
+          16,
+          4
+        ]
+      },
+      "mouth": {
+        "shape": "small_line",
+        "length_px": 12
+      },
+      "nose": {
+        "shape": "straight_bridge",
+        "length_px": 9
+      }
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 60
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 74
+      },
+      "tail": null,
+      "accessories": "Staff focus, cape clasp, and shoulder sigil with dimmed glow."
+    },
+    "texture": "Cape folds settle downward and the staff gem loses saturation over time.",
+    "shading": "Soft gradient shading with reduced highlights in the last three frames."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/enemy_champion_defeated_8f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 960x180 px with eight 120x180 frames.",
+    "Final frame head height sits at least 18 px lower than frame 1 to sell the defeat state.",
+    "Staff glow falls to less than 15 percent of its starting brightness by frame 8."
+  ]
+}

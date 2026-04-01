@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.noble.standard_eliminated",
+  "asset_name": "Standard Noble (Eliminated Pop FX)",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 41,
+  "variant_of": "character.noble.standard_idle",
+  "shared_properties": {
+    "canvas_resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "character_box_px": {
+      "width": 32,
+      "height": 48
+    },
+    "outline_rule": "2px_dark_brown",
+    "tone_rule": "no_gore_comedic_pop_fx"
+  },
+  "differences": {
+    "animation": {
+      "fps": 12,
+      "frame_count": 8
+    },
+    "visual_elements": [
+      "pop_ring",
+      "small_confetti_squares",
+      "lavender_clear_sparkle"
+    ],
+    "color_emphasis_hex": [
+      "#C8B4E0",
+      "#D4A843"
+    ]
+  },
+  "depends_on": [
+    "character.noble.standard_idle"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble.standard_idle"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "elimination_animation",
+    "layer": "characters",
+    "usage": "Plays when a standard noble is removed; no gore; shows comedic pop + confetti",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#F5F0E8",
+      "#D4A843",
+      "#C8B4E0"
+    ],
+    "animation": {
+      "type": "sequence",
+      "states": {
+        "eliminate": {
+          "fps": 12,
+          "frame_count": 8,
+          "notes": "plays once then disappears"
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.standard_eliminated.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Animation is 8 frames at 12fps and ends fully transparent (no lingering pixels).",
+    "No red/blood tones are used; only listed palette colors appear (#C8B4E0, #D4A843, #F5F0E8, #3D2B1F).",
+    "The eliminated sequence stays within the 32x48px bounding box in every frame."
+  ]
+}

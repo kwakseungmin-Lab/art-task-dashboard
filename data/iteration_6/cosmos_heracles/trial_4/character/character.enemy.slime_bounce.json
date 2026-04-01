@@ -1,0 +1,117 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.enemy.slime_bounce",
+  "asset_name": "Slime (Bounce)",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P1",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.counter_gauge"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    },
+    "danger": {
+      "name": "Danger Red",
+      "hex": "#E84040"
+    },
+    "counter": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "boss": {
+      "name": "Boss Purple",
+      "hex": "#7B2FBE"
+    },
+    "marble": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "shadow": {
+      "name": "Column Shadow",
+      "hex": "#6B6357"
+    },
+    "bronze": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    },
+    "skin": {
+      "name": "Hero Skin",
+      "hex": "#E8B87A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "grid_base_px": 16,
+    "outline": "1px",
+    "shading": "flat",
+    "anti_aliasing": false
+  },
+  "context": {
+    "role": "enemy",
+    "layer": "gameplay",
+    "usage": "Zone 1 basic enemy; single attack with 0.5s telegraph."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 40
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "loop",
+      "frame_count": 4,
+      "frame_time_s": 0.1,
+      "sprite_sheet_layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "palette_emphasis_hex": [
+      "#E84040"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemy.slime_bounce.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite/export bounding box is exactly 48x40 px.",
+    "All colors are expressed as #RRGGBB; no named colors.",
+    "Pixel art: no anti-aliasing; outline thickness stays 1px where outline is used."
+  ]
+}

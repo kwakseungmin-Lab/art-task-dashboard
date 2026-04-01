@@ -1,0 +1,97 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.text_noise_masks_256_set_3",
+  "asset_name": "Text/Panel Noise Masks — 256px (set of 3)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P2",
+  "execution_order": 65,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "mask_set",
+    "layer": "ui",
+    "usage": "Optional overlay noise for UI panels during blizzard and for memory occlusion effects.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 768,
+      "height": 256
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#C0C0C0",
+      "#888888",
+      "#111111",
+      "#000000"
+    ],
+    "mask_size_px": {
+      "width": 256,
+      "height": 256
+    },
+    "mask_count": 3,
+    "masks": [
+      {
+        "id": "snow_speckle",
+        "note": "Sparse speckles."
+      },
+      {
+        "id": "streaks",
+        "note": "Diagonal streaks."
+      },
+      {
+        "id": "static",
+        "note": "Dense static pattern."
+      }
+    ],
+    "layout_note": "Single-row strip 768×256. Tileable horizontally."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.text_noise_masks_256_set_3.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Noise masks do not fully obscure 8px font at typical low opacity (10–25%)."
+  ]
+}

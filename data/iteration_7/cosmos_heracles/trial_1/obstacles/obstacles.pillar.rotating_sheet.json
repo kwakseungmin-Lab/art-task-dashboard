@@ -1,0 +1,129 @@
+{
+  "asset_name": "Rotating Pillar 64x64",
+  "subcategory": "terrain",
+  "priority": "P1",
+  "execution_order": 31,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.floor.star_floor_strip"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.pillar.standard_sheet"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.enemy.medusa_state_sheet",
+      "world.background.zone2_celestial_hall_parallax"
+    ]
+  },
+  "context": {
+    "role": "rotating_obstacle",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "player_lock_x",
+      "offset_px": {
+        "x": 620,
+        "y": -64
+      }
+    },
+    "adjacent_elements": [
+      "character.enemy.medusa_state_sheet",
+      "world.floor.star_floor_strip"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Appears from Zone 2 onward; rotates 90 degrees every 0.5 seconds and breaks on collision with the 120x180 player form."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "stateful",
+      "frame_count": 4,
+      "frame_time_s": 0.5,
+      "loop": true,
+      "states": {
+        "rotation_cycle": 4
+      },
+      "sprite_sheet_layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Square hazard block with 12 px radius corner cuts and a 16 px star hub at center.",
+      "components": [
+        "outer block 64x64",
+        "corner cuts x4",
+        "center hub 16x16",
+        "rotational shadow band"
+      ]
+    },
+    "collision_box_px": {
+      "width": 64,
+      "height": 64
+    },
+    "rotation_step_deg": 90,
+    "rotation_interval_s": 0.5,
+    "shading_model": "two_tone_flat"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.pillar.rotating_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet bounding box is exactly 64x64 px per frame.",
+    "Sheet contains exactly 4 rotation frames.",
+    "Center hub remains fixed at x 32 y 32 across all frames.",
+    "Each successive frame rotates the silhouette by 90 degrees."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.pillar.rotating_sheet",
+  "category": "obstacles",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

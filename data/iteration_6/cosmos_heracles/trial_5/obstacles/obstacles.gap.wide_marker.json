@@ -1,0 +1,113 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.gap.wide_marker",
+  "asset_name": "Wide Gap Marker — blocks LARGE form",
+  "category": "obstacles",
+  "subcategory": "gap",
+  "priority": "P1",
+  "execution_order": 105,
+  "variant_of": null,
+  "depends_on": [
+    "world.tileset.temple_marble"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.tileset.temple_marble"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.size_large",
+      "ui.hud.size_indicator"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "boss_purple",
+      "hex": "#7B2FBE"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "obstacle_indicator",
+    "layer": "world",
+    "usage": "Visual framing for a wide passage (>=110px). Indicates LARGE form will collide; BASE/SMALL can pass.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "marker_parts": [
+      {
+        "id": "arch_frame",
+        "dimensions_px": {
+          "width": 96,
+          "height": 64
+        }
+      },
+      {
+        "id": "ceiling_spikes",
+        "dimensions_px": {
+          "width": 96,
+          "height": 32
+        }
+      },
+      {
+        "id": "warning_mosaic",
+        "dimensions_px": {
+          "width": 96,
+          "height": 16
+        }
+      }
+    ],
+    "sheet_dimensions_px": {
+      "width": 384,
+      "height": 64
+    },
+    "layout": "Row of parts: arch_frame, ceiling_spikes, warning_mosaic, optional_variant",
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#7B2FBE",
+      "#FFD966",
+      "#0B0C1E"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.gap.wide_marker.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Marker communicates a wide passage and ceiling restriction for LARGE form.",
+    "All parts fit within their specified pixel dimensions.",
+    "Palette matches temple marble and uses purple accent sparingly as a danger cue."
+  ]
+}

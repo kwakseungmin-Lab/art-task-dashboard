@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.item.amp",
+  "asset_name": "Pickup - Move Amp (Range +1 for Turn)",
+  "category": "obstacles",
+  "subcategory": "item",
+  "priority": "P2",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "pickup",
+    "layer": "obstacles",
+    "usage": "32x32px ampoule pickup; increases movement range by +1 for the current turn",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "sprite_dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "tile_size_px": {
+      "width": 64,
+      "height": 64
+    },
+    "animation": {
+      "type": "loop",
+      "frame_count": 4,
+      "fps": 4,
+      "notes": "1.0s loop; subtle liquid slosh and sparkle"
+    },
+    "colors_hex": [
+      "#06B6D4",
+      "#F8FAFC",
+      "#1E1B4B",
+      "#D4C5A9"
+    ],
+    "iconography": {
+      "must_include": "small upward arrow or plus marker readable at 1x"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.item.amp.png",
+      "transparent_background": true,
+      "layout": "horizontal_strip",
+      "frame_size_px": {
+        "width": 32,
+        "height": 32
+      },
+      "frame_count": 4
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG has exactly 4 frames in a single horizontal strip; each frame is 32x32px, total image size is 128x32px.",
+    "Cyan highlight uses #06B6D4 and remains readable on #D4C5A9 floor tiles without blending artifacts.",
+    "Background is fully transparent and the sprite uses hard pixel edges with no anti-aliasing."
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.screen.death",
+  "asset_name": "Death Screen — YOU DIED + score + RETRY prompt",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P2",
+  "execution_order": 290,
+  "variant_of": null,
+  "depends_on": [
+    "ui.atlas.core"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.atlas.core"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "danger_red",
+      "hex": "#E84040"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "ui_white",
+      "hex": "#F0EFE9"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "ui_screen",
+    "layer": "ui",
+    "usage": "Shown when HP reaches 0. Prompts Space to retry from Zone start.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "overlay": {
+      "alpha": 0.7,
+      "color_hex": "#0B0C1E"
+    },
+    "text": [
+      {
+        "value": "YOU DIED",
+        "size_px": 56,
+        "center_px": [
+          800,
+          360
+        ]
+      },
+      {
+        "value": "SCORE: 000000",
+        "size_px": 28,
+        "center_px": [
+          800,
+          460
+        ]
+      },
+      {
+        "value": "[SPACE] RETRY",
+        "size_px": 28,
+        "center_px": [
+          800,
+          540
+        ]
+      }
+    ],
+    "colors_hex": [
+      "#E84040",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.death.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "YOU DIED is highly readable and centered.",
+    "Retry prompt matches input mapping (Space).",
+    "Red emphasis (#E84040) is used primarily on headline without making other text unreadable."
+  ]
+}

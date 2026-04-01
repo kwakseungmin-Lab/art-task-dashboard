@@ -1,0 +1,126 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.stone_wall",
+  "asset_name": "Stone Wall Segment",
+  "category": "obstacles",
+  "subcategory": "environment_object",
+  "priority": "P0",
+  "execution_order": 4,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This asset carries no destruction frames and supports clean ricochet readability."
+  ],
+  "depends_on": [
+    "world.background.midlayer_court"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.midlayer_court"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.mirror",
+      "ui.overlay.trajectory_guide"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "reflective_barrier",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 220,
+      "y": 220,
+      "width": 80,
+      "height": 80,
+      "anchor": "top_left"
+    },
+    "layer": "midground_interactive",
+    "usage": "Reusable wall segment for angle conservation puzzles from stage 1-1 onward.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "world.foreground.floor_tiles",
+      "character.noble_basic",
+      "obstacles.launchable.stone_ball"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 80
+    },
+    "colors_hex": [
+      "#A89880",
+      "#F5F0E8",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": false,
+      "default_state": "static",
+      "states": [
+        {
+          "name": "static",
+          "frame_count": 1,
+          "fps": 0
+        }
+      ]
+    },
+    "notes": [
+      "Edge bevel width is 6 px to read the bounce plane at 100% zoom.",
+      "Surface crack density is capped at 6 visible cracks per segment to keep collision face readable."
+    ],
+    "shape": {
+      "silhouette": "rectangular block wall segment with a clean bounce face and squared base",
+      "components": [
+        "3 stone block rows",
+        "left collision edge",
+        "right collision edge",
+        "base shadow"
+      ]
+    }
+  },
+  "deliverables": [
+    "Static wall segment sprite 80x80 px.",
+    "Collision-face markup preview with 4 edges.",
+    "Damage-free alternate export with transparent margin 2 px."
+  ],
+  "acceptance_criteria": [
+    "Sprite size is exactly 80x80 px.",
+    "Bounce face on each edge is visually readable with 6 px bevel.",
+    "Surface pattern does not hide the outer silhouette at 100% zoom."
+  ]
+}

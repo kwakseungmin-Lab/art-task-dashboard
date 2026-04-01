@@ -1,0 +1,146 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "task_plan_type": "Art Task Plan",
+    "task_plan_output_version": "v3",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "source_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+    "canvas": {
+      "resolution_px": "128x128",
+      "pixel_aspect_ratio": "1:1",
+      "coordinate_origin": "top_left",
+      "x_range_px": "0-127",
+      "y_range_px": "0-127",
+      "render_scale_rule": "nearest_neighbor_only"
+    },
+    "view": {
+      "camera_angle": "front",
+      "perspective": "none_2d"
+    },
+    "style": {
+      "art_style": "pixel_art",
+      "color_mode": "indexed",
+      "max_unique_colors": 16,
+      "palette_hex": [
+        "#FFA300",
+        "#FF004D",
+        "#FFEC27",
+        "#AB5236",
+        "#FFF1E8",
+        "#C2C3C7",
+        "#1D2B53",
+        "#FFCCAA",
+        "#5F574F",
+        "#00E436",
+        "#7E2553"
+      ],
+      "anti_aliasing": "forbidden",
+      "gradient": "forbidden",
+      "dither": "forbidden_unless_explicit",
+      "outline": "none_unless_explicit"
+    },
+    "file_spec": {
+      "format": "png",
+      "background": {
+        "sprites": "transparent_alpha_0",
+        "full_screen_background": "opaque"
+      }
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "engine_notes": {
+      "recommended_sprite_anchor": "center",
+      "default_anchor_px": [
+        64,
+        64
+      ]
+    }
+  },
+  "task_id": "pico_echo.environment.cage_perch",
+  "asset_name": "Cage_Perch",
+  "category": "environment",
+  "subcategory": "cage_perch",
+  "description": "Create perch sprite. Canvas 128x128 transparent. Draw filled rectangle (#AB5236) from x=24..103 and y=80..83. Add 1px highlight line (#FFEC27) at y=80 from x=24..103.",
+  "deliverables": [
+    {
+      "type": "environment_element",
+      "format": "png",
+      "path": "GameAssets/Pico_Echo/environment/cage_perch.png",
+      "dimensions_px": "128x128",
+      "background": "transparent"
+    }
+  ],
+  "specs": {
+    "dimensions": "128x128",
+    "intended_world_positions_px": {
+      "food_bowl_top_left": [
+        16,
+        100
+      ],
+      "water_bowl_top_left": [
+        40,
+        100
+      ],
+      "perch_rect_xywh": [
+        24,
+        80,
+        80,
+        4
+      ],
+      "floor_rect_xywh": [
+        0,
+        110,
+        128,
+        18
+      ]
+    }
+  },
+  "context": {
+    "role": "cage_environment",
+    "screen_location": "full_screen_or_fixed_world_position",
+    "adjacent_elements": [
+      "Echo at center (64,60)",
+      "UI elements at y>=126"
+    ],
+    "layer": "cage",
+    "usage": {
+      "always_visible": true
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.character.echo_idle"
+    ],
+    "shared_constraints": [
+      "screen_resolution_px == 128x128",
+      "palette_hex == project.style.palette_hex"
+    ],
+    "differences": [
+      "environment_element == cage_perch"
+    ]
+  },
+  "depends_on": [
+    "pico_echo.environment.cage_background"
+  ],
+  "execution_order": 11,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.environment.cage_background"
+  ],
+  "acceptance_criteria": [
+    "dimensions_px == 128x128",
+    "file_format == PNG",
+    "unique_colors_count <= 16",
+    "all_colors_in_project_palette_hex == true",
+    "no_antialiasing_pixels == true",
+    "no_gradient_pixels == true",
+    "when_background == transparent: alpha==0 for all non-drawn pixels"
+  ]
+}

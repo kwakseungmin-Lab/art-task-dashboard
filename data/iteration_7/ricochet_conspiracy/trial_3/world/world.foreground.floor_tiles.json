@@ -1,0 +1,144 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.foreground.floor_tiles",
+  "asset_name": "Puzzle Floor Tile Strip",
+  "category": "world",
+  "subcategory": "foreground_layer",
+  "priority": "P0",
+  "execution_order": 3,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This layer anchors interactive objects and foot placement at the bottom of the puzzle area."
+  ],
+  "depends_on": [
+    "world.background.midlayer_court"
+  ],
+  "blocks": [
+    "character.noble_basic",
+    "character.noble_boss",
+    "character.noble_guard",
+    "character.noble_shield",
+    "obstacles.environment.candle",
+    "obstacles.environment.wine_barrel",
+    "obstacles.environment.wood_pillar",
+    "obstacles.launchable.book",
+    "obstacles.launchable.candlestick",
+    "obstacles.launchable.feather_quill",
+    "obstacles.launchable.gold_urn",
+    "obstacles.launchable.stone_ball",
+    "obstacles.launchable.wine_glass"
+  ],
+  "blocked_by": [
+    "world.background.midlayer_court"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.candlestick",
+      "obstacles.launchable.wine_glass",
+      "character.noble_guard"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "ground_plane",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 574,
+      "width": 1280,
+      "height": 96,
+      "anchor": "top_left"
+    },
+    "layer": "foreground_ground",
+    "usage": "Used at the lower edge of the puzzle field for object grounding and contact shadow alignment.",
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "world.background.midlayer_court",
+      "character.noble_basic",
+      "obstacles.environment.stone_wall",
+      "ui.hud.bottom_bar"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 96
+    },
+    "colors_hex": [
+      "#A89880",
+      "#E8D5C4",
+      "#3D2B1F",
+      "#D4A843"
+    ],
+    "animation": {
+      "has_animation": false,
+      "default_state": "static",
+      "states": [
+        {
+          "name": "static",
+          "frame_count": 1,
+          "fps": 0
+        }
+      ]
+    },
+    "notes": [
+      "Tile module width is 32 px and repeats exactly 40 times across the strip.",
+      "Gold inlay markers appear every 160 px to help aiming alignment."
+    ],
+    "shape": {
+      "silhouette": "horizontal marble floor strip with a centered diamond tile lane and front trim edge",
+      "components": [
+        "diamond tile lane",
+        "front trim edge",
+        "left floor border",
+        "right floor border",
+        "shadow lip"
+      ]
+    }
+  },
+  "deliverables": [
+    "Tile strip sheet 1280x96 px.",
+    "Seamless 32x96 px repeat swatch.",
+    "Shadow guide overlay for object contact point alignment."
+  ],
+  "acceptance_criteria": [
+    "Module width is exactly 32 px and tiles loop without seam on a 1280 px strip.",
+    "Contact shadow guide sits within the upper 12 px of the strip.",
+    "Gold inlay markers repeat every 160 px with accent color #D4A843."
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.overlay.trajectory_dot_tile",
+  "asset_name": "Trajectory Dot Tile",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P0",
+  "execution_order": 300,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.bottom_control_bar"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.bottom_control_bar"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.bottom_control_bar",
+      "obstacles.launchable.stone_ball_sprite",
+      "obstacles.launchable.feather_quill_sprite"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "trajectory_overlay",
+    "layer": "ui_overlay",
+    "usage": "Dot tile used for predicted ricochet paths up to five bounce points.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "ui.hud.bottom_control_bar",
+      "obstacles.launchable.stone_ball_sprite"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "small_round_dot_with_soft_ring",
+      "components": [
+        "dot_core",
+        "dot_ring"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "opacity_percent": 60,
+    "max_bounce_count": 5
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.trajectory_dot_tile.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 16x16px with a 6px core dot and 10px outer ring.",
+    "Dot fill uses #F5F0E8 and keeps 60% opacity in export metadata.",
+    "Outer ring stays centered with no crop on any edge."
+  ]
+}

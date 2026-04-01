@@ -1,0 +1,83 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline",
+    "rendering": "pixel-perfect, no anti-aliasing"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "variable",
+      "height": "12-24px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "background": "#F7F7F7",
+      "highlight": "#FFFFFF"
+    },
+    "shared_attributes": {
+      "style": "monospace pixel font",
+      "font_type": "pixel font, monospace",
+      "rendering": "pixel-perfect text",
+      "background": "transparent (no UI boxes or panels)",
+      "alignment": "varies by widget"
+    }
+  },
+  "asset": {
+    "asset_id": "game_over_screen",
+    "asset_name": "Game Over Screen UI",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Displays game over message, final score, high score, and restart instructions",
+      "screen_position": "center of screen (x=300px, y=75px), multiple text elements vertically stacked",
+      "adjacent_elements": ["player_dead", "obstacles (frozen)", "ground", "background"],
+      "usage_scenario": "Appears immediately when player collides with obstacle, remains until player presses Space to restart"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "variable (text-dependent)",
+        "height": "variable (multi-line)"
+      },
+      "colors": {
+        "text": "#535353",
+        "blink": "#FFFFFF"
+      },
+      "shape": "Multi-line text layout, center-aligned",
+      "texture": "monospace pixel font, no background",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "static + optional blink",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static text display. Optional: 'Press SPACE to restart' blinks at 0.5-second intervals"
+      },
+      "details": "Line 1: 'GAME OVER' (24px, y=-30px offset). Line 2: 'Score: XXXXX' (16px, y=0px). Line 3: 'HI XXXXX' (16px, y=+20px). Line 4: 'Press SPACE to restart' (12px, y=+50px). All center-aligned at x=300px"
+    },
+    "relationships": {
+      "related_assets": ["score_display", "player_dead"],
+      "shared_with": "Uses same font style as score_display, same 5-digit zero-padded format for scores",
+      "differences_from": "score_display is 16px right-aligned, game_over_screen has multiple sizes (24px, 16px, 12px) center-aligned"
+    },
+    "explicit_negations": [
+      "no background overlay or dimming",
+      "no background box or panel",
+      "no borders or frames",
+      "no buttons or clickable elements",
+      "no icons or graphics",
+      "no gradients",
+      "no anti-aliasing on text",
+      "no fade-in or transition effects"
+    ]
+  }
+}

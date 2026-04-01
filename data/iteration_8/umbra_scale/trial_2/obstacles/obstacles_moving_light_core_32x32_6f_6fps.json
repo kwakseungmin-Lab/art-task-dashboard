@@ -1,0 +1,170 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020109",
+  "asset_key": "obstacles_moving_light_core_32x32_6f_6fps",
+  "asset_name": "Moving Light Core (32x32, 6 frames, 6fps)",
+  "category": "obstacles",
+  "subcategory": "light_emitter",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The light core occupies a 32x32 px source body that fits the GDD emitter footprint.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while beam-white pulses stay inside specs.colors_hex.",
+    "The silhouette stays readable even when the actual beam cone is rendered by a separate mask system."
+  ],
+  "differences": [
+    "Six frames pulse the central lamp and shutter fins to communicate active beam emission and rail motion readiness.",
+    "Brightest frames intensify an exposure-white core ring while preserving darker housing edges for contrast.",
+    "Small amber shutter marks imply directed output without painting the entire beam into the source sprite."
+  ],
+  "depends_on": [
+    "task_id_008020110"
+  ],
+  "blocks": [
+    "task_id_008020113",
+    "task_id_008020117"
+  ],
+  "blocked_by": [
+    "task_id_008020110"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020104",
+      "task_id_008020106",
+      "task_id_008020107",
+      "task_id_008020113",
+      "task_id_008020117"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds emitter size, moving-light behavior, and exposure danger sourced by active beams."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds bright amber and white light treatment against a dark tower palette."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds player-to-emitter scale for readable hazard proximity."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with separate beam-mask entities.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility",
+      "LightEmitter"
+    ],
+    "asset_loading": "Load the light-core atlas during FloorLoading and use beam-mask materials for projected hazard areas.",
+    "runtime_notes": [
+      "Advance the pulse animation at 6 fps while the emitter is active.",
+      "Render the source sprite beneath beam masks.",
+      "Keep the source pivot centered for rail motion and focused cone placement."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "beam_emitter",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        328,
+        212
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Animated source body used for fixed, moving, or focused light emitters that define hazard beams and puzzle paths.",
+    "adjacent_elements": [
+      "task_id_008020106",
+      "task_id_008020107",
+      "task_id_008020113"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        32
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "emission_notes": [
+      "Core ring diameter is 12 px.",
+      "Housing shutter depth is 4 px.",
+      "Pulse bloom never exceeds the 32 px canvas."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_moving_light_core_32x32_6f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x32 px with 6 frames of 32x32 px and 0 px spacing.",
+    "The source body clearly reads as a dangerous active emitter even before the beam mask is rendered.",
+    "Pulse intensity changes remain readable without flattening the lamp housing silhouette."
+  ]
+}

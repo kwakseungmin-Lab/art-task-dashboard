@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003010",
+  "asset_key": "obstacle_saw_blade_8f_24fps",
+  "asset_name": "Saw Blade Hazard Loop",
+  "category": "obstacles",
+  "subcategory": "hazard_saw",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003002"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003004",
+      "task_id_008003008",
+      "task_id_008003014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the saw loop and keep one collider radius for every animation frame.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Hazard",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/obstacle_saw_blade_8f_24fps.png through AssetServer and build an eight-column atlas.",
+    "runtime_notes": [
+      "Animation plays continuously at 24 fps to imply 360 degrees per second rotation.",
+      "Collider uses the inner 20x20 logical circle rather than the tooth extremes.",
+      "The saw remains world-space and never shifts its center during the loop."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "hazard_rotating_saw",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        760,
+        328
+      ]
+    },
+    "layer": "obstacles_mid",
+    "usage": "Rotating saw hazard placed in later zones where the player reads both friction and timing under higher descent speed.",
+    "adjacent_elements": [
+      "world_abyss_dust_particles_3f_4fps",
+      "player_prisoner_hit_2f_12fps",
+      "ui_hp_torch_strip_3slot_24x8"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 24
+    },
+    "colors_hex": [
+      "#8FA8B8",
+      "#3B3347",
+      "#1A1A2E"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 24,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Circular saw with eight teeth, dark center hub, and one cold highlight that travels across the rim.",
+      "components": [
+        "outer_teeth",
+        "center_hub",
+        "rim_highlight"
+      ]
+    },
+    "collision": {
+      "damage": 1,
+      "knockback": 0,
+      "trigger": "contact"
+    },
+    "motion": {
+      "rotation_direction": "clockwise",
+      "degrees_per_second": 360
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_saw_blade_8f_24fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x24 px with eight 24x24 frames.",
+    "The rim highlight advances one tooth group per frame, creating a clean clockwise read.",
+    "Center hub stays aligned to the exact middle pixel region in every frame."
+  ]
+}

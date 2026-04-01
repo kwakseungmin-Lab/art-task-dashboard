@@ -1,0 +1,110 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.enemy.guard_walk_sheet_48_4f",
+  "asset_name": "Enemy — GUARD Patrol Walk (48px, 4 frames)",
+  "category": "obstacles",
+  "subcategory": "enemy",
+  "priority": "P1",
+  "execution_order": 24,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "sprite_sheet",
+    "layer": "world",
+    "usage": "Guard patrol sprite. Moves 1 tile per turn; collision = failure.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 48
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "frame_size_px": {
+      "width": 48,
+      "height": 48
+    },
+    "frame_count": 4,
+    "fps": 6,
+    "frames": [
+      {
+        "id": "step_1",
+        "note": "Left forward"
+      },
+      {
+        "id": "step_2",
+        "note": "Pass"
+      },
+      {
+        "id": "step_3",
+        "note": "Right forward"
+      },
+      {
+        "id": "step_4",
+        "note": "Pass"
+      }
+    ],
+    "layout_note": "Single-row strip 192×48. Darker silhouette than player; spear/shield readable at 1×."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.enemy.guard_walk_sheet_48_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Walk loops without foot sliding.",
+    "Silhouette distinct from player."
+  ]
+}

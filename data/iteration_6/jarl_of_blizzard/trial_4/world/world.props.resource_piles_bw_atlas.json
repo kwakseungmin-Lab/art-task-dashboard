@@ -1,0 +1,144 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.props.resource_piles_bw_atlas",
+  "asset_name": "Resource Piles/Props — BW Atlas",
+  "category": "world",
+  "subcategory": "props",
+  "priority": "P2",
+  "execution_order": 22,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.icons.resources_24_set_6"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "world_props_atlas",
+    "layer": "world_props",
+    "usage": "In-world props for visually representing stockpiles and key interactables (food/wood/herbs/faith/trade).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 256
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "atlas": {
+      "packing_rule": "exact_rects_no_rotation",
+      "sprites": [
+        {
+          "id": "pile_food",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 1,
+          "note": "Fish/meat bundle silhouette."
+        },
+        {
+          "id": "pile_wood",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 1,
+          "note": "Log stack."
+        },
+        {
+          "id": "pile_herbs",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 1,
+          "note": "Herb satchel/crate."
+        },
+        {
+          "id": "pile_faith",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 1,
+          "note": "Rune stones / offering bowl."
+        },
+        {
+          "id": "pile_trade",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 1,
+          "note": "Crate with marking; no letters needed."
+        },
+        {
+          "id": "campfire_small",
+          "size_px": {
+            "width": 32,
+            "height": 32
+          },
+          "frames": 3,
+          "note": "Small fire flicker (3 frames)."
+        }
+      ],
+      "layout_note": "Pack into a single 256×256 atlas with 1px padding; keep animated frames contiguous."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.props.resource_piles_bw_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 256×256px with transparent background.",
+    "Each pile is identifiable by silhouette (food vs wood vs herbs vs faith vs trade) in grayscale at 1×.",
+    "Campfire animation loops cleanly and stays within the 32×32 bounds."
+  ]
+}

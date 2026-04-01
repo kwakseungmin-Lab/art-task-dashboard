@@ -1,0 +1,140 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.noble_guard",
+  "asset_name": "Guard Noble Target",
+  "category": "character",
+  "subcategory": "noble_target",
+  "priority": "P0",
+  "execution_order": 17,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This character adds patrol motion and a prop silhouette within the base noble palette family."
+  ],
+  "depends_on": [
+    "world.background.midlayer_court",
+    "world.foreground.floor_tiles"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.midlayer_court",
+    "world.foreground.floor_tiles"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble_basic",
+      "obstacles.launchable.gold_urn"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "moving_target_character",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 900,
+      "y": 416,
+      "width": 36,
+      "height": 52,
+      "anchor": "top_left"
+    },
+    "layer": "midground_character",
+    "usage": "Used from stage 3-1 onward for patrol readability at 80 px travel range.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_left"
+    },
+    "adjacent_elements": [
+      "world.foreground.floor_tiles",
+      "obstacles.environment.wood_pillar",
+      "ui.screen.result_panel"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 36,
+      "height": 52
+    },
+    "colors_hex": [
+      "#8BA7C7",
+      "#D4A843",
+      "#F5F0E8",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "patrol",
+      "states": [
+        {
+          "name": "patrol",
+          "frame_count": 6,
+          "fps": 6
+        },
+        {
+          "name": "hit",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "elimination",
+          "frame_count": 8,
+          "fps": 12
+        }
+      ]
+    },
+    "notes": [
+      "Patrol stride length is 8 px per step frame.",
+      "Prop silhouette width is 10 px and stays inside the 36 px body width."
+    ],
+    "shape": {
+      "silhouette": "upright guard figure with a spear line, shoulder armor, and a robe hem",
+      "components": [
+        "head",
+        "shoulder armor",
+        "torso robe",
+        "spear line",
+        "leg stance"
+      ]
+    }
+  },
+  "deliverables": [
+    "Patrol loop 6 frames at 6 fps.",
+    "Single-frame hit pose.",
+    "8-frame elimination burst sequence."
+  ],
+  "acceptance_criteria": [
+    "Character size is exactly 36x52 px.",
+    "Patrol loop contains 6 frames at 6 fps.",
+    "Travel-ready silhouette remains readable when shifted across an 80 px patrol lane."
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "task_id": "world.ground_tile",
+  "asset_name": "Ground Line and Texture Tile",
+  "category": "world",
+  "subcategory": "ground",
+  "priority": "critical",
+  "execution_order": 40,
+  "project_common": {
+    "project_id": "chrome_dino_runner_iter5_trial2_art_task_plan",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 2,
+    "canvas_px": [
+      600,
+      150
+    ],
+    "pixel_perfect": true,
+    "anti_aliasing": "none",
+    "palette_hex": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash": "#FFFFFF"
+    },
+    "outline_px": 2,
+    "outline_color_hex": "#535353"
+  },
+  "description": "Create a tiling ground line sprite and a thin ground texture strip for scrolling.",
+  "context": {
+    "role": "Defines the ground baseline and provides motion feedback via scrolling.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 128,
+      "anchor": "top_left"
+    },
+    "layer": 10,
+    "usage": {
+      "scroll_speed_relation": "matches_obstacle_speed",
+      "tile_width_px": 1200,
+      "ground_line_thickness_px": 2
+    }
+  },
+  "specs": {
+    "style": {
+      "art_style": "8_bit_pixel_art",
+      "color_usage": {
+        "allowed_hex": [
+          "#535353"
+        ],
+        "background_transparent": true
+      },
+      "anti_aliasing": "none"
+    },
+    "tiles": {
+      "ground_line": {
+        "width": 1200,
+        "height": 2,
+        "color_hex": "#535353"
+      },
+      "ground_texture": {
+        "width": 1200,
+        "height": 10,
+        "color_hex": "#535353",
+        "enabled": true,
+        "density_notes": "Place 1-3 small 1px stones per 100px segment."
+      }
+    },
+    "tiling": {
+      "seamless_repeat_required": true,
+      "wrap_rule": "if x_offset_px <= -1200 then x_offset_px += 1200"
+    },
+    "export": {
+      "format": "png",
+      "background": "transparent",
+      "files": {
+        "ground_line": "ground_line_1200x2.png",
+        "ground_texture": "ground_texture_1200x10.png"
+      }
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "world.background_sky_and_clouds",
+      "character.player_dino_sprite_set",
+      "obstacles.cactus_sprite_set"
+    ]
+  },
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ground_line_1200x2.png",
+      "size_px": [
+        1200,
+        2
+      ],
+      "transparent_background": true,
+      "color_hex": [
+        "#535353"
+      ]
+    },
+    {
+      "type": "png",
+      "file": "ground_texture_1200x10.png",
+      "size_px": [
+        1200,
+        10
+      ],
+      "transparent_background": true,
+      "color_hex": [
+        "#535353"
+      ]
+    }
+  ],
+  "acceptance_criteria": [
+    "ground_line_1200x2.png has exact size 1200x2 pixels and uses #535353 only for non-transparent pixels.",
+    "The ground line is continuous across the full width with no gaps and no anti-aliased pixels.",
+    "The texture tile repeats seamlessly: when placed twice side-by-side, there is no visible vertical seam at x=1200.",
+    "The texture strip height is exactly 10 pixels and does not include any pixels above the strip bounds.",
+    "Both tiles keep a transparent background outside drawn pixels (alpha=0)."
+  ]
+}

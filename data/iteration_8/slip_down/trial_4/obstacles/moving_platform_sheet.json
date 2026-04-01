@@ -1,0 +1,168 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040406",
+  "asset_key": "moving_platform_sheet",
+  "asset_name": "Moving Platform Sheet",
+  "category": "obstacles",
+  "subcategory": "moving_support",
+  "priority": "P1",
+  "execution_order": 6,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Platform width stays 48 px and height stays 16 px to match the GDD collision footprint.",
+    "Surface trim uses moss and stone colors so the platform reads as part of the prison structure rather than a sci-fi device."
+  ],
+  "differences": [
+    "This sheet adds a two-frame moss sway loop while preserving a hard top collision edge and a clean bottom silhouette for motion readability."
+  ],
+  "depends_on": [
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "blocks": [
+    "task_id_804040411"
+  ],
+  "blocked_by": [
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040402",
+      "task_id_804040404",
+      "task_id_804040408",
+      "task_id_804040411"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Platform size, 60 px per second motion rule, and moss presentation grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Stone slab wear and damp moss texture grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with a short loop while gameplay code drives a horizontal sine or ping-pong translation over 80 px.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "MovingPlatformMarker"
+    ],
+    "asset_loading": "Load obstacles/moving_platform_sheet.png through AssetServer and keep the handle in the moving-platform visual recipe keyed by asset_key.",
+    "runtime_notes": [
+      "Frame size is 48x16 px.",
+      "Animation loop uses two frames at 4 FPS.",
+      "Pivot sits at the platform center so horizontal motion stays symmetrical."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Animated support platform that carries the player sideways during later descent bands.",
+    "screen_position": {
+      "anchor": "tile_grid_origin",
+      "x_px": 0,
+      "y_px": 0
+    },
+    "layer": {
+      "name": "obstacle_platform",
+      "z_index": 24
+    },
+    "usage": "Appears from the water band onward to create route changes and timing variation."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 16
+    },
+    "colors_hex": [
+      "#4E5940",
+      "#3B3347",
+      "#0D0D0F",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 2,
+      "fps": 4,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "columns": 2,
+        "frame_size_px": {
+          "width": 48,
+          "height": 16
+        }
+      },
+      "state_clips": [
+        {
+          "state": "move_loop",
+          "start_frame": 0,
+          "end_frame": 1,
+          "fps": 4,
+          "loop": true
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "moving_platform_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 96,
+        "height": 16
+      },
+      "notes": "Two-frame 48x16 platform loop for the moss sway animation."
+    },
+    {
+      "artifact": "moving_platform_sheet_clips.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Single move_loop clip definition for the moving platform."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 96x16 px with two 48x16 frames.",
+    "Top collision edge stays horizontal and aligned across both frames.",
+    "Moss sway remains visible at 4x nearest-neighbor scale without changing the platform width."
+  ]
+}

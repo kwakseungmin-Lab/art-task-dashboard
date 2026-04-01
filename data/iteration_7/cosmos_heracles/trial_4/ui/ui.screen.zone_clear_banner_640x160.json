@@ -1,0 +1,118 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.zone_clear_banner_640x160",
+  "asset_name": "Zone Clear Banner",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 82,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.top_bar_overlay_1600x64",
+    "world.fx.zone_transition_wipe_1600x900_8f"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.top_bar_overlay_1600x64",
+    "world.fx.zone_transition_wipe_1600x900_8f"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.top_bar_overlay_1600x64",
+      "world.fx.zone_transition_wipe_1600x900_8f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "screen",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        -40
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.top_bar_overlay_1600x64",
+      "world.fx.zone_transition_wipe_1600x900_8f",
+      "ui.screen.ending_score_card_960x540"
+    ],
+    "layer": "ui",
+    "usage": "Temporary banner shown for 1.5 seconds after boss defeat with zone clear text and score bonus area.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 640,
+      "height": 160
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#FFD966",
+      "#0B0C1E"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "wide centered banner with one primary title row and one bonus-value row",
+      "components": [
+        "ZONE CLEAR title row",
+        "bonus value row",
+        "outer frame",
+        "star side markers"
+      ]
+    },
+    "display_duration_ms": 1500,
+    "typography": {
+      "font_style": "pixel_bold",
+      "title_height_px": 36,
+      "bonus_height_px": 24
+    },
+    "background_treatment": "transparent outside banner frame"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.zone_clear_banner_640x160.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Banner canvas is exactly 640x160px and keeps all text within a 32px inner margin.",
+    "The title row is exactly 36px tall and the bonus row is exactly 24px tall.",
+    "The banner remains readable over the transition wipe by using a dark frame plate and #F0EFE9 foreground pixels."
+  ]
+}

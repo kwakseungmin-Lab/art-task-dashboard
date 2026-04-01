@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.book_static_28x20",
+  "asset_name": "Book (28x20)",
+  "category": "obstacles",
+  "subcategory": "launchable_book",
+  "priority": "P2",
+  "execution_order": 200,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620",
+    "obstacles.environment.wood_pillar_24x120"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620",
+    "obstacles.environment.wood_pillar_24x120"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.wood_pillar_24x120",
+      "character.noble.standard_idle_6f_4fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "launchable_object",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Selected by the player as a flat launchable that can redirect impact flow on a 90 degree contact.",
+    "adjacent_elements": [
+      "wood pillar",
+      "standard noble"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 28,
+      "height": 20
+    },
+    "colors_hex": [
+      "#8B3A52",
+      "#D4A843",
+      "#F5F0E8",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "flat closed book with a visible spine edge and one corner band",
+      "components": [
+        "front_cover",
+        "page_block",
+        "spine",
+        "corner_band"
+      ]
+    },
+    "physics_tags": {
+      "mass_relative": 3,
+      "base_restitution": 0.8,
+      "redirect_angle_degrees": 90
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.book_static_28x20.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 28x20px and the page block stays within a 24x16 inner rectangle.",
+    "Spine width stays at 4px and corner band width stays at 3px on the lower-right cover corner.",
+    "Only #8B3A52, #D4A843, #F5F0E8, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

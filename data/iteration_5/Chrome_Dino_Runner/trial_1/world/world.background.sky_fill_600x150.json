@@ -1,0 +1,97 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 1,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "world.background.sky_fill_600x150",
+  "asset_name": "sky_fill_600x150",
+  "category": "world",
+  "subcategory": "background",
+  "description": "Solid sky background fill for a 600x150 canvas. Use only #F7F7F7 with no gradients.",
+  "context": {
+    "role": "background_fill",
+    "layer": "world_background",
+    "usage": "Always visible behind all gameplay sprites and UI.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "anchor": "top_left"
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "world.clouds.set",
+      "world.ground.line_1200x2",
+      "character.player.dino_sprite_set"
+    ]
+  },
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Art/Source/Chrome_Dino_Runner/world/sky_fill_600x150.aseprite",
+      "notes": "Single layer filled with #F7F7F7; canvas 600x150."
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/world/sky_fill_600x150/sky_fill_600x150.png",
+      "background": "opaque",
+      "dimensions_px": {
+        "width": 600,
+        "height": 150
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 600x150 px.",
+    "Every pixel is #F7F7F7 (no transparency, no other colors).",
+    "No anti-aliasing artifacts are present (hard pixel edges only)."
+  ],
+  "priority": "P0",
+  "execution_order": 10,
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 150
+    },
+    "fill_color_hex": "#F7F7F7",
+    "transparent_background": false,
+    "pixel_grid": {
+      "scale": 1,
+      "anti_aliasing": false
+    }
+  }
+}

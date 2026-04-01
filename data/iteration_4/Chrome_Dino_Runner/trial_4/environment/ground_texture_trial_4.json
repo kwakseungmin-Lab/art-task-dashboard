@@ -1,0 +1,206 @@
+{
+  "task_id": "cdr_environment_ground_texture",
+  "asset_name": "ground_texture",
+  "category": "environment",
+  "subcategory": "ground",
+  "description": "Create an optional ground texture overlay sprite used above the ground line. Image size must be exactly 1200x10 px. Background must be fully transparent (alpha 0). Texture pixels must use only #535353. Place exactly 18 texture clusters across width; each cluster is 2 to 4 pixels total; cluster bounding box max size 4x3 px; clusters must be spaced at least 50 px apart.",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Adds minimal motion detail to ground without affecting collision.",
+    "screen_location": "Rendered with bottom aligned to ground baseline; scrolls horizontally with ground.",
+    "adjacent_elements": [
+      "ground_line",
+      "player feet"
+    ],
+    "layer": "foreground",
+    "usage": "Optional; can be disabled for ultra-minimal mode."
+  },
+  "specs": {
+    "dimensions": "1200x10",
+    "colors": [
+      "#535353"
+    ],
+    "background": "transparent",
+    "outline": {
+      "enabled": false,
+      "thickness_px": 0
+    },
+    "animation": {
+      "enabled": false
+    },
+    "tiling": {
+      "tile_width_px": 1200,
+      "tile_height_px": 10,
+      "seamless_required": true
+    },
+    "pattern_constraints": {
+      "cluster_count": 18,
+      "cluster_pixel_count_range": [
+        2,
+        4
+      ],
+      "cluster_bbox_max_px": "4x3",
+      "min_cluster_spacing_px": 50
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/environment/ground_texture.png",
+      "type": "tile_sprite",
+      "format": "png",
+      "dimensions_px": "1200x10",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/environment/ground_texture@2x.png",
+      "type": "tile_sprite",
+      "format": "png",
+      "dimensions_px": "2400x20",
+      "scale": 2,
+      "scale_method": "nearest_neighbor",
+      "background": "transparent"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_environment_ground_line"
+    ],
+    "shared_properties": {
+      "tile_width_px": 1200,
+      "scroll_speed": "Current_Speed"
+    },
+    "differences": {
+      "vs_ground_line": "Texture is sparse details on transparent background; ground line is solid bar."
+    }
+  },
+  "depends_on": [
+    "cdr_environment_ground_line"
+  ],
+  "execution_order": 3,
+  "priority": "P2",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_environment_ground_line"
+  ],
+  "acceptance_criteria": [
+    "PNG dimensions exactly 1200x10 px (1x) and 2400x20 px (2x).",
+    "All non-transparent pixels in 1x file are exactly #535353 with alpha 255.",
+    "All background pixels in 1x file have alpha exactly 0.",
+    "Exactly 18 disconnected clusters of non-transparent pixels exist.",
+    "No cluster bounding box exceeds 4x3 px.",
+    "Horizontal distance between cluster bounding boxes is >= 50 px.",
+    "Seamless tiling at 1200 px repetition (no abrupt pattern cutoff at edges)."
+  ]
+}

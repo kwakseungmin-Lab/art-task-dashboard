@@ -1,0 +1,128 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.fx.zone_transition_wipe_1600x900_8f",
+  "asset_name": "Zone Transition Wipe",
+  "category": "world",
+  "subcategory": "fx",
+  "priority": "P1",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.zone1_entrance_corridor_1600x900",
+    "world.background.zone2_celestial_hall_1600x900",
+    "world.background.zone3_stratosphere_altar_1600x900"
+  ],
+  "blocks": [
+    "ui.screen.zone_clear_banner_640x160"
+  ],
+  "blocked_by": [
+    "world.background.zone1_entrance_corridor_1600x900",
+    "world.background.zone2_celestial_hall_1600x900",
+    "world.background.zone3_stratosphere_altar_1600x900"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.zone1_entrance_corridor_1600x900",
+      "world.background.zone2_celestial_hall_1600x900",
+      "world.background.zone3_stratosphere_altar_1600x900",
+      "ui.screen.zone_clear_banner_640x160"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "transition_fx",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "world.background.zone1_entrance_corridor_1600x900",
+      "world.background.zone2_celestial_hall_1600x900",
+      "world.background.zone3_stratosphere_altar_1600x900"
+    ],
+    "layer": "world",
+    "usage": "Eight-frame wipe used between zones and before boss entry; follows a 0.67s reveal at 12fps.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#FFD966",
+      "#F0EFE9"
+    ],
+    "animation": {
+      "type": "frame_sequence",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": false,
+      "frame_size_px": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    "shape": {
+      "silhouette": "diagonal celestial wipe with stepped star fragments moving from left to right across the full screen",
+      "components": [
+        "lead diagonal edge",
+        "star fragment trail",
+        "mid-frame rune band",
+        "exit shards"
+      ]
+    },
+    "duration_ms": 667,
+    "background_treatment": "full-screen overlay sequence"
+  },
+  "deliverables": [
+    {
+      "type": "png_sequence",
+      "file": "world/world.fx.zone_transition_wipe_1600x900_8f/frame_0001_to_0008.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "The effect provides 8 frames of 1600x900px each at 12fps for a total duration of approximately 0.67s.",
+    "The leading wipe edge advances monotonically from left to right with no reverse motion between consecutive frames.",
+    "Each frame uses discrete pixel steps and keeps star-fragment density below 35% of the screen area so gameplay silhouettes remain visible during the transition."
+  ]
+}

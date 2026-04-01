@@ -1,0 +1,83 @@
+{
+  "project_common": {
+    "project": {
+      "project_id": "chrome_dino_runner",
+      "project_name": "Chrome Dino Runner",
+      "iteration": 5,
+      "trial": 5
+    },
+    "canvas": {
+      "resolution_px": { "width": 600, "height": 150 },
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "baseline_y_px": 148,
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      }
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "accent_hex": "#FF0000"
+    },
+    "style": {
+      "art_style": "pixel_art_8bit_minimal",
+      "theme": "prehistoric_desert",
+      "outline": { "enabled": true, "thickness_px": 2, "color_hex": "#535353" },
+      "max_colors_total": 3
+    },
+    "export_defaults": {
+      "format": "png",
+      "scale": "1x",
+      "transparent_background_default": true
+    }
+  },
+  "task_id": "ui.screen.game_over",
+  "asset_name": "Game Over Text Banner",
+  "category": "ui",
+  "subcategory": "game_over",
+  "execution_order": 3,
+  "priority": "P0",
+  "depends_on": ["ui.font.pixel_mono_16"],
+  "blocks": [],
+  "blocked_by": ["ui.font.pixel_mono_16"],
+  "relationships": {
+    "related_task_ids": ["character.player.dead", "ui.widget.score_display"]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_5/ui/game_over/game_over_text_240x24.png",
+      "dimensions_px": { "width": 240, "height": 24 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 240x24 px with transparent background.",
+    "All text pixels use only #535353.",
+    "When drawn at anchor=top_left (x=180,y=63) on a 600x150 canvas, the banner is centered horizontally and vertically within 1 px tolerance."
+  ],
+  "description": "Transparent text banner that reads 'GAME OVER' using a pixel-art style. Image size is 240x24 px. Use #535353 only with transparent background.",
+  "specs": {
+    "dimensions_px": { "width": 240, "height": 24 },
+    "text": {
+      "string": "GAME OVER",
+      "color_hex": "#535353",
+      "glyph_height_px": 24,
+      "tracking_px": 2
+    },
+    "allowed_colors_hex": ["#535353"],
+    "transparent_background": true
+  },
+  "context": {
+    "role": "game_over_overlay",
+    "screen_position": { "type": "absolute_px", "x": 180, "y": 63, "anchor": "top_left" },
+    "layer": "ui",
+    "usage": ["game_over_state"]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_character_player_idle",
+  "asset_name": "player_idle",
+  "category": "character",
+  "subcategory": "player",
+  "description": "Create Player idle animation as a 2-frame sprite sheet. Frame size 88x94 px. Sprite sheet size 176x94 px (2 frames laid out left-to-right). Use only #535353 for all visible pixels with fully transparent background elsewhere. Animation: 2 frames at 6 FPS looping.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/sprites/player/player_idle_2f_6fps_176x94_1x.png",
+      "type": "sprite_sheet",
+      "format": "PNG",
+      "notes": "Frame size 88x94; frames ordered [frame0, frame1] left-to-right."
+    }
+  ],
+  "specs": {
+    "dimensions": "176x94",
+    "frame_size": "88x94",
+    "animation": {
+      "frames": 2,
+      "fps": 6,
+      "loop": true,
+      "layout": "horizontal"
+    },
+    "hitbox": {
+      "size_px": "44x90",
+      "offset_px": "(22,2)",
+      "note": "Hitbox is 5 px smaller than sprite; keep main body inside hitbox region."
+    },
+    "style": {
+      "colors_hex": [
+        "#535353"
+      ],
+      "outline": {
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      },
+      "bg": "transparent",
+      "view": "2D side view, facing right",
+      "usage_notes": "Idle shown before first obstacle spawn."
+    }
+  },
+  "context": {
+    "role": "Player character idle animation shown before gameplay starts.",
+    "screen_location": "Fixed x=100 px from left; baseline feet aligned to ground y=0.",
+    "adjacent_elements": "In front of background and clouds; behind UI text. Feet must not overlap below ground line.",
+    "layer": "gameplay_sprite",
+    "usage": "Displayed when Game_State is not Running yet (pre-start)."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_character_player_run",
+      "cdr_v1_character_player_jump",
+      "cdr_v1_character_player_duck",
+      "cdr_v1_character_player_dead"
+    ],
+    "shared_properties": [
+      "Frame size uses 88x94 canvas for non-duck states",
+      "Color #535353 only",
+      "2 px outline rule"
+    ],
+    "differences": [
+      "Run uses 12 FPS",
+      "Jump and Dead are 1-frame",
+      "Duck uses 118x60 canvas"
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 4,
+  "priority": "P0",
+  "blocks": [
+    "cdr_v1_character_player_run",
+    "cdr_v1_character_player_jump",
+    "cdr_v1_character_player_duck",
+    "cdr_v1_character_player_dead"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Sprite sheet PNG is exactly 176x94 px; each frame is exactly 88x94 px.",
+    "Only #535353 is used for visible pixels; background pixels are alpha=0.",
+    "No semi-transparent pixels: alpha is either 0 or 255.",
+    "Animation loops cleanly at 6 FPS with no frame jump in silhouette alignment.",
+    "Feet baseline alignment: lowest non-transparent pixel in each frame is at the same y position."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.cactus.large_static",
+  "asset_name": "Cactus — Large (three-cactus group, static)",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "priority": "P1",
+  "execution_order": 80,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus.small_static",
+      "obstacles.cactus.medium_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hazard_ground",
+    "layer": "obstacles",
+    "usage": "Larger hitbox variant used at higher speed.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        600,
+        50
+      ]
+    },
+    "notes": "Matches GDD Cactus spec: 102x100, 1 frame."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 102,
+      "height": 100
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static"
+    },
+    "silhouette_notes": [
+      "Three cacti; vary heights subtly but keep within 100px height."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus.large_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 102x100px.",
+    "Spikes and arms are readable at 1x; no solid blobs that look like rocks."
+  ]
+}

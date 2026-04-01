@@ -1,0 +1,147 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003009",
+  "asset_name": "Pterodactyl Flight Loop",
+  "category": "obstacles",
+  "subcategory": "pterodactyl",
+  "priority": "P1",
+  "execution_order": 90,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003004",
+      "task_id_008003010"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hazard_airborne",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        650,
+        40
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Spawned after score reaches 200 and moves left at current obstacle speed.",
+    "adjacent_elements": [
+      "world_background_sky_fill_600x150",
+      "player_dino_duck_2f_12fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 80
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        92,
+        80
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Side-profile pterodactyl with long beak, two wing poses, narrow tail, and 2px outline.",
+      "components": [
+        "beak",
+        "head",
+        "body",
+        "left_wing_pose",
+        "right_wing_pose",
+        "tail"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_pterodactyl_fly_2f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 184x80 px with 2 frames arranged in 2 columns and 1 row.",
+    "Wing tip travel between frames stays within a 14 px vertical span.",
+    "Opaque fill uses #535353 and transparency only."
+  ],
+  "asset_key": "obstacle_pterodactyl_fly_2f_10fps",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "pterodactyl_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/pterodactyl_obstacle.png?raw=1",
+      "purpose": "Air obstacle wing cadence and body proportion anchor."
+    },
+    {
+      "label": "pixel_art_moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png?raw=1",
+      "purpose": "Pixel-art outline, low-detail silhouette, and monochrome contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for static hazards and SpriteSheetBundle for wing-flap obstacles.",
+    "atlas_or_static": "sprite_sheet_1x2",
+    "ecs_components": [
+      "Sprite",
+      "Collider",
+      "Obstacle",
+      "Transform",
+      "Velocity"
+    ],
+    "asset_loading": "Load obstacles/obstacle_pterodactyl_fly_2f_10fps.png through AssetServer and register the handle under obstacle_pterodactyl_fly_2f_10fps.",
+    "runtime_notes": [
+      "Keep source pixels unfiltered with nearest-neighbor sampling and integer world transforms.",
+      "Spawn order follows execution_order so downstream setup can validate deterministic asset availability.",
+      "Collision and UI code read logical dimensions from specs.dimensions_px rather than texture metadata."
+    ]
+  }
+}

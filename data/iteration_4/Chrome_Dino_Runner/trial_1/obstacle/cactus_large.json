@@ -1,0 +1,141 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_obstacle_cactus_large",
+  "asset_name": "cactus_large",
+  "category": "obstacle",
+  "subcategory": "cactus",
+  "description": "Create Large cactus obstacle sprite as a single-frame PNG. Canvas 102x100 px. Represents a 3-cactus group with varied heights inside the 100 px height. Use only #535353 for visible pixels with transparent background. Include 2 px outline. All bases share baseline y=0.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/sprites/obstacles/cactus_large_102x100_1x.png",
+      "type": "sprite",
+      "format": "PNG",
+      "notes": "Used as the tallest ground obstacle variant."
+    }
+  ],
+  "specs": {
+    "dimensions": "102x100",
+    "frames": 1,
+    "hitbox": {
+      "size_px": "99x97",
+      "offset_px": "(2,2)"
+    },
+    "colors_hex": [
+      "#535353"
+    ],
+    "outline": {
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    }
+  },
+  "context": {
+    "role": "Ground obstacle; taller silhouette increases required jump timing precision.",
+    "screen_location": "Spawn at x=screen_width+50, y=0; moves left at Current_Speed.",
+    "adjacent_elements": "Three cactus silhouettes within a single canvas; ensure at least one cactus reaches >= 90 px height within the 100 px canvas.",
+    "layer": "obstacle_sprite",
+    "usage": "Spawn probability: 25% within cactus variants when cactus is chosen."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_obstacle_cactus_small"
+    ],
+    "shared_properties": [
+      "#535353 only",
+      "Baseline alignment",
+      "No animation"
+    ],
+    "differences": [
+      "Canvas 102x100",
+      "Contains 3 cactus bodies",
+      "Height up to 100 px"
+    ]
+  },
+  "depends_on": [
+    "cdr_v1_obstacle_cactus_small"
+  ],
+  "execution_order": 11,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_v1_obstacle_cactus_small"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 102x100 px.",
+    "Only #535353 used for visible pixels; background alpha=0.",
+    "All cactus bases touch the bottom row (baseline) with no pixels below it.",
+    "At least 3 distinct cactus bodies are visually separable."
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.overlay.selection_highlight_ring",
+  "asset_name": "Selection Highlight Ring",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P1",
+  "execution_order": 310,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble.shield_front_guard_sheet",
+      "obstacles.effect.wine_glass_shard_cluster",
+      "ui.overlay.trajectory_dot_tile"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "selection_overlay",
+    "layer": "ui_overlay",
+    "usage": "Dashed highlight ring for selected launch objects and selected targets.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "ui.overlay.trajectory_dot_tile"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "directions": 1,
+      "frame_count_per_direction": 4,
+      "fps": 1,
+      "loop": true,
+      "sheet_layout": {
+        "rows": 1,
+        "cols": 4,
+        "frame_size_px": {
+          "width": 16,
+          "height": 64
+        },
+        "ordering": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "circular_ring_with_dash_gaps",
+      "components": [
+        "outer_ring",
+        "dash_segments",
+        "inner_gap"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "ring_padding_px": 8,
+    "blink_hz": 1
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.selection_highlight_ring.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 64x64px with 4 frames sized 16x64px.",
+    "Ring inner gap stays at 40px diameter and outer ring stays at 56px diameter.",
+    "Dash segments use #D4A843 and keep equal spacing."
+  ]
+}

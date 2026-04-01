@@ -1,0 +1,118 @@
+{
+  "asset_name": "Star Floor Strip 1600x20",
+  "subcategory": "floor",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "character.player.heracles_form_64x96",
+    "obstacles.pillar.standard_sheet",
+    "obstacles.gap.narrow_gate",
+    "obstacles.gap.wide_gate"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.zone1_corridor_parallax",
+      "character.player.heracles_form_64x96"
+    ]
+  },
+  "context": {
+    "role": "ground_plane",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 0,
+      "y": 820
+    },
+    "adjacent_elements": [
+      "character.player.heracles_form_64x96",
+      "obstacles.pillar.standard_sheet"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Visible during all gameplay seconds 0 to 330 as the collision floor reference."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 20
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "none",
+      "frame_count": 1,
+      "frame_time_s": 0.0,
+      "loop": false
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "1600x20 horizontal strip with a flat top edge and 16px repeating star inlay every 96px.",
+      "components": [
+        "marble floor band 1600x12",
+        "shadow band 1600x4",
+        "star inlay tiles 16x16 x16"
+      ]
+    },
+    "scroll_multiplier": 1.0,
+    "collision_box_px": {
+      "width": 1600,
+      "height": 20
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.floor.star_floor_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas crop is exactly 1600x20 px.",
+    "Top edge stays flat for the full 1600 px width with no vertical step larger than 1 px.",
+    "Star inlay appears 16 times and each inlay uses #FFD966.",
+    "Transparent pixels exist above the strip and the floor body uses only the listed #RRGGBB values."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "world.floor.star_floor_strip",
+  "category": "world",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

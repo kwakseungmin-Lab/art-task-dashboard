@@ -1,0 +1,125 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.overlay.path_tile_numbers_20_atlas",
+  "asset_name": "Path Tile Number Atlas — 200x20",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.typography.parchment_bitmap_font_8px",
+    "world.goal.temple_goal_tile_64_sheet_8f"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.typography.parchment_bitmap_font_8px",
+    "world.goal.temple_goal_tile_64_sheet_8f"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.path_link_dash_64_sheet_6f",
+      "world.goal.temple_goal_tile_64_sheet_8f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "path_number_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "layer": "ui_overlay",
+    "usage": "Board overlay atlas for path order digits 0-9 rendered above planned route tiles.",
+    "adjacent_elements": [
+      "ui.overlay.path_link_dash_64_sheet_6f",
+      "world.goal.temple_goal_tile_64_sheet_8f"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 20
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#D4C5A9",
+      "#F8FAFC",
+      "#FBBF24"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "Single-row atlas of 10 square 20px digit badges with 1px outline.",
+      "components": [
+        "digit_0",
+        "digit_1",
+        "digit_2",
+        "digit_3",
+        "digit_4",
+        "digit_5",
+        "digit_6",
+        "digit_7",
+        "digit_8",
+        "digit_9"
+      ]
+    },
+    "atlas_layout": {
+      "rows": 1,
+      "cols": 10,
+      "badge_size_px": {
+        "width": 20,
+        "height": 20
+      }
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.path_tile_numbers_20_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 200x20px with 10 badges of 20x20px.",
+    "Digit set contains 0 through 9 in sequence from left to right.",
+    "Every badge uses a 1px outline and transparent background."
+  ]
+}

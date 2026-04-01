@@ -1,0 +1,148 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000013",
+  "asset_key": "effect_heart_particle_3f",
+  "asset_name": "Heart Particle (petting)",
+  "category": "obstacles",
+  "subcategory": "particle",
+  "priority": "P1",
+  "execution_order": 150,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Asset remains readable at 1x scale within the warm cage scene.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering and 1px outlines keep interaction targets crisp."
+  ],
+  "differences": [
+    "This effect supports affection feedback during petting moments.",
+    "Three frames are enough for rise-and-fade readability.",
+    "The accent hue keeps the effect emotionally warm and immediate."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "reference_images": [
+    {
+      "label": "behavior_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/BehaviorSystem.md",
+      "purpose": "Grounds effect timing and state-linked particle usage."
+    },
+    {
+      "label": "art_direction_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "purpose": "Grounds palette discipline, pixel density, and warm household presentation."
+    },
+    {
+      "label": "cage_object_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "purpose": "Grounds cage-prop placement and relative scale inside the 128x128 enclosure."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-driven sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "CareInteractionMarker"
+    ],
+    "asset_loading": "Load effect_heart_particle_3f.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "petting_fx",
+    "layer": "effects",
+    "usage": "Short-lived particle spawned near Echo; drifts upward by 8px and fades.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 8
+    },
+    "colors_hex": [
+      "#FF004D",
+      "#FFF1E8"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 3,
+      "fps": 4,
+      "loop": false,
+      "frame_size_px": [
+        8,
+        8
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "motion": {
+      "drift_px": [
+        0,
+        -8
+      ],
+      "duration_sec": 0.75,
+      "fade_out": true
+    },
+    "shape": "heart"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/effect_heart_particle_3f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 24x8px (3 frames × 8x8) with 0px spacing.",
+    "Every frame contains at least 4 opaque pixels for readability.",
+    "Uses only the listed colors and transparency; no gradients or anti-aliasing."
+  ]
+}

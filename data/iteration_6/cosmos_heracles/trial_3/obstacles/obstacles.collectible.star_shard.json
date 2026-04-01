@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.collectible.star_shard",
+  "asset_name": "Star Shard Collectible",
+  "category": "obstacles",
+  "subcategory": "collectible",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Danger Red",
+      "hex": "#E84040"
+    },
+    "shadow": {
+      "name": "Column Shadow",
+      "hex": "#6B6357"
+    },
+    "gold": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    },
+    "counter": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "boss": {
+      "name": "Boss Purple",
+      "hex": "#7B2FBE"
+    },
+    "ui_text": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "skin": {
+      "name": "Hero Skin",
+      "hex": "#E8B87A"
+    },
+    "armor": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "anti_aliasing": "none"
+  },
+  "context": {
+    "role": "collectible",
+    "layer": "world",
+    "usage": "Drops from pillar breaks; adds score on pickup."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFD966",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "fps": 12,
+      "frame_count": 4,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      },
+      "loop": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.collectible.star_shard.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 64x16px (4 frames × 16px).",
+    "Shard reads as a rotating bright object using #FFD966 as the main fill color.",
+    "All frames keep center pivot at (8px, 8px) for stable rotation."
+  ]
+}

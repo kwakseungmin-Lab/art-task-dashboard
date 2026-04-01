@@ -1,0 +1,140 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 3,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "ui.game_over_screen",
+  "asset_name": "game_over_screen_layout",
+  "category": "ui",
+  "subcategory": "game_over",
+  "description": "Game-over text layout displayed when the player is dead. Includes: GAME OVER (24 px), Score: 00000 (16 px), HI 00000 (16 px), Press SPACE to restart (12 px). Use #535353 and center alignment.",
+  "context": {
+    "role": "game_over_overlay",
+    "layer": "ui",
+    "usage": "Visible only when game state is game_over.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 300,
+      "y": 75,
+      "anchor": "center"
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_mono_16",
+      "ui.score_display",
+      "character.player.dino_sprite_set"
+    ]
+  },
+  "depends_on": [
+    "ui.font.bitmap_mono_16"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.bitmap_mono_16"
+  ],
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/ui/game_over_screen_layout/game_over_screen_layout.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 600,
+        "height": 150
+      },
+      "notes": "Full-canvas mock overlay with text lines and anchor markers."
+    }
+  ],
+  "acceptance_criteria": [
+    "All four text lines are centered on a 600x150 canvas using the declared offsets.",
+    "Text color is #535353 for all lines.",
+    "Font sizes are 24, 16, 16, and 12 px respectively.",
+    "Optional blink toggles visibility of the restart line at 0.5 second interval."
+  ],
+  "priority": "P0",
+  "execution_order": 100,
+  "specs": {
+    "texts": [
+      {
+        "content": "GAME OVER",
+        "font_size_px": 24,
+        "color_hex": "#535353",
+        "anchor": "center",
+        "offset_px": [
+          0,
+          -30
+        ]
+      },
+      {
+        "content": "Score: 00000",
+        "font_size_px": 16,
+        "color_hex": "#535353",
+        "anchor": "center",
+        "offset_px": [
+          0,
+          0
+        ]
+      },
+      {
+        "content": "HI 00000",
+        "font_size_px": 16,
+        "color_hex": "#535353",
+        "anchor": "center",
+        "offset_px": [
+          0,
+          20
+        ]
+      },
+      {
+        "content": "Press SPACE to restart",
+        "font_size_px": 12,
+        "color_hex": "#535353",
+        "anchor": "center",
+        "offset_px": [
+          0,
+          50
+        ]
+      }
+    ],
+    "alignment": "center",
+    "blink_optional": {
+      "enabled_optional": true,
+      "target_text_index": 3,
+      "interval_seconds": 0.5
+    },
+    "canvas_reference_px": {
+      "width": 600,
+      "height": 150
+    }
+  }
+}

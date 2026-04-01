@@ -1,0 +1,83 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.dusk_sky_gradient",
+  "asset_name": "Background - Dusk Sky Gradient",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 1,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "background": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "Divine Cyan",
+      "hex": "#06B6D4"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_hd2d_glow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "background",
+    "layer": "background",
+    "usage": "Full-screen backdrop behind grid/map and UI",
+    "screen_position": {
+      "type": "absolute_px",
+      "origin": "top_left",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B"
+    ],
+    "animation": null,
+    "notes": "Pixel-art gradient with subtle banding; optional 1px star speckles (<=30 total)"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.dusk_sky_gradient.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Image is exactly 1920x1080px and covers full screen with no tiling seams.",
+    "Uses a dusk gradient from #C17B2F to #1E1B4B; no smooth anti-aliased gradients—use pixel dithering/banding.",
+    "Background contrast does not reduce readability of UI text (#FEF3C7) placed on dark panels."
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "task_id": "cdr_ui_game_over_screen_mock",
+  "asset_name": "ui_game_over_screen_mock",
+  "category": "ui",
+  "subcategory": "screen",
+  "description": "Create a UI mock overlay image for GameOverScreen layout. Canvas size 600x150 px with fully transparent background (alpha 0). Render four centered text lines using bitmap fonts: 1) 'GAME OVER' at font size 24px, centered at (x=300,y=45). 2) 'Score: 00000' at font size 16px, centered at (x=300,y=75). 3) 'HI 00000' at font size 16px, centered at (x=300,y=95). 4) 'Press SPACE to restart' at font size 12px, centered at (x=300,y=125). All text color #535353. No overlay rectangle.",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Visual reference for Game Over UI layout; used for implementation and QA screenshot comparisons.",
+    "screen_location": "Centered on screen (600x150).",
+    "adjacent_elements": [
+      "player_dead sprite",
+      "background_sky"
+    ],
+    "layer": "ui_overlay",
+    "usage": "Shown when Player.is_dead == true; reference mock only."
+  },
+  "specs": {
+    "dimensions": "600x150",
+    "background": "transparent",
+    "texts": [
+      {
+        "string": "GAME OVER",
+        "font_task_id": "cdr_typography_font_pixel_mono_24px",
+        "font_size_px": 24,
+        "color_hex": "#535353",
+        "align": "center",
+        "center_px": {
+          "x": 300,
+          "y": 45
+        }
+      },
+      {
+        "string": "Score: 00000",
+        "font_task_id": "cdr_typography_font_pixel_mono_16px",
+        "font_size_px": 16,
+        "color_hex": "#535353",
+        "align": "center",
+        "center_px": {
+          "x": 300,
+          "y": 75
+        }
+      },
+      {
+        "string": "HI 00000",
+        "font_task_id": "cdr_typography_font_pixel_mono_16px",
+        "font_size_px": 16,
+        "color_hex": "#535353",
+        "align": "center",
+        "center_px": {
+          "x": 300,
+          "y": 95
+        }
+      },
+      {
+        "string": "Press SPACE to restart",
+        "font_task_id": "cdr_typography_font_pixel_mono_12px",
+        "font_size_px": 12,
+        "color_hex": "#535353",
+        "align": "center",
+        "center_px": {
+          "x": 300,
+          "y": 125
+        }
+      }
+    ],
+    "blink_optional": {
+      "enabled": true,
+      "target_text": "Press SPACE to restart",
+      "period_seconds": 0.5
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/ui/ui_game_over_screen_mock.png",
+      "type": "ui_mock_overlay",
+      "format": "png",
+      "dimensions_px": "600x150",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/ui/ui_game_over_screen_mock@2x.png",
+      "type": "ui_mock_overlay",
+      "format": "png",
+      "dimensions_px": "1200x300",
+      "scale": 2,
+      "scale_method": "nearest_neighbor",
+      "background": "transparent"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_typography_font_pixel_mono_24px",
+      "cdr_typography_font_pixel_mono_16px",
+      "cdr_typography_font_pixel_mono_12px"
+    ],
+    "shared_properties": {
+      "ui_text_color_hex": "#535353",
+      "center_x": 300,
+      "center_y": 75
+    },
+    "differences": {
+      "multi_font": true
+    }
+  },
+  "depends_on": [
+    "cdr_typography_font_pixel_mono_16px",
+    "cdr_typography_font_pixel_mono_24px",
+    "cdr_typography_font_pixel_mono_12px"
+  ],
+  "execution_order": 19,
+  "priority": "P1",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_typography_font_pixel_mono_16px",
+    "cdr_typography_font_pixel_mono_24px",
+    "cdr_typography_font_pixel_mono_12px"
+  ],
+  "acceptance_criteria": [
+    "PNG dimensions 600x150 (1x) and 1200x300 (2x).",
+    "Background fully transparent (alpha 0) except text pixels.",
+    "All four text lines present with the exact strings.",
+    "Text centers exactly at y=45,75,95,125 with x=300.",
+    "Only #535353 used for text pixels."
+  ]
+}

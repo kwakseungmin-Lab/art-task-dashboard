@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "ui.feedback.counter_popup",
+  "asset_name": "Counter Result Popup Text Sprites",
+  "category": "ui",
+  "group_id": "ui.feedback.counter_popup",
+  "variant_role": "standalone",
+  "priority": "P1",
+  "execution_order": 33,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.counter_gauge"
+    ]
+  },
+  "context": {
+    "role": "ui_feedback",
+    "screen_position": {
+      "type": "screen_space",
+      "anchor": "center_right",
+      "position_px": [
+        1100,
+        400
+      ]
+    },
+    "layer": "ui",
+    "usage": "Displays COUNTER! / PERFECT!! for 0.6s then fades out.",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 768,
+      "height_px": 64
+    },
+    "frame_layout": {
+      "grid_columns": 2,
+      "grid_rows": 1,
+      "frame_size_px": [
+        384,
+        64
+      ],
+      "row_order": [
+        "counter_perfect"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "ui_2d",
+      "facing": "none"
+    },
+    "colors": {
+      "main": {
+        "hex": "#40E8D0"
+      },
+      "secondary": [
+        {
+          "name": "perfect_white",
+          "hex": "#F0EFE9"
+        },
+        {
+          "name": "boss_purple",
+          "hex": "#7B2FBE"
+        },
+        {
+          "name": "outline",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "bold pixel text with outline and slight skew for impact",
+      "components": [
+        "counter_text",
+        "perfect_text",
+        "burst_backplate"
+      ]
+    }
+  },
+  "description": "Create a 2-frame UI strip: frame1=COUNTER! (cyan), frame2=PERFECT!! (white + purple accent). Each frame 384x64. Include dark outline for readability. Intended to be alpha-faded by code.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "ui/feedback_counter_popup.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 768x64 px (2 frames)",
+    "Each frame exactly 384x64 px",
+    "Text is readable and has consistent outline thickness"
+  ]
+}

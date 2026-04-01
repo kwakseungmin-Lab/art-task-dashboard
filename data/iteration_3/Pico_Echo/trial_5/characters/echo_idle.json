@@ -1,0 +1,111 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position_default": {
+        "x": "64px",
+        "y": "60px"
+      },
+      "rendering": "nearest neighbor",
+      "transparency": "indexed color transparency"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_idle",
+    "asset_name": "Echo Idle State",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Default resting state of Echo, the main character and only interactive pet",
+      "screen_position": "Center of screen at x=64px, y=60px (standing on perch)",
+      "adjacent_elements": [
+        "cage_perch (directly below at y=80px)",
+        "cage_food_bowl (lower left at x=16px, y=100px)",
+        "cage_water_bowl (lower left at x=40px, y=100px)",
+        "happiness_bar (bottom of screen at y=126px)"
+      ],
+      "usage_scenario": "Displayed when Echo is not performing any specific action - the baseline state that transitions to all other states. Player can interact with Echo in this state by tapping to pet, feeding, or cleaning."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel bird in frontal view, standing upright on perch. Distinctive features: pointed crest on head (3-5px tall), circular cheek patches (4x4px each side), small triangular beak (3x2px), round body (approximately 20x24px), tail feathers extending downward (8-10px), two feet visible on perch",
+      "texture": "Pure pixel art with no gradients or anti-aliasing. Hand-drawn organic edges with slight irregularity to convey warmth. Feather texture implied through pixel placement rather than detail lines.",
+      "outline": "No outline stroke - silhouette defined by color contrast against background",
+      "shadow": "No shadow - flat 2D presentation",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 4,
+        "fps": 2,
+        "loop": true,
+        "description": "Frame 1: Eyes open, crest normal position. Frame 2: Eyes open, subtle body shift (1-2px). Frame 3: Eyes closed (blinking), crest normal. Frame 4: Eyes open, return to frame 1 position. Creates gentle breathing/blinking idle animation."
+      },
+      "details": "Eyes are 2x2px each. Crest feathers point upward in relaxed state. Cheek patches must always be #FF004D (signature feature). Tail feathers have 3-4 individual feather tips visible. Feet grip perch with 2px width each."
+    },
+    "relationships": {
+      "related_assets": [
+        "cage_perch",
+        "echo_eating",
+        "echo_sleeping",
+        "echo_happy",
+        "echo_preening",
+        "echo_dirty",
+        "echo_hungry",
+        "echo_singing"
+      ],
+      "shared_with": "All Echo states share the same base body structure, color palette, and 40x40px canvas size",
+      "differences_from": "Unlike other states: crest is in neutral position (not raised/lowered), eyes blink regularly, no special particles or effects, standing upright (not hunched or animated)"
+    },
+    "explicit_negations": [
+      "No realistic feather detail or texture",
+      "No 3D shading or gradients",
+      "No outline stroke around character",
+      "No motion blur between frames",
+      "No smooth anti-aliasing on edges",
+      "No perspective or foreshortening",
+      "No background elements within sprite",
+      "No additional props or accessories"
+    ]
+  }
+}

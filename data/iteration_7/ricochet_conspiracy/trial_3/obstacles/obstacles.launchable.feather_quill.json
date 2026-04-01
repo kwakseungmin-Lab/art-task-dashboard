@@ -1,0 +1,127 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.feather_quill",
+  "asset_name": "Feather Quill Projectile",
+  "category": "obstacles",
+  "subcategory": "launchable_object",
+  "priority": "P1",
+  "execution_order": 14,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This projectile emphasizes slim silhouette and curved-flight readability."
+  ],
+  "depends_on": [
+    "world.foreground.floor_tiles"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.foreground.floor_tiles"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.trajectory_guide",
+      "obstacles.environment.mirror"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "light_curve_projectile",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 340,
+      "y": 504,
+      "width": 16,
+      "height": 40,
+      "anchor": "top_left"
+    },
+    "layer": "midground_interactive",
+    "usage": "Used from stage 4-1 onward as the lowest-mass projectile with curved flight.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_right"
+    },
+    "adjacent_elements": [
+      "obstacles.environment.mirror",
+      "character.noble_shield",
+      "ui.overlay.trajectory_guide"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 40
+    },
+    "colors_hex": [
+      "#F5F0E8",
+      "#D4A843",
+      "#8B3A52",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "glide",
+      "states": [
+        {
+          "name": "glide",
+          "frame_count": 4,
+          "fps": 8
+        }
+      ]
+    },
+    "notes": [
+      "Quill shaft width is 2 px and feather vane width is 12 px.",
+      "Curved-flight preview offset uses a 10 degree uncertainty band on the overlay asset."
+    ],
+    "shape": {
+      "silhouette": "long feather profile with a narrow shaft and a tapered vane",
+      "components": [
+        "quill shaft",
+        "feather vane",
+        "tip nib",
+        "rear tuft"
+      ]
+    }
+  },
+  "deliverables": [
+    "Glide loop 4 frames at 8 fps.",
+    "Static icon export for projectile selection.",
+    "Curved-flight preview silhouette for overlay alignment."
+  ],
+  "acceptance_criteria": [
+    "Projectile size is exactly 16x40 px.",
+    "Shaft width is 2 px across all frames.",
+    "Feather vane uses at least two fill colors from #F5F0E8 and #8B3A52."
+  ]
+}

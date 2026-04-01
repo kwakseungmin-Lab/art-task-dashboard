@@ -1,0 +1,141 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.midlayer_court",
+  "asset_name": "Court Hall Midlayer Columns And Curtains",
+  "category": "world",
+  "subcategory": "background_layer",
+  "priority": "P0",
+  "execution_order": 2,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This layer defines readable depth behind obstacles through column rhythm and curtain spacing."
+  ],
+  "depends_on": [
+    "world.background.backlayer_window"
+  ],
+  "blocks": [
+    "character.noble_basic",
+    "character.noble_boss",
+    "character.noble_guard",
+    "character.noble_shield",
+    "obstacles.environment.chandelier",
+    "obstacles.environment.mirror",
+    "obstacles.environment.stone_wall",
+    "obstacles.environment.wood_pillar",
+    "world.foreground.floor_tiles"
+  ],
+  "blocked_by": [
+    "world.background.backlayer_window"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.foreground.floor_tiles",
+      "obstacles.environment.wood_pillar",
+      "character.noble_basic"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "playfield_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 50,
+      "width": 1280,
+      "height": 620,
+      "anchor": "top_left"
+    },
+    "layer": "background_mid",
+    "usage": "Used in every stage behind interactive objects and target nobles.",
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "world.background.backlayer_window",
+      "world.foreground.floor_tiles",
+      "obstacles.environment.chandelier",
+      "obstacles.environment.wood_pillar"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#C8B4E0",
+      "#3D2B1F",
+      "#F5F0E8"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "idle",
+      "states": [
+        {
+          "name": "idle",
+          "frame_count": 8,
+          "fps": 2
+        }
+      ]
+    },
+    "notes": [
+      "Center gameplay rectangle at x 320 to 960 and y 160 to 520 keeps luminance contrast between 40% and 55%.",
+      "Four stone columns use 96 px width and curtain gaps keep 160 px visual lanes for projectile readability."
+    ],
+    "shape": {
+      "silhouette": "three-layer court midground with curtains and columns framing a clear center lane",
+      "components": [
+        "left curtain stack",
+        "right curtain stack",
+        "4 column shafts",
+        "center lane opening",
+        "base trim band"
+      ]
+    }
+  },
+  "deliverables": [
+    "Midlayer background sheet 1280x620 px with separate curtain and column groups.",
+    "Curtain loop with 8 frames at 2 fps.",
+    "Annotated layout preview showing safe gameplay rectangle."
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 1280x620 px.",
+    "Center gameplay rectangle remains visually open with no curtain mass entering more than 80 px into that zone.",
+    "Column rhythm is symmetrical around the center line at x 640."
+  ]
+}

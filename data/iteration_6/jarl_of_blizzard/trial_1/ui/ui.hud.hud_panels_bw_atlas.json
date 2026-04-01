@@ -1,0 +1,131 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.hud_panels_bw_atlas",
+  "asset_name": "HUD Panels Atlas (Top bar, counters, portrait frame, button frames)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 16,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.typography.bitmap_font_bw_8px",
+      "character.player.jarl_portrait_sheet_64_4f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "ui_panel_atlas",
+    "layer": "ui_hud",
+    "usage": "Reusable HUD panel frames: top bar segments, winter counter box, population box, HP/resource frame, and portrait frame.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 256
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "atlas_rules": {
+      "border_thickness_px": 1,
+      "corner_style": "square",
+      "panel_background_hex": "#333333",
+      "highlight_hex": "#E0E0E0"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.hud_panels_bw_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 512x256px and uses consistent 1px borders across all panel pieces.",
+    "Panel background fill uses #333333 or #000000 only; text will be rendered separately via the bitmap font.",
+    "When composed into a top HUD bar, elements remain legible at 1x on a 1920x1080 screen."
+  ]
+}

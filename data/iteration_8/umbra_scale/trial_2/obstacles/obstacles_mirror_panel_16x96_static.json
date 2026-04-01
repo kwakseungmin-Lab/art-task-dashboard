@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020106",
+  "asset_key": "obstacles_mirror_panel_16x96_static",
+  "asset_name": "Plane Mirror Panel (16x96 static)",
+  "category": "obstacles",
+  "subcategory": "reflector",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The mirror occupies a clean 16x96 px vertical slab that aligns to the documented grab grid.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while reflective tones stay inside specs.colors_hex.",
+    "Frame ornament uses restrained art deco linework so reflected beam readability stays stronger than decoration."
+  ],
+  "differences": [
+    "This asset uses a bright central reflective strip, gold perimeter trim, and a dark backplate to communicate plane reflection.",
+    "The art is authored in a neutral upright pose because runtime rotation occurs in 15 degree steps.",
+    "Top and bottom caps are slightly heavier than the side rails to keep the interactable readable over busy backdrops."
+  ],
+  "depends_on": [
+    "task_id_008020110"
+  ],
+  "blocks": [
+    "task_id_008020117"
+  ],
+  "blocked_by": [
+    "task_id_008020110"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020103",
+      "task_id_008020107",
+      "task_id_008020109",
+      "task_id_008020117"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds mirror size, grab movement, and 15 degree rotation control."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the gold-and-shadow material language for tower machinery."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra reach scale so mirror contact feels proportional."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle with Transform-driven rotation.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "MirrorInteractable"
+    ],
+    "asset_loading": "Load the mirror texture during FloorLoading and register it for MirrorInteractable entities.",
+    "runtime_notes": [
+      "Use Transform rotation in 15 degree steps.",
+      "Keep the origin centered for intuitive rotation around the middle.",
+      "Render the mirror above the backdrop and below beam overlays."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "light_reflector",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        760,
+        368
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Primary interactable reflector used to bend incoming light beams by the law of reflection.",
+    "adjacent_elements": [
+      "task_id_008020103",
+      "task_id_008020109"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": null,
+    "surface_notes": [
+      "Reflective strip width is 8 px.",
+      "Gold trim thickness is 2 px.",
+      "Top and bottom caps occupy 6 px each."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_mirror_panel_16x96_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Mirror texture is exactly 16x96 px and preserves a centered reflective strip across the usable height.",
+    "Gold trim remains readable at all allowed rotation angles without overpowering beam readability.",
+    "The neutral upright art works cleanly with runtime 15 degree rotation and does not require alternate painted poses."
+  ]
+}

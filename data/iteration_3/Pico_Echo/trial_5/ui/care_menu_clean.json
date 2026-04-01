@@ -1,0 +1,102 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "8-120px",
+      "height": "2-8px",
+      "note": "Varies - happiness bar is 120x2px, care buttons are 8x8px each"
+    },
+    "color_scheme": {
+      "bar_bg": "#5F574F",
+      "bar_green": "#00E436",
+      "bar_yellow": "#FFEC27",
+      "bar_orange": "#FFA300",
+      "button_bg": "#1D2B53",
+      "button_icon": "#FFA300"
+    },
+    "shared_attributes": {
+      "rendering": "static UI elements",
+      "layer": "overlay (top layer)",
+      "style": "minimal functional pixel art",
+      "interaction": "touch/click targets"
+    }
+  },
+  "asset": {
+    "asset_id": "care_menu_clean",
+    "asset_name": "Care Menu Clean Button",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Interactive button to clean cage floor (remove poop)",
+      "screen_position": "Lower right at x=108px, y=108px when care menu is visible (popup)",
+      "adjacent_elements": [
+        "care_menu_feed (to left at x=96px)",
+        "care_menu_pet (to right at x=120px)",
+        "happiness_bar (below at y=126px)"
+      ],
+      "usage_scenario": "Appears when player taps screen to open care menu. Tapping this button removes all poop from floor and triggers sparkle effect. Button grays out during cooldown period. Part of 3-button care menu popup."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "8px",
+        "height": "8px"
+      },
+      "colors": {
+        "background": "#1D2B53",
+        "icon_active": "#C2C3C7",
+        "icon_disabled": "#5F574F"
+      },
+      "shape": "Square button 8x8px. Contains broom icon (5x6px) centered inside.",
+      "texture": "Flat pixel art",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "static",
+        "frames": 2,
+        "fps": 0,
+        "loop": false,
+        "description": "2 states: Active state: broom icon in #C2C3C7 (gray). Disabled state: broom icon in #5F574F (darker gray). State changes based on cooldown timer."
+      },
+      "details": "Button: 8x8px square, #1D2B53 background. Broom icon: 5x6px simple broom shape (handle + bristles) centered. Active: icon #C2C3C7. Disabled: icon #5F574F. Position: x=108px, y=108px. Touch target: full 8x8px area. Broom design: 1px wide handle (3px tall) + 3px wide bristles (3px tall)."
+    },
+    "relationships": {
+      "related_assets": [
+        "care_menu_feed",
+        "care_menu_pet",
+        "poop",
+        "cage_floor",
+        "sparkle_particle"
+      ],
+      "shared_with": "Part of care menu system",
+      "differences_from": "Unlike feed button: broom icon (not seed), gray icon color. Unlike pet button: middle position in menu. Unlike happiness bar: interactive button."
+    },
+    "explicit_negations": [
+      "No 3D button effects",
+      "No gradients",
+      "No outline stroke",
+      "No hover state",
+      "No press animation",
+      "No glow",
+      "No text label",
+      "No rounded corners"
+    ]
+  }
+}

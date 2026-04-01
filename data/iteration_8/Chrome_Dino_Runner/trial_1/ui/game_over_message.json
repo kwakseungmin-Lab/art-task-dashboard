@@ -1,0 +1,144 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000015",
+  "asset_key": "game_over_message",
+  "asset_name": "Game Over Message Banner",
+  "category": "ui",
+  "subcategory": "game_over_ui",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Primary painted tone uses #535353 with transparent background only.",
+    "Banner aligns to the center of the camera view.",
+    "Letterforms keep hard pixel edges at 1x scale."
+  ],
+  "differences": [
+    "This task rasterizes the text GAME OVER as one centered banner.",
+    "Banner height stays at 24 px to match the GDD emphasis hierarchy.",
+    "Text width stays compact enough to sit above the score rack and runner without overlap."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000004",
+      "task_id_801000016",
+      "task_id_801000014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    },
+    {
+      "label": "run_loop_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/t-rex-runner-19janil.gif",
+      "purpose": "Run cadence, jump silhouette timing, and restart screen pacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "GameOverUiTag",
+      "VisibilityToggle"
+    ],
+    "asset_loading": "Load one 132x24 PNG during Loading state and toggle visibility when the game state enters game_over.",
+    "runtime_notes": [
+      "Anchor the banner at x=300 and y=45 in UI space.",
+      "Keep the sprite hidden during active play.",
+      "Render the banner above world sprites and below the restart hint."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "game_over_banner",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        300,
+        45
+      ]
+    },
+    "layer": "ui_center",
+    "usage": "Becomes visible immediately after collision to mark the end state."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 132,
+      "height": 24
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        132,
+        24
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "text_profile": {
+      "content": "GAME OVER",
+      "font_height_px": 24,
+      "alignment": "center"
+    },
+    "layout_notes": [
+      "Letter spacing stays at 2 px between word groups.",
+      "Text baseline sits 18 px from the top edge.",
+      "Background remains transparent around the letterforms."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/game_over_message.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 132x24 px with transparent background beyond the text.",
+    "The phrase GAME OVER stays centered and remains readable at 1x scale.",
+    "Painted pixels use #535353 only and keep hard pixel edges."
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.character.echo_dirty_animation",
+  "asset_name": "Echo animation: Dirty",
+  "category": "character",
+  "subcategory": "echo",
+  "description": "All Echo frames: frame canvas 40x40px, transparent background. No outlines. No shading. No gradients. No dithering. Colors: body #FFA300, cheek patch #FF004D, crest #FFEC27, beak/feet #AB5236, eyes #1D2B53. Echo occupies approx x=6..33,y=6..36 within the 40x40 canvas. Cheek patch is always present as a 3x3 block at x=24..26,y=18..20. Eyes are two 2x2 blocks at x=14..15,y=16..17 and x=22..23,y=16..17 unless the frame specifies eyes closed. Dirty: 3 frames, FPS=2, loop=true. Expression: replace normal eyes with half-closed eyes: 2x1 lines at y=17 (x=14..15 and x=22..23). Frame2 adds 2 dust pixels (#C2C3C7) at x=10,y=24 and x=29,y=23.",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/sprites/echo/echo_dirty_strip_40x40_f3_2fps.png",
+      "format": "png",
+      "type": "sprite_strip"
+    }
+  ],
+  "specs": {
+    "frame_dimensions": "40x40",
+    "sprite_anchor": {
+      "anchor_point": "feet_center",
+      "x": 20,
+      "y": 36
+    },
+    "palette_hex": [
+      "#FFA300",
+      "#FF004D",
+      "#FFEC27",
+      "#AB5236",
+      "#1D2B53"
+    ],
+    "alpha": "transparent_background",
+    "dimensions": "120x40",
+    "animation": {
+      "frame_count": 3,
+      "fps": 2,
+      "loop": true,
+      "layout": "horizontal_strip"
+    },
+    "extra_palette_hex": [
+      "#C2C3C7"
+    ]
+  },
+  "context": {
+    "role": "Shown when poop_count >= 3.",
+    "screen_location": "Same as idle.",
+    "adjacent_elements": [
+      "dust_particle",
+      "poop_sprite"
+    ],
+    "layer": "character",
+    "usage": "When state=DIRTY."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.object.poop_sprite",
+      "pico_echo.vfx.dust_particle"
+    ],
+    "shared_properties": [
+      "Same size as idle"
+    ],
+    "differences": [
+      "Half-closed eyes; includes dust pixels."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.character.echo_idle_animation",
+    "pico_echo.object.poop_sprite"
+  ],
+  "execution_order": 37,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.character.echo_idle_animation",
+    "pico_echo.object.poop_sprite"
+  ],
+  "acceptance_criteria": [
+    "Strip size is exactly 120x40px.",
+    "Half-closed eyes appear in all frames.",
+    "Only allowed palette colors are used.",
+    "Animation reads as discomfort at 2fps."
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-12px",
+      "note": "Varies by effect type - particles are 2-4px, speech bubble is 12x10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8",
+      "bubble_bg": "#FFF1E8",
+      "bubble_outline": "#1D2B53"
+    },
+    "shared_attributes": {
+      "rendering": "animated particles or static overlays",
+      "layer": "foreground (on top of all other elements)",
+      "style": "simple iconic pixel art",
+      "lifespan": "0.5-2 seconds (particles auto-destroy)"
+    }
+  },
+  "asset": {
+    "asset_id": "feather_particle",
+    "asset_name": "Feather Particle Effect",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Grooming indicator that appears when Echo is preening feathers",
+      "screen_position": "Spawns from Echo's body at x=50-78px, y=55-65px, drifts horizontally left or right",
+      "adjacent_elements": [
+        "echo_preening (spawns during this state)",
+        "cage_background"
+      ],
+      "usage_scenario": "2 feather particles spawn during echo_preening animation at frames 3 and 4. Each feather drifts horizontally (left or right) 8-10px over 0.5 seconds while fading. Indicates natural grooming behavior."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "2px",
+        "height": "2px"
+      },
+      "colors": {
+        "primary": "#FFA300"
+      },
+      "shape": "Small feather fragment. 2x2px with 1 pixel extending to suggest feather shape (total 3px in L or T shape).",
+      "texture": "Pure pixel art, minimal",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "particle",
+        "frames": 3,
+        "fps": 6,
+        "loop": false,
+        "description": "Frame 1: Feather appears at spawn position. Frame 2: Moves horizontally 4px (left or right), begins fade (60%). Frame 3: Moves another 4px same direction, fades to 0%. Total horizontal movement: 8px. Duration: 0.5 seconds."
+      },
+      "details": "Feather: 2x2px base + 1px extension in #FFA300. Spawns at Echo's body edge (x=54 or x=74, y=60). Drifts left or right (50% chance each direction). 2 feathers spawn per preening animation. Horizontal-only movement (no vertical drift)."
+    },
+    "relationships": {
+      "related_assets": [
+        "echo_preening",
+        "cage_background"
+      ],
+      "shared_with": "Same orange color (#FFA300) as Echo's body feathers",
+      "differences_from": "Unlike other particles: horizontal drift (not vertical), spawns from body (not head), smallest size (2x2px), shortest lifespan (0.5s)."
+    },
+    "explicit_negations": [
+      "No 3D shading",
+      "No outline stroke",
+      "No rotation or spinning",
+      "No size scaling",
+      "No motion blur",
+      "No realistic feather detail",
+      "No vertical movement",
+      "No floating or wobbling"
+    ]
+  }
+}

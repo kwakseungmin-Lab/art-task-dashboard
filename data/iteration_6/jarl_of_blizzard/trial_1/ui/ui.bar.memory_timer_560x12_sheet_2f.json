@@ -1,0 +1,147 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.bar.memory_timer_560x12_sheet_2f",
+  "asset_name": "Memory Timer Bar — 560×12 Sheet (2 frames background+fill)",
+  "category": "ui",
+  "subcategory": "bar",
+  "priority": "P0",
+  "execution_order": 21,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.panel.memory_panel_600x400"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "timer_bar",
+    "layer": "ui_modal",
+    "usage": "Timer bar components: frame/background and fill sprite; fill is clipped horizontally by code.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1120,
+      "height": 12
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 2,
+      "fps": 0,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 2,
+        "frame_size_px": {
+          "width": 560,
+          "height": 12
+        },
+        "order": [
+          "background",
+          "fill"
+        ],
+        "padding_px": 0
+      }
+    },
+    "fill_rules": {
+      "fill_hex": "#FFFFFF",
+      "empty_hex": "#000000",
+      "border_hex": "#111111"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.bar.memory_timer_560x12_sheet_2f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 1120x12px; each frame is 560x12px; no spacing.",
+    "Fill frame can be cropped from right to left without visible seams or stray pixels.",
+    "Bar remains readable over the memory panel background (#000000/#333333)."
+  ]
+}

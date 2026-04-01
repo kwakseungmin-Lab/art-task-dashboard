@@ -1,0 +1,120 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.ground.texture_1200x10",
+  "asset_name": "Ground Texture Tile 1200x10",
+  "category": "world",
+  "subcategory": "ground_lane",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": [
+    "The texture stays on the same ground lane as the 1200x2 baseline strip.",
+    "The palette stays monochrome and readable against the #F7F7F7 background.",
+    "The tile is built for seamless horizontal looping."
+  ],
+  "differences": [
+    "The texture adds sparse pebbles and notches below the main baseline strip.",
+    "The texture height expands to 10px while the main line remains separate.",
+    "Opaque marks cover less than 45% of the tile so the lane stays visually minimal."
+  ],
+  "depends_on": [
+    "world.ground.line_1200x2"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.ground.line_1200x2"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.ground.line_1200x2",
+      "character.player.dino_idle_2f_6fps",
+      "obstacles.cactus.small_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_texture",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        120
+      ]
+    },
+    "layer": "world_foreground",
+    "usage": "Optional texture strip that adds motion detail under the ground line without changing collision height.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "character.player.dino_idle_2f_6fps",
+      "obstacles.cactus.small_static"
+    ],
+    "viewpoint": {
+      "camera_angle": "camera_fixed",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 10
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "scroll_strip",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": true,
+      "speed_px_per_sec": 300
+    },
+    "shape": {
+      "silhouette": "Low pebble texture band with sparse irregular marks under the main baseline.",
+      "components": [
+        "pebble_marks",
+        "notch_marks",
+        "negative_space_band"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground.texture_1200x10.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 1200x10px.",
+    "The left and right tile edges align without a visible seam when repeated horizontally.",
+    "Only #535353 and transparency appear in painted pixels."
+  ]
+}

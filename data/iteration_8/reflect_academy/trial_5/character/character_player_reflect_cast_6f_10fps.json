@@ -1,0 +1,170 @@
+{
+  "task_id": "task_id_000008504",
+  "asset_key": "character_player_reflect_cast_6f_10fps",
+  "asset_name": "Player Reflection Cast Burst",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the project core palette copy #D4AF37/#2B1B17/#00FFFF.",
+    "Keeps the player body anchored to the same duel slot as the idle sheet.",
+    "Robe, wand, and card satchel silhouette remain readable against the maroon hall."
+  ],
+  "differences": [
+    "This file carries the active counter-cast arc and forward torso twist.",
+    "Cyan reflection ribbon expands from a 12 px core to a 52 px arc by the final frame."
+  ],
+  "depends_on": [
+    "task_id_000008501",
+    "task_id_000008502",
+    "task_id_000008503"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000008501",
+    "task_id_000008502",
+    "task_id_000008503"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000008503",
+      "task_id_000008506",
+      "task_id_000008507",
+      "task_id_000008509"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "player_concept",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/player.png",
+      "purpose": "Ground the player silhouette and hand pose."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground reflect-success animation, perfect timing read, and counterattack role."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_6x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerMage",
+      "CombatCastState"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_5/character_player_reflect_cast_6f_10fps.png with AssetServer during Loading state and store the handle under character_player_reflect_cast_6f_10fps.",
+    "runtime_notes": [
+      "Create a 6-column TextureAtlasLayout and trigger it only on Good or Perfect timing resolution.",
+      "Keep the hip anchor aligned with the idle sprite so combat snap transitions do not jitter.",
+      "Reset to the idle handle when the cast sheet completes its one-shot playback."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_reflect_cast",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        360,
+        680
+      ]
+    },
+    "layer": "character",
+    "usage": "Triggered when the player commits a valid card inside the Good or Perfect timing window.",
+    "adjacent_elements": [
+      "task_id_000008506",
+      "task_id_000008507",
+      "task_id_000008509"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#D4AF37",
+      "#2B1B17",
+      "#00FFFF",
+      "#FFFACD",
+      "#5C3317",
+      "#8E44AD"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 10,
+      "loop": false,
+      "frame_size_px": [
+        120,
+        180
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Forward-twisting mage stance with a wide wand sweep and cyan reflection ribbon.",
+      "components": [
+        "forward wand arc",
+        "left foot brace",
+        "robe sweep",
+        "card flare",
+        "reflection ribbon"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_player_reflect_cast_6f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet canvas is exactly 720x180 px with 6 frames.",
+    "Reflection ribbon reaches at least 52 px from the wand tip in the final frame.",
+    "Body anchor matches the idle sheet so feet stay inside the same duel slot footprint."
+  ],
+  "schema_version": "art_task@8",
+  "category": "character"
+}

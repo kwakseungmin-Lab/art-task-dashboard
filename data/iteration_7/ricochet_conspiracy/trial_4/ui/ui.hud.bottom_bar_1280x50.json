@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.bottom_bar_1280x50",
+  "asset_name": "HUD — Bottom bar (50px)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 520,
+  "variant_of": null,
+  "depends_on": [
+    "world.stage.playfield_frame_1280x620"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.angle_readout",
+      "ui.widget.power_slider_240x24"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_brown",
+      "hex": "#2D1F1A"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "pale_gold",
+      "hex": "#D6B27A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "thin"
+  },
+  "context": {
+    "role": "hud_bottom",
+    "layer": "ui",
+    "usage": "Bottom control bar.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 50
+    },
+    "colors_hex": [
+      "#F4E9DA",
+      "#E8D5C4",
+      "#2D1F1A",
+      "#D6B27A"
+    ],
+    "elements": [
+      {
+        "id": "angle_readout",
+        "type": "widget_slot",
+        "dimensions_px": {
+          "width": 160,
+          "height": 28
+        }
+      },
+      {
+        "id": "power_slider",
+        "type": "widget_slot",
+        "dimensions_px": {
+          "width": 260,
+          "height": 28
+        }
+      },
+      {
+        "id": "launch_count",
+        "type": "text_area",
+        "dimensions_px": {
+          "width": 200,
+          "height": 28
+        }
+      }
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.bottom_bar_1280x50.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Deliverable PNG matches the specified pixel dimensions (or sprite-sheet total size) with transparent background.",
+    "Uses the project palette as a guideline; any additional colors are limited and documented in specs.colors_hex.",
+    "Silhouette/readability holds at 100% and 50% zoom; no muddy edges or unintended blurs."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

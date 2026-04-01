@@ -1,0 +1,85 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "position_base": "perch at y=60",
+      "character": "Echo the cockatiel"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_sleeping",
+    "asset_name": "Echo Sleeping State",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Echo in sleep state during designated sleep hours",
+      "screen_position": "Center at x=64, y=60 on perch",
+      "adjacent_elements": ["perch", "zzz_effect", "cage_background"],
+      "usage_scenario": "Active during sleep time (12-hour cycle); no care interactions available; spawns ZZZ particle effect"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "feet": "#AB5236"
+      },
+      "shape": "Rounded body shape with head tucked into feathers; crest flattened; no visible eyes or beak",
+      "texture": "Flat pixel art with no gradients; hand-drawn organic edges",
+      "outline": "None; pure pixel art with color blocking",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 3,
+        "fps": 1,
+        "loop": true,
+        "description": "Frame 1: body still, Frame 2: slight expansion (breathing in), Frame 3: slight contraction (breathing out)"
+      },
+      "details": "Head is completely hidden in body feathers; body appears more rounded (approx 24px diameter); breathing motion is 1-2px expansion/contraction; eyes not visible"
+    },
+    "relationships": {
+      "related_assets": ["zzz_effect", "perch", "echo_idle"],
+      "shared_with": "Same color palette as all Echo states",
+      "differences_from": "echo_idle (no visible head/eyes), echo_preening (static vs active grooming)"
+    },
+    "explicit_negations": [
+      "no smooth gradients",
+      "no anti-aliasing",
+      "no visible eyes",
+      "no visible beak",
+      "no 3D depth",
+      "no motion blur",
+      "no pillow or nest"
+    ]
+  }
+}

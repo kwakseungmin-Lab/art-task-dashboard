@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "character.enemy.medusa_float_attack",
+  "asset_name": "Enemy Medusa Float + Beam Attack",
+  "category": "character",
+  "group_id": "character.enemy.medusa",
+  "variant_role": "standalone",
+  "priority": "P0",
+  "execution_order": 25,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.counter_gauge",
+      "ui.feedback.counter_popup"
+    ]
+  },
+  "context": {
+    "role": "enemy_boss_or_elite",
+    "screen_position": {
+      "type": "world_space",
+      "units": "px",
+      "pivot": "bottom_center"
+    },
+    "layer": "characters_enemies",
+    "usage": "Zone 2 enemy/boss. 6 frames: float loop (4) + beam attack (2). Size 96x128.",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 576,
+      "height_px": 128
+    },
+    "frame_layout": {
+      "grid_columns": 6,
+      "grid_rows": 1,
+      "frame_size_px": [
+        96,
+        128
+      ],
+      "row_order": [
+        "float_then_attack"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#7B2FBE"
+      },
+      "secondary": [
+        {
+          "name": "counter_cyan",
+          "hex": "#40E8D0"
+        },
+        {
+          "name": "danger_red",
+          "hex": "#E84040"
+        },
+        {
+          "name": "outline",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "floating medusa with snake-hair silhouette and readable face; beam cue in attack frames",
+      "components": [
+        "head",
+        "snake_hair",
+        "torso",
+        "tail_or_robes",
+        "beam_effect"
+      ]
+    }
+  },
+  "description": "Create a 6-frame sprite sheet for Medusa: frames 1-4 gentle float loop, frames 5-6 beam attack windup/fire. Include a brief cyan cue (#40E8D0) or red warning (#E84040) in attack frames for readability.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/enemy_medusa_float_attack.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 576x128 px (6 frames)",
+    "Each frame is 96x128 px",
+    "Attack frames (5-6) are visually distinct from float frames (1-4)"
+  ]
+}

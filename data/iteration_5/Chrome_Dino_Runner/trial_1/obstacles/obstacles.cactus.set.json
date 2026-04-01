@@ -1,0 +1,145 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 1,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "obstacles.cactus.set",
+  "asset_name": "cactus_set",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "description": "Ground obstacle cactus variants: small(34x70), medium(68x70), large(102x100). Monochrome #535353 on transparent background with 2px outline.",
+  "context": {
+    "role": "ground_obstacle",
+    "layer": "obstacles",
+    "usage": "Spawn at x=650 with bottom aligned to baseline y=148; move left at world speed.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 650,
+      "y": 148,
+      "anchor": "bottom_left"
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_sprite_set",
+      "world.ground.line_1200x2"
+    ]
+  },
+  "depends_on": [
+    "world.ground.line_1200x2"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.ground.line_1200x2"
+  ],
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Art/Source/Chrome_Dino_Runner/obstacles/cactus_set.aseprite",
+      "notes": "Three sprites on layers: cactus_small, cactus_medium, cactus_large."
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/obstacles/cactus_small_34x70/cactus_small_34x70.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 34,
+        "height": 70
+      }
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/obstacles/cactus_medium_68x70/cactus_medium_68x70.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 68,
+        "height": 70
+      }
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/obstacles/cactus_large_102x100/cactus_large_102x100.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 102,
+        "height": 100
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "Each cactus PNG has the exact pixel dimensions declared in specs.",
+    "All non-transparent pixels use #535353 only.",
+    "Bottom pixels align to y=148 when rendered with bottom-left anchor.",
+    "Large variant has at least 20 px taller silhouette than small variant."
+  ],
+  "priority": "P0",
+  "execution_order": 60,
+  "specs": {
+    "variants": [
+      {
+        "name": "cactus_small_34x70",
+        "dimensions_px": {
+          "width": 34,
+          "height": 70
+        }
+      },
+      {
+        "name": "cactus_medium_68x70",
+        "dimensions_px": {
+          "width": 68,
+          "height": 70
+        }
+      },
+      {
+        "name": "cactus_large_102x100",
+        "dimensions_px": {
+          "width": 102,
+          "height": 100
+        }
+      }
+    ],
+    "colors_hex": {
+      "primary": "#535353"
+    },
+    "transparent_background": true,
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    },
+    "collision_guidance": {
+      "obstacle_hitbox_inset_px": 3
+    },
+    "baseline_y_px": 148
+  }
+}

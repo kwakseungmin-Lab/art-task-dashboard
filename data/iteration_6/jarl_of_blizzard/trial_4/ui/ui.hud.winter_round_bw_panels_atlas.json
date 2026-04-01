@@ -1,0 +1,174 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.winter_round_bw_panels_atlas",
+  "asset_name": "Winter Round HUD Panels — BW Atlas",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 42,
+  "variant_of": null,
+  "depends_on": [
+    "character.player.jarl_portrait_sheet_64_4f",
+    "ui.typography.bitmap_font_bw_8px",
+    "ui.icons.resources_24_set_6",
+    "obstacles.icon.event_icons_24_set_5"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.jarl_portrait_sheet_64_4f",
+    "ui.typography.bitmap_font_bw_8px",
+    "ui.icons.resources_24_set_6",
+    "obstacles.icon.event_icons_24_set_5"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.vfx.whiteout_vignette_masks_512_set_4"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "ui_atlas",
+    "layer": "ui",
+    "usage": "Core UI skin for planning/memory/execution/result phases (monochrome, high contrast). Includes frames, buttons, queue cards, timers, portrait frame, and small badges.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1024,
+      "height": 1024
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "components": [
+      {
+        "id": "panel_frame_large",
+        "type": "9slice",
+        "target": "queue_panel / memory_panel / result_panel",
+        "note": "High-contrast frame, 1px inner stroke."
+      },
+      {
+        "id": "panel_frame_small",
+        "type": "9slice",
+        "target": "resource_row / tooltip",
+        "note": "Compact variant."
+      },
+      {
+        "id": "button_confirm",
+        "type": "3state",
+        "states": [
+          "normal",
+          "hover",
+          "pressed"
+        ],
+        "size_px": {
+          "width": 160,
+          "height": 48
+        },
+        "note": "Used as Confirm / Next."
+      },
+      {
+        "id": "button_cancel",
+        "type": "3state",
+        "states": [
+          "normal",
+          "hover",
+          "pressed"
+        ],
+        "size_px": {
+          "width": 160,
+          "height": 48
+        },
+        "note": "Used as Cancel / Back."
+      },
+      {
+        "id": "queue_card",
+        "type": "2state",
+        "states": [
+          "normal",
+          "selected"
+        ],
+        "size_px": {
+          "width": 180,
+          "height": 40
+        },
+        "note": "Selected state uses highlight frame."
+      },
+      {
+        "id": "timer_bar_fill",
+        "type": "bar",
+        "size_px": {
+          "width": 560,
+          "height": 12
+        }
+      },
+      {
+        "id": "phase_badge_frame",
+        "type": "frame",
+        "size_px": {
+          "width": 28,
+          "height": 28
+        }
+      },
+      {
+        "id": "portrait_frame",
+        "type": "frame",
+        "size_px": {
+          "width": 72,
+          "height": 72
+        }
+      }
+    ],
+    "layout_note": "Pack into one 1024×1024 atlas; keep 2px padding; transparent background."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.winter_round_bw_panels_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 1024×1024px; all components fit with padding and no clipping.",
+    "UI is fully grayscale and readable over both dark and light backgrounds (test vs #000000 and #E0E0E0).",
+    "Button states and selection highlights are clearly distinguishable at 1× scale."
+  ]
+}

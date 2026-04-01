@@ -1,0 +1,92 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "character.player.jarl_portrait_64",
+  "asset_name": "Jarl (Chieftain) Portrait Icon",
+  "category": "character",
+  "group_id": "character.player.jarl",
+  "variant_role": "standalone",
+  "priority": "P0",
+  "execution_order": 10,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.winter_round_layout_1080p"
+    ]
+  },
+  "context": {
+    "role": "player_character",
+    "screen_position": {
+      "type": "ui",
+      "anchor": "top_left",
+      "pivot": "top_left",
+      "margin_px": [
+        24,
+        24
+      ]
+    },
+    "layer": "ui",
+    "usage": "Used as the 64x64 portrait for the Jarl (player) shown in the winter-round HUD.",
+    "adjacent_elements": [
+      "Resource bars and resource queue panel",
+      "Pause/menu button"
+    ]
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 64,
+      "height_px": 64
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "low",
+      "constraint": "1-bit monochrome look (black/white with optional single mid-gray for anti-aliasing)"
+    },
+    "viewpoint": {
+      "camera_angle": "front",
+      "facing": "forward"
+    },
+    "colors": {
+      "main": {
+        "hex": "#FFFFFF"
+      },
+      "secondary": [
+        {
+          "name": "outline",
+          "hex": "#000000"
+        },
+        {
+          "name": "mid_gray",
+          "hex": "#7F7F7F"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "Viking chieftain head-and-shoulders icon; readable hornless helmet or fur hood; stern expression",
+      "components": [
+        "helmet or fur hood",
+        "face",
+        "short beard",
+        "cloak collar"
+      ]
+    }
+  },
+  "description": "Create a 64x64 monochrome (black/white) pixel-art portrait icon for the Jarl (player). The game is strictly grayscale: avoid any hue. Use strong silhouette and high contrast, inspired by Papers Please UI readability. Keep at least a 1px outline for clarity on both light and dark HUD panels.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/player_jarl_portrait_64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 64x64 px",
+    "Only grayscale colors are used (#000000, #FFFFFF, optionally #7F7F7F)",
+    "Silhouette remains readable at 1x scale against both black and white backgrounds"
+  ]
+}

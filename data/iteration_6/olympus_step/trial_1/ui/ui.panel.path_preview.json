@@ -1,0 +1,88 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.panel.path_preview",
+  "asset_name": "UI Panel - Path Preview",
+  "category": "ui",
+  "subcategory": "panel",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.layout.right_panel_frame"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.fx.path_line_divine_cyan"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "background": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "Divine Cyan",
+      "hex": "#06B6D4"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_hd2d_glow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "info_panel",
+    "layer": "ui",
+    "usage": "Shows numbered path tiles in order (e.g., [1][2][3])",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "right",
+      "offset_px": [
+        -32,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 120
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#FEF3C7",
+      "#06B6D4"
+    ],
+    "animation": null,
+    "notes": "Include 3 slot boxes with 1px borders; leave room for more slots in future"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.panel.path_preview.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel is exactly 180x120px with 3 visible slot boxes sized to fit 20x20px badges.",
+    "Slot borders are 1px and align to pixel grid; interior uses #1C1917.",
+    "Cyan accents (#06B6D4) are limited to borders/highlights and do not reduce text readability."
+  ]
+}

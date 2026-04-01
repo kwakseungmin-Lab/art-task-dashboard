@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000012",
+  "asset_key": "cloud_pass_small",
+  "asset_name": "Small Cloud Pass",
+  "category": "world",
+  "subcategory": "background_parallax",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Primary painted tone uses #535353 with transparent background only.",
+    "Cloud footprint stays within 46x14 px.",
+    "Outer silhouette keeps 2 px outline weight."
+  ],
+  "differences": [
+    "This task supplies the compact cloud silhouette for low-density parallax motion.",
+    "The cloud scrolls left at half of the ground speed to suggest depth.",
+    "Spawn heights stay within the 10-40 px sky band."
+  ],
+  "depends_on": [
+    "task_id_801000009"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000009"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000009"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    },
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "CloudTag",
+      "ParallaxVelocity"
+    ],
+    "asset_loading": "Load one 46x14 PNG during Loading state and spawn cloud instances from a low-density parallax timer.",
+    "runtime_notes": [
+      "Drive horizontal motion at 50 percent of the CurrentSpeed resource.",
+      "Spawn cloud instances with y positions between 10 and 40.",
+      "Cull a cloud after x drops below -100 and respawn from the right edge later."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "sky_parallax_cloud",
+    "screen_position": {
+      "type": "spawn_band_px",
+      "position_px": [
+        650,
+        20
+      ]
+    },
+    "layer": "background_mid",
+    "usage": "Appears intermittently in the sky band to add depth without blocking obstacle reads."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 46,
+      "height": 14
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        46,
+        14
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "scroll_profile": {
+      "speed_window_px_per_s": [
+        150,
+        450
+      ],
+      "spawn_x_px": 650,
+      "spawn_y_range_px": [
+        10,
+        40
+      ],
+      "parallax_factor": 0.5
+    },
+    "shape_notes": [
+      "Main puff group spans 34 px of the 46 px width.",
+      "Bottom edge varies by no more than 2 px across the silhouette.",
+      "No interior holes or semi-transparent pixels appear inside the cloud body."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/cloud_pass_small.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 46x14 px with transparent background beyond the silhouette.",
+    "Cloud body reads as one compact shape at 1x scale.",
+    "Painted pixels use #535353 only and contain no semi-transparent edges."
+  ]
+}

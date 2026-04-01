@@ -1,0 +1,697 @@
+{
+    "task_id": "ui.font_3x5_atlas",
+    "asset_name": "Font_3x5_Atlas_64x24",
+    "category": "ui",
+    "subcategory": "pixel_font",
+    "description": "Create a transparent bitmap font atlas (64x24 px) for a 3x5 pixel font. Each glyph occupies a 4x6 cell (3x5 pixels plus 1 px spacing on the right and bottom). Glyph pixels use #1D2B53. Background is fully transparent.",
+    "execution_order": 45,
+    "priority": "P1",
+    "context": {
+        "role": "UI text rendering font",
+        "screen_position": {
+            "type": "absolute_px",
+            "x": 0,
+            "y": 0,
+            "anchor": "top_left"
+        },
+        "layer": "ui",
+        "usage": "Used for short labels and debug text; code samples glyph cells from the atlas."
+    },
+    "relationships": {
+        "related_task_ids": [
+            "ui.hud_atlas"
+        ]
+    },
+    "depends_on": [
+        "ui.hud_atlas"
+    ],
+    "blocks": [],
+    "blocked_by": [],
+    "deliverables": [
+        {
+            "file": "ui_font_3x5_atlas_64x24.png",
+            "format": "png",
+            "transparent_background": true,
+            "notes": "All non-glyph pixels are alpha=0."
+        }
+    ],
+    "acceptance_criteria": [
+        "The font atlas image is exactly 64x24 px with transparent background.",
+        "Each glyph cell is exactly 4x6 px and glyph pixels are restricted to the top-left 3x5 region of the cell.",
+        "Glyph pixel color is only #1D2B53.",
+        "Glyph order and cell mapping match specs.glyph_order and specs.cell_mapping exactly.",
+        "All unused pixels are fully transparent (alpha=0)."
+    ],
+    "specs": {
+        "atlas_dimensions_px": {
+            "width": 64,
+            "height": 24
+        },
+        "cell_dimensions_px": {
+            "width": 4,
+            "height": 6
+        },
+        "glyph_bitmap_dimensions_px": {
+            "width": 3,
+            "height": 5
+        },
+        "palette_hex": [
+            "#000000",
+            "#1D2B53",
+            "#7E2553",
+            "#008751",
+            "#AB5236",
+            "#5F574F",
+            "#C2C3C7",
+            "#FFF1E8",
+            "#FF004D",
+            "#FFA300",
+            "#FFEC27",
+            "#00E436",
+            "#29ADFF",
+            "#83769C",
+            "#FF77A8",
+            "#FFCCAA"
+        ],
+        "max_colors": 16,
+        "glyph_color_hex": "#1D2B53",
+        "glyph_order": [
+            " ",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+            ":",
+            ".",
+            "-",
+            "?",
+            "!",
+            "/",
+            "%"
+        ],
+        "cell_mapping": [
+            {
+                "char": " ",
+                "cell_col": 0,
+                "cell_row": 0
+            },
+            {
+                "char": "0",
+                "cell_col": 1,
+                "cell_row": 0
+            },
+            {
+                "char": "1",
+                "cell_col": 2,
+                "cell_row": 0
+            },
+            {
+                "char": "2",
+                "cell_col": 3,
+                "cell_row": 0
+            },
+            {
+                "char": "3",
+                "cell_col": 4,
+                "cell_row": 0
+            },
+            {
+                "char": "4",
+                "cell_col": 5,
+                "cell_row": 0
+            },
+            {
+                "char": "5",
+                "cell_col": 6,
+                "cell_row": 0
+            },
+            {
+                "char": "6",
+                "cell_col": 7,
+                "cell_row": 0
+            },
+            {
+                "char": "7",
+                "cell_col": 8,
+                "cell_row": 0
+            },
+            {
+                "char": "8",
+                "cell_col": 9,
+                "cell_row": 0
+            },
+            {
+                "char": "9",
+                "cell_col": 10,
+                "cell_row": 0
+            },
+            {
+                "char": "A",
+                "cell_col": 11,
+                "cell_row": 0
+            },
+            {
+                "char": "B",
+                "cell_col": 12,
+                "cell_row": 0
+            },
+            {
+                "char": "C",
+                "cell_col": 13,
+                "cell_row": 0
+            },
+            {
+                "char": "D",
+                "cell_col": 14,
+                "cell_row": 0
+            },
+            {
+                "char": "E",
+                "cell_col": 15,
+                "cell_row": 0
+            },
+            {
+                "char": "F",
+                "cell_col": 0,
+                "cell_row": 1
+            },
+            {
+                "char": "G",
+                "cell_col": 1,
+                "cell_row": 1
+            },
+            {
+                "char": "H",
+                "cell_col": 2,
+                "cell_row": 1
+            },
+            {
+                "char": "I",
+                "cell_col": 3,
+                "cell_row": 1
+            },
+            {
+                "char": "J",
+                "cell_col": 4,
+                "cell_row": 1
+            },
+            {
+                "char": "K",
+                "cell_col": 5,
+                "cell_row": 1
+            },
+            {
+                "char": "L",
+                "cell_col": 6,
+                "cell_row": 1
+            },
+            {
+                "char": "M",
+                "cell_col": 7,
+                "cell_row": 1
+            },
+            {
+                "char": "N",
+                "cell_col": 8,
+                "cell_row": 1
+            },
+            {
+                "char": "O",
+                "cell_col": 9,
+                "cell_row": 1
+            },
+            {
+                "char": "P",
+                "cell_col": 10,
+                "cell_row": 1
+            },
+            {
+                "char": "Q",
+                "cell_col": 11,
+                "cell_row": 1
+            },
+            {
+                "char": "R",
+                "cell_col": 12,
+                "cell_row": 1
+            },
+            {
+                "char": "S",
+                "cell_col": 13,
+                "cell_row": 1
+            },
+            {
+                "char": "T",
+                "cell_col": 14,
+                "cell_row": 1
+            },
+            {
+                "char": "U",
+                "cell_col": 15,
+                "cell_row": 1
+            },
+            {
+                "char": "V",
+                "cell_col": 0,
+                "cell_row": 2
+            },
+            {
+                "char": "W",
+                "cell_col": 1,
+                "cell_row": 2
+            },
+            {
+                "char": "X",
+                "cell_col": 2,
+                "cell_row": 2
+            },
+            {
+                "char": "Y",
+                "cell_col": 3,
+                "cell_row": 2
+            },
+            {
+                "char": "Z",
+                "cell_col": 4,
+                "cell_row": 2
+            },
+            {
+                "char": ":",
+                "cell_col": 5,
+                "cell_row": 2
+            },
+            {
+                "char": ".",
+                "cell_col": 6,
+                "cell_row": 2
+            },
+            {
+                "char": "-",
+                "cell_col": 7,
+                "cell_row": 2
+            },
+            {
+                "char": "?",
+                "cell_col": 8,
+                "cell_row": 2
+            },
+            {
+                "char": "!",
+                "cell_col": 9,
+                "cell_row": 2
+            },
+            {
+                "char": "/",
+                "cell_col": 10,
+                "cell_row": 2
+            },
+            {
+                "char": "%",
+                "cell_col": 11,
+                "cell_row": 2
+            }
+        ],
+        "glyph_bitmaps_3x5": {
+            " ": [
+                "000",
+                "000",
+                "000",
+                "000",
+                "000"
+            ],
+            "0": [
+                "111",
+                "101",
+                "101",
+                "101",
+                "111"
+            ],
+            "1": [
+                "010",
+                "110",
+                "010",
+                "010",
+                "111"
+            ],
+            "2": [
+                "111",
+                "001",
+                "111",
+                "100",
+                "111"
+            ],
+            "3": [
+                "111",
+                "001",
+                "111",
+                "001",
+                "111"
+            ],
+            "4": [
+                "101",
+                "101",
+                "111",
+                "001",
+                "001"
+            ],
+            "5": [
+                "111",
+                "100",
+                "111",
+                "001",
+                "111"
+            ],
+            "6": [
+                "111",
+                "100",
+                "111",
+                "101",
+                "111"
+            ],
+            "7": [
+                "111",
+                "001",
+                "001",
+                "001",
+                "001"
+            ],
+            "8": [
+                "111",
+                "101",
+                "111",
+                "101",
+                "111"
+            ],
+            "9": [
+                "111",
+                "101",
+                "111",
+                "001",
+                "111"
+            ],
+            "A": [
+                "111",
+                "101",
+                "111",
+                "101",
+                "101"
+            ],
+            "B": [
+                "110",
+                "101",
+                "110",
+                "101",
+                "110"
+            ],
+            "C": [
+                "111",
+                "100",
+                "100",
+                "100",
+                "111"
+            ],
+            "D": [
+                "110",
+                "101",
+                "101",
+                "101",
+                "110"
+            ],
+            "E": [
+                "111",
+                "100",
+                "110",
+                "100",
+                "111"
+            ],
+            "F": [
+                "111",
+                "100",
+                "110",
+                "100",
+                "100"
+            ],
+            "G": [
+                "111",
+                "100",
+                "101",
+                "101",
+                "111"
+            ],
+            "H": [
+                "101",
+                "101",
+                "111",
+                "101",
+                "101"
+            ],
+            "I": [
+                "111",
+                "010",
+                "010",
+                "010",
+                "111"
+            ],
+            "J": [
+                "001",
+                "001",
+                "001",
+                "101",
+                "111"
+            ],
+            "K": [
+                "101",
+                "110",
+                "100",
+                "110",
+                "101"
+            ],
+            "L": [
+                "100",
+                "100",
+                "100",
+                "100",
+                "111"
+            ],
+            "M": [
+                "101",
+                "111",
+                "111",
+                "101",
+                "101"
+            ],
+            "N": [
+                "101",
+                "111",
+                "111",
+                "111",
+                "101"
+            ],
+            "O": [
+                "111",
+                "101",
+                "101",
+                "101",
+                "111"
+            ],
+            "P": [
+                "111",
+                "101",
+                "111",
+                "100",
+                "100"
+            ],
+            "Q": [
+                "111",
+                "101",
+                "101",
+                "111",
+                "011"
+            ],
+            "R": [
+                "111",
+                "101",
+                "111",
+                "110",
+                "101"
+            ],
+            "S": [
+                "111",
+                "100",
+                "111",
+                "001",
+                "111"
+            ],
+            "T": [
+                "111",
+                "010",
+                "010",
+                "010",
+                "010"
+            ],
+            "U": [
+                "101",
+                "101",
+                "101",
+                "101",
+                "111"
+            ],
+            "V": [
+                "101",
+                "101",
+                "101",
+                "101",
+                "010"
+            ],
+            "W": [
+                "101",
+                "101",
+                "111",
+                "111",
+                "101"
+            ],
+            "X": [
+                "101",
+                "101",
+                "010",
+                "101",
+                "101"
+            ],
+            "Y": [
+                "101",
+                "101",
+                "010",
+                "010",
+                "010"
+            ],
+            "Z": [
+                "111",
+                "001",
+                "010",
+                "100",
+                "111"
+            ],
+            ":": [
+                "000",
+                "010",
+                "000",
+                "010",
+                "000"
+            ],
+            ".": [
+                "000",
+                "000",
+                "000",
+                "000",
+                "010"
+            ],
+            "-": [
+                "000",
+                "000",
+                "111",
+                "000",
+                "000"
+            ],
+            "?": [
+                "111",
+                "001",
+                "010",
+                "000",
+                "010"
+            ],
+            "!": [
+                "010",
+                "010",
+                "010",
+                "000",
+                "010"
+            ],
+            "/": [
+                "001",
+                "001",
+                "010",
+                "100",
+                "100"
+            ],
+            "%": [
+                "101",
+                "001",
+                "010",
+                "100",
+                "101"
+            ]
+        },
+        "render_rule": {
+            "pixel_value_1_color_hex": "#1D2B53",
+            "pixel_value_0_transparent": true,
+            "bitmap_origin_in_cell_px": [
+                0,
+                0
+            ]
+        }
+    },
+    "project_common": {
+        "game_name": "Pico_Echo",
+        "iteration": 5,
+        "trial_index": 1,
+        "canvas_px": {
+            "width": 128,
+            "height": 128
+        },
+        "palette_hex": [
+            "#000000",
+            "#1D2B53",
+            "#7E2553",
+            "#008751",
+            "#AB5236",
+            "#5F574F",
+            "#C2C3C7",
+            "#FFF1E8",
+            "#FF004D",
+            "#FFA300",
+            "#FFEC27",
+            "#00E436",
+            "#29ADFF",
+            "#83769C",
+            "#FF77A8",
+            "#FFCCAA"
+        ],
+        "pixel_art": {
+            "snap_to_pixel_grid": true,
+            "anti_aliasing": false,
+            "scaling_filter": "nearest_neighbor"
+        }
+    }
+}

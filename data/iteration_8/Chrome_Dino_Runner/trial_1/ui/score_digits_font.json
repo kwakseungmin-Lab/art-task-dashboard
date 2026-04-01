@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000013",
+  "asset_key": "score_digits_font",
+  "asset_name": "Score Digits Font Strip",
+  "category": "ui",
+  "subcategory": "hud_font",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Primary painted tone uses #535353 with transparent background only.",
+    "Glyph height stays at 16 px for HUD readability.",
+    "Each digit cell stays inside a 10x16 px box."
+  ],
+  "differences": [
+    "This task provides digits 0 through 9 in one left-to-right atlas strip.",
+    "Glyph spacing is monospaced so five-digit score values stay right-aligned.",
+    "Digit contours remain open enough to distinguish 3, 5, 6, 8, and 9 at 1x scale."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_801000014"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000014",
+      "task_id_801000015",
+      "task_id_801000016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    },
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "glyph_strip_10_frame",
+    "ecs_components": [
+      "HudFontTag",
+      "TextureAtlasLayout"
+    ],
+    "asset_loading": "Load one 100x16 PNG during Loading state and build a 10x16 TextureAtlasLayout with ten glyph frames.",
+    "runtime_notes": [
+      "Keep the atlas handle in a HUD font resource for score formatting systems.",
+      "Render the digits through nearest-neighbor sampling at 1x or 2x display scale.",
+      "Index glyph frames by numeric value 0-9 with no runtime kerning."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hud_digits",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        540,
+        10
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Renders zero-padded current score and high-score digits in the top-right HUD."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 100,
+      "height": 16
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "glyph_atlas",
+      "frame_count": 10,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        10,
+        16
+      ],
+      "layout": {
+        "columns": 10,
+        "rows": 1
+      }
+    },
+    "glyph_profile": {
+      "glyph_count": 10,
+      "glyphs": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "monospace_width_px": 10
+    },
+    "layout_notes": [
+      "Atlas order runs from 0 through 9 left to right.",
+      "Each glyph uses the full 16 px vertical space.",
+      "One transparent column is reserved between complex diagonals only when needed inside the 10 px cell."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/score_digits_font.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 100x16 px and contains ten 10x16 glyph cells.",
+    "Digits remain legible at 1x scale with monospaced alignment.",
+    "Painted pixels use #535353 only and keep transparent background outside glyph bodies."
+  ]
+}

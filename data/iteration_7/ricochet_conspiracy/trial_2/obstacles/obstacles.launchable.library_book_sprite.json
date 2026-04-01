@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.library_book_sprite",
+  "asset_name": "Library Book Launchable Sprite",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.foreground.marble_floor_strip",
+      "obstacles.environment.wood_pillar"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "launch_object",
+    "layer": "world_objects",
+    "usage": "Flat book sprite for ninety-degree redirect routes on impact.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 566,
+      "y": 520
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip",
+      "obstacles.environment.wood_pillar"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 28,
+      "height": 20
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#8B3A52"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "closed_book_with_visible_spine_band",
+      "components": [
+        "front_cover",
+        "back_cover",
+        "page_block",
+        "spine_band"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "impact_profile": "medium_mass_3",
+    "restitution": 0.8
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.library_book_sprite.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 28x20px with page block height of 16px.",
+    "Spine band uses #8B3A52 and stays 4px wide.",
+    "Cover outline uses #3D2B1F with a 2px corner radius read."
+  ]
+}

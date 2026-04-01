@@ -1,0 +1,93 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.bg.palace_forelayer_1280x620",
+  "asset_name": "BG — Palace fore layer",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 430,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.bg.palace_midlayer_1280x620"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_brown",
+      "hex": "#2D1F1A"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "pale_gold",
+      "hex": "#D6B27A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "thin"
+  },
+  "context": {
+    "role": "background_near",
+    "layer": "world",
+    "usage": "Parallax layer 3.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        50
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#AB8C6A",
+      "#D6B27A",
+      "#2D1F1A"
+    ],
+    "animation": null,
+    "parallax": {
+      "layer_index": 3,
+      "scroll_factor": 0.6
+    },
+    "silhouette_notes": [
+      "Props near edges; center clear."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.bg.palace_forelayer_1280x620.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Deliverable PNG matches the specified pixel dimensions (or sprite-sheet total size) with transparent background.",
+    "Uses the project palette as a guideline; any additional colors are limited and documented in specs.colors_hex.",
+    "Silhouette/readability holds at 100% and 50% zoom; no muddy edges or unintended blurs."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

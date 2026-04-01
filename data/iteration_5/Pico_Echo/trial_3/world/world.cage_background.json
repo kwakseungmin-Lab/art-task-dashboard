@@ -1,0 +1,83 @@
+{
+  "task_id": "world.cage_background",
+  "asset_name": "Cage_Background_Wall_128x128",
+  "category": "world",
+  "subcategory": "background",
+  "description": "Create a 128x128 px background sprite for the inside back wall of the cage. The sprite fills the entire canvas. Use a cream base (#FFF1E8) with a simple wall panel grid: vertical lines at x=32, 64, 96 and horizontal lines at y=32, 64, 96 using #C2C3C7. Add a 1 px border frame on all four edges using #1D2B53.",
+  "execution_order": 10,
+  "priority": "P0",
+  "depends_on": [],
+  "blocks": [
+    "world.floor_strip",
+    "world.perch",
+    "world.cage_bars_overlay",
+    "character.echo_sprite_sheet"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.floor_strip",
+      "world.cage_bars_overlay",
+      "world.perch",
+      "ui.happiness_bar"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": { "width": 128, "height": 128 },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": { "width": 128, "height": 128 },
+    "background_base_hex": "#FFF1E8",
+    "panel_line_hex": "#C2C3C7",
+    "border_hex": "#1D2B53",
+    "panel_grid": {
+      "vertical_lines_x": [32, 64, 96],
+      "horizontal_lines_y": [32, 64, 96],
+      "line_width_px": 1
+    }
+  },
+  "context": {
+    "role": "Static back wall behind all world props.",
+    "screen_position": { "type": "absolute_px", "x": 0, "y": 0, "anchor": "top_left" },
+    "layer": "world_background",
+    "usage": ["in_game", "always_visible"]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/cage_background_128x128.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/cage_background_128x128.png",
+      "dimensions_px": { "width": 128, "height": 128 },
+      "background": "opaque"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 128x128 px.",
+    "Panel grid lines exist at x=32, 64, 96 and y=32, 64, 96 with 1 px width.",
+    "All pixels use only colors from project_common.palette_hex.",
+    "A 1 px border exists on all edges using #1D2B53."
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.terrain.gap_gate_set_160x110",
+  "asset_name": "Gap Gate Set",
+  "category": "obstacles",
+  "subcategory": "terrain",
+  "priority": "P0",
+  "execution_order": 31,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tileset.cosmic_temple_atlas_16x16",
+    "world.decor.star_floor_strip_1600x20"
+  ],
+  "blocks": [
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "blocked_by": [
+    "world.tileset.cosmic_temple_atlas_16x16",
+    "world.decor.star_floor_strip_1600x20"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.tileset.cosmic_temple_atlas_16x16",
+      "character.player.cosmos_heracles.core_states_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "terrain",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "bottom_center",
+      "offset_px": [
+        0,
+        -120
+      ]
+    },
+    "adjacent_elements": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "world.decor.star_floor_strip_1600x20",
+      "ui.hud.size_state_indicator_set_64px"
+    ],
+    "layer": "world",
+    "usage": "Two clearance gates for size-switch play: narrow gap requires small form and wide gap rejects large form.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 110
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E",
+      "#E84040"
+    ],
+    "animation": {
+      "type": "stateful",
+      "states": {
+        "narrow_gap": {
+          "frame_count": 1,
+          "fps": 0,
+          "loop": false,
+          "frame_size_px": {
+            "width": 160,
+            "height": 64
+          },
+          "clearance_height_px": 50
+        },
+        "wide_gap": {
+          "frame_count": 1,
+          "fps": 0,
+          "loop": false,
+          "frame_size_px": {
+            "width": 160,
+            "height": 110
+          },
+          "clearance_height_px": 110
+        }
+      },
+      "sheet_dimensions_px": {
+        "width": 320,
+        "height": 110
+      }
+    },
+    "shape": {
+      "silhouette": "two rectangular gate cutouts with explicit top clearance profiles and flat collision edges",
+      "components": [
+        "left frame",
+        "right frame",
+        "top lintel",
+        "clearance void",
+        "danger stripe markers"
+      ]
+    },
+    "collision_rules": {
+      "narrow_gap_requires_form": "small",
+      "wide_gap_blocks_form": "large"
+    },
+    "background_treatment": "transparent outside gate geometry"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.terrain.gap_gate_set_160x110.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 320x110px with the narrow gate in the left 160x64 segment and the wide gate in the right 160x110 segment.",
+    "The narrow gate clearance is exactly 50px and the wide gate clearance is exactly 110px.",
+    "Collision-reading edges use hard pixels only and include at least 8px of #E84040 danger markers at the blocking surfaces."
+  ]
+}

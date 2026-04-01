@@ -1,0 +1,129 @@
+{
+  "task_id": "cdr_v2_character_player_duck",
+  "asset_name": "Player - Duck (2 frames)",
+  "category": "character",
+  "subcategory": "player",
+  "description": "2 frames, 12 FPS, loop.\nPer frame canvas: 118x60 px, transparent.\nColor: #535353 only. Outline 2px.\nFoot centers:\n- Frame0: front (68,1), back (46,1).\n- Frame1: swap centers.",
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_id": "chrome_dino_runner",
+    "art_task_plan_version": 2,
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+    "rendering": {
+      "style": "pixel_art",
+      "pixel_perfect": true,
+      "anti_aliasing": "disabled",
+      "target_fps": 60
+    },
+    "canvas": {
+      "base_resolution_px": "600x150",
+      "scale_support": {
+        "authoring_scale": "1x",
+        "runtime_scales": [
+          "1x",
+          "2x"
+        ],
+        "scaling_filter": "nearest_neighbor"
+      },
+      "coordinate_system": {
+        "origin": "bottom_left",
+        "x_axis": "right",
+        "y_axis": "up",
+        "ground_y_px": 0
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash_white": "#FFFFFF",
+      "transparent": "alpha=0"
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353"
+      },
+      "fill": {
+        "enabled": false,
+        "fill_color": "transparent"
+      },
+      "internal_detail": {
+        "enabled": true,
+        "line_thickness_px": 1,
+        "color": "#535353"
+      },
+      "allowed_hex_colors_for_sprites": [
+        "#535353"
+      ],
+      "background": "transparent"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "RGBA",
+      "bit_depth_per_channel": 8,
+      "compression": "lossless",
+      "file_naming": "snake_case"
+    }
+  },
+  "deliverables": [
+    {
+      "path": "GameAssets/chrome_dino_runner/sprites/character/player_duck_118x60_f0.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "scale": "1x"
+    },
+    {
+      "path": "GameAssets/chrome_dino_runner/sprites/character/player_duck_118x60_f1.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "scale": "1x"
+    }
+  ],
+  "specs": {
+    "dimensions": "118x60",
+    "animation": {
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true
+    }
+  },
+  "context": {
+    "role": "Ducking on ground.",
+    "screen_location": "x fixed; y=0.",
+    "adjacent_elements": "Used to avoid Pterodactyl at y=50.",
+    "layer": "gameplay",
+    "usage": "ducking"
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v2_obstacle_pterodactyl_fly"
+    ],
+    "shared_properties": [
+      "#535353"
+    ],
+    "differences": [
+      "118x60 canvas"
+    ]
+  },
+  "depends_on": [
+    "cdr_v2_project_common",
+    "cdr_v2_character_player_run"
+  ],
+  "execution_order": 40,
+  "priority": "P0",
+  "blocks": [
+    "cdr_v2_character_player_dead"
+  ],
+  "blocked_by": [
+    "cdr_v2_project_common",
+    "cdr_v2_character_player_run"
+  ],
+  "acceptance_criteria": [
+    "Both duck frame PNGs exist.",
+    "Each frame is exactly 118x60.",
+    "Foot centers match frame rules.",
+    "Only #535353 opaque pixels."
+  ]
+}

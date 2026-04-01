@@ -1,0 +1,126 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.candlestick_idle_4f_2fps",
+  "asset_name": "Candlestick Idle (4f 2fps)",
+  "category": "obstacles",
+  "subcategory": "launchable_candlestick",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.candle_16x32",
+      "ui.overlay.trajectory_dotted_line_640x96"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "launchable_object",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Selected by the player as a medium-mass launchable with a live flame and a tall 24x48 silhouette.",
+    "adjacent_elements": [
+      "candle trigger",
+      "trajectory line"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 48
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#F5F0E8",
+      "#E8704A",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 2,
+      "loop": true,
+      "frame_size_px": [
+        24,
+        48
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "tall candlestick with a wide base plate, thin stem, and a small upper flame",
+      "components": [
+        "base_plate",
+        "stem",
+        "cup",
+        "flame"
+      ]
+    },
+    "physics_tags": {
+      "mass_relative": 2,
+      "base_restitution": 0.7,
+      "ignite_target": "obstacles.environment.candle_16x32"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.candlestick_idle_4f_2fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x48px with 4 columns, 1 row, and 0px spacing.",
+    "Base plate width stays at 14px and flame height stays between 4px and 6px in all frames.",
+    "Only #D4A843, #F5F0E8, #E8704A, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

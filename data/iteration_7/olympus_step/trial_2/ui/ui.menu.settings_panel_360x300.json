@@ -1,0 +1,113 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.menu.settings_panel_360x300",
+  "asset_name": "Menu — Settings Panel (360x300)",
+  "category": "ui",
+  "subcategory": "menu",
+  "priority": "P1",
+  "execution_order": 71,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "menu_settings",
+    "layer": "ui_modal",
+    "usage": "Settings menu opened with ESC; includes volume sliders and buttons.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "screen_space_orthographic",
+      "facing": "front",
+      "framing": "panel_or_overlay"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 360,
+      "height": 300
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#6B7280",
+      "#FEF3C7",
+      "#FBBF24"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        360,
+        300
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "layout_rules": {
+      "padding_px": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "slider_width_px": 240,
+      "row_height_px": 44,
+      "rows": 5
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.menu.settings_panel_360x300.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel is exactly 360x300px with a 2px border using #6B7280 and fill using #1C1917.",
+    "Provides space for two horizontal sliders of width 240px and at least two buttons sized 120x36.",
+    "No anti-aliasing; uses only listed colors and transparency."
+  ]
+}

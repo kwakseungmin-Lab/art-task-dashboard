@@ -1,0 +1,134 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.panel.memory_panel_600x400",
+  "asset_name": "Memory Panel Frame — 600×400",
+  "category": "ui",
+  "subcategory": "panel",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.bar.memory_timer_560x12_sheet_2f",
+      "ui.typography.bitmap_font_bw_8px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "panel_frame",
+    "layer": "ui_modal",
+    "usage": "Center modal shown during memory phase. Positioned near (660, 240).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        660,
+        240
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 400
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "layout_rules": {
+      "inner_padding_px": 16,
+      "timer_bar_bbox_px": {
+        "x": 20,
+        "y": 372,
+        "w": 560,
+        "h": 12
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.panel.memory_panel_600x400.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel is exactly 600x400px with a 1px border and solid dark interior background.",
+    "Timer bar slot matches 560x12px and aligns to pixel grid.",
+    "Panel supports displaying up to 7 queue lines using 8px font without clipping."
+  ]
+}

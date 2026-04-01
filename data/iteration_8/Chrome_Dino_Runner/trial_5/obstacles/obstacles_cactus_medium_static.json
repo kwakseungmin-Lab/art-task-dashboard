@@ -1,0 +1,152 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000507",
+  "asset_key": "obstacles_cactus_medium_static",
+  "asset_name": "Medium Cactus Obstacle",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": "task_id_000000506",
+  "variant_of_asset_key": "obstacles_cactus_small_static",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000 duplicated in this file.",
+    "Ground-anchored cactus obstacle role.",
+    "Static obstacle rendering with no animated frames."
+  ],
+  "differences": [
+    "Width expands to 68 px for a two-stem cluster.",
+    "Two cactus stems overlap by 4 px to form a medium group silhouette.",
+    "Hit space becomes wider while the height stays at 70 px."
+  ],
+  "depends_on": [
+    "task_id_000000506"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000506"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000506",
+      "task_id_000000503",
+      "task_id_000000513"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "cactus",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/cactus_obstacles.png",
+      "purpose": "Ground the cactus obstacle silhouette and cluster width."
+    },
+    {
+      "label": "style",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png",
+      "purpose": "Ground the monochrome pixel-art outline and spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Velocity",
+      "Collider",
+      "DespawnOffscreen"
+    ],
+    "asset_loading": "Load assets/art/chrome_dino_runner/trial_5/obstacles_cactus_medium_static.png with AssetServer during Loading state and keep the handle in a resource entry keyed by obstacles_cactus_medium_static.",
+    "runtime_notes": [
+      "Apply nearest-neighbor sampling and integer-pixel transforms at runtime.",
+      "Keep the authored 1x pixel ratio and scale only by integer multiples in camera space.",
+      "Use a deterministic startup registration order so task execution order maps to asset registration order.",
+      "Spawn the sprite as a single-image handle with no runtime atlas index changes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hazard_ground_medium",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        650,
+        80
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Spawn as a wider cactus cluster that still rides on the ground baseline and forces earlier jump timing.",
+    "adjacent_elements": [
+      "task_id_000000513",
+      "task_id_000000503"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 68,
+      "height": 70
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Two-stem cactus cluster with mirrored side spikes and shared base pixels.",
+      "components": [
+        "left_stem",
+        "right_stem",
+        "spike_group",
+        "base_pixels"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_cactus_medium_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 68x70 px.",
+    "Visible pixels use only the hex colors listed in specs.colors_hex plus transparency.",
+    "Opaque pixels stay inside the authored bounds with no anti-aliased edge pixels."
+  ]
+}

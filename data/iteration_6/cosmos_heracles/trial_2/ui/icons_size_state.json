@@ -1,0 +1,102 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "ui.icons.size_state",
+  "asset_name": "Size State Indicator Icons (Large/Base/Small)",
+  "category": "ui",
+  "group_id": "ui.icons.size_state",
+  "variant_role": "standalone",
+  "priority": "P0",
+  "execution_order": 32,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_large_transform_loop",
+      "character.player.cosmos_small_transform_loop"
+    ]
+  },
+  "context": {
+    "role": "hud_icon",
+    "screen_position": {
+      "type": "screen_space",
+      "anchor": "bottom_left",
+      "position_px": [
+        20,
+        880
+      ]
+    },
+    "layer": "ui",
+    "usage": "Shows current size state. Three icons: LARGE, BASE, SMALL at 64px each.",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 192,
+      "height_px": 64
+    },
+    "frame_layout": {
+      "grid_columns": 3,
+      "grid_rows": 1,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "row_order": [
+        "large_base_small"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "ui_2d",
+      "facing": "none"
+    },
+    "colors": {
+      "main": {
+        "hex": "#F0EFE9"
+      },
+      "secondary": [
+        {
+          "name": "counter_cyan",
+          "hex": "#40E8D0"
+        },
+        {
+          "name": "danger_red",
+          "hex": "#E84040"
+        },
+        {
+          "name": "outline",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "three simple pictograms representing size states",
+      "components": [
+        "large_icon",
+        "base_icon",
+        "small_icon"
+      ]
+    }
+  },
+  "description": "Create a 3-icon strip (64x64 each) for size state. Icon1=Large (up arrow + big figure), Icon2=Base (neutral), Icon3=Small (down arrow + small figure). Keep consistent line weight and use #F0EFE9 for primary.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "ui/icons_size_state.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 192x64 px",
+    "Each icon exactly 64x64 px",
+    "Icons are understandable without text labels"
+  ]
+}

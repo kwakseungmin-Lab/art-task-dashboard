@@ -1,0 +1,129 @@
+{
+  "schema_version": "art_task_plan_pkg@6",
+  "project": {
+    "project_id": "olympus_step",
+    "project_name": "Olympus Step"
+  },
+  "meta": {
+    "game_name": "olympus_step",
+    "iteration": 6,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-03-10T06:25:48Z",
+    "git_ref": "art_task_plan/iter6_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304201747/olympus_step/olympus_step.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v6.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "character.player.god_idle_sheet_48_4f",
+      "category": "character",
+      "file": "character/character.player.god_idle_sheet_48_4f.json"
+    },
+    {
+      "task_id": "character.player.god_teleport_sheet_48_6f",
+      "category": "character",
+      "file": "character/character.player.god_teleport_sheet_48_6f.json"
+    },
+    {
+      "task_id": "obstacles.hazard.fire_tile_64_8f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.fire_tile_64_8f.json"
+    },
+    {
+      "task_id": "obstacles.hazard.bolt_tile_64_on6_off2_sheet_64_8f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.bolt_tile_64_on6_off2_sheet_64_8f.json"
+    },
+    {
+      "task_id": "obstacles.enemy.guard_walk_sheet_48_4f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.enemy.guard_walk_sheet_48_4f.json"
+    },
+    {
+      "task_id": "obstacles.hazard.fog_tile_64_6f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.fog_tile_64_6f.json"
+    },
+    {
+      "task_id": "obstacles.vfx.teleport_trail_48_6f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.vfx.teleport_trail_48_6f.json"
+    },
+    {
+      "task_id": "world.tiles.olympus_grid_64_atlas",
+      "category": "world",
+      "file": "world/world.tiles.olympus_grid_64_atlas.json"
+    },
+    {
+      "task_id": "world.tiles.goal_temple_tile_64_8f",
+      "category": "world",
+      "file": "world/world.tiles.goal_temple_tile_64_8f.json"
+    },
+    {
+      "task_id": "ui.hud.stage_banner_top_200x40",
+      "category": "ui",
+      "file": "ui/ui.hud.stage_banner_top_200x40.json"
+    },
+    {
+      "task_id": "ui.hud.right_stats_panel_180x520",
+      "category": "ui",
+      "file": "ui/ui.hud.right_stats_panel_180x520.json"
+    },
+    {
+      "task_id": "ui.hud.confirm_button_180x50_2state",
+      "category": "ui",
+      "file": "ui/ui.hud.confirm_button_180x50_2state.json"
+    },
+    {
+      "task_id": "ui.typography.pixel_font_8px_olympus",
+      "category": "ui",
+      "file": "ui/ui.typography.pixel_font_8px_olympus.json"
+    },
+    {
+      "task_id": "ui.icons.hazard_item_icons_24_set_12",
+      "category": "ui",
+      "file": "ui/ui.icons.hazard_item_icons_24_set_12.json"
+    }
+  ]
+}

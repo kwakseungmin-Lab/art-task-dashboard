@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.controls.bottom_bar_1280x50",
+  "asset_name": "Bottom Control Bar (1280x50)",
+  "category": "ui",
+  "subcategory": "control_bar",
+  "priority": "P0",
+  "execution_order": 250,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [
+    "ui.overlay.trajectory_dotted_line_640x96",
+    "ui.overlay.object_selection_highlight_48x48",
+    "ui.screen.fail_overlay_320x200",
+    "ui.screen.clear_overlay_400x300"
+  ],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.trajectory_dotted_line_640x96",
+      "ui.overlay.object_selection_highlight_48x48"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "control_bar",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        670
+      ]
+    },
+    "layer": "ui",
+    "usage": "Visible during puzzle play; contains angle readout, power slider, and launch counter inside a 1280x50 strip.",
+    "adjacent_elements": [
+      "angle readout",
+      "power slider",
+      "launch counter"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_2d",
+      "facing": "viewer"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 50
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#D4A843",
+      "#3D2B1F",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "full-width flat bar with left numeric panel, center slider well, and right counter plate",
+      "components": [
+        "base_strip",
+        "angle_panel",
+        "slider_well",
+        "launch_counter_plate"
+      ]
+    },
+    "ui_behavior": {
+      "anchor_mode": "bottom_stretch",
+      "slider_track_width_px": 220,
+      "numeric_panel_count": 2
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.controls.bottom_bar_1280x50.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1280x50px and the base strip spans the full width with no crop.",
+    "Center slider well width stays at 220px and the left and right numeric plates each stay at 120px width.",
+    "Only #E8D5C4, #D4A843, #3D2B1F, and #F5F0E8 are used on the UI sheet."
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.echo.preening_5f_3fps",
+  "asset_name": "Echo (Cockatiel) — Preening (5 frames, 3fps one-shot)",
+  "category": "character",
+  "subcategory": "player_pet",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": "character.echo.idle_4f_2fps",
+  "depends_on": [
+    "character.echo.idle_4f_2fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.echo.idle_4f_2fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo.idle_4f_2fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "preening",
+    "layer": "character",
+    "usage": "Echo behavior state: preening.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        44,
+        42
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#AB5236",
+      "#FFEC27",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 5,
+      "fps": 3,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 1
+      },
+      "loop": false
+    },
+    "pose_notes": [
+      "Beak touches wing feathers in frames 2-4.",
+      "Add 1-2 feather pixels flicking out in frame 4 using #FFA300."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.echo.preening_5f_3fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 200x40px (5 frames × 40x40) with 0px spacing.",
+    "Animation plays at 3fps and respects loop/play_count settings in specs.animation.",
+    "Sprite remains readable at 1x scale on a 128x128 canvas; no anti-aliasing and only listed colors are used."
+  ]
+}

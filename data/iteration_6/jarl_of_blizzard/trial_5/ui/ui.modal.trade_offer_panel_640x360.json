@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.modal.trade_offer_panel_640x360",
+  "asset_name": "Trade Offer Modal Panel — 640×360",
+  "category": "ui",
+  "subcategory": "modal",
+  "priority": "P1",
+  "execution_order": 45,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "ui_panel",
+    "layer": "ui",
+    "usage": "Modal panel for trader events (winter 5+).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 640,
+      "height": 360
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "slots": [
+      {
+        "id": "portrait_slot",
+        "note": "64×64"
+      },
+      {
+        "id": "offer_slot"
+      },
+      {
+        "id": "buttons"
+      }
+    ],
+    "layout_note": "High-contrast panel with readable text region."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.modal.trade_offer_panel_640x360.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Text area supports 3 lines of 8px font with 2px line spacing."
+  ]
+}

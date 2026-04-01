@@ -1,0 +1,211 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000927",
+  "asset_key": "ui_duel_hud_bars_round_panel",
+  "asset_name": "Duel HUD Bars and Round Panel — player HP, enemy HP, cost pips, deck count, round label",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The HUD uses deep navy panels, gold trim, and bright status fills that match the academy fantasy theme.",
+    "Readability target is one glance recognition for HP, cost, round, and deck count while combat is in motion.",
+    "Panel art must leave the center of the screen clear for projectile tracking."
+  ],
+  "differences": [
+    "This task covers persistent battle HUD components.",
+    "Timing windows, hand cards, and reward choice panels remain in other UI files."
+  ],
+  "depends_on": [
+    "task_id_000000921"
+  ],
+  "blocks": [
+    "task_id_000000929",
+    "task_id_000000930"
+  ],
+  "blocked_by": [
+    "task_id_000000921"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000921",
+      "task_id_000000925",
+      "task_id_000000926",
+      "task_id_000000928",
+      "task_id_000000929",
+      "task_id_000000930"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for gold-trimmed fantasy UI panels that sit above a warm dark environment."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for preserving top and bottom combat readability around the HUD margins."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_4x2",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "HudPanel",
+      "OverlayUi",
+      "TextAnchorGuide"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/ui_duel_hud_bars_round_panel.png during DuelLoading and cache the atlas under ui_duel_hud_bars_round_panel.",
+    "runtime_notes": [
+      "Provide atlas parts for enemy_hp_panel, player_hp_panel, cost_pip_strip, deck_counter, round_badge, and three damage-threshold variants.",
+      "Render this sheet through the overlay UI camera so it does not inherit world shake during small impacts.",
+      "Keep safe margins at least 24px from each screen edge for platform-independent presentation."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "battle_hud",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        88
+      ]
+    },
+    "layer": "ui",
+    "usage": "Persistent duel HUD showing both combatants, round state, current cost, and remaining deck size."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 480,
+      "height": 120
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#2ECC71",
+      "#E74C3C",
+      "#BDC3C7",
+      "#00FFFF",
+      "#ADFF2F",
+      "#FFFFFF"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "frame_size_px": [
+        480,
+        120
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 2
+      },
+      "state_ranges": [
+        {
+          "state": "enemy_hp_panel",
+          "start_frame": 0,
+          "end_frame": 0
+        },
+        {
+          "state": "player_hp_panel",
+          "start_frame": 1,
+          "end_frame": 1
+        },
+        {
+          "state": "cost_pip_strip",
+          "start_frame": 2,
+          "end_frame": 2
+        },
+        {
+          "state": "deck_counter",
+          "start_frame": 3,
+          "end_frame": 3
+        },
+        {
+          "state": "round_badge",
+          "start_frame": 4,
+          "end_frame": 4
+        },
+        {
+          "state": "low_health_variant",
+          "start_frame": 5,
+          "end_frame": 5
+        },
+        {
+          "state": "mid_health_variant",
+          "start_frame": 6,
+          "end_frame": 6
+        },
+        {
+          "state": "full_health_variant",
+          "start_frame": 7,
+          "end_frame": 7
+        }
+      ]
+    },
+    "layout_notes": [
+      "Enemy HP panel anchors top-right and player HP panel anchors mid-right.",
+      "Round badge centers on the top bar while cost pips and deck counter sit along the bottom HUD band.",
+      "Numbers are reserved as runtime text overlays inside pre-drawn panel bounds."
+    ],
+    "shape": {
+      "silhouette": "Gold-edged fantasy HUD bars and plaques with beveled navy interiors.",
+      "components": [
+        "enemy hp frame",
+        "player hp frame",
+        "cost pip frame",
+        "deck counter plaque",
+        "round badge",
+        "threshold glow variants"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_duel_hud_bars_round_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 1920x240px with eight 480x120 frames and no padding.",
+    "Gold trim and status fills remain readable over the academy backdrop and during projectile flashes.",
+    "Panel interiors leave enough empty space for runtime text without clipping the decorative frame.",
+    "Enemy and player status groups remain distinguishable by placement and color at first glance."
+  ]
+}

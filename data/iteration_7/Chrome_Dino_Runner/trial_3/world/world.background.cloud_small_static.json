@@ -1,0 +1,111 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.cloud_small_static",
+  "asset_name": "Small Background Cloud",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P2",
+  "execution_order": 110,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [
+    "world.background.sky_fill_600x150"
+  ],
+  "blocks": [
+    "world.background.cloud_large_static"
+  ],
+  "blocked_by": [
+    "world.background.sky_fill_600x150"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.sky_fill_600x150",
+      "world.background.cloud_large_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "parallax_cloud_small",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        650,
+        20
+      ]
+    },
+    "layer": "world_back",
+    "usage": "Optional parallax prop moving at half of ground scroll speed.",
+    "adjacent_elements": [
+      "world.background.sky_fill_600x150",
+      "world.ground.line_1200x2"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 46,
+      "height": 14
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Rounded cloud silhouette 46 px wide and 14 px high with 2px contour thickness.",
+      "components": [
+        "left_lobe",
+        "center_lobe",
+        "right_lobe"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.cloud_small_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 46x14 px.",
+    "Cloud contour remains fully readable at 1x scale with 2px stroke thickness.",
+    "Transparent pixels define the negative space outside the cloud silhouette."
+  ]
+}

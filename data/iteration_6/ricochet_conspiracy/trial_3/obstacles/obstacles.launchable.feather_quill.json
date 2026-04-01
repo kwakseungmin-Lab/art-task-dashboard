@@ -1,0 +1,94 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.feather_quill",
+  "asset_name": "Launchable Object — Feather Quill (16x40)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P2",
+  "execution_order": 170,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "projectile",
+    "layer": "world",
+    "usage": "Very light object affected by gravity; sprite should suggest lightness (feather) and readability while rotating.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 40
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#F5F0E8",
+      "#C8B4E0",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 16,
+        "height": 40
+      },
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      },
+      "frame_count": 1,
+      "directions": null,
+      "note": "Single-frame quill; keep tip clearly visible."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.feather_quill.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 16x40px with a continuous 1px outline; quill tip is clearly defined.",
+    "Uses ivory #F5F0E8 and lavender #C8B4E0 accents; minimal pixels to convey lightness; no anti-aliasing.",
+    "Readability: at 100% zoom, the object is recognizable even when rotated 90° in-engine."
+  ]
+}

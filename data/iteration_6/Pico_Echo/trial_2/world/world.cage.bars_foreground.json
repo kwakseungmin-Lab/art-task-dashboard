@@ -1,0 +1,97 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.cage.bars_foreground",
+  "asset_name": "Cage Bars Foreground Overlay",
+  "category": "world",
+  "subcategory": "foreground",
+  "priority": "P0",
+  "execution_order": 220,
+  "variant_of": null,
+  "depends_on": [
+    "world.cage.background_static"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.cage.background_static"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage.background_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "cage_bars",
+    "layer": "world_foreground",
+    "usage": "Overlay bars drawn above Echo; must avoid central facial area.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#C2C3C7",
+      "#1D2B53"
+    ],
+    "animation": null,
+    "bar_rules": {
+      "vertical_bar_width_px": 1,
+      "vertical_bar_spacing_px": 8,
+      "outline_hex": "#1D2B53",
+      "fill_hex": "#C2C3C7",
+      "safe_face_region_px": [
+        54,
+        50,
+        16,
+        16
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.cage.bars_foreground.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay is exactly 128x128px with transparent gaps between bars.",
+    "Bars are 1px wide and repeat every 8px across the canvas.",
+    "No bar pixels exist inside safe face region (54,50,16,16) so eyes/beak remain unobstructed."
+  ]
+}

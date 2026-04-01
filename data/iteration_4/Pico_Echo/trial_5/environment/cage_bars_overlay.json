@@ -1,0 +1,148 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.environment.cage_bars_overlay",
+  "asset_name": "Cage bars overlay",
+  "category": "environment",
+  "subcategory": "cage",
+  "description": "Transparent 128x128px overlay with cage bars in #C2C3C7. Vertical bars: 1px wide at x = 0, 8, 16, ..., 120, 127 for y=0..127. Horizontal bars: 1px wide at y=0 and y=8 for x=0..127. All non-bar pixels must be fully transparent.",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/sprites/cage/cage_bars_overlay_128x128.png",
+      "format": "png",
+      "type": "overlay_layer"
+    }
+  ],
+  "specs": {
+    "dimensions": "128x128",
+    "palette_hex": [
+      "#C2C3C7"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Foreground cage structure over the scene.",
+    "screen_location": "Full screen overlay.",
+    "adjacent_elements": [
+      "echo_*"
+    ],
+    "layer": "cage",
+    "usage": "Always visible."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.environment.cage_background"
+    ],
+    "shared_properties": [
+      "Aligned to 128x128 scene"
+    ],
+    "differences": [
+      "Only bar pixels are opaque; rest are transparent."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.environment.cage_background"
+  ],
+  "execution_order": 2,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.environment.cage_background"
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 128x128px.",
+    "Only #C2C3C7 and transparent pixels exist.",
+    "Vertical bars exist exactly at x=0,8,16,...,120,127.",
+    "Horizontal bars exist exactly at y=0 and y=8.",
+    "No colors outside this set: ['#FFA300', '#FF004D', '#FFEC27', '#AB5236', '#FFF1E8', '#C2C3C7', '#1D2B53', '#00E436', '#5F574F', '#7E2553', '#FFCCAA']."
+  ]
+}

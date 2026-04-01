@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art, retro minimalist aesthetic inspired by Google Chrome offline game",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base resolution with 2x scale support",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel perfect rendering with no anti-aliasing"
+  },
+  "category": "obstacles",
+  "category_common": {
+    "base_size": {
+      "width": "34-102px",
+      "height": "70-100px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "8-bit pixel art with sharp, dangerous silhouette",
+      "outline": "2px solid outline included in dimensions",
+      "shading": "flat color, no gradients or shading",
+      "spawn_position": "screen right edge + 50px offset",
+      "movement": "scrolls left at current game speed"
+    }
+  },
+  "asset": {
+    "asset_id": "cactus_large",
+    "asset_name": "Large Cactus (Triple)",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Ground obstacle requiring precise jump timing, tallest cactus variant",
+      "screen_position": "Spawns at x=650px (screen_width + 50), y=0px (ground level), scrolls left",
+      "adjacent_elements": ["ground", "player_run", "player_jump"],
+      "usage_scenario": "Challenging obstacle appearing after score 200+, requires higher/more precise jump as height (100px) exceeds player max jump height (90px)"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "102px",
+        "height": "100px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "Three vertical cacti in a group with varying heights, tallest in center or varied arrangement",
+      "texture": "solid pixel art, no texture patterns",
+      "outline": "2px solid outline integrated into sprite",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static sprite, no animation"
+      },
+      "details": "Three cacti with slight spacing, varying heights creating irregular top silhouette, maximum height 100px, horizontal spikes on each cactus, widest and tallest obstacle variant"
+    },
+    "relationships": {
+      "related_assets": ["cactus_small", "cactus_medium", "ground", "player_jump"],
+      "shared_with": "Same color and style as cactus_small and cactus_medium",
+      "differences_from": "cactus_small is 34x70px (single), cactus_medium is 68x70px (double), cactus_large is 102x100px (triple and 30px taller)"
+    },
+    "explicit_negations": [
+      "No animation or movement",
+      "No color variations or gradients",
+      "No flowers, fruits, or decorative elements",
+      "No ground/dirt at base",
+      "No shadows or lighting effects",
+      "No detailed texture or patterns",
+      "Not uniform height - cacti should have varied heights within 100px max",
+      "Not merged into single cactus - must show three distinct cacti"
+    ]
+  }
+}

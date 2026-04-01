@@ -1,0 +1,146 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.ui.icon_feed_seed_8x8",
+  "asset_name": "Care icon: Feed (seed)",
+  "category": "ui",
+  "subcategory": "icon",
+  "description": "Icon sprite 8x8px, transparent background. Use #FFA300 only. Draw a seed cluster: 3 seed ovals each 2x2px at positions (2,2),(4,3),(3,5).",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/ui/icons/care_feed_seed_8x8.png",
+      "format": "png",
+      "type": "ui_icon"
+    }
+  ],
+  "specs": {
+    "dimensions": "8x8",
+    "palette_hex": [
+      "#FFA300"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "CareMenu button for Feed.",
+    "screen_location": "CareMenu button at (96,108).",
+    "adjacent_elements": [
+      "care_menu_panel_bg"
+    ],
+    "layer": "ui",
+    "usage": "Visible when menu open; gray-tinted in cooldown (done in code)."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.object.seed_sprite"
+    ],
+    "shared_properties": [
+      "Seed color #FFA300"
+    ],
+    "differences": [
+      "8x8 UI icon; not 3x3 seed unit sprite."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.ui.care_menu_panel_bg"
+  ],
+  "execution_order": 27,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.ui.care_menu_panel_bg"
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 8x8px.",
+    "Only #FFA300 and transparent are used.",
+    "Icon is readable at 1x scale."
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020018",
+  "asset_name": "Restart Prompt Text 12px",
+  "category": "ui",
+  "subcategory": "fail_state",
+  "priority": "P0",
+  "execution_order": 180,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #535353, background #F7F7F7, and accent #FF0000.",
+    "Canvas target stays 600x150px with pixel-perfect presentation at 60 FPS.",
+    "All painted edges keep a 2px outline rhythm and flat shading."
+  ],
+  "differences": [
+    "The prompt uses a smaller 12px text scale than the game-over title.",
+    "The phrase instructs the player to press SPACE for restart.",
+    "The text is designed for optional blink toggling in runtime rather than baked motion."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020017",
+      "task_id_008020005"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "restart_prompt",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        180,
+        95
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Lower fail-state prompt that appears below the main game-over label and waits for restart input.",
+    "adjacent_elements": [
+      "task_id_008020017",
+      "task_id_008020005"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 12
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single centered sentence reading PRESS SPACE TO RESTART with compact 12px pixel lettering.",
+      "components": [
+        "press_word",
+        "space_word",
+        "to_word",
+        "restart_word"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_prompt_restart_text_12px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 240x12px.",
+    "The phrase PRESS SPACE TO RESTART remains fully legible at 1x scale with all letters contained inside the frame.",
+    "Only #535353 and transparency appear in painted pixels."
+  ],
+  "asset_key": "ui_prompt_restart_text_12px",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "t_rex_runner_sprite_sheet_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "Grounds score glyph spacing and the game-over text treatment used in the HUD."
+    },
+    {
+      "label": "t_rex_runner_sprite_sheet_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/default_100_percent/100-offline-sprite.png",
+      "purpose": "Grounds score glyph spacing and the game-over text treatment used in the HUD."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "ImageBundle backed by a nearest-neighbor texture.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Style",
+      "UiNode",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer in the Loading state and store the handle in a typed resource before gameplay starts.",
+    "runtime_notes": [
+      "Anchor the HUD to whole pixels in the top-right or screen-center layout zone.",
+      "Keep all glyph quads on nearest-neighbor sampling to preserve the retro mono-space look.",
+      "Expose the atlas handle through a HUD resource so score and restart states can swap visibility without reallocating textures."
+    ]
+  }
+}

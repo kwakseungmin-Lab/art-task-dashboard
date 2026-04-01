@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player_dino.jump_static",
+  "asset_name": "Player Dino — Jump (static pose)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": "character.player_dino.run_2f_12fps",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player_dino.idle_2f_6fps",
+      "character.player_dino.run_2f_12fps",
+      "character.player_dino.duck_2f_12fps",
+      "character.player_dino.dead_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "jump",
+    "layer": "character",
+    "usage": "Airborne pose used throughout jump arc; no animation required.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        100,
+        26
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Feet tucked slightly; preserve recognizable Dino outline.",
+      "Keep 2px outline and flat fill."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player_dino.jump_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 88x94px.",
+    "Pose clearly reads as airborne (no feet-ground contact).",
+    "Only #535353 pixels + transparency are used."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-5px",
+      "height": "2-5px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "effect_type": "particle effects",
+      "design_principle": "simple shapes, clear motion, temporary display"
+    }
+  },
+  "asset": {
+    "asset_id": "particle_zzz",
+    "asset_name": "ZZZ Sleep Particle",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "sleep indicator particle when Echo is sleeping, visualizes sleep state",
+      "screen_position": "spawns near Echo's head (x=75, y=45), floats upward",
+      "adjacent_elements": ["Echo (left/below)", "cage background"],
+      "usage_scenario": "spawns continuously during sleeping state, 1 ZZZ visible at a time, floats upward slowly, creates peaceful sleep atmosphere"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "zzz": "#7E2553"
+      },
+      "shape": "letter 'Z' in pixel font, 3x3px",
+      "texture": "solid color text, no internal detail",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "particle",
+        "frames": 4,
+        "fps": 2,
+        "loop": false,
+        "description": "spawns near head, moves upward 6-8px over 2 seconds, fades out in final frames, new Z spawns every 2 seconds during sleeping, slow gentle motion"
+      },
+      "details": "purple 'Z' letter (#7E2553), 3x3px pixel font, spawns every 2 seconds during sleeping state, floats slowly upward at 3-4px/sec, disappears after 2 seconds, only 1 Z visible at a time, creates classic sleep visualization"
+    },
+    "relationships": {
+      "related_assets": ["echo_sleeping"],
+      "shared_with": "purple color (#7E2553) is unique to sleep particles",
+      "differences_from": "slowest particle motion (2 sec lifespan vs 1 sec for others), single particle at a time (not multiples), text-based (not symbol), continuous during entire sleep state"
+    },
+    "explicit_negations": [
+      "no multiple Z's at once (one at a time)",
+      "no horizontal drift (straight upward only)",
+      "no rotation or tilting",
+      "no outline or border on letter",
+      "no sound wave visualization",
+      "no other letters or symbols"
+    ]
+  }
+}

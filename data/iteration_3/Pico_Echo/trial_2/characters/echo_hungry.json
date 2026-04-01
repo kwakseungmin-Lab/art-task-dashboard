@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "position_base": "perch at y=60",
+      "character": "Echo the cockatiel"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_hungry",
+    "asset_name": "Echo Hungry State",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Echo indicating hunger when food bowl is empty",
+      "screen_position": "Center at x=64, y=60 on perch, looking toward food bowl at x=16, y=100",
+      "adjacent_elements": ["perch", "food_bowl", "speech_bubble_effect", "cage_background"],
+      "usage_scenario": "Triggered when food_level = 0; persists until food is provided; spawns speech bubble with seed icon"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head turned toward food bowl, crest in normal position",
+      "texture": "Flat pixel art with no gradients; hand-drawn organic edges",
+      "outline": "None; pure pixel art with color blocking",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 4,
+        "fps": 2,
+        "loop": true,
+        "description": "Frame 1: looking at bowl, Frame 2: head tilted slightly more toward bowl, Frame 3: return to frame 1, Frame 4: slight body shift"
+      },
+      "details": "Head rotated approximately 30 degrees toward food bowl (left side); eyes focused on bowl area; crest in normal 3-4px height; body remains on perch"
+    },
+    "relationships": {
+      "related_assets": ["food_bowl", "speech_bubble_effect", "seed", "echo_eating"],
+      "shared_with": "Same color palette and base structure as all Echo states",
+      "differences_from": "echo_eating (looking vs actively eating), echo_idle (head turned vs forward)"
+    },
+    "explicit_negations": [
+      "no smooth gradients",
+      "no anti-aliasing",
+      "no realistic feather texture",
+      "no 3D depth",
+      "no motion blur",
+      "no drooling",
+      "no stomach growl visual"
+    ]
+  }
+}

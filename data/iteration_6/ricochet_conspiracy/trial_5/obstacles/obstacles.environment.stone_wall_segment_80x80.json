@@ -1,0 +1,88 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.environment.stone_wall_segment_80x80",
+  "asset_name": "Stone Wall Segment (80x80) — modular collision tile",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "collision",
+    "layer": "obstacles",
+    "usage": "Used to build stone wall boundaries in 80px increments; high ricochet surface.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 80
+    },
+    "colors_hex": [
+      "#A89880",
+      "#E8D5C4",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "tiling_rules": {
+      "tileable_x": true,
+      "tileable_y": true,
+      "edge_padding_px": 2
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.stone_wall_segment_80x80.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 80x80px and seamlessly tiles on all four edges (no visible seams at 1px overlap).",
+    "Stone blocks read clearly with warm gray #A89880 as dominant fill and #3D2B1F for line accents.",
+    "No baked lighting direction that would break tiling; keep shading soft and non-directional."
+  ]
+}

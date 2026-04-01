@@ -1,0 +1,90 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "2-12px"
+    },
+    "color_scheme": {
+      "primary": "#1D2B53",
+      "secondary": "#FFF1E8",
+      "accent": "#00E436"
+    },
+    "shared_attributes": {
+      "sprite_type": "user interface elements",
+      "animation_method": "minimal or state-based",
+      "layer_order": 5,
+      "pixel_font": "3x5px characters"
+    }
+  },
+  "asset": {
+    "asset_id": "care_menu",
+    "asset_name": "Care Action Menu",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Popup menu with 3 care action buttons (feed, clean, pet)",
+      "screen_position": "Bottom right corner, 3 icons at (96,108), (108,108), (120,108)",
+      "adjacent_elements": ["happiness_bar", "floor"],
+      "usage_scenario": "Appears when player taps screen, shows available care actions, disappears after selection or timeout"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "32px total (3 icons + spacing)",
+        "height": "8px"
+      },
+      "colors": {
+        "background": "#1D2B53",
+        "icon_active": "#FFA300",
+        "icon_disabled": "#5F574F",
+        "icon_clean": "#C2C3C7",
+        "icon_pet": "#FFCCAA"
+      },
+      "shape": "3 separate 8x8px icon buttons in horizontal row",
+      "texture": "Flat pixel art icons",
+      "outline": "1px spacing between icons",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 2,
+        "fps": 0,
+        "loop": false,
+        "description": "Two states per icon: active (full color) and disabled (gray). No animation, instant state changes."
+      },
+      "details": "Three 8x8px icons: Feed (seed shape #FFA300), Clean (broom shape #C2C3C7), Pet (hand shape #FFCCAA). Semi-transparent dark background (#1D2B53 at 80% opacity) behind icons. Icons turn gray (#5F574F) when on cooldown. Positioned at bottom right with 4px spacing between each."
+    },
+    "relationships": {
+      "related_assets": ["seed", "floor", "echo_happy", "happiness_bar"],
+      "shared_with": "All UI elements share top layer rendering",
+      "differences_from": "happiness_bar (popup vs always visible), speech_bubble (interactive vs informational)"
+    },
+    "explicit_negations": [
+      "No text labels (icons only)",
+      "No animation on hover or press",
+      "No cooldown timer display (just gray state)",
+      "No sound effect visualization",
+      "No permanent display (popup only)",
+      "No more than 3 buttons"
+    ]
+  }
+}

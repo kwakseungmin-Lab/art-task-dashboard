@@ -1,0 +1,76 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "items",
+  "category_common": {
+    "base_size": {
+      "width": "2-3px",
+      "height": "2-3px"
+    },
+    "color_scheme": {
+      "seed": "#FFA300",
+      "poop": "#AB5236"
+    },
+    "shared_attributes": {
+      "sprite_type": "small pixel objects",
+      "rendering": "flat 2D",
+      "scale": "tiny (2-3px)"
+    }
+  },
+  "asset": {
+    "asset_id": "seed",
+    "asset_name": "Golden Millet Seed",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Food item for Echo; consumable",
+      "screen_position": "Inside food_bowl at x=16, y=100; multiple seeds displayed",
+      "adjacent_elements": ["food_bowl", "echo_eating"],
+      "usage_scenario": "Displayed in food bowl; disappears when Echo eats; replenished when player feeds"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "main": "#FFA300"
+      },
+      "shape": "Irregular oval/ellipse representing millet seed",
+      "texture": "Flat pixel art; solid color",
+      "outline": "None; pure color fill",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static seed sprite; no animation"
+      },
+      "details": "3x3px irregular oval shape; #FFA300 (golden orange); appears in clusters of 3-8 in food bowl depending on food_level"
+    },
+    "relationships": {
+      "related_assets": ["food_bowl", "echo_eating"],
+      "shared_with": "Same color as Echo's body (#FFA300)",
+      "differences_from": "poop (color and context)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no shine or highlight",
+      "no 3D depth",
+      "no individual grain texture",
+      "no shadows"
+    ]
+  }
+}

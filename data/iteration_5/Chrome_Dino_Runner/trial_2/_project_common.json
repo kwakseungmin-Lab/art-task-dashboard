@@ -1,0 +1,187 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner_iter5_trial2_art_task_plan",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 2,
+    "plan_dir": "trial_2"
+  },
+  "render_target": {
+    "canvas_width_px": 600,
+    "canvas_height_px": 150,
+    "min_resolution_px": [
+      600,
+      150
+    ],
+    "target_fps": 60,
+    "pixel_perfect": true,
+    "anti_aliasing": "none",
+    "scale_support": {
+      "supported_scales": [
+        1,
+        2
+      ],
+      "default_scale": 1
+    }
+  },
+  "visual_style": {
+    "style": "pixel_art",
+    "theme": "prehistoric_desert",
+    "mood_keywords": [
+      "minimal",
+      "retro",
+      "high_focus"
+    ],
+    "line_art": {
+      "outline_px": 2,
+      "outline_color_hex": "#535353"
+    },
+    "shading": {
+      "type": "none",
+      "allowed": false
+    },
+    "background_transparency": {
+      "sprites": true,
+      "ui": true
+    }
+  },
+  "palette": {
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7",
+      "rgb": [
+        247,
+        247,
+        247
+      ],
+      "usage": [
+        "sky_fill",
+        "canvas_clear_color"
+      ]
+    },
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353",
+      "rgb": [
+        83,
+        83,
+        83
+      ],
+      "usage": [
+        "characters",
+        "obstacles",
+        "world_lines",
+        "ui_text"
+      ]
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353",
+      "rgb": [
+        83,
+        83,
+        83
+      ],
+      "usage": [
+        "ground_line"
+      ]
+    },
+    "highlight": {
+      "name": "Highlight",
+      "hex": "#FF0000",
+      "rgb": [
+        255,
+        0,
+        0
+      ],
+      "usage": [
+        "game_over_emphasis"
+      ],
+      "required": false
+    },
+    "flash_white": {
+      "name": "Flash White",
+      "hex": "#FFFFFF",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "usage": [
+        "score_milestone_flash",
+        "ui_attention_blink"
+      ],
+      "required": false
+    }
+  },
+  "naming": {
+    "file_format": "png",
+    "preferred_filename_case": "snake_case",
+    "sprite_sheet_convention": {
+      "layout": "row_major",
+      "frame_padding_px": 0,
+      "frame_margin_px": 0,
+      "background": "transparent"
+    }
+  },
+  "lint_rules": {
+    "reference_expression_zero_required": true,
+    "dry_value_reference_disallowed": true,
+    "allowed_reference_fields": [
+      "depends_on",
+      "blocks",
+      "blocked_by",
+      "relationships.related_task_ids"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "character.player_dino_sprite_set",
+      "category": "character",
+      "file": "character/player_dino_sprite_set.json",
+      "primary_deliverable": "png_sprite_sheet"
+    },
+    {
+      "task_id": "obstacles.cactus_sprite_set",
+      "category": "obstacles",
+      "file": "obstacles/cactus_sprite_set.json",
+      "primary_deliverable": "png_variants"
+    },
+    {
+      "task_id": "obstacles.pterodactyl_fly_sprite",
+      "category": "obstacles",
+      "file": "obstacles/pterodactyl_fly_sprite.json",
+      "primary_deliverable": "png_sprite_sheet"
+    },
+    {
+      "task_id": "world.ground_tile",
+      "category": "world",
+      "file": "world/ground_tile.json",
+      "primary_deliverable": "png_tile"
+    },
+    {
+      "task_id": "world.background_sky_and_clouds",
+      "category": "world",
+      "file": "world/background_sky_and_clouds.json",
+      "primary_deliverable": "png_layers"
+    },
+    {
+      "task_id": "ui.pixel_font_atlas",
+      "category": "ui",
+      "file": "ui/pixel_font_atlas.json",
+      "primary_deliverable": "png_font_atlas"
+    },
+    {
+      "task_id": "ui.score_display",
+      "category": "ui",
+      "file": "ui/score_display.json",
+      "primary_deliverable": "layout_spec"
+    },
+    {
+      "task_id": "ui.game_over_screen",
+      "category": "ui",
+      "file": "ui/game_over_screen.json",
+      "primary_deliverable": "layout_spec"
+    }
+  ]
+}

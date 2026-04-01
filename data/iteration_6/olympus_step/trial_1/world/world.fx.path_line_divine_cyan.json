@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.fx.path_line_divine_cyan",
+  "asset_name": "Path Line - Divine Cyan Dashed",
+  "category": "world",
+  "subcategory": "fx",
+  "priority": "P0",
+  "execution_order": 4,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.grid.tile_stone_ivory"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.tile_number_badge"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "background": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "Divine Cyan",
+      "hex": "#06B6D4"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_hd2d_glow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "path_preview",
+    "layer": "grid_fx",
+    "usage": "Displayed during path planning; connects selected tiles; animates subtle flow every 0.3s",
+    "grid": {
+      "tile_size_px": 64,
+      "stroke_px": 3
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#06B6D4",
+      "#EF4444"
+    ],
+    "animation": {
+      "frame_count": 4,
+      "frame_duration_sec": 0.075,
+      "loop": true,
+      "notes": "0.3s flow loop; provide both valid(cyan) and error(crimson) variants as layers"
+    },
+    "notes": "Deliver as small atlas: straight, corner, endcap recommended"
+  },
+  "deliverables": [
+    {
+      "type": "png_atlas",
+      "file": "world/world.fx.path_line_divine_cyan.png",
+      "transparent_background": true,
+      "frames": {
+        "count": 4,
+        "layout": "2x2",
+        "frame_size_px": [
+          64,
+          64
+        ]
+      },
+      "variants": [
+        "valid_cyan",
+        "error_crimson"
+      ]
+    }
+  ],
+  "acceptance_criteria": [
+    "Valid path color uses #06B6D4; error path uses #EF4444. No other stroke colors.",
+    "Stroke thickness is exactly 3px on a 64px tile; endpoints align to tile centers.",
+    "Flow animation loops seamlessly every 0.3s with no jitter between frames."
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.screen.zone_clear",
+  "asset_name": "Zone Clear Banner — ZONE CLEAR! + bonus breakdown",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P2",
+  "execution_order": 280,
+  "variant_of": null,
+  "depends_on": [
+    "ui.atlas.core"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.atlas.core"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "ui_white",
+      "hex": "#F0EFE9"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "ui_screen",
+    "layer": "ui",
+    "usage": "Shown for ~1.5s after boss defeat. Displays bonus lines.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "banner_box_px": {
+      "width": 640,
+      "height": 220
+    },
+    "text_lines": [
+      "ZONE CLEAR!",
+      "BOSS DEFEATED +5000",
+      "HP BONUS +00000"
+    ],
+    "font": {
+      "style": "pixel",
+      "title_size_px": 44,
+      "line_size_px": 24
+    },
+    "colors_hex": [
+      "#FFD966",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "ui",
+      "note": "Optional: slide-in + fade-out; keep subtle."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.zone_clear.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Zone Clear banner fits within 640x220px and remains readable for 1.5s.",
+    "Gold/white text contrasts well on dark overlay.",
+    "Layout leaves room for gameplay behind (no full-screen blocking)."
+  ]
+}

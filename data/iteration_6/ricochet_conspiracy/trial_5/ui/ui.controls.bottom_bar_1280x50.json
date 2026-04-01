@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.controls.bottom_bar_1280x50",
+  "asset_name": "Control Bottom Bar (1280x50) — Angle readout + Power slider + Launch count",
+  "category": "ui",
+  "subcategory": "controls",
+  "priority": "P0",
+  "execution_order": 320,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.court_serif_16px_ascii_96glyph"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.court_serif_16px_ascii_96glyph"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.court_serif_16px_ascii_96glyph"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "hud_bottom",
+    "layer": "ui",
+    "usage": "Bottom control bar: angle degrees, power slider, and shots remaining; updated in real time while dragging.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 50
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#D4A843",
+      "#3D2B1F",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "layout_spec": {
+      "padding_px": 12,
+      "angle_box_px": [
+        12,
+        10,
+        220,
+        30
+      ],
+      "power_slider_box_px": [
+        420,
+        10,
+        440,
+        30
+      ],
+      "shots_box_px": [
+        1060,
+        10,
+        208,
+        30
+      ],
+      "slider_rules": {
+        "min_percent": 10,
+        "max_percent": 100,
+        "tick_step_percent": 5
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.controls.bottom_bar_1280x50.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1280x50px with transparent background; bar reads clearly on top of background #E8D5C4.",
+    "Power slider includes track + knob states that support 10%–100% in 5% increments (ticks can be subtle but present).",
+    "Angle label space fits “각도: 360°” at 16px font without clipping; text contrast against panels is >=4.5:1 equivalent."
+  ]
+}

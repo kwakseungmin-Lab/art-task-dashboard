@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000015",
+  "asset_name": "Survival Timer Panel (MM:SS, 64x12)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": [
+    "Timer panel footprint remains 64x12 px so four 8 px digits, one colon, and 4 px padding fit cleanly in the upper-right HUD zone.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while panel colors stay inside specs.colors_hex.",
+    "The panel leaves enough negative space for the 8 px font atlas to render MM:SS without crowding."
+  ],
+  "differences": [
+    "This asset provides a dark backing plate, colon anchors, and a subtle right-edge notch rather than baked numeral glyphs.",
+    "Panel styling avoids any distance, floor, or progress indicators so only elapsed survival time appears.",
+    "The left edge uses a 1 px amber tick to help the eye find the timer against the dark shaft background."
+  ],
+  "depends_on": [
+    "task_id_802000013"
+  ],
+  "blocks": [
+    "task_id_802000017"
+  ],
+  "blocked_by": [
+    "task_id_802000013"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000013",
+      "task_id_802000017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the upper-right MM:SS timer location, 8 px font size, and the deliberate absence of any depth progress meter."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the restrained retro HUD language so the timer stays readable without lightening the overall mood."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player-facing urgency by keeping the timer compact and always visible during descent."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "ImageBundle for static HUD art and SpriteSheetBundle for multi-state overlays and gauges that swap atlas indices.",
+    "atlas_or_static": "mixed_static_and_texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Style",
+      "UiImage",
+      "Visibility",
+      "TextureAtlas",
+      "AnimationTimer"
+    ],
+    "asset_loading": "Load UI textures during the shared Loading state and store handles in a HudVisualRegistry keyed by asset_key so gameplay systems never parse filenames.",
+    "runtime_notes": [
+      "Anchor UI nodes to whole pixels in the 1280x720 output space while the gameplay layer is upscaled from 320x180.",
+      "Keep the friction gauge, HP strip, and timer on a dedicated HUD layer above parallax and hazard sprites.",
+      "Swap overlay states by atlas index or visibility flags instead of rebuilding UI trees during pause, fail, or clear transitions."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1208,
+        8
+      ]
+    },
+    "layer": "ui",
+    "usage": "Upper-right backing plate for a live MM:SS survival timer.",
+    "adjacent_elements": [
+      "task_id_802000013"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 12
+    },
+    "colors_hex": [
+      "#0D0D0F",
+      "#1A1A2E",
+      "#D6D0C4",
+      "#E07B39"
+    ],
+    "animation": null,
+    "typography_rules": {
+      "font_task_id": "task_id_802000013",
+      "digit_cell_px": [
+        8,
+        8
+      ],
+      "text_format": "MM:SS",
+      "right_alignment_px": 4
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_timer_panel_mmss_64x12.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Timer panel is exactly 64x12 px and reserves a centered 40x8 px text lane for MM:SS digits plus a colon.",
+    "Panel art contains no floor count, minimap cue, or progress bar motif.",
+    "The left amber tick uses #E07B39 and the backing plate stays within #0D0D0F and #1A1A2E only."
+  ],
+  "asset_key": "ui_timer_panel_mmss_64x12",
+  "variant_of_asset_key": null
+}

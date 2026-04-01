@@ -1,0 +1,118 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.fail_overlay_320x200",
+  "asset_name": "Fail Overlay (320x200)",
+  "category": "ui",
+  "subcategory": "result_overlay_fail",
+  "priority": "P1",
+  "execution_order": 280,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.top_bar_1280x50",
+    "ui.controls.bottom_bar_1280x50"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.top_bar_1280x50",
+    "ui.controls.bottom_bar_1280x50"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.button.restart_60x24",
+      "ui.button.hint_60x24",
+      "ui.button.menu_60x24"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "result_overlay",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui",
+    "usage": "Visible when moves reach 0 and at least one target survives; darkens the stage with a centered 320x200 dialog panel.",
+    "adjacent_elements": [
+      "restart button",
+      "hint button",
+      "menu button"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_2d",
+      "facing": "viewer"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 200
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#A89880",
+      "#D4A843"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "rounded dialog plate with title band, 2 button wells, and a soft dimmer border",
+      "components": [
+        "dialog_plate",
+        "title_band",
+        "restart_slot",
+        "hint_slot",
+        "dimmer_border"
+      ]
+    },
+    "ui_behavior": {
+      "dimmer_opacity_percent": 60,
+      "button_slot_count": 2,
+      "result_state": "fail"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.fail_overlay_320x200.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 320x200px and the dialog plate stays centered inside a 288x168 inner rectangle.",
+    "Button wells each stay at 100x28px and the title band stays at 224x24px.",
+    "Only #3D2B1F, #E8D5C4, #A89880, and #D4A843 are used on the UI sheet."
+  ]
+}

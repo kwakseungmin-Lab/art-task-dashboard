@@ -1,0 +1,106 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 1,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "ui.start_prompt",
+  "asset_name": "start_prompt_layout",
+  "category": "ui",
+  "subcategory": "menu",
+  "description": "Start prompt text layout displayed before gameplay starts. Text: \"Press SPACE\". Use #535353 and place using center anchor with a +30 px vertical offset.",
+  "context": {
+    "role": "start_prompt",
+    "layer": "ui",
+    "usage": "Visible only when game state is idle before gameplay starts.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        30
+      ]
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_mono_16",
+      "ui.score_display"
+    ]
+  },
+  "depends_on": [
+    "ui.font.bitmap_mono_16"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.bitmap_mono_16"
+  ],
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/ui/start_prompt_layout/start_prompt_layout.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 300,
+        "height": 60
+      },
+      "notes": "Mock layout containing the text string and anchor marker."
+    }
+  ],
+  "acceptance_criteria": [
+    "Text string is exactly \"Press SPACE\" using the bitmap font atlas.",
+    "Text color is #535353.",
+    "Center anchor places the text at canvas center with an additional +30 px vertical offset."
+  ],
+  "priority": "P1",
+  "execution_order": 95,
+  "specs": {
+    "text": "Press SPACE",
+    "font": {
+      "task_id": "ui.font.bitmap_mono_16",
+      "font_size_px": 16,
+      "digit_advance_px": 10
+    },
+    "color_hex": "#535353",
+    "placement": {
+      "anchor": "center",
+      "offset_px": [
+        0,
+        30
+      ]
+    },
+    "blink_optional": {
+      "enabled_optional": true,
+      "interval_seconds": 0.5
+    }
+  }
+}

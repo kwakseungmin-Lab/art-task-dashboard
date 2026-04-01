@@ -1,0 +1,14 @@
+{
+  "game_title": "Chrome Dino Runner",
+  "art_style": "Pixel Art 8-bit",
+  "resolution": "600x150",
+  "color_palette": {
+    "primary": "#535353",
+    "secondary": "#535353",
+    "accent": "#FF0000",
+    "background": "#F7F7F7"
+  },
+  "pixel_density": "1x base, 2x scale support",
+  "outline_style": "2px solid outline",
+  "rendering": "pixel perfect, no anti-aliasing"
+}

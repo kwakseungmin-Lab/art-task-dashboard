@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.layer1_temple_silhouette",
+  "asset_name": "Temple Silhouette Mid Backdrop",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.layer0_deep_space_nebula",
+      "world.background.layer2_column_hall"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "parallax_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 220
+    },
+    "layer": "world_background_1",
+    "usage": "Distant temple rooflines and pediments that move at 0.3x parallax behind active play lanes."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 420
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#3A3550",
+      "#6B6357",
+      "#B18AE8"
+    ],
+    "animation": {
+      "type": "tile_scroll",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 1,
+        "order": "left_to_right"
+      },
+      "parallax_multiplier": 0.3
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.layer1_temple_silhouette.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Silhouette sits on a single horizon line so the temple reads as one distant structure.",
+    "Column gaps and roof peaks stay chunky enough to remain legible after 4x pixel upscale.",
+    "The layer fills the middle third of the screen without hiding the playable obstacle lane."
+  ]
+}

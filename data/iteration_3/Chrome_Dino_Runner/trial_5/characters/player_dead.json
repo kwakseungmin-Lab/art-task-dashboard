@@ -1,0 +1,78 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scaling supported",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "8-bit pixel art T-Rex dinosaur",
+      "features": "short front legs, large eyes, thick tail",
+      "outline": "2px included in dimensions",
+      "collision_margin": "5px smaller than sprite for forgiveness"
+    }
+  },
+  "asset": {
+    "asset_id": "player_dead",
+    "asset_name": "Player Death Pose",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Player character collision/death state",
+      "screen_position": "Fixed x=100px, y=0 (ground level), displayed at collision point",
+      "adjacent_elements": ["ground", "game_over_screen", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_low", "pterodactyl_high"],
+      "usage_scenario": "Displayed when player collides with any obstacle, triggers game over state"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "88px",
+        "height": "94px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "T-Rex dinosaur in defeated pose",
+      "texture": "Pixel art, solid color fill",
+      "outline": "2px thick, included in sprite dimensions",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Single static frame showing death pose - eyes closed or X-shaped eyes (optional)"
+      },
+      "details": "Eyes closed or X-shaped to indicate death, body slumped, same standing pose as idle but with death indicator"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_idle", "player_jump", "player_duck", "game_over_screen", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_low", "pterodactyl_high"],
+      "shared_with": "Same dimensions as player_idle and player_run",
+      "differences_from": "player_idle has open eyes and animation, player_dead has closed/X eyes and is static"
+    },
+    "explicit_negations": [
+      "No blood or gore effects",
+      "No falling or collapse animation",
+      "No color change to red or gray",
+      "No explosion or impact effects",
+      "No rotation or tilting",
+      "No fragmentation or breaking apart"
+    ]
+  }
+}

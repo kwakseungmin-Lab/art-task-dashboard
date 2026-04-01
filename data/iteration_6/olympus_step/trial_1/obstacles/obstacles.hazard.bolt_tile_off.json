@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.hazard.bolt_tile_off",
+  "asset_name": "Hazard Tile - Bolt (OFF State)",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P1",
+  "execution_order": 31,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.grid.tile_stone_ivory"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.hazard.bolt_tile_on"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "background": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "Divine Cyan",
+      "hex": "#06B6D4"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_hd2d_glow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hazard_toggle",
+    "layer": "hazards",
+    "usage": "Displayed on odd turns (OFF); still hazardous only when ON",
+    "grid": {
+      "tile_size_px": 64,
+      "occupies_tile": true
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FBBF24",
+      "#6B7280",
+      "#1E1B4B"
+    ],
+    "animation": {
+      "frame_count": 2,
+      "frame_duration_sec": 0.5,
+      "loop": true,
+      "notes": "Subtle dim flicker; reads as inactive"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png_spritesheet",
+      "file": "obstacles/obstacles.hazard.bolt_tile_off.png",
+      "transparent_background": true,
+      "frames": {
+        "count": 2,
+        "layout": "horizontal",
+        "frame_size_px": [
+          64,
+          64
+        ]
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "OFF state is visibly dimmer than ON; uses muted gold (#FBBF24 with low coverage) and slate accents.",
+    "2-frame loop is optional but if used must be subtle (no flashing stronger than ON state).",
+    "Shape silhouette matches ON state footprint to avoid gameplay ambiguity."
+  ]
+}

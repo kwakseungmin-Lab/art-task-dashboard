@@ -1,0 +1,123 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.candle_prop",
+  "asset_name": "Candle Prop",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P1",
+  "execution_order": 200,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "obstacles.launchable.candlestick_sprite"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.launchable.candlestick_sprite"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.candlestick_sprite",
+      "obstacles.environment.chandelier_swing_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "ignite_trigger",
+    "layer": "world_objects",
+    "usage": "Small candle prop for fire trigger states and local light markers.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 260,
+      "y": 534
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip",
+      "obstacles.launchable.candlestick_sprite"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 32
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#E8704A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "directions": 1,
+      "frame_count_per_direction": 4,
+      "fps": 2,
+      "loop": true,
+      "sheet_layout": {
+        "rows": 1,
+        "cols": 4,
+        "frame_size_px": {
+          "width": 16,
+          "height": 32
+        },
+        "ordering": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "small_candle_with_short_flame",
+      "components": [
+        "wax_body",
+        "wick",
+        "flame"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "trigger_radius_px": 64
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.candle_prop.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 64x32px with 4 frames sized 16x32px.",
+    "Wax body width stays at 8px and flame height stays at 6px.",
+    "Trigger flame uses #E8704A and #F5F0E8 only."
+  ]
+}

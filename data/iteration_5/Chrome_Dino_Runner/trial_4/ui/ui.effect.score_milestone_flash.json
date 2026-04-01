@@ -1,0 +1,90 @@
+{
+  "task_id": "ui.effect.score_milestone_flash",
+  "id": "effect_score_milestone_flash",
+  "asset_name": "UI Effect: Score Milestone Flash",
+  "category": "ui",
+  "subcategory": "effect",
+  "display_name": "UI Effect: Score Milestone Flash",
+  "description": "Create asset for task_id 'ui.effect.score_milestone_flash' as specified in specs/context.",
+  "execution_order": 70,
+  "priority": "P2",
+  "depends_on": [
+    "ui.widget.score_display"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.score_display"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 600,
+        "height": 150
+      },
+      "frame_rate_target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      },
+      "baseline_y_px": 148
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "highlight_optional_hex": "#FF0000"
+    },
+    "style": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "specs": {
+    "trigger": "every 100 points",
+    "duration_s": 0.1,
+    "flash_color_hex": "#FF0000",
+    "base_color_hex": "#535353"
+  },
+  "context": {
+    "role": "hud_feedback",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -10,
+        10
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "in_game"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/effect_score_milestone_flash_mock.png",
+      "dimensions_px": {
+        "width": 600,
+        "height": 150
+      },
+      "background": "transparent",
+      "notes": "2-frame mock: base vs flash color states."
+    }
+  ],
+  "acceptance_criteria": [
+    "Flash effect is visually noticeable but does not obstruct gameplay.",
+    "Uses only the allowed highlight color #FF0000 during flash.",
+    "Returns to #535353 after 0.1s."
+  ]
+}

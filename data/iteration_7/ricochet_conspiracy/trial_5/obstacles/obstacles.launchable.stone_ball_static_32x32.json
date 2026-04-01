@@ -1,0 +1,111 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.stone_ball_static_32x32",
+  "asset_name": "Stone Ball (32x32)",
+  "category": "obstacles",
+  "subcategory": "launchable_stone_ball",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.stone_wall_segment_80x80",
+      "character.noble.shield_idle_6f_4fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "launchable_object",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Selected by the player as a high-mass launchable with 0.9 restitution and direct-hit noble removal.",
+    "adjacent_elements": [
+      "stone wall",
+      "shield noble"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#A89880",
+      "#D8CDC2",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "full circle stone sphere with centered highlight and 1px contour line",
+      "components": [
+        "stone_body",
+        "highlight_patch",
+        "outer_contour"
+      ]
+    },
+    "physics_tags": {
+      "mass_relative": 5,
+      "base_restitution": 0.9,
+      "gravity_override": null
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.stone_ball_static_32x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 32x32px and the circular silhouette keeps at least 1px padding on all outer edges.",
+    "Highlight patch stays inside the upper-left quadrant and does not exceed 10px width.",
+    "Only #A89880, #D8CDC2, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

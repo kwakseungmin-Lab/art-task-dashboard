@@ -1,0 +1,99 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.moves_counter_120x24",
+  "asset_name": "HUD Element — Moves Counter (120x24)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 440,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.bitmap_serif_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_serif_16px_ascii96",
+      "ui.hud.top_bar_frame_1280x50"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_counter",
+    "layer": "ui",
+    "usage": "Displays \"이동: N/M\" at top-right. Background plate + icon optional; numeric text rendered in-engine using bitmap font.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -140,
+        12
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 24
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#3D2B1F",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "ui_element": {
+      "padding_px": [
+        6,
+        4,
+        6,
+        4
+      ],
+      "highlight_state": "on_decrement_flash_tint_accent_0.5s",
+      "note": "Keep room for 16px font; include small move icon if desired."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.moves_counter_120x24.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Element is exactly 120x24px; leaves at least 108x16px inner area for 16px bitmap text.",
+    "Uses #3D2B1F border and #D4A843 accent pixels for emphasis; no anti-aliasing.",
+    "When placed at top-right with offset (-140,12), it does not overlap other top-bar UI at 1280x720."
+  ]
+}

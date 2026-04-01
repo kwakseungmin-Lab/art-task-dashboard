@@ -1,0 +1,168 @@
+{
+  "task_id": "task_id_008101014",
+  "asset_key": "obstacle_fixed_light_core_6f_32x32",
+  "asset_name": "Fixed Light Core Pulse",
+  "category": "obstacles",
+  "subcategory": "light_source",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101001",
+    "task_id_008101002"
+  ],
+  "blocks": [
+    "task_id_008101015",
+    "task_id_008101021",
+    "task_id_008101009"
+  ],
+  "blocked_by": [
+    "task_id_008101001",
+    "task_id_008101002"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the pulsing source icon and drive beam geometry through the custom light system rather than baked sprites.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "LightSource",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/obstacle_fixed_light_core_6f_32x32.png through AssetServer and create one six-frame atlas for all stationary sources.",
+    "runtime_notes": [
+      "The source art should align with a 48 px beam width and the light-system origin at the center of the sprite.",
+      "Pulse motion should loop independently from any mirror or prism interactions.",
+      "Keep the outer casing dark so the bright core reads as the true hazardous center."
+    ]
+  },
+  "context": {
+    "role": "fixed_light_source",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1560,
+        420
+      ]
+    },
+    "layer": "obstacles_hazard",
+    "usage": "Stationary light emitter that establishes the baseline beam geometry for shadow-routing puzzles.",
+    "adjacent_elements": [
+      "obstacle_plane_mirror_static_16x96",
+      "player_umbra_exposure_5f_12fps",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#D4682A",
+      "#F5EFE0",
+      "#C9A84C"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 6,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 6,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compact art-deco lamp core with a gold rim, bright central lens, and a narrow hazard flare pointing along the beam axis.",
+      "components": [
+        "outer_rim",
+        "lens_core",
+        "hazard_flare",
+        "mount_plate"
+      ]
+    },
+    "light_output": {
+      "beam_width_px": 48,
+      "max_length_px": 2048,
+      "mode": "fixed_direction"
+    }
+  },
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x32 px with six 32x32 frames.",
+    "The brightest pulse reads at frame 4 without losing the core silhouette shape.",
+    "The light origin is visually centered so beam alignment matches gameplay calculations."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101009",
+      "task_id_008101011",
+      "task_id_008101012",
+      "task_id_008101015",
+      "task_id_008101021"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_fixed_light_core_6f_32x32.png",
+      "transparent_background": true
+    }
+  ]
+}

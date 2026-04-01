@@ -1,0 +1,158 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003015",
+  "asset_key": "projectile_dark_fly_6f_10fps",
+  "asset_name": "Dark Projectile Travel Loop",
+  "category": "obstacles",
+  "subcategory": "magic_projectile",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": "task_id_008003012",
+  "variant_of_asset_key": "projectile_fire_fly_6f_12fps",
+  "shared_properties": [
+    "Six-frame projectile atlas structure and central travel alignment.",
+    "Readable silhouette inside the spell lane even during alpha fades.",
+    "Single leading core supported by a trailing aura."
+  ],
+  "differences": [
+    "Frame size grows to 55x55 px for a heavier threat profile.",
+    "Tail becomes a smoky violet-black aura around the core.",
+    "Palette shifts to charcoal, violet, and pale rim light rather than orange heat."
+  ],
+  "depends_on": [
+    "task_id_008003012"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003012"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003012",
+      "task_id_008003016",
+      "task_id_008003019"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the dark projectile and let the aura motion live inside the atlas frames rather than a runtime shader.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "SpellProjectile",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/projectile_dark_fly_6f_10fps.png through AssetServer and register the atlas under projectile_dark_fly_6f_10fps.",
+    "runtime_notes": [
+      "Dark projectile keeps the same logical travel system as the fire projectile.",
+      "Aura motion should not require a post-process blur effect in runtime.",
+      "Large silhouette helps communicate the slow heavy threat tier in late rounds."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "hostile_or_reflected_projectile_dark",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1140,
+        395
+      ]
+    },
+    "layer": "spell_projectile",
+    "usage": "Dark projectile used for slow heavy reads with a larger silhouette and blur-like aura at 240 px per second.",
+    "adjacent_elements": [
+      "world_spell_lane_overlay_960x220",
+      "ui_timing_bar_600x30",
+      "ui_enemy_forecast_icon_atlas_8x40"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_orthographic",
+      "facing": "left_to_right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 55,
+      "height": 55
+    },
+    "colors_hex": [
+      "#2C2C2C",
+      "#6E6E6E",
+      "#9B59B6",
+      "#FFFACD"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 6,
+      "fps": 10,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 6,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Dense core orb wrapped by a smoky aura with violet edge wisps.",
+      "components": [
+        "core_orb",
+        "smoke_aura",
+        "violet_wisps"
+      ]
+    },
+    "lighting": "Pale rim light tracks the front edge while violet haze softens the trailing boundary."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/projectile_dark_fly_6f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 330x55 px with six 55x55 frames.",
+    "Core orb remains at least 22 px wide in every frame so the hit point stays obvious.",
+    "Outer aura fades below 20 percent opacity before touching the frame edge on the rear side."
+  ]
+}

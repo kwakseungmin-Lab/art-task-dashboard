@@ -1,0 +1,217 @@
+{
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": "v4",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "base_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "camera": {
+      "view": "2d_front",
+      "projection": "orthographic",
+      "rotation_deg": 0,
+      "tilt_deg": 0
+    },
+    "rendering": {
+      "style": "hand_drawn_pixel_art",
+      "pixel_grid": {
+        "enabled": true,
+        "pixel_size_px": 1,
+        "anti_aliasing": false
+      },
+      "scaling": "nearest_neighbor",
+      "color_mode": "indexed",
+      "max_colors": 16,
+      "dithering": {
+        "allowed": false,
+        "pattern": "none"
+      },
+      "gradients": {
+        "allowed": false
+      },
+      "outline": {
+        "default": {
+          "enabled": false,
+          "thickness_px": 0,
+          "color": null
+        },
+        "ui_border": {
+          "enabled": true,
+          "thickness_px": 1,
+          "color": "#1D2B53"
+        }
+      }
+    },
+    "palette_pico8_16": [
+      {
+        "index": 0,
+        "name": "black",
+        "hex": "#000000"
+      },
+      {
+        "index": 1,
+        "name": "dark_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "index": 2,
+        "name": "dark_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "index": 3,
+        "name": "dark_green",
+        "hex": "#008751"
+      },
+      {
+        "index": 4,
+        "name": "brown",
+        "hex": "#AB5236"
+      },
+      {
+        "index": 5,
+        "name": "dark_gray",
+        "hex": "#5F574F"
+      },
+      {
+        "index": 6,
+        "name": "light_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "index": 7,
+        "name": "cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "index": 8,
+        "name": "red_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "index": 9,
+        "name": "orange",
+        "hex": "#FFA300"
+      },
+      {
+        "index": 10,
+        "name": "yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "index": 11,
+        "name": "green",
+        "hex": "#00E436"
+      },
+      {
+        "index": 12,
+        "name": "blue",
+        "hex": "#29ADFF"
+      },
+      {
+        "index": 13,
+        "name": "lavender",
+        "hex": "#83769C"
+      },
+      {
+        "index": 14,
+        "name": "light_pink",
+        "hex": "#FF77A8"
+      },
+      {
+        "index": 15,
+        "name": "peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "layer_order": [
+      "background",
+      "cage_environment",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "export": {
+      "file_format": "png",
+      "background": "transparent",
+      "compression": "lossless",
+      "metadata": {
+        "include": false
+      }
+    },
+    "asset_naming": {
+      "case": "snake_case",
+      "separator": "_",
+      "task_id_prefix": "pico_echo"
+    },
+    "asset_output_root": {
+      "source": "art/pico_echo/source",
+      "export": "art/pico_echo/export"
+    }
+  },
+  "task_id": "pico_echo.character.echo_happy",
+  "asset_name": "echo_happy",
+  "category": "character",
+  "subcategory": "echo_state",
+  "description": "Create Echo happy animation as a horizontal sprite strip. Echo sprite frame size is 40x40px. Primary body color #FFA300, cheek patch #FF004D, crest #FFEC27, beak+feet #AB5236, eyes #1D2B53. Eyes are 2x2px blocks. No additional colors beyond the pico8_16 palette. No anti-aliasing; 1px steps only. Animation: 8 frames, 4 FPS, loop exactly 2 times then return to idle. Spritesheet 320x40px. Crest position: frames 1-2 crest up by -2px from idle crest. Wing motion: frames 5-6 show wings slightly open using #FFA300 pixels expanding body width by +2px on each side (body bbox becomes x=6..33). Do not include heart particles in this spritesheet; heart particles are separate VFX assets.",
+  "deliverables": [
+    {
+      "type": "source",
+      "path": "art/pico_echo/source/character/echo_happy.aseprite",
+      "format": "aseprite",
+      "notes": "Aseprite source file with layers and frames (no palette outside pico8_16)."
+    },
+    {
+      "type": "export",
+      "path": "art/pico_echo/export/character/echo_happy.png",
+      "format": "png",
+      "notes": "PNG export (indexed color, 16-color palette, nearest-neighbor scaling)."
+    }
+  ],
+  "specs": {
+    "dimensions": "320x40",
+    "frame_size": "40x40",
+    "animation": {
+      "frames": 8,
+      "fps": 4,
+      "loop": "exact_times",
+      "loop_times": 2
+    },
+    "state_duration_sec": 5.0
+  },
+  "context": {
+    "role": "Triggered by Pet (touch) interaction.",
+    "screen_location": "Same base position as idle.",
+    "adjacent_elements": [
+      "heart particle VFX spawns above Echo"
+    ],
+    "layer": "character",
+    "usage": "Plays for 4s total (8 frames @4 FPS, loop twice)."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.vfx.heart_particle"
+    ],
+    "relationship_notes": [
+      "Heart particles must be visually separate; character sprite contains only Echo."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.character.echo_idle"
+  ],
+  "execution_order": 13,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.character.echo_idle"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 320x40 px.",
+    "No heart pixels (♥) exist in the character frames.",
+    "Background outside the sprite silhouette must be fully transparent (alpha=0).",
+    "Allowed colors: only pico8_16 palette. Hard fail if any pixel uses a hex value not in the palette list."
+  ]
+}

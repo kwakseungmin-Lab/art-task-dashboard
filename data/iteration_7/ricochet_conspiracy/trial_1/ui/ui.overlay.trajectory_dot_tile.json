@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.overlay.trajectory_dot_tile",
+  "asset_name": "Trajectory Dot Tile",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P0",
+  "execution_order": 220,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.bottom_control_bar",
+      "obstacles.launchable.feather_quill_sprite"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "trajectory_overlay",
+    "layer": "ui",
+    "usage": "Single 16x16 tile used to draw predicted path dots across the play lane.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "ui.hud.bottom_control_bar"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "small_round_dot",
+      "components": [
+        "center_dot"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.trajectory_dot_tile.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Tile is exactly 16x16px with one centered dot that fits inside a 6px diameter.",
+    "Dot color uses #F5F0E8 and the rest of the tile is transparent.",
+    "When repeated every 8px, spacing reads even with no visible seam."
+  ]
+}

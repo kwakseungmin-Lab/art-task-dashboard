@@ -1,0 +1,83 @@
+{
+  "task_id": "world.floor_strip",
+  "asset_name": "floor_strip_128x18",
+  "category": "world",
+  "subcategory": "floor",
+  "description": "Create a 128x18 px floor strip sprite with no transparency. Fill the entire 128x18 area with solid #FFCCAA. Add a 1px top border line at y=0 using #AB5236.",
+  "execution_order": 40,
+  "priority": "P1",
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 18
+    },
+    "fill_hex": "#FFCCAA",
+    "top_border_hex": "#AB5236",
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": false
+  },
+  "context": {
+    "role": "Cage floor area where poop sprites can appear and be cleaned.",
+    "layer": "world_background",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 110,
+      "anchor": "top_left"
+    },
+    "usage": [
+      "spawn_area_for_obstacles.poop"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/world/floor_strip_128x18/floor_strip_128x18.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/world/floor_strip_128x18/floor_strip_128x18.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.poop"
+    ]
+  },
+  "depends_on": [
+    "world.cage_background"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.cage_background"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 128x18 px.",
+    "All pixels are opaque (alpha=255).",
+    "Top border at y=0 is #AB5236 for x=0..127.",
+    "All other pixels (y=1..17) are #FFCCAA."
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.right_stats_panel_180x520",
+  "asset_name": "HUD — Right Stats Panel (180×520)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 52,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.icons.hazard_item_icons_24_set_12",
+      "ui.typography.pixel_font_8px_olympus"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "panel",
+    "layer": "ui",
+    "usage": "Right-side HUD container for TURN/AP/RANGE/JUMP/SHARD/Lv + path preview + confirm area.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -16,
+        16
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 520
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "slices": {
+      "nine_slice": true,
+      "border_px": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    "layout_note": "9-slice border; separators for rows; recessed path preview area (180×120)."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.right_stats_panel_180x520.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "9-slice scales without corner distortion.",
+    "Separators align to 2px grid."
+  ]
+}

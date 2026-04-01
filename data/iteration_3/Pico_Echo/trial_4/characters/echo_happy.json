@@ -1,0 +1,91 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame",
+      "position_reference": "perch at y=80px",
+      "layer_order": 3
+    }
+  },
+  "asset": {
+    "asset_id": "echo_happy",
+    "asset_name": "Echo Happy State",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Response animation when player pets/touches Echo",
+      "screen_position": "Center at x=64, y=60, on perch at y=80",
+      "adjacent_elements": ["perch", "heart_particle"],
+      "usage_scenario": "Triggered by petting interaction, plays for 5 seconds then returns to idle"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with raised crest, body swaying side to side, wings slightly spread",
+      "texture": "Pixel art with organic hand-drawn feel, no gradients",
+      "outline": "1px dark outline (#1D2B53) on crest, beak, and body silhouette",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 8,
+        "fps": 4,
+        "loop": true,
+        "description": "Frame 1-2: crest raises, Frame 3-4: body sways left with wings opening 2px, Frame 5-6: body sways right with wings opening 2px, Frame 7-8: return to center"
+      },
+      "details": "Crest fully raised adding 6px to height, eyes wide open (2x2px), cheek patch prominent, wings spread outward by 2px on each side during sway, feet remain planted on perch, tail feathers fan slightly"
+    },
+    "relationships": {
+      "related_assets": ["echo_idle", "heart_particle", "perch"],
+      "shared_with": "Same base colors as all Echo states",
+      "differences_from": "echo_idle (crest position and wing spread), echo_singing (no open beak)"
+    },
+    "explicit_negations": [
+      "No jumping or leaving perch",
+      "No beak opening (singing is separate state)",
+      "No color changes to indicate happiness",
+      "No size scaling or bouncing",
+      "No rotation beyond subtle sway",
+      "No continuous loop beyond 5 seconds (returns to idle)"
+    ]
+  }
+}

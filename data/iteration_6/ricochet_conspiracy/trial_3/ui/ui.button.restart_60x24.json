@@ -1,0 +1,93 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.button.restart_60x24",
+  "asset_name": "Button — Restart (60x24)",
+  "category": "ui",
+  "subcategory": "button",
+  "priority": "P0",
+  "execution_order": 460,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.bitmap_serif_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_serif_16px_ascii96",
+      "ui.hud.top_bar_frame_1280x50"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "button",
+    "layer": "ui",
+    "usage": "Restart button at top-right; matches the visual style of hint button.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -140,
+        26
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 60,
+      "height": 24
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#3D2B1F",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "ui_element": {
+      "border_thickness_px": 2,
+      "note": "Text rendered in-engine; provide a small restart icon optional."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.button.restart_60x24.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Button is exactly 60x24px and aligns to 8px grid with a 2px border.",
+    "Uses #3D2B1F border and #D4A843 accent; no anti-aliasing; transparent outside bounds.",
+    "When placed at top-right offset (-140,26), leaves space for adjacent menu button."
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.wine_glass",
+  "asset_name": "Wine Glass (Launchable, Shatters)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P0",
+  "execution_order": 22,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "launchable_projectile",
+    "layer": "gameplay",
+    "usage": "Bounce coefficient 0.5; on impact shatters into 4-6 shards (separate particle sprites)",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 20,
+      "height": 32
+    },
+    "colors_hex": [
+      "#F5F0E8",
+      "#3D2B1F",
+      "#E8704A"
+    ],
+    "animation": {
+      "type": "sequence",
+      "states": {
+        "intact": {
+          "fps": 0,
+          "frame_count": 1
+        },
+        "shatter": {
+          "fps": 12,
+          "frame_count": 8,
+          "notes": "plays once then object removed"
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.wine_glass.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Wine glass sprite is exactly 20x32px with visible bowl and stem silhouette; outline 2px in #3D2B1F.",
+    "Shatter animation is 8 frames at 12fps; frame 8 ends with no intact silhouette remaining.",
+    "Glass fill uses #F5F0E8 at <= 60% opacity baked into sprite (semi-transparent look)."
+  ]
+}

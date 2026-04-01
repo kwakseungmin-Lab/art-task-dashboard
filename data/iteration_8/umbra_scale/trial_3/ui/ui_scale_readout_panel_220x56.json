@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003019",
+  "asset_key": "ui_scale_readout_panel_220x56",
+  "asset_name": "Scale Readout Panel",
+  "category": "ui",
+  "subcategory": "hud_panel",
+  "priority": "P0",
+  "execution_order": 190,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003016",
+    "task_id_008003013"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003016",
+    "task_id_008003013"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003012",
+      "task_id_008003013",
+      "task_id_008003016",
+      "task_id_008003022"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle above the scale axle and overlay bitmap text for left weight, right weight, current angle, and target angle window.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "ScaleReadout",
+      "HudWidget",
+      "Transform"
+    ],
+    "asset_loading": "Load ui/ui_scale_readout_panel_220x56.png through AssetServer during floor setup and attach it to the scale readout anchor entity.",
+    "runtime_notes": [
+      "Frames represent neutral, target window, and unlocked states.",
+      "Panel follows the scale axle in world space but uses a screen space camera pass for sharp text.",
+      "Text uses the bitmap font atlas and updates on every torque recalculation."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "scale_readout",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        850,
+        572
+      ]
+    },
+    "layer": "ui_world_anchor",
+    "usage": "World anchored panel that shows left and right weights, live tilt angle, and the current target angle window above the scale axle.",
+    "adjacent_elements": [
+      "obstacle_weight_block_set_32x32_values_1_5",
+      "obstacle_scale_platform_dual_520x96",
+      "ui_art_deco_numeric_font_16px_ascii_48glyph"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_flat",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 220,
+      "height": 56
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#F5EFE0",
+      "#D4682A",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 3,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 3,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compact stepped panel with two upper weight cells, a lower angle strip, and a narrow target window indicator slot.",
+      "components": [
+        "outer_frame",
+        "left_weight_cell",
+        "right_weight_cell",
+        "angle_strip",
+        "target_window_slot"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Dark panel body with gold frame, white number windows, and amber target highlights.",
+    "shading": "Flat dark plate with brighter gold corners and a teal neutral indicator option."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_scale_readout_panel_220x56.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 660x56 px with three 220x56 frames.",
+    "Each frame reserves two 72x16 weight cells on the top row and one 180x16 angle strip on the bottom row.",
+    "Target state uses an amber highlight band exactly 8 px tall under the angle strip."
+  ]
+}

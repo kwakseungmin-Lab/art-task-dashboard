@@ -1,0 +1,122 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.dino_idle_2f_6fps",
+  "asset_name": "Player Dino Idle Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [
+    "character.player.dino_run_2f_12fps",
+    "character.player.dino_jump_static",
+    "character.player.dino_duck_2f_12fps",
+    "character.player.dino_dead_static"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_run_2f_12fps",
+      "world.ground.line_1200x2"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "layer": "character",
+    "usage": "Used before obstacle motion starts and after restart state reset.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "ui.hud.score_display_mock"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "88x94 side-profile T-Rex with large head, short forearms, thick tail, closed mouth line, and 2px outline.",
+      "components": [
+        "head",
+        "eye_cutout",
+        "mouth_line",
+        "torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_idle_2f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 176x94 px with 2 frames arranged in 2 columns and 1 row.",
+    "Each frame uses only #535353 plus transparent background cutout; no extra fill colors appear.",
+    "Feet touch the ground baseline at the last opaque pixel row with a 2px outline width throughout both frames."
+  ]
+}

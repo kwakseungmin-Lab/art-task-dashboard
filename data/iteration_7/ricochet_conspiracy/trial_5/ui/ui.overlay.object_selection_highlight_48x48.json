@@ -1,0 +1,124 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.overlay.object_selection_highlight_48x48",
+  "asset_name": "Object Selection Highlight (48x48)",
+  "category": "ui",
+  "subcategory": "selection_overlay",
+  "priority": "P0",
+  "execution_order": 270,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.controls.bottom_bar_1280x50"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.controls.bottom_bar_1280x50"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.trajectory_dotted_line_640x96",
+      "obstacles.launchable.stone_ball_static_32x32"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "selection_overlay",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui",
+    "usage": "Visible around the selected launchable; adds an 8px margin highlight and a 1Hz pulse.",
+    "adjacent_elements": [
+      "selected launchable",
+      "trajectory line"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_2d",
+      "facing": "viewer"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#F5F0E8",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 1,
+      "loop": true,
+      "frame_size_px": [
+        48,
+        48
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "square ring with clipped corners and a centered empty hole for the selected object",
+      "components": [
+        "outer_ring",
+        "corner_marks",
+        "inner_hole"
+      ]
+    },
+    "ui_behavior": {
+      "pulse_hz": 1,
+      "margin_px": 8,
+      "line_style": "dashed"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.object_selection_highlight_48x48.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x48px with 2 columns, 1 row, and 0px spacing.",
+    "Inner hole stays at 32x32px and the ring thickness stays at 4px in both frames.",
+    "Only #D4A843, #F5F0E8, and #3D2B1F are used on the UI sheet."
+  ]
+}

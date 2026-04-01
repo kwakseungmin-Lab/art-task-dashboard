@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects",
+      "rendering": "flat 2D",
+      "behavior": "temporary (spawn and despawn)",
+      "animation_type": "movement-based (position changes)"
+    }
+  },
+  "asset": {
+    "asset_id": "dust_effect",
+    "asset_name": "Dust Particle Effect",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Visual indicator of dirty cage environment",
+      "screen_position": "Spawns around Echo at x=60-68, y=55-65; floats randomly",
+      "adjacent_elements": ["echo_dirty", "poop"],
+      "usage_scenario": "Triggered during dirty state; 3-5 dust particles spawn; float randomly; despawn after 1.5 seconds"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "1px",
+        "height": "1px"
+      },
+      "colors": {
+        "main": "#C2C3C7"
+      },
+      "shape": "Single pixel dot",
+      "texture": "Flat pixel art; solid color",
+      "outline": "None; pure color fill",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 6,
+        "fps": 4,
+        "loop": false,
+        "description": "Frame 1: spawn, Frame 2-5: random movement (±1px x/y per frame), Frame 6: despawn"
+      },
+      "details": "1x1px single pixel; #C2C3C7 (light gray); 3-5 particles spawn around Echo; move randomly in small radius (±3px); despawn after 1.5s"
+    },
+    "relationships": {
+      "related_assets": ["echo_dirty", "poop", "floor"],
+      "shared_with": "Same color as cage bars (#C2C3C7)",
+      "differences_from": "feather_effect (gray vs orange, smaller size)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no glow",
+      "no rotation",
+      "no scaling",
+      "no motion blur",
+      "no cloud shapes"
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020115",
+  "asset_key": "ui_scale_weight_indicator_180x48",
+  "asset_name": "Scale Weight and Angle Indicator (180x48, 4 states)",
+  "category": "ui",
+  "subcategory": "mechanic_readout",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The indicator occupies a 180x48 px floating panel sized for placement near the scale pivot without covering the player lane.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while load-balance colors stay inside specs.colors_hex.",
+    "Left and right readout regions remain symmetrical so torque direction can be parsed instantly."
+  ],
+  "differences": [
+    "This state sheet includes balanced, left-heavy, right-heavy, and unlock-threshold variants.",
+    "A central degree dial and two load cells provide reserved spaces for runtime L and R values.",
+    "The unlock-threshold frame adds a stronger gold ring and amber accent arrows to signal successful target angle achievement."
+  ],
+  "depends_on": [
+    "task_id_008020111"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020111"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020105",
+      "task_id_008020108",
+      "task_id_008020111",
+      "task_id_008020112"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the weight readout, target-angle feedback, and dynamic torque display described in the GDD."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the mechanical gold UI accents used near tower machinery."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds scale-to-player readability so the widget reinforces live balance decisions."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle rendered by the HUD overlay camera.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "Style",
+      "UiImage",
+      "Visibility",
+      "HudWidget"
+    ],
+    "asset_loading": "Load the scale-indicator atlas during FloorLoading and register its state frames for torque UI widgets.",
+    "runtime_notes": [
+      "Anchor the panel near the pivot in screen space, not world space.",
+      "Allow runtime text for numeric load and angle values inside the reserved windows.",
+      "Swap atlas frames when torque direction crosses balance or unlock thresholds."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "scale_hud_readout",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        620
+      ]
+    },
+    "layer": "ui",
+    "usage": "Dynamic mechanic readout placed near the pivot to show left and right weight values plus target-angle status.",
+    "adjacent_elements": [
+      "task_id_008020105",
+      "task_id_008020108",
+      "task_id_008020111"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1C1826",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "balanced",
+        "left_heavy",
+        "right_heavy",
+        "target_locked"
+      ],
+      "frame_count": 4,
+      "frame_size_px": [
+        180,
+        48
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "layout_notes": [
+      "Left load window width is 48 px.",
+      "Center degree dial width is 44 px.",
+      "Right load window width is 48 px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_scale_weight_indicator_180x48.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 720x48 px with four 180x48 frames and 0 px spacing.",
+    "Left-heavy, right-heavy, and unlock-threshold states remain distinguishable even before runtime numbers are drawn.",
+    "The indicator preserves enough empty space for numeric overlays without sacrificing the gold frame silhouette."
+  ]
+}

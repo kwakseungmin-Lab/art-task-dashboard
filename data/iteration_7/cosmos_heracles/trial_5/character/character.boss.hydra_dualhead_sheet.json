@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.boss.hydra_dualhead_sheet",
+  "asset_name": "Hydra Dual-Head Boss Sheet",
+  "category": "character",
+  "subcategory": "boss",
+  "priority": "P0",
+  "execution_order": 45,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.player.cosmos_heracles.core_states_sheet",
+    "world.background.zone3_stratosphere_altar_1600x900"
+  ],
+  "blocks": [
+    "ui.hud.counter_gauge_radial_48px",
+    "ui.hud.counter_result_popup_320x64"
+  ],
+  "blocked_by": [
+    "character.player.cosmos_heracles.core_states_sheet",
+    "world.background.zone3_stratosphere_altar_1600x900"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "ui.hud.counter_gauge_radial_48px",
+      "ui.hud.counter_result_popup_320x64"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "boss",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "right_center",
+      "offset_px": [
+        -180,
+        -20
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.counter_gauge_radial_48px",
+      "ui.hud.counter_result_popup_320x64",
+      "world.background.zone3_stratosphere_altar_1600x900"
+    ],
+    "layer": "world",
+    "usage": "Zone 3 boss sheet with 6 idle frames, 3 head-A strike frames, and 3 head-B strike frames for the dual-head alternating pattern.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 180
+    },
+    "colors_hex": [
+      "#7B2FBE",
+      "#40E8D0",
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "stateful",
+      "states": {
+        "idle": {
+          "frame_count": 6,
+          "fps": 8,
+          "loop": true,
+          "frame_size_px": {
+            "width": 200,
+            "height": 180
+          }
+        },
+        "head_a_strike": {
+          "frame_count": 3,
+          "fps": 8,
+          "loop": false,
+          "frame_size_px": {
+            "width": 200,
+            "height": 180
+          },
+          "head_label": "A",
+          "telegraph_duration_ms": 400
+        },
+        "head_b_strike": {
+          "frame_count": 3,
+          "fps": 8,
+          "loop": false,
+          "frame_size_px": {
+            "width": 200,
+            "height": 180
+          },
+          "head_label": "B",
+          "telegraph_duration_ms": 400
+        }
+      },
+      "sheet_dimensions_px": {
+        "width": 2400,
+        "height": 180
+      }
+    },
+    "shape": {
+      "silhouette": "massive two-head serpent body with one grounded coil base and two clearly separated neck arcs for alternating attacks",
+      "components": [
+        "left head",
+        "right head",
+        "shared coil body",
+        "rear tail mass",
+        "jaw highlight",
+        "counter hit markers"
+      ]
+    },
+    "hp": 6,
+    "head_hp_split": [
+      3,
+      3
+    ],
+    "counter_window_ms": 80,
+    "background_treatment": "transparent outside sprite bounds"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.boss.hydra_dualhead_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 2400x180px with frame groups ordered idle(6), head-A strike(3), head-B strike(3).",
+    "Head-A strike and Head-B strike extend different neck arcs by at least 16px beyond the idle silhouette.",
+    "The full boss silhouette stays inside a 200x180px frame on every frame with no cropped pixels."
+  ]
+}

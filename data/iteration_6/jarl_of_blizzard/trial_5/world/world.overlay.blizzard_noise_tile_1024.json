@@ -1,0 +1,80 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.overlay.blizzard_noise_tile_1024",
+  "asset_name": "Blizzard Noise Overlay Tile — 1024px",
+  "category": "world",
+  "subcategory": "overlay",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "overlay_tile",
+    "layer": "world",
+    "usage": "Tileable full-screen blizzard noise layer; animated via scrolling + opacity.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1024,
+      "height": 1024
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#000000"
+    ],
+    "tileable": true,
+    "pattern_note": "Directional streaks + sparse speckles; avoid obvious repeating motifs."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.overlay.blizzard_noise_tile_1024.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Perfectly tileable on all edges (no seams).",
+    "At 50% opacity, underlying buildings remain recognizable."
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.terrain.pillar_marble_static",
+  "asset_name": "Marble Pillar (Static)",
+  "category": "obstacles",
+  "subcategory": "terrain",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "extended": [
+      {
+        "name": "Column Shadow",
+        "hex": "#6B6357"
+      },
+      {
+        "name": "Hero Skin",
+        "hex": "#E8B87A"
+      },
+      {
+        "name": "Bronze Armor",
+        "hex": "#C47C2B"
+      },
+      {
+        "name": "Star Gold",
+        "hex": "#FFD966"
+      },
+      {
+        "name": "Danger Red",
+        "hex": "#E84040"
+      },
+      {
+        "name": "Boss Purple",
+        "hex": "#7B2FBE"
+      },
+      {
+        "name": "UI White",
+        "hex": "#F0EFE9"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "terrain",
+    "layer": "world",
+    "usage": "Obstacle that blocks the path; breaks instantly when player is in Large form and collides.",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "bottom_center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 200
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E"
+    ],
+    "animation": null,
+    "tileable": {
+      "vertical": true,
+      "segment_height_px": 40
+    },
+    "readability": {
+      "base_shadow_hex": "#6B6357"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.terrain.pillar_marble_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 64x200px and visually reads as a solid marble pillar against #0B0C1E backgrounds.",
+    "Uses only #D9D0BE and #6B6357 for pillar pixels; background is fully transparent.",
+    "Pillar silhouette is a clean rectangle with minor chips; no protrusions extend beyond the 64px width."
+  ]
+}

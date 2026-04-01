@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000014",
+  "asset_key": "score_rack_panel",
+  "asset_name": "Score Rack Panel",
+  "category": "ui",
+  "subcategory": "hud_panel",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Primary painted tone uses #535353 with #F7F7F7 fill and optional #FF0000 accent flash.",
+    "Panel footprint stays compact inside the top-right HUD zone.",
+    "Text content aligns to a five-digit score readout."
+  ],
+  "differences": [
+    "This task defines the frame, separators, and flash mask for the live score readout.",
+    "The right edge sits 10 px from the camera border and the top edge sits 10 px from the camera border.",
+    "A milestone flash mask can switch to #FF0000 for 0.1 seconds at 100-point intervals."
+  ],
+  "depends_on": [
+    "task_id_801000013"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000013"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000013",
+      "task_id_801000015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    },
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "HudPanelTag",
+      "MilestoneFlashTimer"
+    ],
+    "asset_loading": "Load one 60x18 PNG during Loading state and place it under the score digit sprites in the HUD root.",
+    "runtime_notes": [
+      "Anchor the panel so its right edge sits 10 px from the camera boundary.",
+      "Toggle the flash tint for 0.1 seconds when score modulo 100 equals zero.",
+      "Keep the panel on a HUD render layer independent from world parallax."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hud_score_panel",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        560,
+        10
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Frames the current score and high-score readouts at the top-right corner."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 60,
+      "height": 18
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7",
+      "#FF0000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        60,
+        18
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "layout_profile": {
+      "padding_px": {
+        "top": 1,
+        "right": 2,
+        "bottom": 1,
+        "left": 2
+      },
+      "current_score_region_px": {
+        "width": 50,
+        "height": 16
+      },
+      "milestone_flash_duration_s": 0.1
+    },
+    "shape_notes": [
+      "Outer border thickness stays at 1 px.",
+      "Flash mask covers the full 60x18 px panel.",
+      "No corner radius or diagonal bevel appears on the border."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/score_rack_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 60x18 px with one 1 px border around the readout area.",
+    "Current score region fits five 10x16 digit cells without overlap.",
+    "Any #FF0000 pixel is reserved for the milestone flash mask only."
+  ]
+}

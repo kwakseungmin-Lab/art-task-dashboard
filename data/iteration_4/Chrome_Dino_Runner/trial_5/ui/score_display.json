@@ -1,0 +1,195 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 5,
+    "source": {
+      "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+      "concepts": [
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+      ]
+    },
+    "rendering": {
+      "style": "pixel_art",
+      "bit_depth_style": "8-bit",
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "dithering": false
+    },
+    "canvas": {
+      "screen_dimensions_px": "600x150",
+      "target_fps": 60,
+      "coordinate_system": {
+        "ground_y": 0,
+        "positive_y": "up",
+        "note": "GDD uses Ground level y=0; airborne obstacles use y=50 and y=80 above ground."
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "allowed_colors": [
+        "#F7F7F7",
+        "#535353",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "rules": [
+        "All gameplay sprites (player, obstacles, ground, clouds) use only #535353 for non-transparent pixels.",
+        "Background sky uses only #F7F7F7 (no transparency).",
+        "UI text uses only #535353. White (#FFFFFF) is allowed only for runtime flash effects or overlays."
+      ]
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353",
+        "rule": "Sprite silhouettes must have a minimum 2px-thick edge where applicable; no 1px hairline edges."
+      },
+      "transparency": {
+        "background": "transparent",
+        "alpha_requirement": "All non-background sprites must have fully transparent background (alpha=0) outside the silhouette."
+      },
+      "scale_support": {
+        "base_scale": "1x",
+        "secondary_scale": "2x",
+        "scaling_method": "nearest_neighbor",
+        "note": "Export 1x originals; 2x exports must be integer-scaled using nearest-neighbor (no filtering)."
+      }
+    },
+    "export": {
+      "formats": [
+        "png"
+      ],
+      "color_space": "sRGB",
+      "png": {
+        "bit_depth": 8,
+        "interlaced": false
+      },
+      "naming": {
+        "frame_indexing": "1-based in filenames where specified by GDD (e.g., dino_run_1.png, dino_run_2.png)",
+        "scale_suffix": "@2x"
+      }
+    },
+    "priorities": {
+      "scheme": "P0-P3",
+      "definitions": {
+        "P0": "Required for a playable MVP (core gameplay and essential UI).",
+        "P1": "Feature-complete look but not strictly blocking MVP.",
+        "P2": "Optional polish.",
+        "P3": "Nice-to-have polish."
+      }
+    },
+    "layers": [
+      {
+        "name": "background_sky",
+        "z_index": 0
+      },
+      {
+        "name": "background_clouds",
+        "z_index": 1
+      },
+      {
+        "name": "ground",
+        "z_index": 5
+      },
+      {
+        "name": "obstacles",
+        "z_index": 10
+      },
+      {
+        "name": "player",
+        "z_index": 15
+      },
+      {
+        "name": "ui",
+        "z_index": 100
+      },
+      {
+        "name": "vfx_overlay",
+        "z_index": 200
+      }
+    ]
+  },
+  "task_id": "cdr_ui_score_display",
+  "asset_name": "UI Widget - ScoreDisplay",
+  "category": "ui",
+  "subcategory": "hud",
+  "description": "Define ScoreDisplay visual specification.\n\n- Font: cdr_typography_font_pixel_mono_16px.\n- Font size: 16px.\n- Color: #535353.\n- Digits: 5, zero padded.\n- Alignment: right-aligned.\n- Position (top-left origin): x = screen_width - 10 (=590), y = 10.\n\nOptional milestone flash (runtime behavior):\n- Trigger: when score hits multiples of 100.\n- Duration: 0.1 seconds.\n- Color during flash: #FFFFFF.",
+  "deliverables": [
+    {
+      "path": "UI/spec_score_display.json",
+      "type": "ui_spec",
+      "format": "json"
+    },
+    {
+      "path": "UI/mock_score_display.png",
+      "type": "ui_mock_png",
+      "dimensions": "600x150"
+    }
+  ],
+  "specs": {
+    "dimensions": "600x150",
+    "text": {
+      "font_task_id": "cdr_typography_font_pixel_mono_16px",
+      "font_size_px": 16,
+      "character_width_px": 10,
+      "digits": 5,
+      "zero_padding": true,
+      "color_normal": "#535353",
+      "flash": {
+        "enabled": true,
+        "color": "#FFFFFF",
+        "duration_seconds": 0.1
+      }
+    },
+    "layout": {
+      "position_top_left_origin": {
+        "x": 590,
+        "y": 10
+      },
+      "alignment": "right"
+    }
+  },
+  "context": {
+    "role": "HUD score display.",
+    "screen_location": "Top-right corner with 10px padding.",
+    "adjacent_elements": [
+      "cdr_ui_game_over_screen"
+    ],
+    "layer": "ui",
+    "usage": "Visible during gameplay."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_ui_game_over_screen"
+    ],
+    "shared_properties": [
+      "uses #535353 text",
+      "monospace digits"
+    ],
+    "differences": [
+      "ScoreDisplay is top-right; GameOverScreen is centered multi-line."
+    ]
+  },
+  "depends_on": [
+    "cdr_typography_font_pixel_mono_16px"
+  ],
+  "execution_order": 60,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_typography_font_pixel_mono_16px"
+  ],
+  "acceptance_criteria": [
+    "Spec JSON defines right-aligned 5-digit zero padded format.",
+    "Spec JSON defines top-right position at (590,10) in top-left origin.",
+    "Mock PNG shows '01234' at the specified position and alignment."
+  ]
+}

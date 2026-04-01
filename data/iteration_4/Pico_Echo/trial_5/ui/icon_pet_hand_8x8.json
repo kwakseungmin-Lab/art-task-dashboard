@@ -1,0 +1,147 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.ui.icon_pet_hand_8x8",
+  "asset_name": "Care icon: Pet (hand)",
+  "category": "ui",
+  "subcategory": "icon",
+  "description": "Icon sprite 8x8px, transparent background. Use #FFCCAA fill with 1px outline #1D2B53. Hand silhouette: a 4x4 rounded block occupying x=2..5,y=2..5, with a 1px thumb at (1,4).",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/ui/icons/care_pet_hand_8x8.png",
+      "format": "png",
+      "type": "ui_icon"
+    }
+  ],
+  "specs": {
+    "dimensions": "8x8",
+    "palette_hex": [
+      "#FFCCAA",
+      "#1D2B53"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "CareMenu button for Pet.",
+    "screen_location": "CareMenu button at (120,108).",
+    "adjacent_elements": [
+      "care_menu_panel_bg"
+    ],
+    "layer": "ui",
+    "usage": "Visible when menu open."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.vfx.heart_particle_animation"
+    ],
+    "shared_properties": [
+      "Uses UI outline color #1D2B53"
+    ],
+    "differences": [
+      "Hand icon uses #FFCCAA (not used in character sprites)."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.ui.care_menu_panel_bg"
+  ],
+  "execution_order": 29,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.ui.care_menu_panel_bg"
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 8x8px.",
+    "Only #FFCCAA, #1D2B53, and transparent are used.",
+    "Icon is readable at 1x scale."
+  ]
+}

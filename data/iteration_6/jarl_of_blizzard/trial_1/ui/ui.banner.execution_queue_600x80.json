@@ -1,0 +1,139 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.banner.execution_queue_600x80",
+  "asset_name": "Execution Queue Banner — 600×80",
+  "category": "ui",
+  "subcategory": "banner",
+  "priority": "P0",
+  "execution_order": 22,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.card.queue_item_card_sheet_160x40_2f",
+      "ui.buttons.confirm_cancel_160x48_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "execution_banner",
+    "layer": "ui",
+    "usage": "Bottom-center banner that displays the current queue item during execution phase. Positioned near (660, 900).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        660,
+        900
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 80
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "layout_rules": {
+      "icon_slot_px": {
+        "x": 16,
+        "y": 16,
+        "w": 48,
+        "h": 48
+      },
+      "text_area_px": {
+        "x": 72,
+        "y": 18,
+        "w": 512,
+        "h": 44
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.banner.execution_queue_600x80.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Banner is exactly 600x80px with clear hierarchy for icon and text areas.",
+    "Border and background contrast allow readability under heavy blizzard overlay.",
+    "Provides room for a 2-line 8px label without clipping."
+  ]
+}

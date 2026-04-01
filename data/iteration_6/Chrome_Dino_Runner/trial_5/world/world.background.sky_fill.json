@@ -1,0 +1,83 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.sky_fill",
+  "asset_name": "Background - Sky Fill",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 5,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background",
+    "layer": "world_back",
+    "usage": "Static sky fill behind all gameplay elements",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "origin": "top_left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 150
+    },
+    "colors_hex": [
+      "#F7F7F7"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.sky_fill.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Image is exactly 600x150px and filled with a uniform #F7F7F7 color; no gradients and no noise pixels.",
+    "No transparency is used; alpha is 255 for every pixel.",
+    "When composited behind gameplay, there is no visible seam at any edge."
+  ]
+}

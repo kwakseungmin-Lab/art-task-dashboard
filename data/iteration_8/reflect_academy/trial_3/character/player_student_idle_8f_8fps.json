@@ -1,0 +1,192 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003005",
+  "asset_key": "player_student_idle_8f_8fps",
+  "asset_name": "Player Student Idle Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003002"
+  ],
+  "blocks": [
+    "task_id_008003006",
+    "task_id_008003007",
+    "task_id_008003008",
+    "task_id_008003017",
+    "task_id_008003018"
+  ],
+  "blocked_by": [
+    "task_id_008003002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003006",
+      "task_id_008003016",
+      "task_id_008003017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for player state animation and keep the same origin point across every player state.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerReflector",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_student_idle_8f_8fps.png through AssetServer during duel actor setup and cache the handle under player_student_idle_8f_8fps.",
+    "runtime_notes": [
+      "Frame pivot stays at the standing foot midpoint so state swaps do not slide across the platform.",
+      "The player entity remains in world space while the hand cards live in Bevy UI space.",
+      "Animation timer ticks at 8 fps and loops continuously between casts."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "player_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        360,
+        640
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Default player stance while waiting for the enemy cast and deciding which card to commit.",
+    "adjacent_elements": [
+      "world_duel_platform_960x180",
+      "ui_hand_card_strip_5x80x120",
+      "ui_hp_bars_dual_440x32"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#F2E2C4",
+      "#00FFFF",
+      "#5C3317"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Student mage with long academy coat, lifted focus hand, and a card hand held near the chest.",
+      "components": [
+        "head",
+        "bangs",
+        "robe_collar",
+        "coat_body",
+        "focus_hand",
+        "card_hand",
+        "boots",
+        "sash"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "almond",
+        "size_px": [
+          18,
+          8
+        ]
+      },
+      "mouth": {
+        "shape": "soft_line",
+        "length_px": 14
+      },
+      "nose": {
+        "shape": "small_bridge",
+        "length_px": 8
+      }
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 58
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 72
+      },
+      "tail": null,
+      "accessories": "Focus bracer, crest brooch, and waist sash."
+    },
+    "texture": "Layered cloth folds, enamel trim, and a small gem highlight on the bracer.",
+    "shading": "Soft gradient shading with a thin warm rim light on the right edge."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_student_idle_8f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 960x180 px with eight 120x180 frames.",
+    "Idle loop keeps both feet inside a 20 px horizontal sway envelope so card hover UI does not overlap the silhouette.",
+    "Coat trim and wrist gem remain readable at full camera distance on a 1920x1080 canvas."
+  ]
+}

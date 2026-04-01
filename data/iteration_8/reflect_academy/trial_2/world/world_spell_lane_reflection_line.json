@@ -1,0 +1,178 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000922",
+  "asset_key": "world_spell_lane_reflection_line",
+  "asset_name": "Spell Lane and Reflection Line — approach path, judgment line, and lane glow",
+  "category": "world",
+  "subcategory": "combat_lane_overlay",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The lane uses the arena center band and stays visible over the stage shell without hiding characters.",
+    "Reflection cues rely on cyan, lime, and gold accents from the duel UI palette.",
+    "The judgment line must read during both slow ice orbs and fast light bolts."
+  ],
+  "differences": [
+    "This task covers world-space lane overlays rather than HUD-space timing widgets.",
+    "Projectile bodies, telegraph icons, and card UI remain in separate tasks."
+  ],
+  "depends_on": [
+    "task_id_000000921"
+  ],
+  "blocks": [
+    "task_id_000000923",
+    "task_id_000000924",
+    "task_id_000000925",
+    "task_id_000000926",
+    "task_id_000000928"
+  ],
+  "blocked_by": [
+    "task_id_000000921"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000921",
+      "task_id_000000923",
+      "task_id_000000924",
+      "task_id_000000928"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for placing luminous lane overlays inside the warm academy room without losing contrast."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for validating the judgment line position relative to the student combat root."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_4x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "LaneState",
+      "ReflectionWindowGuide"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/world_spell_lane_reflection_line.png during DuelLoading and cache the atlas layout under world_spell_lane_reflection_line.",
+    "runtime_notes": [
+      "Use four atlas states named idle, telegraph, incoming, and reflected to match lane feedback timing.",
+      "Anchor the lane overlay at x=960 y=540 so the judgment line lands 20px in front of the player collision root.",
+      "Blend the lane glow with additive material or emissive tint while preserving the room art below it."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "combat_lane_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "world",
+    "usage": "World-space lane art that shows where enemy spells travel and where the reflection timing line sits."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1440,
+      "height": 220
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#00FFFF",
+      "#ADFF2F",
+      "#FFFFFF"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "idle",
+        "telegraph",
+        "incoming",
+        "reflected"
+      ],
+      "frame_count": 4,
+      "frame_size_px": [
+        1440,
+        220
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "lane_geometry": {
+      "start_anchor_px": [
+        430,
+        270
+      ],
+      "end_anchor_px": [
+        520,
+        760
+      ],
+      "judgment_line_offset_from_player_px": 20,
+      "telegraph_glow_radius_px": 48
+    },
+    "shape": {
+      "silhouette": "Long diagonal spell lane with a gold-edged guide strip, cyan reflection line, and soft magic haze.",
+      "components": [
+        "lane strip",
+        "judgment line",
+        "telegraph pulse ring",
+        "incoming highlight",
+        "reflected return trail"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_spell_lane_reflection_line.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 5760x220px with four 1440x220 states and no padding.",
+    "The judgment line aligns to the documented player-side hit check 20px before impact.",
+    "Telegraph, incoming, and reflected states remain visually distinct with readable cyan and lime separation.",
+    "Lane glow never obscures character faces or HP bars when composited in the final scene."
+  ]
+}

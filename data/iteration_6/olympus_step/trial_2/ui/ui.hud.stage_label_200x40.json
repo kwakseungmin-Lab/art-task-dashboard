@@ -1,0 +1,94 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.stage_label_200x40",
+  "asset_name": "HUD — Stage Label (200x40)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 61,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_stage",
+    "layer": "ui",
+    "usage": "Displays \"Stage X / 12\" at the top center of the screen.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_center",
+      "offset_px": [
+        0,
+        12
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 40
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#6B7280"
+    ],
+    "animation": null,
+    "layout_rules": {
+      "padding_px": [
+        8,
+        6,
+        8,
+        6
+      ],
+      "text_alignment": "center",
+      "corner_radius_px": 6
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.stage_label_200x40.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Asset is exactly 200x40px with a 1px border using #6B7280 and inner fill using #1C1917.",
+    "Text area fits within 184x28px and is centered; the design supports rendering \"Stage 12 / 12\" without clipping.",
+    "Uses only listed colors and transparency; no anti-aliasing."
+  ]
+}

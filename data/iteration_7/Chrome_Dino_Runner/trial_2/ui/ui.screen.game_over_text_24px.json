@@ -1,0 +1,112 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.game_over_text_24px",
+  "asset_name": "Game Over Text 24px",
+  "category": "ui",
+  "subcategory": "fail_state",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #535353, background #F7F7F7, and accent #FF0000.",
+    "Canvas target stays 600x150px with pixel-perfect presentation at 60 FPS.",
+    "All painted edges keep a 2px outline rhythm and flat shading."
+  ],
+  "differences": [
+    "The label is centered and much larger than the live score widget.",
+    "The text uses the fail-state phrase GAME OVER in one line.",
+    "The art remains static with no fade or shake baked into the image."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_dead_static",
+      "ui.prompt.restart_text_12px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "game_over_label",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        228,
+        45
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Centered fail-state title that appears after collision and before restart input.",
+    "adjacent_elements": [
+      "character.player.dino_dead_static",
+      "ui.prompt.restart_text_12px"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 144,
+      "height": 24
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single centered wordmark reading GAME OVER with blocky 24px pixel lettering.",
+      "components": [
+        "game_word",
+        "over_word"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.game_over_text_24px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 144x24px.",
+    "The phrase GAME OVER remains legible at 1x scale with all letters fully contained inside the frame.",
+    "Only #535353 and transparency appear in painted pixels."
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "task_id": "world.perch",
+  "id": "world.perch",
+  "asset_name": "Perch",
+  "category": "world",
+  "subcategory": "environment_prop",
+  "description": "Perch bar where Echo stands during most states. Designed to align with Echo pivot so feet sit on the perch.",
+  "execution_order": 20,
+  "priority": "P0",
+  "depends_on": [
+    "world.cage_background"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo_sprite_sheet",
+      "world.cage_background",
+      "world.cage_bars_overlay"
+    ]
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 4
+    },
+    "wood_hex": "#AB5236",
+    "highlight_hex": "#FFCCAA",
+    "outline_hex": "#1D2B53",
+    "placement": {
+      "x_start": 24,
+      "x_end": 104,
+      "y": 80
+    }
+  },
+  "context": {
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 24,
+      "y": 78,
+      "origin": "canvas_top_left"
+    },
+    "layer": "world_props",
+    "usage": [
+      "in_game",
+      "static_prop"
+    ],
+    "role": "world_prop_perch"
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/world/perch.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/world/perch.png",
+      "dimensions_px": {
+        "width": 80,
+        "height": 4
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 80x4 px with transparent background.",
+    "Dominant perch pixels use #AB5236 with optional #FFCCAA highlight.",
+    "Perch outline uses #1D2B53 and remains 1px thick.",
+    "At 1x scale, perch reads clearly on #FFF1E8 background."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

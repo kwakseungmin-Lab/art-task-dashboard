@@ -1,0 +1,235 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000929",
+  "asset_key": "ui_card_hand_conversion_set",
+  "asset_name": "Card Hand Conversion Set — twelve conversion and utility cards",
+  "category": "ui",
+  "subcategory": "card_hand",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Each card uses a consistent fantasy frame, title zone, cost orb, and central icon silhouette.",
+    "Element and utility cards must remain legible in a five-card hand without zooming.",
+    "The sheet supports both mouse selection and number-key quick use mappings."
+  ],
+  "differences": [
+    "This file covers in-battle hand cards and quick-read card faces.",
+    "The post-battle reward selection panel remains in a later UI task."
+  ],
+  "depends_on": [
+    "task_id_000000925",
+    "task_id_000000927"
+  ],
+  "blocks": [
+    "task_id_000000930"
+  ],
+  "blocked_by": [
+    "task_id_000000925",
+    "task_id_000000927"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000923",
+      "task_id_000000925",
+      "task_id_000000927",
+      "task_id_000000928",
+      "task_id_000000930"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for combining magical ornamentation with clean high-contrast card readability."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for sizing the hand fan so cards do not cover the student sprite."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_6x2",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "CardFace",
+      "HandSlot",
+      "OverlayUi"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/ui_card_hand_conversion_set.png during DuelLoading and cache the atlas under ui_card_hand_conversion_set.",
+    "runtime_notes": [
+      "Frame order is water, fire, thunder, ice, inversion, amplify, split, time_warp, dark_absorb, perfect_reflect, light_refract, poison_inject.",
+      "Card face art is static while cost pips and level text can be overlaid through runtime text or icon sprites.",
+      "Fan five active cards across the lower band and keep each card root on integer positions to avoid shimmer during hover lift."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "battle_card_hand",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        990
+      ]
+    },
+    "layer": "ui",
+    "usage": "Card faces shown in the bottom hand, reward previews, and deck inspection popups during battle."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 260
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#BDC3C7",
+      "#FF4500",
+      "#1E90FF",
+      "#FFD700",
+      "#B0E0E6",
+      "#98FB98",
+      "#9B59B6",
+      "#FFFACD",
+      "#2C2C2C",
+      "#00FFFF"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 12,
+      "frame_size_px": [
+        180,
+        260
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 2
+      },
+      "state_ranges": [
+        {
+          "state": "water",
+          "start_frame": 0,
+          "end_frame": 0
+        },
+        {
+          "state": "fire",
+          "start_frame": 1,
+          "end_frame": 1
+        },
+        {
+          "state": "thunder",
+          "start_frame": 2,
+          "end_frame": 2
+        },
+        {
+          "state": "ice",
+          "start_frame": 3,
+          "end_frame": 3
+        },
+        {
+          "state": "inversion",
+          "start_frame": 4,
+          "end_frame": 4
+        },
+        {
+          "state": "amplify",
+          "start_frame": 5,
+          "end_frame": 5
+        },
+        {
+          "state": "split",
+          "start_frame": 6,
+          "end_frame": 6
+        },
+        {
+          "state": "time_warp",
+          "start_frame": 7,
+          "end_frame": 7
+        },
+        {
+          "state": "dark_absorb",
+          "start_frame": 8,
+          "end_frame": 8
+        },
+        {
+          "state": "perfect_reflect",
+          "start_frame": 9,
+          "end_frame": 9
+        },
+        {
+          "state": "light_refract",
+          "start_frame": 10,
+          "end_frame": 10
+        },
+        {
+          "state": "poison_inject",
+          "start_frame": 11,
+          "end_frame": 11
+        }
+      ]
+    },
+    "layout_notes": [
+      "Card frame leaves a 28px title band, a 24px cost orb, and a large icon field for elemental readability.",
+      "Five-card hand fits inside x=250..1670 with 24px overlap on idle fan layout.",
+      "Frame ornament intensity increases on higher-cost utility cards but the silhouette remains consistent."
+    ],
+    "shape": {
+      "silhouette": "Portrait fantasy cards with arched gold frames, top title band, side cost orb, and center spell icon.",
+      "components": [
+        "card frame",
+        "title band",
+        "cost orb",
+        "element icon field",
+        "rarity trim",
+        "description stub zone"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_card_hand_conversion_set.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 1080x520px with twelve 180x260 card frames and no padding.",
+    "All twelve named card types are distinguishable by icon silhouette and accent color in a compressed hand layout.",
+    "Cost orb and title band remain readable while cards overlap by 24px in the default fan arrangement.",
+    "No card art extends outside the documented frame bounds or clips when lifted on hover."
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_obstacle_pterodactyl_fly",
+  "asset_name": "pterodactyl_fly",
+  "category": "obstacle",
+  "subcategory": "pterodactyl",
+  "description": "Create Pterodactyl flying animation as a 2-frame sprite sheet. Frame size 92x80 px. Sprite sheet size 184x80 px (2 frames laid out left-to-right). Use only #535353 for visible pixels with transparent background. Animation: 2 frames at 10 FPS looping. Frame 0: wings up. Frame 1: wings down.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/sprites/obstacles/pterodactyl_fly_2f_10fps_184x80_1x.png",
+      "type": "sprite_sheet",
+      "format": "PNG",
+      "notes": "Spawn y variants: 50 px (Low) or 80 px (High) above ground baseline."
+    }
+  ],
+  "specs": {
+    "dimensions": "184x80",
+    "frame_size": "92x80",
+    "animation": {
+      "frames": 2,
+      "fps": 10,
+      "loop": true,
+      "layout": "horizontal"
+    },
+    "hitbox": {
+      "size_px": "89x77",
+      "offset_px": "(2,2)"
+    },
+    "colors_hex": [
+      "#535353"
+    ],
+    "outline": {
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    }
+  },
+  "context": {
+    "role": "Air obstacle; forces ducking input for Low variant.",
+    "screen_location": "Spawn at x=screen_width+50. Y=50 px (Low) or Y=80 px (High) above ground baseline.",
+    "adjacent_elements": "Must be visually distinct from cactus (wings + beak silhouette). Keep wings within 92x80 frame.",
+    "layer": "obstacle_sprite",
+    "usage": "Only spawns when Current_Score >= 200."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_character_player_duck"
+    ],
+    "shared_properties": [
+      "#535353 only",
+      "2-frame loop animation"
+    ],
+    "differences": [
+      "Pterodactyl uses 10 FPS and 92x80 frame size; duck uses 12 FPS and 118x60 frame size."
+    ]
+  },
+  "depends_on": [
+    "cdr_v1_obstacle_cactus_small"
+  ],
+  "execution_order": 12,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_v1_obstacle_cactus_small"
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet PNG is exactly 184x80 px; each frame is exactly 92x80 px.",
+    "Only #535353 used for visible pixels; background alpha=0.",
+    "Frame 0 and Frame 1 share the same body anchor point (head/body does not shift >1 px); only wings move.",
+    "Animation loops cleanly at 10 FPS."
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 3,
+    "prompt_version_used": "Assembled_Prompt_trial_4",
+    "concepts_used": [
+      "Concept_v2_Invariance.md v1.2",
+      "Concept_v3_Structurality.md v1.1",
+      "Concept_v4_Completeness.md v1.1"
+    ],
+    "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+    "gameplay_constraints": {
+      "screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "scrolling": "single_screen_no_camera_scroll_objects_move_left"
+    },
+    "art_direction": {
+      "style": "pixel_art_8bit",
+      "theme": "prehistoric_desert",
+      "rendering_rules": {
+        "pixel_perfect": true,
+        "anti_aliasing": false,
+        "subpixel_movement_in_art": false
+      },
+      "palette": [
+        {
+          "name": "Background",
+          "hex": "#F7F7F7",
+          "rgb": [
+            247,
+            247,
+            247
+          ],
+          "usage": [
+            "sky_background"
+          ]
+        },
+        {
+          "name": "Primary",
+          "hex": "#535353",
+          "rgb": [
+            83,
+            83,
+            83
+          ],
+          "usage": [
+            "sprites",
+            "ui_text",
+            "ground_line",
+            "clouds"
+          ]
+        },
+        {
+          "name": "Highlight",
+          "hex": "#FF0000",
+          "rgb": [
+            255,
+            0,
+            0
+          ],
+          "usage": [
+            "optional_game_over_state_indicator"
+          ]
+        },
+        {
+          "name": "White",
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "usage": [
+            "ui_flash_optional",
+            "screen_flash_optional"
+          ]
+        }
+      ],
+      "outline_standard": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "sprite_standards": {
+      "authoring_scale": "1x",
+      "runtime_scaling_support": [
+        "2x_nearest_neighbor"
+      ],
+      "file_format": "png",
+      "alpha_background": "transparent",
+      "naming_convention": "snake_case"
+    },
+    "source_trace": {
+      "gdd_files": [
+        "00_Global_Architecture/Art_Direction.md",
+        "00_Global_Architecture/Game_Direction.md",
+        "02_Objects/Player.md",
+        "02_Objects/Cactus.md",
+        "02_Objects/Pterodactyl.md",
+        "02_Objects/Ground.md",
+        "03_UI_Widgets/ScoreDisplay.md",
+        "03_UI_Widgets/GameOverScreen.md",
+        "04_World/Background.md"
+      ]
+    }
+  },
+  "task_id": "cdr_character_player_dead",
+  "asset_name": "player_dead",
+  "category": "character",
+  "subcategory": "player",
+  "description": "플레이어(T-Rex) 스프라이트: 상태 dead.\n- 스타일: 픽셀 아트, 1px 그리드, 안티앨리어싱 없음.\n- 색상: #535353 단색(알파=255), 배경 투명(alpha=0).\n- 시점: 측면(side view), 진행 방향은 오른쪽을 바라봄(머리/코가 오른쪽).\n- 외곽선: 2px 두께의 외곽 실루엣을 유지(Art Direction 규격).\n- 프레임 크기: 88x94 px.\n- 애니메이션: 정지(1 프레임).\n- 실루엣 구성(정량):\n  - 전체 실루엣 바운딩 박스(불투명 픽셀 영역): 가로 70~78px, 세로 54~84px 범위로 구성(프레임 내 좌우 최소 5px, 상단 최소 5px 투명 여백 유지).\n  - 머리: 가로 26px, 세로 22px 직사각형 기반; 코(주둥이) 10px가 오른쪽으로 돌출.\n  - 몸통: 가로 34px, 세로 28px 직사각형 기반; 꼬리: 가로 22px, 세로 10px가 왼쪽으로 돌출.\n  - 눈: #F7F7F7 픽셀 2x2 블록 1개 + 동공 #535353 1px 1개(위치: 머리 영역 내부, 주둥이 시작점에서 왼쪽으로 8px, 위에서 8px).\n  - 입/치아/무늬/그라데이션/그림자: 없음.\n  - 발(런/덕 상태 제외): 2개, 각 발은 6x6px 블록 기반(실루엣 하단 접지).\n- 사망 포즈: 눈(흰자 2x2) 대신 X 표시(각 X는 5x5px, 대각선 1px 두께, 색상 #535353)로 대체(선택이 아니라 필수).",
+  "deliverables": [
+    {
+      "path": "art/export/character/player_dead_88x94.png",
+      "type": "png",
+      "description": "플레이어 dead 1프레임 PNG",
+      "dimensions": "88x94"
+    }
+  ],
+  "specs": {
+    "dimensions": {
+      "frame_px": "88x94",
+      "sheet_px": "88x94",
+      "pivot_recommendation_px": {
+        "x": 20,
+        "y": 92
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353"
+    ],
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    },
+    "animation": {
+      "animated": false,
+      "frame_count": 1,
+      "fps": null,
+      "loop": false,
+      "layout": "horizontal",
+      "frame_order": [
+        "f0"
+      ]
+    },
+    "background": {
+      "transparent": true
+    }
+  },
+  "context": {
+    "role": "플레이어 캐릭터 상태(dead) 표현.",
+    "screen_location": "화면 좌측(고정 X=100) 부근, 바닥 라인(y=0) 위에 접지.",
+    "adjacent_elements": [
+      "ground_line_tile",
+      "cactus_*",
+      "pterodactyl_fly",
+      "ui_score_display_spec"
+    ],
+    "layer": "gameplay_actor_layer",
+    "usage": "충돌 즉시 1프레임으로 전환 후 고정."
+  },
+  "relationships": {
+    "related_tasks": [
+      "cdr_character_player_run",
+      "cdr_character_player_jump",
+      "cdr_character_player_duck",
+      "cdr_character_player_dead",
+      "cdr_character_player_idle",
+      "cdr_obstacle_cactus_small",
+      "cdr_obstacle_pterodactyl_fly",
+      "cdr_environment_ground_line_tile"
+    ],
+    "shared_properties": [
+      "색상 #535353 단색 실루엣.",
+      "측면 시점, 오른쪽을 바라봄.",
+      "프레임 상단/좌우에 투명 여백 유지."
+    ],
+    "differences": [
+      "상태=dead, 프레임=1, FPS=N/A, 크기=88x94."
+    ]
+  },
+  "depends_on": [
+    "cdr_character_player_run"
+  ],
+  "execution_order": 9,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_character_player_run"
+  ],
+  "acceptance_criteria": [
+    "모든 산출물 PNG는 sRGB, 투명 배경(alpha=0)이며, 안티앨리어싱/블러/그라데이션이 0px/0단계로 존재하지 않는다.",
+    "팔레트는 프로젝트 팔레트(#F7F7F7, #535353, #FF0000(선택), #FFFFFF(선택)) 외의 색상을 포함하지 않는다.",
+    "프레임 단위 크기가 88x94 px이다.",
+    "배경은 완전 투명(alpha=0)이며, 캐릭터 픽셀은 alpha=255이다.",
+    "캐릭터 픽셀 색상은 #535353, 눈 흰자는 #F7F7F7만 사용한다.",
+    "오른쪽을 바라보는 실루엣(주둥이/머리가 오른쪽)이다."
+  ]
+}

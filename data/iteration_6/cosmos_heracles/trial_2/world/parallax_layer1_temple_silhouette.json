@@ -1,0 +1,84 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "world.parallax.layer1_temple_silhouette",
+  "asset_name": "Parallax Layer 1: Distant Temple Silhouette",
+  "category": "world",
+  "group_id": "world.parallax.layer1",
+  "variant_role": "standalone",
+  "priority": "P0",
+  "execution_order": 2,
+  "depends_on": [
+    "world.parallax.layer0_nebula_stars"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.parallax.layer2_column_backdrop"
+    ]
+  },
+  "context": {
+    "role": "background_parallax",
+    "screen_position": {
+      "type": "screen_space",
+      "anchor": "full_screen",
+      "resolution_px": [
+        1600,
+        900
+      ]
+    },
+    "layer": "parallax_layer1",
+    "usage": "Mid-far background: temple silhouettes (scroll speed x0.3).",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 1024,
+      "height_px": 900
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#1B1D35"
+      },
+      "secondary": [
+        {
+          "name": "shadow",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "large blocky greek-temple silhouettes with columns and pediments, kept in dark values",
+      "components": [
+        "temple_rooflines",
+        "column_rows",
+        "broken_arches"
+      ]
+    }
+  },
+  "description": "Create Layer 1 parallax silhouette of floating greek-temple structures. Keep shapes readable but low-detail; use dark tones close to #0B0C1E. Must tile horizontally.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "world/parallax_layer1_temple_silhouette.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1024x900 px",
+    "Tiles seamlessly horizontally",
+    "Silhouettes occupy roughly lower 60% of frame leaving upper space for sky"
+  ]
+}

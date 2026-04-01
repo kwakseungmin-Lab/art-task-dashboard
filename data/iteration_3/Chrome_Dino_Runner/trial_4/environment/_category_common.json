@@ -1,0 +1,17 @@
+{
+  "base_size": {
+    "width": "variable",
+    "height": "variable"
+  },
+  "color_scheme": {
+    "primary": "#535353",
+    "secondary": "#F7F7F7"
+  },
+  "shared_attributes": {
+    "style": "minimalist pixel art environment",
+    "color": "monochrome or background colors only",
+    "purpose": "provide spatial reference and depth",
+    "movement": "parallax scrolling at varying speeds",
+    "collision": "ground provides landing reference, background is non-interactive"
+  }
+}

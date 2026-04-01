@@ -1,0 +1,17 @@
+{
+  "base_size": {
+    "width": "1200px",
+    "height": "150px"
+  },
+  "color_scheme": {
+    "primary": "#535353",
+    "secondary": "#F7F7F7"
+  },
+  "shared_attributes": {
+    "style": "pixel art minimal",
+    "outline": "2px for objects",
+    "color_mode": "monochrome",
+    "anti_aliasing": "none",
+    "scrolling": "horizontal left"
+  }
+}

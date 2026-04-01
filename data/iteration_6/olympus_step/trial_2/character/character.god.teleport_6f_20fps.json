@@ -1,0 +1,134 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.god.teleport_6f_20fps",
+  "asset_name": "Player God — Teleport Hop (48x48, 6 frames, 20fps)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 31,
+  "variant_of": "character.god.idle_4f_5fps",
+  "shared_properties": {
+    "sprite_size_px": [
+      48,
+      48
+    ],
+    "outline": "1px",
+    "halo_presence": true,
+    "palette_accent_hex": "#FBBF24"
+  },
+  "differences": {
+    "animation": {
+      "frame_count": 6,
+      "fps": 20,
+      "loop": false
+    },
+    "adds_afterimages": true,
+    "adds_trail_color_hex": "#06B6D4"
+  },
+  "depends_on": [
+    "character.god.idle_4f_5fps"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.god.idle_4f_5fps",
+      "obstacles.effect.teleport_trail_48x48_3f_20fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "player_teleport",
+    "layer": "character_effect",
+    "usage": "Played for each hop during teleport execution; includes afterimage silhouettes.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "grid_rules": {
+      "tile_size_px": [
+        64,
+        64
+      ],
+      "sprite_anchor": "center",
+      "sprite_size_px": [
+        48,
+        48
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#F8FAFC",
+      "#FEF3C7",
+      "#FBBF24",
+      "#06B6D4",
+      "#1E1B4B"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 20,
+      "loop": false,
+      "frame_size_px": [
+        48,
+        48
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "effect_notes": {
+      "afterimage_count": 3,
+      "afterimage_alpha_percent": 30,
+      "trail_color_hex": "#06B6D4"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.god.teleport_6f_20fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 288x48px (6 frames × 48x48) with 0px spacing.",
+    "Frames 2-5 show three afterimages behind the main silhouette using #06B6D4 at 30% opacity.",
+    "Uses only listed colors and transparency; no anti-aliasing."
+  ]
+}

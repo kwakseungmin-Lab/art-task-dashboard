@@ -1,0 +1,79 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "varies by element"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bars": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "view_type": "interior view (no cage bars visible)",
+      "perspective": "flat 2D front-facing",
+      "lighting": "uniform (no shadows)"
+    }
+  },
+  "asset": {
+    "asset_id": "floor",
+    "asset_name": "Cage Floor",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Bottom area of cage where poop accumulates; swipe target for cleaning",
+      "screen_position": "Bottom section from y=110 to y=128, full width 128px",
+      "adjacent_elements": ["poop", "food_bowl", "water_bowl", "cage_background"],
+      "usage_scenario": "Interactive area for cleaning (swipe gesture); visual container for poop objects"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "128px",
+        "height": "18px"
+      },
+      "colors": {
+        "main": "#FFCCAA"
+      },
+      "shape": "Horizontal rectangular strip at bottom of screen",
+      "texture": "Flat pixel art; optional subtle pixel pattern for paper/substrate texture",
+      "outline": "Optional 1px darker line at y=110 to separate from main cage area",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static floor, no animation"
+      },
+      "details": "18px tall horizontal strip; #FFCCAA color (lighter than perch); may have subtle 1-2px random darker pixels for texture; top edge at y=110 may have 1px #AB5236 separator line"
+    },
+    "relationships": {
+      "related_assets": ["poop", "food_bowl", "water_bowl", "sparkle_effect"],
+      "shared_with": "Provides base for poop placement and bowls",
+      "differences_from": "cage_background (interactive area vs passive background)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no perspective",
+      "no grid pattern",
+      "no newspaper text",
+      "no shadows",
+      "no 3D depth"
+    ]
+  }
+}

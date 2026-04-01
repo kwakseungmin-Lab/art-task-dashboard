@@ -1,0 +1,224 @@
+{
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": "v4",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "base_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "camera": {
+      "view": "2d_front",
+      "projection": "orthographic",
+      "rotation_deg": 0,
+      "tilt_deg": 0
+    },
+    "rendering": {
+      "style": "hand_drawn_pixel_art",
+      "pixel_grid": {
+        "enabled": true,
+        "pixel_size_px": 1,
+        "anti_aliasing": false
+      },
+      "scaling": "nearest_neighbor",
+      "color_mode": "indexed",
+      "max_colors": 16,
+      "dithering": {
+        "allowed": false,
+        "pattern": "none"
+      },
+      "gradients": {
+        "allowed": false
+      },
+      "outline": {
+        "default": {
+          "enabled": false,
+          "thickness_px": 0,
+          "color": null
+        },
+        "ui_border": {
+          "enabled": true,
+          "thickness_px": 1,
+          "color": "#1D2B53"
+        }
+      }
+    },
+    "palette_pico8_16": [
+      {
+        "index": 0,
+        "name": "black",
+        "hex": "#000000"
+      },
+      {
+        "index": 1,
+        "name": "dark_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "index": 2,
+        "name": "dark_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "index": 3,
+        "name": "dark_green",
+        "hex": "#008751"
+      },
+      {
+        "index": 4,
+        "name": "brown",
+        "hex": "#AB5236"
+      },
+      {
+        "index": 5,
+        "name": "dark_gray",
+        "hex": "#5F574F"
+      },
+      {
+        "index": 6,
+        "name": "light_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "index": 7,
+        "name": "cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "index": 8,
+        "name": "red_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "index": 9,
+        "name": "orange",
+        "hex": "#FFA300"
+      },
+      {
+        "index": 10,
+        "name": "yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "index": 11,
+        "name": "green",
+        "hex": "#00E436"
+      },
+      {
+        "index": 12,
+        "name": "blue",
+        "hex": "#29ADFF"
+      },
+      {
+        "index": 13,
+        "name": "lavender",
+        "hex": "#83769C"
+      },
+      {
+        "index": 14,
+        "name": "light_pink",
+        "hex": "#FF77A8"
+      },
+      {
+        "index": 15,
+        "name": "peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "layer_order": [
+      "background",
+      "cage_environment",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "export": {
+      "file_format": "png",
+      "background": "transparent",
+      "compression": "lossless",
+      "metadata": {
+        "include": false
+      }
+    },
+    "asset_naming": {
+      "case": "snake_case",
+      "separator": "_",
+      "task_id_prefix": "pico_echo"
+    },
+    "asset_output_root": {
+      "source": "art/pico_echo/source",
+      "export": "art/pico_echo/export"
+    }
+  },
+  "task_id": "pico_echo.environment.cage_backwall",
+  "asset_name": "cage_backwall",
+  "category": "environment",
+  "subcategory": "cage",
+  "description": "Create a 128x128px background layer for the cage interior. Fill entire canvas with background wall color #FFF1E8. Draw cage bars as 1px-thick vertical lines in color #C2C3C7 at x positions 0,8,16,...,120,127 spanning y=0..109. Draw a 1px-thick horizontal bar in #C2C3C7 at y=0 across x=0..127. Do not draw perch, bowls, floor, Echo, UI, or any particles on this layer.",
+  "deliverables": [
+    {
+      "type": "source",
+      "path": "art/pico_echo/source/environment/cage_backwall.aseprite",
+      "format": "aseprite",
+      "notes": "Aseprite source file with layers and frames (no palette outside pico8_16)."
+    },
+    {
+      "type": "export",
+      "path": "art/pico_echo/export/environment/cage_backwall.png",
+      "format": "png",
+      "notes": "PNG export (indexed color, 16-color palette, nearest-neighbor scaling)."
+    }
+  ],
+  "specs": {
+    "dimensions": "128x128",
+    "color_constraints": [
+      "#FFF1E8",
+      "#C2C3C7"
+    ],
+    "bar_pattern": {
+      "x_step_px": 8,
+      "bar_thickness_px": 1,
+      "bar_y_range": "0..109"
+    }
+  },
+  "context": {
+    "role": "Static cage interior wall + bars; rendered behind all gameplay elements.",
+    "screen_location": "Full screen (0,0) to (127,127).",
+    "adjacent_elements": [
+      "cage_perch at (24,80)",
+      "cage_floor at y=110..127"
+    ],
+    "layer": "background",
+    "usage": "Always visible during gameplay."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.environment.cage_perch",
+      "pico_echo.environment.cage_floor"
+    ],
+    "relationship_notes": [
+      "This asset must not contain any pixels that belong to perch/floor/bowls; those are separate tasks for layering control."
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 1,
+  "priority": "P0",
+  "blocks": [
+    "pico_echo.environment.cage_perch",
+    "pico_echo.environment.cage_floor",
+    "pico_echo.environment.food_bowl_empty",
+    "pico_echo.environment.food_bowl_low",
+    "pico_echo.environment.food_bowl_full",
+    "pico_echo.environment.water_bowl"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 128x128 px.",
+    "All pixels are either #FFF1E8 or #C2C3C7.",
+    "Vertical bars exist at x=0,8,16,...,120,127 and are 1px thick for y=0..109.",
+    "No perch/bowl/floor pixels exist (verify y=80..83 contains only #FFF1E8/#C2C3C7 bar pixels).",
+    "Allowed colors: only pico8_16 palette. Hard fail if any pixel uses a hex value not in the palette list."
+  ]
+}

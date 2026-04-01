@@ -1,0 +1,170 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050002",
+  "asset_key": "umbra_echo_marker",
+  "asset_name": "Umbra Echo Marker",
+  "category": "character",
+  "subcategory": "support_summon",
+  "priority": "P1",
+  "execution_order": 20,
+  "variant_of": "task_id_008050001",
+  "variant_of_asset_key": "umbra_player_core_states",
+  "shared_properties": [
+    "The Echo reuses Umbra’s silhouette family, palette discipline, and hard-edge lighting so all shadow actors feel related.",
+    "Every frame keeps authored transparency cues compatible with Bevy sprite tinting rather than premultiplying the halo into the whole frame.",
+    "The summon footprint aligns to the same floor baseline and 32 px placement grid used by the scale puzzle."
+  ],
+  "differences": [
+    "The Echo omits jump and run motion and instead focuses on a calm shimmer that communicates fixed weight placement.",
+    "The frame interior uses more Shadow Teal edging than the player body so the support role is readable without UI text.",
+    "A brighter ground ring indicates pick-up eligibility and the exact support contact zone."
+  ],
+  "depends_on": [
+    "task_id_008050001",
+    "task_id_008050005"
+  ],
+  "blocks": [
+    "task_id_008050009"
+  ],
+  "blocked_by": [
+    "task_id_008050001",
+    "task_id_008050005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050001",
+      "task_id_008050005",
+      "task_id_008050009"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    },
+    {
+      "label": "umbra_character_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra body proportions, head silhouette, claw shapes, and echo-friendly shadow anatomy."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_2x2",
+    "ecs_components": [
+      "UmbraEchoTag",
+      "WeightMarkerVisual",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load umbra_echo_marker.png during Loading and build a 2x2 atlas that supports idle shimmer, placed marker, and pickup-ready states for up to two active echoes.",
+    "runtime_notes": [
+      "Render the echo at 50% opacity with additive edge light so it reads as allied shadow mass instead of a second player body.",
+      "Snap placement to the same 32 px grid used by the scale rig to keep torque calculations visually trustworthy.",
+      "Preserve one fixed foot marker and one soft halo so the echo remains readable when stacked near other weight objects."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "deployable_weight_echo",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        420,
+        744
+      ]
+    },
+    "layer": "character",
+    "usage": "Displayed when the player summons or repositions an Echo to satisfy balance targets on puzzle floors."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 288
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        96,
+        144
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    "weight_profile": {
+      "unit_weight": 1.0,
+      "max_active_instances": 2
+    },
+    "hitbox_px": {
+      "width": 20,
+      "height": 32,
+      "offset_px": [
+        38,
+        100
+      ]
+    },
+    "silhouette_notes": [
+      "Echo proportions mirror Umbra but stay shorter and rounder so the summon reads as support instead of primary control.",
+      "A faint ground halo marks the exact contact point used for torque math.",
+      "The head and shoulder silhouette must remain visible even at 50% opacity."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/umbra_echo_marker.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 192x288 px for four 96x144 frames with no frame gutter.",
+    "The contact ring remains centered beneath the body in every frame so torque readouts do not appear visually offset.",
+    "At 50% opacity the Echo stays readable over both Void Black and Amber Dusk test backgrounds."
+  ]
+}

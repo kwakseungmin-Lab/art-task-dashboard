@@ -1,0 +1,18 @@
+{
+  "category": "environment",
+  "base_size": {
+    "width": "varies by element",
+    "height": "varies by element"
+  },
+  "color_scheme": {
+    "primary": "#FFF1E8",
+    "secondary": "#C2C3C7",
+    "accent": "#AB5236"
+  },
+  "shared_attributes": {
+    "sprite_type": "static pixel art",
+    "animation_method": "none (static elements)",
+    "layer_order": 1,
+    "rendering": "background layer, always visible"
+  }
+}

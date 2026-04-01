@@ -1,0 +1,150 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050013",
+  "asset_name": "HP Torch Icon Atlas",
+  "category": "ui",
+  "subcategory": "hud_icon",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": [
+    "HUD icons keep an 8px pixel font scale so they match the rest of the interface.",
+    "Torch palette stays within dungeon amber and dark ember tones for immediate health readability.",
+    "Outline weight remains 1px to hold clarity against the dark backdrop."
+  ],
+  "differences": [
+    "Atlas is 16x8px with one filled torch frame and one empty torch frame in a single row.",
+    "Filled state emphasizes #F5A623 while the spent state drops to #3D2B00.",
+    "The art is authored for three repeated instances aligned in the top-left HUD cluster."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050007",
+      "task_id_008050008",
+      "task_id_008050009",
+      "task_id_008050017"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_hp",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        8,
+        8
+      ]
+    },
+    "layer": "ui",
+    "usage": "HP display atlas used to show full and empty torch icons at the top-left corner.",
+    "adjacent_elements": [
+      "task_id_008050007",
+      "task_id_008050008",
+      "task_id_008050009",
+      "task_id_008050017"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_screen",
+      "facing": "forward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 8
+    },
+    "colors_hex": [
+      "#F5A623",
+      "#3D2B00",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        8,
+        8
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Compact torch icon with a bright flame cap and dark handle.",
+      "tiling": "Not tiled.",
+      "collision_read": "UI-only asset with no collision meaning."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_hp_torch_icons.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas size is exactly 16x8px with two 8x8px frames.",
+    "Filled and empty states remain distinguishable when three icons are placed in a 32px-wide HUD row.",
+    "The darkest ember pixels keep enough contrast against #0D0D0F to remain visible in the HUD corner."
+  ],
+  "asset_key": "ui_hp_torch_icons",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds HUD contrast, muted dungeon palette, and low-saturation screen overlays for the active widget."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Texture-atlas-backed UI image instances spawned inside an HUD node.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "Style",
+      "UiNode",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer during the Loading state and keep the atlas handle in an HUD resource.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Anchor the icon row to whole pixels at the top-left safe area.",
+      "Swap atlas indices instead of tinting one sprite so full and empty states stay deterministic."
+    ]
+  }
+}

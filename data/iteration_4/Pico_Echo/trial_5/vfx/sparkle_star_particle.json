@@ -1,0 +1,168 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.vfx.sparkle_star_particle",
+  "asset_name": "Sparkle star particle",
+  "category": "vfx",
+  "subcategory": "clean",
+  "description": "Sprite 3x3px, transparent background. Star shape in #FFF1E8 using exactly 5 pixels: (1,0),(0,1),(1,1),(2,1),(1,2).",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/vfx/sparkle_star_3x3.png",
+      "format": "png",
+      "type": "particle_sprite"
+    }
+  ],
+  "specs": {
+    "dimensions": "3x3",
+    "filled_pixels": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "palette_hex": [
+      "#FFF1E8"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Spawn 3 sparkles after cleaning; lifetime 0.5s.",
+    "screen_location": "Over floor band.",
+    "adjacent_elements": [
+      "broom_swipe_animation"
+    ],
+    "layer": "vfx",
+    "usage": "One-shot particle."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.vfx.broom_swipe_animation"
+    ],
+    "shared_properties": [
+      "Uses #FFF1E8"
+    ],
+    "differences": [
+      "Very small particle sprite."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.vfx.broom_swipe_animation"
+  ],
+  "execution_order": 13,
+  "priority": "P2",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.vfx.broom_swipe_animation"
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 3x3px.",
+    "Exactly 5 filled pixels exist at the specified coordinates.",
+    "Only #FFF1E8 and transparent exist."
+  ]
+}

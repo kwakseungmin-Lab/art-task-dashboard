@@ -1,0 +1,189 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008001008",
+  "asset_key": "player_prisoner_hit_2f_12fps",
+  "asset_name": "Player Prisoner Hit Flash",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P1",
+  "execution_order": 80,
+  "variant_of": "task_id_008001005",
+  "variant_of_asset_key": "player_prisoner_fall_4f_8fps",
+  "shared_properties": [
+    "16x24 source frame size.",
+    "Core prisoner silhouette with shackles and tunic hem.",
+    "Nearest-neighbor pixel treatment and 1 px outline."
+  ],
+  "differences": [
+    "Torso compresses and the head snaps backward.",
+    "A red flash band crosses the torso and upper legs.",
+    "Animation does not loop and plays at 12 fps."
+  ],
+  "depends_on": [
+    "task_id_008001005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008001005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008001005",
+      "task_id_008001009",
+      "task_id_008001010",
+      "task_id_008001014",
+      "task_id_008001017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the short hit state and restore the active movement atlas after the invulnerability timer begins.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerStateSprite",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_prisoner_hit_2f_12fps.png through AssetServer and play it as a non-looping atlas on damage.",
+    "runtime_notes": [
+      "This state plays once at 12 fps and then returns to fall or brake animation.",
+      "The hurt flash pairs with a 1.5 second invulnerability timer controlled outside the atlas.",
+      "The pivot matches the base state so knockback-free damage remains visually stable."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "player_damage_feedback",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        220
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Damage state triggered by spikes or saw contact, with a compressed pose and a hot flash that reads during the invulnerability window.",
+    "adjacent_elements": [
+      "player_prisoner_fall_4f_8fps",
+      "obstacle_spike_cluster_static_48x16",
+      "ui_hp_torch_strip_3slot_24x8"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#E07B39",
+      "#8B2020",
+      "#F5A623"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 2,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compressed prisoner silhouette with a backward head snap, lifted knees, and a hot red flash band across the torso.",
+      "components": [
+        "head_snap",
+        "compressed_torso",
+        "lifted_knees",
+        "flash_band",
+        "ankle_shackles"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "single pixel pair",
+        "size_px": [
+          2,
+          1
+        ]
+      },
+      "mouth": {
+        "shape": "open notch",
+        "length_px": 2
+      },
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 6
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 8
+      },
+      "tail": null,
+      "accessories": "Ankle shackles and a waist chain."
+    },
+    "texture": "Shared tunic folds with a saturated red hit flash overlay.",
+    "shading": "Flat pixel shading with one-frame flash emphasis."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_prisoner_hit_2f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 32x24 px with two 16x24 frames.",
+    "Red flash coverage occupies at least 20 percent of the torso area in frame 1.",
+    "The hit pose keeps the feet inside the base 16 px frame width."
+  ]
+}

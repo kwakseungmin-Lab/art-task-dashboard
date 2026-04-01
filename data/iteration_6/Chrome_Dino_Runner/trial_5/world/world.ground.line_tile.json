@@ -1,0 +1,84 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.ground.line_tile",
+  "asset_name": "Ground - Line Tile",
+  "category": "world",
+  "subcategory": "ground",
+  "priority": "P0",
+  "execution_order": 14,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground",
+    "layer": "world_front",
+    "usage": "Scrollable baseline line; tiled seamlessly for infinite runner",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "origin": "ground_baseline"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 2
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground.line_tile.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Image is exactly 1200x2px and contains a continuous horizontal line using #535353 pixels.",
+    "Left and right edges tile seamlessly with no visible jump when repeated at 1x scale.",
+    "Line thickness is exactly 2px and there are no pixels above the 2px band."
+  ]
+}

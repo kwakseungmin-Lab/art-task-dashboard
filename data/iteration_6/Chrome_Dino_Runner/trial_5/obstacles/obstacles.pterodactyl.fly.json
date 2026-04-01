@@ -1,0 +1,97 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.pterodactyl.fly",
+  "asset_name": "Pterodactyl - Fly",
+  "category": "obstacles",
+  "subcategory": "pterodactyl",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "obstacle",
+    "layer": "gameplay",
+    "usage": "Air obstacle spawned at y=50 or y=80 and moves right-to-left",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 650,
+      "y": 50,
+      "origin": "ground_baseline",
+      "allowed_y_values_px": [
+        50,
+        80
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 80
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 2,
+      "fps": 10,
+      "loop": true,
+      "frame_order": [
+        0,
+        1
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.pterodactyl.fly.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet contains exactly 2 frames at 92x80px each; total sheet width is 184px and height is 80px.",
+    "Wing position alternates clearly between frames and the loop is seamless at 10 FPS.",
+    "Uses only #535353 for pixels and transparent/#F7F7F7 for non-obstacle pixels; no anti-aliasing."
+  ]
+}

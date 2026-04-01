@@ -1,0 +1,138 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.button.hint",
+  "asset_name": "Hint Button",
+  "category": "ui",
+  "subcategory": "button_widget",
+  "priority": "P1",
+  "execution_order": 23,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This asset provides one-use hint affordance with clear enabled and disabled contrast."
+  ],
+  "depends_on": [
+    "ui.hud.top_bar"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.top_bar"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.top_bar",
+      "ui.overlay.trajectory_guide"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "hint_trigger_button",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 24,
+      "y": 14,
+      "width": 60,
+      "height": 24,
+      "anchor": "top_left"
+    },
+    "layer": "ui_control",
+    "usage": "Placed under the stage title and toggles a single-use hint visualization.",
+    "viewpoint": {
+      "camera_angle": "ui_front",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "ui.hud.top_bar",
+      "ui.overlay.trajectory_guide",
+      "ui.screen.result_panel"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 60,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#E8D5C4",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#A89880"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "enabled",
+      "states": [
+        {
+          "name": "enabled",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "disabled",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "press",
+          "frame_count": 2,
+          "fps": 12
+        }
+      ]
+    },
+    "notes": [
+      "Corner radius is 6 px and inner padding is 10 px horizontal.",
+      "Disabled state uses #A89880 for fill with the text still at #3D2B1F."
+    ],
+    "shape": {
+      "silhouette": "rounded rectangular hint button with an inset icon circle and label band",
+      "components": [
+        "button body",
+        "icon circle",
+        "label band",
+        "pressed shadow"
+      ]
+    }
+  },
+  "deliverables": [
+    "Enabled button export 60x24 px.",
+    "Disabled button export 60x24 px.",
+    "2-frame press response."
+  ],
+  "acceptance_criteria": [
+    "Widget size is exactly 60x24 px.",
+    "Enabled and disabled states are both present.",
+    "Press response contains 2 frames at 12 fps."
+  ]
+}

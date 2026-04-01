@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.button.reset_path_120x36",
+  "asset_name": "Button — Reset Path (120x36)",
+  "category": "ui",
+  "subcategory": "button",
+  "priority": "P1",
+  "execution_order": 67,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "button_reset_path",
+    "layer": "ui",
+    "usage": "Bottom-left button that resets the current planned path; also triggered by the R key.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": [
+        12,
+        20
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "screen_space_orthographic",
+      "facing": "front",
+      "framing": "panel_or_overlay"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 36
+    },
+    "colors_hex": [
+      "#6B7280",
+      "#1C1917",
+      "#FEF3C7",
+      "#EF4444"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        120,
+        36
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "layout_rules": {
+      "border_px": 2,
+      "text_centered": true,
+      "corner_radius_px": 6
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.button.reset_path_120x36.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Asset is exactly 120x36px with a 2px border using #6B7280 and fill using #1C1917.",
+    "Supports rendering \"RESET\" using 8x8 bitmap font without clipping.",
+    "No anti-aliasing; uses only listed colors and transparency."
+  ]
+}

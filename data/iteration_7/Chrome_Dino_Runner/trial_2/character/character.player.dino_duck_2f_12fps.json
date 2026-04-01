@@ -1,0 +1,141 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.dino_duck_2f_12fps",
+  "asset_name": "Player Dino Duck Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "character.player.dino_idle_2f_6fps",
+  "shared_properties": [
+    "Head, torso, and tail language follow the idle base character model.",
+    "Core palette remains #535353 with transparent background cutout only.",
+    "Two-frame motion keeps the same 12 FPS cadence as the running loop."
+  ],
+  "differences": [
+    "Body height drops to 60px so the head clears the low pterodactyl lane.",
+    "The neck stretches forward and the back flattens to create a low profile.",
+    "Frame width expands to 118px to keep the tail and snout readable while compressed."
+  ],
+  "depends_on": [
+    "character.player.dino_idle_2f_6fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.dino_idle_2f_6fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_idle_2f_6fps",
+      "obstacles.pterodactyl.fly_2f_10fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_duck",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        84
+      ]
+    },
+    "layer": "character",
+    "usage": "Shown while the down input is held to dodge the lower pterodactyl flight path.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "obstacles.pterodactyl.fly_2f_10fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 118,
+      "height": 60
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        118,
+        60
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Flattened side-profile dinosaur with extended snout, compressed torso, and trailing tail on the same ground lane.",
+      "components": [
+        "snout",
+        "eye_cutout",
+        "flattened_torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    },
+    "face": {
+      "eyes": "One 4x4px eye cutout sits at x20-23 and y18-21 in each frame.",
+      "mouth": "One 12px horizontal mouth slit sits below the eye line.",
+      "nose": null
+    },
+    "appendages": {
+      "arms": "Two short forearm clusters stay within a 10x8px chest block.",
+      "legs": "Two hind legs use silhouette swaps that preserve the ground contact read.",
+      "tail": "One thick tail extends 36px from the torso and rises 6px above the baseline at the tip.",
+      "accessories": null
+    },
+    "texture": "Solid monochrome fill with transparent cutout background.",
+    "shading": "Flat 1-tone fill with outline emphasis."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_duck_2f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 236x60px with 2 columns and 1 row.",
+    "The highest opaque pixel sits at least 28px lower than the idle pose apex.",
+    "The snout, torso, and tail remain readable within a single 118px frame without clipping."
+  ]
+}

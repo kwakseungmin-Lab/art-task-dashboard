@@ -1,0 +1,154 @@
+{
+  "task_id": "obstacles.cactus_sprite_set",
+  "asset_name": "Cactus Obstacle Sprite Set",
+  "category": "obstacles",
+  "subcategory": "ground_obstacle",
+  "priority": "critical",
+  "execution_order": 20,
+  "project_common": {
+    "project_id": "chrome_dino_runner_iter5_trial2_art_task_plan",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 2,
+    "canvas_px": [
+      600,
+      150
+    ],
+    "pixel_perfect": true,
+    "anti_aliasing": "none",
+    "palette_hex": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash": "#FFFFFF"
+    },
+    "outline_px": 2,
+    "outline_color_hex": "#535353"
+  },
+  "description": "Create three cactus obstacle variants (small, medium, large) as static pixel art sprites.",
+  "context": {
+    "role": "Ground obstacle that triggers game over on collision.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 600,
+      "y": 128,
+      "anchor": "bottom_left"
+    },
+    "layer": 25,
+    "usage": {
+      "spawn": {
+        "from_x_px": 650,
+        "to_x_px": -100,
+        "y_alignment": "ground_line"
+      },
+      "variants": {
+        "small_probability": 0.4,
+        "medium_probability": 0.35,
+        "large_probability": 0.25
+      }
+    }
+  },
+  "specs": {
+    "style": {
+      "art_style": "8_bit_pixel_art",
+      "color_usage": {
+        "allowed_hex": [
+          "#535353"
+        ],
+        "background_transparent": true
+      },
+      "outline": {
+        "enabled": true,
+        "outline_px": 2,
+        "outline_hex": "#535353"
+      },
+      "anti_aliasing": "none"
+    },
+    "variants": {
+      "small": {
+        "width": 34,
+        "height": 70,
+        "frame_count": 1
+      },
+      "medium": {
+        "width": 68,
+        "height": 70,
+        "frame_count": 1
+      },
+      "large": {
+        "width": 102,
+        "height": 100,
+        "frame_count": 1
+      }
+    },
+    "export": {
+      "format": "png",
+      "background": "transparent",
+      "recommended_pivot": {
+        "type": "bottom_center",
+        "x_px_from_left": 17,
+        "y_px_from_bottom": 0
+      },
+      "files": {
+        "small": "cactus_small.png",
+        "medium": "cactus_medium.png",
+        "large": "cactus_large.png"
+      }
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "character.player_dino_sprite_set",
+      "obstacles.pterodactyl_fly_sprite",
+      "world.ground_tile"
+    ]
+  },
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "cactus_small.png",
+      "size_px": [
+        34,
+        70
+      ],
+      "transparent_background": true,
+      "color_hex": [
+        "#535353"
+      ]
+    },
+    {
+      "type": "png",
+      "file": "cactus_medium.png",
+      "size_px": [
+        68,
+        70
+      ],
+      "transparent_background": true,
+      "color_hex": [
+        "#535353"
+      ]
+    },
+    {
+      "type": "png",
+      "file": "cactus_large.png",
+      "size_px": [
+        102,
+        100
+      ],
+      "transparent_background": true,
+      "color_hex": [
+        "#535353"
+      ]
+    }
+  ],
+  "acceptance_criteria": [
+    "Each variant PNG has exact pixel dimensions: small 34x70, medium 68x70, large 102x100.",
+    "All non-transparent pixels use #535353 only; no additional colors and no semi-transparent pixels.",
+    "Each cactus silhouette is readable at 1x scale and has a 2px outline thickness.",
+    "Bottom edge of each cactus aligns to the ground line when anchored at bottom_left y=128 without any floating pixels below the baseline.",
+    "The large variant is visually taller than small and medium and clearly increases jump timing demand."
+  ]
+}

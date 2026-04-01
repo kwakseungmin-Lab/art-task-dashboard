@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003002",
+  "asset_key": "world_shadow_safezone_overlay_1920x1080",
+  "asset_name": "Shadow Safezone Overlay",
+  "category": "world",
+  "subcategory": "fx_overlay",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001"
+  ],
+  "blocks": [
+    "task_id_008003008",
+    "task_id_008003014",
+    "task_id_008003015",
+    "task_id_008003020"
+  ],
+  "blocked_by": [
+    "task_id_008003001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003008",
+      "task_id_008003014",
+      "task_id_008003015",
+      "task_id_008003020"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra silhouette, limb taper, eye glow placement, and cloak-like vapor edge anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use Material2dBundle with a full screen shadow mask texture atlas that swaps between safe and beam hit states without reallocating GPU resources.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "ShadowMaskOverlay",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load world/world_shadow_safezone_overlay_1920x1080.png through AssetServer and bind atlas frame indices to the light system state resource.",
+    "runtime_notes": [
+      "Frame 0 represents calm safe shadow tint and frame 1 represents active exposure contact tint.",
+      "Overlay renders above world props and below UI widgets so gameplay shapes remain readable.",
+      "Color alpha is applied in shader space and must remain deterministic across 60 FPS updates."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "shadow_mask",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_fx_overlay",
+    "usage": "Displays safe shadow zones and exposure wash when beam contact changes the survival state.",
+    "adjacent_elements": [
+      "player_umbra_idle_6f_6fps",
+      "obstacle_fixed_light_emitter_32x32",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#1A4A52",
+      "#F5EFE0",
+      "#D4682A",
+      "#0D0B14"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 2,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 2,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Full screen translucent mask with narrow beam edges, pooled safe shadow fills, and sharp occluder cuts around platforms and mirrors.",
+      "components": [
+        "safe_shadow_fill",
+        "beam_contact_wash",
+        "occluder_edges",
+        "corner_falloff",
+        "window_cut_lines"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Soft grain inside the teal shadow fill and clean exposure strips inside the beam wash.",
+    "shading": "Teal safe zones use 40 percent alpha and exposure wash uses 55 percent alpha with hard cut boundaries."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_shadow_safezone_overlay_1920x1080.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 3840x1080 px with two 1920x1080 frames.",
+    "Safe shadow frame uses #1A4A52 as the dominant tint and exposure frame uses #F5EFE0 plus #D4682A along beam contact edges.",
+    "Every occluder boundary lands on whole pixel coordinates so the beam mask does not shimmer during camera pan."
+  ]
+}

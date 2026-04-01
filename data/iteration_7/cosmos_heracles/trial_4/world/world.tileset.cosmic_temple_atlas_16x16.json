@@ -1,0 +1,125 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.tileset.cosmic_temple_atlas_16x16",
+  "asset_name": "Cosmic Temple Atlas 16x16",
+  "category": "world",
+  "subcategory": "tileset",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "world.background.zone1_entrance_corridor_1600x900",
+    "world.background.zone2_celestial_hall_1600x900",
+    "world.background.zone3_stratosphere_altar_1600x900",
+    "obstacles.terrain.marble_pillar_set_64x200",
+    "obstacles.terrain.gap_gate_set_160x110",
+    "obstacles.terrain.rotating_pillar_set_64x64"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.zone1_entrance_corridor_1600x900",
+      "world.background.zone2_celestial_hall_1600x900",
+      "world.background.zone3_stratosphere_altar_1600x900",
+      "obstacles.terrain.marble_pillar_set_64x200"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tileset",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "world.background.zone1_entrance_corridor_1600x900",
+      "obstacles.terrain.marble_pillar_set_64x200"
+    ],
+    "layer": "world",
+    "usage": "Foundation atlas for all temple stone, stair, trim, crack, arch, and star-inlay surfaces used in every Zone.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 256
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E",
+      "#FFD966",
+      "#F0EFE9"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "orthogonal Greek temple modules with 16px grid alignment and readable negative space for arches and ledges",
+      "components": [
+        "solid marble block",
+        "cracked marble block",
+        "column shaft",
+        "column capital",
+        "stair step",
+        "arch trim",
+        "star inlay tile",
+        "shadow filler tile"
+      ]
+    },
+    "tile_grid_px": {
+      "cell": 16,
+      "columns": 16,
+      "rows": 16
+    },
+    "background_treatment": "opaque atlas on transparent outer padding 0px"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tileset.cosmic_temple_atlas_16x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 256x256px and contains a 16x16 tile grid with each cell locked to 16x16px.",
+    "At least 24 unique marble tiles exist, including 4 crack variants, 4 stair/ledge variants, and 4 star-inlay variants.",
+    "Every tile edge aligns to the 16px grid with no anti-aliasing and no subpixel seams."
+  ]
+}

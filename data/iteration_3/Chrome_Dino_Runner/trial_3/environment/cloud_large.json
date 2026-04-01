@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scalable",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "1200px (tiling)",
+      "height": "2-80px (variable by element)"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "minimal pixel art environment",
+      "movement": "scroll left (ground at Current_Speed, clouds at Current_Speed * 0.5)",
+      "rendering": "pixel-perfect, no antialiasing",
+      "tiling": "seamless horizontal loop",
+      "collision_layer": "Layer 2 (Ground) or non-collidable (Background)",
+      "outline": "none or minimal"
+    }
+  },
+  "asset": {
+    "asset_id": "cloud_large",
+    "asset_name": "Large Cloud (Optional)",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Optional background element for parallax depth effect",
+      "screen_position": "Spawns at x=650px (screen_width + 50), y=10-40px (random), scrolls left at Current_Speed * 0.5",
+      "adjacent_elements": ["cloud_small", "score_display"],
+      "usage_scenario": "Optional decorative element spawned randomly (30% probability every 5-10 seconds), provides parallax scrolling effect at half ground speed, maximum 3 clouds on screen"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "92px",
+        "height": "27px"
+      },
+      "colors": {
+        "cloud": "#535353"
+      },
+      "shape": "Simple rounded cloud silhouette, large size (2x cloud_small)",
+      "texture": "Pixel art, simple outline, minimal detail",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No sprite animation. Movement is position-based scrolling at Current_Speed * 0.5 (parallax effect). Despawns when x < -100"
+      },
+      "details": "Minimalist cloud shape in primary color, larger than cloud_small, low visual priority, blends into background"
+    },
+    "relationships": {
+      "related_assets": ["cloud_small", "score_display"],
+      "shared_with": "Same color and scrolling behavior (0.5x speed) as cloud_small",
+      "differences_from": "cloud_small is 46x14px (half size). Both are optional and non-collidable. Large cloud is less common in spawn probability"
+    },
+    "explicit_negations": [
+      "No animation",
+      "No color variations or gradients",
+      "No anti-aliasing",
+      "No shadows or depth effects",
+      "No transparency except full alpha channel",
+      "No detailed texture or shading",
+      "No collision or gameplay interaction",
+      "No high contrast that distracts from foreground"
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "task_id": "task_id_008101013",
+  "asset_key": "obstacle_weight_block_set_5states_32x32",
+  "asset_name": "Weight Block Set 1-5 Units",
+  "category": "obstacles",
+  "subcategory": "weight_block",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101002",
+    "task_id_008101003"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101002",
+    "task_id_008101003"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle or atlas rect selection for the five weight states and swap the displayed frame by block weight data.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "WeightBlock",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/obstacle_weight_block_set_5states_32x32.png through AssetServer and register one five-state atlas for all movable blocks.",
+    "runtime_notes": [
+      "Each state should share the same outer silhouette so only the engraved number and trim mass change between weights.",
+      "The top face must read as a flat carry surface when dragged onto a scale deck.",
+      "State 5 should feel visibly heavier through thicker gold frame mass and darker underside shading."
+    ]
+  },
+  "context": {
+    "role": "movable_weight_block",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1420,
+        760
+      ]
+    },
+    "layer": "obstacles_interactive",
+    "usage": "Modular weight-block sheet covering 1 through 5 unit variants used to balance the scale puzzle across early and late floors.",
+    "adjacent_elements": [
+      "player_umbra_grab_4f_10fps",
+      "world_scale_assembly_512x96",
+      "echo_clone_idle_4f_8fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#2D1B4E",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 5,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 5,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Heavy square stone block with gold inset frame and a large centered numeral plate for the weight value.",
+      "components": [
+        "outer_mass",
+        "gold_inset_frame",
+        "number_plate",
+        "underside_shadow"
+      ]
+    },
+    "state_values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 160x32 px with five 32x32 frames.",
+    "Each frame clearly displays one integer state from 1 through 5 without relying on tiny unreadable type.",
+    "All five states share the same collision silhouette so runtime swapping does not change gameplay bounds."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101003",
+      "task_id_008101008",
+      "task_id_008101010",
+      "task_id_008101019",
+      "task_id_008101016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_weight_block_set_5states_32x32.png",
+      "transparent_background": true
+    }
+  ]
+}

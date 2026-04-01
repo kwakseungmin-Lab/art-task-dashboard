@@ -1,0 +1,183 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 5,
+    "source": {
+      "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+      "concepts": [
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+      ]
+    },
+    "rendering": {
+      "style": "pixel_art",
+      "bit_depth_style": "8-bit",
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "dithering": false
+    },
+    "canvas": {
+      "screen_dimensions_px": "600x150",
+      "target_fps": 60,
+      "coordinate_system": {
+        "ground_y": 0,
+        "positive_y": "up",
+        "note": "GDD uses Ground level y=0; airborne obstacles use y=50 and y=80 above ground."
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "allowed_colors": [
+        "#F7F7F7",
+        "#535353",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "rules": [
+        "All gameplay sprites (player, obstacles, ground, clouds) use only #535353 for non-transparent pixels.",
+        "Background sky uses only #F7F7F7 (no transparency).",
+        "UI text uses only #535353. White (#FFFFFF) is allowed only for runtime flash effects or overlays."
+      ]
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353",
+        "rule": "Sprite silhouettes must have a minimum 2px-thick edge where applicable; no 1px hairline edges."
+      },
+      "transparency": {
+        "background": "transparent",
+        "alpha_requirement": "All non-background sprites must have fully transparent background (alpha=0) outside the silhouette."
+      },
+      "scale_support": {
+        "base_scale": "1x",
+        "secondary_scale": "2x",
+        "scaling_method": "nearest_neighbor",
+        "note": "Export 1x originals; 2x exports must be integer-scaled using nearest-neighbor (no filtering)."
+      }
+    },
+    "export": {
+      "formats": [
+        "png"
+      ],
+      "color_space": "sRGB",
+      "png": {
+        "bit_depth": 8,
+        "interlaced": false
+      },
+      "naming": {
+        "frame_indexing": "1-based in filenames where specified by GDD (e.g., dino_run_1.png, dino_run_2.png)",
+        "scale_suffix": "@2x"
+      }
+    },
+    "priorities": {
+      "scheme": "P0-P3",
+      "definitions": {
+        "P0": "Required for a playable MVP (core gameplay and essential UI).",
+        "P1": "Feature-complete look but not strictly blocking MVP.",
+        "P2": "Optional polish.",
+        "P3": "Nice-to-have polish."
+      }
+    },
+    "layers": [
+      {
+        "name": "background_sky",
+        "z_index": 0
+      },
+      {
+        "name": "background_clouds",
+        "z_index": 1
+      },
+      {
+        "name": "ground",
+        "z_index": 5
+      },
+      {
+        "name": "obstacles",
+        "z_index": 10
+      },
+      {
+        "name": "player",
+        "z_index": 15
+      },
+      {
+        "name": "ui",
+        "z_index": 100
+      },
+      {
+        "name": "vfx_overlay",
+        "z_index": 200
+      }
+    ]
+  },
+  "task_id": "cdr_environment_ground_line",
+  "asset_name": "Ground Line (scrolling tile)",
+  "category": "environment",
+  "subcategory": "ground",
+  "description": "Create the ground baseline sprite used for infinite horizontal scrolling.\n\n- Canvas: 1200x2 px (1x).\n- Pixels:\n  - Row y=0: #535353 for x=0..1199.\n  - Row y=1: #535353 for x=0..1199.\n- Alpha: 255 for every pixel (no transparency inside the canvas).\n- 2x export: 2400x4 px, nearest-neighbor upscale.",
+  "deliverables": [
+    {
+      "path": "Environment/ground_line.png",
+      "type": "png_sprite",
+      "dimensions": "1200x2",
+      "scale": "1x"
+    },
+    {
+      "path": "Environment/ground_line@2x.png",
+      "type": "png_sprite",
+      "dimensions": "2400x4",
+      "scale": "2x",
+      "scaling": "nearest_neighbor"
+    }
+  ],
+  "specs": {
+    "dimensions": "1200x2",
+    "tileable": true,
+    "line_thickness_px": 2,
+    "tile_width_px": 1200,
+    "colors": {
+      "line": "#535353"
+    }
+  },
+  "context": {
+    "role": "Defines ground level and motion cue.",
+    "screen_location": "Rendered at y=0 (ground) across the screen; scrolled at Current_Speed.",
+    "adjacent_elements": [
+      "cdr_character_player_run",
+      "cdr_obstacle_cactus_small"
+    ],
+    "layer": "ground",
+    "usage": "Tile-wrap when x < -1200 by adding 1200."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_environment_ground_texture"
+    ],
+    "shared_properties": [
+      "color=#535353",
+      "scroll_speed=Current_Speed"
+    ],
+    "differences": [
+      "Texture is optional decorative strip; line is mandatory baseline."
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 2,
+  "priority": "P0",
+  "blocks": [
+    "cdr_environment_ground_texture"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "PNG is exactly 1200x2 (1x) and 2400x4 (2x).",
+    "Every pixel is exactly #535353 with alpha=255.",
+    "Tiling seam at x=0 and x=1199 is invisible (identical pixels)."
+  ]
+}

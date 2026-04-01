@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050002",
+  "asset_name": "Stone Wall High Friction Strip",
+  "category": "world",
+  "subcategory": "friction_surface",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #D6D0C4, background #0D0D0F, and accent #E07B39.",
+    "Wall tiles keep a strict 16px column width so tilemap placement stays deterministic.",
+    "Stone breakup uses flat clusters with no sub-pixel shading."
+  ],
+  "differences": [
+    "Strip size is 16x144px to match the 1x9 tile wall span defined in the GDD.",
+    "Outer edge highlight stays readable against the abyss backdrop and marks the braking contact line.",
+    "Surface chips repeat on a 16px cadence so long shafts can extend without texture drift."
+  ],
+  "depends_on": [
+    "task_id_008050001"
+  ],
+  "blocks": [
+    "task_id_008050006",
+    "task_id_008050008"
+  ],
+  "blocked_by": [
+    "task_id_008050001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050001",
+      "task_id_008050005",
+      "task_id_008050006",
+      "task_id_008050008"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "high_friction_wall",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        18
+      ]
+    },
+    "layer": "world_mid",
+    "usage": "Primary collision strip for left or right wall braking during descent.",
+    "adjacent_elements": [
+      "task_id_008050001",
+      "task_id_008050005",
+      "task_id_008050006",
+      "task_id_008050008"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "forward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 144
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#1A1A2E",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        16,
+        144
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Straight vertical stone strip with chipped edge rhythm.",
+      "tiling": "Repeats vertically in 16px segments.",
+      "collision_read": "The contact edge keeps a clean 1px contour for braking read."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_stone_wall_high_friction_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 16x144px.",
+    "Each 16px tile segment preserves a readable outer contour for collision contact.",
+    "The brightest highlight cluster never exceeds 4px width along the active braking edge."
+  ],
+  "asset_key": "world_stone_wall_high_friction_strip",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds stone texture breakup, low-key lighting, and vertical shaft composition for the active environment asset."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Tilemap-backed strip or repeated SpriteBundle instances on a collision-aligned wall lane.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TilemapId",
+      "TilePos",
+      "TileTextureIndex",
+      "Visibility"
+    ],
+    "asset_loading": "Load the wall texture during the Loading state and reuse it through bevy_ecs_tilemap for all vertical shaft chunks.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Keep collision data separate from the sprite so friction values remain tunable in gameplay code.",
+      "Snap every tile origin to a 16px grid before building the shaft segment."
+    ]
+  }
+}

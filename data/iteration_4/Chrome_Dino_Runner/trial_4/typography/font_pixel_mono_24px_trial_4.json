@@ -1,0 +1,212 @@
+{
+  "task_id": "cdr_typography_font_pixel_mono_24px",
+  "asset_name": "font_pixel_mono_24px",
+  "category": "typography",
+  "subcategory": "bitmap_font",
+  "description": "Create a monochrome bitmap font sprite sheet for UI text at 24px size. Glyph cell size is exactly 15x24 px. Sprite sheet grid is 10 columns x 4 rows; total image size is 150x96 px. Allowed opaque color: #535353 only; background fully transparent (alpha 0). Glyph set must include digits 0-9, uppercase A-Z, colon ':' and space ' '. Stroke thickness in glyphs: exactly 2px for vertical/horizontal stems; diagonals use 2px stair-steps. Include a JSON metadata file mapping each glyph to its grid cell (col,row) and pixel rect (x,y,w,h). Design must match the 16px font character shapes; do not rescale 16px; redraw at 24px with 2px stems.",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "UI text rendering for ScoreDisplay and GameOverScreen.",
+    "screen_location": "UI overlay layer; anchored to screen pixels.",
+    "adjacent_elements": [
+      "score_display mock",
+      "game_over_screen mock"
+    ],
+    "layer": "ui_overlay",
+    "usage": "Used for UI strings at 24px size."
+  },
+  "specs": {
+    "font_size_px": 24,
+    "glyph_cell_px": "15x24",
+    "sheet_grid": {
+      "columns": 10,
+      "rows": 4
+    },
+    "sheet_dimensions_px": "150x96",
+    "glyph_set": {
+      "order": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ :",
+      "count": 38
+    },
+    "colors": [
+      "#535353"
+    ],
+    "background": "transparent",
+    "outline": {
+      "enabled": false,
+      "thickness_px": 0
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/typography/font_pixel_mono_24px.png",
+      "type": "bitmap_font_sheet",
+      "format": "png",
+      "dimensions_px": "150x96",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/typography/font_pixel_mono_24px@2x.png",
+      "type": "bitmap_font_sheet",
+      "format": "png",
+      "dimensions_px": "300x192",
+      "scale": 2,
+      "scale_method": "nearest_neighbor",
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/typography/font_pixel_mono_24px.glyph_map.json",
+      "type": "font_metadata",
+      "format": "json",
+      "encoding": "utf-8",
+      "schema": {
+        "glyph": "string",
+        "col": "int",
+        "row": "int",
+        "rect": "{x,y,w,h}"
+      }
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_ui_score_display_mock",
+      "cdr_ui_game_over_screen_mock"
+    ],
+    "shared_properties": {
+      "primary_color_hex": "#535353",
+      "glyph_set": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ :"
+    },
+    "differences": {
+      "font_size_px": 24,
+      "cell_px": "15x24"
+    }
+  },
+  "depends_on": [
+    "cdr_typography_font_pixel_mono_16px"
+  ],
+  "execution_order": 16,
+  "priority": "P1",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_typography_font_pixel_mono_16px"
+  ],
+  "acceptance_criteria": [
+    "Font sheet PNG dimensions exactly 150x96 (1x) and double for 2x.",
+    "Background alpha is 0 for all pixels not belonging to glyph strokes.",
+    "All opaque pixels are exactly #535353 with alpha 255.",
+    "Metadata file contains exactly 38 glyph entries, one per glyph in the defined order.",
+    "Each glyph rect fits entirely inside its cell; no pixel spills into adjacent cells.",
+    "Glyph stroke thickness is 2px for vertical and horizontal stems (no 1px stems)."
+  ]
+}

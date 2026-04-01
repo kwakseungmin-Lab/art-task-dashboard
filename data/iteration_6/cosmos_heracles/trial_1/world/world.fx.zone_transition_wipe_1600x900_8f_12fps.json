@@ -1,0 +1,133 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.fx.zone_transition_wipe_1600x900_8f_12fps",
+  "asset_name": "Zone Transition Wipe FX (8 frames)",
+  "category": "world",
+  "subcategory": "fx",
+  "priority": "P2",
+  "execution_order": 45,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "extended": [
+      {
+        "name": "Column Shadow",
+        "hex": "#6B6357"
+      },
+      {
+        "name": "Hero Skin",
+        "hex": "#E8B87A"
+      },
+      {
+        "name": "Bronze Armor",
+        "hex": "#C47C2B"
+      },
+      {
+        "name": "Star Gold",
+        "hex": "#FFD966"
+      },
+      {
+        "name": "Danger Red",
+        "hex": "#E84040"
+      },
+      {
+        "name": "Boss Purple",
+        "hex": "#7B2FBE"
+      },
+      {
+        "name": "UI White",
+        "hex": "#F0EFE9"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "fx",
+    "layer": "world",
+    "usage": "Short wipe effect when entering a boss segment or when a Zone is cleared; screen-space overlay.",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#40E8D0",
+      "#7B2FBE",
+      "#F0EFE9"
+    ],
+    "animation": {
+      "type": "spritesheet_row",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": false,
+      "sheet_dimensions_px": {
+        "width": 12800,
+        "height": 900
+      },
+      "frame_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.fx.zone_transition_wipe_1600x900_8f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet width is 12800px and height is 900px (8 frames in one row, each 1600x900px).",
+    "Each frame uses only the listed hex colors and/or transparency; no gradients or alpha blending.",
+    "Animation reads as a fast wipe that does not fully obscure UI for longer than 0.25 seconds at 12fps."
+  ]
+}

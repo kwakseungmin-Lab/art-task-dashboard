@@ -1,0 +1,136 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.item.shard_icon_32_sheet_4f",
+  "asset_name": "Shard Collectible Icon Sheet — 128x32, 4 frames",
+  "category": "obstacles",
+  "subcategory": "item",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "blocks": [
+    "ui.hud.right_stats_panel_240x720"
+  ],
+  "blocked_by": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.right_stats_panel_240x720",
+      "ui.typography.parchment_bitmap_font_8px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "collectible_icon",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "layer": "world_items",
+    "usage": "Animated 32px shard pickup used on board cells and mirrored in the HUD counter.",
+    "adjacent_elements": [
+      "ui.hud.right_stats_panel_240x720",
+      "ui.typography.parchment_bitmap_font_8px"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 32
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#FBBF24",
+      "#FEF3C7",
+      "#F8FAFC",
+      "#06B6D4"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 4,
+      "fps": 6,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 4,
+        "frame_size_px": {
+          "width": 32,
+          "height": 32
+        },
+        "order": [
+          "shard_1",
+          "shard_2",
+          "shard_3",
+          "shard_4"
+        ],
+        "padding_px": 0
+      }
+    },
+    "shape": {
+      "silhouette": "32px diamond shard with a 2px bright core and 4 corner spikes.",
+      "components": [
+        "diamond_body",
+        "bright_core",
+        "corner_spikes"
+      ]
+    },
+    "item": {
+      "pickup_type": "shard",
+      "core_size_px": 2,
+      "spike_count": 4
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.item.shard_icon_32_sheet_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 128x32px with 4 frames of 32x32px.",
+    "Each frame contains a 2px bright core and 4 corner spikes.",
+    "Shard body uses gold or ivory values from specs.colors_hex and no background fill."
+  ]
+}

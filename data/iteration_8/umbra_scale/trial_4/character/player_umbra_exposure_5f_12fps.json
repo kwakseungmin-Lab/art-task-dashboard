@@ -1,0 +1,169 @@
+{
+  "task_id": "task_id_008004014",
+  "asset_key": "player_umbra_exposure_5f_12fps",
+  "asset_name": "Umbra Exposure Damage Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": "task_id_008004011",
+  "variant_of_asset_key": "player_umbra_idle_6f_8fps",
+  "shared_properties": [
+    "32x48 body scale with horn silhouette and compact torso mass.",
+    "Core palette #C9A84C/#0D0B14/#D4682A.",
+    "Body origin remains compatible with the idle state pivot."
+  ],
+  "differences": [
+    "Five frames introduce bright edge burn, fragment loss, and recoil posture for beam contact.",
+    "Inner glow shifts from teal toward exposure white on frames three through five.",
+    "Arms pull inward and horns tilt back to communicate danger."
+  ],
+  "depends_on": [
+    "task_id_008004011",
+    "task_id_008004005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004005",
+      "task_id_008004011",
+      "task_id_008004016",
+      "task_id_008004017"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle and trigger this loop through PlayerStateSprite whenever beam overlap raises exposure.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerStateSprite",
+      "ExposureState",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_umbra_exposure_5f_12fps.png through AssetServer before hazard systems activate.",
+    "runtime_notes": [
+      "Damage frames preserve the same root pivot as idle and run states.",
+      "Bright edge burn uses high-value pixels without filling the whole body.",
+      "Loop cadence stays fast enough to read at 12 fps during hazard contact."
+    ]
+  },
+  "context": {
+    "role": "player_exposure_damage",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        520,
+        420
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Beam-contact feedback loop that shows exposure danger before HP loss and floor reset.",
+    "adjacent_elements": [
+      "obstacle_fixed_light_emitter_static_32x32",
+      "ui_exposure_gauge_160x12",
+      "ui_hp_orbs_strip_3slot_72x24"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#F5EFE0",
+      "#D4682A",
+      "#C9A84C"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 5,
+      "fps": 12,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 5,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Recoiling Umbra silhouette with bright edge burn, inward arms, and fragment loss at the feet and shoulders.",
+      "components": [
+        "horns",
+        "head_core",
+        "torso",
+        "arms",
+        "legs",
+        "edge_burn",
+        "fragment_loss"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_umbra_exposure_5f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 160x48 px with five 32x48 frames.",
+    "Edge burn remains concentrated on outer contours and does not fill the torso interior.",
+    "Recoil posture reads clearly within one second of animation playback."
+  ],
+  "blocked_by": [
+    "task_id_008004011",
+    "task_id_008004005"
+  ],
+  "blocks": [
+    "task_id_008004016",
+    "task_id_008004017"
+  ],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

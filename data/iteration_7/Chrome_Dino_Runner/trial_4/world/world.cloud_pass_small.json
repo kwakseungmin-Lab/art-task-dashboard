@@ -1,0 +1,105 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.cloud_pass_small",
+  "asset_name": "World — small cloud pass",
+  "category": "world",
+  "subcategory": "background_decor",
+  "priority": "P2",
+  "execution_order": 230,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This decor element moves at half the ground speed in implementation.",
+    "Width stays under 50px to avoid crowding the score rack area.",
+    "Lower edge remains mostly flat to keep the cloud readable in motion."
+  ],
+  "depends_on": [
+    "world.sky_day_field"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.sky_day_field"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.sky_day_field"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "parallax_decor",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        460,
+        24
+      ]
+    },
+    "layer": "world",
+    "usage": "Small cloud sprite used for slow parallax movement in the upper half of the screen."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 46,
+      "height": 14
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "silhouette_notes": [
+      "Top contour alternates lobe heights by 1px to 3px.",
+      "Left and right tips taper in 2px steps.",
+      "No hole or negative space appears inside the cloud body."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.cloud_pass_small.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 46x14px.",
+    "Cloud silhouette reads as 3 to 4 rounded lobes at 1x scale.",
+    "Painted pixels use only #535353 and transparency."
+  ]
+}

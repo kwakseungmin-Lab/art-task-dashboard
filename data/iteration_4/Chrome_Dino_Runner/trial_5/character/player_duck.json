@@ -1,0 +1,206 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 5,
+    "source": {
+      "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+      "concepts": [
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+      ]
+    },
+    "rendering": {
+      "style": "pixel_art",
+      "bit_depth_style": "8-bit",
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "dithering": false
+    },
+    "canvas": {
+      "screen_dimensions_px": "600x150",
+      "target_fps": 60,
+      "coordinate_system": {
+        "ground_y": 0,
+        "positive_y": "up",
+        "note": "GDD uses Ground level y=0; airborne obstacles use y=50 and y=80 above ground."
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "allowed_colors": [
+        "#F7F7F7",
+        "#535353",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "rules": [
+        "All gameplay sprites (player, obstacles, ground, clouds) use only #535353 for non-transparent pixels.",
+        "Background sky uses only #F7F7F7 (no transparency).",
+        "UI text uses only #535353. White (#FFFFFF) is allowed only for runtime flash effects or overlays."
+      ]
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353",
+        "rule": "Sprite silhouettes must have a minimum 2px-thick edge where applicable; no 1px hairline edges."
+      },
+      "transparency": {
+        "background": "transparent",
+        "alpha_requirement": "All non-background sprites must have fully transparent background (alpha=0) outside the silhouette."
+      },
+      "scale_support": {
+        "base_scale": "1x",
+        "secondary_scale": "2x",
+        "scaling_method": "nearest_neighbor",
+        "note": "Export 1x originals; 2x exports must be integer-scaled using nearest-neighbor (no filtering)."
+      }
+    },
+    "export": {
+      "formats": [
+        "png"
+      ],
+      "color_space": "sRGB",
+      "png": {
+        "bit_depth": 8,
+        "interlaced": false
+      },
+      "naming": {
+        "frame_indexing": "1-based in filenames where specified by GDD (e.g., dino_run_1.png, dino_run_2.png)",
+        "scale_suffix": "@2x"
+      }
+    },
+    "priorities": {
+      "scheme": "P0-P3",
+      "definitions": {
+        "P0": "Required for a playable MVP (core gameplay and essential UI).",
+        "P1": "Feature-complete look but not strictly blocking MVP.",
+        "P2": "Optional polish.",
+        "P3": "Nice-to-have polish."
+      }
+    },
+    "layers": [
+      {
+        "name": "background_sky",
+        "z_index": 0
+      },
+      {
+        "name": "background_clouds",
+        "z_index": 1
+      },
+      {
+        "name": "ground",
+        "z_index": 5
+      },
+      {
+        "name": "obstacles",
+        "z_index": 10
+      },
+      {
+        "name": "player",
+        "z_index": 15
+      },
+      {
+        "name": "ui",
+        "z_index": 100
+      },
+      {
+        "name": "vfx_overlay",
+        "z_index": 200
+      }
+    ]
+  },
+  "task_id": "cdr_character_player_duck",
+  "asset_name": "Player Dino - Duck Animation",
+  "category": "character",
+  "subcategory": "player_animation",
+  "description": "Player sprite rules (apply to every Player sprite below):\n- Non-transparent pixels: #535353 only.\n- Background: fully transparent.\n- 2D side view, facing right (positive X).\n- No shading, no gradients, no anti-aliasing.\n- Silhouette edge thickness >=2px.\n\n\n    Create a 2-frame ducking animation.\n\n    - Canvas per frame: 118x60 px.\n    - Frames: 2.\n    - FPS: 12.\n\n    Anchors (both frames):\n    - Silhouette bounding box: x=6..111, y=0..55.\n    - Eye hole: 6x6 transparent at (76,34).\n    - Mouth slit: 10x2 transparent at (79,26).\n\n    Foot contact spans (opaque at y=0):\n    - duck_1: x=38..45.\n    - duck_2: x=52..59.\n\n    Export names: dino_duck_1, dino_duck_2.",
+  "deliverables": [
+    {
+      "path": "Sprites/player/dino_duck_1.png",
+      "type": "png_sprite_frame",
+      "dimensions": "118x60",
+      "scale": "1x",
+      "background": "transparent"
+    },
+    {
+      "path": "Sprites/player/dino_duck_2.png",
+      "type": "png_sprite_frame",
+      "dimensions": "118x60",
+      "scale": "1x",
+      "background": "transparent"
+    },
+    {
+      "path": "Sprites/player/dino_duck_1@2x.png",
+      "type": "png_sprite_frame",
+      "dimensions": "236x120",
+      "scale": "2x",
+      "background": "transparent",
+      "scaling": "nearest_neighbor"
+    },
+    {
+      "path": "Sprites/player/dino_duck_2@2x.png",
+      "type": "png_sprite_frame",
+      "dimensions": "236x120",
+      "scale": "2x",
+      "background": "transparent",
+      "scaling": "nearest_neighbor"
+    },
+    {
+      "path": "Source/player_dino_duck.aseprite",
+      "type": "source",
+      "format": "aseprite"
+    }
+  ],
+  "specs": {
+    "dimensions": "118x60",
+    "animation": {
+      "frames": 2,
+      "fps": 12,
+      "loop": true
+    }
+  },
+  "context": {
+    "role": "Player ducking (hitbox reduced).",
+    "screen_location": "Fixed x=100; y=0 on ground.",
+    "adjacent_elements": [
+      "cdr_obstacle_pterodactyl_fly"
+    ],
+    "layer": "player",
+    "usage": "Used to pass under Low pterodactyl (spawn y=50)."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_obstacle_pterodactyl_fly"
+    ],
+    "shared_properties": [
+      "same palette",
+      "duck is designed for Low ptero"
+    ],
+    "differences": [
+      "Different canvas size (118x60) vs 88x94."
+    ]
+  },
+  "depends_on": [
+    "cdr_character_player_idle"
+  ],
+  "execution_order": 13,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_character_player_idle"
+  ],
+  "acceptance_criteria": [
+    "Two frames exist and are exactly 118x60 px.",
+    "duck_1 has opaque pixels at y=0 for x=38..45; duck_2 has opaque pixels at y=0 for x=52..59.",
+    "Only #535353 and transparent pixels exist.",
+    "Eye and mouth negative-space anchors match the specified coordinates."
+  ]
+}

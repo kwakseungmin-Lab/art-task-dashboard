@@ -1,0 +1,98 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.layer1_temple_silhouette",
+  "asset_name": "Parallax Background Layer 1 — Distant Temple Silhouette",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 30,
+  "variant_of": null,
+  "depends_on": [
+    "world.background.layer0_space_nebula"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.layer0_space_nebula"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.layer2_column_hall",
+      "world.tileset.temple_marble"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "background": {
+      "name": "temple_shadow",
+      "hex": "#2A2F5A"
+    },
+    "accent": {
+      "name": "boss_purple",
+      "hex": "#7B2FBE"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "none",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "parallax_bg",
+    "layer": "world",
+    "usage": "Layer 1: distant temple shapes (arches/ruins) behind the playable corridor.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "parallax_multiplier": 0.3,
+    "tiling": {
+      "horizontal": true,
+      "vertical": false
+    },
+    "silhouette_features": [
+      "arched_ruins",
+      "broken_pediments",
+      "floating_debris"
+    ],
+    "colors_hex": [
+      "#0B0C1E",
+      "#2A2F5A",
+      "#1A1B3A",
+      "#7B2FBE"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.layer1_temple_silhouette.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Silhouette remains clearly behind the playfield (alpha/contrast lower than tileset marble).",
+    "Horizontally tileable with no obvious repeating pattern within 3 repeats (4800px).",
+    "Does not include small high-contrast pixels near the ground line that could be mistaken for obstacles."
+  ]
+}

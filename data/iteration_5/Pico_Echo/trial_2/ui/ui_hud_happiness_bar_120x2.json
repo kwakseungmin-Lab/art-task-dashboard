@@ -1,0 +1,82 @@
+{
+  "task_id": "ui.hud_happiness_bar",
+  "asset_name": "hud_happiness_bar_120x2",
+  "category": "ui",
+  "subcategory": "hud_widget",
+  "description": "Create a 120x2 px background bar sprite for the happiness bar. Fill entire 120x2 with #5F574F. No transparency.",
+  "execution_order": 110,
+  "priority": "P0",
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 2
+    },
+    "background_hex": "#5F574F",
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": false,
+    "fill_color_rules_hex": {
+      "range_90_100": "#00E436",
+      "range_70_89": "#FFEC27",
+      "range_50_69": "#FFA300"
+    }
+  },
+  "context": {
+    "role": "HUD bar background at bottom of screen; fill drawn by code on top.",
+    "layer": "ui_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 4,
+      "y": 126,
+      "anchor": "top_left"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/ui/hud_happiness_bar_120x2/hud_happiness_bar_120x2.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/ui/hud_happiness_bar_120x2/hud_happiness_bar_120x2.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.pixel_font_3x5"
+    ]
+  },
+  "depends_on": [
+    "ui.pixel_font_3x5"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.pixel_font_3x5"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 120x2 px.",
+    "All pixels are #5F574F."
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px",
+      "note": "Full screen canvas, individual elements vary"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bars": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "rendering": "static (no animation)",
+      "layer": "background (behind Echo)",
+      "style": "minimal, functional pixel art",
+      "perspective": "none (flat 2D front view)"
+    }
+  },
+  "asset": {
+    "asset_id": "cage_perch",
+    "asset_name": "Cage Wooden Perch",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Horizontal wooden perch where Echo stands in all non-sleeping states",
+      "screen_position": "Horizontal bar at y=80px, spanning from x=24px to x=104px (80px wide)",
+      "adjacent_elements": [
+        "echo (all states except sleeping - Echo's feet rest on this perch)",
+        "cage_background (behind)",
+        "cage_food_bowl (below left)",
+        "cage_water_bowl (below left)"
+      ],
+      "usage_scenario": "Static environmental element that Echo stands on. Provides visual grounding for Echo's position. Always visible during gameplay."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "80px",
+        "height": "4px"
+      },
+      "colors": {
+        "primary": "#AB5236",
+        "highlight": "#C2C3C7"
+      },
+      "shape": "Horizontal cylindrical wooden bar. Top surface is 80px wide, 2px tall (#AB5236). Bottom edge has 1px darker line (#5F574F) to suggest roundness. Optional: 1-2px highlight on top left (#C2C3C7) to suggest light source.",
+      "texture": "Simple pixel representation of wood grain - 2-3 vertical lines (1px wide, 2-3px tall) in slightly darker brown (#5F574F) spaced 15-20px apart along the perch.",
+      "outline": "No outline stroke",
+      "shadow": "No drop shadow",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static object, no animation"
+      },
+      "details": "Perch is 80px wide, 4px tall. Positioned at y=80px (center-left to center-right). Top 2px are #AB5236, bottom 1px is darker (#5F574F) for depth. Optional wood grain marks every 15-20px. Echo's feet (2px wide each) rest on top surface."
+    },
+    "relationships": {
+      "related_assets": [
+        "echo_idle",
+        "echo_eating",
+        "echo_happy",
+        "echo_preening",
+        "echo_dirty",
+        "echo_hungry",
+        "echo_singing",
+        "cage_background"
+      ],
+      "shared_with": "All Echo states use this perch as standing platform",
+      "differences_from": "Unlike food bowl: not interactive, horizontal orientation. Unlike floor: elevated position, smaller area."
+    },
+    "explicit_negations": [
+      "No 3D shading or gradients",
+      "No realistic wood texture",
+      "No rope or fabric wrapping",
+      "No perch swing or movement",
+      "No end caps or mounting hardware visible",
+      "No perspective distortion",
+      "No shadows cast on background"
+    ]
+  }
+}

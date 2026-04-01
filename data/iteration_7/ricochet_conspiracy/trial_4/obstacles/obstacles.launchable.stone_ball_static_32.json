@@ -1,0 +1,87 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.stone_ball_static_32",
+  "asset_name": "Launchable — Stone Ball (32x32)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.env.stone_wall_tiles_80_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_brown",
+      "hex": "#2D1F1A"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "pale_gold",
+      "hex": "#D6B27A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "thin"
+  },
+  "context": {
+    "role": "projectile",
+    "layer": "obstacles",
+    "usage": "High-bounce ricochet ball.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        320,
+        420
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#7A6E6B",
+      "#B8A4A0",
+      "#2D1F1A"
+    ],
+    "animation": null,
+    "silhouette_notes": [
+      "Strong circle; subtle texture only."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.stone_ball_static_32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Deliverable PNG matches the specified pixel dimensions (or sprite-sheet total size) with transparent background.",
+    "Uses the project palette as a guideline; any additional colors are limited and documented in specs.colors_hex.",
+    "Silhouette/readability holds at 100% and 50% zoom; no muddy edges or unintended blurs."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

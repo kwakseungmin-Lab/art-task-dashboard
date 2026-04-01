@@ -1,0 +1,127 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.stage.courtroom_background_parallax_3layer",
+  "asset_name": "Courtroom Background — 3-layer Parallax (pastel medieval court)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "stage_background",
+    "layer": "world",
+    "usage": "Default stage backdrop behind all gameplay objects; supports 3-layer parallax (far/mid/near).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#D4A843",
+      "#C8B4E0",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "parallax_layers": [
+      {
+        "name": "far",
+        "file_hint": "world/world.stage.courtroom_background_parallax_3layer_far.png",
+        "scroll_factor": [
+          0.2,
+          0.0
+        ]
+      },
+      {
+        "name": "mid",
+        "file_hint": "world/world.stage.courtroom_background_parallax_3layer_mid.png",
+        "scroll_factor": [
+          0.5,
+          0.0
+        ]
+      },
+      {
+        "name": "near",
+        "file_hint": "world/world.stage.courtroom_background_parallax_3layer_near.png",
+        "scroll_factor": [
+          0.8,
+          0.0
+        ]
+      }
+    ],
+    "safe_area_px": {
+      "top": 50,
+      "bottom": 50,
+      "left": 0,
+      "right": 0
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.stage.courtroom_background_parallax_3layer_far.png",
+      "transparent_background": true
+    },
+    {
+      "type": "png",
+      "file": "world/world.stage.courtroom_background_parallax_3layer_mid.png",
+      "transparent_background": true
+    },
+    {
+      "type": "png",
+      "file": "world/world.stage.courtroom_background_parallax_3layer_near.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Each layer is exactly 1280x620px and exported as separate transparent PNGs (far/mid/near).",
+    "Visual style is pastel, low-saturation medieval court; no gore/weapon imagery; readable silhouettes at 1280x620.",
+    "Top 50px and bottom 50px of the full 1280x720 screen are kept visually low-contrast (reserved for HUD/control bars)."
+  ]
+}

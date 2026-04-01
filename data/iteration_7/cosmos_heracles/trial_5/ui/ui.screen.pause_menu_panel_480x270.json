@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.pause_menu_panel_480x270",
+  "asset_name": "Pause Menu Panel",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 81,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.top_bar_overlay_1600x64",
+    "ui.screen.title_logo_512x256"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.top_bar_overlay_1600x64",
+    "ui.screen.title_logo_512x256"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.top_bar_overlay_1600x64",
+      "ui.screen.title_logo_512x256"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "screen",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.top_bar_overlay_1600x64",
+      "ui.screen.title_logo_512x256",
+      "world.background.zone1_entrance_corridor_1600x900"
+    ],
+    "layer": "ui",
+    "usage": "Pause overlay panel with PAUSED, RESUME, and QUIT options shown when Esc is pressed.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 480,
+      "height": 270
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#F0EFE9",
+      "#FFD966"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "centered rectangle panel with one title row and two option rows aligned on an 8px grid",
+      "components": [
+        "panel frame",
+        "PAUSED title row",
+        "RESUME row",
+        "QUIT row",
+        "shadow backing"
+      ]
+    },
+    "overlay_alpha_steps": 4,
+    "typography": {
+      "font_style": "pixel_bold",
+      "title_height_px": 32,
+      "option_height_px": 20
+    },
+    "background_treatment": "transparent outside panel and shadow"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.pause_menu_panel_480x270.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel canvas is exactly 480x270px and remains centered at screen midpoint.",
+    "The title row uses a 32px font and the option rows use a 20px font with at least 16px vertical spacing.",
+    "The background overlay is represented by 4 discrete alpha steps and contains no blurred gradients."
+  ]
+}

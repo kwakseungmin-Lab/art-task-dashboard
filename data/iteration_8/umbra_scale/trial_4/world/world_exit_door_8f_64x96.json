@@ -1,0 +1,165 @@
+{
+  "task_id": "task_id_008004004",
+  "asset_key": "world_exit_door_8f_64x96",
+  "asset_name": "Exit Door Opening Sheet",
+  "category": "world",
+  "subcategory": "goal",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008004001",
+    "task_id_008004002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004009",
+      "task_id_008004018",
+      "task_id_008004020"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the eight-frame unlock animation and trigger state changes through an ExitDoor component.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "ExitDoor",
+      "Transform"
+    ],
+    "asset_loading": "Load world/world_exit_door_8f_64x96.png through AssetServer before goal entities spawn.",
+    "runtime_notes": [
+      "Closed and open states share one pivot on the door threshold.",
+      "Glow accents stay inside the doorway and never bake a beam into the frame.",
+      "The final frame exposes a clean interior gap large enough for a 32x48 player silhouette."
+    ]
+  },
+  "context": {
+    "role": "tower_exit_door",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1680,
+        540
+      ]
+    },
+    "layer": "world_goal",
+    "usage": "Locked tower exit door that opens when scale angle and light-routing conditions are satisfied.",
+    "adjacent_elements": [
+      "world_tower_backdrop_parallax_1920x1080",
+      "obstacle_balance_scale_rig_504x80",
+      "ui_clear_rank_panel_320x180"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#F5EFE0",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 10,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Tall deco doorway with split panels, a glowing seam, and stepped gold trim around the arch.",
+      "components": [
+        "door_frame",
+        "left_panel",
+        "right_panel",
+        "arch_trim",
+        "glow_seam",
+        "threshold"
+      ]
+    },
+    "interaction": {
+      "unlock_signal": "scale_target_and_door_open",
+      "clear_gap_px": [
+        36,
+        72
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_exit_door_8f_64x96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 512x96 px with eight 64x96 frames.",
+    "The closed frame reads as locked from a 1x viewport without relying on text.",
+    "The final open frame exposes a doorway gap of at least 36 px width."
+  ],
+  "blocked_by": [
+    "task_id_008004001",
+    "task_id_008004002"
+  ],
+  "blocks": [
+    "task_id_008004018",
+    "task_id_008004020"
+  ],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

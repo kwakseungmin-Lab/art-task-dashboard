@@ -1,0 +1,114 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.mirror_panel_8x64",
+  "asset_name": "Mirror Panel (8x64)",
+  "category": "obstacles",
+  "subcategory": "environment_mirror",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620",
+    "obstacles.environment.stone_wall_segment_80x80"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620",
+    "obstacles.environment.stone_wall_segment_80x80"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.stone_wall_segment_80x80",
+      "ui.overlay.trajectory_dotted_line_640x96"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "environment_reflector",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Placed in the play lane as a thin perfect reflector with 2-hit durability and an 8x64 collision profile.",
+    "adjacent_elements": [
+      "stone wall",
+      "trajectory line"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 64
+    },
+    "colors_hex": [
+      "#F5F0E8",
+      "#CFE0EA",
+      "#A89880",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "very thin reflective slab with a bright center stripe and darker frame edge",
+      "components": [
+        "mirror_core",
+        "frame_edge",
+        "mount_brackets"
+      ]
+    },
+    "physics_tags": {
+      "hp": 2,
+      "base_restitution": 1.0,
+      "collision_shape": "box_8x64"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.mirror_panel_8x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 8x64px and keeps the reflective core at 4px width centered in the frame.",
+    "Top and bottom mount brackets each use 6px height and do not exceed the 8px width.",
+    "Only #F5F0E8, #CFE0EA, #A89880, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

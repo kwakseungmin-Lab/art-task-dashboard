@@ -1,0 +1,131 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.counter_success_spark_16x16_6f_20fps",
+  "asset_name": "Counter Success Spark VFX",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P1",
+  "execution_order": 95,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "extended": [
+      {
+        "name": "Column Shadow",
+        "hex": "#6B6357"
+      },
+      {
+        "name": "Hero Skin",
+        "hex": "#E8B87A"
+      },
+      {
+        "name": "Bronze Armor",
+        "hex": "#C47C2B"
+      },
+      {
+        "name": "Star Gold",
+        "hex": "#FFD966"
+      },
+      {
+        "name": "Danger Red",
+        "hex": "#E84040"
+      },
+      {
+        "name": "Boss Purple",
+        "hex": "#7B2FBE"
+      },
+      {
+        "name": "UI White",
+        "hex": "#F0EFE9"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "vfx",
+    "layer": "world",
+    "usage": "Spawned on successful counter hit; small spark burst at the enemy impact point.",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#40E8D0",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "spritesheet_row",
+      "frame_count": 6,
+      "fps": 20,
+      "loop": false,
+      "sheet_dimensions_px": {
+        "width": 96,
+        "height": 16
+      },
+      "frame_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "lifetime_s": 0.3
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.counter_success_spark_16x16_6f_20fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x16px (6 frames in one row, each 16x16px).",
+    "First frame begins with a compact bright cluster; frames 2-4 expand outward; final frame has fewer than 8 visible pixels.",
+    "Uses only #40E8D0 and #F0EFE9 pixels plus transparency; no other colors appear."
+  ]
+}

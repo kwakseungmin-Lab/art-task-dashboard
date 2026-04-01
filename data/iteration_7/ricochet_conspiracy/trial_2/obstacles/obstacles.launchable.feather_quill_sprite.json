@@ -1,0 +1,105 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.feather_quill_sprite",
+  "asset_name": "Feather Quill Launchable Sprite",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P1",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.trajectory_dot_tile",
+      "world.foreground.marble_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "launch_object",
+    "layer": "world_objects",
+    "usage": "Light quill sprite with curved body for low-mass arc shots.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 520,
+      "y": 492
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 40
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#C8B4E0"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "curved_quill_with_short_shaft",
+      "components": [
+        "shaft",
+        "feather_body",
+        "feather_tip"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "impact_profile": "light_mass_0_5",
+    "restitution": 0.3,
+    "gravity_override_px_per_s2": 60
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.feather_quill_sprite.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 16x40px with the shaft centered at 8px.",
+    "Feather body curves no more than 6px from the shaft axis.",
+    "Tip highlight uses #F5F0E8 and body accent uses #C8B4E0."
+  ]
+}

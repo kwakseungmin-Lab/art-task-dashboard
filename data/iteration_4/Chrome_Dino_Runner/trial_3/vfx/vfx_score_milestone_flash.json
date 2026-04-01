@@ -1,0 +1,166 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 3,
+    "prompt_version_used": "Assembled_Prompt_trial_4",
+    "concepts_used": [
+      "Concept_v2_Invariance.md v1.2",
+      "Concept_v3_Structurality.md v1.1",
+      "Concept_v4_Completeness.md v1.1"
+    ],
+    "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+    "gameplay_constraints": {
+      "screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "scrolling": "single_screen_no_camera_scroll_objects_move_left"
+    },
+    "art_direction": {
+      "style": "pixel_art_8bit",
+      "theme": "prehistoric_desert",
+      "rendering_rules": {
+        "pixel_perfect": true,
+        "anti_aliasing": false,
+        "subpixel_movement_in_art": false
+      },
+      "palette": [
+        {
+          "name": "Background",
+          "hex": "#F7F7F7",
+          "rgb": [
+            247,
+            247,
+            247
+          ],
+          "usage": [
+            "sky_background"
+          ]
+        },
+        {
+          "name": "Primary",
+          "hex": "#535353",
+          "rgb": [
+            83,
+            83,
+            83
+          ],
+          "usage": [
+            "sprites",
+            "ui_text",
+            "ground_line",
+            "clouds"
+          ]
+        },
+        {
+          "name": "Highlight",
+          "hex": "#FF0000",
+          "rgb": [
+            255,
+            0,
+            0
+          ],
+          "usage": [
+            "optional_game_over_state_indicator"
+          ]
+        },
+        {
+          "name": "White",
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "usage": [
+            "ui_flash_optional",
+            "screen_flash_optional"
+          ]
+        }
+      ],
+      "outline_standard": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "sprite_standards": {
+      "authoring_scale": "1x",
+      "runtime_scaling_support": [
+        "2x_nearest_neighbor"
+      ],
+      "file_format": "png",
+      "alpha_background": "transparent",
+      "naming_convention": "snake_case"
+    },
+    "source_trace": {
+      "gdd_files": [
+        "00_Global_Architecture/Art_Direction.md",
+        "00_Global_Architecture/Game_Direction.md",
+        "02_Objects/Player.md",
+        "02_Objects/Cactus.md",
+        "02_Objects/Pterodactyl.md",
+        "02_Objects/Ground.md",
+        "03_UI_Widgets/ScoreDisplay.md",
+        "03_UI_Widgets/GameOverScreen.md",
+        "04_World/Background.md"
+      ]
+    }
+  },
+  "task_id": "cdr_vfx_score_milestone_flash",
+  "asset_name": "vfx_score_milestone_flash",
+  "category": "vfx",
+  "subcategory": "ui_flash",
+  "description": "점수 마일스톤(100점 단위) 도달 시 ScoreDisplay 텍스트 플래시 연출 스펙. 선택 구현(옵션).\n- 스프라이트 파일 생성: 없음(구현 파라미터로 처리)\n- 플래시 색상: #FFFFFF\n- 기본 색상: #535353\n- 지속시간: 0.1초\n- 적용 대상: ScoreDisplay 텍스트만\n",
+  "deliverables": [
+    {
+      "path": "art/export/vfx/vfx_score_milestone_flash_spec.json",
+      "type": "json",
+      "description": "마일스톤 플래시 파라미터 스펙"
+    }
+  ],
+  "specs": {
+    "flash": {
+      "on_color_hex": "#FFFFFF",
+      "off_color_hex": "#535353",
+      "duration_s": 0.1
+    },
+    "trigger": {
+      "score_interval": 100
+    }
+  },
+  "context": {
+    "role": "마일스톤 도달 피드백(난이도 증가 시점 표시).",
+    "screen_location": "우측 상단 점수 영역.",
+    "adjacent_elements": [
+      "ui_score_display_spec"
+    ],
+    "layer": "ui_layer",
+    "usage": "Score % 100 == 0이고 last_milestone 갱신 시 0.1초 플래시."
+  },
+  "relationships": {
+    "related_tasks": [
+      "cdr_ui_score_display_spec"
+    ],
+    "shared_properties": [
+      "색상 팔레트 내 #FFFFFF/#535353 사용"
+    ],
+    "differences": [
+      "텍스트 색상만 변경, 이미지 오버레이 없음"
+    ]
+  },
+  "depends_on": [
+    "cdr_ui_score_display_spec"
+  ],
+  "execution_order": 21,
+  "priority": "P3",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_ui_score_display_spec"
+  ],
+  "acceptance_criteria": [
+    "모든 산출물 PNG는 sRGB, 투명 배경(alpha=0)이며, 안티앨리어싱/블러/그라데이션이 0px/0단계로 존재하지 않는다.",
+    "팔레트는 프로젝트 팔레트(#F7F7F7, #535353, #FF0000(선택), #FFFFFF(선택)) 외의 색상을 포함하지 않는다.",
+    "spec.json에 on_color=#FFFFFF, off_color=#535353, duration_s=0.1, trigger score_interval=100이 명시되어 있다."
+  ]
+}

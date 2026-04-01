@@ -1,0 +1,132 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.gate.narrow_passage",
+  "asset_name": "Narrow passage obstacle module",
+  "category": "obstacles",
+  "subcategory": "gate_narrow",
+  "priority": "P1",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": [
+    "primary #C47C2B",
+    "background #0B0C1E",
+    "accent #FFD966",
+    "collision gate module"
+  ],
+  "differences": [
+    "clearance_height_50",
+    "requires_small_form"
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles_small_variant",
+      "world.floor.star_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art_16x16_upscaled",
+    "detail_level": "dense_16x16_cluster",
+    "shading": "two_tone_plus_one_highlight",
+    "outline": "1px_deep_space_outline"
+  },
+  "context": {
+    "role": "obstacle_gate",
+    "screen_position": {
+      "mode": "scroll_spawn_lane",
+      "anchor_px": {
+        "x": 1120,
+        "y": 790
+      },
+      "pivot": "bottom_center",
+      "type": "absolute_px"
+    },
+    "layer": "midground_obstacles",
+    "usage": "Low-ceiling passage module with exactly 50 px clearance for the small-form traversal check.",
+    "adjacent_elements": [
+      "player small form clearance lane",
+      "star floor strip",
+      "zone 2 celestial hall backdrop"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 110
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E",
+      "#E84040"
+    ],
+    "animation": {
+      "frame_count": 1,
+      "fps": 0,
+      "loop": "none",
+      "frame_size_px": {
+        "width": 160,
+        "height": 110
+      },
+      "states": [
+        "static"
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "front_flat"
+    },
+    "shape": {
+      "silhouette": "low ceiling gate with tight crawl opening",
+      "components": [
+        "top lintel",
+        "left column edge",
+        "right column edge",
+        "50 px clearance window"
+      ]
+    },
+    "texture": "none",
+    "shading": "two_tone_with_outline"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "obstacles/obstacles.gate.narrow_passage.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Output sheet size is exactly 160x110 px.",
+    "Core palette remains primary #C47C2B, background #0B0C1E, accent #FFD966 with asset-local colors confined to specs.colors_hex.",
+    "Animation metadata is exactly frame_count 1, fps 0, loop none.",
+    "Deliverable path is exactly obstacles/obstacles.gate.narrow_passage.png with transparent background enabled.",
+    "The collision opening is exactly 50 px tall.",
+    "A red warning strip using #E84040 appears on the leading edge at x 0 to 16 px.",
+    "specs.viewpoint.camera_angle is orthographic_side and specs.viewpoint.facing is front_flat.",
+    "context.screen_position.type is absolute_px and context.adjacent_elements contains exactly 3 local composition notes."
+  ]
+}

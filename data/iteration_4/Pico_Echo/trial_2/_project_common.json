@@ -1,0 +1,390 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style_family": "pixel_art",
+      "style_reference": "PICO-8 default palette",
+      "view": "2D_front_facing",
+      "canvas_px": {
+        "width": 128,
+        "height": 128
+      },
+      "color_constraints": {
+        "mode": "indexed_color",
+        "max_colors": 16,
+        "palette_name": "PICO8_16",
+        "palette_hex": [
+          "#000000",
+          "#1D2B53",
+          "#7E2553",
+          "#008751",
+          "#AB5236",
+          "#5F574F",
+          "#C2C3C7",
+          "#FFF1E8",
+          "#FF004D",
+          "#FFA300",
+          "#FFEC27",
+          "#00E436",
+          "#29ADFF",
+          "#83769C",
+          "#FF77A8",
+          "#FFCCAA"
+        ],
+        "alpha": "binary"
+      },
+      "rendering": {
+        "scaling": "nearest_neighbor",
+        "outline": {
+          "enabled": true,
+          "color": "#1D2B53",
+          "thickness_px": 1
+        },
+        "shading": {
+          "enabled": true,
+          "steps": 2,
+          "shadow_color": "#5F574F"
+        }
+      }
+    },
+    "layer_order_top_to_bottom": [
+      "ui",
+      "vfx",
+      "character",
+      "object",
+      "environment"
+    ],
+    "source_gdd_paths": [
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Echo.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md"
+    ]
+  },
+  "palette": {
+    "PICO8_16": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "GDD_named": {
+      "echo_body": "#FFA300",
+      "echo_cheek": "#FF004D",
+      "echo_crest": "#FFEC27",
+      "echo_beak_and_feet": "#AB5236",
+      "bg_wall": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "ui_text_and_outline": "#1D2B53",
+      "ui_accent": "#FF004D",
+      "ui_disabled": "#5F574F",
+      "happiness_green": "#00E436",
+      "floor": "#FFCCAA",
+      "zzz": "#7E2553"
+    }
+  },
+  "assets": [
+    {
+      "task_id": "pico_echo.environment.cage_wall_bg",
+      "asset_name": "Cage wall background (solid fill)",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_file": "environment/cage_wall_bg.json"
+    },
+    {
+      "task_id": "pico_echo.environment.cage_bars_overlay",
+      "asset_name": "Cage bars overlay (top y=0..16)",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_file": "environment/cage_bars_overlay.json"
+    },
+    {
+      "task_id": "pico_echo.environment.cage_perch",
+      "asset_name": "Perch (80x4)",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_file": "environment/cage_perch.json"
+    },
+    {
+      "task_id": "pico_echo.environment.cage_floor",
+      "asset_name": "Floor (128x18)",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_file": "environment/cage_floor.json"
+    },
+    {
+      "task_id": "pico_echo.object.food_bowl_empty",
+      "asset_name": "Food bowl (empty)",
+      "category": "object",
+      "subcategory": "cage_prop",
+      "plan_file": "object/food_bowl_empty.json"
+    },
+    {
+      "task_id": "pico_echo.object.food_bowl_low",
+      "asset_name": "Food bowl (low)",
+      "category": "object",
+      "subcategory": "cage_prop",
+      "plan_file": "object/food_bowl_low.json"
+    },
+    {
+      "task_id": "pico_echo.object.food_bowl_full",
+      "asset_name": "Food bowl (full)",
+      "category": "object",
+      "subcategory": "cage_prop",
+      "plan_file": "object/food_bowl_full.json"
+    },
+    {
+      "task_id": "pico_echo.object.water_bowl",
+      "asset_name": "Water bowl (12x10)",
+      "category": "object",
+      "subcategory": "cage_prop",
+      "plan_file": "object/water_bowl.json"
+    },
+    {
+      "task_id": "pico_echo.object.seed_single",
+      "asset_name": "Seed single (3x3)",
+      "category": "object",
+      "subcategory": "consumable",
+      "plan_file": "object/seed_single.json"
+    },
+    {
+      "task_id": "pico_echo.object.poop",
+      "asset_name": "Poop (2x2)",
+      "category": "object",
+      "subcategory": "waste",
+      "plan_file": "object/poop.json"
+    },
+    {
+      "task_id": "pico_echo.character.echo_idle",
+      "asset_name": "Echo animation idle",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_file": "character/echo_idle.json"
+    },
+    {
+      "task_id": "pico_echo.character.echo_eating",
+      "asset_name": "Echo animation eating",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_file": "character/echo_eating.json"
+    },
+    {
+      "task_id": "pico_echo.character.echo_sleeping",
+      "asset_name": "Echo animation sleeping",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_file": "character/echo_sleeping.json"
+    },
+    {
+      "task_id": "pico_echo.character.echo_happy",
+      "asset_name": "Echo animation happy",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_file": "character/echo_happy.json"
+    },
+    {
+      "task_id": "pico_echo.character.echo_preening",
+      "asset_name": "Echo animation preening",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_file": "character/echo_preening.json"
+    },
+    {
+      "task_id": "pico_echo.character.echo_dirty",
+      "asset_name": "Echo animation dirty",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_file": "character/echo_dirty.json"
+    },
+    {
+      "task_id": "pico_echo.character.echo_hungry",
+      "asset_name": "Echo animation hungry",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_file": "character/echo_hungry.json"
+    },
+    {
+      "task_id": "pico_echo.character.echo_singing",
+      "asset_name": "Echo animation singing",
+      "category": "character",
+      "subcategory": "echo_state_animation",
+      "plan_file": "character/echo_singing.json"
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_bar_bg",
+      "asset_name": "Happiness bar BG (120x2)",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "ui/happiness_bar_bg.json"
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_bar_fill_orange",
+      "asset_name": "Happiness bar fill orange (120x2)",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "ui/happiness_bar_fill_orange.json"
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_bar_fill_yellow",
+      "asset_name": "Happiness bar fill yellow (120x2)",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "ui/happiness_bar_fill_yellow.json"
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_bar_fill_green",
+      "asset_name": "Happiness bar fill green (120x2)",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "ui/happiness_bar_fill_green.json"
+    },
+    {
+      "task_id": "pico_echo.ui.care_menu_panel",
+      "asset_name": "Care menu panel (36x16) dither",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "ui/care_menu_panel.json"
+    },
+    {
+      "task_id": "pico_echo.ui.icon_feed",
+      "asset_name": "Care icon icon_feed",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "ui/icon_feed.json"
+    },
+    {
+      "task_id": "pico_echo.ui.icon_clean",
+      "asset_name": "Care icon icon_clean",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "ui/icon_clean.json"
+    },
+    {
+      "task_id": "pico_echo.ui.icon_pet",
+      "asset_name": "Care icon icon_pet",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "ui/icon_pet.json"
+    },
+    {
+      "task_id": "pico_echo.ui.status_bubble_bg",
+      "asset_name": "Status bubble bg (12x10)",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "ui/status_bubble_bg.json"
+    },
+    {
+      "task_id": "pico_echo.ui.status_icon_seed",
+      "asset_name": "Status icon seed (6x6)",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "ui/status_icon_seed.json"
+    },
+    {
+      "task_id": "pico_echo.ui.status_icon_sleep",
+      "asset_name": "Status icon sleep (6x6)",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "ui/status_icon_sleep.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.heart_particle",
+      "asset_name": "Heart particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_file": "vfx/heart_particle.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.music_note_particle",
+      "asset_name": "Music note particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_file": "vfx/music_note_particle.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.zzz_particle",
+      "asset_name": "ZZZ particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_file": "vfx/zzz_particle.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.feather_particle",
+      "asset_name": "Feather particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_file": "vfx/feather_particle.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.dust_particle",
+      "asset_name": "Dust particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_file": "vfx/dust_particle.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.sparkle_particle",
+      "asset_name": "Sparkle particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_file": "vfx/sparkle_particle.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.happiness_up_arrow",
+      "asset_name": "Happiness up arrow",
+      "category": "vfx",
+      "subcategory": "particle",
+      "plan_file": "vfx/happiness_up_arrow.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.seed_drop",
+      "asset_name": "Seed drop strip (48x16)",
+      "category": "vfx",
+      "subcategory": "animation",
+      "plan_file": "vfx/seed_drop.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.broom_swipe",
+      "asset_name": "Broom swipe strip (512x18)",
+      "category": "vfx",
+      "subcategory": "animation",
+      "plan_file": "vfx/broom_swipe.json"
+    },
+    {
+      "task_id": "pico_echo.vfx.poop_fade",
+      "asset_name": "Poop fade strip (4x2)",
+      "category": "vfx",
+      "subcategory": "animation",
+      "plan_file": "vfx/poop_fade.json"
+    },
+    {
+      "task_id": "pico_echo.typography.font_pixel_3x5_digits_percent",
+      "asset_name": "Font sheet 44x6 (3x5 glyphs)",
+      "category": "typography",
+      "subcategory": "font",
+      "plan_file": "typography/font_pixel_3x5_digits_percent.json"
+    }
+  ],
+  "notes": {
+    "selected_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+    "concepts": [
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+    ],
+    "packaging": "Files stored under v2/{category}/ per system rule; one asset per JSON file; each asset file includes project block."
+  }
+}

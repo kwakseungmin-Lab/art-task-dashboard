@@ -1,0 +1,144 @@
+{
+  "asset_name": "Player Base Form 64x96",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "character.player.heracles_form_120x180",
+    "character.player.heracles_form_40x40",
+    "character.player.heracles_counter_64x96",
+    "ui.hud.size_state_indicator"
+  ],
+  "blocked_by": [
+    "world.floor.star_floor_strip"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.size_state_indicator",
+      "ui.hud.counter_gauge"
+    ]
+  },
+  "context": {
+    "role": "player_avatar",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 400,
+      "y": 724
+    },
+    "adjacent_elements": [
+      "world.floor.star_floor_strip",
+      "ui.hud.hp_hearts_row"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Visible during all non-transform and non-counter gameplay frames; locked to x 400 with ground contact y 820."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 96
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#FFD966",
+      "#C47C2B",
+      "#E8B87A"
+    ],
+    "animation": {
+      "type": "loop",
+      "frame_count": 6,
+      "frame_time_s": 0.08,
+      "loop": true,
+      "sprite_sheet_layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Single humanoid side profile with head height 16 px, torso height 32 px, and leg height 48 px.",
+      "components": [
+        "head 16x16",
+        "bronze shoulder plate",
+        "torso tunic 24x32",
+        "forward arm 8x24",
+        "rear arm 8x24",
+        "legs pair 16x48",
+        "star clasp 8x8"
+      ]
+    },
+    "face": {
+      "eyes": "2 px sclera with 1 px pupil",
+      "mouth": "1 px horizontal line",
+      "nose": "2 px forward wedge"
+    },
+    "appendages": {
+      "arms": "2",
+      "legs": "2",
+      "tail": "none",
+      "accessories": [
+        "bronze shoulder guard",
+        "star clasp"
+      ]
+    },
+    "texture": "bronze_plate_plus_cloth",
+    "collision_box_px": {
+      "width": 64,
+      "height": 96
+    },
+    "shading_model": "two_tone_flat"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.heracles_form_64x96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet bounding box is exactly 64x96 px per frame.",
+    "Sheet contains exactly 6 frames in one row.",
+    "Character faces right in all 6 frames and ground contact stays on the same y row.",
+    "Only the listed #RRGGBB values are used in the rendered sprite."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "character.player.heracles_form_64x96",
+  "category": "character",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008001015",
+  "asset_key": "ui_friction_gauge_240x8",
+  "asset_name": "Friction Gauge HUD",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008001002",
+    "task_id_008001005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008001002",
+    "task_id_008001005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008001005",
+      "task_id_008001006",
+      "task_id_008001007",
+      "task_id_008001012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle or nine-slice-free textured quads for the gauge frame and fill, driven by one FrictionGauge state resource.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "HudOverlay"
+    ],
+    "asset_loading": "Load ui/ui_friction_gauge_240x8.png through AssetServer and anchor it to the lower center margin.",
+    "runtime_notes": [
+      "Gauge updates every frame from the active friction coefficient and input direction.",
+      "The meter remains visible during play and hides only when full-screen panels take focus.",
+      "The asset stays in UI space and never uses filtering."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "hud_friction_indicator",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        708
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Bottom-center gauge that visualizes current drag intensity and directional input during descent.",
+    "adjacent_elements": [
+      "player_prisoner_fall_4f_8fps",
+      "player_prisoner_brake_left_2f_6fps",
+      "player_prisoner_brake_right_2f_6fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 8
+    },
+    "colors_hex": [
+      "#4A90A4",
+      "#4E5940",
+      "#E07B39",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Long horizontal meter with centered neutral mark, left and right pressure rails, and a bright fill bar for active drag.",
+      "components": [
+        "left_drag_rail",
+        "neutral_mark",
+        "right_drag_rail",
+        "active_fill"
+      ]
+    },
+    "layout": {
+      "anchor": "bottom_center",
+      "baseline_y_px": 708
+    },
+    "ui_states": [
+      "neutral",
+      "left_drag",
+      "right_drag",
+      "dual_drag",
+      "vent_accel"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_friction_gauge_240x8.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 240x8 px.",
+    "The neutral mark sits on the exact horizontal midpoint of the gauge.",
+    "Active fill remains at least 2 px thick across the entire meter length."
+  ]
+}

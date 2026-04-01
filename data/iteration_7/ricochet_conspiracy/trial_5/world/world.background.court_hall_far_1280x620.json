@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.court_hall_far_1280x620",
+  "asset_name": "Court Hall Far Layer (1280x620)",
+  "category": "world",
+  "subcategory": "background_far",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "world.background.court_hall_mid_1280x620"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.court_hall_mid_1280x620",
+      "world.background.court_hall_front_1280x620"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "stage_background_far",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        50
+      ]
+    },
+    "layer": "world_far",
+    "usage": "Visible during puzzle play; carries distant window arches, balcony rail, and skyline glow behind the 1280x620 play lane.",
+    "adjacent_elements": [
+      "mid columns layer",
+      "top HUD strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#DCC7B7",
+      "#C8B4E0",
+      "#A89880",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "six tall arch windows and one horizontal balcony rail with no collision edge",
+      "components": [
+        "arch_window_set",
+        "balcony_rail",
+        "sky_gradient",
+        "window mullions"
+      ]
+    },
+    "parallax": {
+      "depth_index": 1,
+      "scroll_factor_x": 0.35
+    },
+    "lighting": {
+      "glow_hex": "#C8B4E0",
+      "window_glow_opacity_percent": 28
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.court_hall_far_1280x620.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1280x620px and fills the full frame with no crop on the left or right edge.",
+    "Window arches repeat 6 times at 160px width with mullion lines at 2px thickness and balcony rail height at 18px.",
+    "Only #E8D5C4, #DCC7B7, #C8B4E0, #A89880, and #3D2B1F are used in the painted layer."
+  ]
+}

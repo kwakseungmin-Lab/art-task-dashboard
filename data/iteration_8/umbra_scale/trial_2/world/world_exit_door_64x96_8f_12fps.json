@@ -1,0 +1,185 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020112",
+  "asset_key": "world_exit_door_64x96_8f_12fps",
+  "asset_name": "Exit Door Unlock Sequence (64x96, 8 frames, 12fps)",
+  "category": "world",
+  "subcategory": "goal_object",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The door occupies a 64x96 px footprint that matches the documented exit-door scale for floor completion.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while unlock tones stay inside specs.colors_hex.",
+    "Art deco ornament stays vertically symmetrical so the goal reads instantly at the far edge of a floor."
+  ],
+  "differences": [
+    "Eight frames cover closed, unlocking, and open states with a central iris split and rising gold light seams.",
+    "The opening motion favors mechanical shutters and rune inlays rather than smoke effects so it fits the tower engineering aesthetic.",
+    "Final open frames expose a high-contrast void passage that can accept Umbra silhouette entry without clipping."
+  ],
+  "depends_on": [
+    "task_id_008020110",
+    "task_id_008020111"
+  ],
+  "blocks": [
+    "task_id_008020118"
+  ],
+  "blocked_by": [
+    "task_id_008020110",
+    "task_id_008020111"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020111",
+      "task_id_008020116",
+      "task_id_008020118"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds exit-door dimensions, unlock condition, and floor-clear transition."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the gold mechanical flourish used for progress gates."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra-to-door scale so entry framing remains readable."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with atlas-indexed state transitions.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility",
+      "ExitDoor"
+    ],
+    "asset_loading": "Load the exit-door atlas during FloorLoading and trigger atlas progression when the puzzle unlock condition resolves.",
+    "runtime_notes": [
+      "Keep the center-bottom pivot stable across all frames for collision consistency.",
+      "Drive the unlock sequence as a non-looping one-shot at 12 fps.",
+      "Render the open-state void interior darker than the surrounding trim so Umbra entry remains readable."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "goal_exit",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1744,
+        352
+      ]
+    },
+    "layer": "world",
+    "usage": "Goal object that opens after target scale conditions are met and then accepts player contact to finish the floor.",
+    "adjacent_elements": [
+      "task_id_008020111",
+      "task_id_008020116"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": false,
+      "frame_size_px": [
+        64,
+        96
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 2
+      },
+      "state_ranges": [
+        {
+          "state": "closed",
+          "start_frame": 0,
+          "end_frame": 1
+        },
+        {
+          "state": "unlocking",
+          "start_frame": 2,
+          "end_frame": 5
+        },
+        {
+          "state": "open",
+          "start_frame": 6,
+          "end_frame": 7
+        }
+      ]
+    },
+    "construction_notes": [
+      "Door frame width is 64 px.",
+      "Usable opening height is at least 72 px in the final state.",
+      "Gold trim thickness averages 3 px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_exit_door_64x96_8f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 256x192 px with eight 64x96 frames arranged in a 4x2 layout.",
+    "Closed, unlocking, and open states are distinguishable at one glance without auxiliary UI text.",
+    "Final open state preserves a clear passage silhouette suitable for Umbra entry and floor-transition framing."
+  ]
+}

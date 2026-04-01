@@ -1,0 +1,155 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003003",
+  "asset_key": "world_exit_door_opening_8f_64x96",
+  "asset_name": "Exit Door Opening Sequence",
+  "category": "world",
+  "subcategory": "goal_object",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001",
+    "task_id_008003013"
+  ],
+  "blocks": [
+    "task_id_008003021"
+  ],
+  "blocked_by": [
+    "task_id_008003001",
+    "task_id_008003013"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003013",
+      "task_id_008003018",
+      "task_id_008003021"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle on the exit door entity and trigger the non looping sequence when the scale target state is satisfied.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "ExitDoor",
+      "Transform"
+    ],
+    "asset_loading": "Load world/world_exit_door_opening_8f_64x96.png through AssetServer and advance frames during the unlocked animation event.",
+    "runtime_notes": [
+      "Closed, opening, and open readability must remain clear from the default full floor camera.",
+      "The collision sensor becomes passable on frame 8 while the art stays aligned to the door frame anchor.",
+      "Gold trim glow can pulse during the final two frames without changing the sprite origin."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "goal_door",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1664,
+        360
+      ]
+    },
+    "layer": "world_goal",
+    "usage": "Goal object that opens when the scale angle falls inside the target window and the shadow path stays traversable.",
+    "adjacent_elements": [
+      "world_tower_chamber_backdrop_1920x1080",
+      "obstacle_scale_platform_dual_520x96",
+      "ui_shadow_rank_clear_panel_640x360"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0",
+      "#2D1B4E"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Tall art deco door with stepped gold frame, central iris seam, and a bright unlock slit that widens during the sequence.",
+      "components": [
+        "outer_frame",
+        "iris_panels",
+        "unlock_core",
+        "threshold_base",
+        "gold_trim"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Brushed metal trim, lacquered dark door panels, and thin inner glow accents.",
+    "shading": "Hard amber highlights travel from the seam toward the frame over the 8 frame sequence."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_exit_door_opening_8f_64x96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 512x96 px with eight 64x96 frames.",
+    "Frame 1 reads fully locked and frame 8 reads fully open with a minimum 24 px walkable gap.",
+    "The bottom threshold stays on one horizontal baseline across all frames so the collision handoff stays stable."
+  ]
+}

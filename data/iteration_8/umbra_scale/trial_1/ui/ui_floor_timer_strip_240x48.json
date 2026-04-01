@@ -1,0 +1,159 @@
+{
+  "task_id": "task_id_008101018",
+  "asset_key": "ui_floor_timer_strip_240x48",
+  "asset_name": "Floor and Timer Strip",
+  "category": "ui",
+  "subcategory": "hud_text_plate",
+  "priority": "P1",
+  "execution_order": 180,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101001",
+    "task_id_008101004"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101001",
+    "task_id_008101004"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the panel art and overlay bitmap text or signed-distance-field text for floor and time values.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "FloorTimerHud"
+    ],
+    "asset_loading": "Load ui/ui_floor_timer_strip_240x48.png through AssetServer and anchor it to the top-center HUD layout.",
+    "runtime_notes": [
+      "Panel supports one line for FLOOR XX / 30 and one line for MM:SS.ss.",
+      "Keep the art narrow enough that it does not compete with the tower skyline near the top center.",
+      "Text margins should assume frequent live timer updates without clipping."
+    ]
+  },
+  "context": {
+    "role": "hud_floor_and_timer",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        36
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Top-center HUD plate for current floor index and elapsed time during puzzle solving and speed-rank play.",
+    "adjacent_elements": [
+      "world_tower_backdrop_parallax_1920x1080",
+      "world_exit_door_8f_64x96",
+      "ui_exposure_gauge_160x12"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 48
+    },
+    "colors_hex": [
+      "#1C1826",
+      "#C9A84C",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Slim art-deco HUD plate with a large title row and a smaller timer row beneath it.",
+      "components": [
+        "outer_frame",
+        "floor_label_band",
+        "timer_band",
+        "side_caps"
+      ]
+    },
+    "layout": {
+      "anchor": "top_center",
+      "text_rows": 2,
+      "safe_text_area_px": [
+        208,
+        36
+      ]
+    }
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 240x48 px.",
+    "Panel supports a two-row text layout with enough margin for FLOOR 30 / 30 and MM:SS.ss.",
+    "The frame remains readable over bright doorway glow and dark skyline silhouettes alike."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101001",
+      "task_id_008101004",
+      "task_id_008101017",
+      "task_id_008101020",
+      "task_id_008101021"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_floor_timer_strip_240x48.png",
+      "transparent_background": true
+    }
+  ]
+}

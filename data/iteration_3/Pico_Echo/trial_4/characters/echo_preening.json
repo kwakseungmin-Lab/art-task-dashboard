@@ -1,0 +1,91 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame",
+      "position_reference": "perch at y=80px",
+      "layer_order": 3
+    }
+  },
+  "asset": {
+    "asset_id": "echo_preening",
+    "asset_name": "Echo Preening State",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Autonomous grooming behavior, randomly triggered during idle",
+      "screen_position": "Center at x=64, y=60, on perch at y=80",
+      "adjacent_elements": ["perch", "feather_particle"],
+      "usage_scenario": "30% chance to trigger from idle state, plays for 5 seconds showing self-grooming behavior"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head turned to side, beak touching wing/body feathers",
+      "texture": "Pixel art with organic hand-drawn feel, no gradients",
+      "outline": "1px dark outline (#1D2B53) on crest, beak, and body silhouette",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 5,
+        "fps": 3,
+        "loop": true,
+        "description": "Frame 1: head turns left, Frame 2: beak touches left wing, Frame 3: head center, Frame 4: head turns right, Frame 5: beak touches right wing"
+      },
+      "details": "Head rotates approximately 30° left and right, beak makes contact with wing area (visible as beak tip touching body), crest in normal position, one eye visible when head turns (2x2px), wing feathers slightly ruffled during contact"
+    },
+    "relationships": {
+      "related_assets": ["echo_idle", "feather_particle", "perch"],
+      "shared_with": "Same color palette as all Echo states",
+      "differences_from": "echo_idle (head rotation and beak position), echo_sleeping (eyes open and active movement)"
+    },
+    "explicit_negations": [
+      "No feathers falling off permanently",
+      "No dirt or dust removal visual",
+      "No wing spreading beyond normal body width",
+      "No scratching with feet",
+      "No full body rotation",
+      "No interaction with player during preening (autonomous only)"
+    ]
+  }
+}

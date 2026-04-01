@@ -1,0 +1,123 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "pico_echo",
+    "project_name": "Pico_Echo"
+  },
+  "meta": {
+    "plan_id": "Pico_Echo__iter7__trial5",
+    "game_name": "Pico_Echo",
+    "iteration": 7,
+    "trial_index": 5,
+    "plan_dir": "trial_5",
+    "created_at_utc": "2026-03-17T18:51:03Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "assets": [
+    {
+      "task_id": "world.cage.room_shell_static",
+      "category": "world",
+      "file": "world/world.cage.room_shell_static.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.cage.foreground_bar_overlay",
+      "category": "world",
+      "file": "world/world.cage.foreground_bar_overlay.json",
+      "execution_order": 20,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.cage.feed_station_set",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cage.feed_station_set.json",
+      "execution_order": 30,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.cage.cleanup_feedback_set",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cage.cleanup_feedback_set.json",
+      "execution_order": 40,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.echo.behavior_core_sheet_21f",
+      "category": "character",
+      "file": "character/character.echo.behavior_core_sheet_21f.json",
+      "execution_order": 50,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.echo.affection_rest_sheet_20f",
+      "category": "character",
+      "file": "character/character.echo.affection_rest_sheet_20f.json",
+      "execution_order": 60,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.happiness_bar_states",
+      "category": "ui",
+      "file": "ui/ui.hud.happiness_bar_states.json",
+      "execution_order": 70,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.menu.care_popup_icons",
+      "category": "ui",
+      "file": "ui/ui.menu.care_popup_icons.json",
+      "execution_order": 80,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.widget.status_bubble_set",
+      "category": "ui",
+      "file": "ui/ui.widget.status_bubble_set.json",
+      "execution_order": 90,
+      "variant_of": null
+    }
+  ],
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  }
+}

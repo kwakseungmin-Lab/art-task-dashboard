@@ -1,0 +1,128 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.chandelier_swing_sheet",
+  "asset_name": "Chandelier Swing Sheet",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P1",
+  "execution_order": 210,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.arch_front_layer",
+    "obstacles.environment.candle_prop"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.arch_front_layer",
+    "obstacles.environment.candle_prop"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.arch_front_layer",
+      "world.prop.curtain_banner_sheet",
+      "obstacles.environment.candle_prop"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "drop_trigger",
+    "layer": "world_objects",
+    "usage": "Hanging chandelier sheet with three swing frames for drop attacks.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 580,
+      "y": 116
+    },
+    "adjacent_elements": [
+      "world.background.arch_front_layer",
+      "world.prop.curtain_banner_sheet"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 24
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#E8704A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "directions": 1,
+      "frame_count_per_direction": 3,
+      "fps": 3,
+      "loop": true,
+      "sheet_layout": {
+        "rows": 1,
+        "cols": 3,
+        "frame_size_px": {
+          "width": 80,
+          "height": 24
+        },
+        "ordering": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "wide_chandelier_with_three_lamp_groups",
+      "components": [
+        "chain",
+        "top_ring",
+        "left_lamp_group",
+        "center_lamp_group",
+        "right_lamp_group"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "drop_radius_px": 80
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.chandelier_swing_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 240x24px with 3 frames sized 80x24px.",
+    "Chain anchor stays centered at x=40px in every frame.",
+    "Lamp groups use #D4A843 and flame dots use #E8704A."
+  ]
+}

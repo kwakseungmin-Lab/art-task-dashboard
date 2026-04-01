@@ -1,0 +1,86 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.dino_jump_static",
+  "asset_name": "Player Dino — Jump (single frame)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_run_2f_12fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "jump",
+    "layer": "character",
+    "usage": "Used for the whole airtime (static pose), per GDD.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        20
+      ]
+    },
+    "notes": "Matches GDD Player sprite spec: 88x94, 1 frame."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static"
+    },
+    "silhouette_notes": [
+      "Pose indicates upward motion: legs tucked slightly; tail angled for balance."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_jump_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 88x94px with transparent background.",
+    "Jump pose differs from run/idle clearly (legs not in contact with ground line)."
+  ]
+}

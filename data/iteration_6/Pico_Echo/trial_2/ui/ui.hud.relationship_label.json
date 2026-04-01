@@ -1,0 +1,102 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.relationship_label",
+  "asset_name": "Relationship Level Label (Stranger → Best Friend)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 330,
+  "variant_of": null,
+  "depends_on": [
+    "ui.font.minipixel_3x5_ascii_96glyph"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.minipixel_3x5_ascii_96glyph"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.minipixel_3x5_ascii_96glyph"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_text",
+    "layer": "ui",
+    "usage": "Displays relationship tier text at top-center.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_center",
+      "offset_px": [
+        0,
+        4
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 8
+    },
+    "colors_hex": [
+      "#1D2B53",
+      "#FFF1E8"
+    ],
+    "animation": null,
+    "text_layout": {
+      "max_chars": 14,
+      "padding_px": [
+        2,
+        1,
+        2,
+        1
+      ],
+      "background_fill_hex": "#FFF1E8",
+      "border_hex": "#1D2B53",
+      "font_glyph_size_px": [
+        3,
+        5
+      ],
+      "font_foreground_hex": "#1D2B53"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.relationship_label.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Label asset is exactly 80x8px with a 1px border in #1D2B53.",
+    "Interior is filled with #FFF1E8 and supports rendering up to 14 characters using 3x5 glyphs in #1D2B53.",
+    "When placed at top-center with 4px y offset, it remains inside the 128x128 canvas and leaves the bottom HUD row (y=127) unobstructed."
+  ]
+}

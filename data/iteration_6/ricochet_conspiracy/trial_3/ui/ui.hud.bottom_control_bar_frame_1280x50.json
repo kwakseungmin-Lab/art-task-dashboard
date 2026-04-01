@@ -1,0 +1,93 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.bottom_control_bar_frame_1280x50",
+  "asset_name": "HUD — Bottom Control Bar Frame (1280x50)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 430,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.bitmap_serif_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_serif_16px_ascii96"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_frame",
+    "layer": "ui",
+    "usage": "Bottom bar background for angle readout and power slider. Occupies y=670..720.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 50
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#3D2B1F",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "ui_frame": {
+      "border_thickness_px": 2,
+      "corner_radius_px": 0,
+      "note": "Match top bar style; reserve center space for slider (approx 200px wide)."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.bottom_control_bar_frame_1280x50.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "UI frame is exactly 1280x50px with consistent 2px border and palette matching the top bar.",
+    "Bottom bar is visually distinct from playfield while keeping pastel tone; no high-contrast patterns.",
+    "Crisp pixel edges only; no anti-aliasing; transparent background outside the bar."
+  ]
+}

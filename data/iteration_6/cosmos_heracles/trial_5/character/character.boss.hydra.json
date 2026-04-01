@@ -1,0 +1,110 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.boss.hydra",
+  "asset_name": "Hydra Boss — 200x180 (12 frames: idle 6 + head1 atk 3 + head2 atk 3)",
+  "category": "character",
+  "subcategory": "boss",
+  "priority": "P0",
+  "execution_order": 200,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.counter_gauge",
+      "ui.popup.counter_result"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "boss_purple",
+      "hex": "#7B2FBE"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "danger_red",
+      "hex": "#E84040"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "high",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "boss",
+    "layer": "character",
+    "usage": "Zone 3 boss. Two heads alternate attacks (0.4s apart). After one head is defeated, remaining head speeds up.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 1150,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 200,
+      "height": 180
+    },
+    "animations": {
+      "idle": {
+        "frame_count": 6,
+        "fps": 6,
+        "loop": true
+      },
+      "attack_head1": {
+        "frame_count": 3,
+        "fps": 12,
+        "loop": false
+      },
+      "attack_head2": {
+        "frame_count": 3,
+        "fps": 12,
+        "loop": false
+      }
+    },
+    "sheet_layout": "Row layout: idle(6) then attack_head1(3) then attack_head2(3).",
+    "sheet_dimensions_px": {
+      "width": 2400,
+      "height": 180
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#7B2FBE",
+      "#E84040",
+      "#D9D0BE",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "layout": "row"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.boss.hydra.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Frames are exactly 200x180px; heads remain within bounds.",
+    "Attack frames for head1 and head2 are visually distinct so alternating pattern reads clearly.",
+    "Hydra reads as final boss: imposing scale, clear head count, and high-contrast attack silhouettes."
+  ]
+}

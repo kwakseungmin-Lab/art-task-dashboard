@@ -1,0 +1,129 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.fx.explosion_radius96",
+  "asset_name": "Wine Barrel Explosion FX (96px Radius)",
+  "category": "obstacles",
+  "subcategory": "fx",
+  "priority": "P0",
+  "execution_order": 31,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "obstacles.env.wine_barrel"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.env.wine_barrel"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "area_fx",
+    "layer": "fx",
+    "usage": "Triggered when wine barrel breaks at 2nd hit; effective radius 96px; duration 0.8s",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 192
+    },
+    "colors_hex": [
+      "#E8704A",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "animation": {
+      "type": "sequence",
+      "states": {
+        "explode": {
+          "fps": 12,
+          "frame_count": 10,
+          "notes": "0.83s; includes outward shock ring"
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.fx.explosion_radius96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Each animation frame is exactly 192x192px with center at (96,96).",
+    "Explosion animation is 10 frames at 12fps and has a visible shock ring in at least 3 consecutive frames.",
+    "Peak radius does not exceed 96px from center; pixels outside that radius are fully transparent."
+  ]
+}

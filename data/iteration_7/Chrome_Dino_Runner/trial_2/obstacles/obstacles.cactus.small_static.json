@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.cactus.small_static",
+  "asset_name": "Small Cactus Single",
+  "category": "obstacles",
+  "subcategory": "ground_hazard",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #535353, background #F7F7F7, and accent #FF0000.",
+    "Canvas target stays 600x150px with pixel-perfect presentation at 60 FPS.",
+    "All painted edges keep a 2px outline rhythm and flat shading."
+  ],
+  "differences": [
+    "This is the narrowest ground hazard and becomes the base silhouette for larger cactus groupings.",
+    "The body stays fully static with no animation frames.",
+    "The top spike cluster stays inside a 34x70px frame."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "obstacles.cactus.medium_static",
+    "obstacles.cactus.large_static"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus.medium_static",
+      "obstacles.cactus.large_static",
+      "character.player.dino_idle_2f_6fps",
+      "world.ground.line_1200x2"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_obstacle_small",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        520,
+        48
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Baseline jump obstacle used from the opening score range onward.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "character.player.dino_idle_2f_6fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 34,
+      "height": 70
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single narrow cactus stalk with two arm spikes and a flat grounded base.",
+      "components": [
+        "main_stalk",
+        "left_spike_arm",
+        "right_spike_arm",
+        "base_pad"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus.small_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 34x70px.",
+    "The lowest opaque pixel row forms one continuous grounded base.",
+    "Only #535353 and transparency appear in painted pixels."
+  ]
+}

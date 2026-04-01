@@ -1,0 +1,98 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "obstacles.building.basic_house_64",
+  "asset_name": "Basic House Building (Settlement Tile)",
+  "category": "obstacles",
+  "group_id": "obstacles.building.basic_house",
+  "variant_role": "standalone",
+  "priority": "P0",
+  "execution_order": 20,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.tileset.snowfield_1bit"
+    ]
+  },
+  "context": {
+    "role": "building",
+    "screen_position": {
+      "type": "world_space",
+      "world_units": "tiles",
+      "tile_size_px": [
+        64,
+        64
+      ],
+      "pivot": "bottom_center"
+    },
+    "layer": "world_objects",
+    "usage": "Represents the basic house described in the GDD (64x64 building footprint). Used in the village scene; must read clearly under blizzard/whiteout overlays.",
+    "adjacent_elements": [
+      "Snow ground tiles",
+      "Warehouse / barracks / shrine variants (future)"
+    ]
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 64,
+      "height_px": 64
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium",
+      "constraint": "grayscale only; no color"
+    },
+    "viewpoint": {
+      "camera_angle": "top_down_3_4",
+      "facing": "forward"
+    },
+    "colors": {
+      "main": {
+        "hex": "#FFFFFF"
+      },
+      "secondary": [
+        {
+          "name": "outline",
+          "hex": "#000000"
+        },
+        {
+          "name": "mid_gray",
+          "hex": "#7F7F7F"
+        },
+        {
+          "name": "light_gray",
+          "hex": "#C0C0C0"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "Small Nordic cabin with steep roof; readable chimney; snow accumulation on roof edges",
+      "components": [
+        "roof",
+        "walls",
+        "door",
+        "chimney",
+        "snow caps"
+      ]
+    }
+  },
+  "description": "Create a 64x64 pixel-art building sprite for the settlement Basic House. It should look like a compact Viking/Nordic cabin with a steep roof. Must remain legible in monochrome and under heavy blizzard effects. Keep the footprint aligned to a 64x64 tile; avoid overhang beyond 2px outside the tile bounds.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "obstacles/building_basic_house_64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 64x64 px",
+    "Uses only grayscale colors",
+    "Strong 1px outline is present for building silhouette",
+    "Bottom of building aligns to tile base (no floating)"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.stone_wall_segment",
+  "asset_name": "Stone Wall Segment",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble.guard_patrol_sheet",
+      "world.foreground.marble_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "collision_wall",
+    "layer": "world_objects",
+    "usage": "Stone wall segment used for bounce lanes and corridor partitions.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 80
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#A89880",
+      "#E8D5C4"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "square_block_wall",
+      "components": [
+        "outer_block",
+        "stone_seams",
+        "corner_chips"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.stone_wall_segment.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 80x80px and keeps a square outer shape with no empty corner pixels.",
+    "Stone seam rhythm creates at least 6 block faces across the surface.",
+    "Outline uses #3D2B1F and fill uses #A89880 with one lighter stone patch."
+  ]
+}

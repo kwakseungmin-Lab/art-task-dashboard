@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.overlay.trajectory_dotted_line_640x96",
+  "asset_name": "Trajectory Dotted Line (640x96)",
+  "category": "ui",
+  "subcategory": "trajectory_overlay",
+  "priority": "P0",
+  "execution_order": 260,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.controls.bottom_bar_1280x50"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.controls.bottom_bar_1280x50"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.object_selection_highlight_48x48",
+      "obstacles.launchable.candlestick_idle_4f_2fps",
+      "obstacles.launchable.feather_quill_16x40_4f_8fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "trajectory_overlay",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui",
+    "usage": "Visible while the player drags a launchable; shows up to 5 bounce marks with 60 percent opacity.",
+    "adjacent_elements": [
+      "selected launchable",
+      "selection highlight"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_2d",
+      "facing": "viewer"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 640,
+      "height": 96
+    },
+    "colors_hex": [
+      "#F5F0E8",
+      "#D4A843",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "long horizontal strip of 5 dotted arc segments with one landing marker",
+      "components": [
+        "dot_segment_1",
+        "dot_segment_2",
+        "dot_segment_3",
+        "dot_segment_4",
+        "dot_segment_5",
+        "landing_marker"
+      ]
+    },
+    "ui_behavior": {
+      "max_bounce_markers": 5,
+      "opacity_percent": 60,
+      "line_style": "dotted"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.trajectory_dotted_line_640x96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 640x96px and keeps all dotted segments inside the frame with at least 8px margin on outer edges.",
+    "Each dot diameter stays at 6px and the landing marker ring stays at 14px outer diameter.",
+    "Only #F5F0E8, #D4A843, and #3D2B1F are used on the UI sheet."
+  ]
+}

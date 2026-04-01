@@ -1,0 +1,169 @@
+{
+  "task_id": "task_id_008004009",
+  "asset_key": "obstacle_balance_scale_rig_504x80",
+  "asset_name": "Balance Scale Rig",
+  "category": "obstacles",
+  "subcategory": "scale",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008004001",
+    "task_id_008004002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004004",
+      "task_id_008004010",
+      "task_id_008004015",
+      "task_id_008004019"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use one SpriteBundle for the decorative rig and drive tilt, slip, and torque through a separate ScaleRig component.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "ScaleRig",
+      "TorqueState",
+      "Collider"
+    ],
+    "asset_loading": "Load obstacles/obstacle_balance_scale_rig_504x80.png through AssetServer before scale puzzles assemble.",
+    "runtime_notes": [
+      "The visual center axis aligns to the gameplay pivot at half width.",
+      "Deck edges remain readable at rotations up to 45 degrees.",
+      "Angle marks stay thin so weight blocks and characters remain dominant on top."
+    ]
+  },
+  "context": {
+    "role": "balance_scale_rig",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        760
+      ]
+    },
+    "layer": "obstacles_scale",
+    "usage": "Dual-platform scale rig with a central axis, target-angle marks, and deck surfaces for Umbra, Echo, and weight blocks.",
+    "adjacent_elements": [
+      "obstacle_weight_block_sheet_160x32",
+      "player_echo_idle_4f_6fps",
+      "ui_scale_balance_readout_192x40"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 504,
+      "height": 80
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#2D1B4E",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Wide dual-deck scale with a gold center axis, slim target-angle ticks, and dark understructure braces.",
+      "components": [
+        "left_deck",
+        "right_deck",
+        "center_axis",
+        "pivot_housing",
+        "target_angle_ticks",
+        "under_braces"
+      ]
+    },
+    "deck_spec": {
+      "left_deck_px": [
+        240,
+        16
+      ],
+      "right_deck_px": [
+        240,
+        16
+      ],
+      "axis_px": [
+        24,
+        48
+      ],
+      "max_visual_tilt_degrees": 45
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_balance_scale_rig_504x80.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 504x80 px.",
+    "Center axis aligns to the midpoint within 1 px.",
+    "Target-angle ticks remain visible after a 45 degree rotation preview."
+  ],
+  "blocked_by": [
+    "task_id_008004001",
+    "task_id_008004002"
+  ],
+  "blocks": [
+    "task_id_008004010",
+    "task_id_008004015",
+    "task_id_008004019"
+  ],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

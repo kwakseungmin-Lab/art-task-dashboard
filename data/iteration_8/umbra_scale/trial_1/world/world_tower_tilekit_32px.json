@@ -1,0 +1,175 @@
+{
+  "task_id": "task_id_008101002",
+  "asset_key": "world_tower_tilekit_32px",
+  "asset_name": "Art Deco Tower Tilekit",
+  "category": "world",
+  "subcategory": "tilekit",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101001"
+  ],
+  "blocks": [
+    "task_id_008101003",
+    "task_id_008101004",
+    "task_id_008101005",
+    "task_id_008101011",
+    "task_id_008101012",
+    "task_id_008101013",
+    "task_id_008101014",
+    "task_id_008101015"
+  ],
+  "blocked_by": [
+    "task_id_008101001"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use bevy_ecs_tilemap or TextureAtlasLayout slices sourced from one tile sheet.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlasLayout",
+      "TowerTile",
+      "Transform"
+    ],
+    "asset_loading": "Load world/world_tower_tilekit_32px.png and register named rects for floors, ladders, door trims, scale anchors, and wall caps during Loading.",
+    "runtime_notes": [
+      "Every collision-bearing top edge should map cleanly to 32 px world units so Rapier colliders match art without manual offsets.",
+      "Ladder and vine segments must stack seamlessly on a 32 px grid.",
+      "Keep decorative gold linework one material step brighter than the background so interactive anchors are easy to identify."
+    ]
+  },
+  "context": {
+    "role": "tower_platform_tilekit",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        860
+      ]
+    },
+    "layer": "world_midground",
+    "usage": "Reusable platform, wall, ladder, and anchor tile sheet for floors 1 through 30, including trims that visually connect the mirror and scale puzzle pieces to the tower structure.",
+    "adjacent_elements": [
+      "world_tower_backdrop_parallax_1920x1080",
+      "world_scale_assembly_512x96",
+      "world_exit_door_8f_64x96"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 192
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#1A4A52",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "A clean 32 px grid sheet of tower floors, trims, ladder runs, wall caps, and anchor plates with art-deco ribs and gold bevels.",
+      "components": [
+        "solid_floor_top",
+        "solid_floor_mid",
+        "ladder_segment",
+        "door_frame_cap",
+        "scale_anchor_plate",
+        "arched_wall_panel",
+        "shadow_window_tile",
+        "bridge_trim"
+      ]
+    },
+    "tile_layout": {
+      "tile_size_px": [
+        32,
+        32
+      ],
+      "rows": 6,
+      "cols": 8,
+      "tile_count": 48
+    },
+    "material_readability": "Collision tiles keep bright top edges and darker undersides so footholds remain obvious during silhouette-heavy scenes."
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 256x192 px and divide into an 8x6 grid of 32x32 tiles.",
+    "At least 48 unique tiles are present, including platform tops, wall fills, ladder segments, and decorative anchor plates.",
+    "Every walkable tile uses a brighter top edge than its underside to keep footholds readable under low-key lighting."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101001",
+      "task_id_008101003",
+      "task_id_008101004",
+      "task_id_008101011",
+      "task_id_008101014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_tower_tilekit_32px.png",
+      "transparent_background": true
+    }
+  ]
+}

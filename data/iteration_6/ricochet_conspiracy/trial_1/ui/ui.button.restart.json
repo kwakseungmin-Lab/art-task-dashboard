@@ -1,0 +1,135 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.button.restart",
+  "asset_name": "Restart Button (HUD)",
+  "category": "ui",
+  "subcategory": "button",
+  "priority": "P0",
+  "execution_order": 63,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "button",
+    "layer": "ui",
+    "usage": "Restart button; same visual language as hint button; triggered by R key as well",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -132,
+        13
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 60,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#3D2B1F",
+      "#E8D5C4"
+    ],
+    "animation": {
+      "type": "stateful",
+      "states": {
+        "enabled": {
+          "fps": 0,
+          "frame_count": 1
+        },
+        "hover": {
+          "fps": 0,
+          "frame_count": 1
+        },
+        "pressed": {
+          "fps": 0,
+          "frame_count": 1
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.button.restart.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Button sheet includes 3 states (enabled, hover, pressed) each 60x24px.",
+    "Hover state increases gold #D4A843 highlight area by at least 15% compared to enabled.",
+    "Pressed state includes a 2px downward visual offset (shadow moves up or content moves down) to imply depression."
+  ]
+}

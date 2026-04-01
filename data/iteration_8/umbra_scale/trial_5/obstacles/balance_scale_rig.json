@@ -1,0 +1,177 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050005",
+  "asset_key": "balance_scale_rig",
+  "asset_name": "Balance Scale Rig",
+  "category": "obstacles",
+  "subcategory": "physics_interactive_platform",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The rig follows the same art deco gold trim and deep-shadow base palette used by optical props and tower architecture.",
+    "Every frame is authored for transparent-background compositing over the tower tileset.",
+    "The surface geometry keeps a clean, measurement-friendly silhouette to support puzzle trust and evidence traceability."
+  ],
+  "differences": [
+    "This asset emphasizes moving platform geometry and angular readability rather than beam interaction.",
+    "The nine-frame checkpoint sheet encodes visually stable negative, neutral, and positive balance states.",
+    "Wide plate silhouettes leave enough flat surface for players to judge object distance from the axle by eye."
+  ],
+  "depends_on": [
+    "task_id_008050007"
+  ],
+  "blocks": [
+    "task_id_008050002",
+    "task_id_008050008",
+    "task_id_008050009"
+  ],
+  "blocked_by": [
+    "task_id_008050007"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050001",
+      "task_id_008050002",
+      "task_id_008050008",
+      "task_id_008050009"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_3x3",
+    "ecs_components": [
+      "BalanceScaleTag",
+      "ScaleTiltVisual",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load balance_scale_rig.png during Loading and map frame indices to nine authored tilt checkpoints from -45 degrees through +45 degrees for deterministic interpolation.",
+    "runtime_notes": [
+      "Use authored axle alignment marks so the visible pivot matches the actual physics origin used for torque calculations.",
+      "The center axle and both plates must remain readable while dynamic text labels for left and right weight values are overlaid nearby.",
+      "Keep edge decoration concentrated on the axle housing so the plate surfaces stay uncluttered for player, Echo, and block silhouettes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "weight_balance_platform_system",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        980,
+        676
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Shows the two-plate scale, tilt motion, and target-angle readability that gate door unlock progression."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 672,
+      "height": 432
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 9,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        224,
+        144
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 3
+      }
+    },
+    "tilt_profile": {
+      "angles_degrees": [
+        -45,
+        -30,
+        -15,
+        -5,
+        0,
+        5,
+        15,
+        30,
+        45
+      ],
+      "target_tolerance_degrees": 5,
+      "slip_threshold_degrees": 30,
+      "fall_threshold_degrees": 45
+    },
+    "platform_metrics_px": {
+      "plate_length": 240,
+      "plate_thickness": 16,
+      "axle_body": [
+        24,
+        48
+      ]
+    },
+    "readability_notes": [
+      "Each authored frame keeps the axle perfectly centered so interpolation does not wobble.",
+      "Plate silhouettes remain legible beneath player and Echo bodies at 75% preview scale.",
+      "Gold trim highlights the target reading area without overpowering the gameplay text overlays."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/balance_scale_rig.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 672x432 px for nine 224x144 frames with no frame gutter.",
+    "The axle center stays on one vertical line across all nine tilt checkpoints.",
+    "The -30, 0, and +30 degree frames remain distinguishable at 50% preview scale without textual labels."
+  ]
+}

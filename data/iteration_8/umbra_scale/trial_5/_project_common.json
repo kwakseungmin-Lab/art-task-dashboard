@@ -1,0 +1,281 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "umbra_scale",
+    "project_name": "umbra_scale"
+  },
+  "meta": {
+    "plan_id": "umbra_scale__iter8__trial5",
+    "game_name": "umbra_scale",
+    "iteration": 8,
+    "trial_index": 5,
+    "plan_dir": "trial_5",
+    "created_at_utc": "2026-03-25T11:02:56Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    },
+    {
+      "label": "umbra_character_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra body proportions, head silhouette, claw shapes, and echo-friendly shadow anatomy."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Bevy 0.14 2D orthographic rendering with SpriteBundle and SpriteSheetBundle assets, WGSL-based shadow masks, and transparent UI layering for puzzle readouts.",
+    "ecs_model": "Player, Echo, optical props, scale, light emitters, world masks, exit props, and HUD panels map to separate ECS entities with marker components so gameplay systems can swap visuals by task_id and state.",
+    "asset_loading": "Preload every PNG declared by this package through AssetServer during Loading, register handles by task_id and asset_key, then spawn world and UI entities only after the handle registry is complete.",
+    "runtime_notes": [
+      "Use Rapier2D-assisted raycasts for beam logic while keeping authored emitter, mirror, prism, and mask art on deterministic sprite layers.",
+      "Keep the gameplay camera fixed to a 1920x1080 16:9 composition and render HUD modules in UI space so they stay stable during camera pan and zoom.",
+      "Treat shadow masks and preview overlays as dedicated compositing layers so safe-zone readability and Tab help mode remain visually separable."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "shadow_survival_navigation",
+      "label": "Shadow survival navigation",
+      "description": "Covers Umbra movement through safe shadow zones, exposure feedback, dynamic light danger, and ladder or ledge traversal in the tower.",
+      "critical_states": [
+        "idle_in_shadow",
+        "jump_across_gap",
+        "exposure_rising",
+        "safe_zone_recovery",
+        "ladder_transition"
+      ],
+      "task_ids": [
+        "task_id_008050001",
+        "task_id_008050006",
+        "task_id_008050007",
+        "task_id_008050008",
+        "task_id_008050011"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008050009",
+        "task_id_008050010"
+      ]
+    },
+    {
+      "mechanic_id": "mirror_prism_light_redirection",
+      "label": "Mirror and prism light redirection",
+      "description": "Covers grab placement, mirror reflection, prism splitting, light preview, and the resulting shadow-path readability needed to solve each floor.",
+      "critical_states": [
+        "grab_object",
+        "rotate_mirror",
+        "single_reflection",
+        "triple_split",
+        "preview_toggle"
+      ],
+      "task_ids": [
+        "task_id_008050001",
+        "task_id_008050003",
+        "task_id_008050004",
+        "task_id_008050006",
+        "task_id_008050010",
+        "task_id_008050011"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008050009",
+        "task_id_008050010"
+      ]
+    },
+    {
+      "mechanic_id": "weight_balance_exit_unlock",
+      "label": "Weight balance exit unlock",
+      "description": "Covers Umbra body weight, Echo placement, scale tilt feedback, target-angle satisfaction, and exit-door unlock communication.",
+      "critical_states": [
+        "player_on_left_plate",
+        "echo_added",
+        "target_angle_hit",
+        "door_unlock",
+        "door_open"
+      ],
+      "task_ids": [
+        "task_id_008050001",
+        "task_id_008050002",
+        "task_id_008050005",
+        "task_id_008050008"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008050009"
+      ]
+    },
+    {
+      "mechanic_id": "floor_clear_rank_and_meta_feedback",
+      "label": "Floor clear rank and meta feedback",
+      "description": "Covers live floor timer, floor index display, post-clear rank modal, and shard-summary readability after the player reaches the exit.",
+      "critical_states": [
+        "floor_entry",
+        "timer_running",
+        "exit_reached",
+        "rank_reveal",
+        "next_floor_choice"
+      ],
+      "task_ids": [
+        "task_id_008050007",
+        "task_id_008050008",
+        "task_id_008050009",
+        "task_id_008050012"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008050009",
+        "task_id_008050012"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_008050001",
+      "asset_key": "umbra_player_core_states",
+      "category": "character",
+      "file": "character/umbra_player_core_states.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050002",
+      "asset_key": "umbra_echo_marker",
+      "category": "character",
+      "file": "character/umbra_echo_marker.json",
+      "execution_order": 20,
+      "variant_of": "task_id_008050001",
+      "variant_of_asset_key": "umbra_player_core_states"
+    },
+    {
+      "task_id": "task_id_008050003",
+      "asset_key": "mirror_reflector_panel",
+      "category": "obstacles",
+      "file": "obstacles/mirror_reflector_panel.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050004",
+      "asset_key": "prism_splitter_glass",
+      "category": "obstacles",
+      "file": "obstacles/prism_splitter_glass.json",
+      "execution_order": 40,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050005",
+      "asset_key": "balance_scale_rig",
+      "category": "obstacles",
+      "file": "obstacles/balance_scale_rig.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050006",
+      "asset_key": "moving_light_emitter",
+      "category": "obstacles",
+      "file": "obstacles/moving_light_emitter.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050007",
+      "asset_key": "twilight_tower_tileset",
+      "category": "world",
+      "file": "world/twilight_tower_tileset.json",
+      "execution_order": 70,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050008",
+      "asset_key": "exit_door_ladder_set",
+      "category": "world",
+      "file": "world/exit_door_ladder_set.json",
+      "execution_order": 80,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050009",
+      "asset_key": "exposure_balance_hud",
+      "category": "ui",
+      "file": "ui/exposure_balance_hud.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050010",
+      "asset_key": "light_path_preview_overlay",
+      "category": "ui",
+      "file": "ui/light_path_preview_overlay.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050011",
+      "asset_key": "shadow_safe_zone_overlay",
+      "category": "world",
+      "file": "world/shadow_safe_zone_overlay.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008050012",
+      "asset_key": "floor_clear_rank_panel",
+      "category": "ui",
+      "file": "ui/floor_clear_rank_panel.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

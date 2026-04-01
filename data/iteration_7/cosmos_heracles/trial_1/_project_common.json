@@ -1,0 +1,282 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "cosmos_heracles",
+    "project_name": "Cosmos Heracles"
+  },
+  "meta": {
+    "plan_id": "cosmos_heracles__iter7__trial1",
+    "game_name": "cosmos_heracles",
+    "iteration": 7,
+    "trial_index": 1,
+    "plan_dir": "trial_1",
+    "created_at_utc": "2026-03-17T20:03:15Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304202957/cosmos_heracles/cosmos_heracles.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md",
+    "generation_context": {
+      "meta_analysis_game_status": {
+        "status": "unstable",
+        "fail_rate": 0.6
+      },
+      "kb_lookup": {
+        "art_task_plan_kb": "timeout",
+        "meta_iteration_kb": "timeout"
+      },
+      "fallback_evidence": [
+        "Iteration 6 eval results for cosmos_heracles trial 2, trial 4, trial 5",
+        "Assembled_Prompt_v7.md",
+        "Concept_v7_Evidence_Traceability.md",
+        "S3 GDD simple-exp-20260304202957"
+      ],
+      "prior_failures_considered": [
+        "IF-9 on iteration 6 trial 2: derived assets had empty depends_on arrays",
+        "IF-8 on iteration 6 trial 5: asset palette drifted from project core palette",
+        "Invariance score 66 on iteration 6 trial 4: screen positions, viewpoint, silhouette, and components needed stronger quantification"
+      ],
+      "avoidance_actions": [
+        "Every derived player asset includes variant_of and depends_on pointing to the base form",
+        "All asset palette objects contain only the shared core palette primary, background, and accent",
+        "Asset-local colors such as bronze, skin, boss purple, counter cyan, and danger red are stored in specs.colors_hex",
+        "Every asset includes context.screen_position, context.adjacent_elements, specs.viewpoint, and specs.shape.components"
+      ],
+      "rerun_reason": "prior iter7 results invalidated due to KB non-integration",
+      "meta_iteration_architecture_version": "v4.0",
+      "kb_entity_expectations": [
+        "iter_exec",
+        "harness",
+        "incident"
+      ],
+      "generation_mode": "snapshot_refresh",
+      "applied_recommendations": [
+        "Remove IF-9(depends_on) across derived assets for cosmos_heracles by keeping variant_of and depends_on aligned.",
+        "Reduce palette drift by keeping asset palette.primary/background/accent identical to project_common and storing asset-local colors in specs.colors_hex.",
+        "Maintain reference-integrity discipline with zero cross-file value references and explicit screen-position evidence."
+      ]
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "category_common": {
+    "character": {
+      "camera_angle": "side_orthographic",
+      "ground_contact_y": 820,
+      "player_lock_x": 400,
+      "enemy_facing": "left",
+      "player_facing": "right"
+    },
+    "obstacles": {
+      "camera_angle": "side_orthographic",
+      "ground_contact_y": 820,
+      "break_rule": "Only the 120x180 player form breaks breakable pillars.",
+      "hazard_gate_heights_px": [
+        50,
+        110
+      ]
+    },
+    "world": {
+      "parallax_layers": [
+        0.1,
+        0.3,
+        0.6
+      ],
+      "floor_y": 820,
+      "camera_zoom_standard": 1.0,
+      "camera_zoom_boss": 0.85
+    },
+    "ui": {
+      "font_color_hex": "#F0EFE9",
+      "counter_success_hex": "#40E8D0",
+      "warning_hex": "#FFD966",
+      "ui_anchor_mode": "absolute_px_or_enemy_head_anchor"
+    }
+  },
+  "assets": [
+    {
+      "task_id": "world.floor.star_floor_strip",
+      "category": "world",
+      "file": "world/world.floor.star_floor_strip.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.background.zone1_corridor_parallax",
+      "category": "world",
+      "file": "world/world.background.zone1_corridor_parallax.json",
+      "execution_order": 11,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.background.zone2_celestial_hall_parallax",
+      "category": "world",
+      "file": "world/world.background.zone2_celestial_hall_parallax.json",
+      "execution_order": 12,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.background.zone3_altar_parallax",
+      "category": "world",
+      "file": "world/world.background.zone3_altar_parallax.json",
+      "execution_order": 13,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.heracles_form_64x96",
+      "category": "character",
+      "file": "character/character.player.heracles_form_64x96.json",
+      "execution_order": 20,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.heracles_form_120x180",
+      "category": "character",
+      "file": "character/character.player.heracles_form_120x180.json",
+      "execution_order": 21,
+      "variant_of": "character.player.heracles_form_64x96"
+    },
+    {
+      "task_id": "character.player.heracles_form_40x40",
+      "category": "character",
+      "file": "character/character.player.heracles_form_40x40.json",
+      "execution_order": 22,
+      "variant_of": "character.player.heracles_form_64x96"
+    },
+    {
+      "task_id": "character.player.heracles_counter_64x96",
+      "category": "character",
+      "file": "character/character.player.heracles_counter_64x96.json",
+      "execution_order": 23,
+      "variant_of": "character.player.heracles_form_64x96"
+    },
+    {
+      "task_id": "character.enemy.slime_sheet",
+      "category": "character",
+      "file": "character/character.enemy.slime_sheet.json",
+      "execution_order": 24,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.boss.cyclops_state_sheet",
+      "category": "character",
+      "file": "character/character.boss.cyclops_state_sheet.json",
+      "execution_order": 25,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.medusa_state_sheet",
+      "category": "character",
+      "file": "character/character.enemy.medusa_state_sheet.json",
+      "execution_order": 26,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.cerberus_state_sheet",
+      "category": "character",
+      "file": "character/character.enemy.cerberus_state_sheet.json",
+      "execution_order": 27,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.boss.hydra_state_sheet",
+      "category": "character",
+      "file": "character/character.boss.hydra_state_sheet.json",
+      "execution_order": 28,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.pillar.standard_sheet",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pillar.standard_sheet.json",
+      "execution_order": 30,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.pillar.rotating_sheet",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pillar.rotating_sheet.json",
+      "execution_order": 31,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.gap.narrow_gate",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.gap.narrow_gate.json",
+      "execution_order": 32,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.gap.wide_gate",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.gap.wide_gate.json",
+      "execution_order": 33,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.hp_hearts_row",
+      "category": "ui",
+      "file": "ui/ui.hud.hp_hearts_row.json",
+      "execution_order": 40,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.score_zone_header",
+      "category": "ui",
+      "file": "ui/ui.hud.score_zone_header.json",
+      "execution_order": 41,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.counter_gauge",
+      "category": "ui",
+      "file": "ui/ui.hud.counter_gauge.json",
+      "execution_order": 42,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.popup.counter_result",
+      "category": "ui",
+      "file": "ui/ui.popup.counter_result.json",
+      "execution_order": 43,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.size_state_indicator",
+      "category": "ui",
+      "file": "ui/ui.hud.size_state_indicator.json",
+      "execution_order": 44,
+      "variant_of": null
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.vfx.seed_drop_animation",
+  "asset_name": "Seed drop (feed effect)",
+  "category": "vfx",
+  "subcategory": "care",
+  "description": "Sprite strip 48x16px (3 frames horizontally; frame size 16x16). FPS=4, loop=false. Each frame shows exactly 3 seed shapes (#FFA300) falling. Frame1 seed centers at y=2, frame2 at y=7, frame3 at y=12 (local frame coordinates). Background fully transparent; no other colors.",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/vfx/seed_drop_strip_16x16_f3_4fps.png",
+      "format": "png",
+      "type": "sprite_strip"
+    }
+  ],
+  "specs": {
+    "dimensions": "48x16",
+    "frame_dimensions": "16x16",
+    "animation": {
+      "frame_count": 3,
+      "fps": 4,
+      "loop": false,
+      "layout": "horizontal_strip"
+    },
+    "palette_hex": [
+      "#FFA300"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Played when Feed is triggered (bowl tapped).",
+    "screen_location": "Above food bowl area around (x~24,y~92).",
+    "adjacent_elements": [
+      "food_bowl_full",
+      "echo_eating_animation"
+    ],
+    "layer": "vfx",
+    "usage": "One-shot ~0.75s."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.object.seed_sprite"
+    ],
+    "shared_properties": [
+      "Uses #FFA300 seed color"
+    ],
+    "differences": [
+      "Animated strip with transparency."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.object.seed_sprite"
+  ],
+  "execution_order": 11,
+  "priority": "P1",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.object.seed_sprite"
+  ],
+  "acceptance_criteria": [
+    "Strip size is exactly 48x16px.",
+    "Exactly 3 frames of 16x16 exist left-to-right.",
+    "Only #FFA300 and transparent pixels exist.",
+    "No anti-aliasing (all pixels align to grid)."
+  ]
+}

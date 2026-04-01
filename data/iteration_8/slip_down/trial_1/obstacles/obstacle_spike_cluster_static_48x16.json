@@ -1,0 +1,148 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008001009",
+  "asset_key": "obstacle_spike_cluster_static_48x16",
+  "asset_name": "Spike Cluster Hazard",
+  "category": "obstacles",
+  "subcategory": "hazard_spike",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008001002"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008001002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008001008",
+      "task_id_008001014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle for the static spike sprite and attach a fixed collider strip.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Hazard",
+      "Collider"
+    ],
+    "asset_loading": "Load obstacles/obstacle_spike_cluster_static_48x16.png through AssetServer before section spawn.",
+    "runtime_notes": [
+      "Collider width follows the 48x16 logical size from specs.dimensions_px.",
+      "Spike entities remain static and never rotate.",
+      "Hazard tint stays neutral so the damage flash on the player remains distinct."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "hazard_ground_spikes",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        560
+      ]
+    },
+    "layer": "obstacles_ground",
+    "usage": "Ground hazard cluster used in moss corridors and tight drop lanes where the player must manage descent speed precisely.",
+    "adjacent_elements": [
+      "world_friction_tilekit_16px",
+      "player_prisoner_hit_2f_12fps",
+      "ui_hp_torch_strip_3slot_24x8"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 16
+    },
+    "colors_hex": [
+      "#8B2020",
+      "#3B3347",
+      "#8FA8B8"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Three sharp iron spikes mounted on a dark base plate with narrow highlights at each tip.",
+      "components": [
+        "left_spike",
+        "center_spike",
+        "right_spike",
+        "base_plate"
+      ]
+    },
+    "collision": {
+      "damage": 1,
+      "knockback": 0,
+      "trigger": "contact"
+    },
+    "material": "Cold iron spikes on a dark stone mount."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_spike_cluster_static_48x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 48x16 px.",
+    "Each spike tip reaches within 2 px of the top edge, preserving hazard readability.",
+    "Base plate remains thicker than 3 px so the cluster stays legible on dark floors."
+  ]
+}

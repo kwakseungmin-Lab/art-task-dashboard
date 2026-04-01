@@ -1,0 +1,187 @@
+{
+  "task_id": "task_id_000008510",
+  "asset_key": "ui_battle_hud_bars_520x160",
+  "asset_name": "Battle HUD Bars — HP, round, deck, and cost",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the project core palette copy #D4AF37/#2B1B17/#00FFFF.",
+    "Groups player HP, enemy HP, round timer, deck count, and cost dots inside one overlay sheet.",
+    "Panel design stays readable over the maroon hall with navy fill and gold trim."
+  ],
+  "differences": [
+    "This file carries neutral and damage-flash states for the HUD shell.",
+    "Damage-flash state adds crimson emphasis to the active HP bar frame without changing layout coordinates."
+  ],
+  "depends_on": [
+    "task_id_000008501",
+    "task_id_000008503",
+    "task_id_000008505"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000008501",
+    "task_id_000008503",
+    "task_id_000008505"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000008503",
+      "task_id_000008505",
+      "task_id_000008508",
+      "task_id_000008509",
+      "task_id_000008511"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "duel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png",
+      "purpose": "Ground top-edge HUD density and spacing."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground HP bar sizes, round timer dimensions, deck counter size, and cost-dot strip placement."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_2x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "UiNodeAnchor",
+      "BattleHud"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_5/ui_battle_hud_bars_520x160.png with AssetServer during Loading state and store the handle under ui_battle_hud_bars_520x160.",
+    "runtime_notes": [
+      "Create a 2-column TextureAtlasLayout for neutral and damage-flash states.",
+      "Anchor the player block to x=20 y=900 and the enemy block to x=1380 y=40 via child nodes or sliced regions.",
+      "Keep numeric text and fill bars as child entities so the shell sprite remains reusable."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "battle_hud_shell",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        20,
+        20
+      ]
+    },
+    "layer": "ui",
+    "usage": "Persistent battle overlay for HP, round, deck, and cost readouts through the full duel loop."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 520,
+      "height": 160
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#2ECC71",
+      "#E74C3C",
+      "#BDC3C7",
+      "#2B1B17",
+      "#00FFFF"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "neutral",
+        "damage_flash"
+      ],
+      "frame_count": 2,
+      "frame_size_px": [
+        520,
+        160
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "layout": {
+      "player_hp_bar_px": [
+        200,
+        20
+      ],
+      "enemy_hp_bar_px": [
+        200,
+        20
+      ],
+      "round_timer_px": [
+        80,
+        30
+      ],
+      "deck_counter_px": [
+        60,
+        30
+      ],
+      "cost_strip_px": [
+        150,
+        20
+      ]
+    },
+    "shape": {
+      "silhouette": "HUD shell with two HP bar wells, a central round timer capsule, a deck counter badge, and a cost-dot rail.",
+      "components": [
+        "player HP frame",
+        "enemy HP frame",
+        "round capsule",
+        "deck badge",
+        "cost rail",
+        "damage flash ring"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_battle_hud_bars_520x160.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet canvas is exactly 1040x160 px with two 520x160 states.",
+    "Both HP wells measure exactly 200x20 px and preserve 2 px gold frame thickness.",
+    "Round timer capsule measures exactly 80x30 px and remains centered inside the local HUD canvas."
+  ],
+  "schema_version": "art_task@8",
+  "category": "ui"
+}

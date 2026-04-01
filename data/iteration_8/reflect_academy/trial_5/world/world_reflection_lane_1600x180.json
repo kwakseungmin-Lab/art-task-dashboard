@@ -1,0 +1,168 @@
+{
+  "task_id": "task_id_000008502",
+  "asset_key": "world_reflection_lane_1600x180",
+  "asset_name": "Reflection Lane Guide — projectile travel corridor",
+  "subcategory": "arena_overlay",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the project core palette copy #D4AF37/#2B1B17/#00FFFF.",
+    "Anchors to the center duel corridor between enemy and player slots.",
+    "Supports 250 px/s to 400 px/s projectile travel readability."
+  ],
+  "differences": [
+    "This file carries the semi-transparent lane guide without card or HP widgets.",
+    "Rune tick marks show the reflection corridor and impact line only."
+  ],
+  "depends_on": [
+    "task_id_000008501"
+  ],
+  "blocks": [
+    "task_id_000008504",
+    "task_id_000008506",
+    "task_id_000008507",
+    "task_id_000008509"
+  ],
+  "blocked_by": [
+    "task_id_000008501"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000008501",
+      "task_id_000008506",
+      "task_id_000008507",
+      "task_id_000008509"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "duel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png",
+      "purpose": "Ground the travel corridor width and central focus line."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground the reflection line timing and projectile approach path."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "ReflectionLaneGuide"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_5/world_reflection_lane_1600x180.png with AssetServer during Loading state and store the handle under world_reflection_lane_1600x180.",
+    "runtime_notes": [
+      "Spawn this sprite at z=2 between the hall background and projectile entities.",
+      "Keep the impact marker centered at lane-local x=1340 so it aligns with the player timing zone.",
+      "Use alpha in the PNG rather than runtime color tint so lane edges remain deterministic."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "projectile_corridor",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        160,
+        360
+      ]
+    },
+    "layer": "world_overlay",
+    "usage": "Persistent duel lane shown while any warning icon or projectile is active.",
+    "viewpoint": {
+      "camera_angle": "fixed_side_stage",
+      "facing": "left_to_right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 180
+    },
+    "colors_hex": [
+      "#2B1B17",
+      "#5C3317",
+      "#00FFFF",
+      "#ADFF2F",
+      "#D4AF37"
+    ],
+    "animation": {
+      "type": "static_sprite",
+      "frame_count": 1,
+      "loop": false,
+      "frame_size_px": [
+        1600,
+        180
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "guide_rules": {
+      "impact_line_x_px": 1340,
+      "perfect_marker_width_px": 80,
+      "good_marker_width_px": 180,
+      "corridor_height_px": 180
+    },
+    "shape": {
+      "silhouette": "Long rune-etched horizontal lane with a cyan impact line and lime outer guide bands.",
+      "components": [
+        "lane band",
+        "impact line",
+        "perfect core band",
+        "good outer band",
+        "rune ticks"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_reflection_lane_1600x180.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1600x180 px with transparent pixels outside the lane artwork.",
+    "Impact line uses #00FFFF and lands at x=1340 within the local lane canvas.",
+    "Good band spans 180 px and perfect band spans 80 px with no off-by-one drift."
+  ],
+  "schema_version": "art_task@8",
+  "category": "world"
+}

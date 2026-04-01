@@ -1,0 +1,162 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.environment.cage_perch",
+  "asset_name": "Wood perch",
+  "category": "environment",
+  "subcategory": "cage",
+  "description": "Transparent 128x128px layer containing only the perch rectangle. Perch rectangle: x=24..103 inclusive, y=80..83 inclusive (80x4px). Fill with #AB5236. All other pixels transparent.",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/sprites/cage/cage_perch_x24-103_y80-83.png",
+      "format": "png",
+      "type": "environment_layer"
+    }
+  ],
+  "specs": {
+    "dimensions": "128x128",
+    "perch_rect": {
+      "x": 24,
+      "y": 80,
+      "width": 80,
+      "height": 4
+    },
+    "palette_hex": [
+      "#AB5236"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Echo's standing position reference (y=80 perch height).",
+    "screen_location": "Centered, y=80..83.",
+    "adjacent_elements": [
+      "echo_*"
+    ],
+    "layer": "cage",
+    "usage": "Always visible."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.character.echo_idle_animation"
+    ],
+    "shared_properties": [
+      "Uses #AB5236"
+    ],
+    "differences": [
+      "Simple 1-color rectangle."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.environment.cage_background"
+  ],
+  "execution_order": 4,
+  "priority": "P0",
+  "blocks": [
+    "pico_echo.character.echo_idle_animation",
+    "pico_echo.character.echo_eating_animation",
+    "pico_echo.character.echo_sleeping_animation",
+    "pico_echo.character.echo_happy_animation",
+    "pico_echo.character.echo_preening_animation",
+    "pico_echo.character.echo_dirty_animation",
+    "pico_echo.character.echo_hungry_animation",
+    "pico_echo.character.echo_singing_animation"
+  ],
+  "blocked_by": [
+    "pico_echo.environment.cage_background"
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 128x128px.",
+    "Only pixels in x=24..103, y=80..83 are opaque #AB5236.",
+    "All other pixels are fully transparent.",
+    "No colors outside this set: ['#FFA300', '#FF004D', '#FFEC27', '#AB5236', '#FFF1E8', '#C2C3C7', '#1D2B53', '#00E436', '#5F574F', '#7E2553', '#FFCCAA']."
+  ]
+}

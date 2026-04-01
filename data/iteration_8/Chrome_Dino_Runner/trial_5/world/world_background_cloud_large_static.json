@@ -1,0 +1,148 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000512",
+  "asset_key": "world_background_cloud_large_static",
+  "asset_name": "Large Cloud Sprite",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": "task_id_000000511",
+  "variant_of_asset_key": "world_background_cloud_small_static",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000 duplicated in this file.",
+    "Cloud role stays in the world background layer.",
+    "Static rendering with no animated frames."
+  ],
+  "differences": [
+    "Bounds expand to 96x24 px for a wider cloud body.",
+    "Top contour uses five stepped bumps instead of three.",
+    "Horizontal width doubles to support sparse long-sky spacing."
+  ],
+  "depends_on": [
+    "task_id_000000511"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000511"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000511",
+      "task_id_000000510"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "environment",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/environment_design.png",
+      "purpose": "Ground the desert sky, cloud, and ground composition."
+    },
+    {
+      "label": "style",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png",
+      "purpose": "Ground the monochrome pixel-art outline and spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "ParallaxLayer"
+    ],
+    "asset_loading": "Load assets/art/chrome_dino_runner/trial_5/world_background_cloud_large_static.png with AssetServer during Loading state and keep the handle in a resource entry keyed by world_background_cloud_large_static.",
+    "runtime_notes": [
+      "Apply nearest-neighbor sampling and integer-pixel transforms at runtime.",
+      "Keep the authored 1x pixel ratio and scale only by integer multiples in camera space.",
+      "Use a deterministic startup registration order so task execution order maps to asset registration order.",
+      "Spawn the sprite as a single-image handle with no runtime atlas index changes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background_cloud_large",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        140,
+        18
+      ]
+    },
+    "layer": "world_mid",
+    "usage": "Place a longer parallax cloud in the upper sky band to break empty horizontal space.",
+    "adjacent_elements": [
+      "task_id_000000510",
+      "task_id_000000511"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 24
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Wide stepped cloud with five top bumps and flat base pixels.",
+      "components": [
+        "cloud_body",
+        "top_bumps",
+        "bottom_edge"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_background_cloud_large_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 96x24 px.",
+    "Visible pixels use only the hex colors listed in specs.colors_hex plus transparency.",
+    "Opaque pixels stay inside the authored bounds with no anti-aliased edge pixels."
+  ]
+}

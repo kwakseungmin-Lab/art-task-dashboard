@@ -1,0 +1,147 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.enemy.cyclops_boss_sheet",
+  "asset_name": "Cyclops Boss Sheet",
+  "category": "character",
+  "subcategory": "boss",
+  "priority": "P0",
+  "execution_order": 42,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "blocks": [
+    "ui.hud.counter_gauge_radial_48px"
+  ],
+  "blocked_by": [
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "ui.hud.counter_gauge_radial_48px",
+      "ui.hud.counter_result_popup_320x64"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "boss",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "right_center",
+      "offset_px": [
+        -240,
+        -10
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.counter_gauge_radial_48px",
+      "ui.hud.counter_result_popup_320x64",
+      "character.player.cosmos_heracles.core_states_sheet"
+    ],
+    "layer": "world",
+    "usage": "Zone 1 boss sheet with 4 idle frames and 4 attack frames for a 3-hit pattern that slows scroll speed to 80px per second.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 160
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#E8B87A",
+      "#E84040",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "stateful",
+      "states": {
+        "idle": {
+          "frame_count": 4,
+          "fps": 8,
+          "loop": true,
+          "frame_size_px": {
+            "width": 120,
+            "height": 160
+          }
+        },
+        "attack_combo": {
+          "frame_count": 4,
+          "fps": 10,
+          "loop": false,
+          "frame_size_px": {
+            "width": 120,
+            "height": 160
+          },
+          "telegraph_duration_ms": 400,
+          "hit_count": 3
+        }
+      },
+      "sheet_dimensions_px": {
+        "width": 960,
+        "height": 160
+      }
+    },
+    "shape": {
+      "silhouette": "single-eye giant with broad shoulders, raised club arm, and a wide planted stance that remains readable at boss scale",
+      "components": [
+        "single eye",
+        "club arm",
+        "torso armor plate",
+        "belt",
+        "leg stance",
+        "ground shadow"
+      ]
+    },
+    "hp": 3,
+    "counter_window_ms": 80,
+    "background_treatment": "transparent outside sprite bounds"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemy.cyclops_boss_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 960x160px with 4 idle frames followed by 4 attack frames, each 120x160px.",
+    "The attack telegraph is readable by frame 2 with the club arm displaced at least 12px from the idle silhouette.",
+    "The eye highlight remains legible at 1.0x gameplay zoom and uses hard-edged pixels only."
+  ]
+}

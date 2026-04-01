@@ -1,0 +1,87 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "varies by element"
+    },
+    "color_scheme": {
+      "primary": "#FFF1E8",
+      "secondary": "#C2C3C7",
+      "accent": "#AB5236"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art",
+      "animation_method": "none (static elements)",
+      "layer_order": 1
+    }
+  },
+  "asset": {
+    "asset_id": "food_bowl",
+    "asset_name": "Food Bowl with States",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Container for seeds, displays food level (full/low/empty)",
+      "screen_position": "Bottom left at position (16, 100)",
+      "adjacent_elements": ["seed", "floor", "water_bowl", "echo_eating", "echo_hungry"],
+      "usage_scenario": "Player clicks to fill with seeds, Echo eats from it, visually shows 3 states based on food_level"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "16px",
+        "height": "12px"
+      },
+      "colors": {
+        "bowl": "#AB5236",
+        "seeds": "#FFA300",
+        "interior": "#5F574F"
+      },
+      "shape": "Small bowl viewed from slight angle, oval opening",
+      "texture": "Flat pixel art, simple shading",
+      "outline": "1px dark outline (#1D2B53)",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 3,
+        "fps": 0,
+        "loop": false,
+        "description": "3 separate states: Full (6-8 seeds visible), Low (3-4 seeds), Empty (brown bowl only)"
+      },
+      "details": "Bowl is brown (#AB5236) with dark interior (#5F574F), 16x12px total size. Full state: 6-8 yellow seeds (#FFA300) 3x3px each clustered in bowl. Low state: 3-4 seeds visible. Empty state: just brown bowl outline with dark interior, no seeds"
+    },
+    "relationships": {
+      "related_assets": ["seed", "echo_eating", "echo_hungry", "floor"],
+      "shared_with": "Water bowl shares similar bowl design",
+      "differences_from": "water_bowl (size and contents)"
+    },
+    "explicit_negations": [
+      "No gradual seed depletion animation (instant state changes only)",
+      "No bowl movement or tipping",
+      "No spilled seeds outside bowl",
+      "No decorative patterns on bowl",
+      "No reflections or shine effects",
+      "No size changes between states (only contents change)"
+    ]
+  }
+}

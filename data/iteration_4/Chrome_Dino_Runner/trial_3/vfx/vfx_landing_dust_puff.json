@@ -1,0 +1,190 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 3,
+    "prompt_version_used": "Assembled_Prompt_trial_4",
+    "concepts_used": [
+      "Concept_v2_Invariance.md v1.2",
+      "Concept_v3_Structurality.md v1.1",
+      "Concept_v4_Completeness.md v1.1"
+    ],
+    "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+    "gameplay_constraints": {
+      "screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "scrolling": "single_screen_no_camera_scroll_objects_move_left"
+    },
+    "art_direction": {
+      "style": "pixel_art_8bit",
+      "theme": "prehistoric_desert",
+      "rendering_rules": {
+        "pixel_perfect": true,
+        "anti_aliasing": false,
+        "subpixel_movement_in_art": false
+      },
+      "palette": [
+        {
+          "name": "Background",
+          "hex": "#F7F7F7",
+          "rgb": [
+            247,
+            247,
+            247
+          ],
+          "usage": [
+            "sky_background"
+          ]
+        },
+        {
+          "name": "Primary",
+          "hex": "#535353",
+          "rgb": [
+            83,
+            83,
+            83
+          ],
+          "usage": [
+            "sprites",
+            "ui_text",
+            "ground_line",
+            "clouds"
+          ]
+        },
+        {
+          "name": "Highlight",
+          "hex": "#FF0000",
+          "rgb": [
+            255,
+            0,
+            0
+          ],
+          "usage": [
+            "optional_game_over_state_indicator"
+          ]
+        },
+        {
+          "name": "White",
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "usage": [
+            "ui_flash_optional",
+            "screen_flash_optional"
+          ]
+        }
+      ],
+      "outline_standard": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "sprite_standards": {
+      "authoring_scale": "1x",
+      "runtime_scaling_support": [
+        "2x_nearest_neighbor"
+      ],
+      "file_format": "png",
+      "alpha_background": "transparent",
+      "naming_convention": "snake_case"
+    },
+    "source_trace": {
+      "gdd_files": [
+        "00_Global_Architecture/Art_Direction.md",
+        "00_Global_Architecture/Game_Direction.md",
+        "02_Objects/Player.md",
+        "02_Objects/Cactus.md",
+        "02_Objects/Pterodactyl.md",
+        "02_Objects/Ground.md",
+        "03_UI_Widgets/ScoreDisplay.md",
+        "03_UI_Widgets/GameOverScreen.md",
+        "04_World/Background.md"
+      ]
+    }
+  },
+  "task_id": "cdr_vfx_landing_dust_puff",
+  "asset_name": "vfx_landing_dust_puff",
+  "category": "vfx",
+  "subcategory": "dust",
+  "description": "플레이어 착지 시 작은 먼지 퍼프 이펙트. 선택 구현(옵션).\n- 프레임 크기: 24x12 px\n- 프레임 수: 3\n- FPS: 12\n- 색상: #535353 단색, 배경 투명(alpha=0)\n- 형태 규칙: 프레임1에서 1px 점 6개, 프레임2에서 1px 점 10개, 프레임3에서 1px 점 4개(점들의 위치는 프레임 내에서 좌→우로 3px 이상 간격 유지)\n",
+  "deliverables": [
+    {
+      "path": "art/export/vfx/vfx_landing_dust_puff_sheet_72x12.png",
+      "type": "png",
+      "description": "착지 먼지 3프레임 시트(가로 배치)",
+      "dimensions": "72x12",
+      "fps": 12,
+      "frame_count": 3
+    },
+    {
+      "path": "art/export/vfx/vfx_landing_dust_puff_anim.json",
+      "type": "json",
+      "description": "프레임 순서/재생 FPS/루프(루프 아님)"
+    }
+  ],
+  "specs": {
+    "dimensions": {
+      "frame_px": "24x12",
+      "sheet_px": "72x12"
+    },
+    "palette_hex": [
+      "#535353"
+    ],
+    "animation": {
+      "animated": true,
+      "frame_count": 3,
+      "fps": 12,
+      "loop": false,
+      "layout": "horizontal",
+      "frame_order": [
+        "f0",
+        "f1",
+        "f2"
+      ]
+    }
+  },
+  "context": {
+    "role": "착지 피드백(선택).",
+    "screen_location": "플레이어 발 주변, ground_line 위 0~6px 범위.",
+    "adjacent_elements": [
+      "player_jump",
+      "player_run",
+      "ground_line_tile"
+    ],
+    "layer": "vfx_layer_ground",
+    "usage": "점프 착지 시 1회 재생 후 제거."
+  },
+  "relationships": {
+    "related_tasks": [
+      "cdr_character_player_jump",
+      "cdr_character_player_run"
+    ],
+    "shared_properties": [
+      "색상 #535353 단색",
+      "투명 배경"
+    ],
+    "differences": [
+      "3프레임 비루프 애니메이션"
+    ]
+  },
+  "depends_on": [
+    "cdr_character_player_jump"
+  ],
+  "execution_order": 22,
+  "priority": "P3",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_character_player_jump"
+  ],
+  "acceptance_criteria": [
+    "모든 산출물 PNG는 sRGB, 투명 배경(alpha=0)이며, 안티앨리어싱/블러/그라데이션이 0px/0단계로 존재하지 않는다.",
+    "팔레트는 프로젝트 팔레트(#F7F7F7, #535353, #FF0000(선택), #FFFFFF(선택)) 외의 색상을 포함하지 않는다.",
+    "프레임 24x12, 시트 72x12 px이다.",
+    "애니메이션 3프레임, 12 FPS, loop=false가 anim.json에 명시되어 있다."
+  ]
+}

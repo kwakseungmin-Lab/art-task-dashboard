@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.candlestick_move_4f_8fps",
+  "asset_name": "Launchable Object — Candlestick (In-motion flame, 4 frames, 8fps)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": "obstacles.launchable.candlestick_idle_4f_2fps",
+  "shared_properties": {
+    "frame_size_px": {
+      "width": 24,
+      "height": 48
+    },
+    "outline_hex": "#3D2B1F",
+    "body_material": "golden_metal"
+  },
+  "differences": {
+    "animation_fps": 8,
+    "flame_shape": "elongated with small trailing ember pixels to suggest motion"
+  },
+  "depends_on": [
+    "obstacles.launchable.candlestick_idle_4f_2fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.launchable.candlestick_idle_4f_2fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.candlestick_idle_4f_2fps",
+      "obstacles.environment.candle_unlit_16x32"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "projectile",
+    "layer": "world",
+    "usage": "Used while the candlestick is moving after launch; faster flicker suggests speed and ignition potential.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 48
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 24,
+        "height": 48
+      },
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      },
+      "frame_count": 4,
+      "directions": null,
+      "note": "Same body silhouette as idle; flame more dynamic."
+    },
+    "animation": {
+      "type": "loop",
+      "fps": 8,
+      "notes": "In-motion flame loop; preserve body stability."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.candlestick_move_4f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Uses identical 24x48px frame size and body silhouette as obstacles.launchable.candlestick_idle_4f_2fps.",
+    "Animation is exactly 4 frames at 8fps loop; flame includes 1-2px trailing ember pixels while preserving outline clarity.",
+    "No extra glow spill beyond frame bounds; background remains transparent."
+  ]
+}

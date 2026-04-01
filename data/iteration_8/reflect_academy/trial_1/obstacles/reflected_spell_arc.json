@@ -1,0 +1,166 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000007",
+  "asset_key": "reflected_spell_arc",
+  "asset_name": "Reflected Spell Arc",
+  "category": "obstacles",
+  "subcategory": "counter_projectile",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The counter effect is authored on transparent background for compositing above the duel lane and below popup UI.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while counter-energy colors appear inside specs.colors_hex.",
+    "The motion must read as outbound from the player toward the enemy without relying on runtime rotation."
+  ],
+  "differences": [
+    "Four frames animate a wide cyan-gold crescent with a bright leading edge and a trailing ribbon that curves upward-right.",
+    "The shape is broader than any incoming projectile so successful reflection feels like a reward state.",
+    "Arc spacing leaves room for combo popup timing without obscuring the player success pose."
+  ],
+  "depends_on": [
+    "task_id_801000002",
+    "task_id_801000003",
+    "task_id_801000005"
+  ],
+  "blocks": [
+    "task_id_801000015"
+  ],
+  "blocked_by": [
+    "task_id_801000002",
+    "task_id_801000003",
+    "task_id_801000005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000002",
+      "task_id_801000003",
+      "task_id_801000005",
+      "task_id_801000006",
+      "task_id_801000015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Grounds the student duelist silhouette, costume trim, wand handling, and heroic stance."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_2x2",
+    "ecs_components": [
+      "CounterProjectileTag",
+      "ReflectSuccessState",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load reflected_spell_arc.png during Loading and build a 2x2 TextureAtlasLayout for the outbound counter entity.",
+    "runtime_notes": [
+      "Play at 14 FPS while the arc travels from the player lane toward the enemy hit region.",
+      "Use the authored upper-right curve as-is so the effect remains readable even during camera shake.",
+      "Despawn after the last frame or when collision with the enemy hit zone is resolved."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "successful_counter_projectile",
+    "screen_position": {
+      "type": "dynamic_path",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Spawned immediately after a successful reflect and sent from the player lane toward the enemy podium."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 96
+    },
+    "colors_hex": [
+      "#00FFFF",
+      "#FFFACD",
+      "#D4AF37",
+      "#ADFF2F",
+      "#2B1B17"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 14,
+      "loop": false,
+      "frame_size_px": [
+        128,
+        96
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    "collision_profile": {
+      "shape": "arc_band",
+      "radius_px": 42,
+      "thickness_px": 14
+    },
+    "travel_profile": {
+      "speed_px_per_s": 360,
+      "direction": "left_to_right_upward"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/reflected_spell_arc.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 256x192 px for four 128x96 frames with no frame gutter.",
+    "The effect reads as a successful player-owned counter rather than an incoming enemy spell.",
+    "The leading edge stays bright and clearly oriented toward the enemy lane in every frame."
+  ]
+}

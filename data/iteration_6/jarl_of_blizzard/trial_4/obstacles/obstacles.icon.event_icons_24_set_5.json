@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.icon.event_icons_24_set_5",
+  "asset_name": "Event Icons — 24px Set (5 types)",
+  "category": "obstacles",
+  "subcategory": "icon",
+  "priority": "P2",
+  "execution_order": 32,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.winter_round_bw_panels_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "ui_icon_set",
+    "layer": "ui",
+    "usage": "24×24 icons for events: raiders, big storm, disease, trader, oracle. Used in HUD badges and notifications.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 24
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "icon_size_px": {
+      "width": 24,
+      "height": 24
+    },
+    "icons": [
+      {
+        "id": "raiders"
+      },
+      {
+        "id": "big_storm"
+      },
+      {
+        "id": "disease"
+      },
+      {
+        "id": "trader"
+      },
+      {
+        "id": "oracle"
+      }
+    ],
+    "layout_note": "Single-row strip 120×24 (5 icons). Keep 1px padding inside each 24×24 box; transparent background."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.icon.event_icons_24_set_5.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Strip is exactly 120×24px with 5 readable 24×24 icons.",
+    "Each icon is recognizable by silhouette at 1× scale in pure grayscale.",
+    "Icons maintain consistent stroke weight and visual style with the HUD."
+  ]
+}

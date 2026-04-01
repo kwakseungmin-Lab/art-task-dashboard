@@ -1,0 +1,144 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.whiteout_vignette_masks_512_set_4",
+  "asset_name": "Whiteout Vignette Masks — 512×512 Set (4)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P1",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.fx.blizzard_overlay_medium",
+      "world.fx.blizzard_overlay_heavy"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "mask_texture",
+    "layer": "overlay_masks",
+    "usage": "Reusable vignette masks for different storm intensities. Applied as alpha masks to screen overlays.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1024,
+      "height": 512
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#000000"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 4,
+        "frame_size_px": {
+          "width": 512,
+          "height": 512
+        },
+        "order": [
+          "soft",
+          "medium",
+          "hard",
+          "extreme"
+        ],
+        "padding_px": 0
+      }
+    },
+    "mask_rules": {
+      "white_is_visible": true,
+      "black_is_hidden": true,
+      "center_shape": "rounded_rect"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.whiteout_vignette_masks_512_set_4.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 1024x512px; contains four 512x512 masks; no spacing.",
+    "Masks are strictly black/white (no gray pixels) to avoid ambiguous alpha.",
+    "Each mask has a clearly different falloff size suitable for escalating storm tiers."
+  ]
+}

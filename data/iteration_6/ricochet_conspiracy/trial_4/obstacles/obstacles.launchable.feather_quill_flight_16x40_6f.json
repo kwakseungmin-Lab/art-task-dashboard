@@ -1,0 +1,99 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.feather_quill_flight_16x40_6f",
+  "asset_name": "Launchable — Feather Quill flight (6f @ 10fps)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P2",
+  "execution_order": 150,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.vfx.quill_trail_1f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_brown",
+      "hex": "#2D1F1A"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "pale_gold",
+      "hex": "#D6B27A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "thin"
+  },
+  "context": {
+    "role": "projectile_light",
+    "layer": "obstacles",
+    "usage": "Gravity-affected curved flight.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        440,
+        420
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 40
+    },
+    "colors_hex": [
+      "#F4E9DA",
+      "#E8D5C4",
+      "#2D1F1A",
+      "#A1B2C9"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        16,
+        40
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Feather curve readable; clean stroke."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.feather_quill_flight_16x40_6f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Deliverable PNG matches the specified pixel dimensions (or sprite-sheet total size) with transparent background.",
+    "Uses the project palette as a guideline; any additional colors are limited and documented in specs.colors_hex.",
+    "Silhouette/readability holds at 100% and 50% zoom; no muddy edges or unintended blurs."
+  ]
+}

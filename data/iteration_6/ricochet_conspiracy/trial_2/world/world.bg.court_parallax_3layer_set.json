@@ -1,0 +1,86 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.bg.court_parallax_3layer_set",
+  "asset_name": "World Background — Court Parallax Set (3 layers)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "2px_brush"
+  },
+  "context": {
+    "role": "background_layers",
+    "layer": "world_background",
+    "usage": "Single atlas containing 3 parallax layers (far/mid/near) for the court hall.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#8BA7C7",
+      "#8B3A52",
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#C8B4E0"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.bg.court_parallax_3layer_set.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is 1280x720px with 3 separable layers suitable for parallax.",
+    "Overall tone is low-contrast dusty rose (#E8D5C4); does not compete with gameplay objects.",
+    "No baked text; UI remains separate."
+  ]
+}

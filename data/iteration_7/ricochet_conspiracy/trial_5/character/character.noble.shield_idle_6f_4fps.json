@@ -1,0 +1,155 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.noble.shield_idle_6f_4fps",
+  "asset_name": "Shield Noble Idle (6f 4fps)",
+  "category": "character",
+  "subcategory": "target_shield",
+  "priority": "P1",
+  "execution_order": 70,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620",
+    "character.noble.standard_idle_6f_4fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620",
+    "character.noble.standard_idle_6f_4fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble.standard_idle_6f_4fps",
+      "obstacles.launchable.stone_ball_static_32x32"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "target_shield",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "character",
+    "usage": "Used in late stages as a front-guard target with a large shield panel that covers the torso width.",
+    "adjacent_elements": [
+      "stone ball impact lane",
+      "stone wall segment"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 52
+    },
+    "colors_hex": [
+      "#8BA7C7",
+      "#A89880",
+      "#D4A843",
+      "#E8D5C4",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 4,
+      "loop": true,
+      "frame_size_px": [
+        40,
+        52
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "noble body with a front shield slab covering 60 percent of the torso width and head visible above the shield",
+      "components": [
+        "powdered_wig",
+        "face",
+        "shield_panel",
+        "coat_body",
+        "boots"
+      ]
+    },
+    "physics_tags": {
+      "target_hp": 1,
+      "shield_front_arc_degrees": 60,
+      "direct_front_hit_result": "deflect"
+    },
+    "face": {
+      "eyes": "2px dark oval pair",
+      "mouth": "1px arc",
+      "nose": "1px wedge",
+      "beard": null
+    },
+    "appendages": {
+      "arms": "1 visible rear sleeve and 1 hidden front arm",
+      "legs": "2 booted legs",
+      "tail": null,
+      "wings": null,
+      "accessories": [
+        "shield_trim",
+        "belt_buckle"
+      ]
+    },
+    "texture": {
+      "material": "fabric_metal_and_wood",
+      "grain_percent": 4
+    },
+    "shading": {
+      "mode": "soft_watercolor",
+      "shadow_hex": "#6F7F99",
+      "highlight_hex": "#D8E1EC"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.shield_idle_6f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 240x52px with 6 columns, 1 row, and 0px spacing.",
+    "Shield panel width stays between 22px and 24px in all frames and head visibility remains at least 10px above the panel top.",
+    "Only #8BA7C7, #A89880, #D4A843, #E8D5C4, and #3D2B1F are used on the character sheet."
+  ]
+}

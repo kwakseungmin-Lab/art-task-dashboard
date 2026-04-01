@@ -1,0 +1,102 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.noble.basic_idle_6f_4fps",
+  "asset_name": "Target Noble — Basic Idle (6 frames, 4fps)",
+  "category": "character",
+  "subcategory": "target_noble",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "target",
+    "layer": "world",
+    "usage": "Default stationary noble target. Used in tutorial and early stages as the primary elimination target.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 48
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#8BA7C7",
+      "#F5F0E8",
+      "#A89880",
+      "#C8B4E0",
+      "#E8704A"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 32,
+        "height": 48
+      },
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      },
+      "frame_count": 6,
+      "directions": null,
+      "note": "Subtle idle sway; silhouette readable on pastel background."
+    },
+    "animation": {
+      "type": "loop",
+      "fps": 4,
+      "notes": "Idle sway loop; keep motion under 2px horizontally."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.basic_idle_6f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x48px (6 columns x 1 row) with 32x48px frames; no padding between frames.",
+    "Uses a 1px outline in #3D2B1F; no anti-aliasing; pastel fills stay within palette (includes #8BA7C7 outfit).",
+    "Idle motion is subtle (<=2px sway) and preserves a stable foot contact baseline across all frames."
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.pillar.normal",
+  "asset_name": "Normal Marble Pillar (Breakable in Large Form)",
+  "category": "obstacles",
+  "subcategory": "terrain",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Danger Red",
+      "hex": "#E84040"
+    },
+    "shadow": {
+      "name": "Column Shadow",
+      "hex": "#6B6357"
+    },
+    "gold": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    },
+    "counter": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "boss": {
+      "name": "Boss Purple",
+      "hex": "#7B2FBE"
+    },
+    "ui_text": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "skin": {
+      "name": "Hero Skin",
+      "hex": "#E8B87A"
+    },
+    "armor": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "anti_aliasing": "none"
+  },
+  "context": {
+    "role": "obstacle",
+    "layer": "world",
+    "usage": "64x200 pillar; breaks instantly when large-form player collides."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 200
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "multi_file",
+      "intact_frame_count": 1,
+      "break_animation": {
+        "fps": 20,
+        "frame_count": 6,
+        "duration_s": 0.3
+      }
+    },
+    "collision_box_px": {
+      "width": 64,
+      "height": 200
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.pillar.normal_intact.png",
+      "transparent_background": true
+    },
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.pillar.normal_break.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Intact sprite is exactly 64x200px with a clean 1px outline and marble cracks readable at 1.0x zoom.",
+    "Break animation sprite sheet is exactly 384x200px (6 frames × 64px), left-to-right order, 1 row.",
+    "Break animation lasts 0.3s at 20 fps and ends with no remaining opaque pixels outside debris fragments."
+  ]
+}

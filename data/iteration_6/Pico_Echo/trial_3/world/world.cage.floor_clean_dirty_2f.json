@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.cage.floor_clean_dirty_2f",
+  "asset_name": "Cage Floor Strip (clean vs dirty)",
+  "category": "world",
+  "subcategory": "floor",
+  "priority": "P0",
+  "execution_order": 240,
+  "variant_of": null,
+  "depends_on": [
+    "world.cage.background_static"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.cage.background_static"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage.background_static",
+      "obstacles.item.poop_2x2"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "floor",
+    "layer": "world",
+    "usage": "Bottom floor area; can tint/texture change after cleaning.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        104
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 24
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#FFF1E8",
+      "#AB5236"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "clean",
+        "dirty"
+      ],
+      "frame_count": 2,
+      "frame_size_px": [
+        128,
+        24
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "dirty_state_notes": [
+      "Dirty state includes 8-12 scattered #AB5236 pixels; do not create 2x2 blocks.",
+      "Keep the top edge of the strip (y=104) clean with no dirt pixels in the first 2 rows."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.cage.floor_clean_dirty_2f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 256x24px (2 states × 128x24) with 0px spacing.",
+    "Clean state uses only #FFA300 and #FFF1E8; Dirty state adds #AB5236 specks only.",
+    "Both states tile seamlessly from x=0 to x=127 (left and right edges match)."
+  ]
+}

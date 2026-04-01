@@ -1,0 +1,152 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040403",
+  "asset_key": "arcane_light_pillar_sheet",
+  "asset_name": "Arcane Light Pillar Sheet",
+  "category": "world",
+  "subcategory": "ambient_magic",
+  "priority": "P1",
+  "execution_order": 3,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Core canvas stays 1920x1080 at 16:9 with the project palette copied in every file.",
+    "Animated environment accents keep vector edges crisp under the 2 px clean outline rule."
+  ],
+  "differences": [
+    "This asset contains six pulsing pillar frames that sit behind the duelists during cast anticipation and combo moments."
+  ],
+  "depends_on": [
+    "task_id_825040401"
+  ],
+  "blocks": [
+    "task_id_825040404",
+    "task_id_825040405",
+    "task_id_825040406",
+    "task_id_825040407"
+  ],
+  "blocked_by": [
+    "task_id_825040401"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040401",
+      "task_id_825040404",
+      "task_id_825040405",
+      "task_id_825040406"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Backline glow shape, window rhythm, and magical hall depth grounding."
+    },
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "Dynamic magical lighting and cast anticipation timing grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with six 240x240 frames and drive playback by a repeating Timer component on a decorative world entity.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "ArcaneAmbientPillar"
+    ],
+    "asset_loading": "Load world/arcane_light_pillar_sheet.png through AssetServer and create a TextureAtlasLayout resource during scene bootstrap.",
+    "runtime_notes": [
+      "Render pillars at z=10 behind both character sheets.",
+      "Loop the atlas at 8 fps with a brightness pulse that peaks on frames 3 and 4.",
+      "Spawn three mirrored instances across the rear stage without scaling the source texture."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Animated rear-stage magical light pillars that intensify cast anticipation.",
+    "screen_position": {
+      "anchor": "center",
+      "x_px": 960,
+      "y_px": 520
+    },
+    "layer": {
+      "name": "world_ambient_magic",
+      "z_index": 10
+    },
+    "usage": "Visible during the full duel loop with higher playback emphasis during spell wind-up moments."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1440,
+      "height": 240
+    },
+    "colors_hex": [
+      "#5C3317",
+      "#D4AF37",
+      "#00FFFF",
+      "#8E44AD",
+      "#FFFACD"
+    ],
+    "animation": {
+      "mode": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "columns": 6,
+        "frame_size_px": {
+          "width": 240,
+          "height": 240
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "arcane_light_pillar_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 1440,
+        "height": 240
+      },
+      "notes": "Six horizontal frames for looping rear-stage light pillars."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 1440x240 px with six 240x240 frames laid left to right.",
+    "Peak glow frames use only #D4AF37, #00FFFF, #8E44AD, and #FFFACD for emitted light accents.",
+    "Each frame keeps the pillar base aligned to y=224 px for stable world placement."
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.jarl_portrait_sheet_64_4f",
+  "asset_name": "Jarl Portrait Sheet — 64px (4 frames)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "portrait",
+    "layer": "ui",
+    "usage": "Used in top-left HUD portrait frame and result panels; communicates player status / memory phase feedback.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        16,
+        16
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "frame_size_px": {
+      "width": 64,
+      "height": 64
+    },
+    "frame_count": 4,
+    "fps": 6,
+    "frames": [
+      {
+        "id": "calm",
+        "note": "Neutral."
+      },
+      {
+        "id": "focused",
+        "note": "During memory phase."
+      },
+      {
+        "id": "worried",
+        "note": "When resources low / danger."
+      },
+      {
+        "id": "relieved",
+        "note": "After successful round."
+      }
+    ],
+    "layout_note": "Single-row strip 256×64. Transparent background. 1px outline on silhouette."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.jarl_portrait_sheet_64_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG strip is exactly 256×64px with four 64×64 frames aligned to a 1px grid.",
+    "Uses grayscale only (colors_hex) plus transparency; no colored pixels.",
+    "Readable silhouette on both #000000 and #FFFFFF backgrounds."
+  ]
+}

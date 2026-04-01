@@ -1,0 +1,147 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_typography_font_pixel_mono_16px",
+  "asset_name": "font_pixel_mono_16px",
+  "category": "typography",
+  "subcategory": "bitmap_font",
+  "description": "Create a monochrome bitmap font asset at 16px cap height. Monospace glyph cell: 10x16 px. Glyph color #535353 on transparent background. Provide BMFont-compatible metadata (.fnt) plus a glyph atlas PNG. Required glyph set: digits 0-9; uppercase A-Z; space; colon ':'; period '.'; hyphen '-'.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/fonts/pixel_mono_16px_1x.png",
+      "type": "font_atlas",
+      "format": "PNG",
+      "notes": "Atlas contains required glyphs only; #535353 pixels on transparent background."
+    },
+    {
+      "path": "game_assets/chrome_dino_runner/fonts/pixel_mono_16px.fnt",
+      "type": "font_metadata",
+      "format": "BMFont text",
+      "notes": "Monospace: advance=10 px for all glyphs; baseline = size_px-2 px."
+    }
+  ],
+  "specs": {
+    "font_type": "bitmap_monospace",
+    "font_size_px": 16,
+    "glyph_cell_px": "10x16",
+    "color_hex": "#535353",
+    "background": "transparent",
+    "glyph_set": {
+      "digits": "0-9",
+      "uppercase": "A-Z",
+      "symbols": [
+        "space",
+        ":",
+        ".",
+        "-"
+      ]
+    },
+    "kerning": "disabled (fixed advance)",
+    "hinting": "pixel grid aligned"
+  },
+  "context": {
+    "role": "UI text rendering font.",
+    "screen_location": "Used in the top-right score display and center-aligned game over texts.",
+    "adjacent_elements": "Must remain legible over background #F7F7F7 and behind gameplay sprites.",
+    "layer": "ui",
+    "usage": "Loaded by TextRenderer for ScoreDisplay and GameOverScreen."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_typography_font_pixel_mono_12px",
+      "cdr_v1_typography_font_pixel_mono_16px",
+      "cdr_v1_typography_font_pixel_mono_24px"
+    ],
+    "shared_properties": [
+      "Monospace cell width 10 px",
+      "#535353 only",
+      "Transparent atlas background"
+    ],
+    "differences": [
+      "This variant is 16px tall."
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 16,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Atlas PNG uses only #535353 for glyph pixels and alpha=0 for background.",
+    "All glyphs fit inside 10 px width each (monospace).",
+    "BMFont metadata contains correct texture size, glyph rectangles, and uniform xadvance=10 px.",
+    "Glyphs rendered at 1x scale are readable at 600x150 screen size."
+  ]
+}

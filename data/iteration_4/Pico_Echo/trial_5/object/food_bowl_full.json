@@ -1,0 +1,186 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.object.food_bowl_full",
+  "asset_name": "Food bowl (full)",
+  "category": "object",
+  "subcategory": "bowl",
+  "description": "Sprite 16x12px. Identical bowl outline/fill to food_bowl_empty. Add exactly 8 seed dots: each is 1px (#FFA300) at local coordinates (4,7),(5,6),(6,7),(7,6),(9,7),(10,6),(11,7),(12,6).",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/sprites/objects/food_bowl_full_16x12.png",
+      "format": "png",
+      "type": "sprite"
+    }
+  ],
+  "specs": {
+    "dimensions": "16x12",
+    "seed_dot_coords": [
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "palette_hex": [
+      "#AB5236",
+      "#FFF1E8",
+      "#FFA300"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Bowl visual when food_level=2.",
+    "screen_location": "Placed at (16,100).",
+    "adjacent_elements": [
+      "seed_drop_animation",
+      "echo_eating_animation"
+    ],
+    "layer": "objects",
+    "usage": "Displayed when food_level=2."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.object.food_bowl_empty",
+      "pico_echo.object.food_bowl_low"
+    ],
+    "shared_properties": [
+      "Same bowl silhouette"
+    ],
+    "differences": [
+      "Exactly 8 fixed seed pixels."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.object.food_bowl_empty"
+  ],
+  "execution_order": 7,
+  "priority": "P0",
+  "blocks": [
+    "pico_echo.character.echo_eating_animation"
+  ],
+  "blocked_by": [
+    "pico_echo.object.food_bowl_empty"
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 16x12px.",
+    "Exactly 8 #FFA300 seed pixels exist at the specified coordinates.",
+    "No other #FFA300 pixels exist."
+  ]
+}

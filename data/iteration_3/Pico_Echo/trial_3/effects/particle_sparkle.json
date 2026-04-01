@@ -1,0 +1,87 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-5px",
+      "height": "2-5px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "effect_type": "particle effects",
+      "design_principle": "simple shapes, clear motion, temporary display"
+    }
+  },
+  "asset": {
+    "asset_id": "particle_sparkle",
+    "asset_name": "Sparkle Particle",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "sparkle particle after cleaning floor, visualizes successful cleaning action",
+      "screen_position": "spawns on floor area (y=110-125, random x), appears in place",
+      "adjacent_elements": ["floor (surface)", "former poop locations"],
+      "usage_scenario": "spawns 3 sparkles when player cleans floor, appears briefly at random floor positions, shows cleanliness achieved"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "sparkle": "#FFF1E8"
+      },
+      "shape": "star/sparkle symbol, 3x3px cross or plus shape",
+      "texture": "solid color, simple geometric shape",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "particle",
+        "frames": 3,
+        "fps": 6,
+        "loop": false,
+        "description": "spawns at random floor positions, appears with quick flash (3 frames: small, large, fade), no movement, disappears after 0.5 seconds, 3 sparkles spawn simultaneously when cleaning"
+      },
+      "details": "white/cream sparkle (#FFF1E8), 3x3px star/cross shape, spawns 3 at once when floor is cleaned, appears in place (no motion), quick flash animation (0.5 sec), positive feedback for cleaning action"
+    },
+    "relationships": {
+      "related_assets": ["floor", "poop", "care_menu"],
+      "shared_with": "color matches background (#FFF1E8) for bright flash effect",
+      "differences_from": "no motion (appears in place), shortest lifespan (0.5 sec), triggered by cleaning action (not continuous), positive feedback particle"
+    },
+    "explicit_negations": [
+      "no movement or drift",
+      "no rotation or spinning",
+      "no more than 3 sparkles at once",
+      "no long duration (0.5 sec max)",
+      "no sound effect visualization",
+      "no complex star shape (simple cross/plus)"
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003021",
+  "asset_key": "ui_shadow_rank_clear_panel_640x360",
+  "asset_name": "Shadow Rank Clear Panel",
+  "category": "ui",
+  "subcategory": "results_panel",
+  "priority": "P1",
+  "execution_order": 210,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003003",
+    "task_id_008003016"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003003",
+    "task_id_008003016"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003003",
+      "task_id_008003017",
+      "task_id_008003018",
+      "task_id_008003016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the panel art and overlay bitmap text for floor result time, shard count, and rank letter after a clear event.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "ClearPanel",
+      "HudWidget",
+      "Visibility"
+    ],
+    "asset_loading": "Load ui/ui_shadow_rank_clear_panel_640x360.png through AssetServer during UI bootstrap and reveal it when the floor clear state fires.",
+    "runtime_notes": [
+      "Frames represent S, A, B, and C rank variants with unique accent treatments.",
+      "Panel fades in over 0.6 seconds while the world camera remains fixed behind it.",
+      "Bitmap font overlays write the exact clear time and shard total into the reserved center columns."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "clear_results_panel",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        360
+      ]
+    },
+    "layer": "ui_modal",
+    "usage": "Centered clear panel that presents Shadow Rank, floor clear time, and shard results before the player advances or returns to menu.",
+    "adjacent_elements": [
+      "world_exit_door_opening_8f_64x96",
+      "ui_floor_timer_header_320x48",
+      "ui_art_deco_numeric_font_16px_ascii_48glyph"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_flat",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 640,
+      "height": 360
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#F5EFE0",
+      "#D4682A",
+      "#1A4A52",
+      "#2D1B4E"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Large centered plaque with rank crest area, timer strip, shard tally row, and two lower action button bays.",
+      "components": [
+        "outer_frame",
+        "rank_crest_area",
+        "timer_strip",
+        "shard_row",
+        "next_floor_button_bay",
+        "menu_button_bay"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Dark lacquer body with gold trim, white text windows, and rank specific accent bands.",
+    "shading": "Flat panel body with bright crest highlights and a subtle teal or amber accent band by rank."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_shadow_rank_clear_panel_640x360.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 2560x360 px with four 640x360 frames.",
+    "Rank crest area is at least 220x120 px and remains centered in every frame.",
+    "Lower action button bays each reserve a minimum 180x48 px clickable art area for Next Floor and Menu options."
+  ]
+}

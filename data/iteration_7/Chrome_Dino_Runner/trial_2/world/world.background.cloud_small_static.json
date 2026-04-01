@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.cloud_small_static",
+  "asset_name": "Small Cloud Static",
+  "category": "world",
+  "subcategory": "background_prop",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "shared_properties": [
+    "The cloud uses the world palette and sits on top of the #F7F7F7 sky fill.",
+    "The cloud is static art while motion comes from runtime scrolling.",
+    "The cloud stays monochrome with transparent cutout background."
+  ],
+  "differences": [
+    "This is the compact cloud size used as the base silhouette for larger cloud variants.",
+    "The silhouette spans 46x14px with three rounded lobes.",
+    "The lower edge stays almost flat so the cloud reads cleanly at 1x scale."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "world.background.cloud_large_static"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.sky_fill_600x150",
+      "world.background.cloud_large_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background_cloud_small",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        420,
+        20
+      ]
+    },
+    "layer": "world_mid",
+    "usage": "Optional parallax cloud for depth without obstructing obstacle readability.",
+    "adjacent_elements": [
+      "world.background.sky_fill_600x150"
+    ],
+    "viewpoint": {
+      "camera_angle": "camera_fixed",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 46,
+      "height": 14
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Compact three-lobe cloud with a nearly flat base line.",
+      "components": [
+        "left_lobe",
+        "center_lobe",
+        "right_lobe",
+        "flat_base"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.cloud_small_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 46x14px.",
+    "The cloud keeps at least 2px of transparent margin on every side except the grounded silhouette edge.",
+    "Only #535353 and transparency appear in painted pixels."
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "task_id": "cdr_environment_background_sky",
+  "asset_name": "background_sky",
+  "category": "environment",
+  "subcategory": "background",
+  "description": "Create a raster background fill sprite for the game sky. Image must be a solid fill with hex color #F7F7F7 (RGB 247,247,247). No gradients, no noise, no texture, no dithering. Canvas size must be exactly 600x150 px. Alpha must be 255 for all pixels.",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Sky background behind all gameplay elements.",
+    "screen_location": "Covers full screen area 600x150 px.",
+    "adjacent_elements": [
+      "ground_line at y=0 baseline",
+      "score_display UI overlay"
+    ],
+    "layer": "background",
+    "usage": "Always visible during Running and GameOver."
+  },
+  "specs": {
+    "dimensions": "600x150",
+    "colors": [
+      "#F7F7F7"
+    ],
+    "outline": {
+      "enabled": false,
+      "thickness_px": 0
+    },
+    "animation": {
+      "enabled": false
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/environment/background_sky.png",
+      "type": "background_sprite",
+      "format": "png",
+      "dimensions_px": "600x150",
+      "scale": 1,
+      "background": "opaque"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/environment/background_sky@2x.png",
+      "type": "background_sprite",
+      "format": "png",
+      "dimensions_px": "1200x300",
+      "scale": 2,
+      "scale_method": "nearest_neighbor",
+      "background": "opaque"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_environment_cloud_small",
+      "cdr_environment_cloud_large"
+    ],
+    "shared_properties": {
+      "base_screen_resolution_px": "600x150",
+      "background_color_hex": "#F7F7F7"
+    },
+    "differences": {
+      "vs_clouds": "Sky is opaque solid fill; clouds are transparent sprites using #535353."
+    }
+  },
+  "depends_on": [],
+  "execution_order": 1,
+  "priority": "P0",
+  "blocks": [
+    "cdr_environment_cloud_small",
+    "cdr_environment_cloud_large"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "PNG dimensions exactly 600x150 px for 1x deliverable and 1200x300 px for 2x deliverable.",
+    "All pixels in 1x file have RGB exactly (247,247,247) and alpha exactly 255.",
+    "No other colors present (exact palette check)."
+  ]
+}

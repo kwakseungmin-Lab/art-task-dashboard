@@ -1,0 +1,95 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "varies by element"
+    },
+    "color_scheme": {
+      "text": "#1D2B53",
+      "background": "#FFF1E8",
+      "accent": "#FF004D",
+      "bar_bg": "#5F574F",
+      "green": "#00E436",
+      "yellow": "#FFEC27",
+      "orange": "#FFA300"
+    },
+    "shared_attributes": {
+      "sprite_type": "UI overlay elements",
+      "rendering": "top layer, above all game elements",
+      "style": "minimal, PICO-8 aesthetic, pixel font",
+      "font": "3x5px mini pixel font"
+    }
+  },
+  "asset": {
+    "asset_id": "happiness_bar",
+    "asset_name": "Happiness Bar",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Displays Echo's current happiness level (0-100)",
+      "screen_position": "Bottom of screen, y=126-127, x=4 to x=124",
+      "adjacent_elements": ["floor (below)", "all game elements (above)"],
+      "usage_scenario": "Always visible. Updates in real-time as happiness changes. Color changes based on happiness level: green (90-100), yellow (70-89), orange (50-69)."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "120px",
+        "height": "2px"
+      },
+      "colors": {
+        "background": "#5F574F",
+        "fill_high": "#00E436",
+        "fill_medium": "#FFEC27",
+        "fill_low": "#FFA300"
+      },
+      "shape": "Horizontal bar, rectangular",
+      "texture": "Flat solid colors",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No animation. Bar fill width changes instantly based on happiness value. Color transitions at thresholds."
+      },
+      "details": "Background bar: 120px wide, 2px tall, dark brown (#5F574F). Fill bar: width = (happiness / 100) * 120px. Color logic: happiness >= 90 → #00E436 (green), happiness >= 70 → #FFEC27 (yellow), happiness < 70 → #FFA300 (orange). Positioned at y=126. Left edge at x=4, right edge at x=124."
+    },
+    "relationships": {
+      "related_assets": ["Echo (all states affect happiness)", "care_menu (actions increase happiness)", "floor (overlays floor area)"],
+      "shared_with": "Color scheme with project palette",
+      "differences_from": "care_menu: always visible vs popup, bar vs buttons. status_bubble: permanent vs temporary."
+    },
+    "explicit_negations": [
+      "No animation or smooth transitions",
+      "No gradient fill",
+      "Bar does not pulse or glow",
+      "No percentage text displayed",
+      "No heart icons or decorations",
+      "Background bar does not change color",
+      "No outline or border",
+      "Does not move or float"
+    ]
+  }
+}

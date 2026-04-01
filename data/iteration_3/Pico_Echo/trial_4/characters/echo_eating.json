@@ -1,0 +1,91 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame",
+      "position_reference": "perch at y=80px",
+      "layer_order": 3
+    }
+  },
+  "asset": {
+    "asset_id": "echo_eating",
+    "asset_name": "Echo Eating State",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Animation played when player feeds Echo seeds",
+      "screen_position": "Center at x=64, y=60, head lowered toward food bowl at (16, 100)",
+      "adjacent_elements": ["food_bowl", "seed", "perch"],
+      "usage_scenario": "Triggered when food bowl is filled and Echo is hungry, plays once then returns to idle"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head tilted downward toward food bowl, beak opening and closing",
+      "texture": "Pixel art with organic hand-drawn feel, no gradients",
+      "outline": "1px dark outline (#1D2B53) on crest, beak, and body silhouette",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 6,
+        "fps": 4,
+        "loop": false,
+        "description": "Frame 1-3: head lowering toward bowl, Frame 4: beak opens, Frame 5: beak closes on seed, Frame 6: head raising back up"
+      },
+      "details": "Head angle changes from 0° (idle) to approximately 45° downward, beak opens 2px gap in frame 4, seed visible in beak frame 5 (3x3px #FFA300), crest remains in normal position throughout"
+    },
+    "relationships": {
+      "related_assets": ["echo_idle", "seed", "food_bowl", "echo_hungry"],
+      "shared_with": "Same body size and colors as echo_idle",
+      "differences_from": "echo_idle (head position and beak movement), echo_hungry (actively eating vs looking at empty bowl)"
+    },
+    "explicit_negations": [
+      "No continuous eating loop (plays once per feed action)",
+      "No food particles or crumbs",
+      "No chewing animation beyond single beak open/close",
+      "No body movement off perch",
+      "No crest raising during eating",
+      "No sound effect visualization (handled separately by audio system)"
+    ]
+  }
+}

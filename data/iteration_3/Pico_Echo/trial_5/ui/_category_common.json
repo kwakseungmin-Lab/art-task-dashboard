@@ -1,0 +1,21 @@
+{
+  "base_size": {
+    "width": "8-120px",
+    "height": "2-8px",
+    "note": "Varies - happiness bar is 120x2px, care buttons are 8x8px each"
+  },
+  "color_scheme": {
+    "bar_bg": "#5F574F",
+    "bar_green": "#00E436",
+    "bar_yellow": "#FFEC27",
+    "bar_orange": "#FFA300",
+    "button_bg": "#1D2B53",
+    "button_icon": "#FFA300"
+  },
+  "shared_attributes": {
+    "rendering": "static UI elements",
+    "layer": "overlay (top layer)",
+    "style": "minimal functional pixel art",
+    "interaction": "touch/click targets"
+  }
+}

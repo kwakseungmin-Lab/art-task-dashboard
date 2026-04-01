@@ -1,0 +1,64 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.pterodactyl.fly_2f_8fps",
+  "asset_name": "Obstacle — Pterodactyl (2 frames, 8fps flap)",
+  "category": "obstacles",
+  "subcategory": "hazard_air",
+  "priority": "P1",
+  "execution_order": 150,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {"related_task_ids": ["character.dino.duck_2f_10fps"]},
+  "palette": {
+    "primary": {"name": "ink", "hex": "#2B2B2B"},
+    "background": {"name": "paper", "hex": "#F7F7F7"},
+    "accent": {"name": "alert", "hex": "#D23C3C"}
+  },
+  "canvas": {
+    "resolution_px": {"width": 600, "height": 150},
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "air_obstacle",
+    "layer": "obstacles",
+    "usage": "Flying hazard; can spawn at multiple heights to encourage duck/jump timing.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [520, 50]
+    }
+  },
+  "specs": {
+    "dimensions_px": {"width": 46, "height": 40},
+    "colors_hex": ["#2B2B2B"],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [46, 40],
+      "layout": {"columns": 2, "rows": 1}
+    },
+    "silhouette_notes": [
+      "Frame 1: wings up; Frame 2: wings down. Keep body center consistent to avoid jitter.",
+      "Beak reads as a 2–3px forward protrusion.",
+      "No internal shading; outline-only silhouette is acceptable."
+    ]
+  },
+  "deliverables": [
+    {"type": "png", "file": "obstacles/obstacles.pterodactyl.fly_2f_8fps.png", "transparent_background": true}
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 92x40px (2 frames × 46x40) with 0px spacing.",
+    "Wing motion is clearly visible at 1x scale (wingtip moves at least 4px between frames).",
+    "Only #2B2B2B and transparency are used."
+  ]
+}

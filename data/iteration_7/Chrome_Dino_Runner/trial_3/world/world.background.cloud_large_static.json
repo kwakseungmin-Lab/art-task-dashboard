@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.cloud_large_static",
+  "asset_name": "Large Background Cloud",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P2",
+  "execution_order": 120,
+  "variant_of": "world.background.cloud_small_static",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000.",
+    "Rounded cloud contour language.",
+    "Parallax usage at half of ground speed."
+  ],
+  "differences": [
+    "Width increases from 46 px to 92 px.",
+    "Height increases from 14 px to 27 px.",
+    "Lower edge adds one extra contour step for the larger form."
+  ],
+  "depends_on": [
+    "world.background.sky_fill_600x150",
+    "world.background.cloud_small_static"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.cloud_small_static"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.cloud_small_static",
+      "world.background.sky_fill_600x150"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "parallax_cloud_large",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        650,
+        10
+      ]
+    },
+    "layer": "world_back",
+    "usage": "Optional parallax prop moving at half of ground scroll speed with larger screen occupancy.",
+    "adjacent_elements": [
+      "world.background.sky_fill_600x150",
+      "world.ground.line_1200x2"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 27
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Rounded cloud silhouette 92 px wide and 27 px high with three major lobes and 2px contour thickness.",
+      "components": [
+        "left_lobe",
+        "center_lobe",
+        "right_lobe",
+        "lower_shadow_edge"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.cloud_large_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 92x27 px.",
+    "Cloud width spans 2x the small cloud width within a 92 px envelope.",
+    "Opaque fill uses #535353 with transparent background only."
+  ]
+}

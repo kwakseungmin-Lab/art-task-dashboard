@@ -1,0 +1,83 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.icon.restart_24x24",
+  "asset_name": "UI Icon — Restart Button (static)",
+  "category": "ui",
+  "subcategory": "icon",
+  "priority": "P1",
+  "execution_order": 330,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "restart",
+    "layer": "ui",
+    "usage": "Restart prompt icon (optional for touch).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        288,
+        80
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 24
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7",
+      "#FF0000"
+    ],
+    "animation": null,
+    "shape_notes": [
+      "Simple circular arrow; 2px outline; readable at 1x."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.icon.restart_24x24.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "All edges are pixel-perfect (no anti-aliasing).",
+    "Uses only the defined palette colors and transparency.",
+    "Sprite fits within 24x24px bounds and aligns to whole pixels."
+  ]
+}

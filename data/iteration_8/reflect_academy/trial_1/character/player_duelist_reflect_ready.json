@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000002",
+  "asset_key": "player_duelist_reflect_ready",
+  "asset_name": "Player Duelist Reflect Ready",
+  "category": "character",
+  "subcategory": "player_state",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": "task_id_801000001",
+  "variant_of_asset_key": "player_duelist_idle_loop",
+  "shared_properties": [
+    "The student duelist keeps the 120x180 px body proportion, academy coat silhouette, and three-quarter lower-lane facing direction from the idle loop.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while the reaction ring adds cyan only inside specs.colors_hex.",
+    "The wand hand, face, and shoulder trim stay readable with the same 2 px outline treatment used by the idle pose."
+  ],
+  "differences": [
+    "Four frames push the lead foot forward, raise the off-hand card, and bend the knees to signal an imminent counter timing window.",
+    "A cyan anticipation ring appears around the wand tip and sweeps toward the lane marker.",
+    "Cape motion tightens and the head angle turns slightly upward so the player reads as tracking the incoming spell."
+  ],
+  "depends_on": [
+    "task_id_801000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000001",
+      "task_id_801000003",
+      "task_id_801000007",
+      "task_id_801000012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Grounds the student duelist silhouette, costume trim, wand handling, and heroic stance."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_2x2",
+    "ecs_components": [
+      "PlayerDuelistTag",
+      "CombatStateVisual",
+      "ReflectWindowState",
+      "AnimationTimer",
+      "Transform"
+    ],
+    "asset_loading": "Load player_duelist_reflect_ready.png and build a 2x2 TextureAtlasLayout that activates when the projectile enters the outer timing window.",
+    "runtime_notes": [
+      "Play at 10 FPS only while the duel state machine is in ReflectReady.",
+      "Swap from the idle atlas without moving the world anchor so collision and timing logic remain stable.",
+      "Fade the cyan ring with additive material or a companion FX sprite only if the engine setup supports it; the authored pixels must remain readable without post effects."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_reflect_ready_pose",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        340,
+        760
+      ]
+    },
+    "layer": "character",
+    "usage": "Displayed while the projectile approaches the precision timing zone and the player can commit a reflect card."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 140,
+      "height": 190
+    },
+    "colors_hex": [
+      "#2B1B17",
+      "#1A1A2E",
+      "#5C3317",
+      "#D4AF37",
+      "#F6D1B1",
+      "#00FFFF",
+      "#ADFF2F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        140,
+        190
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    "hitbox_px": {
+      "width": 86,
+      "height": 156,
+      "offset_px": [
+        27,
+        24
+      ]
+    },
+    "readability_notes": [
+      "The anticipation ring must remain outside the torso silhouette.",
+      "The lead foot shifts forward by at most 18 px relative to the idle anchor.",
+      "Card edge highlights must stay visible against the dark podium."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_duelist_reflect_ready.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 280x380 px for four 140x190 frames with no inter-frame padding.",
+    "The cyan timing ring never obscures the face or hand silhouette in any frame.",
+    "The ready stance reads as a distinct escalation from idle when previewed in sequence at 10 FPS."
+  ]
+}

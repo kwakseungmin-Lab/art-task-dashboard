@@ -1,0 +1,138 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.confirm_button_180x50_2state",
+  "asset_name": "Confirm Button State Sheet — 360x50, 2 states",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 180,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.typography.parchment_bitmap_font_8px",
+    "ui.hud.right_stats_panel_240x720"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.typography.parchment_bitmap_font_8px",
+    "ui.hud.right_stats_panel_240x720"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.reset_button_120x36_2state",
+      "ui.hud.right_stats_panel_240x720"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "confirm_button",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": {
+        "x": -40,
+        "y": 820
+      }
+    },
+    "layer": "ui",
+    "usage": "Primary action button for route confirmation placed inside the lower band of the right HUD panel.",
+    "adjacent_elements": [
+      "ui.hud.right_stats_panel_240x720",
+      "ui.hud.reset_button_120x36_2state"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 360,
+      "height": 50
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#1E1B4B",
+      "#FBBF24",
+      "#FEF3C7",
+      "#F8FAFC"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 2,
+      "fps": 0,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 2,
+        "frame_size_px": {
+          "width": 180,
+          "height": 50
+        },
+        "order": [
+          "confirm_normal",
+          "confirm_pressed"
+        ],
+        "padding_px": 0
+      }
+    },
+    "shape": {
+      "silhouette": "Rounded 180px button with a 2px border and centered 7-letter label.",
+      "components": [
+        "button_frame",
+        "inner_fill",
+        "label_CONFIRM"
+      ]
+    },
+    "button": {
+      "border_px": 2,
+      "corner_radius_px": 6,
+      "label": "CONFIRM",
+      "state_count": 2
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.confirm_button_180x50_2state.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 360x50px with 2 states of 180x50px.",
+    "Button border is 2px and corner radius is 6px in both states.",
+    "Label text is CONFIRM and remains horizontally centered in both states."
+  ]
+}

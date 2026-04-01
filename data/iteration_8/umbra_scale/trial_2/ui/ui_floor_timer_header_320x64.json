@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020116",
+  "asset_key": "ui_floor_timer_header_320x64",
+  "asset_name": "Floor, Timer, and Echo Counter Header (320x64 static)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The header occupies a 320x64 px band centered at the top of the screen for floor number, timer, and Echo reserve count.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while text-support colors stay inside specs.colors_hex.",
+    "The silhouette uses restrained deco trim so it remains legible without overpowering the main puzzle field."
+  ],
+  "differences": [
+    "The header contains three reserved data zones: floor index, elapsed time, and Echo reserve icons.",
+    "A narrow amber divider line separates the floor label from the timer slot to avoid visual merging during long sessions.",
+    "The right-side reserve slot is sized for two 20x30 px Echo icons and a small numeric backup indicator."
+  ],
+  "depends_on": [
+    "task_id_008020110"
+  ],
+  "blocks": [
+    "task_id_008020118"
+  ],
+  "blocked_by": [
+    "task_id_008020110"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020105",
+      "task_id_008020110",
+      "task_id_008020112",
+      "task_id_008020118"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds floor display, timer placement, and Echo reserve count feedback."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the restrained art deco HUD band used for session-level information."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Echo icon scale relative to other HUD data."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle or ImageBundle on the HUD overlay camera.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Style",
+      "UiImage",
+      "Visibility",
+      "HudWidget"
+    ],
+    "asset_loading": "Load the floor-timer header during FloorLoading and register it for the persistent HUD frame.",
+    "runtime_notes": [
+      "Center the widget at the top of the screen and keep 24 px safe margins from the viewport edge.",
+      "Use runtime text inside the reserved floor and timer windows while the decorative frame remains static art.",
+      "Keep the header on the overlay camera so it remains stable during world panning."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "top_header_hud",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        40
+      ]
+    },
+    "layer": "ui",
+    "usage": "Top-center HUD frame for floor progression, elapsed time, and remaining Echo resources.",
+    "adjacent_elements": [
+      "task_id_008020105",
+      "task_id_008020112"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 64
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1C1826",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": null,
+    "layout_notes": [
+      "Floor label zone width is 92 px.",
+      "Timer zone width is 124 px.",
+      "Echo reserve zone width is 80 px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_floor_timer_header_320x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Header texture is exactly 320x64 px and preserves three clearly separated information zones.",
+    "Timer and floor label slots remain readable over the brightest beam-heavy floors.",
+    "Echo reserve area cleanly supports two icon positions and a compact numeric fallback."
+  ]
+}

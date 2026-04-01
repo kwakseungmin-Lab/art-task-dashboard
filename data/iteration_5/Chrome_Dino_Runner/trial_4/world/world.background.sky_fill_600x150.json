@@ -1,0 +1,95 @@
+{
+  "task_id": "world.background.sky_fill_600x150",
+  "id": "background_sky_fill_600x150",
+  "asset_name": "Background Sky Fill (600x150)",
+  "category": "world",
+  "subcategory": "background",
+  "display_name": "Background Sky Fill (600x150)",
+  "description": "Create asset for task_id 'world.background.sky_fill_600x150' as specified in specs/context.",
+  "execution_order": 10,
+  "priority": "P0",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 600,
+        "height": 150
+      },
+      "frame_rate_target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      },
+      "baseline_y_px": 148
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "highlight_optional_hex": "#FF0000"
+    },
+    "style": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 150
+    },
+    "fill": {
+      "color_hex": "#F7F7F7",
+      "opaque_required": true
+    },
+    "transparent_background": false
+  },
+  "context": {
+    "role": "world_background_base",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "anchor": "top_left"
+    },
+    "layer": "world_background",
+    "usage": [
+      "start_screen",
+      "in_game",
+      "game_over"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/background_sky_fill_600x150.aseprite",
+      "notes": "Single frame full-canvas fill."
+    },
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/background_sky_fill_600x150.png",
+      "dimensions_px": {
+        "width": 600,
+        "height": 150
+      },
+      "background": "opaque_#F7F7F7"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 600x150 px.",
+    "Every pixel is #F7F7F7 with full opacity (no transparency).",
+    "No outline, texture, dithering, or additional objects."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scaling supported",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "obstacles",
+  "category_common": {
+    "base_size": {
+      "width": "variable",
+      "height": "70-100px"
+    },
+    "color_scheme": {
+      "primary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "8-bit pixel art obstacles",
+      "purpose": "collision targets that trigger game over",
+      "outline": "2px included in dimensions",
+      "collision_margin": "3px smaller than sprite for forgiveness",
+      "movement": "scroll left at Current_Speed (300-900 px/s)",
+      "spawn_position": "screen_width + 50px",
+      "despawn_position": "-100px"
+    }
+  },
+  "asset": {
+    "asset_id": "cactus_medium",
+    "asset_name": "Medium Cactus (Double)",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Ground obstacle requiring jump to avoid, wider than small variant",
+      "screen_position": "y=0 (ground level), scrolls from right to left",
+      "adjacent_elements": ["ground", "player_run", "player_jump"],
+      "usage_scenario": "Common obstacle appearing from game start (0+ points), spawn probability 35%"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "68px",
+        "height": "70px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "Two vertical cacti grouped together",
+      "texture": "Pixel art, solid color fill",
+      "outline": "2px thick, included in sprite dimensions",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static sprite, no animation"
+      },
+      "details": "Two cacti side by side, similar height, spiky protrusions, grouped as single obstacle"
+    },
+    "relationships": {
+      "related_assets": ["cactus_small", "cactus_large", "player_jump", "ground"],
+      "shared_with": "Same height as cactus_small (70px), same visual style",
+      "differences_from": "cactus_small has 1 cactus (34px wide), cactus_large has 3 cacti (102px wide, 100px tall)"
+    },
+    "explicit_negations": [
+      "No spacing between the two cacti",
+      "No height variation between the two cacti",
+      "No color differences",
+      "No animation or swaying",
+      "No shadows or depth effects",
+      "No individual collision boxes (single hitbox for group)"
+    ]
+  }
+}

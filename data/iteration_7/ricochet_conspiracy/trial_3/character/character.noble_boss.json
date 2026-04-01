@@ -1,0 +1,141 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.noble_boss",
+  "asset_name": "Boss Noble Target",
+  "category": "character",
+  "subcategory": "noble_target",
+  "priority": "P0",
+  "execution_order": 19,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This character is the largest noble silhouette and carries multi-hit boss readability."
+  ],
+  "depends_on": [
+    "world.background.midlayer_court",
+    "world.foreground.floor_tiles"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.midlayer_court",
+    "world.foreground.floor_tiles"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.chandelier",
+      "ui.screen.result_panel"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "boss_target_character",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 1030,
+      "y": 388,
+      "width": 56,
+      "height": 64,
+      "anchor": "top_left"
+    },
+    "layer": "midground_character",
+    "usage": "Used from stage 10-1 onward for three-hit boss encounters.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_left"
+    },
+    "adjacent_elements": [
+      "world.foreground.floor_tiles",
+      "obstacles.environment.chandelier",
+      "ui.screen.result_panel"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 56,
+      "height": 64
+    },
+    "colors_hex": [
+      "#8B3A52",
+      "#D4A843",
+      "#F5F0E8",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "idle",
+      "states": [
+        {
+          "name": "idle",
+          "frame_count": 8,
+          "fps": 4
+        },
+        {
+          "name": "shield_break",
+          "frame_count": 4,
+          "fps": 10
+        },
+        {
+          "name": "elimination",
+          "frame_count": 10,
+          "fps": 12
+        }
+      ]
+    },
+    "notes": [
+      "Crown height is 10 px and cape width reaches 48 px on the idle pose.",
+      "Three shield-break readability passes use brighter gold trim on each hit-count preview."
+    ],
+    "shape": {
+      "silhouette": "large royal figure with a tall collar, broad robe, and a crown peak",
+      "components": [
+        "crown peak",
+        "tall collar",
+        "broad torso robe",
+        "left sleeve",
+        "right sleeve",
+        "base hem"
+      ]
+    }
+  },
+  "deliverables": [
+    "Idle loop 8 frames at 4 fps.",
+    "4-frame shield-break response set.",
+    "10-frame boss elimination sequence."
+  ],
+  "acceptance_criteria": [
+    "Character size is exactly 56x64 px.",
+    "Idle loop contains 8 frames at 4 fps.",
+    "Primary costume fill uses #8B3A52 on the torso or cape silhouette."
+  ]
+}

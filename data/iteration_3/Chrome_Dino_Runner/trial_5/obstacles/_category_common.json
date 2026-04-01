@@ -1,0 +1,18 @@
+{
+  "base_size": {
+    "width": "variable",
+    "height": "70-100px"
+  },
+  "color_scheme": {
+    "primary": "#535353"
+  },
+  "shared_attributes": {
+    "style": "8-bit pixel art obstacles",
+    "purpose": "collision targets that trigger game over",
+    "outline": "2px included in dimensions",
+    "collision_margin": "3px smaller than sprite for forgiveness",
+    "movement": "scroll left at Current_Speed (300-900 px/s)",
+    "spawn_position": "screen_width + 50px",
+    "despawn_position": "-100px"
+  }
+}

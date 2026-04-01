@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.noble.guard_patrol_6f_6fps",
+  "asset_name": "Guard Noble Patrol (6f 6fps)",
+  "category": "character",
+  "subcategory": "target_guard",
+  "priority": "P1",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620",
+    "character.noble.standard_idle_6f_4fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620",
+    "character.noble.standard_idle_6f_4fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble.standard_idle_6f_4fps",
+      "ui.overlay.trajectory_dotted_line_640x96"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "target_guard",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "character",
+    "usage": "Used in moving target stages with an 80px patrol lane and one full walk cycle at 6fps.",
+    "adjacent_elements": [
+      "patrol lane marker",
+      "trajectory overlay"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 36,
+      "height": 52
+    },
+    "colors_hex": [
+      "#8BA7C7",
+      "#A89880",
+      "#D4A843",
+      "#E8D5C4",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        36,
+        52
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "broad shoulder noble with plume hat and long coat hem that reads at 36x52 during walking motion",
+      "components": [
+        "plume_hat",
+        "face",
+        "coat_body",
+        "belt",
+        "boots",
+        "glove_pair"
+      ]
+    },
+    "physics_tags": {
+      "target_hp": 1,
+      "patrol_range_px": 80,
+      "patrol_speed_px_per_sec": 60
+    },
+    "face": {
+      "eyes": "2px dark oval pair",
+      "mouth": "1px flat line",
+      "nose": "1px wedge",
+      "beard": null
+    },
+    "appendages": {
+      "arms": "2 coat sleeves",
+      "legs": "2 booted legs",
+      "tail": null,
+      "wings": null,
+      "accessories": [
+        "plume_hat",
+        "belt_buckle"
+      ]
+    },
+    "texture": {
+      "material": "fabric_and_leather_trim",
+      "grain_percent": 4
+    },
+    "shading": {
+      "mode": "soft_watercolor",
+      "shadow_hex": "#6F7F99",
+      "highlight_hex": "#D8E1EC"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.guard_patrol_6f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 216x52px with 6 columns, 1 row, and 0px spacing.",
+    "Each frame keeps the hip travel within 6px while the foot contact alternates on a 2-frame cadence.",
+    "Only #8BA7C7, #A89880, #D4A843, #E8D5C4, and #3D2B1F are used on the character sheet."
+  ]
+}

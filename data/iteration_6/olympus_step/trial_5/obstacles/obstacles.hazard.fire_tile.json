@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.hazard.fire_tile",
+  "asset_name": "Hazard Tile - Fire (Animated)",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "hazard",
+    "layer": "obstacles",
+    "usage": "Placed on a 64x64 grid tile; triggers immediate fail or restriction based on rules",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "sprite_dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#DC2626",
+      "#EF4444",
+      "#FBBF24",
+      "#1C1917",
+      "#D4C5A9"
+    ],
+    "animation": {
+      "type": "loop",
+      "frame_count": 8,
+      "fps": 8,
+      "notes": "1.0s loop flame flicker"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.fire_tile.png",
+      "transparent_background": true,
+      "layout": "horizontal_strip",
+      "frame_size_px": {
+        "width": 64,
+        "height": 64
+      },
+      "frame_count": 8
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite frame size is exactly 64x64px and aligns to a 64x64 tile grid when centered.",
+    "Uses hard pixel edges with no anti-aliasing; background remains fully transparent.",
+    "Hazard readability: the asset is visually distinct from the base floor tile using its hazard accent colors."
+  ]
+}

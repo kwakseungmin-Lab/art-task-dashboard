@@ -1,0 +1,168 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.last_olympian_god_idle_sheet_48_4f",
+  "asset_name": "Last Olympian God Idle Sheet — 192x48, 4 frames",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "blocks": [
+    "character.player.last_olympian_god_teleport_sheet_48_6f"
+  ],
+  "blocked_by": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.last_olympian_god_teleport_sheet_48_6f",
+      "ui.hud.right_stats_panel_240x720"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "player_sprite",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 736,
+      "y": 448
+    },
+    "layer": "world_characters",
+    "usage": "Main player avatar for board traversal; 48px body centered in a 64px cell footprint.",
+    "adjacent_elements": [
+      "world.tiles.marble_grid_64_atlas",
+      "ui.hud.right_stats_panel_240x720"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_topdown",
+      "facing": "east"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 48
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#FBBF24",
+      "#F8FAFC",
+      "#C17B2F",
+      "#6B7280"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 4,
+      "fps": 5,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 4,
+        "frame_size_px": {
+          "width": 48,
+          "height": 48
+        },
+        "order": [
+          "idle_1",
+          "idle_2",
+          "idle_3",
+          "idle_4"
+        ],
+        "padding_px": 0
+      }
+    },
+    "shape": {
+      "silhouette": "48px cloaked figure with a 10px halo ring and 2px sandal tips visible.",
+      "components": [
+        "hood",
+        "cloak_body",
+        "halo_ring",
+        "waist_sash",
+        "sandal_tips"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "count": 2,
+        "style": "2px amber dots",
+        "hex": "#FBBF24"
+      },
+      "mouth": null,
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "pose": "cloak_closed"
+      },
+      "legs": {
+        "count": 2,
+        "visibility": "2px sandal tips"
+      },
+      "tail": null,
+      "accessories": [
+        "halo_ring",
+        "waist_sash"
+      ]
+    },
+    "texture": {
+      "fabric": "2-tone cloak folds",
+      "metal": "1px halo rim"
+    },
+    "shading": {
+      "mode": "flat_2tone",
+      "shadow_hex": "#1C1917",
+      "highlight_hex": "#F8FAFC"
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.last_olympian_god_idle_sheet_48_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 192x48px with 4 frames of 48x48px.",
+    "Halo outer diameter is 10px in every frame and never touches the frame border.",
+    "Idle motion shifts the cloak or halo by no more than 2px per frame."
+  ]
+}

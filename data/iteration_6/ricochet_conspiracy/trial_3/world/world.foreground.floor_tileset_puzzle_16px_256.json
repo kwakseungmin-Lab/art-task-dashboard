@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.foreground.floor_tileset_puzzle_16px_256",
+  "asset_name": "Foreground — Puzzle Floor Tileset (16px tiles, 256x256 atlas)",
+  "category": "world",
+  "subcategory": "tileset",
+  "priority": "P1",
+  "execution_order": 330,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "floor_tiles",
+    "layer": "world",
+    "usage": "16px tileset atlas for the puzzle area floor (stone/wood variations) used under obstacles.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 256
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#3D2B1F",
+      "#F5F0E8"
+    ],
+    "tileset": {
+      "tile_size_px": 16,
+      "atlas_layout": {
+        "columns": 16,
+        "rows": 16
+      },
+      "include_tiles": [
+        "base_stone",
+        "base_wood",
+        "edge",
+        "corner",
+        "crack_decor"
+      ],
+      "note": "Keep seams clean; designed for 1px outline accents where needed."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.foreground.floor_tileset_puzzle_16px_256.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 256x256px with a strict 16x16 tile grid (16px per tile) and no misalignment.",
+    "Tiles tile seamlessly; edges/corners match without 1px seams; no anti-aliasing.",
+    "Palette stays within #E8D5C4 and #A89880 with #3D2B1F outlines; avoids high-contrast noise."
+  ]
+}

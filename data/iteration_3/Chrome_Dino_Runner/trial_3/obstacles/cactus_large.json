@@ -1,0 +1,85 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scalable",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "obstacles",
+  "category_common": {
+    "base_size": {
+      "width": "34-102px (variable by type)",
+      "height": "70-100px (variable by type)"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art obstacles",
+      "movement": "scroll left at Current_Speed (300-900 px/s)",
+      "collision_layer": "Layer 1 (Obstacles)",
+      "hitbox_margin": "3px smaller than sprite on all sides",
+      "spawn_position": "screen_width + 50px (off-screen right)",
+      "despawn_position": "-100px (off-screen left)",
+      "outline": "2px included in dimensions",
+      "rendering": "pixel-perfect, no antialiasing"
+    }
+  },
+  "asset": {
+    "asset_id": "cactus_large",
+    "asset_name": "Large Cactus Obstacle (3-Group)",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Ground obstacle requiring player to jump, tallest and widest variant",
+      "screen_position": "Spawns at x=650px (screen_width + 50), y=0px (ground level), scrolls left",
+      "adjacent_elements": ["ground_line", "player_run", "player_jump"],
+      "usage_scenario": "Challenging obstacle from game start (0+ points), spawned by SpawnSystem with 25% probability, requires precise jump timing due to 100px height exceeding player max jump (90px)"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "102px",
+        "height": "100px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "Three vertical cacti grouped together with varying heights, widest and tallest variant",
+      "texture": "Pixel art, hard edges, spiky protrusions on all three cacti",
+      "outline": "2px solid outline integrated into sprite",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No animation, single static sprite"
+      },
+      "details": "Three desert cacti side by side with varying heights creating irregular top silhouette, each with visible spikes, combined into single obstacle sprite, maximum difficulty variant"
+    },
+    "relationships": {
+      "related_assets": ["cactus_small", "cactus_medium", "ground_line", "player_jump"],
+      "shared_with": "Same color and style as cactus_small and cactus_medium",
+      "differences_from": "cactus_small is 34x70px (1 cactus), cactus_medium is 68x70px (2 cacti). Large is 3x width of small and 30px taller, exceeds player max jump height (90px) requiring precise timing"
+    },
+    "explicit_negations": [
+      "No animation or movement beyond scrolling",
+      "No color variations or gradients",
+      "No smooth anti-aliased edges",
+      "No shadows on ground",
+      "No particle effects",
+      "No transparency except full alpha channel",
+      "No flowers or decorative elements",
+      "No spacing between the three cacti (single unified sprite)"
+    ]
+  }
+}

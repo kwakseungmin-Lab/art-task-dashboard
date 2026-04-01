@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "obstacles.pillar.marble_break_anim",
+  "asset_name": "Marble Pillar Break Animation",
+  "category": "obstacles",
+  "group_id": "obstacles.pillar.marble",
+  "variant_role": "variant",
+  "priority": "P0",
+  "execution_order": 11,
+  "depends_on": [
+    "obstacles.pillar.marble_static"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.collectible.star_shard_spin"
+    ]
+  },
+  "context": {
+    "role": "break_vfx_sprite",
+    "screen_position": {
+      "type": "world_space",
+      "units": "px",
+      "pivot": "bottom_center"
+    },
+    "layer": "gameplay_vfx",
+    "usage": "Played once (6 frames) when the marble pillar breaks; then despawn.",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 384,
+      "height_px": 200
+    },
+    "frame_layout": {
+      "grid_columns": 6,
+      "grid_rows": 1,
+      "frame_size_px": [
+        64,
+        200
+      ],
+      "row_order": [
+        "break"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#D9D0BE"
+      },
+      "secondary": [
+        {
+          "name": "shadow",
+          "hex": "#6B6357"
+        },
+        {
+          "name": "star_gold_sparks",
+          "hex": "#FFD966"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "pillar shattering into chunks and dust over 6 frames",
+      "components": [
+        "chunks",
+        "dust",
+        "sparkles"
+      ]
+    }
+  },
+  "description": "Create a 6-frame sprite sheet (1 row) for the pillar breaking. Frame size 64x200. Add a few star-gold sparkles (#FFD966) to match cosmic theme. Animation is non-looping.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "obstacles/pillar_marble_break_anim.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 384x200 px (6 frames x 64px)",
+    "Each frame is exactly 64x200 px with readable progression of break",
+    "Includes at least 6 distinct debris chunks across the animation"
+  ]
+}

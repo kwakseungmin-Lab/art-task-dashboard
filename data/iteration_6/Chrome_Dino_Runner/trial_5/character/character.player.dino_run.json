@@ -1,0 +1,121 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.dino_run",
+  "asset_name": "Player Dino - Run",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": "character.player.dino_idle",
+  "shared_properties": {
+    "palette_primary_hex": "#535353",
+    "canvas_resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "outline": "2px",
+    "base_bounding_box_px": {
+      "width": 88,
+      "height": 94
+    }
+  },
+  "differences": {
+    "animation": {
+      "fps": 12,
+      "frame_count": 2,
+      "notes": [
+        "alternating stride",
+        "looping run cycle"
+      ]
+    },
+    "pose_notes": [
+      "left leg forward in frame 0",
+      "right leg forward in frame 1"
+    ]
+  },
+  "depends_on": [
+    "character.player.dino_idle"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_idle"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player",
+    "layer": "gameplay",
+    "usage": "Default grounded movement animation during gameplay (auto-run)",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 100,
+      "y": 0,
+      "origin": "ground_baseline"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_order": [
+        0,
+        1
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_run.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet contains exactly 2 frames for run at 88x94px each; total sheet width is 176px and height is 94px.",
+    "Leg positions clearly alternate between frames while head/body silhouette stays stable; loop is seamless at 12 FPS.",
+    "Feet baseline and overall bounding box remain consistent to avoid vertical jitter during playback."
+  ]
+}

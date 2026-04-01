@@ -1,0 +1,112 @@
+{
+  "task_id": "world.vfx_zzz",
+  "asset_name": "VFX_ZZZ_Strip_48x8",
+  "category": "world",
+  "subcategory": "vfx_particle",
+  "description": "Create a 48x8 px transparent pixel-art animation strip that displays a ZZZ sleep indicator above Echo during the sleeping state. The strip contains 4 frames laid out left-to-right as 12x8 px frames.",
+  "execution_order": 70,
+  "priority": "P2",
+  "context": {
+    "role": "sleep_state_feedback_particle",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        -10
+      ]
+    },
+    "layer": "world_vfx",
+    "usage": "Render above Echo while Echo state is sleeping."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "character.echo_sprite_sheet",
+      "ui.hud_atlas"
+    ]
+  },
+  "depends_on": [
+    "character.echo_sprite_sheet"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "file": "world_vfx_zzz_48x8.png",
+      "format": "png",
+      "transparent_background": true,
+      "notes": "4 frames in one row. Frame size 12x8 px. Binary transparency only."
+    }
+  ],
+  "acceptance_criteria": [
+    "The PNG file is exactly 48x8 px with a fully transparent background where no pixels are drawn.",
+    "The strip contains 4 frames of 12x8 px laid out left-to-right with no padding between frames.",
+    "All visible pixels use only the 16-color palette listed in specs.palette_hex and contain no anti-aliased pixels."
+  ],
+  "specs": {
+    "sheet_dimensions_px": {
+      "width": 48,
+      "height": 8
+    },
+    "frame_dimensions_px": {
+      "width": 12,
+      "height": 8
+    },
+    "frame_count": 4,
+    "fps": 2,
+    "layout": "horizontal_left_to_right",
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "primary_hex": "#1D2B53",
+    "alpha": "binary_transparency_only"
+  },
+  "project_common": {
+    "game_name": "Pico_Echo",
+    "iteration": 5,
+    "trial_index": 4,
+    "canvas_px": {
+      "width": 128,
+      "height": 128
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "pixel_art": {
+      "snap_to_pixel_grid": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor"
+    }
+  }
+}

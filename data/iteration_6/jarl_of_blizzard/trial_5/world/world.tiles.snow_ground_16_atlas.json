@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.tiles.snow_ground_16_atlas",
+  "asset_name": "Snow Ground Tiles — 16px Atlas",
+  "category": "world",
+  "subcategory": "tiles",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tile_atlas",
+    "layer": "world",
+    "usage": "Base ground tiles for settlement view; tileable under buildings and units.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 256
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "tile_size_px": {
+      "width": 16,
+      "height": 16
+    },
+    "tile_count": 256,
+    "included_variants": [
+      "flat_snow",
+      "packed_snow",
+      "ice_patch",
+      "rock_speckle",
+      "footprints",
+      "wind_streaks"
+    ],
+    "layout_note": "16×16 grid of 16px tiles in a 256×256 atlas. All tiles must be tileable on edges."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tiles.snow_ground_16_atlas.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 256×256px with 16×16 tiles of 16×16px each.",
+    "Edge-adjacent placements tile without visible seams for base variants."
+  ]
+}

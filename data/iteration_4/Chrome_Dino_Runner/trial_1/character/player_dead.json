@@ -1,0 +1,143 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_character_player_dead",
+  "asset_name": "player_dead",
+  "category": "character",
+  "subcategory": "player",
+  "description": "Create Player dead sprite as a single-frame PNG. Canvas 88x94 px. Use only #535353 for visible pixels with transparent background. Pose: same base pose as run/idle torso alignment, but eye(s) closed or X-shaped. No additional colors.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/sprites/player/player_dead_1f_88x94_1x.png",
+      "type": "sprite",
+      "format": "PNG",
+      "notes": "Displayed at collision / GameOver state."
+    }
+  ],
+  "specs": {
+    "dimensions": "88x94",
+    "frames": 1,
+    "hitbox": {
+      "size_px": "44x90",
+      "offset_px": "(22,2)"
+    },
+    "style": {
+      "colors_hex": [
+        "#535353"
+      ],
+      "outline": {
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      },
+      "bg": "transparent",
+      "view": "2D side view, facing right",
+      "usage_notes": "Shown when Player.state=Dead."
+    }
+  },
+  "context": {
+    "role": "Player death state sprite shown after collision until restart.",
+    "screen_location": "Fixed x=100 px; baseline aligned to ground y=0.",
+    "adjacent_elements": "Shown with GameOverScreen UI text; do not use highlight red in the sprite.",
+    "layer": "gameplay_sprite",
+    "usage": "Displayed when is_dead=true."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_vfx_gameover_screen_flash",
+      "cdr_v1_typography_font_pixel_mono_24px"
+    ],
+    "shared_properties": [
+      "#535353 only",
+      "Canvas 88x94"
+    ],
+    "differences": [
+      "Eye state changed to indicate dead; no animation"
+    ]
+  },
+  "depends_on": [
+    "cdr_v1_character_player_idle"
+  ],
+  "execution_order": 8,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_v1_character_player_idle"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 88x94 px.",
+    "Only #535353 used for visible pixels; background alpha=0.",
+    "Torso/head alignment matches run frames within +/-1 px (so switching to dead does not shift position)."
+  ]
+}

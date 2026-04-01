@@ -1,0 +1,99 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "8-120px",
+      "height": "2-8px",
+      "note": "Varies - happiness bar is 120x2px, care buttons are 8x8px each"
+    },
+    "color_scheme": {
+      "bar_bg": "#5F574F",
+      "bar_green": "#00E436",
+      "bar_yellow": "#FFEC27",
+      "bar_orange": "#FFA300",
+      "button_bg": "#1D2B53",
+      "button_icon": "#FFA300"
+    },
+    "shared_attributes": {
+      "rendering": "static UI elements",
+      "layer": "overlay (top layer)",
+      "style": "minimal functional pixel art",
+      "interaction": "touch/click targets"
+    }
+  },
+  "asset": {
+    "asset_id": "happiness_bar",
+    "asset_name": "Happiness Level Bar",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Visual indicator of Echo's current happiness level (0-100)",
+      "screen_position": "Bottom of screen at x=4px, y=126px (120px wide, 2px tall)",
+      "adjacent_elements": [
+        "cage_floor (above at y=110-125px)",
+        "screen bottom edge (below at y=128px)"
+      ],
+      "usage_scenario": "Always visible during gameplay. Displays Echo's happiness as horizontal fill bar. Color changes based on happiness level: green (90-100), yellow (70-89), orange (50-69). Updates in real-time as happiness changes."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "120px",
+        "height": "2px"
+      },
+      "colors": {
+        "background": "#5F574F",
+        "fill_green": "#00E436",
+        "fill_yellow": "#FFEC27",
+        "fill_orange": "#FFA300"
+      },
+      "shape": "Horizontal rectangular bar. Background: 120x2px dark brown. Foreground: variable width (0-120px) based on happiness percentage.",
+      "texture": "Flat solid colors, no gradients",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "dynamic",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static bar with dynamic fill width. Fill width = (happiness / 100) * 120px. Color changes at thresholds: 90+ = #00E436, 70-89 = #FFEC27, 50-69 = #FFA300."
+      },
+      "details": "Position: x=4px, y=126px. Background bar: 120x2px, #5F574F. Fill bar: 0-120px wide (left-aligned), 2px tall. Color thresholds: happiness >= 90: #00E436 (green), happiness >= 70: #FFEC27 (yellow), happiness >= 50: #FFA300 (orange). Fill width updates smoothly as happiness changes."
+    },
+    "relationships": {
+      "related_assets": [
+        "cage_floor",
+        "echo (all states - happiness value comes from Echo)"
+      ],
+      "shared_with": "Part of HUD system",
+      "differences_from": "Unlike care menu: always visible (not popup), non-interactive (display only), horizontal bar (not buttons)."
+    },
+    "explicit_negations": [
+      "No 3D effects or gradients",
+      "No rounded ends",
+      "No outline stroke",
+      "No percentage text",
+      "No icons or symbols",
+      "No animation between values (instant update)",
+      "No glow or highlights",
+      "No border frame"
+    ]
+  }
+}

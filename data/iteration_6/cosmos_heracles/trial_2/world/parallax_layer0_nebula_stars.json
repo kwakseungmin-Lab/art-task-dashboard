@@ -1,0 +1,86 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "world.parallax.layer0_nebula_stars",
+  "asset_name": "Parallax Layer 0: Nebula + Starfield",
+  "category": "world",
+  "group_id": "world.parallax.layer0",
+  "variant_role": "standalone",
+  "priority": "P0",
+  "execution_order": 1,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.parallax.layer1_temple_silhouette"
+    ]
+  },
+  "context": {
+    "role": "background_parallax",
+    "screen_position": {
+      "type": "screen_space",
+      "anchor": "full_screen",
+      "resolution_px": [
+        1600,
+        900
+      ]
+    },
+    "layer": "parallax_layer0",
+    "usage": "Farthest background: slow-moving nebula gradients and small stars (scroll speed x0.1).",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 1024,
+      "height_px": 900
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#0B0C1E"
+      },
+      "secondary": [
+        {
+          "name": "ui_white_star",
+          "hex": "#F0EFE9"
+        },
+        {
+          "name": "boss_purple_hint",
+          "hex": "#7B2FBE"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "soft nebula clouds with sparse star dots; designed to tile horizontally",
+      "components": [
+        "nebula_clouds",
+        "small_star_dots",
+        "occasional_bright_star"
+      ]
+    }
+  },
+  "description": "Create a horizontally tiling parallax background image for Layer 0. Use deep space (#0B0C1E) as base with subtle purple nebula hints (#7B2FBE). Stars should be tiny 1-2px dots mostly #F0EFE9; avoid high-frequency noise.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "world/parallax_layer0_nebula_stars.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1024x900 px",
+    "Image tiles seamlessly when repeated horizontally (no visible seams at x=0/1024)",
+    "Overall contrast is low enough not to compete with gameplay layer (Layer 3)"
+  ]
+}

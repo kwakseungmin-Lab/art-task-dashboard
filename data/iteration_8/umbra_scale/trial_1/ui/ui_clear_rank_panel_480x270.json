@@ -1,0 +1,165 @@
+{
+  "task_id": "task_id_008101020",
+  "asset_key": "ui_clear_rank_panel_480x270",
+  "asset_name": "Clear Rank Panel",
+  "category": "ui",
+  "subcategory": "result_screen",
+  "priority": "P2",
+  "execution_order": 200,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101004",
+    "task_id_008101018"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101004",
+    "task_id_008101018"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the panel art with child nodes for rank medal, time, shard count, and next-floor buttons.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "ClearPanel"
+    ],
+    "asset_loading": "Load ui/ui_clear_rank_panel_480x270.png through AssetServer and instantiate it only after a floor clear result is confirmed.",
+    "runtime_notes": [
+      "The panel should support Rank, Time, Shadow Shard count, and two action buttons without crowding.",
+      "Fade-in timing targets 0.6 seconds according to the GDD.",
+      "Keep the central medal area visually dominant so speed-rank feedback lands clearly."
+    ]
+  },
+  "context": {
+    "role": "clear_result_panel",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "ui_modal",
+    "usage": "Floor-clear result panel showing the earned Shadow Rank, clear time, collected shards, and the next-floor or menu actions.",
+    "adjacent_elements": [
+      "world_exit_door_8f_64x96",
+      "ui_floor_timer_strip_240x48",
+      "ui_exposure_gauge_160x12"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 480,
+      "height": 270
+    },
+    "colors_hex": [
+      "#1C1826",
+      "#C9A84C",
+      "#F5EFE0",
+      "#D4682A",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Large centered panel with a top medal crest, middle stat rows, and a bottom action-button rail.",
+      "components": [
+        "medal_crest",
+        "rank_slot",
+        "time_row",
+        "shard_row",
+        "button_rail",
+        "outer_frame"
+      ]
+    },
+    "layout": {
+      "anchor": "screen_center",
+      "button_count": 2,
+      "rank_labels": [
+        "S",
+        "A",
+        "B",
+        "C"
+      ]
+    }
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 480x270 px.",
+    "The panel reserves a clearly dominant crest area for the Shadow Rank medal and distinct rows for time and shard totals.",
+    "Two button-safe regions exist along the bottom edge for Next Floor and Menu actions."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101004",
+      "task_id_008101009",
+      "task_id_008101017",
+      "task_id_008101018",
+      "task_id_008101016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_clear_rank_panel_480x270.png",
+      "transparent_background": true
+    }
+  ]
+}

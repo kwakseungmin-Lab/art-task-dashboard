@@ -1,0 +1,189 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 5,
+    "source": {
+      "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+      "concepts": [
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+      ]
+    },
+    "rendering": {
+      "style": "pixel_art",
+      "bit_depth_style": "8-bit",
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "dithering": false
+    },
+    "canvas": {
+      "screen_dimensions_px": "600x150",
+      "target_fps": 60,
+      "coordinate_system": {
+        "ground_y": 0,
+        "positive_y": "up",
+        "note": "GDD uses Ground level y=0; airborne obstacles use y=50 and y=80 above ground."
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "allowed_colors": [
+        "#F7F7F7",
+        "#535353",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "rules": [
+        "All gameplay sprites (player, obstacles, ground, clouds) use only #535353 for non-transparent pixels.",
+        "Background sky uses only #F7F7F7 (no transparency).",
+        "UI text uses only #535353. White (#FFFFFF) is allowed only for runtime flash effects or overlays."
+      ]
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353",
+        "rule": "Sprite silhouettes must have a minimum 2px-thick edge where applicable; no 1px hairline edges."
+      },
+      "transparency": {
+        "background": "transparent",
+        "alpha_requirement": "All non-background sprites must have fully transparent background (alpha=0) outside the silhouette."
+      },
+      "scale_support": {
+        "base_scale": "1x",
+        "secondary_scale": "2x",
+        "scaling_method": "nearest_neighbor",
+        "note": "Export 1x originals; 2x exports must be integer-scaled using nearest-neighbor (no filtering)."
+      }
+    },
+    "export": {
+      "formats": [
+        "png"
+      ],
+      "color_space": "sRGB",
+      "png": {
+        "bit_depth": 8,
+        "interlaced": false
+      },
+      "naming": {
+        "frame_indexing": "1-based in filenames where specified by GDD (e.g., dino_run_1.png, dino_run_2.png)",
+        "scale_suffix": "@2x"
+      }
+    },
+    "priorities": {
+      "scheme": "P0-P3",
+      "definitions": {
+        "P0": "Required for a playable MVP (core gameplay and essential UI).",
+        "P1": "Feature-complete look but not strictly blocking MVP.",
+        "P2": "Optional polish.",
+        "P3": "Nice-to-have polish."
+      }
+    },
+    "layers": [
+      {
+        "name": "background_sky",
+        "z_index": 0
+      },
+      {
+        "name": "background_clouds",
+        "z_index": 1
+      },
+      {
+        "name": "ground",
+        "z_index": 5
+      },
+      {
+        "name": "obstacles",
+        "z_index": 10
+      },
+      {
+        "name": "player",
+        "z_index": 15
+      },
+      {
+        "name": "ui",
+        "z_index": 100
+      },
+      {
+        "name": "vfx_overlay",
+        "z_index": 200
+      }
+    ]
+  },
+  "task_id": "cdr_environment_cloud_small",
+  "asset_name": "Cloud Small (optional)",
+  "category": "environment",
+  "subcategory": "background_object",
+  "description": "Create a small cloud sprite for parallax background.\n\n- Canvas: 46x14 px.\n- Background: fully transparent.\n- Pixels: #535353 only.\n- Single connected component.\n- Edge thickness: >=2px everywhere.\n- Non-transparent pixel count: exactly 420.\n- Silhouette bounding box touches all 4 canvas edges (x=0..45, y=0..13).",
+  "deliverables": [
+    {
+      "path": "Environment/cloud_small.png",
+      "type": "png_sprite",
+      "dimensions": "46x14",
+      "scale": "1x",
+      "background": "transparent"
+    },
+    {
+      "path": "Environment/cloud_small@2x.png",
+      "type": "png_sprite",
+      "dimensions": "92x28",
+      "scale": "2x",
+      "background": "transparent",
+      "scaling": "nearest_neighbor"
+    }
+  ],
+  "specs": {
+    "dimensions": "46x14",
+    "animation": {
+      "frames": 1,
+      "fps": 0
+    },
+    "colors": {
+      "pixels": "#535353",
+      "background": "transparent"
+    }
+  },
+  "context": {
+    "role": "Parallax cloud (small).",
+    "screen_location": "Spawn x=screen_width+50; y random 10..40; move at Current_Speed*0.5.",
+    "adjacent_elements": [
+      "cdr_environment_background_sky"
+    ],
+    "layer": "background_clouds",
+    "usage": "Optional; max 3 clouds total on screen."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_environment_cloud_large"
+    ],
+    "shared_properties": [
+      "parallax_speed=Current_Speed*0.5",
+      "color=#535353"
+    ],
+    "differences": [
+      "Large cloud is 92x27."
+    ]
+  },
+  "depends_on": [
+    "cdr_environment_background_sky"
+  ],
+  "execution_order": 4,
+  "priority": "P2",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_environment_background_sky"
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 46x14 (1x) and 92x28 (2x).",
+    "Only #535353 and transparent pixels exist.",
+    "Non-transparent pixel count in 1x is exactly 420.",
+    "Silhouette bounding box touches all 4 edges."
+  ]
+}

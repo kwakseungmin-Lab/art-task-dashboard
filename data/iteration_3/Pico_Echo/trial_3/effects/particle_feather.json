@@ -1,0 +1,87 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-5px",
+      "height": "2-5px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "effect_type": "particle effects",
+      "design_principle": "simple shapes, clear motion, temporary display"
+    }
+  },
+  "asset": {
+    "asset_id": "particle_feather",
+    "asset_name": "Feather Particle",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "feather particle during preening behavior, visualizes grooming action",
+      "screen_position": "spawns near Echo's body (x=64±10, y=60), drifts sideways",
+      "adjacent_elements": ["Echo (center)", "cage background"],
+      "usage_scenario": "spawns 2-3 times during preening state (5 seconds), drifts left or right, shows Echo is grooming feathers"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "2px",
+        "height": "2px"
+      },
+      "colors": {
+        "feather": "#FFA300"
+      },
+      "shape": "small irregular pixel, represents tiny feather fragment",
+      "texture": "solid color, no internal detail at 2x2px",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "particle",
+        "frames": 4,
+        "fps": 3,
+        "loop": false,
+        "description": "spawns near Echo's body, drifts horizontally left or right 8-12px over 1.5 seconds, slight downward arc, fades out, 2-3 feathers spawn during 5-second preening animation"
+      },
+      "details": "orange feather fragment (#FFA300) matching Echo's body, 2x2px, spawns 2-3 times during preening, drifts sideways (left or right randomly) with slight downward curve, disappears after 1.5 seconds, subtle grooming effect"
+    },
+    "relationships": {
+      "related_assets": ["echo_preening"],
+      "shared_with": "color matches Echo's body feathers (#FFA300)",
+      "differences_from": "horizontal motion (not upward like other particles), smallest particle (2x2px), spawns intermittently (not continuously), natural grooming behavior visualization"
+    },
+    "explicit_negations": [
+      "no detailed feather shape (too small)",
+      "no upward motion (horizontal drift only)",
+      "no rotation or spinning",
+      "no more than 3 feathers visible at once",
+      "no outline or border",
+      "no realistic feather texture"
+    ]
+  }
+}

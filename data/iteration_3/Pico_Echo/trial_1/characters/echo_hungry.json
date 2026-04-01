@@ -1,0 +1,98 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position": "center of 128x128 screen, on perch at y=60",
+      "key_features": "crest, cheek patch, tail - 3 essential cockatiel traits",
+      "eye_size": "2x2px",
+      "outline": "1px, organic hand-drawn style"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_hungry",
+    "asset_name": "Echo Hungry State Animation",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Triggered when food bowl is empty (food_level = 0)",
+      "screen_position": "Center (x=64, y=60), on perch, looking toward food bowl at (16, 100)",
+      "adjacent_elements": ["food_bowl (empty, target of gaze)", "perch (below)", "status_bubble (above-right, shows seed icon)", "happiness_bar (bottom)"],
+      "usage_scenario": "Indicates Echo needs food. Head oriented toward empty food bowl. Remains until player taps food bowl to refill. Status bubble appears with seed icon."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head turned toward food bowl, expectant posture",
+      "texture": "Flat pixel art with hand-drawn organic edges, no gradients",
+      "outline": "1px black (#1D2B53) outline, hand-drawn style",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 4,
+        "fps": 2,
+        "loop": true,
+        "description": "Frame 1: Head turned toward food bowl. Frame 2: Head tilts slightly. Frame 3: Head returns to bowl direction. Frame 4: Slight body lean toward bowl. Anticipatory motion."
+      },
+      "details": "Head: rotated approximately 30 degrees toward left (food bowl direction). Eyes: wide open, focused on bowl. Crest: normal position, may have slight sideways tilt. Body: subtle lean (1-2px) toward food bowl side. Beak: closed. Status bubble (12x10px) appears above-right with seed icon (3x3px #FFA300) inside."
+    },
+    "relationships": {
+      "related_assets": ["food_bowl", "status_bubble", "seed", "echo_eating", "echo_idle"],
+      "shared_with": "Same base body as all Echo states",
+      "differences_from": "echo_eating: looking at bowl vs actively eating. echo_idle: head turned vs forward. Status bubble only appears in this state (and sleeping)."
+    },
+    "explicit_negations": [
+      "No 3D modeling",
+      "No smooth gradients",
+      "Stomach does not growl or show rumble lines",
+      "Body does not shrink or look thinner",
+      "No drooling",
+      "Eyes do not bulge",
+      "No thought bubble with food (only status bubble with icon)",
+      "Does not leave perch to approach bowl",
+      "Beak does not open"
+    ]
+  }
+}

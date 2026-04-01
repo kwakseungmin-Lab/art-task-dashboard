@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020001",
+  "asset_name": "Echo (Cockatiel) — Idle (4 frames, 2fps loop)",
+  "category": "character",
+  "subcategory": "player_pet",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "idle",
+    "layer": "character",
+    "usage": "Default visible state when no care interaction is active.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        44,
+        42
+      ]
+    },
+    "adjacent_elements": [],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#FF004D",
+      "#FFEC27",
+      "#AB5236",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 2,
+      "loop": true,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Crest (yellow) is a 3px-tall shape above the head.",
+      "Cheek patch is a solid blob using #FF004D; no dithering.",
+      "Tail extends down-right by 6-8px and stays inside 40x40 bounds."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_echo_idle_4f_2fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 160x40px (4 frames × 40x40) with 0px spacing.",
+    "Idle loop at 2fps includes a blink where eyes close to a 1px line for exactly 1 frame.",
+    "All edges are pixel-perfect with no anti-aliasing; only listed colors and transparency are used."
+  ],
+  "shared_properties": [
+    "Echo keeps crest, cheek patch, beak, and tail readable in every occupied frame.",
+    "Body footprint stays inside 40x40px and remains centered near x44 y42.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D."
+  ],
+  "differences": [
+    "This asset is the base character state for downstream Echo variants.",
+    "Idle timing uses 4 frames at 2fps with one blink moment.",
+    "Pose centers Echo as the default focal point of the cage scene."
+  ],
+  "asset_key": "character_echo_idle_4f_2fps",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "cockatiel_reference_photo",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Cockatiel_3.jpg",
+      "purpose": "Grounds Echo's cockatiel silhouette, crest posture, cheek patch placement, and beak anatomy for this behavior state."
+    },
+    {
+      "label": "pico_8_topic_art",
+      "url": "https://raw.githubusercontent.com/github/explore/main/topics/pico-8/pico-8.png",
+      "purpose": "Grounds the 128x128 PICO-8-like framing and tiny-pet composition used by this behavior state."
+    },
+    {
+      "label": "pixel_art_topic_art",
+      "url": "https://raw.githubusercontent.com/github/explore/main/topics/pixel-art/pixel-art.png",
+      "purpose": "Grounds crisp pixel clustering, flat shading, and one-pixel readability for this behavior state."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with TextureAtlasLayout and a fixed-step animation timer.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer in the Loading state and store the handle plus atlas layout in a typed resource before gameplay starts.",
+    "runtime_notes": [
+      "Advance atlas indices with deterministic timers that match specs.animation.fps.",
+      "Snap transforms to whole pixels before render extraction.",
+      "Keep collision or input logic separate from the art bundle so care tuning remains flexible."
+    ]
+  }
+}

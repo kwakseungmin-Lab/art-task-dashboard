@@ -1,0 +1,98 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position": "center of 128x128 screen, on perch at y=60",
+      "key_features": "crest, cheek patch, tail - 3 essential cockatiel traits",
+      "eye_size": "2x2px",
+      "outline": "1px, organic hand-drawn style"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_preening",
+    "asset_name": "Echo Preening Animation",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Autonomous behavior - randomly triggers during idle state (30% chance)",
+      "screen_position": "Center (x=64, y=60), on perch",
+      "adjacent_elements": ["perch (below)", "feather_particle (spawns left/right)", "happiness_bar (bottom)"],
+      "usage_scenario": "Plays automatically when Echo decides to groom. Shows natural bird behavior. Lasts 5 seconds then returns to idle. Spawns 2-3 feather particles drifting sideways."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head turned toward wing/body, grooming posture",
+      "texture": "Flat pixel art with hand-drawn organic edges, no gradients",
+      "outline": "1px black (#1D2B53) outline, hand-drawn style",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 5,
+        "fps": 3,
+        "loop": true,
+        "description": "Frame 1: Head turns left toward wing. Frame 2: Beak touches wing area. Frame 3: Head turns right toward other wing. Frame 4: Beak touches right wing. Frame 5: Head returns to center. Alternating grooming motion."
+      },
+      "details": "Head rotation: approximately 45-degree turn left/right. Beak makes contact with wing area (indicated by 1-2px overlap). Crest in normal position. Eyes visible throughout. Feather particles (2x2px #FFA300) spawn and drift horizontally 3-4px before fading."
+    },
+    "relationships": {
+      "related_assets": ["feather_particle", "echo_idle"],
+      "shared_with": "Same body structure as all Echo states",
+      "differences_from": "echo_idle: head rotated vs forward-facing. echo_eating: head turns sideways vs downward. Only state with lateral head rotation."
+    },
+    "explicit_negations": [
+      "No 3D modeling",
+      "No smooth gradients",
+      "Body does not twist (only head rotates)",
+      "Wings do not spread",
+      "No water droplets or bath elements",
+      "Feathers do not multiply excessively (max 3 visible)",
+      "No dust cloud",
+      "Beak does not open wide",
+      "Tail does not move independently"
+    ]
+  }
+}

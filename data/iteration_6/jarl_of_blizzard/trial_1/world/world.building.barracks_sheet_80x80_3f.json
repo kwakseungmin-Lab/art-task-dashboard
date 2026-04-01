@@ -1,0 +1,144 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.building.barracks_sheet_80x80_3f",
+  "asset_name": "Barracks — 80×80 Sheet (3 frames warrior silhouette motion)",
+  "category": "world",
+  "subcategory": "building",
+  "priority": "P1",
+  "execution_order": 70,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.unit.warrior_idle_sheet_32x48_4f",
+      "obstacles.icon.event_icons_24_set_5"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "building_sprite",
+    "layer": "world_buildings",
+    "usage": "Enables warrior training. Subtle 3-frame loop shows a moving warrior silhouette inside/outside.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 80
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 3,
+      "fps": 1,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 3,
+        "frame_size_px": {
+          "width": 80,
+          "height": 80
+        },
+        "order": [
+          "silhouette_left",
+          "silhouette_center",
+          "silhouette_right"
+        ],
+        "padding_px": 0
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.building.barracks_sheet_80x80_3f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 240x80px; each frame is 80x80px; no spacing.",
+    "Building silhouette stays stable; animation is limited to a small warrior silhouette or banner movement.",
+    "Barracks reads distinct from house and warehouse by shape and props (e.g., weapons rack) in grayscale only."
+  ]
+}

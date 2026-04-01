@@ -1,0 +1,158 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003017",
+  "asset_key": "ui_hud_hp_exposure_panel_240x80",
+  "asset_name": "HP And Exposure HUD Panel",
+  "category": "ui",
+  "subcategory": "hud_panel",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003016"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003016"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003008",
+      "task_id_008003016",
+      "task_id_008003018",
+      "task_id_008003022"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra silhouette, limb taper, eye glow placement, and cloak-like vapor edge anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the frame art and overlay bitmap text plus fill quads for live HP and exposure values.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "HudWidget",
+      "HpDisplay",
+      "ExposureMeter"
+    ],
+    "asset_loading": "Load ui/ui_hud_hp_exposure_panel_240x80.png through AssetServer during HUD setup and pair it with the bitmap font atlas for labels.",
+    "runtime_notes": [
+      "Atlas frames represent HP states 3, 2, 1, and 0 while the exposure fill is rendered by a child node.",
+      "Panel anchors to the upper left at x=16 y=16 in Bevy UI coordinates.",
+      "Exposure bar fill width reads from gameplay state and must fit inside the 160x12 inner slot."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "hud_hp_exposure",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        16,
+        16
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Upper left survival panel that shows three heart slots and the live exposure meter during every floor.",
+    "adjacent_elements": [
+      "player_umbra_idle_6f_6fps",
+      "player_umbra_exposure_5f_10fps",
+      "ui_art_deco_numeric_font_16px_ascii_48glyph"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_flat",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 80
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Rectangular dark panel with stepped gold border, three heart bays, and a long lower exposure trough.",
+      "components": [
+        "outer_frame",
+        "heart_bays",
+        "exposure_trough",
+        "label_plate",
+        "corner_brackets"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Flat dark panel body with bright gold trim and clean white icon recesses.",
+    "shading": "Minimal flat shading with an amber accent on the exposure trough cap."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_hud_hp_exposure_panel_240x80.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 960x80 px with four 240x80 frames.",
+    "Exposure trough inner slot is exactly 160x12 px and starts at x=64 y=50 within each frame.",
+    "Heart bays remain aligned on a 24 px step so HP icon swaps do not move between states."
+  ]
+}

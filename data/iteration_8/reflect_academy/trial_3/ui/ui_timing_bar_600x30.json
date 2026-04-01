@@ -1,0 +1,148 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003016",
+  "asset_key": "ui_timing_bar_600x30",
+  "asset_name": "Timing Bar HUD",
+  "category": "ui",
+  "subcategory": "timing_ui",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003003"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003003"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003006",
+      "task_id_008003007",
+      "task_id_008003012",
+      "task_id_008003014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the timing bar inside Bevy UI and keep it anchored to the bottom center safe area.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Node",
+      "UiImage",
+      "Style",
+      "TimingBarWidget"
+    ],
+    "asset_loading": "Load ui/ui_timing_bar_600x30.png through AssetServer during HUD setup and store the handle under ui_timing_bar_600x30.",
+    "runtime_notes": [
+      "HUD stays in screen space and does not parallax with the duel camera.",
+      "Gameplay timing logic uses authored zone widths from metadata rather than sampling pixel colors.",
+      "The bar should remain readable at the minimum supported 1280x720 window size."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "timing_feedback",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        660,
+        850
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Bottom-center timing bar that shows perfect and good windows whenever a projectile is active.",
+    "adjacent_elements": [
+      "world_spell_lane_overlay_960x220",
+      "player_student_reflect_ready_4f_12fps",
+      "projectile_fire_fly_6f_12fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space",
+      "facing": "centered"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 30
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#00FFFF",
+      "#ADFF2F",
+      "#FFFACD"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Long framed bar with a narrow perfect center and wider good zones.",
+      "components": [
+        "outer_frame",
+        "good_zone_left",
+        "perfect_zone",
+        "good_zone_right",
+        "input_marker_track"
+      ]
+    },
+    "lighting": "Cyan center glow and lime side bands sit on a navy base with gold trim."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_timing_bar_600x30.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "HUD frame is exactly 600x30 px.",
+    "Perfect zone width is 48 px and sits centered inside the bar.",
+    "Good zones extend 126 px on each side of the perfect zone and stay visually distinct from the navy base."
+  ]
+}

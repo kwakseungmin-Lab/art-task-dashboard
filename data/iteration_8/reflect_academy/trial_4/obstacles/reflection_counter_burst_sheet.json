@@ -1,0 +1,151 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040408",
+  "asset_key": "reflection_counter_burst_sheet",
+  "asset_name": "Reflection Counter Burst Sheet",
+  "category": "obstacles",
+  "subcategory": "counter_effect",
+  "priority": "P0",
+  "execution_order": 8,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Counter-burst frames use 160x160 px cells and sit on the same impact center used by the projectile atlas.",
+    "Burst brightness uses the project palette plus combat feedback hex values without changing the package core palette fields."
+  ],
+  "differences": [
+    "This asset delivers the eight-frame one-shot burst played on successful reflection and high-value combo moments."
+  ],
+  "depends_on": [
+    "task_id_825040404",
+    "task_id_825040406"
+  ],
+  "blocks": [
+    "task_id_825040412"
+  ],
+  "blocked_by": [
+    "task_id_825040404",
+    "task_id_825040406"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040404",
+      "task_id_825040405",
+      "task_id_825040406",
+      "task_id_825040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "Reflect success cue, combo trigger, and 160x160 effect size grounding."
+    },
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Magic flash layering and cyan-gold hit contrast grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with eight frames and despawn the entity when the non-looping animation completes.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "CounterBurstFx"
+    ],
+    "asset_loading": "Load obstacles/reflection_counter_burst_sheet.png through AssetServer and reuse the handle for all success bursts.",
+    "runtime_notes": [
+      "Play at 16 fps and despawn after frame 7.",
+      "Render at z=40 above projectiles and character hands.",
+      "Peak ring radius reaches 108 px on frame 5."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Impact burst shown when a projectile is converted and sent back to the enemy.",
+    "screen_position": {
+      "anchor": "center",
+      "x_px": 900,
+      "y_px": 530
+    },
+    "layer": {
+      "name": "fx_counter_burst",
+      "z_index": 40
+    },
+    "usage": "Spawned for Good and Perfect reflections, with combo UI layered after the burst begins."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 640,
+      "height": 320
+    },
+    "colors_hex": [
+      "#00FFFF",
+      "#FFFACD",
+      "#D4AF37",
+      "#ADFF2F",
+      "#1A1A2E"
+    ],
+    "animation": {
+      "mode": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 16,
+      "loop": false,
+      "layout": {
+        "rows": 2,
+        "columns": 4,
+        "frame_size_px": {
+          "width": 160,
+          "height": 160
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "reflection_counter_burst_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 640,
+        "height": 320
+      },
+      "notes": "Eight-frame one-shot burst atlas for successful reflection feedback."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 640x320 px with eight 160x160 frames arranged as 4 columns by 2 rows.",
+    "Frame 0 starts inside a 24 px radius and frame 5 reaches a 108 px radius before collapsing.",
+    "Only #00FFFF, #FFFACD, #D4AF37, #ADFF2F, and #1A1A2E are used for visible pixels."
+  ]
+}

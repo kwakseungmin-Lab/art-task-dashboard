@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "position_base": "perch at y=60",
+      "character": "Echo the cockatiel"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_singing",
+    "asset_name": "Echo Singing State",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Echo singing when happiness >= 90 (reward behavior)",
+      "screen_position": "Center at x=64, y=60 on perch",
+      "adjacent_elements": ["perch", "music_note_effect", "cage_background"],
+      "usage_scenario": "Triggered randomly when happiness >= 90; unlocked at relationship level 4; plays for 8 seconds; spawns music note particle effects"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with fully raised crest, beak open, head tilted upward",
+      "texture": "Flat pixel art with no gradients; hand-drawn organic edges",
+      "outline": "None; pure pixel art with color blocking",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 8,
+        "fps": 4,
+        "loop": true,
+        "description": "Frame 1-2: crest raising, beak opening, Frame 3-4: head tilted up, beak fully open (4x3px), Frame 5-6: beak closing slightly, Frame 7-8: beak opening again (singing rhythm)"
+      },
+      "details": "Crest fully erect at 5-6px height; beak opens to 4x3px in frames 3-4; head tilted upward approximately 15 degrees; eyes wide open; body slightly puffed"
+    },
+    "relationships": {
+      "related_assets": ["music_note_effect", "perch", "echo_happy"],
+      "shared_with": "Same base structure as all Echo states",
+      "differences_from": "echo_happy (open beak vs closed), echo_idle (crest raised, beak open)"
+    },
+    "explicit_negations": [
+      "no smooth gradients",
+      "no anti-aliasing",
+      "no realistic feather texture",
+      "no 3D depth",
+      "no motion blur",
+      "no sound waves visualization",
+      "no microphone or stage"
+    ]
+  }
+}

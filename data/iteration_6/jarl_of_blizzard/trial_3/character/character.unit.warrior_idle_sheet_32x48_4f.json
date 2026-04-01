@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.unit.warrior_idle_sheet_32x48_4f",
+  "asset_name": "Warrior Unit — Idle sheet 32×48 (4 frames)",
+  "category": "character",
+  "subcategory": "unit",
+  "priority": "P1",
+  "execution_order": 12,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.building.viking_settlement_bw_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "unit_sprite",
+    "layer": "world_units",
+    "usage": "Used for warrior count representation and defense events; readable in fixed camera.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "frames": [
+      {
+        "id": "idle_1",
+        "size_px": {
+          "width": 32,
+          "height": 48
+        },
+        "note": "Breathing."
+      },
+      {
+        "id": "idle_2",
+        "size_px": {
+          "width": 32,
+          "height": 48
+        },
+        "note": "Cape flutter."
+      },
+      {
+        "id": "idle_3",
+        "size_px": {
+          "width": 32,
+          "height": 48
+        },
+        "note": "Breathing."
+      },
+      {
+        "id": "idle_4",
+        "size_px": {
+          "width": 32,
+          "height": 48
+        },
+        "note": "Spear shift."
+      }
+    ],
+    "layout_note": "4 frames packed horizontally into 128×48."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.unit.warrior_idle_sheet_32x48_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 128×48px (4× 32×48).",
+    "Strong 2px outline and high-contrast readability on both dark and light tiles.",
+    "No non-grayscale pixels."
+  ]
+}

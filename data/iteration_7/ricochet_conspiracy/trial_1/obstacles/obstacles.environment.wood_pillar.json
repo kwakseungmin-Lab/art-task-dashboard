@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.wood_pillar",
+  "asset_name": "Wood Pillar",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P1",
+  "execution_order": 180,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.curtain_column_mid_layer",
+      "world.foreground.marble_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "vertical_cover_object",
+    "layer": "world_objects",
+    "usage": "Wood pillar sprite used as narrow cover and bounce guide.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip",
+      "world.background.curtain_column_mid_layer"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 120
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#A89880",
+      "#D4A843"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "tall_narrow_column",
+      "components": [
+        "cap",
+        "shaft",
+        "base"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.wood_pillar.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 24x120px and keeps a straight vertical shaft.",
+    "Cap and base each use 10px height and stay symmetric around the center line.",
+    "Wood grain uses no more than 4 internal line accents."
+  ]
+}

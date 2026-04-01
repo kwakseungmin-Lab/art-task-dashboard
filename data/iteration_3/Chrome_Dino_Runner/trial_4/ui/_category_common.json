@@ -1,0 +1,18 @@
+{
+  "base_size": {
+    "width": "variable",
+    "height": "variable"
+  },
+  "color_scheme": {
+    "primary": "#535353",
+    "secondary": "#F7F7F7"
+  },
+  "shared_attributes": {
+    "style": "minimalist pixel font UI",
+    "font_type": "monospace pixel font",
+    "color": "primary #535353 for text",
+    "alignment": "specific to each UI element",
+    "purpose": "display game state and feedback",
+    "rendering": "pixel perfect text rendering"
+  }
+}

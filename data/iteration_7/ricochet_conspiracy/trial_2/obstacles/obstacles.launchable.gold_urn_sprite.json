@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.gold_urn_sprite",
+  "asset_name": "Gold Urn Launchable Sprite",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P1",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.chandelier_swing_sheet",
+      "world.foreground.marble_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "launch_object",
+    "layer": "world_objects",
+    "usage": "Medium-heavy urn sprite with wide belly and short neck for area stun routes.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 456,
+      "y": 500
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 36,
+      "height": 44
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#A89880"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "wide_belly_urn_with_small_handles",
+      "components": [
+        "rim",
+        "neck",
+        "body",
+        "left_handle",
+        "right_handle",
+        "base_ring"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "impact_profile": "medium_mass_4",
+    "restitution": 0.6
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.gold_urn_sprite.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 36x44px with a belly width of 24px.",
+    "Both handles fit inside the 36px width and stay mirrored.",
+    "Gold body uses #D4A843 and shadow base uses #3D2B1F."
+  ]
+}

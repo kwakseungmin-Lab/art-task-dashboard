@@ -1,0 +1,242 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050001",
+  "asset_key": "umbra_player_core_states",
+  "asset_name": "Umbra Player Core States",
+  "category": "character",
+  "subcategory": "player_state_atlas",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Every state keeps Umbra as a shadow-dominant silhouette with a readable gold rim accent and no internal soft shading.",
+    "The authored frame baseline aligns to the same 32 px platform grid and 16:9 camera framing used everywhere in the package.",
+    "Primary palette metadata remains #2D1B4E, background #0D0B14, and accent #C9A84C while danger flashes stay inside specs.colors_hex."
+  ],
+  "differences": [
+    "The atlas groups six gameplay states in one file so the animator can author consistent limb proportions across traversal and exposure transitions.",
+    "Run frames exaggerate forward claw sweep while idle frames stay compact to preserve puzzle readability in low-motion moments.",
+    "Exposure frames introduce #F5EFE0 fracture highlights and a sharper amber rim to communicate active light damage."
+  ],
+  "depends_on": [
+    "task_id_008050007"
+  ],
+  "blocks": [
+    "task_id_008050002",
+    "task_id_008050009"
+  ],
+  "blocked_by": [
+    "task_id_008050007"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050002",
+      "task_id_008050006",
+      "task_id_008050009",
+      "task_id_008050010",
+      "task_id_008050011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    },
+    {
+      "label": "umbra_character_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra body proportions, head silhouette, claw shapes, and echo-friendly shadow anatomy."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_5x6",
+    "ecs_components": [
+      "UmbraPlayerTag",
+      "ShadowStateVisual",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load umbra_player_core_states.png during Loading and register one atlas layout that exposes idle, run, jump, fall, grab, and exposure state slices by named frame ranges before gameplay begins.",
+    "runtime_notes": [
+      "Keep the gameplay collision body at the GDD hitbox of 28x44 px even though the authored sprite frame is larger for silhouette readability.",
+      "Switch state clusters from ECS movement and exposure systems rather than by filename so Bevy state transitions stay deterministic.",
+      "Anchor the feet to the same floor baseline used by the scale rig and ladder set so jump, land, and grab frames line up without per-state offsets."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "player_shadow_creature_state_atlas",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        320,
+        736
+      ]
+    },
+    "layer": "character",
+    "usage": "Displayed for traversal, grab interactions, exposure feedback, and scale-weight positioning across every floor."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 480,
+      "height": 864
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "stateful_sprite_sheet",
+      "frame_count": 30,
+      "fps": 10,
+      "loop": false,
+      "frame_size_px": [
+        96,
+        144
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 6
+      }
+    },
+    "state_clusters": [
+      {
+        "state": "idle",
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fps": 6,
+        "loop": true
+      },
+      {
+        "state": "run",
+        "frames": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "fps": 10,
+        "loop": true
+      },
+      {
+        "state": "jump",
+        "frames": [
+          14,
+          15,
+          16,
+          17
+        ],
+        "fps": 8,
+        "loop": false
+      },
+      {
+        "state": "fall",
+        "frames": [
+          18,
+          19,
+          20
+        ],
+        "fps": 8,
+        "loop": true
+      },
+      {
+        "state": "grab",
+        "frames": [
+          21,
+          22,
+          23,
+          24
+        ],
+        "fps": 8,
+        "loop": false
+      },
+      {
+        "state": "exposure",
+        "frames": [
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "fps": 12,
+        "loop": true
+      }
+    ],
+    "hitbox_px": {
+      "width": 28,
+      "height": 44,
+      "offset_px": [
+        34,
+        92
+      ]
+    },
+    "silhouette_notes": [
+      "The head crest, shoulder mass, and claw tips remain readable against both #0D0B14 and #F5EFE0 fields.",
+      "The grab pose keeps one arm clearly extended toward mirror-height props at 96 px authored frame scale.",
+      "Exposure frames add bright edge breakup without collapsing the core shadow silhouette."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/umbra_player_core_states.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 480x864 px for thirty 96x144 frames with no frame gutter.",
+    "The 28x44 px gameplay hitbox fits entirely inside every frame without clipping the head crest or foot contact pose.",
+    "Idle, run, grab, and exposure states remain distinguishable at 50% preview scale against both dark and bright test backdrops."
+  ]
+}

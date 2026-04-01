@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.whiteout_vignette_masks_512_set_4",
+  "asset_name": "Whiteout Vignette Masks — 512px (set of 4)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "mask_set",
+    "layer": "ui",
+    "usage": "Screen-edge whiteout masks to simulate reduced visibility at higher blizzard intensity.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 2048,
+      "height": 512
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#000000"
+    ],
+    "mask_size_px": {
+      "width": 512,
+      "height": 512
+    },
+    "mask_count": 4,
+    "masks": [
+      {
+        "id": "light",
+        "note": "10–20% edge occlusion."
+      },
+      {
+        "id": "medium",
+        "note": "25–40% occlusion."
+      },
+      {
+        "id": "heavy",
+        "note": "45–60% occlusion."
+      },
+      {
+        "id": "extreme",
+        "note": "70%+ occlusion with small central window."
+      }
+    ],
+    "layout_note": "Single-row strip 2048×512. Prefer soft dithered edges, not gaussian blur."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.whiteout_vignette_masks_512_set_4.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Mask transitions look natural with dithering at 1× scale."
+  ]
+}

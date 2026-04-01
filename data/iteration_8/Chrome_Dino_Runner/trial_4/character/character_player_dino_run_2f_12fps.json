@@ -1,0 +1,164 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000402",
+  "asset_key": "character_player_dino_run_2f_12fps",
+  "asset_name": "Player Dino Run Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": "task_id_000000401",
+  "variant_of_asset_key": "character_player_dino_idle_2f_6fps",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000 duplicated in this file.",
+    "88x94 frame size per pose.",
+    "Side-profile T-Rex body silhouette with 2px outline."
+  ],
+  "differences": [
+    "Two running frames alternate hind-leg contact at 12 fps.",
+    "Tail tip shifts within a 2 px horizontal band.",
+    "Both frames keep the feet planted on the ground baseline."
+  ],
+  "depends_on": [
+    "task_id_000000401"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000401"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000401",
+      "task_id_000000406",
+      "task_id_000000413"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "player",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/player_dinosaur.png",
+      "purpose": "Ground the dinosaur body proportions and pose silhouettes."
+    },
+    {
+      "label": "style",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png",
+      "purpose": "Ground the monochrome pixel-art outline and spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_2x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "AnimationTimer",
+      "RunnerState",
+      "Collider"
+    ],
+    "asset_loading": "Load assets/art/chrome_dino_runner/trial_4/character_player_dino_run_2f_12fps.png with AssetServer during Loading state and keep the handle in a resource entry keyed by character_player_dino_run_2f_12fps.",
+    "runtime_notes": [
+      "Apply nearest-neighbor sampling and integer-pixel transforms at runtime.",
+      "Keep the authored 1x pixel ratio and scale only by integer multiples in camera space.",
+      "Use a deterministic startup registration order so task execution order maps to asset registration order.",
+      "Drive frame changes from a repeating Timer component that advances atlas index values in FixedUpdate."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_run",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "layer": "character",
+    "usage": "Used during grounded gameplay while the obstacle field scrolls from 300 px/s to 900 px/s.",
+    "adjacent_elements": [
+      "task_id_000000406",
+      "task_id_000000413"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Side-profile running dinosaur with grounded feet and forward-facing head.",
+      "components": [
+        "head",
+        "eye_cutout",
+        "mouth_line",
+        "torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_player_dino_run_2f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet canvas is exactly 176x94 px with 2 frames.",
+    "Animation playback runs at 12 fps with stable whole-pixel frame alignment and no anti-aliasing.",
+    "Visible pixels use only the hex colors listed in specs.colors_hex plus transparency."
+  ]
+}

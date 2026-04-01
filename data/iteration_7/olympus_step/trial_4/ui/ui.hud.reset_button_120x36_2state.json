@@ -1,0 +1,138 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.reset_button_120x36_2state",
+  "asset_name": "Reset Button State Sheet — 240x36, 2 states",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 190,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.typography.parchment_bitmap_font_8px",
+    "ui.hud.right_stats_panel_240x720"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.typography.parchment_bitmap_font_8px",
+    "ui.hud.right_stats_panel_240x720"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.confirm_button_180x50_2state",
+      "ui.hud.right_stats_panel_240x720"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "secondary_button",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": {
+        "x": -40,
+        "y": 884
+      }
+    },
+    "layer": "ui",
+    "usage": "Secondary action button for clearing the current route inside the lower band of the right HUD panel.",
+    "adjacent_elements": [
+      "ui.hud.right_stats_panel_240x720",
+      "ui.hud.confirm_button_180x50_2state"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 36
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#F8FAFC",
+      "#FBBF24"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 2,
+      "fps": 0,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 2,
+        "frame_size_px": {
+          "width": 120,
+          "height": 36
+        },
+        "order": [
+          "reset_normal",
+          "reset_pressed"
+        ],
+        "padding_px": 0
+      }
+    },
+    "shape": {
+      "silhouette": "Rounded 120px button with a 2px border and centered 5-letter label.",
+      "components": [
+        "button_frame",
+        "inner_fill",
+        "label_RESET"
+      ]
+    },
+    "button": {
+      "border_px": 2,
+      "corner_radius_px": 6,
+      "label": "RESET",
+      "state_count": 2
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.reset_button_120x36_2state.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 240x36px with 2 states of 120x36px.",
+    "Button border is 2px and corner radius is 6px in both states.",
+    "Label text is RESET and remains horizontally centered in both states."
+  ]
+}

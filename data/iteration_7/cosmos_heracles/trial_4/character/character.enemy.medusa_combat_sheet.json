@@ -1,0 +1,150 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.enemy.medusa_combat_sheet",
+  "asset_name": "Medusa Combat Sheet",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 43,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.player.cosmos_heracles.core_states_sheet",
+    "world.background.zone2_celestial_hall_1600x900"
+  ],
+  "blocks": [
+    "ui.hud.counter_gauge_radial_48px"
+  ],
+  "blocked_by": [
+    "character.player.cosmos_heracles.core_states_sheet",
+    "world.background.zone2_celestial_hall_1600x900"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "world.background.zone2_celestial_hall_1600x900",
+      "ui.hud.counter_gauge_radial_48px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "enemy",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "right_center",
+      "offset_px": [
+        -320,
+        -40
+      ]
+    },
+    "adjacent_elements": [
+      "obstacles.terrain.rotating_pillar_set_64x64",
+      "ui.hud.counter_gauge_radial_48px",
+      "character.player.cosmos_heracles.core_states_sheet"
+    ],
+    "layer": "world",
+    "usage": "Zone 2 enemy sheet covering float loop and petrify ray release with 60px horizontal drift and 0.6s telegraph.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 128
+    },
+    "colors_hex": [
+      "#7B2FBE",
+      "#40E8D0",
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "stateful",
+      "states": {
+        "float_loop": {
+          "frame_count": 4,
+          "fps": 6,
+          "loop": true,
+          "frame_size_px": {
+            "width": 96,
+            "height": 128
+          },
+          "drift_range_px": 60
+        },
+        "petrify_ray": {
+          "frame_count": 2,
+          "fps": 10,
+          "loop": false,
+          "frame_size_px": {
+            "width": 96,
+            "height": 128
+          },
+          "telegraph_duration_ms": 600,
+          "beam_length_px": 40
+        }
+      },
+      "sheet_dimensions_px": {
+        "width": 576,
+        "height": 128
+      }
+    },
+    "shape": {
+      "silhouette": "floating upper-body serpent figure with hair mass, arm spread, and a forward beam line distinct from the body silhouette",
+      "components": [
+        "face mask",
+        "snake-hair crown",
+        "torso drape",
+        "serpentine lower tail",
+        "beam source hands"
+      ]
+    },
+    "hp": 3,
+    "counter_window_ms": 80,
+    "petrify_stun_ms": 800,
+    "background_treatment": "transparent outside sprite bounds"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemy.medusa_combat_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 576x128px with 4 float frames followed by 2 petrify-ray frames.",
+    "The beam extends at least 40px beyond the hand silhouette in the ray state and uses #40E8D0 pixels only.",
+    "Float motion stays within a 60px horizontal drift envelope and never changes the sprite height beyond 2px between frames."
+  ]
+}

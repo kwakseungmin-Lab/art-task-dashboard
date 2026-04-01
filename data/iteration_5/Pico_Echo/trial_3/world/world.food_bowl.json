@@ -1,0 +1,75 @@
+{
+  "task_id": "world.food_bowl",
+  "asset_name": "Food_Bowl_16x12",
+  "category": "world",
+  "subcategory": "prop",
+  "description": "Create a 16x12 px food bowl sprite with transparent background. Outline: #1D2B53 (1 px). Bowl body: #C2C3C7 with a 1 px inner shadow using #5F574F. Provide an empty bowl interior fill using #FFF1E8. Intended placement top-left at (16,100) on the floor strip.",
+  "execution_order": 40,
+  "priority": "P1",
+  "depends_on": ["world.floor_strip"],
+  "blocks": ["obstacles.seed"],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.floor_strip",
+      "world.water_bowl",
+      "obstacles.seed",
+      "character.echo_sprite_sheet"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": { "width": 128, "height": 128 },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": { "width": 16, "height": 12 },
+    "outline_hex": "#1D2B53",
+    "bowl_body_hex": "#C2C3C7",
+    "inner_shadow_hex": "#5F574F",
+    "interior_fill_hex": "#FFF1E8",
+    "intended_in_canvas_position_px": { "top_left": { "x": 16, "y": 100 } }
+  },
+  "context": {
+    "role": "Static bowl prop used for feeding interactions.",
+    "screen_position": { "type": "absolute_px", "x": 16, "y": 100, "anchor": "top_left" },
+    "layer": "world_props",
+    "usage": ["in_game", "feeding"]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/food_bowl_16x12.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/food_bowl_16x12.png",
+      "dimensions_px": { "width": 16, "height": 12 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 16x12 px with transparent background.",
+    "Outline is 1 px using #1D2B53 with no gaps.",
+    "All pixels use only colors from project_common.palette_hex.",
+    "When placed at (16,100), the bowl stays fully inside the 128x128 canvas."
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-4px",
+      "height": "2-5px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects",
+      "rendering": "top layer, temporary",
+      "style": "simple iconic shapes, PICO-8 aesthetic",
+      "behavior": "spawn, animate, fade/disappear",
+      "lifespan": "0.5-2 seconds"
+    }
+  },
+  "asset": {
+    "asset_id": "heart_particle",
+    "asset_name": "Heart Particle (Love Effect)",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Visual feedback for petting interaction, shows affection",
+      "screen_position": "Spawns above Echo at (64, 50), rises upward",
+      "adjacent_elements": ["echo_happy (trigger source)", "cage_background (behind)"],
+      "usage_scenario": "Spawns when player pets Echo. 3 hearts spawn in sequence, rise upward 10-15px over 1 second, then fade out. Indicates successful petting interaction."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "4px",
+        "height": "4px"
+      },
+      "colors": {
+        "heart": "#FF004D"
+      },
+      "shape": "Heart icon (♥), pixelated 4x4px",
+      "texture": "Flat solid color",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "particle",
+        "frames": 1,
+        "fps": 4,
+        "loop": false,
+        "description": "Spawns above Echo, moves upward at 10px/second, fades out after 1 second. 3 hearts spawn with 0.2s delay between each."
+      },
+      "details": "Heart shape: 4x4px pink (#FF004D) heart icon. Spawn position: above Echo at (64, 50). Movement: rises vertically upward at 10px/second. Lifespan: 1 second. Fade: last 0.3 seconds. 3 hearts total per petting action, staggered spawn (0s, 0.2s, 0.4s)."
+    },
+    "relationships": {
+      "related_assets": ["echo_happy", "care_menu (pet button)"],
+      "shared_with": "Pink color with Echo's cheek patch",
+      "differences_from": "note_particle: heart vs musical note, petting vs singing. feather_particle: upward vs sideways, pink vs orange."
+    },
+    "explicit_negations": [
+      "Hearts do not bounce or wiggle",
+      "No horizontal movement (only vertical)",
+      "Hearts do not grow or shrink",
+      "No rotation",
+      "No sparkle or glow effect",
+      "Do not multiply beyond 3",
+      "No sound wave lines",
+      "Hearts do not fall (only rise)"
+    ]
+  }
+}

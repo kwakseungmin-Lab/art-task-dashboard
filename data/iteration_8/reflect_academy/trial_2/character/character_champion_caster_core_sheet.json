@@ -1,0 +1,204 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000926",
+  "asset_key": "character_champion_caster_core_sheet",
+  "asset_name": "Champion Caster Core Sheet — telegraph, cast, feint, hurt, defeat",
+  "category": "character",
+  "subcategory": "enemy_champion",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The champion keeps a readable upper-class mage silhouette with a staff or casting focus directed toward the lane.",
+    "Every pose fits a stable combat root and leaves the face unobscured for telegraph reading.",
+    "Cast and feint poses must be distinct enough to support later fake-warning mechanics."
+  ],
+  "differences": [
+    "This task covers the generic champion presenter used for the school progression roster.",
+    "Elemental projectiles and telegraph rings remain in obstacle tasks."
+  ],
+  "depends_on": [
+    "task_id_000000921",
+    "task_id_000000922"
+  ],
+  "blocks": [
+    "task_id_000000923",
+    "task_id_000000924",
+    "task_id_000000930"
+  ],
+  "blocked_by": [
+    "task_id_000000921",
+    "task_id_000000922"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000921",
+      "task_id_000000922",
+      "task_id_000000923",
+      "task_id_000000924",
+      "task_id_000000930"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for noble academy fabric contrast and spell-lit facial framing."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for maintaining opponent scale that still fits inside the enemy podium zone."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_4x4",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "AnimationTimer",
+      "EnemyCombatState",
+      "CastPattern"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/character_champion_caster_core_sheet.png during DuelLoading and store the atlas under character_champion_caster_core_sheet.",
+    "runtime_notes": [
+      "Use state ranges for telegraph_idle, spell_cast, fake_cast, hurt, and defeat.",
+      "Anchor the champion at x=340 y=265 and leave room above the staff tip for telegraph marker overlays.",
+      "Expose the fake_cast range to AI pattern scripts so later champions can reuse the same deception pose family."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "enemy_character_animation",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        340,
+        265
+      ]
+    },
+    "layer": "character",
+    "usage": "Enemy champion animation set used for telegraphs, attacks, fake-outs, and defeat feedback across the school ladder."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 140,
+      "height": 200
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#8E44AD",
+      "#E74C3C",
+      "#FFFACD",
+      "#00FFFF",
+      "#2B1B17"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 16,
+      "frame_size_px": [
+        140,
+        200
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 4
+      },
+      "fps_profile": {
+        "telegraph_idle": 4,
+        "spell_cast": 8,
+        "fake_cast": 7,
+        "hurt": 8,
+        "defeat": 4
+      },
+      "state_ranges": [
+        {
+          "state": "telegraph_idle",
+          "start_frame": 0,
+          "end_frame": 3
+        },
+        {
+          "state": "spell_cast",
+          "start_frame": 4,
+          "end_frame": 7
+        },
+        {
+          "state": "fake_cast",
+          "start_frame": 8,
+          "end_frame": 10
+        },
+        {
+          "state": "hurt",
+          "start_frame": 11,
+          "end_frame": 13
+        },
+        {
+          "state": "defeat",
+          "start_frame": 14,
+          "end_frame": 15
+        }
+      ]
+    },
+    "shape": {
+      "silhouette": "Tall academy champion with layered robe panels, high collar, spell focus, and confident forward lean.",
+      "components": [
+        "high collar",
+        "long robe panels",
+        "casting focus",
+        "sleeve flares",
+        "shoulder accents",
+        "face and hair silhouette"
+      ]
+    },
+    "expression_notes": [
+      "Telegraph idle frames keep the face visible and the focus lifted toward the lane.",
+      "Fake cast frames interrupt the full swing with a shorter shoulder arc and a deceptive wrist flick.",
+      "Defeat frames collapse the upper torso while preserving the podium contact point."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_champion_caster_core_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 560x800px with sixteen 140x200 frames and no padding.",
+    "Spell cast and fake cast states are readable as different motions in a side-by-side atlas inspection.",
+    "The combat root stays stable across all states so the champion never pops off the podium when animated.",
+    "Robe trims and spell focus remain visible over the warm maroon background."
+  ]
+}

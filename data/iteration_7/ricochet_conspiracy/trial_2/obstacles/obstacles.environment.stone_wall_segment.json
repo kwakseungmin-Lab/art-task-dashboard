@@ -1,0 +1,108 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.stone_wall_segment",
+  "asset_name": "Stone Wall Segment",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.foreground.marble_floor_strip",
+      "obstacles.environment.mirror_panel",
+      "character.noble.shield_front_guard_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "reflective_barrier",
+    "layer": "world_geometry",
+    "usage": "Primary wall segment for hard rebound paths and lane partitioning.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 704,
+      "y": 414
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip",
+      "obstacles.environment.mirror_panel"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 160
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#A89880"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "rectangular_wall_block_with_four_stone_rows",
+      "components": [
+        "top_cap",
+        "stone_row_1",
+        "stone_row_2",
+        "stone_row_3",
+        "stone_row_4"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "restitution": 0.9,
+    "tile_unit_px": 80
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.stone_wall_segment.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 80x160px and divides into four 40px stone rows.",
+    "Outer border uses #3D2B1F at 2px width and inner seams use #A89880.",
+    "Left and right edges stay vertical with no overhang past the 80px width."
+  ]
+}

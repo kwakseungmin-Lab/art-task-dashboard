@@ -1,0 +1,56 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.button.restart_icon",
+  "asset_name": "UI Button — Restart icon (curved arrow)",
+  "category": "ui",
+  "subcategory": "button_icon",
+  "priority": "P1",
+  "execution_order": 340,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {"related_task_ids": []},
+  "palette": {
+    "primary": {"name": "ink", "hex": "#2B2B2B"},
+    "background": {"name": "paper", "hex": "#F7F7F7"},
+    "accent": {"name": "alert", "hex": "#D23C3C"}
+  },
+  "canvas": {
+    "resolution_px": {"width": 600, "height": 150},
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "restart",
+    "layer": "ui",
+    "usage": "Tap/click button shown below GAME OVER to restart.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [292, 72]
+    }
+  },
+  "specs": {
+    "dimensions_px": {"width": 16, "height": 16},
+    "colors_hex": ["#2B2B2B"],
+    "animation": null,
+    "shape_notes": [
+      "Curved arrow forming a near-circle with a 3px arrowhead.",
+      "Maintain consistent 1px stroke thickness; no isolated single pixels."
+    ]
+  },
+  "deliverables": [
+    {"type": "png", "file": "ui/ui.button.restart_icon.png", "transparent_background": true}
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 16x16px with transparent background.",
+    "Icon is visually centered; arrowhead clearly indicates clockwise restart.",
+    "Only #2B2B2B and transparency are used."
+  ]
+}

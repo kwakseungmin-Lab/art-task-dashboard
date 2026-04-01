@@ -1,0 +1,118 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.effect.wine_glass_shard_cluster",
+  "asset_name": "Wine Glass Shard Cluster",
+  "category": "obstacles",
+  "subcategory": "effect",
+  "priority": "P1",
+  "execution_order": 130,
+  "variant_of": "obstacles.launchable.wine_glass_sprite",
+  "shared_properties": [
+    "glass_material_palette",
+    "bowl_curve_language"
+  ],
+  "differences": [
+    "splits_into_six_shards",
+    "uses_radial_scatter_layout",
+    "drops_frame_height_to_24"
+  ],
+  "depends_on": [
+    "obstacles.launchable.wine_glass_sprite"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.launchable.wine_glass_sprite"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.wine_glass_sprite",
+      "ui.overlay.selection_highlight_ring"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "shatter_effect",
+    "layer": "world_effects",
+    "usage": "Shard cluster sprite for broken glass hit read after impact.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 404,
+      "y": 508
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 24
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#C8B4E0"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "six_shard_radial_cluster",
+      "components": [
+        "center_shard",
+        "left_shard",
+        "right_shard",
+        "upper_shard",
+        "lower_left_shard",
+        "lower_right_shard"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "shard_count": 6,
+    "scatter_radius_px": 18
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.effect.wine_glass_shard_cluster.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 48x24px and holds 6 shard pieces.",
+    "Largest shard length stays at 14px and smallest shard length stays at 6px.",
+    "Cluster keeps one empty 8px center gap for impact flash placement."
+  ]
+}

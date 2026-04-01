@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003010",
+  "asset_key": "obstacle_planar_mirror_rotatable_16x96",
+  "asset_name": "Planar Mirror Rotation Atlas",
+  "category": "obstacles",
+  "subcategory": "beam_interactive",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001"
+  ],
+  "blocks": [
+    "task_id_008003011",
+    "task_id_008003014",
+    "task_id_008003015",
+    "task_id_008003020"
+  ],
+  "blocked_by": [
+    "task_id_008003001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003011",
+      "task_id_008003014",
+      "task_id_008003015",
+      "task_id_008003020"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle with 24 authored angle states and rotate frame indices in 15 degree steps rather than live rotating a single texture.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "MirrorSurface",
+      "Transform",
+      "GrabInteractable"
+    ],
+    "asset_loading": "Load obstacles/obstacle_planar_mirror_rotatable_16x96.png through AssetServer and map the 24 frame atlas to mirror angle states.",
+    "runtime_notes": [
+      "Frame order advances clockwise in 15 degree increments from 0 through 345 degrees.",
+      "Mirror collision uses a thin Rapier sensor aligned to the reflected surface normal.",
+      "Atlas origin stays centered on the mirror midpoint so grab and release positions remain stable."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "mirror_interactive",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        848,
+        448
+      ]
+    },
+    "layer": "obstacle_interactive",
+    "usage": "Primary beam routing object that the player grabs, repositions, and rotates to carve new shadow corridors.",
+    "adjacent_elements": [
+      "obstacle_prism_glass_splitter_48x48",
+      "obstacle_fixed_light_emitter_32x32",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 96
+    },
+    "colors_hex": [
+      "#C9A84C",
+      "#F5EFE0",
+      "#2D1B4E",
+      "#0D0B14"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 24,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 4,
+        "cols": 6,
+        "order": "left_to_right_top_to_bottom"
+      }
+    },
+    "shape": {
+      "silhouette": "Tall thin mirror with gold frame ends, bright reflective face, and a visible central grip notch.",
+      "components": [
+        "top_cap",
+        "bottom_cap",
+        "mirror_face",
+        "gold_frame",
+        "grip_notch"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Clean reflective face with minimal violet tint and sharp gold frame highlights.",
+    "shading": "High contrast white reflection strip down the center with dark frame edges."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_planar_mirror_rotatable_16x96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 96x384 px with twenty four 16x96 frames arranged in a 6 by 4 grid.",
+    "Frame 1 and frame 13 form a 180 degree pair with mirrored highlight placement.",
+    "Grip notch stays centered on the 16 px width in all 24 frames to support precise grab alignment."
+  ]
+}

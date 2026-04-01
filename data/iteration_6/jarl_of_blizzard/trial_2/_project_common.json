@@ -1,0 +1,85 @@
+{
+  "schema_version": "art_task_plan_package_v6",
+  "meta": {
+    "game_name": "jarl_of_blizzard",
+    "iteration": 6,
+    "trial_index": 2,
+    "plan_dir": "trial_2",
+    "created_at_utc": "2026-03-10T07:14:54Z",
+    "gdd": {
+      "source": "s3",
+      "s3_uri": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md"
+    }
+  },
+  "render_target": {
+    "canvas_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true
+  },
+  "palette": {
+    "primary": {
+      "hex": "#FFFFFF"
+    },
+    "background": {
+      "hex": "#000000"
+    },
+    "accent": [
+      {
+        "name": "mid_gray",
+        "hex": "#7F7F7F"
+      },
+      {
+        "name": "light_gray",
+        "hex": "#C0C0C0"
+      }
+    ]
+  },
+  "export_rules": {
+    "deliverable_default": "png",
+    "transparent_background": true,
+    "naming": {
+      "path_prefix": "<category>/",
+      "file": "<asset>.png"
+    }
+  },
+  "assets": [
+    {
+      "task_id": "character.player.jarl_portrait_64",
+      "category": "character",
+      "file": "character/player_jarl_portrait_64.json",
+      "group_id": "character.player.jarl",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "obstacles.building.basic_house_64",
+      "category": "obstacles",
+      "file": "obstacles/building_basic_house_64.json",
+      "group_id": "obstacles.building.basic_house",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "world.tileset.snowfield_1bit",
+      "category": "world",
+      "file": "world/tileset_snowfield_1bit.json",
+      "group_id": "world.tileset.snowfield",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "ui.hud.winter_round_layout_1080p",
+      "category": "ui",
+      "file": "ui/hud_winter_round_layout_1080p.json",
+      "group_id": "ui.hud.winter_round",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    }
+  ]
+}

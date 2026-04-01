@@ -1,0 +1,226 @@
+{
+  "schema_version": "art_task_plan_package_v6",
+  "meta": {
+    "game_name": "cosmos_heracles",
+    "iteration": 6,
+    "trial_index": 2,
+    "plan_dir": "trial_2",
+    "created_at_utc": "2026-03-10T00:00:00Z"
+  },
+  "render_target": {
+    "canvas_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true
+  },
+  "palette": {
+    "primary": {
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "hex": "#0B0C1E"
+    },
+    "accent": [
+      {
+        "name": "star_gold",
+        "hex": "#FFD966"
+      },
+      {
+        "name": "counter_cyan",
+        "hex": "#40E8D0"
+      },
+      {
+        "name": "danger_red",
+        "hex": "#E84040"
+      },
+      {
+        "name": "boss_purple",
+        "hex": "#7B2FBE"
+      },
+      {
+        "name": "ui_white",
+        "hex": "#F0EFE9"
+      },
+      {
+        "name": "marble_ivory",
+        "hex": "#D9D0BE"
+      }
+    ]
+  },
+  "export_rules": {
+    "deliverable_default": "png",
+    "transparent_background": true,
+    "naming": {
+      "path_prefix": "<category>/",
+      "file": "<asset>.png"
+    }
+  },
+  "assets": [
+    {
+      "task_id": "world.parallax.layer0_nebula_stars",
+      "category": "world",
+      "file": "world/parallax_layer0_nebula_stars.json",
+      "group_id": "world.parallax.layer0",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "world.parallax.layer1_temple_silhouette",
+      "category": "world",
+      "file": "world/parallax_layer1_temple_silhouette.json",
+      "group_id": "world.parallax.layer1",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": [
+        "world.parallax.layer0_nebula_stars"
+      ]
+    },
+    {
+      "task_id": "world.parallax.layer2_column_backdrop",
+      "category": "world",
+      "file": "world/parallax_layer2_column_backdrop.json",
+      "group_id": "world.parallax.layer2",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": [
+        "world.parallax.layer1_temple_silhouette"
+      ]
+    },
+    {
+      "task_id": "world.ground.star_floor_strip",
+      "category": "world",
+      "file": "world/star_floor_strip.json",
+      "group_id": "world.ground.star_floor",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "obstacles.pillar.marble_static",
+      "category": "obstacles",
+      "file": "obstacles/pillar_marble_static.json",
+      "group_id": "obstacles.pillar.marble",
+      "variant_role": "base",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "obstacles.pillar.marble_break_anim",
+      "category": "obstacles",
+      "file": "obstacles/pillar_marble_break_anim.json",
+      "group_id": "obstacles.pillar.marble",
+      "variant_role": "variant",
+      "primary_deliverable": "png",
+      "depends_on": [
+        "obstacles.pillar.marble_static"
+      ]
+    },
+    {
+      "task_id": "obstacles.collectible.star_shard_spin",
+      "category": "obstacles",
+      "file": "obstacles/star_shard_spin.json",
+      "group_id": "obstacles.collectible.star_shard",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "character.player.cosmos_base_run",
+      "category": "character",
+      "file": "character/player_cosmos_base_run.json",
+      "group_id": "character.player.cosmos",
+      "variant_role": "base",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "character.player.cosmos_large_transform_loop",
+      "category": "character",
+      "file": "character/player_cosmos_large_transform_loop.json",
+      "group_id": "character.player.cosmos",
+      "variant_role": "variant",
+      "primary_deliverable": "png",
+      "depends_on": [
+        "character.player.cosmos_base_run"
+      ]
+    },
+    {
+      "task_id": "character.player.cosmos_small_transform_loop",
+      "category": "character",
+      "file": "character/player_cosmos_small_transform_loop.json",
+      "group_id": "character.player.cosmos",
+      "variant_role": "variant",
+      "primary_deliverable": "png",
+      "depends_on": [
+        "character.player.cosmos_base_run"
+      ]
+    },
+    {
+      "task_id": "character.player.cosmos_counter_action",
+      "category": "character",
+      "file": "character/player_cosmos_counter_action.json",
+      "group_id": "character.player.cosmos",
+      "variant_role": "variant",
+      "primary_deliverable": "png",
+      "depends_on": [
+        "character.player.cosmos_base_run"
+      ]
+    },
+    {
+      "task_id": "character.enemy.slime_bounce",
+      "category": "character",
+      "file": "character/enemy_slime_bounce.json",
+      "group_id": "character.enemy.slime",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "character.enemy.medusa_float_attack",
+      "category": "character",
+      "file": "character/enemy_medusa_float_attack.json",
+      "group_id": "character.enemy.medusa",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "ui.hud.topbar",
+      "category": "ui",
+      "file": "ui/hud_topbar.json",
+      "group_id": "ui.hud.topbar",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "ui.widget.counter_gauge",
+      "category": "ui",
+      "file": "ui/widget_counter_gauge.json",
+      "group_id": "ui.widget.counter_gauge",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "ui.icons.size_state",
+      "category": "ui",
+      "file": "ui/icons_size_state.json",
+      "group_id": "ui.icons.size_state",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    },
+    {
+      "task_id": "ui.feedback.counter_popup",
+      "category": "ui",
+      "file": "ui/feedback_counter_popup.json",
+      "group_id": "ui.feedback.counter_popup",
+      "variant_role": "standalone",
+      "primary_deliverable": "png",
+      "depends_on": []
+    }
+  ]
+}

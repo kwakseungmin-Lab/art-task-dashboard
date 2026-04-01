@@ -1,0 +1,18 @@
+{
+  "base_size": {
+    "width": "1200px (tiling)",
+    "height": "2-80px (variable by element)"
+  },
+  "color_scheme": {
+    "primary": "#535353",
+    "secondary": "#F7F7F7"
+  },
+  "shared_attributes": {
+    "style": "minimal pixel art environment",
+    "movement": "scroll left (ground at Current_Speed, clouds at Current_Speed * 0.5)",
+    "rendering": "pixel-perfect, no antialiasing",
+    "tiling": "seamless horizontal loop",
+    "collision_layer": "Layer 2 (Ground) or non-collidable (Background)",
+    "outline": "none or minimal"
+  }
+}

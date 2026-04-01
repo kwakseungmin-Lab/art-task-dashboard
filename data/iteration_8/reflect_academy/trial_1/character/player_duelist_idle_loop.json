@@ -1,0 +1,163 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000001",
+  "asset_key": "player_duelist_idle_loop",
+  "asset_name": "Player Duelist Idle Loop",
+  "category": "character",
+  "subcategory": "player_state",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Silhouette fits inside 120x180 px with academy coat tails, wand hand, and card fan readable from a three-quarter lower-left stance.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while accent spell colors stay inside specs.colors_hex.",
+    "Outline thickness stays at 2 px and the costume keeps gold-trimmed navy fabric with warm skin highlights."
+  ],
+  "differences": [
+    "Eight frames show a calm breathing loop, subtle cape sway, and a restrained card-hand motion while no projectile is inside the reaction window.",
+    "The wand tip holds a dormant amber glow instead of an active reflection ring.",
+    "Feet stay planted on the lower podium so the stance reads as ready but not yet committed to a counter."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_801000002",
+    "task_id_801000003"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000002",
+      "task_id_801000003",
+      "task_id_801000011",
+      "task_id_801000012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Grounds the student duelist silhouette, costume trim, wand handling, and heroic stance."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_4x2",
+    "ecs_components": [
+      "PlayerDuelistTag",
+      "CombatStateVisual",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load player_duelist_idle_loop.png during Loading and build a 4x2 TextureAtlasLayout before the duel scene spawns the player entity.",
+    "runtime_notes": [
+      "Advance frames at 8 FPS while the combat state is Neutral and no reflect input has been committed.",
+      "Anchor the sprite at the lower podium center with the feet aligned to the shared duel floor baseline.",
+      "Keep the animation readable against dark maroon architecture by preserving a bright gold shoulder trim and a clear face silhouette."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_neutral_combat_pose",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        340,
+        760
+      ]
+    },
+    "layer": "character",
+    "usage": "Displayed during neutral duel time between projectile warnings and committed counter states."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#2B1B17",
+      "#1A1A2E",
+      "#5C3317",
+      "#D4AF37",
+      "#F6D1B1",
+      "#7A3B2E"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [
+        120,
+        180
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 2
+      }
+    },
+    "hitbox_px": {
+      "width": 86,
+      "height": 156,
+      "offset_px": [
+        17,
+        18
+      ]
+    },
+    "silhouette_notes": [
+      "Wand hand stays above waist height in every frame.",
+      "Cape hem never crosses the foot line so timing reads stay clean.",
+      "Card fan remains visible as a secondary shape on the off hand."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_duelist_idle_loop.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 480x360 px for eight 120x180 frames with no frame gutter.",
+    "The wand, head, and shoulder trim remain readable at 50% preview scale against a #2B1B17 backdrop.",
+    "Every frame keeps both feet on one stable floor line so the idle state does not imply a dodge or jump."
+  ]
+}

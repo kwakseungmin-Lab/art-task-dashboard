@@ -1,0 +1,147 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000009",
+  "asset_name": "Dungeon Shaft Backdrop (320x180 internal render)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "shared_properties": [
+    "Backdrop covers the full 320x180 internal playfield and is designed for a 4x upscale to 1280x720 output.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while local shadow colors stay inside specs.colors_hex.",
+    "Vertical composition keeps the center lane open so player and hazard silhouettes remain readable during downward camera motion."
+  ],
+  "differences": [
+    "Three parallax depth bands use #0D0D0F, #1A1A2E, and #3B3347 to build a claustrophobic shaft with long chained silhouettes.",
+    "Sparse window slits and dripping stone highlights occupy fewer than 9% of total pixels to keep the scene dark.",
+    "No progress markers, depth numbers, or minimap motifs appear anywhere in the backdrop."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_802000012"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000001",
+      "task_id_802000006",
+      "task_id_802000012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the downward-only camera framing, 320x180 internal render target, and no-progress-bar tension described by the GDD."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the oppressive abyss palette, vertical shaft silhouettes, and pixel-art dungeon mood for the full-screen background."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds the player readability target so the backdrop never overpowers the 16x24 prisoner silhouette."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for parallax backdrops and TilemapChunk-backed textures for reusable 16x16 surface modules.",
+    "atlas_or_static": "mixed_static_and_tile_sheet",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "TileTextureIndex",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load world textures before gameplay, cache tile indices for high, medium, and low friction surfaces, and keep shaft layer handles in a WorldVisualRegistry resource.",
+    "runtime_notes": [
+      "Render the shaft backdrop from an offscreen 320x180 target and upscale by an integer factor of 4 to preserve pixel integrity.",
+      "Move parallax layers at 0.4x camera speed and keep their anchors fixed to the downward-only camera model.",
+      "Treat one-way ledges and exit gates as separate gameplay entities even when they share world art atlases."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "background",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world",
+    "usage": "Primary shaft background rendered behind all tiles, hazards, and UI.",
+    "adjacent_elements": [
+      "task_id_802000010",
+      "task_id_802000012"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 180
+    },
+    "colors_hex": [
+      "#0D0D0F",
+      "#1A1A2E",
+      "#3B3347",
+      "#4E5940"
+    ],
+    "animation": null,
+    "composition": [
+      "Parallax band 1 occupies the full canvas in #0D0D0F.",
+      "Parallax band 2 adds 6-8 vertical stone columns using #1A1A2E and #3B3347.",
+      "Decorative highlights occupy under 9% of total pixels and avoid the top 8 px HUD area."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_dungeon_shaft_backdrop_320x180.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Backdrop is exactly 320x180 px and intended for integer 4x upscale without introducing sub-pixel details.",
+    "At least 65% of all non-transparent pixels use #0D0D0F or #1A1A2E to preserve the oppressive low-key mood.",
+    "The upper-left 64x16 px and upper-right 64x16 px regions remain visually quiet so HP and timer UI stay legible."
+  ],
+  "asset_key": "world_dungeon_shaft_backdrop_320x180",
+  "variant_of_asset_key": null
+}

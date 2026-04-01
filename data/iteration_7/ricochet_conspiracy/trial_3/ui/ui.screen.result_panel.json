@@ -1,0 +1,142 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.result_panel",
+  "asset_name": "Result Panel",
+  "category": "ui",
+  "subcategory": "screen_panel",
+  "priority": "P1",
+  "execution_order": 25,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This asset packages clear and fail outcome layouts in one screen-level panel set."
+  ],
+  "depends_on": [
+    "ui.hud.top_bar",
+    "ui.hud.bottom_bar"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.top_bar",
+    "ui.hud.bottom_bar"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble_boss",
+      "ui.button.hint"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "clear_and_fail_overlay_panel",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_x": 0,
+      "offset_y": 0,
+      "width": 400,
+      "height": 300
+    },
+    "layer": "ui_screen",
+    "usage": "Used after stage clear or failure as the centered modal result panel.",
+    "viewpoint": {
+      "camera_angle": "ui_front",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "ui.hud.top_bar",
+      "character.noble_boss",
+      "ui.button.hint"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 300
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#F5F0E8",
+      "#D4A843",
+      "#C8B4E0",
+      "#3D2B1F",
+      "#A89880"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "clear",
+      "states": [
+        {
+          "name": "clear",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "fail",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "entry",
+          "frame_count": 6,
+          "fps": 12
+        }
+      ]
+    },
+    "notes": [
+      "Star slot count is 3 and each star icon box is 48x48 px.",
+      "Panel title zone height is 48 px and button row height is 56 px."
+    ],
+    "shape": {
+      "silhouette": "centered panel card with a title band, star row, and two action button slots",
+      "components": [
+        "panel frame",
+        "title band",
+        "3 star slots",
+        "primary button slot",
+        "secondary button slot"
+      ]
+    }
+  },
+  "deliverables": [
+    "Clear panel export 400x300 px.",
+    "Fail panel export 320x200 px arranged inside the same 400x300 source canvas.",
+    "6-frame entry animation for modal pop-in."
+  ],
+  "acceptance_criteria": [
+    "Source panel canvas is exactly 400x300 px.",
+    "Three star icon boxes of 48x48 px are visible on the clear layout.",
+    "Entry animation contains 6 frames at 12 fps."
+  ]
+}

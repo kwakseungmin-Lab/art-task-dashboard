@@ -1,0 +1,158 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000011",
+  "asset_key": "ground_pebble_overlay",
+  "asset_name": "Ground Pebble Overlay",
+  "category": "world",
+  "subcategory": "ground_lane",
+  "priority": "P1",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Primary painted tone uses #535353 with transparent background only.",
+    "Tile width stays 1200 px to support seamless looping.",
+    "Overlay aligns to the ground baseline tile width."
+  ],
+  "differences": [
+    "This task adds sparse pebble and grass nicks within a 10 px band above the ground line.",
+    "Pattern density stays low so obstacle silhouettes remain dominant.",
+    "The overlay scrolls left at the current speed and loops with the ground strip."
+  ],
+  "depends_on": [
+    "task_id_801000010"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000010"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000010",
+      "task_id_801000005",
+      "task_id_801000006",
+      "task_id_801000007"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    },
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "GroundDecorationTag",
+      "ScrollVelocity",
+      "LoopingTile"
+    ],
+    "asset_loading": "Load one 1200x10 PNG during Loading state and spawn two tiled instances that share the ground strip loop speed.",
+    "runtime_notes": [
+      "Advance the x translation from the shared CurrentSpeed resource.",
+      "Wrap a tile by +1200 px when its x position drops below -1200.",
+      "Render the overlay directly above the ground strip and below runner feet."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_detail_overlay",
+    "screen_position": {
+      "type": "tile_origin_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_ground_detail",
+    "usage": "Visible for the entire play session as low-density texture above the ground line."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 10
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        1200,
+        10
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "scroll_profile": {
+      "speed_window_px_per_s": [
+        300,
+        900
+      ],
+      "loop_width_px": 1200,
+      "parallax_factor": 1.0
+    },
+    "pattern_profile": {
+      "max_pebble_count": 18,
+      "max_grass_count": 6,
+      "occupied_band_height_px": 10
+    },
+    "shape_notes": [
+      "No pebble exceeds 4x3 px.",
+      "No grass nick exceeds 2x6 px.",
+      "Empty space covers at least 70 percent of the tile area."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/ground_pebble_overlay.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1200x10 px with transparent background between detail marks.",
+    "Pattern density remains sparse enough that at least 70 percent of pixels stay transparent.",
+    "Every painted mark uses #535353 and fits inside the 10 px overlay band."
+  ]
+}

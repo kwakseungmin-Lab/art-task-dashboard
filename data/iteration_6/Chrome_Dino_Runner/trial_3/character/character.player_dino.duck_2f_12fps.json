@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player_dino.duck_2f_12fps",
+  "asset_name": "Player Dino — Duck (2 frames, 12fps loop)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "character.player_dino.run_2f_12fps",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player_dino.idle_2f_6fps",
+      "character.player_dino.run_2f_12fps",
+      "character.player_dino.jump_static",
+      "character.player_dino.dead_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "duck",
+    "layer": "character",
+    "usage": "Crouched state to avoid low-flying pterodactyl; sprite is wider and shorter.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        100,
+        60
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 118,
+      "height": 60
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        118,
+        60
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Body lowers; head extends forward; tail remains visible.",
+      "Bottom edge aligns to ground at y=120px (top-left y=60px)."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player_dino.duck_2f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 236x60px (2×118x60) with 0px spacing.",
+    "Duck reads clearly as lower profile than run/jump.",
+    "Only #535353 pixels + transparency are used."
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": "v4",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "base_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "camera": {
+      "view": "2d_front",
+      "projection": "orthographic",
+      "rotation_deg": 0,
+      "tilt_deg": 0
+    },
+    "rendering": {
+      "style": "hand_drawn_pixel_art",
+      "pixel_grid": {
+        "enabled": true,
+        "pixel_size_px": 1,
+        "anti_aliasing": false
+      },
+      "scaling": "nearest_neighbor",
+      "color_mode": "indexed",
+      "max_colors": 16,
+      "dithering": {
+        "allowed": false,
+        "pattern": "none"
+      },
+      "gradients": {
+        "allowed": false
+      },
+      "outline": {
+        "default": {
+          "enabled": false,
+          "thickness_px": 0,
+          "color": null
+        },
+        "ui_border": {
+          "enabled": true,
+          "thickness_px": 1,
+          "color": "#1D2B53"
+        }
+      }
+    },
+    "palette_pico8_16": [
+      {
+        "index": 0,
+        "name": "black",
+        "hex": "#000000"
+      },
+      {
+        "index": 1,
+        "name": "dark_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "index": 2,
+        "name": "dark_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "index": 3,
+        "name": "dark_green",
+        "hex": "#008751"
+      },
+      {
+        "index": 4,
+        "name": "brown",
+        "hex": "#AB5236"
+      },
+      {
+        "index": 5,
+        "name": "dark_gray",
+        "hex": "#5F574F"
+      },
+      {
+        "index": 6,
+        "name": "light_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "index": 7,
+        "name": "cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "index": 8,
+        "name": "red_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "index": 9,
+        "name": "orange",
+        "hex": "#FFA300"
+      },
+      {
+        "index": 10,
+        "name": "yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "index": 11,
+        "name": "green",
+        "hex": "#00E436"
+      },
+      {
+        "index": 12,
+        "name": "blue",
+        "hex": "#29ADFF"
+      },
+      {
+        "index": 13,
+        "name": "lavender",
+        "hex": "#83769C"
+      },
+      {
+        "index": 14,
+        "name": "light_pink",
+        "hex": "#FF77A8"
+      },
+      {
+        "index": 15,
+        "name": "peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "layer_order": [
+      "background",
+      "cage_environment",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "export": {
+      "file_format": "png",
+      "background": "transparent",
+      "compression": "lossless",
+      "metadata": {
+        "include": false
+      }
+    },
+    "asset_naming": {
+      "case": "snake_case",
+      "separator": "_",
+      "task_id_prefix": "pico_echo"
+    },
+    "asset_output_root": {
+      "source": "art/pico_echo/source",
+      "export": "art/pico_echo/export"
+    }
+  },
+  "task_id": "pico_echo.environment.cage_floor",
+  "asset_name": "cage_floor",
+  "category": "environment",
+  "subcategory": "cage",
+  "description": "Create cage floor layer for the poop/cleaning area. Sprite canvas 128x18px. Base fill #FFCCAA. Add a 1px top border line in #AB5236 at y=0 across x=0..127. Add a subtle tile pattern using #FFF1E8 dots: place single pixels at (x,y) where x mod 8 == 4 and y mod 6 == 3 for y=1..17. All pixels outside 128x18 are transparent.",
+  "deliverables": [
+    {
+      "type": "source",
+      "path": "art/pico_echo/source/environment/cage_floor.aseprite",
+      "format": "aseprite",
+      "notes": "Aseprite source file with layers and frames (no palette outside pico8_16)."
+    },
+    {
+      "type": "export",
+      "path": "art/pico_echo/export/environment/cage_floor.png",
+      "format": "png",
+      "notes": "PNG export (indexed color, 16-color palette, nearest-neighbor scaling)."
+    }
+  ],
+  "specs": {
+    "dimensions": "128x18",
+    "placement": {
+      "screen_x": 0,
+      "screen_y": 110
+    },
+    "floor_spawn_region": {
+      "x_min": 0,
+      "x_max": 127,
+      "y_min": 0,
+      "y_max": 15
+    }
+  },
+  "context": {
+    "role": "Bottom floor area where Poop spawns and where Clean action happens.",
+    "screen_location": "Placed at world position x=0..127, y=110..127.",
+    "adjacent_elements": [
+      "poop sprites spawn within this region",
+      "ui_happiness_bar overlays at y=126..127"
+    ],
+    "layer": "cage_environment",
+    "usage": "Always visible; cleaned state uses sparkle VFX overlay."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.object.poop",
+      "pico_echo.vfx.clean_sparkle"
+    ],
+    "relationship_notes": [
+      "Poop sprites must be readable over the floor base color #FFCCAA.",
+      "Sparkle VFX uses #FFF1E8; ensure sparkle pixels do not disappear against floor pattern by keeping sparkle shape 3x3 with at least 4 pixels."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.environment.cage_backwall"
+  ],
+  "execution_order": 3,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.environment.cage_backwall"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 128x18 px.",
+    "Row y=0 is #AB5236 across the full width.",
+    "All other non-pattern pixels are #FFCCAA.",
+    "Pattern dots (#FFF1E8) exist at x=4,12,20,... and y=3,9,15 within y=1..17.",
+    "Background outside the sprite silhouette must be fully transparent (alpha=0).",
+    "Allowed colors: only pico8_16 palette. Hard fail if any pixel uses a hex value not in the palette list."
+  ]
+}

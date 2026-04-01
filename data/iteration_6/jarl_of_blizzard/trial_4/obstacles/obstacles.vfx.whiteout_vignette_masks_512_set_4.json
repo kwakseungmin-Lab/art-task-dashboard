@@ -1,0 +1,131 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.whiteout_vignette_masks_512_set_4",
+  "asset_name": "Whiteout Vignette Masks — 512px Tileset (4 tiers)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P1",
+  "execution_order": 31,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.vfx.blizzard_particles_2px_strip_8",
+      "ui.hud.winter_round_bw_panels_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "screen_mask_atlas",
+    "layer": "vfx_postprocess",
+    "usage": "4-tier vignette/whiteout masks used to occlude screen edges as blizzard intensity increases (tiers ~10/25/55/70% occlusion). Texture is scaled to 1920×1080 in engine.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 2048,
+      "height": 512
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "atlas": {
+      "packing_rule": "exact_rects_no_rotation",
+      "sprites": [
+        {
+          "id": "tier_1_light",
+          "size_px": {
+            "width": 512,
+            "height": 512
+          },
+          "frames": 1,
+          "note": "Soft edge noise, ~10% edge fade."
+        },
+        {
+          "id": "tier_2_medium",
+          "size_px": {
+            "width": 512,
+            "height": 512
+          },
+          "frames": 1,
+          "note": "Stronger vignette, ~25% edge fade."
+        },
+        {
+          "id": "tier_3_heavy",
+          "size_px": {
+            "width": 512,
+            "height": 512
+          },
+          "frames": 1,
+          "note": "Heavy whiteout, leaves ~60% central clarity."
+        },
+        {
+          "id": "tier_4_extreme",
+          "size_px": {
+            "width": 512,
+            "height": 512
+          },
+          "frames": 1,
+          "note": "Extreme whiteout, leaves ~40% central clarity."
+        }
+      ],
+      "layout_note": "Pack 4 masks horizontally in a single 2048×512 atlas (512×512 each). Use grayscale with optional dithering; avoid hard banding."
+    },
+    "mask_rules": {
+      "center_clear": "Keep center region mostly clear; edges ramp to white/opaque depending on shader convention.",
+      "noise": "Subtle noise only; avoid obvious repeating patterns when stretched to 1920×1080."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.whiteout_vignette_masks_512_set_4.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 2048×512px; each mask is 512×512px and does not overlap adjacent masks.",
+    "When scaled to 1920×1080, each tier reads as a clear progression of visibility loss (light→extreme).",
+    "No color; grayscale only; gradients are smooth without visible banding."
+  ]
+}

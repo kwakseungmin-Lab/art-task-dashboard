@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.echo.singing_8f_4fps",
+  "asset_name": "Echo (Cockatiel) — Singing (8 frames, 4fps loop)",
+  "category": "character",
+  "subcategory": "player_pet",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": "character.echo.idle_4f_2fps",
+  "depends_on": [
+    "character.echo.idle_4f_2fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.echo.idle_4f_2fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo.idle_4f_2fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "singing",
+    "layer": "character",
+    "usage": "Echo behavior state: singing.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        44,
+        42
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#FFEC27",
+      "#FF004D",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 4,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      },
+      "loop": true
+    },
+    "pose_notes": [
+      "Beak open/close cycle repeats every 2 frames.",
+      "Crest raised and cheeks visible in all frames."
+    ],
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.echo.singing_8f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 320x40px (8 frames × 40x40) with 0px spacing.",
+    "Animation plays at 4fps and respects loop/play_count settings in specs.animation.",
+    "Sprite remains readable at 1x scale on a 128x128 canvas; no anti-aliasing and only listed colors are used."
+  ],
+  "shared_properties": [
+    "Core palette #1D2B53/#FFF1E8/#FF004D.",
+    "Per-frame bounds remain 40x40 px with pixel-perfect pixel_art output.",
+    "Layer remains character with category character."
+  ],
+  "differences": [
+    "Asset purpose: Echo (Cockatiel) — Singing (8 frames, 4fps loop).",
+    "Role focuses on singing behavior with usage: Echo behavior state: singing.",
+    "Animation contract uses 8 frame(s) at 4 fps with loop set to true."
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-4px",
+      "height": "2-5px"
+    },
+    "color_scheme": {
+      "primary": "#FF004D",
+      "secondary": "#FFEC27",
+      "accent": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects and visual feedback",
+      "animation_method": "frame-by-frame with movement",
+      "layer_order": 4,
+      "lifespan": "0.5-2 seconds typical"
+    }
+  },
+  "asset": {
+    "asset_id": "speech_bubble",
+    "asset_name": "Speech Bubble with Icon",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Displays Echo's needs (hunger) with icon inside bubble",
+      "screen_position": "Upper right of Echo at (76, 48)",
+      "adjacent_elements": ["echo_hungry"],
+      "usage_scenario": "Appears when Echo is hungry, shows seed icon inside bubble to indicate need"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "12px",
+        "height": "10px"
+      },
+      "colors": {
+        "bubble": "#FFF1E8",
+        "outline": "#1D2B53",
+        "icon": "#FFA300"
+      },
+      "shape": "Rounded rectangle speech bubble with small tail pointing to Echo",
+      "texture": "Flat color with outline",
+      "outline": "1px dark outline (#1D2B53)",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static bubble with seed icon inside, no animation (appears/disappears based on state)"
+      },
+      "details": "Cream bubble (#FFF1E8) 12x10px with 1px black outline (#1D2B53), small triangular tail 2px pointing toward Echo's head, contains 3x3px seed icon (#FFA300) centered inside bubble"
+    },
+    "relationships": {
+      "related_assets": ["echo_hungry", "seed"],
+      "shared_with": "Could be reused for other status indicators with different icons",
+      "differences_from": "All particle effects (static display vs animated particles)"
+    },
+    "explicit_negations": [
+      "No text inside bubble (icon only)",
+      "No animation or bobbing",
+      "No multiple bubbles simultaneously",
+      "No color changes",
+      "No size variations",
+      "No permanent display (only during hungry state)"
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "task_id": "ui.vfx_particles_atlas",
+  "asset_name": "vfx_particles_atlas_32x16",
+  "category": "ui",
+  "subcategory": "vfx",
+  "description": "Create a 32x16 px vfx particle atlas on transparent background with 6 cells (each 8x8) in a 4x2 grid. Cell order left-to-right, top-to-bottom: heart, note, zzz, feather, sparkle, dust. Heart uses #FF004D. Note uses #FFEC27. ZZZ uses #7E2553. Feather uses #FFA300. Sparkle uses #FFF1E8. Dust uses #C2C3C7. Each particle must fit inside its 8x8 cell and leave at least 1px transparent margin from the cell edge.",
+  "execution_order": 150,
+  "priority": "P2",
+  "specs": {
+    "atlas_px": {
+      "width": 32,
+      "height": 16
+    },
+    "cell_px": {
+      "width": 8,
+      "height": 8
+    },
+    "grid": {
+      "columns": 4,
+      "rows": 2
+    },
+    "cell_order": [
+      "heart",
+      "note",
+      "zzz",
+      "feather",
+      "sparkle",
+      "dust"
+    ],
+    "colors_hex": {
+      "heart": "#FF004D",
+      "note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "sparkle": "#FFF1E8",
+      "dust": "#C2C3C7"
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": true
+  },
+  "context": {
+    "role": "Particle sprites spawned above Echo for feedback (pet, sing, sleep, preen, clean).",
+    "layer": "ui_overlay",
+    "spawn_origin": {
+      "type": "relative_to_element",
+      "element_task_id": "character.echo_sprite_sheet",
+      "offset_px": {
+        "x": 0,
+        "y": -16
+      }
+    },
+    "usage_triggers": {
+      "heart": "CareSystem.pet",
+      "note": "BehaviorSystem.singing",
+      "zzz": "BehaviorSystem.sleeping",
+      "feather": "BehaviorSystem.preening",
+      "sparkle": "CareSystem.clean",
+      "dust": "BehaviorSystem.dirty"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/ui/vfx_particles_atlas_32x16/vfx_particles_atlas_32x16.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/ui/vfx_particles_atlas_32x16/vfx_particles_atlas_32x16.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo_sprite_sheet"
+    ]
+  },
+  "depends_on": [
+    "character.echo_sprite_sheet"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.echo_sprite_sheet"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 32x16 px with transparent background.",
+    "Atlas is a 4x2 grid of 8x8 cells.",
+    "Only the specified colors are used for each particle plus transparency.",
+    "Each particle leaves at least 1px transparent margin from its 8x8 cell edge."
+  ]
+}

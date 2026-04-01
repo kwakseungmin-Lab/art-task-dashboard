@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.dino_run_2f_12fps",
+  "asset_name": "Player Dino — Run (2 frames, 12fps loop)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_jump_static",
+      "character.player.dino_duck_2f_12fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "run",
+    "layer": "character",
+    "usage": "Default gameplay state while grounded.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "notes": "Matches GDD Player sprite spec: 88x94, 2 frames @ 12fps."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Legs alternate clearly between the two frames.",
+      "Body stays stable; only legs/tail swing within 1–2px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_run_2f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 176x94px (2×88x94).",
+    "Run cycle reads clearly at 12fps without foot sliding (feet contact ground line consistently).",
+    "No anti-aliasing; 2px outline consistent across frames."
+  ]
+}

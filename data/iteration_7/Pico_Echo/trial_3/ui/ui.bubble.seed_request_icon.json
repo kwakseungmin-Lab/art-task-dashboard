@@ -1,0 +1,121 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.bubble.seed_request_icon",
+  "asset_name": "Speech Bubble — Seed Request Icon (for Hungry state)",
+  "category": "ui",
+  "subcategory": "bubble",
+  "priority": "P1",
+  "execution_order": 380,
+  "variant_of": null,
+  "depends_on": [
+    "ui.icon.feed_seed"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.icon.feed_seed"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.icon.feed_seed",
+      "character.echo.hungry_4f_2fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "speech_bubble",
+    "layer": "ui",
+    "usage": "Shows above Echo when hungry; contains seed icon.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        62,
+        28
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 20,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFF1E8",
+      "#1D2B53",
+      "#FFEC27",
+      "#AB5236"
+    ],
+    "animation": null,
+    "bubble": {
+      "border_hex": "#1D2B53",
+      "fill_hex": "#FFF1E8",
+      "tail_px": {
+        "tip": [
+          6,
+          15
+        ],
+        "base": [
+          9,
+          12
+        ]
+      },
+      "icon_center_px": [
+        11,
+        7
+      ],
+      "icon_dimensions_px": [
+        12,
+        12
+      ],
+      "icon_colors_hex": [
+        "#FFEC27",
+        "#AB5236",
+        "#1D2B53"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.bubble.seed_request_icon.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Bubble is exactly 20x16px with a 1px border (#1D2B53) and solid fill (#FFF1E8).",
+    "Tail points downward-left and stays inside bounds; tip pixel is at (6,15).",
+    "Centered seed icon fits in a 12x12 area and uses only #FFEC27 and #AB5236 (outline may use #1D2B53)."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

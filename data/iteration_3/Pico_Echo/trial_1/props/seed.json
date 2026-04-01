@@ -1,0 +1,87 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "props",
+  "category_common": {
+    "base_size": {
+      "width": "2-3px",
+      "height": "2-3px"
+    },
+    "color_scheme": {
+      "seed": "#FFA300",
+      "poop": "#AB5236"
+    },
+    "shared_attributes": {
+      "sprite_type": "small pixel art objects",
+      "rendering": "rendered on top of environment",
+      "style": "minimal, simple shapes",
+      "interaction": "spawned and consumed by game systems"
+    }
+  },
+  "asset": {
+    "asset_id": "seed",
+    "asset_name": "Golden Millet Seed",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Echo's food, appears in food bowl, consumed during eating animation",
+      "screen_position": "Inside food_bowl at (16, 100), multiple seeds scattered",
+      "adjacent_elements": ["food_bowl (container)", "echo_eating (consumer)"],
+      "usage_scenario": "Appears when player taps food bowl to fill. 6-8 seeds shown when bowl is full, 3-4 when low, 0 when empty. Individual seed disappears when Echo eats."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "seed": "#FFA300"
+      },
+      "shape": "Irregular oval/ellipse, small grain shape",
+      "texture": "Flat solid color, no detail",
+      "outline": "None (too small)",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No animation. Seeds are static until consumed (instant disappear)."
+      },
+      "details": "3x3px golden orange (#FFA300) pixel cluster. Slightly irregular shape (not perfect square). Multiple seeds arranged randomly within food bowl bounds. Each seed is independent object. Disappears instantly when consumed by Echo."
+    },
+    "relationships": {
+      "related_assets": ["food_bowl", "echo_eating", "echo_hungry", "status_bubble (shows seed icon)"],
+      "shared_with": "Orange color with Echo's body",
+      "differences_from": "poop: orange vs brown, in bowl vs on floor, food vs waste. Smaller than any other game object."
+    },
+    "explicit_negations": [
+      "No animation or movement",
+      "Seeds do not bounce or roll",
+      "No shine or highlight",
+      "No gradual fade (instant disappear)",
+      "Seeds do not grow or shrink",
+      "No outline (too small)",
+      "Not individually clickable",
+      "Do not scatter outside bowl"
+    ]
+  }
+}

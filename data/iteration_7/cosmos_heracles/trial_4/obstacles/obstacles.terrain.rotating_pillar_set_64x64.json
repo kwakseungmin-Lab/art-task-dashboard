@@ -1,0 +1,132 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.terrain.rotating_pillar_set_64x64",
+  "asset_name": "Rotating Pillar Set",
+  "category": "obstacles",
+  "subcategory": "terrain",
+  "priority": "P1",
+  "execution_order": 32,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tileset.cosmic_temple_atlas_16x16",
+    "obstacles.terrain.marble_pillar_set_64x200"
+  ],
+  "blocks": [
+    "character.enemy.medusa_combat_sheet"
+  ],
+  "blocked_by": [
+    "world.tileset.cosmic_temple_atlas_16x16",
+    "obstacles.terrain.marble_pillar_set_64x200"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.tileset.cosmic_temple_atlas_16x16",
+      "obstacles.terrain.marble_pillar_set_64x200",
+      "character.enemy.medusa_combat_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "terrain",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "bottom_center",
+      "offset_px": [
+        0,
+        -120
+      ]
+    },
+    "adjacent_elements": [
+      "character.enemy.medusa_combat_sheet",
+      "character.player.cosmos_heracles.core_states_sheet",
+      "world.background.zone2_celestial_hall_1600x900"
+    ],
+    "layer": "world",
+    "usage": "Zone 2 rotating hazard that flips 90 degrees every 0.5 seconds and can be destroyed by large-form collisions.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "spritesheet_row",
+      "frame_count": 4,
+      "fps": 2,
+      "loop": true,
+      "sheet_dimensions_px": {
+        "width": 256,
+        "height": 64
+      },
+      "frame_order": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "shape": {
+      "silhouette": "square pillar head with four distinct rotational silhouettes and preserved center of mass",
+      "components": [
+        "center core",
+        "corner spikes",
+        "marble bevels",
+        "shadow notch"
+      ]
+    },
+    "rotation_step_degrees": 90,
+    "step_interval_ms": 500,
+    "background_treatment": "transparent outside obstacle bounds"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.terrain.rotating_pillar_set_64x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 256x64px with 4 frames, each 64x64px, representing 0, 90, 180, and 270 degree orientations.",
+    "The center pivot stays within a 1px tolerance across all 4 frames.",
+    "Each frame is readable without motion blur and preserves at least 3 silhouette changes between consecutive frames."
+  ]
+}

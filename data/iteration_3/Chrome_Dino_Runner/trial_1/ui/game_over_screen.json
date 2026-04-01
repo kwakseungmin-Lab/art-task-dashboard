@@ -1,0 +1,83 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "Pixel Art 8-bit",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "variable",
+      "height": "variable"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "pixel font monospace",
+      "outline": "none",
+      "color_mode": "monochrome",
+      "anti_aliasing": "none",
+      "alignment": "varies by element"
+    }
+  },
+  "asset": {
+    "asset_id": "game_over_screen",
+    "asset_name": "Game Over UI Screen",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "End game screen showing final score and restart instructions",
+      "screen_position": "Center of screen at (300, 75), text elements offset vertically from center",
+      "adjacent_elements": ["player_dead", "background", "ground", "obstacles"],
+      "usage_scenario": "Appears when player collides with obstacle, displays final score and high score, waits for Space key to restart"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "300px",
+        "height": "120px"
+      },
+      "colors": {
+        "text": "#535353",
+        "background": "transparent",
+        "highlight": "#FFFFFF"
+      },
+      "shape": "Multiple text lines vertically stacked and center-aligned",
+      "texture": "monospace pixel font",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "static + optional blink",
+        "frames": 0,
+        "fps": 0,
+        "loop": true,
+        "description": "Static text display, optional 0.5-second blink on restart instruction text"
+      },
+      "details": "4 text elements: 'GAME OVER' (24px, y=-30), 'Score: XXXXX' (16px, y=0), 'HI XXXXX' (16px, y=20), 'Press SPACE to restart' (12px, y=50), all center-aligned"
+    },
+    "relationships": {
+      "related_assets": ["score_display", "player_dead"],
+      "shared_with": "Same font style as score_display, same color scheme",
+      "differences_from": "score_display is single line 16px, game_over_screen has multiple text sizes (24px, 16px, 12px)"
+    },
+    "explicit_negations": [
+      "No background overlay or dimming",
+      "No buttons or clickable elements",
+      "No borders or panels",
+      "No gradients or shadows",
+      "No decorative elements or icons",
+      "No fade-in animation",
+      "No score counting animation",
+      "No sound effect indicators in UI"
+    ]
+  }
+}

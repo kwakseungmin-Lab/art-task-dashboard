@@ -1,0 +1,83 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "Pixel Art 8-bit",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "obstacles",
+  "category_common": {
+    "base_size": {
+      "width": "variable",
+      "height": "70-100px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art with 2px outline",
+      "movement": "right-to-left scrolling at Current_Speed",
+      "collision_margin": "3px smaller than sprite for forgiveness",
+      "spawn_position": "screen_width + 50px",
+      "despawn_position": "-100px"
+    }
+  },
+  "asset": {
+    "asset_id": "pterodactyl_high",
+    "asset_name": "Pterodactyl High Flight",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Aerial obstacle that can be avoided without input, appears after 200 points",
+      "screen_position": "Scrolls from right (650px) to left (-100px), Y=80px (ground + 80px)",
+      "adjacent_elements": ["player_run", "player_duck", "background"],
+      "usage_scenario": "Flies above player running hitbox (90px height), can be avoided by ducking or simply running through without input"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "92px",
+        "height": "80px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "Pteranodon with long beak, outstretched wings in flight",
+      "texture": "solid pixel art, no gradients",
+      "outline": "2px solid black outline",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 10,
+        "loop": true,
+        "description": "Frame 1: wings up position, Frame 2: wings down position - flapping animation"
+      },
+      "details": "Flying pterodactyl with visible long beak, wings clearly showing up/down flapping motion"
+    },
+    "relationships": {
+      "related_assets": ["pterodactyl_low", "player_duck", "player_jump", "background"],
+      "shared_with": "Same sprite and animation as pterodactyl_low, only Y position differs",
+      "differences_from": "pterodactyl_low flies at Y=50px, this flies at Y=80px - higher position allows passing without ducking"
+    },
+    "explicit_negations": [
+      "No anti-aliasing",
+      "No gradients or shading",
+      "No smooth curves - only pixel-aligned edges",
+      "No colors outside the defined palette",
+      "No motion blur",
+      "No easing between animation frames",
+      "No variation in flight path - straight horizontal movement only",
+      "Not visually different from pterodactyl_low - same sprite, different Y position",
+      "Does not require player action to avoid (height above player hitbox)"
+    ]
+  }
+}

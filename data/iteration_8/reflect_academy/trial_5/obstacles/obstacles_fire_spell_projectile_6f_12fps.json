@@ -1,0 +1,174 @@
+{
+  "task_id": "task_id_000008506",
+  "asset_key": "obstacles_fire_spell_projectile_6f_12fps",
+  "asset_name": "Fire Spell Projectile Loop",
+  "subcategory": "projectile",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the project core palette copy #D4AF37/#2B1B17/#00FFFF.",
+    "Projectile sheet supports launch, travel, and reflected travel readability.",
+    "Travel speed grounds to the GDD fire value of 250 px per second."
+  ],
+  "differences": [
+    "This file carries the fire attribute colorway with a round core and ember tail.",
+    "Flame perimeter oscillates across 6 frames while preserving a 40x40 bounding box."
+  ],
+  "depends_on": [
+    "task_id_000008501",
+    "task_id_000008502",
+    "task_id_000008505"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000008501",
+    "task_id_000008502",
+    "task_id_000008505"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000008504",
+      "task_id_000008505",
+      "task_id_000008509",
+      "task_id_000008511"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "duel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png",
+      "purpose": "Ground projectile readability against the academy hall."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground the 40x40 fire projectile size and 250 px per second speed."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_6x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Projectile",
+      "SpellAttribute"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_5/obstacles_fire_spell_projectile_6f_12fps.png with AssetServer during Loading state and store the handle under obstacles_fire_spell_projectile_6f_12fps.",
+    "runtime_notes": [
+      "Create a 6-column TextureAtlasLayout and loop it during projectile flight.",
+      "Move the projectile by Transform translation with no physics engine dependency.",
+      "Flip the x velocity and swap to the reflected tint only through material or palette-safe frame reuse."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "incoming_fire_projectile",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1240,
+        400
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Used for launch forecast, travel, and reflected hit beats during fire-attribute attacks.",
+    "adjacent_elements": [
+      "task_id_000008502",
+      "task_id_000008509",
+      "task_id_000008511"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_profile",
+      "facing": "left_to_right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FF4500",
+      "#FF8C00",
+      "#FFFACD",
+      "#D4AF37",
+      "#2B1B17",
+      "#00FFFF"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "motion": {
+      "speed_px_per_sec": 250,
+      "travel_axis": "horizontal",
+      "collision_radius_px": 18
+    },
+    "shape": {
+      "silhouette": "Round fire orb with a bright core, two flame petals, and a short ember trail.",
+      "components": [
+        "bright core",
+        "outer flame petals",
+        "ember trail",
+        "reflection rim"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_fire_spell_projectile_6f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet canvas is exactly 240x40 px with 6 frames.",
+    "Projectile core stays inside a 40x40 bounding box in every frame.",
+    "Fire body uses #FF4500 and #FF8C00 while the reflected rim reserves #00FFFF only for the edge accent."
+  ],
+  "schema_version": "art_task@8",
+  "category": "obstacles"
+}

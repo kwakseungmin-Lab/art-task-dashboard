@@ -1,0 +1,95 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "items",
+  "category_common": {
+    "base_size": {
+      "width": "3px",
+      "height": "3px",
+      "note": "Small consumable/interactive objects"
+    },
+    "color_scheme": {
+      "seed": "#FFA300",
+      "poop": "#AB5236"
+    },
+    "shared_attributes": {
+      "rendering": "static sprites",
+      "style": "minimal pixel art",
+      "layer": "foreground (on top of environment)"
+    }
+  },
+  "asset": {
+    "asset_id": "poop",
+    "asset_name": "Bird Droppings",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Waste product that accumulates on cage floor, triggers dirty state when 3+ present",
+      "screen_position": "Randomly spawns on cage floor area at y=110-125px, x=random within 0-126px. Maximum 5 visible at once.",
+      "adjacent_elements": [
+        "cage_floor (surface where poop appears)",
+        "echo_dirty (Echo enters this state when 3+ poop present)",
+        "dust_particle (appears around Echo when dirty)",
+        "sparkle_particle (appears when floor is cleaned)"
+      ],
+      "usage_scenario": "Spawns automatically every 20 minutes during gameplay. When count reaches 3+, Echo becomes dirty. Player swipes cage floor to remove all poop at once, triggering sparkle effect and returning Echo to idle state."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "2px",
+        "height": "2px"
+      },
+      "colors": {
+        "primary": "#AB5236"
+      },
+      "shape": "Small irregular blob representing bird droppings. 2x2px with 1-2 pixels slightly offset to create organic irregular shape.",
+      "texture": "Pure pixel art, simple solid color",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static sprite. Appears instantly when spawned, disappears instantly when cleaned (no fade)."
+      },
+      "details": "2x2px base shape in #AB5236. Can have 1 pixel extending to make 3px total for irregular organic look. Each poop instance positioned randomly on floor (y=110-125px, x=random). Maximum 5 poop objects visible simultaneously. All poop removed simultaneously when player swipes floor."
+    },
+    "relationships": {
+      "related_assets": [
+        "cage_floor",
+        "echo_dirty",
+        "dust_particle",
+        "sparkle_particle"
+      ],
+      "shared_with": "Same brown color (#AB5236) as wooden elements (perch, bowls)",
+      "differences_from": "Unlike seed: brown color (not golden), appears on floor (not in bowl), removed by cleaning (not consumed). Unlike particles: static object, not animated, persists until cleaned."
+    },
+    "explicit_negations": [
+      "No 3D shading or gradients",
+      "No realistic texture",
+      "No stink lines or smell effects",
+      "No animation or movement",
+      "No color variation",
+      "No outline stroke",
+      "No fade in/out (instant appear/disappear)",
+      "No size variation (all 2x2px base)"
+    ]
+  }
+}

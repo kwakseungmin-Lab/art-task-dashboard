@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.echo.idle_4f_2fps",
+  "asset_name": "Echo (Cockatiel) — Idle (4 frames, 2fps loop)",
+  "category": "character",
+  "subcategory": "player_pet",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [
+    "character.echo.eating_6f_4fps",
+    "character.echo.sleeping_3f_1fps",
+    "character.echo.happy_8f_4fps",
+    "character.echo.preening_5f_3fps",
+    "character.echo.dirty_3f_2fps",
+    "character.echo.hungry_4f_2fps",
+    "character.echo.singing_8f_4fps"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "idle",
+    "layer": "character",
+    "usage": "Default visible state when no care interaction is active.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        44,
+        42
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#FF004D",
+      "#FFEC27",
+      "#AB5236",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 2,
+      "loop": true,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Crest (yellow) is a 3px-tall shape above the head.",
+      "Cheek patch is a solid blob using #FF004D; no dithering.",
+      "Tail extends down-right by 6-8px and stays inside 40x40 bounds."
+    ],
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.echo.idle_4f_2fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 160x40px (4 frames × 40x40) with 0px spacing.",
+    "Idle loop at 2fps includes a blink where eyes close to a 1px line for exactly 1 frame.",
+    "All edges are pixel-perfect with no anti-aliasing; only listed colors and transparency are used."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003001",
+  "asset_key": "world_academy_hall_background_1920x1080",
+  "asset_name": "Academy Hall Background",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "task_id_008003002",
+    "task_id_008003003"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003005",
+      "task_id_008003009"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle for the single large backdrop and keep it on a dedicated background render layer.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "ArenaBackground"
+    ],
+    "asset_loading": "Load world/world_academy_hall_background_1920x1080.png through AssetServer during duel scene setup and keep the handle in ReflectAcademyArtManifest.",
+    "runtime_notes": [
+      "Anchor the texture to the world origin with a fixed orthographic camera.",
+      "Letterbox support keeps the full 1920x1080 painting visible on 16:9 displays.",
+      "Backdrop stays behind every actor and UI node with deterministic z ordering."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "duel_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_background",
+    "usage": "Primary duel backdrop with rosewood columns, navy banners, chandelier glow, and open negative space for spell travel.",
+    "adjacent_elements": [
+      "world_duel_platform_960x180",
+      "player_student_idle_8f_8fps",
+      "enemy_champion_idle_8f_8fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_stage",
+      "facing": "centered"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#2B1B17",
+      "#5C3317",
+      "#1A1A2E",
+      "#D4AF37",
+      "#00FFFF"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Wide academy hall interior with repeated arches, hanging lights, and a clear central lane.",
+      "components": [
+        "arched_windows",
+        "rosewood_columns",
+        "navy_banners",
+        "chandelier_glow",
+        "rear_wall_runes"
+      ]
+    },
+    "lighting": "Warm chandelier pools in the upper half and cool cyan rune spill near the floor edge."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_academy_hall_background_1920x1080.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Background canvas is exactly 1920x1080 px.",
+    "Central spell lane from x=520 to x=1400 stays visually clear of large props.",
+    "Rosewood, navy, gold, and cyan accents remain readable without reducing contrast behind projectiles."
+  ]
+}

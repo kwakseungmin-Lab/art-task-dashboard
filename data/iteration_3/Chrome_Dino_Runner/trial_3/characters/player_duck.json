@@ -1,0 +1,81 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scalable",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art T-Rex dinosaur",
+      "features": "short front legs, large eyes, thick tail",
+      "outline": "2px included in dimensions",
+      "rendering": "pixel-perfect, no antialiasing"
+    }
+  },
+  "asset": {
+    "asset_id": "player_duck",
+    "asset_name": "Player Ducking Animation",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Player character crouched state to avoid aerial obstacles",
+      "screen_position": "Fixed at x=100px from left edge, y=0px (ground level, but sprite is shorter)",
+      "adjacent_elements": ["ground_line", "pterodactyl_fly", "score_display"],
+      "usage_scenario": "Displayed when player presses Down/Swipe Down to duck under flying pterodactyls, reduces hitbox height from 90px to 55px"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "118px",
+        "height": "60px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "T-Rex dinosaur with neck lowered, body horizontal, wider and shorter than standing pose",
+      "texture": "Pixel art, hard edges, no gradients",
+      "outline": "2px solid outline integrated into sprite",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 12,
+        "loop": true,
+        "description": "Running while ducked - frame 1: left leg forward with neck down, frame 2: right leg forward with neck down. Total duration: 0.167 seconds per loop. Seamless loop required"
+      },
+      "details": "Neck bent downward, head lowered, body elongated horizontally, legs still running, tail extended behind"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_idle", "player_jump", "player_dead", "pterodactyl_fly", "ground_line"],
+      "shared_with": "Same color scheme and animation FPS (12) as player_run",
+      "differences_from": "player_run is 88x94px (taller, narrower), player_jump is static, player_idle is slower (6 FPS). Duck is uniquely 118x60px with reduced hitbox height of 55px"
+    },
+    "explicit_negations": [
+      "No color gradients or shading",
+      "No smooth anti-aliased edges",
+      "No motion blur",
+      "No dust particles",
+      "No speed lines",
+      "No transparency except full alpha channel",
+      "No vertical compression artifacts",
+      "No rotation of sprite"
+    ]
+  }
+}

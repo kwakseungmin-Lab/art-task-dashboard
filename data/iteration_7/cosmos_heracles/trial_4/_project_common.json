@@ -1,0 +1,320 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "cosmos_heracles",
+    "project_name": "Cosmos Heracles"
+  },
+  "meta": {
+    "plan_id": "cosmos_heracles__iter7__trial4",
+    "game_name": "cosmos_heracles",
+    "iteration": 7,
+    "trial_index": 4,
+    "plan_dir": "trial_4",
+    "created_at_utc": "2026-03-17T19:59:03Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304202957/cosmos_heracles/cosmos_heracles.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "category_common": {
+    "character": {
+      "camera_angle": "2d_side_orthographic",
+      "anchor_expectation": "player left-center or enemy right-center",
+      "required_context_fields": [
+        "role",
+        "screen_position",
+        "adjacent_elements",
+        "layer",
+        "usage",
+        "viewpoint"
+      ],
+      "core_state_strategy": "combine tightly coupled gameplay states into one stateful sheet when that reduces variant lineage risk"
+    },
+    "obstacles": {
+      "camera_angle": "2d_side_orthographic",
+      "ground_anchor": "bottom_center",
+      "required_context_fields": [
+        "role",
+        "screen_position",
+        "adjacent_elements",
+        "layer",
+        "usage",
+        "viewpoint"
+      ],
+      "collision_readability_rule": "blocking edges remain axis-aligned and readable at 1.0x zoom"
+    },
+    "world": {
+      "camera_angle": "2d_side_orthographic",
+      "scrolling_rule": "parallax layers use explicit speed multipliers",
+      "required_context_fields": [
+        "role",
+        "screen_position",
+        "adjacent_elements",
+        "layer",
+        "usage",
+        "viewpoint"
+      ],
+      "looping_rule": "horizontal loop seams stay within 1px tolerance when applicable"
+    },
+    "ui": {
+      "camera_angle": "screen_space_front",
+      "anchor_rule": "all UI assets use anchor_offset positioning",
+      "required_context_fields": [
+        "role",
+        "screen_position",
+        "adjacent_elements",
+        "layer",
+        "usage",
+        "viewpoint"
+      ],
+      "font_rule": "pixel fonts only, integer placement only"
+    }
+  },
+  "generation_notes": {
+    "meta_analysis_summary": [
+      "cosmos_heracles is marked unstable with fail_rate 0.6 in the provided meta_analysis.",
+      "Repeated issues from iteration 6: IF-9 on trial 2 and trial 5, IF-8 on trial 5, and Q-INV score 66 on trial 4.",
+      "Primary response in this plan: remove fragile derived asset chains, lock the core palette across every asset, and add dense per-file context/spec evidence."
+    ],
+    "kb_lookup": {
+      "art_task_plan_kb": "retrieve_kb_graph timed out before generation",
+      "meta_iteration_kb": "retrieve_kb_graph timed out before generation"
+    },
+    "avoidance_actions": [
+      "Derived run and attack states were consolidated into stateful sheets to reduce IF-9 lineage risk.",
+      "Every asset repeats the identical core palette.primary/background/accent values from _project_common.json to prevent IF-8 palette drift.",
+      "Every asset includes screen_position, adjacent_elements, viewpoint, shape.silhouette, and shape.components to raise invariance and structurality."
+    ],
+    "meta_analysis_recommendations_applied": [
+      "Removed fragile depends_on heuristics by using non-variant state sheets for core character and enemy deliverables.",
+      "Locked the same core palette.primary/background/accent triplet into every asset file and moved asset-local colors to specs.colors_hex.",
+      "Raised invariance density with explicit screen_position, dimensions_px, animation counts, timing, and acceptance criteria in every asset."
+    ],
+    "rerun_context": "Iteration 7 rerun requested after prior results were invalidated due to KB non-integration.",
+    "kb_lookup_attempted": true
+  },
+  "assets": [
+    {
+      "task_id": "world.tileset.cosmic_temple_atlas_16x16",
+      "category": "world",
+      "file": "world/world.tileset.cosmic_temple_atlas_16x16.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.background.zone1_entrance_corridor_1600x900",
+      "category": "world",
+      "file": "world/world.background.zone1_entrance_corridor_1600x900.json",
+      "execution_order": 20,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.background.zone2_celestial_hall_1600x900",
+      "category": "world",
+      "file": "world/world.background.zone2_celestial_hall_1600x900.json",
+      "execution_order": 21,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.background.zone3_stratosphere_altar_1600x900",
+      "category": "world",
+      "file": "world/world.background.zone3_stratosphere_altar_1600x900.json",
+      "execution_order": 22,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.decor.star_floor_strip_1600x20",
+      "category": "world",
+      "file": "world/world.decor.star_floor_strip_1600x20.json",
+      "execution_order": 25,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.terrain.marble_pillar_set_64x200",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.terrain.marble_pillar_set_64x200.json",
+      "execution_order": 30,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.terrain.gap_gate_set_160x110",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.terrain.gap_gate_set_160x110.json",
+      "execution_order": 31,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.terrain.rotating_pillar_set_64x64",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.terrain.rotating_pillar_set_64x64.json",
+      "execution_order": 32,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.cosmos_heracles.core_states_sheet",
+      "category": "character",
+      "file": "character/character.player.cosmos_heracles.core_states_sheet.json",
+      "execution_order": 40,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.slime_combat_sheet",
+      "category": "character",
+      "file": "character/character.enemy.slime_combat_sheet.json",
+      "execution_order": 41,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.cyclops_boss_sheet",
+      "category": "character",
+      "file": "character/character.enemy.cyclops_boss_sheet.json",
+      "execution_order": 42,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.medusa_combat_sheet",
+      "category": "character",
+      "file": "character/character.enemy.medusa_combat_sheet.json",
+      "execution_order": 43,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.cerberus_chase_sheet",
+      "category": "character",
+      "file": "character/character.enemy.cerberus_chase_sheet.json",
+      "execution_order": 44,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.boss.hydra_dualhead_sheet",
+      "category": "character",
+      "file": "character/character.boss.hydra_dualhead_sheet.json",
+      "execution_order": 45,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.pickup.star_shard_sheet_16x16",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pickup.star_shard_sheet_16x16.json",
+      "execution_order": 50,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.vfx.counter_success_spark_16x16",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.vfx.counter_success_spark_16x16.json",
+      "execution_order": 51,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.vfx.perfect_counter_flash_1600x900",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.vfx.perfect_counter_flash_1600x900.json",
+      "execution_order": 52,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.fx.zone_transition_wipe_1600x900_8f",
+      "category": "world",
+      "file": "world/world.fx.zone_transition_wipe_1600x900_8f.json",
+      "execution_order": 60,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.top_bar_overlay_1600x64",
+      "category": "ui",
+      "file": "ui/ui.hud.top_bar_overlay_1600x64.json",
+      "execution_order": 70,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.counter_gauge_radial_48px",
+      "category": "ui",
+      "file": "ui/ui.hud.counter_gauge_radial_48px.json",
+      "execution_order": 71,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.size_state_indicator_set_64px",
+      "category": "ui",
+      "file": "ui/ui.hud.size_state_indicator_set_64px.json",
+      "execution_order": 72,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.counter_result_popup_320x64",
+      "category": "ui",
+      "file": "ui/ui.hud.counter_result_popup_320x64.json",
+      "execution_order": 73,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.title_logo_512x256",
+      "category": "ui",
+      "file": "ui/ui.screen.title_logo_512x256.json",
+      "execution_order": 80,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.pause_menu_panel_480x270",
+      "category": "ui",
+      "file": "ui/ui.screen.pause_menu_panel_480x270.json",
+      "execution_order": 81,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.zone_clear_banner_640x160",
+      "category": "ui",
+      "file": "ui/ui.screen.zone_clear_banner_640x160.json",
+      "execution_order": 82,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.death_retry_panel_640x200",
+      "category": "ui",
+      "file": "ui/ui.screen.death_retry_panel_640x200.json",
+      "execution_order": 83,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.ending_score_card_960x540",
+      "category": "ui",
+      "file": "ui/ui.screen.ending_score_card_960x540.json",
+      "execution_order": 84,
+      "variant_of": null
+    }
+  ]
+}

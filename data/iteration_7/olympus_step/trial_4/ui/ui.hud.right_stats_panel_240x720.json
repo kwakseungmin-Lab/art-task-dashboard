@@ -1,0 +1,132 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.right_stats_panel_240x720",
+  "asset_name": "Right Stats Panel — 240x720",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.typography.parchment_bitmap_font_8px",
+    "obstacles.item.shard_icon_32_sheet_4f",
+    "obstacles.item.amp_icon_32_sheet_4f"
+  ],
+  "blocks": [
+    "ui.hud.confirm_button_180x50_2state",
+    "ui.hud.reset_button_120x36_2state"
+  ],
+  "blocked_by": [
+    "ui.typography.parchment_bitmap_font_8px",
+    "obstacles.item.shard_icon_32_sheet_4f",
+    "obstacles.item.amp_icon_32_sheet_4f"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.confirm_button_180x50_2state",
+      "ui.hud.reset_button_120x36_2state",
+      "obstacles.item.shard_icon_32_sheet_4f",
+      "obstacles.item.amp_icon_32_sheet_4f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_panel",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": {
+        "x": -20,
+        "y": 20
+      }
+    },
+    "layer": "ui",
+    "usage": "Right-side HUD container for shard count, amp count, move budget, and confirmation controls.",
+    "adjacent_elements": [
+      "ui.hud.confirm_button_180x50_2state",
+      "ui.hud.reset_button_120x36_2state"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 720
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#1E1B4B",
+      "#FBBF24",
+      "#D4C5A9",
+      "#F8FAFC"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "Vertical 240px panel with a 2px border, 6px corner radius, and 4 data slots.",
+      "components": [
+        "outer_frame",
+        "inner_fill",
+        "slot_row_1",
+        "slot_row_2",
+        "slot_row_3",
+        "button_band"
+      ]
+    },
+    "ui_style": {
+      "border_px": 2,
+      "corner_radius_px": 6,
+      "slot_count": 4,
+      "background_hex": "#1C1917",
+      "inner_fill_hex": "#1E1B4B",
+      "trim_hex": "#FBBF24"
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.right_stats_panel_240x720.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 240x720px.",
+    "Outer border is 2px wide with 6px corner radius and 4 slot rows.",
+    "Panel anchor offset is x=-20 and y=20 from the top-right screen anchor."
+  ]
+}

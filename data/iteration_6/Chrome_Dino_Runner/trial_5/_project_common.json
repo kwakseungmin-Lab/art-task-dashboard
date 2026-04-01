@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task_plan_pkg@6",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner"
+  },
+  "meta": {
+    "game_name": "Chrome_Dino_Runner",
+    "iteration": 6,
+    "trial_index": 5,
+    "plan_dir": "trial_5",
+    "created_at_utc": "2026-03-10T06:10:07Z",
+    "git_ref": "art_task_plan/iter6_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v6.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ],
+    "origin_definitions": {
+      "top_left": "(0,0) at top-left of canvas",
+      "ground_baseline": "y=0 is ground line baseline used by player and ground-aligned obstacles"
+    }
+  },
+  "assets": [
+    {
+      "task_id": "character.player.dino_idle",
+      "category": "character",
+      "file": "character/character.player.dino_idle.json"
+    },
+    {
+      "task_id": "character.player.dino_run",
+      "category": "character",
+      "file": "character/character.player.dino_run.json"
+    },
+    {
+      "task_id": "character.player.dino_jump",
+      "category": "character",
+      "file": "character/character.player.dino_jump.json"
+    },
+    {
+      "task_id": "character.player.dino_duck",
+      "category": "character",
+      "file": "character/character.player.dino_duck.json"
+    },
+    {
+      "task_id": "character.player.dino_dead",
+      "category": "character",
+      "file": "character/character.player.dino_dead.json"
+    },
+    {
+      "task_id": "obstacles.cactus.small",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.small.json"
+    },
+    {
+      "task_id": "obstacles.cactus.medium",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.medium.json"
+    },
+    {
+      "task_id": "obstacles.cactus.large",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.large.json"
+    },
+    {
+      "task_id": "obstacles.pterodactyl.fly",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pterodactyl.fly.json"
+    },
+    {
+      "task_id": "world.background.sky_fill",
+      "category": "world",
+      "file": "world/world.background.sky_fill.json"
+    },
+    {
+      "task_id": "world.background.cloud_small",
+      "category": "world",
+      "file": "world/world.background.cloud_small.json"
+    },
+    {
+      "task_id": "world.background.cloud_large",
+      "category": "world",
+      "file": "world/world.background.cloud_large.json"
+    },
+    {
+      "task_id": "world.ground.line_tile",
+      "category": "world",
+      "file": "world/world.ground.line_tile.json"
+    },
+    {
+      "task_id": "world.ground.texture_tile",
+      "category": "world",
+      "file": "world/world.ground.texture_tile.json"
+    },
+    {
+      "task_id": "ui.font.pixel_mono_16",
+      "category": "ui",
+      "file": "ui/ui.font.pixel_mono_16.json"
+    },
+    {
+      "task_id": "ui.hud.score_display",
+      "category": "ui",
+      "file": "ui/ui.hud.score_display.json"
+    },
+    {
+      "task_id": "ui.game_over.game_over_text",
+      "category": "ui",
+      "file": "ui/ui.game_over.game_over_text.json"
+    },
+    {
+      "task_id": "ui.game_over.press_space_prompt",
+      "category": "ui",
+      "file": "ui/ui.game_over.press_space_prompt.json"
+    }
+  ]
+}

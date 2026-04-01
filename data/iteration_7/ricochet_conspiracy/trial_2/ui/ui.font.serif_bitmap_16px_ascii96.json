@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.font.serif_bitmap_16px_ascii96",
+  "asset_name": "Serif Bitmap Font 16px ASCII96",
+  "category": "ui",
+  "subcategory": "font",
+  "priority": "P0",
+  "execution_order": 230,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.top_status_bar",
+      "ui.hud.bottom_control_bar",
+      "ui.toast.system_message_card"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "ui_font",
+    "layer": "ui",
+    "usage": "Bitmap font atlas for stage labels, counters, and result cards.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "ui.hud.top_status_bar",
+      "ui.toast.system_message_card"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 96
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "bitmap_glyph_grid",
+      "components": [
+        "glyph_grid",
+        "baseline_guides",
+        "digit_block",
+        "latin_block"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "glyph_count": 96,
+    "glyph_cell_px": {
+      "width": 16,
+      "height": 16
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.font.serif_bitmap_16px_ascii96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 256x96px and stores 96 glyph cells of 16x16px.",
+    "Digits 0-9 occupy one continuous row with no empty gap.",
+    "Primary glyph fill uses #3D2B1F and outline uses #F5F0E8 on at most 1px width."
+  ]
+}

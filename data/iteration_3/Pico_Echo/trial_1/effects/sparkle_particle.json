@@ -1,0 +1,92 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-4px",
+      "height": "2-5px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects",
+      "rendering": "top layer, temporary",
+      "style": "simple iconic shapes, PICO-8 aesthetic",
+      "behavior": "spawn, animate, fade/disappear",
+      "lifespan": "0.5-2 seconds"
+    }
+  },
+  "asset": {
+    "asset_id": "sparkle_particle",
+    "asset_name": "Sparkle Particle (Cleaning Effect)",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Visual feedback for successful cleaning action, indicates cleanliness",
+      "screen_position": "Spawns on floor area (y=110-125), random x positions",
+      "adjacent_elements": ["floor (cleaned surface)", "poop (removed objects)", "care_menu (clean button trigger)"],
+      "usage_scenario": "Appears when player swipes floor to clean. 3 sparkles appear at random floor positions, fade after 0.5 seconds. Indicates successful cleaning."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "sparkle": "#FFF1E8"
+      },
+      "shape": "Star/sparkle shape, 4-pointed cross",
+      "texture": "Flat solid color",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "particle",
+        "frames": 1,
+        "fps": 4,
+        "loop": false,
+        "description": "Spawns at random floor positions, appears instantly, fades out over 0.5 seconds. 3 sparkles spawn simultaneously when cleaning."
+      },
+      "details": "Sparkle: 3x3px white/cream (#FFF1E8) 4-pointed star shape (+ pattern). Spawn area: floor (x=10-118, y=110-125). Movement: static (no movement). Lifespan: 0.5 seconds. Fade: entire duration (gradual fade). 3 sparkles spawn simultaneously at random positions when floor cleaned."
+    },
+    "relationships": {
+      "related_assets": ["floor", "poop", "care_menu (clean button)", "dust_particle (opposite effect)"],
+      "shared_with": "White/cream color with background",
+      "differences_from": "dust_particle: white vs gray, clean vs dirty, static vs drifting. heart_particle: star vs heart, cleaning vs petting."
+    },
+    "explicit_negations": [
+      "Sparkles do not move or drift",
+      "No rotation or spinning",
+      "Sparkles do not grow or shrink (constant size)",
+      "No rainbow or color variation",
+      "Do not multiply or chain react",
+      "No sound wave lines",
+      "Sparkles do not linger (0.5s only)",
+      "Not individually triggered (all 3 spawn together)"
+    ]
+  }
+}

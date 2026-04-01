@@ -1,0 +1,134 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003013",
+  "asset_name": "Ground Baseline Strip",
+  "category": "world",
+  "subcategory": "ground",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [
+    "task_id_008003014"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003006"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_baseline",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        148
+      ]
+    },
+    "layer": "world_front",
+    "usage": "Provides the visible baseline and landing reference for the 600x150 play frame.",
+    "adjacent_elements": [
+      "player_dino_run_2f_12fps",
+      "obstacle_cactus_small_static"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 2
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Straight 1200 px horizontal strip with constant 2 px thickness for seamless tiling.",
+      "components": [
+        "horizontal_line_segment"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_ground_line_1200x2.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 1200x2 px.",
+    "Every opaque pixel uses #535353.",
+    "Left and right edges tile seamlessly when repeated at 1200 px intervals."
+  ],
+  "asset_key": "world_ground_line_1200x2",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "environment_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/environment_design.png?raw=1",
+      "purpose": "Ground texture density, cloud spacing, and skyline emptiness anchor."
+    },
+    {
+      "label": "pixel_art_moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png?raw=1",
+      "purpose": "Pixel-art outline, low-detail silhouette, and monochrome contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for background and scrolling ground strips with integer-position parallax.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "ParallaxLayer",
+      "Transform"
+    ],
+    "asset_loading": "Load world/world_ground_line_1200x2.png through AssetServer and register the handle under world_ground_line_1200x2.",
+    "runtime_notes": [
+      "Keep source pixels unfiltered with nearest-neighbor sampling and integer world transforms.",
+      "Spawn order follows execution_order so downstream setup can validate deterministic asset availability.",
+      "Collision and UI code read logical dimensions from specs.dimensions_px rather than texture metadata."
+    ]
+  }
+}

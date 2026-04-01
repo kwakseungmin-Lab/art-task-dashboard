@@ -1,0 +1,159 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003001",
+  "asset_key": "world_dungeon_backdrop_parallax_1280x720",
+  "asset_name": "Dungeon Shaft Backdrop",
+  "category": "world",
+  "subcategory": "backdrop",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "task_id_008003004",
+    "task_id_008003005",
+    "task_id_008003016",
+    "task_id_008003017"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003003",
+      "task_id_008003004",
+      "task_id_008003005",
+      "task_id_008003016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle for the backdrop and split depth bands into parallax child sprites during scene assembly.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "ShaftBackdrop",
+      "ParallaxLayer"
+    ],
+    "asset_loading": "Load world/world_dungeon_backdrop_parallax_1280x720.png through AssetServer during level setup and assign it to the ShaftBackdrop root entity.",
+    "runtime_notes": [
+      "Background layers scroll at 0.2, 0.4, 0.7, and 1.0 camera speed ratios.",
+      "Nearest-neighbor sampling and integer translation preserve tile edges during long descents.",
+      "The center void stays darker than the side walls so moving hazards read at one glance."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "shaft_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        360
+      ]
+    },
+    "layer": "world_background",
+    "usage": "Primary stage backdrop for the full descent, with four depth bands that sustain pressure without any progress marker.",
+    "adjacent_elements": [
+      "world_friction_tilekit_16px",
+      "world_abyss_dust_particles_3f_4fps",
+      "ui_survival_timer_48x16"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "colors_hex": [
+      "#0D0D0F",
+      "#1A1A2E",
+      "#3B3347",
+      "#4E5940",
+      "#C8A84B"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Four-layer dungeon shaft with stone arches, chain silhouettes, damp alcoves, and a center void that descends beyond the lower frame.",
+      "components": [
+        "far_abyss_gradient",
+        "mid_stone_columns",
+        "chain_silhouettes",
+        "torch_alcoves",
+        "foreground_shadow_vignette"
+      ]
+    },
+    "parallax": {
+      "layer_count": 4,
+      "speed_multipliers": [
+        0.2,
+        0.4,
+        0.7,
+        1.0
+      ]
+    },
+    "lighting": "Cold torch pockets and a heavy center shadow maintain downward tension across all zones."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_dungeon_backdrop_parallax_1280x720.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 1280x720 px.",
+    "Backdrop contains four readable depth bands with the center shaft kept open for obstacle silhouettes.",
+    "The brightest torch accent never exceeds 5 percent of total frame area, preserving the low-key dungeon mood."
+  ]
+}

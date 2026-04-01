@@ -1,0 +1,140 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.counter_pose",
+  "asset_name": "Player Counter Pose",
+  "category": "character",
+  "subcategory": "player_action",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "character.player.base_run",
+  "shared_properties": {
+    "palette_primary_hex": "#D9D0BE",
+    "outline_hex": "#6B6357",
+    "rendering": "pixel_art",
+    "anti_aliasing": "none",
+    "pivot": "bottom_center"
+  },
+  "differences": {
+    "animation": {
+      "fps": 15,
+      "frame_count": 3,
+      "loop": false
+    },
+    "timing_note": "Designed for ±80ms counter window feedback."
+  },
+  "depends_on": [
+    "character.player.base_run"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.base_run"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Danger Red",
+      "hex": "#E84040"
+    },
+    "shadow": {
+      "name": "Column Shadow",
+      "hex": "#6B6357"
+    },
+    "gold": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    },
+    "counter": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "boss": {
+      "name": "Boss Purple",
+      "hex": "#7B2FBE"
+    },
+    "ui_text": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "skin": {
+      "name": "Hero Skin",
+      "hex": "#E8B87A"
+    },
+    "armor": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "anti_aliasing": "none"
+  },
+  "context": {
+    "role": "player",
+    "layer": "world",
+    "usage": "One-shot counter pose played when Space input lands in the counter window.",
+    "world_alignment": {
+      "feet_on_ground": true,
+      "pivot": "bottom_center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#40E8D0",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "fps": 15,
+      "frame_count": 3,
+      "layout": {
+        "rows": 1,
+        "cols": 3,
+        "order": "left_to_right"
+      },
+      "loop": false,
+      "one_shot_duration_s": 0.2
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.counter_pose.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x96px (3 frames × 64px wide each, 1 row).",
+    "Frame 2 contains a clear bright accent using #40E8D0 to emphasize the counter hit moment.",
+    "Animation reads as a single action and returns to base run within 0.2s at 15 fps.",
+    "All frames keep bottom_center pivot at (32px, 96px)."
+  ]
+}

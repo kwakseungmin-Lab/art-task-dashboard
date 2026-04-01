@@ -1,0 +1,164 @@
+{
+  "task_id": "task_id_008004010",
+  "asset_key": "obstacle_weight_block_sheet_160x32",
+  "asset_name": "Weight Block Sheet",
+  "category": "obstacles",
+  "subcategory": "weight_block",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008004009"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004009",
+      "task_id_008004015",
+      "task_id_008004019"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use a static atlas strip and pick the proper 32x32 region per weight value through a WeightBlock component.",
+    "atlas_or_static": "tile_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "Transform",
+      "WeightBlock",
+      "GrabInteractable"
+    ],
+    "asset_loading": "Load obstacles/obstacle_weight_block_sheet_160x32.png through AssetServer before weight props are spawned.",
+    "runtime_notes": [
+      "Numeral readability stays clear at 1x and 2x scale.",
+      "All blocks share the same base silhouette so collision remains stable.",
+      "Metal highlights stay subtle to avoid confusing the blocks with light emitters."
+    ]
+  },
+  "context": {
+    "role": "weight_block_sheet",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1260,
+        740
+      ]
+    },
+    "layer": "obstacles_interactable",
+    "usage": "Five-value weight block sheet that communicates mass choices for torque puzzles.",
+    "adjacent_elements": [
+      "obstacle_balance_scale_rig_504x80",
+      "player_echo_idle_4f_6fps",
+      "ui_scale_balance_readout_192x40"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#2D1B4E",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Five square blocks with carved numerals, beveled corners, and dark underside shadows.",
+      "components": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "engraved_numerals"
+      ]
+    },
+    "tile_grid": {
+      "tile_size_px": [
+        32,
+        32
+      ],
+      "columns": 5,
+      "rows": 1
+    },
+    "weight_values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_weight_block_sheet_160x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 160x32 px and divide cleanly into five 32x32 cells.",
+    "Numerals remain readable at a 4x presentation scale.",
+    "Each block keeps an identical outer silhouette for consistent grab logic."
+  ],
+  "blocked_by": [
+    "task_id_008004009"
+  ],
+  "blocks": [
+    "task_id_008004019"
+  ],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

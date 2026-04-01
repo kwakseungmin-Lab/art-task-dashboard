@@ -1,0 +1,123 @@
+{
+  "asset_name": "Zone 1 Corridor Parallax 1600x900",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 11,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.floor.star_floor_strip",
+      "character.boss.cyclops_state_sheet"
+    ]
+  },
+  "context": {
+    "role": "background_zone_1",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.floor.star_floor_strip",
+      "character.boss.cyclops_state_sheet"
+    ],
+    "layer": "background_layers_0_to_2",
+    "usage": "Used during Zone 1 corridor and Zone 1 boss lead-in with scroll multiplier set per layer 0.1, 0.3, and 0.6."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "none",
+      "frame_count": 1,
+      "frame_time_s": 0.0,
+      "loop": false
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Three depth bands with nebula at y 0 to 260, distant temple silhouette at y 200 to 520, and marble columns at y 180 to 820.",
+      "components": [
+        "layer0 star field",
+        "layer1 temple silhouette",
+        "layer2 corridor columns",
+        "boss gate arch 320x420"
+      ]
+    },
+    "parallax_layers": [
+      {
+        "name": "layer0_nebula",
+        "scroll_multiplier": 0.1
+      },
+      {
+        "name": "layer1_temple_silhouette",
+        "scroll_multiplier": 0.3
+      },
+      {
+        "name": "layer2_columns",
+        "scroll_multiplier": 0.6
+      }
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.zone1_corridor_parallax.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Background canvas is exactly 1600x900 px.",
+    "Parallax metadata lists three layers with multipliers 0.1, 0.3, and 0.6.",
+    "Column rhythm repeats on a 128 px interval across the full width.",
+    "No color outside the listed #RRGGBB values appears in the exported sheet."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "world.background.zone1_corridor_parallax",
+  "category": "world",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "varies by element"
+    },
+    "color_scheme": {
+      "primary": "#FFF1E8",
+      "secondary": "#C2C3C7",
+      "accent": "#AB5236"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art",
+      "animation_method": "none (static elements)",
+      "layer_order": 1
+    }
+  },
+  "asset": {
+    "asset_id": "perch",
+    "asset_name": "Wooden Perch",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Echo's primary resting position, central gameplay element",
+      "screen_position": "Horizontal bar at y=80, spanning x=24 to x=104",
+      "adjacent_elements": ["echo (all states)", "cage_background"],
+      "usage_scenario": "Always visible, Echo stands on this perch in all non-sleeping states"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "80px",
+        "height": "4px"
+      },
+      "colors": {
+        "wood": "#AB5236",
+        "highlight": "#FFCCAA"
+      },
+      "shape": "Horizontal cylindrical wooden bar",
+      "texture": "Wood grain suggested by 1px horizontal lines",
+      "outline": "1px dark outline (#1D2B53) on top and bottom edges",
+      "shadow": "1px shadow below perch (#5F574F)",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static perch, no animation"
+      },
+      "details": "Brown wooden bar (#AB5236) 80px wide and 4px tall, positioned at y=80, top edge has 1px highlight (#FFCCAA) to suggest roundness, bottom has 1px shadow (#5F574F), ends connect to cage sides (implied)"
+    },
+    "relationships": {
+      "related_assets": ["echo_idle", "echo_eating", "echo_happy", "echo_preening", "echo_dirty", "echo_hungry", "echo_singing", "cage_background"],
+      "shared_with": "All Echo states use this as standing position",
+      "differences_from": "floor (different height and purpose)"
+    },
+    "explicit_negations": [
+      "No swinging or movement",
+      "No rope or chain attachments visible",
+      "No texture beyond simple wood grain",
+      "No wear or damage marks",
+      "No color variations",
+      "No interactive elements (purely visual reference point)"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "base_size": {
+    "width": "variable",
+    "height": "12-24px"
+  },
+  "color_scheme": {
+    "primary": "#535353",
+    "background": "#F7F7F7",
+    "highlight": "#FFFFFF"
+  },
+  "shared_attributes": {
+    "style": "monospace pixel font",
+    "font_type": "pixel font, monospace",
+    "rendering": "pixel-perfect text",
+    "background": "transparent (no UI boxes or panels)",
+    "alignment": "varies by widget"
+  }
+}

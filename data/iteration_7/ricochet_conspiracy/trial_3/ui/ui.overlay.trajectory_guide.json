@@ -1,0 +1,135 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.overlay.trajectory_guide",
+  "asset_name": "Trajectory Guide Overlay",
+  "category": "ui",
+  "subcategory": "overlay_widget",
+  "priority": "P1",
+  "execution_order": 24,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This overlay visualizes bounce planning and curved-flight uncertainty with fixed measurements."
+  ],
+  "depends_on": [
+    "ui.hud.bottom_bar",
+    "obstacles.launchable.stone_ball"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.bottom_bar",
+    "obstacles.launchable.stone_ball"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.feather_quill",
+      "obstacles.environment.mirror",
+      "obstacles.environment.stone_wall"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "aiming_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 50,
+      "width": 1280,
+      "height": 620,
+      "anchor": "top_left"
+    },
+    "layer": "ui_overlay",
+    "usage": "Visible while the player drags a launchable object and previews up to five ricochets.",
+    "viewpoint": {
+      "camera_angle": "ui_front",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "ui.control.power_slider",
+      "obstacles.launchable.stone_ball",
+      "obstacles.launchable.feather_quill"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#F5F0E8",
+      "#D4A843",
+      "#C8B4E0",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "idle",
+      "states": [
+        {
+          "name": "idle",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "pulse",
+          "frame_count": 4,
+          "fps": 8
+        }
+      ]
+    },
+    "notes": [
+      "Primary dotted path uses 6 px dash length with 6 px gap at 60% opacity.",
+      "Uncertainty band for quill shots expands to 20 px total thickness at the fifth bounce sample."
+    ],
+    "shape": {
+      "silhouette": "dotted guide chain with evenly spaced circles and a soft target arrowhead",
+      "components": [
+        "dot chain",
+        "turn marker dots",
+        "arrowhead cap",
+        "soft glow halo"
+      ]
+    }
+  },
+  "deliverables": [
+    "Static dotted-line overlay atlas for straight and bounce segments.",
+    "4-frame pulse animation for active preview.",
+    "Curved uncertainty band overlay for quill shots."
+  ],
+  "acceptance_criteria": [
+    "Overlay canvas is exactly 1280x620 px.",
+    "Dash pattern uses 6 px dash length with 6 px gap.",
+    "Quill uncertainty band reaches 20 px total thickness at the fifth bounce sample."
+  ]
+}

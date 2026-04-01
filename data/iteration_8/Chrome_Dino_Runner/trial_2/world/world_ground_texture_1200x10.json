@@ -1,0 +1,150 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020014",
+  "asset_name": "Ground Texture Tile 1200x10",
+  "category": "world",
+  "subcategory": "ground_lane",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": [
+    "The texture stays on the same ground lane as the 1200x2 baseline strip.",
+    "The palette stays monochrome and readable against the #F7F7F7 background.",
+    "The tile is built for seamless horizontal looping."
+  ],
+  "differences": [
+    "The texture adds sparse pebbles and notches below the main baseline strip.",
+    "The texture height expands to 10px while the main line remains separate.",
+    "Opaque marks cover less than 45% of the tile so the lane stays visually minimal."
+  ],
+  "depends_on": [
+    "task_id_008020013"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020013"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020013",
+      "task_id_008020001",
+      "task_id_008020006"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_texture",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        120
+      ]
+    },
+    "layer": "world_foreground",
+    "usage": "Optional texture strip that adds motion detail under the ground line without changing collision height.",
+    "adjacent_elements": [
+      "task_id_008020013",
+      "task_id_008020001",
+      "task_id_008020006"
+    ],
+    "viewpoint": {
+      "camera_angle": "camera_fixed",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 10
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "scroll_strip",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": true,
+      "speed_px_per_sec": 300
+    },
+    "shape": {
+      "silhouette": "Low pebble texture band with sparse irregular marks under the main baseline.",
+      "components": [
+        "pebble_marks",
+        "notch_marks",
+        "negative_space_band"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_ground_texture_1200x10.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 1200x10px.",
+    "The left and right tile edges align without a visible seam when repeated horizontally.",
+    "Only #535353 and transparency appear in painted pixels."
+  ],
+  "asset_key": "world_ground_texture_1200x10",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "t_rex_runner_sprite_sheet_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "Grounds sky, cloud, and ground strip spacing that defines motion readability."
+    },
+    {
+      "label": "t_rex_runner_sprite_sheet_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/default_100_percent/100-offline-sprite.png",
+      "purpose": "Grounds sky, cloud, and ground strip spacing that defines motion readability."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle with a single nearest-neighbor texture.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer in the Loading state and store the handle in a typed resource before gameplay starts.",
+    "runtime_notes": [
+      "Snap transforms to whole pixels before render extraction.",
+      "Use visibility toggles or spawn pools instead of mutating image handles during active play.",
+      "Keep collider setup separate from the art bundle so gameplay forgiveness margins remain tunable."
+    ]
+  }
+}

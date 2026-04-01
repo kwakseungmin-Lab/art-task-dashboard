@@ -1,0 +1,137 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.candlestick",
+  "asset_name": "Candlestick Projectile",
+  "category": "obstacles",
+  "subcategory": "launchable_object",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This projectile carries flame readability and metallic weight cues."
+  ],
+  "depends_on": [
+    "world.foreground.floor_tiles"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.foreground.floor_tiles"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.candle",
+      "ui.overlay.trajectory_guide"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "starter_projectile",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 120,
+      "y": 500,
+      "width": 24,
+      "height": 48,
+      "anchor": "top_left"
+    },
+    "layer": "midground_interactive",
+    "usage": "Used from stage 1-1 onward as a medium-mass projectile with ignite interaction.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_right"
+    },
+    "adjacent_elements": [
+      "obstacles.environment.candle",
+      "character.noble_basic",
+      "ui.overlay.trajectory_guide"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 48
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#F5F0E8",
+      "#E8704A",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "idle",
+      "states": [
+        {
+          "name": "idle",
+          "frame_count": 4,
+          "fps": 2
+        },
+        {
+          "name": "move",
+          "frame_count": 4,
+          "fps": 8
+        },
+        {
+          "name": "ignite",
+          "frame_count": 4,
+          "fps": 12
+        }
+      ]
+    },
+    "notes": [
+      "Body mass cue uses a 12 px base and 6 px stem to stay readable at 100% zoom.",
+      "Flame height is 8 px in idle and 12 px during ignite state."
+    ],
+    "shape": {
+      "silhouette": "tall candlestick with a narrow stem, wide base, and single flame tip",
+      "components": [
+        "flame tip",
+        "candle cup",
+        "vertical stem",
+        "round base"
+      ]
+    }
+  },
+  "deliverables": [
+    "Idle loop 4 frames at 2 fps.",
+    "Motion loop 4 frames at 8 fps.",
+    "Ignite response loop 4 frames at 12 fps."
+  ],
+  "acceptance_criteria": [
+    "Projectile size is exactly 24x48 px.",
+    "Idle, move, and ignite states are all present in one sprite package.",
+    "Gold metal body uses accent color #D4A843 on the visible frame silhouette."
+  ]
+}

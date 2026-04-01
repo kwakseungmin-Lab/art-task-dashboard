@@ -1,0 +1,160 @@
+{
+  "task_id": "task_id_008101019",
+  "asset_key": "ui_scale_balance_floater_176x40",
+  "asset_name": "Scale Balance Floater",
+  "category": "ui",
+  "subcategory": "worldspace_overlay",
+  "priority": "P1",
+  "execution_order": 190,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101003",
+    "task_id_008101013"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101003",
+    "task_id_008101013"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle in world space or a UI node whose transform follows the scale pivot anchor.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "ScaleStatusOverlay"
+    ],
+    "asset_loading": "Load ui/ui_scale_balance_floater_176x40.png through AssetServer and attach it to a follow transform above the scale pivot.",
+    "runtime_notes": [
+      "The panel must remain readable while decks tilt beneath it.",
+      "Reserve clear fields for L value, R value, current angle, and target angle tolerance.",
+      "Keep the art lightweight so it does not obscure the player or blocks on the scale."
+    ]
+  },
+  "context": {
+    "role": "worldspace_scale_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        690
+      ]
+    },
+    "layer": "ui_worldspace_overlay",
+    "usage": "Dynamic floating readout above the scale showing left and right weights plus the current angle versus the target band.",
+    "adjacent_elements": [
+      "world_scale_assembly_512x96",
+      "obstacle_weight_block_set_5states_32x32",
+      "echo_clone_idle_4f_8fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 176,
+      "height": 40
+    },
+    "colors_hex": [
+      "#1C1826",
+      "#C9A84C",
+      "#F5EFE0",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Compact ornamental readout plate with left and right value windows and a lower angle strip.",
+      "components": [
+        "left_value_window",
+        "right_value_window",
+        "angle_strip",
+        "target_band_marker",
+        "outer_frame"
+      ]
+    },
+    "layout": {
+      "value_labels": [
+        "L",
+        "R"
+      ],
+      "angle_format": "XXX° / target ±X°"
+    }
+  },
+  "acceptance_criteria": [
+    "PNG bounds are exactly 176x40 px.",
+    "The panel has clearly separated left, right, and angle regions for live text updates.",
+    "Decorative trim never intrudes into the text-safe regions needed for numeric readability."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101003",
+      "task_id_008101008",
+      "task_id_008101010",
+      "task_id_008101013",
+      "task_id_008101016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_scale_balance_floater_176x40.png",
+      "transparent_background": true
+    }
+  ]
+}

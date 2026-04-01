@@ -1,0 +1,110 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.effect.wine_glass_shard_cluster",
+  "asset_name": "Wine Glass Shard Cluster",
+  "category": "obstacles",
+  "subcategory": "effect",
+  "priority": "P1",
+  "execution_order": 130,
+  "variant_of": "obstacles.launchable.wine_glass_sprite",
+  "shared_properties": [
+    "glass_material",
+    "ivory_highlight",
+    "burgundy_liquid_color"
+  ],
+  "differences": [
+    "5 separated shard silhouettes",
+    "wider 40x24 layout",
+    "base stem removed"
+  ],
+  "depends_on": [
+    "obstacles.launchable.wine_glass_sprite"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.wine_glass_sprite"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "fragment_effect",
+    "layer": "world_objects",
+    "usage": "Break-state sprite showing 5 shard pieces spread from one glass impact.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 24
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#F5F0E8",
+      "#8B3A52"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "scattered_shard_cluster",
+      "components": [
+        "large_left_shard",
+        "large_right_shard",
+        "three_small_shards",
+        "liquid_splash_marks"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.effect.wine_glass_shard_cluster.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 40x24px and contains 5 visible shard pieces.",
+    "Largest shard stays under 16x12px so the cluster reads as broken glass, not a full object.",
+    "Cluster keeps at least 8 transparent pixels between outermost shard tips."
+  ]
+}

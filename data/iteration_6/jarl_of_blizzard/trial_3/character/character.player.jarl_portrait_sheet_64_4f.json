@@ -1,0 +1,124 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.jarl_portrait_sheet_64_4f",
+  "asset_name": "Jarl Portrait — 64×64 (4 frames idle blink)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P1",
+  "execution_order": 10,
+  "variant_of": null,
+  "depends_on": [
+    "ui.typography.bitmap_font_bw_8px"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.typography.bitmap_font_bw_8px"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_portrait",
+    "layer": "ui_hud",
+    "usage": "Shown in top-left HUD as the chief's portrait; should read clearly under blizzard overlay.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": {
+        "x": 24,
+        "y": 24
+      }
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "frames": [
+      {
+        "id": "idle_1",
+        "size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "note": "Neutral stare."
+      },
+      {
+        "id": "idle_2",
+        "size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "note": "Blink."
+      },
+      {
+        "id": "idle_3",
+        "size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "note": "Frost breath puff (subtle)."
+      },
+      {
+        "id": "idle_4",
+        "size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "note": "Return to neutral."
+      }
+    ],
+    "layout_note": "4 frames packed horizontally into 256×64; transparent background."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.jarl_portrait_sheet_64_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 256×64px (4× 64×64).",
+    "Portrait silhouette is readable at 1× scale in grayscale only.",
+    "Animation loop feels calm (no large motion) and stays within 64×64 frame."
+  ]
+}

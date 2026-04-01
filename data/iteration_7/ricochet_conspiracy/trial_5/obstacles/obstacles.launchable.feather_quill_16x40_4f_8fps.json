@@ -1,0 +1,126 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.feather_quill_16x40_4f_8fps",
+  "asset_name": "Feather Quill (4f 8fps)",
+  "category": "obstacles",
+  "subcategory": "launchable_feather_quill",
+  "priority": "P2",
+  "execution_order": 190,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.trajectory_dotted_line_640x96",
+      "character.noble.standard_idle_6f_4fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "launchable_object",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Selected by the player as a low-mass launchable with a curved flight arc and low restitution.",
+    "adjacent_elements": [
+      "trajectory line",
+      "standard noble"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 40
+    },
+    "colors_hex": [
+      "#F5F0E8",
+      "#D4A843",
+      "#8B6B5C",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [
+        16,
+        40
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "long feather vane with a thin shaft and a pointed nib at the lower tip",
+      "components": [
+        "feather_vane",
+        "shaft",
+        "nib"
+      ]
+    },
+    "physics_tags": {
+      "mass_relative": 0.5,
+      "base_restitution": 0.3,
+      "gravity_accel_px_per_sec2": 60,
+      "trajectory_error_degrees": 10
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.feather_quill_16x40_4f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 64x40px with 4 columns, 1 row, and 0px spacing.",
+    "Feather vane width stays between 8px and 10px and the shaft line remains 1px wide in all frames.",
+    "Only #F5F0E8, #D4A843, #8B6B5C, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

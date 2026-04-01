@@ -1,0 +1,118 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.toast.message_panel",
+  "asset_name": "Toast Message Panel (Undo None)",
+  "category": "ui",
+  "subcategory": "toast",
+  "priority": "P1",
+  "execution_order": 69,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    },
+    "others": [
+      {
+        "name": "warm_gray_stone",
+        "hex": "#A89880"
+      },
+      {
+        "name": "pale_cobalt_noble",
+        "hex": "#8BA7C7"
+      },
+      {
+        "name": "deep_burgundy_boss",
+        "hex": "#8B3A52"
+      },
+      {
+        "name": "coral_orange_fx",
+        "hex": "#E8704A"
+      },
+      {
+        "name": "ivory_white_trajectory",
+        "hex": "#F5F0E8"
+      },
+      {
+        "name": "lavender_clear",
+        "hex": "#C8B4E0"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown",
+    "notes": {
+      "violence_tone": "no_gore_comedic_pop_fx",
+      "materials": [
+        "stone",
+        "wood",
+        "glass",
+        "gold",
+        "cloth"
+      ]
+    }
+  },
+  "context": {
+    "role": "toast",
+    "layer": "ui",
+    "usage": "Small panel behind toast text such as \"Undo 없음\"; fades out in 0.8s",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_center",
+      "offset_px": [
+        0,
+        64
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 36
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#3D2B1F"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.toast.message_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel is exactly 200x36px with rounded corners; interior is #E8D5C4 at 90% opacity.",
+    "Has a 2px outline in #3D2B1F and no decorative elements that reduce text readability.",
+    "Leaves a centered text-safe area of at least 160x20px (8px padding left/right/top/bottom)."
+  ]
+}

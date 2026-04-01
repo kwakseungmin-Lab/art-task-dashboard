@@ -1,0 +1,138 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.hazard.fog_tile_64_sheet_6f",
+  "asset_name": "Fog Hazard Tile Sheet — 384x64, 6 frames",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P2",
+  "execution_order": 110,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.path_link_dash_64_sheet_6f",
+      "world.tiles.marble_grid_64_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "visibility_hazard_tile",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "layer": "world_hazards",
+    "usage": "Animated mist tile that lowers route readability without changing the board footprint.",
+    "adjacent_elements": [
+      "world.tiles.marble_grid_64_atlas",
+      "ui.overlay.path_link_dash_64_sheet_6f"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_2d",
+      "facing": "north_up"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 384,
+      "height": 64
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#6B7280",
+      "#94A3B8",
+      "#CBD5E1",
+      "#D4C5A9"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 6,
+      "fps": 3,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 6,
+        "frame_size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "order": [
+          "fog_1",
+          "fog_2",
+          "fog_3",
+          "fog_4",
+          "fog_5",
+          "fog_6"
+        ],
+        "padding_px": 0
+      }
+    },
+    "shape": {
+      "silhouette": "Square tile with a 6px perimeter mist band and a clear center rune hole.",
+      "components": [
+        "base_tile",
+        "mist_band",
+        "center_hole"
+      ]
+    },
+    "mist": {
+      "perimeter_band_px": 6,
+      "alpha_range": [
+        0.35,
+        0.55
+      ]
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.fog_tile_64_sheet_6f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 384x64px with 6 frames of 64x64px.",
+    "Perimeter mist band is 6px wide in every frame.",
+    "Mist alpha stays between 0.35 and 0.55 and the center hole remains visible."
+  ]
+}

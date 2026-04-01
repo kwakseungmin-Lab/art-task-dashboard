@@ -1,0 +1,152 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003003",
+  "asset_key": "world_spell_lane_overlay_960x220",
+  "asset_name": "Spell Lane Overlay",
+  "category": "world",
+  "subcategory": "lane_overlay",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001",
+    "task_id_008003002"
+  ],
+  "blocks": [
+    "task_id_008003004",
+    "task_id_008003009",
+    "task_id_008003016"
+  ],
+  "blocked_by": [
+    "task_id_008003001",
+    "task_id_008003002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003012",
+      "task_id_008003016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle with alpha blending for the lane overlay and keep it on a dedicated effects layer.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "SpellLaneOverlay"
+    ],
+    "asset_loading": "Load world/world_spell_lane_overlay_960x220.png through AssetServer after the arena background is ready and attach it to the lane entity.",
+    "runtime_notes": [
+      "Lane overlay remains screen stable because the duel camera does not pan.",
+      "The reflect line coordinates feed gameplay timing markers without reading texture pixels at runtime.",
+      "Transparent edges must preserve the hall painting below the lane."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "projectile_lane",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        480,
+        300
+      ]
+    },
+    "layer": "world_fx_overlay",
+    "usage": "Translucent combat lane that frames forecast travel, reflect line placement, and return path readability.",
+    "adjacent_elements": [
+      "world_duel_platform_960x180",
+      "projectile_fire_fly_6f_12fps",
+      "ui_timing_bar_600x30"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_stage",
+      "facing": "left_to_right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 960,
+      "height": 220
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#00FFFF",
+      "#ADFF2F",
+      "#FFFACD",
+      "#2B1B17"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Horizontal lane band with a thin reflect line, soft edge fade, and a brighter center guide.",
+      "components": [
+        "lane_band",
+        "reflect_line",
+        "good_window_glow",
+        "perfect_core_mark"
+      ]
+    },
+    "lighting": "Center line carries cyan glow and side bands fade into transparent navy."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_spell_lane_overlay_960x220.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay frame is exactly 960x220 px.",
+    "Reflect line sits 180 px from the left edge and stays visible on both dark and warm background regions.",
+    "Outer alpha fade reaches full transparency before the frame edge to prevent harsh lane cutoffs."
+  ]
+}

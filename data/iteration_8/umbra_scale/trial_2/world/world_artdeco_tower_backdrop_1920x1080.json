@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020110",
+  "asset_key": "world_artdeco_tower_backdrop_1920x1080",
+  "asset_name": "Art Deco Tower City Backdrop (1920x1080 static)",
+  "category": "world",
+  "subcategory": "environment_backdrop",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The backdrop fills the full 1920x1080 canvas and establishes the vertical tower-city mood behind all puzzle geometry.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while architectural violet and teal tones stay inside specs.colors_hex.",
+    "Layered silhouettes preserve strong negative space for beam visibility and object readability."
+  ],
+  "differences": [
+    "Foreground deco arches, midground balconies, and distant spires create a clear depth stack tuned for side-view puzzle play.",
+    "Window highlights stay sparse so beam cores remain the strongest luminous elements on screen.",
+    "A vertical climb emphasis appears through repeating elevator ribs and receding tower shafts rather than street detail."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_008020106",
+    "task_id_008020107",
+    "task_id_008020109",
+    "task_id_008020111",
+    "task_id_008020112",
+    "task_id_008020113",
+    "task_id_008020116"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020106",
+      "task_id_008020109",
+      "task_id_008020111",
+      "task_id_008020112",
+      "task_id_008020116"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the full-floor presentation, 16:9 framing, and tower-climb fantasy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the art deco skyline, gold trim, and dusk mood used across the package."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra-to-environment scale so the player silhouette reads against the world."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle with optional parallax layers split into child entities at export time.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "BackdropLayer"
+    ],
+    "asset_loading": "Load the backdrop during FloorLoading and register it as the full-floor environment plate.",
+    "runtime_notes": [
+      "Allow optional layer slicing into foreground, midground, and distant tower silhouettes for subtle parallax.",
+      "Keep all luminous window details dimmer than beam hazards and exit-door cues.",
+      "Anchor the backdrop to world-space rather than the HUD camera."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "full_floor_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "world",
+    "usage": "Full-stage environment art that grounds puzzle pieces in a perpetual-dusk art deco tower city.",
+    "adjacent_elements": [
+      "task_id_008020111",
+      "task_id_008020112"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": null,
+    "parallax_notes": [
+      "Foreground parallax factor target is 1.0.",
+      "Midground parallax factor target is 0.6.",
+      "Distant tower parallax factor target is 0.3."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_artdeco_tower_backdrop_1920x1080.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Backdrop art is exactly 1920x1080 px and preserves clear negative space for beams, objects, and character silhouettes.",
+    "Architectural layers communicate a vertical tower city without competing with puzzle-critical art.",
+    "Bright accents stay restrained so exposure-white beams remain the dominant hazard cue."
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.cactus_pair_cluster",
+  "asset_name": "Obstacle — paired cactus cluster",
+  "category": "obstacles",
+  "subcategory": "ground_hazard",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "Hazard width is approximately double the single cactus footprint.",
+    "Secondary trunk overlaps the lead trunk by 4 to 10px to avoid a detached read.",
+    "Cluster still fits the early-game height ceiling used by the player jump pose."
+  ],
+  "depends_on": [
+    "obstacles.cactus_single"
+  ],
+  "blocks": [
+    "obstacles.cactus_triplet_cluster"
+  ],
+  "blocked_by": [
+    "obstacles.cactus_single"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus_single",
+      "obstacles.cactus_triplet_cluster",
+      "character.player.dino_air_pose"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_hazard",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        560,
+        80
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Two-cactus cluster that widens the jump timing window without changing the grounded lane height."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 68,
+      "height": 70
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "silhouette_notes": [
+      "Lead trunk is the tallest element in the cluster.",
+      "Rear trunk top ends within 6px of the lead trunk top.",
+      "Outer contour remains compact enough for a 68px width budget."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus_pair_cluster.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 68x70px.",
+    "The gap or overlap between both trunks reads as two units at 1x scale.",
+    "Highest painted pixel stays within 70px height to match the low-height ground set."
+  ]
+}

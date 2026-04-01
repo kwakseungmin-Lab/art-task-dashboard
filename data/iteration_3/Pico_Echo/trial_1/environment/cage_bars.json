@@ -1,0 +1,89 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art background",
+      "rendering": "single layer, no parallax",
+      "style": "minimal, clean, PICO-8 aesthetic",
+      "perspective": "front-facing 2D, no depth"
+    }
+  },
+  "asset": {
+    "asset_id": "cage_bars",
+    "asset_name": "Cage Bars (Top Edge)",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Visual indicator of cage enclosure, top edge decoration",
+      "screen_position": "Top edge of screen, y=0 to y=8",
+      "adjacent_elements": ["cage_background (below)", "all game elements (below bars)"],
+      "usage_scenario": "Always visible at top of screen. Provides context that view is inside a cage. Static decorative element."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "128px",
+        "height": "8px"
+      },
+      "colors": {
+        "bars": "#C2C3C7"
+      },
+      "shape": "Horizontal pattern of vertical bars, evenly spaced",
+      "texture": "Flat pixel art, no gradients",
+      "outline": "None (bars themselves are solid)",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No animation. Static decorative element."
+      },
+      "details": "Pattern: vertical bars 2px wide, spaced 6px apart (2px bar, 6px gap, repeat). Bars extend from y=0 to y=8. Color: light gray (#C2C3C7). Approximately 16 bars across 128px width. Simple repeating pattern."
+    },
+    "relationships": {
+      "related_assets": ["cage_background", "perch"],
+      "shared_with": "Gray color scheme with UI elements",
+      "differences_from": "perch: horizontal vs vertical orientation, brown vs gray. Background: patterned vs solid."
+    },
+    "explicit_negations": [
+      "No 3D depth or perspective",
+      "Bars do not curve or bend",
+      "No metallic shine or reflection",
+      "No shadows cast by bars",
+      "Bars do not animate or sway",
+      "No rust or wear texture",
+      "Spacing is uniform (not random)",
+      "Does not extend to bottom of screen"
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040409",
+  "asset_key": "battle_hud_resource_panel",
+  "asset_name": "Battle HUD Resource Panel",
+  "category": "ui",
+  "subcategory": "hud_overlay",
+  "priority": "P0",
+  "execution_order": 9,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "UI overlays stay on the 1920x1080 screen-space canvas and use the copied package palette in every file.",
+    "Panel borders keep a 2 px outline and nine-slice safe corners for Bevy UI scaling."
+  ],
+  "differences": [
+    "This asset packages player HP, enemy HP, round label, deck count, and cost pips into one screen-space HUD panel set."
+  ],
+  "depends_on": [
+    "task_id_825040401",
+    "task_id_825040404"
+  ],
+  "blocks": [
+    "task_id_825040410",
+    "task_id_825040411",
+    "task_id_825040412"
+  ],
+  "blocked_by": [
+    "task_id_825040401",
+    "task_id_825040404"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040404",
+      "task_id_825040405",
+      "task_id_825040410",
+      "task_id_825040411",
+      "task_id_825040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "HUD element sizes, anchor locations, and update triggers grounding."
+    },
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Panel framing, gold trim thickness, and readable negative space grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use Bevy UI NodeBundle containers with nine-slice ImageNode children built from this panel atlas.",
+    "atlas_or_static": "static_image",
+    "ecs_components": [
+      "Node",
+      "ImageNode",
+      "Style",
+      "UiHudPanel",
+      "HudValueLabel"
+    ],
+    "asset_loading": "Load ui/battle_hud_resource_panel.png through AssetServer and register fixed rect slices for each HUD region.",
+    "runtime_notes": [
+      "Enemy HP region is anchored to the top-right and player HP region is anchored to the bottom-right.",
+      "Round label safe area is centered at x=960 px with an 80x30 text box.",
+      "Cost pips reserve a 150x20 region at the lower center of the HUD."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Main HUD panel atlas for health bars, round label, deck count, and cost display.",
+    "screen_position": {
+      "anchor": "top_left",
+      "x_px": 0,
+      "y_px": 0
+    },
+    "layer": {
+      "name": "ui_hud",
+      "z_index": 80
+    },
+    "usage": "Visible for the full duel loop except during full-screen fade transitions."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 220
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#2ECC71",
+      "#E74C3C",
+      "#BDC3C7",
+      "#FFFACD"
+    ],
+    "animation": {
+      "mode": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "battle_hud_resource_panel.png",
+      "format": "png",
+      "size_px": {
+        "width": 1920,
+        "height": 220
+      },
+      "notes": "Screen-space HUD atlas strip with fixed regions for bars, labels, and cost pips."
+    },
+    {
+      "artifact": "battle_hud_resource_panel_layout.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Rect map for enemy HP, player HP, round label, deck count, and cost pips."
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 1920x220 px.",
+    "Enemy HP bar region is exactly 200x20 px, player HP bar region is exactly 200x20 px, round label region is exactly 80x30 px, and cost pip region is exactly 150x20 px.",
+    "All border strokes use #D4AF37 at 2 px thickness with no alternate border hex values."
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "task_id": "task_id_008101004",
+  "asset_key": "world_exit_door_8f_64x96",
+  "asset_name": "Tower Exit Door Opening Sequence",
+  "category": "world",
+  "subcategory": "goal",
+  "priority": "P1",
+  "execution_order": 40,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008101001",
+    "task_id_008101002"
+  ],
+  "blocks": [
+    "task_id_008101020"
+  ],
+  "blocked_by": [
+    "task_id_008101001",
+    "task_id_008101002"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the opening animation and attach a goal trigger collider child entity.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "ExitDoor",
+      "Transform"
+    ],
+    "asset_loading": "Load world/world_exit_door_8f_64x96.png through AssetServer and build a single-row eight-frame atlas during level bootstrap.",
+    "runtime_notes": [
+      "Frame progression should support closed, cracking, opening, and fully open poses in a single non-looping sequence.",
+      "Keep the collision trigger aligned to the final open doorway rather than the decorative frame.",
+      "The glow inside the doorway should become brightest in the last two frames to confirm floor completion."
+    ]
+  },
+  "context": {
+    "role": "exit_goal",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1660,
+        620
+      ]
+    },
+    "layer": "world_goal",
+    "usage": "Exit landmark that opens after the target scale angle is reached and marks the route to the next tower floor.",
+    "adjacent_elements": [
+      "world_tower_tilekit_32px",
+      "ui_floor_timer_strip_240x48",
+      "ui_clear_rank_panel_480x270"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "A tall art-deco door with ribbed frame, radial crest, and bright opening seam that widens across the sequence.",
+      "components": [
+        "outer_frame",
+        "crest_panel",
+        "inner_seam",
+        "door_leaf",
+        "goal_glow"
+      ]
+    },
+    "interaction": {
+      "trigger": "player_overlap_after_unlock",
+      "result": "floor_clear"
+    }
+  },
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 512x96 px with eight 64x96 frames.",
+    "Frame 1 reads fully closed, frame 8 reads fully open, and the opening seam grows monotonically across the sequence.",
+    "The inner glow stays readable against the dark tower backdrop without washing out the gold frame trim."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101001",
+      "task_id_008101002",
+      "task_id_008101018",
+      "task_id_008101020",
+      "task_id_008101009"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_exit_door_8f_64x96.png",
+      "transparent_background": true
+    }
+  ]
+}

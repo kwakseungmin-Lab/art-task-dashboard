@@ -1,0 +1,183 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003009",
+  "asset_key": "player_echo_anchor_idle_4f_4fps",
+  "asset_name": "Echo Anchor Idle Loop",
+  "category": "character",
+  "subcategory": "echo_helper",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003005",
+    "task_id_008003013"
+  ],
+  "blocks": [
+    "task_id_008003012",
+    "task_id_008003022"
+  ],
+  "blocked_by": [
+    "task_id_008003005",
+    "task_id_008003013"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003012",
+      "task_id_008003013",
+      "task_id_008003022"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra silhouette, limb taper, eye glow placement, and cloak-like vapor edge anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for summoned echo helpers and keep the pivot centered on the contact foot so the helper can sit on a scale surface without jitter.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "EchoAnchor",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_echo_anchor_idle_4f_4fps.png through AssetServer during summon setup and cache it on the EchoAnchor bundle.",
+    "runtime_notes": [
+      "Echo helpers stay semi transparent in game and use a low frame rate to avoid visual noise.",
+      "Summon count UI keys off the active EchoAnchor entity count rather than sprite frame state.",
+      "Pivot alignment must allow clean placement on both flat and tilted scale surfaces."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "echo_helper_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1040,
+        632
+      ]
+    },
+    "layer": "character_echo",
+    "usage": "Summoned helper silhouette that acts as an extra weight unit on scale puzzles and marks a safe anchor in shadow zones.",
+    "adjacent_elements": [
+      "player_umbra_idle_6f_6fps",
+      "obstacle_weight_block_set_32x32_values_1_5",
+      "ui_echo_stock_indicator_96x40"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 36
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#F5EFE0",
+      "#C9A84C"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 4,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Small echo silhouette with a rounded head, thin torso, and faint trailing fringe that matches the Umbra family shape at half scale.",
+      "components": [
+        "head",
+        "eye_pair",
+        "torso",
+        "short_arms",
+        "short_legs",
+        "faint_tail_fringe"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "double_glow_dot",
+        "size_px": [
+          2,
+          2
+        ]
+      },
+      "mouth": null,
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 6
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 8
+      },
+      "tail": "faint_vapor_tail",
+      "accessories": "Small gold halo fleck above the chest."
+    },
+    "texture": "Soft shadow fill with a light teal inner edge and two bright eye dots.",
+    "shading": "Subtle teal lift under the torso and a thin white eye glow."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_echo_anchor_idle_4f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x36 px with four 24x36 frames.",
+    "Helper silhouette reads as a smaller Umbra family form and stays at half scale relative to the 32x48 player.",
+    "Each frame leaves a minimum 2 px transparent margin around the outer contour for clean additive compositing."
+  ]
+}

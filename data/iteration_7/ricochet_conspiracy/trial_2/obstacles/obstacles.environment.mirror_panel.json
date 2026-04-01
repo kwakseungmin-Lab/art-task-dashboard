@@ -1,0 +1,111 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.mirror_panel",
+  "asset_name": "Mirror Panel",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P0",
+  "execution_order": 180,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "obstacles.environment.stone_wall_segment"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.environment.stone_wall_segment"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.stone_wall_segment",
+      "character.noble.standard_pose_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "perfect_reflector",
+    "layer": "world_geometry",
+    "usage": "High-reflect panel for angle-critical routes and compact lane tuning.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 788,
+      "y": 430
+    },
+    "adjacent_elements": [
+      "obstacles.environment.stone_wall_segment",
+      "world.foreground.marble_floor_strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 64
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#A89880"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "thin_vertical_panel_with_gold_frame",
+      "components": [
+        "frame_left",
+        "frame_right",
+        "glass_fill",
+        "top_cap",
+        "bottom_cap"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "restitution": 1.0,
+    "hit_points": 2
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.mirror_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 8x64px and keeps a 2px frame on both long edges.",
+    "Glass fill uses #F5F0E8 and frame uses #D4A843.",
+    "Top and bottom caps stay centered with no pixel overrun outside the 8px width."
+  ]
+}

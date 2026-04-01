@@ -1,0 +1,95 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "items",
+  "category_common": {
+    "base_size": {
+      "width": "3px",
+      "height": "3px",
+      "note": "Small consumable/interactive objects"
+    },
+    "color_scheme": {
+      "seed": "#FFA300",
+      "poop": "#AB5236"
+    },
+    "shared_attributes": {
+      "rendering": "static sprites",
+      "style": "minimal pixel art",
+      "layer": "foreground (on top of environment)"
+    }
+  },
+  "asset": {
+    "asset_id": "seed",
+    "asset_name": "Golden Millet Seed",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Food item that Echo consumes, appears in food bowl",
+      "screen_position": "Inside food bowl at x=16-30px, y=102-110px. Multiple seeds (3-8) appear based on food_level",
+      "adjacent_elements": [
+        "cage_food_bowl (container)",
+        "echo_eating (Echo consumes seeds during eating animation)",
+        "speech_bubble (seed icon appears in bubble when Echo is hungry)"
+      ],
+      "usage_scenario": "Player taps feed button to fill food bowl with 6-8 seeds. Echo eats seeds one at a time during eating animation. Seeds disappear as food_level decreases. Also appears as 3x3px icon inside speech bubble during hungry state."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "primary": "#FFA300",
+        "highlight": "#FFEC27"
+      },
+      "shape": "Small irregular oval/ellipse representing a millet seed. 3x3px with slightly irregular edges to appear organic.",
+      "texture": "Pure pixel art, simple solid color with optional 1px highlight",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static sprite. Individual seeds may be positioned at different angles (rotated 90/180/270 degrees) for variety when multiple appear in bowl."
+      },
+      "details": "3x3px irregular oval. Primary color #FFA300. Optional: 1 pixel of #FFEC27 as highlight on top-left to suggest roundness. When in bowl: 6-8 seeds for full, 3-4 seeds for low, 0 seeds for empty. Seeds positioned randomly within bowl bounds. When in speech bubble: single centered seed icon."
+    },
+    "relationships": {
+      "related_assets": [
+        "cage_food_bowl",
+        "echo_eating",
+        "echo_hungry",
+        "speech_bubble"
+      ],
+      "shared_with": "Same golden color (#FFA300) as Echo's body",
+      "differences_from": "Unlike poop: golden color (not brown), appears in bowl (not floor), consumed by Echo. Unlike particles: static object, not animated."
+    },
+    "explicit_negations": [
+      "No 3D shading or gradients",
+      "No realistic seed texture",
+      "No multiple colors or patterns",
+      "No animation or movement",
+      "No glow or sparkle effects",
+      "No size variation (all 3x3px)",
+      "No outline stroke",
+      "No motion blur"
+    ]
+  }
+}

@@ -1,0 +1,568 @@
+{
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": "v4",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "base_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "camera": {
+      "view": "2d_front",
+      "projection": "orthographic",
+      "rotation_deg": 0,
+      "tilt_deg": 0
+    },
+    "rendering": {
+      "style": "hand_drawn_pixel_art",
+      "pixel_grid": {
+        "enabled": true,
+        "pixel_size_px": 1,
+        "anti_aliasing": false
+      },
+      "scaling": "nearest_neighbor",
+      "color_mode": "indexed",
+      "max_colors": 16,
+      "dithering": {
+        "allowed": false,
+        "pattern": "none"
+      },
+      "gradients": {
+        "allowed": false
+      },
+      "outline": {
+        "default": {
+          "enabled": false,
+          "thickness_px": 0,
+          "color": null
+        },
+        "ui_border": {
+          "enabled": true,
+          "thickness_px": 1,
+          "color": "#1D2B53"
+        }
+      }
+    },
+    "palette_pico8_16": [
+      {
+        "index": 0,
+        "name": "black",
+        "hex": "#000000"
+      },
+      {
+        "index": 1,
+        "name": "dark_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "index": 2,
+        "name": "dark_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "index": 3,
+        "name": "dark_green",
+        "hex": "#008751"
+      },
+      {
+        "index": 4,
+        "name": "brown",
+        "hex": "#AB5236"
+      },
+      {
+        "index": 5,
+        "name": "dark_gray",
+        "hex": "#5F574F"
+      },
+      {
+        "index": 6,
+        "name": "light_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "index": 7,
+        "name": "cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "index": 8,
+        "name": "red_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "index": 9,
+        "name": "orange",
+        "hex": "#FFA300"
+      },
+      {
+        "index": 10,
+        "name": "yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "index": 11,
+        "name": "green",
+        "hex": "#00E436"
+      },
+      {
+        "index": 12,
+        "name": "blue",
+        "hex": "#29ADFF"
+      },
+      {
+        "index": 13,
+        "name": "lavender",
+        "hex": "#83769C"
+      },
+      {
+        "index": 14,
+        "name": "light_pink",
+        "hex": "#FF77A8"
+      },
+      {
+        "index": 15,
+        "name": "peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "layer_order": [
+      "background",
+      "cage_environment",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "export": {
+      "file_format": "png",
+      "background": "transparent",
+      "compression": "lossless",
+      "metadata": {
+        "include": false
+      }
+    },
+    "asset_naming": {
+      "case": "snake_case",
+      "separator": "_",
+      "task_id_prefix": "pico_echo"
+    },
+    "asset_output_root": {
+      "source": "art/pico_echo/source",
+      "export": "art/pico_echo/export"
+    }
+  },
+  "asset_count": 41,
+  "assets": [
+    {
+      "task_id": "pico_echo.environment.cage_backwall",
+      "asset_name": "cage_backwall",
+      "category": "environment",
+      "subcategory": "cage",
+      "task_file": "v4/environment/cage_backwall.json",
+      "primary_export": "art/pico_echo/export/environment/cage_backwall.png",
+      "execution_order": 1,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.environment.cage_perch",
+      "asset_name": "cage_perch",
+      "category": "environment",
+      "subcategory": "cage",
+      "task_file": "v4/environment/cage_perch.json",
+      "primary_export": "art/pico_echo/export/environment/cage_perch.png",
+      "execution_order": 2,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.environment.cage_floor",
+      "asset_name": "cage_floor",
+      "category": "environment",
+      "subcategory": "cage",
+      "task_file": "v4/environment/cage_floor.json",
+      "primary_export": "art/pico_echo/export/environment/cage_floor.png",
+      "execution_order": 3,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.environment.food_bowl_empty",
+      "asset_name": "food_bowl_empty",
+      "category": "environment",
+      "subcategory": "cage_prop",
+      "task_file": "v4/environment/food_bowl_empty.json",
+      "primary_export": "art/pico_echo/export/environment/food_bowl_empty.png",
+      "execution_order": 4,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.environment.food_bowl_low",
+      "asset_name": "food_bowl_low",
+      "category": "environment",
+      "subcategory": "cage_prop",
+      "task_file": "v4/environment/food_bowl_low.json",
+      "primary_export": "art/pico_echo/export/environment/food_bowl_low.png",
+      "execution_order": 5,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.environment.food_bowl_full",
+      "asset_name": "food_bowl_full",
+      "category": "environment",
+      "subcategory": "cage_prop",
+      "task_file": "v4/environment/food_bowl_full.json",
+      "primary_export": "art/pico_echo/export/environment/food_bowl_full.png",
+      "execution_order": 6,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.environment.water_bowl",
+      "asset_name": "water_bowl",
+      "category": "environment",
+      "subcategory": "cage_prop",
+      "task_file": "v4/environment/water_bowl.json",
+      "primary_export": "art/pico_echo/export/environment/water_bowl.png",
+      "execution_order": 7,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.object.seed",
+      "asset_name": "seed_single",
+      "category": "object",
+      "subcategory": "consumable",
+      "task_file": "v4/object/seed_single.json",
+      "primary_export": "art/pico_echo/export/object/seed_single.png",
+      "execution_order": 8,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.object.poop",
+      "asset_name": "poop",
+      "category": "object",
+      "subcategory": "waste",
+      "task_file": "v4/object/poop.json",
+      "primary_export": "art/pico_echo/export/object/poop.png",
+      "execution_order": 9,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.character.echo_idle",
+      "asset_name": "echo_idle",
+      "category": "character",
+      "subcategory": "echo_state",
+      "task_file": "v4/character/echo_idle.json",
+      "primary_export": "art/pico_echo/export/character/echo_idle.png",
+      "execution_order": 10,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.character.echo_eating",
+      "asset_name": "echo_eating",
+      "category": "character",
+      "subcategory": "echo_state",
+      "task_file": "v4/character/echo_eating.json",
+      "primary_export": "art/pico_echo/export/character/echo_eating.png",
+      "execution_order": 11,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.character.echo_sleeping",
+      "asset_name": "echo_sleeping",
+      "category": "character",
+      "subcategory": "echo_state",
+      "task_file": "v4/character/echo_sleeping.json",
+      "primary_export": "art/pico_echo/export/character/echo_sleeping.png",
+      "execution_order": 12,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.character.echo_happy",
+      "asset_name": "echo_happy",
+      "category": "character",
+      "subcategory": "echo_state",
+      "task_file": "v4/character/echo_happy.json",
+      "primary_export": "art/pico_echo/export/character/echo_happy.png",
+      "execution_order": 13,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.character.echo_preening",
+      "asset_name": "echo_preening",
+      "category": "character",
+      "subcategory": "echo_state",
+      "task_file": "v4/character/echo_preening.json",
+      "primary_export": "art/pico_echo/export/character/echo_preening.png",
+      "execution_order": 14,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.character.echo_dirty",
+      "asset_name": "echo_dirty",
+      "category": "character",
+      "subcategory": "echo_state",
+      "task_file": "v4/character/echo_dirty.json",
+      "primary_export": "art/pico_echo/export/character/echo_dirty.png",
+      "execution_order": 15,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.character.echo_hungry",
+      "asset_name": "echo_hungry",
+      "category": "character",
+      "subcategory": "echo_state",
+      "task_file": "v4/character/echo_hungry.json",
+      "primary_export": "art/pico_echo/export/character/echo_hungry.png",
+      "execution_order": 16,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.character.echo_singing",
+      "asset_name": "echo_singing",
+      "category": "character",
+      "subcategory": "echo_state",
+      "task_file": "v4/character/echo_singing.json",
+      "primary_export": "art/pico_echo/export/character/echo_singing.png",
+      "execution_order": 17,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_bar_bg",
+      "asset_name": "ui_happiness_bar_bg",
+      "category": "ui",
+      "subcategory": "hud",
+      "task_file": "v4/ui/ui_happiness_bar_bg.json",
+      "primary_export": "art/pico_echo/export/ui/ui_happiness_bar_bg.png",
+      "execution_order": 18,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.ui.ui_happiness_bar_fill_orange",
+      "asset_name": "ui_happiness_bar_fill_orange",
+      "category": "ui",
+      "subcategory": "hud",
+      "task_file": "v4/ui/ui_happiness_bar_fill_orange.json",
+      "primary_export": "art/pico_echo/export/ui/ui_happiness_bar_fill_orange.png",
+      "execution_order": 19,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.ui.ui_happiness_bar_fill_yellow",
+      "asset_name": "ui_happiness_bar_fill_yellow",
+      "category": "ui",
+      "subcategory": "hud",
+      "task_file": "v4/ui/ui_happiness_bar_fill_yellow.json",
+      "primary_export": "art/pico_echo/export/ui/ui_happiness_bar_fill_yellow.png",
+      "execution_order": 20,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.ui.ui_happiness_bar_fill_green",
+      "asset_name": "ui_happiness_bar_fill_green",
+      "category": "ui",
+      "subcategory": "hud",
+      "task_file": "v4/ui/ui_happiness_bar_fill_green.json",
+      "primary_export": "art/pico_echo/export/ui/ui_happiness_bar_fill_green.png",
+      "execution_order": 21,
+      "priority": "P0"
+    },
+    {
+      "task_id": "pico_echo.ui.care_menu_panel",
+      "asset_name": "ui_care_menu_panel",
+      "category": "ui",
+      "subcategory": "care_menu",
+      "task_file": "v4/ui/ui_care_menu_panel.json",
+      "primary_export": "art/pico_echo/export/ui/ui_care_menu_panel.png",
+      "execution_order": 22,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.ui.icon_seed",
+      "asset_name": "ui_icon_seed",
+      "category": "ui",
+      "subcategory": "icon",
+      "task_file": "v4/ui/ui_icon_seed.json",
+      "primary_export": "art/pico_echo/export/ui/ui_icon_seed.png",
+      "execution_order": 23,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.ui.icon_broom",
+      "asset_name": "ui_icon_broom",
+      "category": "ui",
+      "subcategory": "icon",
+      "task_file": "v4/ui/ui_icon_broom.json",
+      "primary_export": "art/pico_echo/export/ui/ui_icon_broom.png",
+      "execution_order": 24,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.ui.icon_hand",
+      "asset_name": "ui_icon_hand",
+      "category": "ui",
+      "subcategory": "icon",
+      "task_file": "v4/ui/ui_icon_hand.json",
+      "primary_export": "art/pico_echo/export/ui/ui_icon_hand.png",
+      "execution_order": 25,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.ui.icon_seed_disabled",
+      "asset_name": "ui_icon_seed_disabled",
+      "category": "ui",
+      "subcategory": "icon",
+      "task_file": "v4/ui/ui_icon_seed_disabled.json",
+      "primary_export": "art/pico_echo/export/ui/ui_icon_seed_disabled.png",
+      "execution_order": 26,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.ui.icon_broom_disabled",
+      "asset_name": "ui_icon_broom_disabled",
+      "category": "ui",
+      "subcategory": "icon",
+      "task_file": "v4/ui/ui_icon_broom_disabled.json",
+      "primary_export": "art/pico_echo/export/ui/ui_icon_broom_disabled.png",
+      "execution_order": 27,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.ui.icon_hand_disabled",
+      "asset_name": "ui_icon_hand_disabled",
+      "category": "ui",
+      "subcategory": "icon",
+      "task_file": "v4/ui/ui_icon_hand_disabled.json",
+      "primary_export": "art/pico_echo/export/ui/ui_icon_hand_disabled.png",
+      "execution_order": 28,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.ui.status_bubble_frame",
+      "asset_name": "ui_status_bubble_frame",
+      "category": "ui",
+      "subcategory": "hud",
+      "task_file": "v4/ui/ui_status_bubble_frame.json",
+      "primary_export": "art/pico_echo/export/ui/ui_status_bubble_frame.png",
+      "execution_order": 29,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.ui.status_icon_seed",
+      "asset_name": "ui_status_icon_seed",
+      "category": "ui",
+      "subcategory": "status_icon",
+      "task_file": "v4/ui/ui_status_icon_seed.json",
+      "primary_export": "art/pico_echo/export/ui/ui_status_icon_seed.png",
+      "execution_order": 30,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.ui.status_icon_sleep",
+      "asset_name": "ui_status_icon_sleep",
+      "category": "ui",
+      "subcategory": "status_icon",
+      "task_file": "v4/ui/ui_status_icon_sleep.json",
+      "primary_export": "art/pico_echo/export/ui/ui_status_icon_sleep.png",
+      "execution_order": 31,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.typography.font_digits_percent_3x5",
+      "asset_name": "font_digits_percent_3x5",
+      "category": "typography",
+      "subcategory": "font",
+      "task_file": "v4/typography/font_digits_percent_3x5.json",
+      "primary_export": "art/pico_echo/export/typography/font_digits_percent_3x5.png",
+      "execution_order": 32,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.vfx.heart_particle",
+      "asset_name": "vfx_heart_particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "task_file": "v4/vfx/vfx_heart_particle.json",
+      "primary_export": "art/pico_echo/export/vfx/vfx_heart_particle.png",
+      "execution_order": 33,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.vfx.music_note_particle",
+      "asset_name": "vfx_music_note_particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "task_file": "v4/vfx/vfx_music_note_particle.json",
+      "primary_export": "art/pico_echo/export/vfx/vfx_music_note_particle.png",
+      "execution_order": 34,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.vfx.zzz_particle",
+      "asset_name": "vfx_zzz_particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "task_file": "v4/vfx/vfx_zzz_particle.json",
+      "primary_export": "art/pico_echo/export/vfx/vfx_zzz_particle.png",
+      "execution_order": 35,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.vfx.feather_particle",
+      "asset_name": "vfx_feather_particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "task_file": "v4/vfx/vfx_feather_particle.json",
+      "primary_export": "art/pico_echo/export/vfx/vfx_feather_particle.png",
+      "execution_order": 36,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.vfx.dust_particle",
+      "asset_name": "vfx_dust_particle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "task_file": "v4/vfx/vfx_dust_particle.json",
+      "primary_export": "art/pico_echo/export/vfx/vfx_dust_particle.png",
+      "execution_order": 37,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.vfx.clean_sparkle",
+      "asset_name": "vfx_clean_sparkle",
+      "category": "vfx",
+      "subcategory": "particle",
+      "task_file": "v4/vfx/vfx_clean_sparkle.json",
+      "primary_export": "art/pico_echo/export/vfx/vfx_clean_sparkle.png",
+      "execution_order": 38,
+      "priority": "P2"
+    },
+    {
+      "task_id": "pico_echo.vfx.broom_swipe",
+      "asset_name": "vfx_broom_swipe",
+      "category": "vfx",
+      "subcategory": "animation",
+      "task_file": "v4/vfx/vfx_broom_swipe.json",
+      "primary_export": "art/pico_echo/export/vfx/vfx_broom_swipe.png",
+      "execution_order": 39,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.vfx.seed_drop_to_bowl",
+      "asset_name": "vfx_seed_drop_to_bowl",
+      "category": "vfx",
+      "subcategory": "animation",
+      "task_file": "v4/vfx/vfx_seed_drop_to_bowl.json",
+      "primary_export": "art/pico_echo/export/vfx/vfx_seed_drop_to_bowl.png",
+      "execution_order": 40,
+      "priority": "P1"
+    },
+    {
+      "task_id": "pico_echo.vfx.happiness_up_arrow",
+      "asset_name": "vfx_happiness_up_arrow",
+      "category": "vfx",
+      "subcategory": "ui_feedback",
+      "task_file": "v4/vfx/vfx_happiness_up_arrow.json",
+      "primary_export": "art/pico_echo/export/vfx/vfx_happiness_up_arrow.png",
+      "execution_order": 41,
+      "priority": "P2"
+    }
+  ]
+}

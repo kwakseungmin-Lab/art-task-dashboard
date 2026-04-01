@@ -1,0 +1,275 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "olympus_step",
+    "project_name": "Olympus Step"
+  },
+  "meta": {
+    "game_name": "olympus_step",
+    "iteration": 7,
+    "trial_index": 5,
+    "plan_dir": "trial_5",
+    "created_at_utc": "2026-03-17T19:10:37Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304201747/olympus_step/olympus_step.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md",
+    "plan_id": "olympus_step__iter7__trial5"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "character.player.last_god_idle",
+      "category": "character",
+      "file": "character/character.player.last_god_idle.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.last_god_teleport",
+      "category": "character",
+      "file": "character/character.player.last_god_teleport.json",
+      "execution_order": 20,
+      "variant_of": "character.player.last_god_idle"
+    },
+    {
+      "task_id": "world.background.dusk_olympus",
+      "category": "world",
+      "file": "world/world.background.dusk_olympus.json",
+      "execution_order": 30,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.grid.tileset_marble_stone",
+      "category": "world",
+      "file": "world/world.grid.tileset_marble_stone.json",
+      "execution_order": 40,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.goal.temple_tile",
+      "category": "world",
+      "file": "world/world.goal.temple_tile.json",
+      "execution_order": 50,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.fire_tile",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.fire_tile.json",
+      "execution_order": 60,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.bolt_tile_on",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.bolt_tile_on.json",
+      "execution_order": 70,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.bolt_tile_off",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.bolt_tile_off.json",
+      "execution_order": 80,
+      "variant_of": "obstacles.hazard.bolt_tile_on"
+    },
+    {
+      "task_id": "obstacles.hazard.block_tile",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.block_tile.json",
+      "execution_order": 90,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.enemy.guard_patrol",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.enemy.guard_patrol.json",
+      "execution_order": 100,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.fog_tile",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.fog_tile.json",
+      "execution_order": 110,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.bomb_tile",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.bomb_tile.json",
+      "execution_order": 120,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.shard",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.shard.json",
+      "execution_order": 130,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.amp",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.amp.json",
+      "execution_order": 140,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.seal",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.seal.json",
+      "execution_order": 150,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.right_panel",
+      "category": "ui",
+      "file": "ui/ui.hud.right_panel.json",
+      "execution_order": 200,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.button.confirm",
+      "category": "ui",
+      "file": "ui/ui.button.confirm.json",
+      "execution_order": 210,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.button.reset_path",
+      "category": "ui",
+      "file": "ui/ui.button.reset_path.json",
+      "execution_order": 220,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.path_numbers",
+      "category": "ui",
+      "file": "ui/ui.overlay.path_numbers.json",
+      "execution_order": 230,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.path_line",
+      "category": "ui",
+      "file": "ui/ui.overlay.path_line.json",
+      "execution_order": 240,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.popup.failure",
+      "category": "ui",
+      "file": "ui/ui.popup.failure.json",
+      "execution_order": 250,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.popup.clear",
+      "category": "ui",
+      "file": "ui/ui.popup.clear.json",
+      "execution_order": 260,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.popup.evolution",
+      "category": "ui",
+      "file": "ui/ui.popup.evolution.json",
+      "execution_order": 270,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.menu.settings",
+      "category": "ui",
+      "file": "ui/ui.menu.settings.json",
+      "execution_order": 280,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.title",
+      "category": "ui",
+      "file": "ui/ui.screen.title.json",
+      "execution_order": 290,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.stage_select",
+      "category": "ui",
+      "file": "ui/ui.screen.stage_select.json",
+      "execution_order": 300,
+      "variant_of": null
+    }
+  ],
+  "generation_log": {
+    "meta_analysis": {
+      "game_status": "stable_with_note",
+      "fail_rate": 0.0,
+      "pass_with_note_rate": 0.2,
+      "quality_trend_direction": "recovering_but_below_global_target",
+      "overall_pass_rate": 0.76,
+      "primary_pass_rate": 0.9,
+      "recommendations_applied": [
+        "Maintain primary benchmark at or above 90 percent while improving total pass rate beyond iteration 6.",
+        "Keep derived asset lineage explicit and bounded so IF-9 remains at zero.",
+        "Preserve stable plan_id and manifest fields for KB-ready downstream mapping."
+      ]
+    },
+    "kb_lookup": {
+      "art_task_plan_kb_status": "unavailable_503",
+      "meta_iteration_kb_status": "unavailable_503",
+      "notes": "Semantic retrieval was attempted before generation but both knowledge bases returned 502/503 class failures."
+    },
+    "risk_avoidance": [
+      "All package files stay inside trial_5 and no legacy art_*.json or root-level _project_common.json is used.",
+      "The manifest preserves 1 file to 1 task mapping for all 26 asset JSON files.",
+      "Variant assets remain same-category and keep variant_of plus depends_on alignment to avoid IF-9.",
+      "Project core palette remains identical across all asset files and asset-local colors stay inside specs.colors_hex."
+    ],
+    "gdd_resolution": {
+      "primary_source": "s3",
+      "resolved_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304201747/olympus_step/olympus_step.md",
+      "fallback_reason": null
+    }
+  }
+}

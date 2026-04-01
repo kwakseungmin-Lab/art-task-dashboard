@@ -1,0 +1,167 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000804",
+  "asset_key": "obstacles_cage_cleanup_feedback_set",
+  "asset_name": "Cleanup Feedback Set — dirt counts and post-clean sparkle",
+  "category": "obstacles",
+  "subcategory": "cleanup_feedback",
+  "priority": "P1",
+  "execution_order": 40,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Bottom floor zone follows the room shell floor band.",
+    "Tiny pixel clusters stay readable without hiding the floor color.",
+    "All states support a calm, low-stress pet-care tone."
+  ],
+  "differences": [
+    "This file carries dirt count feedback and cleanup reward sparkle states.",
+    "Bowls, bars, and Echo body art stay outside this task."
+  ],
+  "depends_on": [
+    "task_id_000000801"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000801"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000801",
+      "task_id_000000803",
+      "task_id_000000808"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "proxy_environment_spacing",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_A2/_ReferenceImages/background.png",
+      "purpose": "Proxy layout reference for the lower floor band and dirt spacing."
+    },
+    {
+      "label": "proxy_obstacle_cluster",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/echo_detective/_images/enemies.png",
+      "purpose": "Proxy low-resolution cluster reference for keeping dirt and sparkle states readable in tiny groups."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_5x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "CleanupState",
+      "TimedEffect"
+    ],
+    "asset_loading": "Load assets/art/pico_echo/trial_5/obstacles_cage_cleanup_feedback_set.png with AssetServer during Loading state and store the handle under obstacles_cage_cleanup_feedback_set.",
+    "runtime_notes": [
+      "Create a 5-column TextureAtlasLayout for clean, dirt counts, and sparkle reward states.",
+      "Swap atlas frames when poop_count crosses the 1, 3, and 5 thresholds or when a clean action completes.",
+      "Render the strip on the floor band z layer beneath the happiness HUD."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FFA300"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "cleanup_state_feedback",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        110
+      ]
+    },
+    "layer": "obstacles_floor",
+    "usage": "Shows dirt buildup at 1, 3, and 5 marks plus a short sparkle reward after cleaning."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 18
+    },
+    "colors_hex": [
+      "#AB5236",
+      "#FFF1E8",
+      "#FFCCAA",
+      "#C2C3C7",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "clean",
+        "dirty_1",
+        "dirty_3",
+        "dirty_5",
+        "post_clean_sparkle"
+      ],
+      "frame_count": 5,
+      "frame_size_px": [
+        128,
+        18
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 1
+      }
+    },
+    "state_rules": [
+      "dirty_1 places one 2x2 mark in the floor band.",
+      "dirty_3 places three marks spread across left, center, and right floor lanes.",
+      "dirty_5 places five marks with a minimum 8px spacing between centers.",
+      "post_clean_sparkle replaces dirt with three 3x3 star pixels using #FFF1E8 and #C2C3C7."
+    ],
+    "shape": {
+      "silhouette": "128x18 floor strip with dirt marks or sparkle stars confined to the lower cage band.",
+      "components": [
+        "18px tall floor strip",
+        "2x2 dirt marks",
+        "3x3 sparkle stars",
+        "left lane marker area",
+        "center lane marker area",
+        "right lane marker area"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_cage_cleanup_feedback_set.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 640x18px with five 128x18 states.",
+    "Dirty states keep every mark fully inside y=0..17 of the local frame so the scene placement lands on world y=110..127.",
+    "Post-clean sparkle removes all brown dirt pixels and shows exactly three sparkles for a brief reward cue.",
+    "No state obscures the happiness bar zone at world y=126..127."
+  ]
+}

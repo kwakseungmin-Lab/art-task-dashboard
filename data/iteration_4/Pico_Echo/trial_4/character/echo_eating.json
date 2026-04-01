@@ -1,0 +1,223 @@
+{
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": "v4",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "base_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "camera": {
+      "view": "2d_front",
+      "projection": "orthographic",
+      "rotation_deg": 0,
+      "tilt_deg": 0
+    },
+    "rendering": {
+      "style": "hand_drawn_pixel_art",
+      "pixel_grid": {
+        "enabled": true,
+        "pixel_size_px": 1,
+        "anti_aliasing": false
+      },
+      "scaling": "nearest_neighbor",
+      "color_mode": "indexed",
+      "max_colors": 16,
+      "dithering": {
+        "allowed": false,
+        "pattern": "none"
+      },
+      "gradients": {
+        "allowed": false
+      },
+      "outline": {
+        "default": {
+          "enabled": false,
+          "thickness_px": 0,
+          "color": null
+        },
+        "ui_border": {
+          "enabled": true,
+          "thickness_px": 1,
+          "color": "#1D2B53"
+        }
+      }
+    },
+    "palette_pico8_16": [
+      {
+        "index": 0,
+        "name": "black",
+        "hex": "#000000"
+      },
+      {
+        "index": 1,
+        "name": "dark_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "index": 2,
+        "name": "dark_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "index": 3,
+        "name": "dark_green",
+        "hex": "#008751"
+      },
+      {
+        "index": 4,
+        "name": "brown",
+        "hex": "#AB5236"
+      },
+      {
+        "index": 5,
+        "name": "dark_gray",
+        "hex": "#5F574F"
+      },
+      {
+        "index": 6,
+        "name": "light_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "index": 7,
+        "name": "cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "index": 8,
+        "name": "red_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "index": 9,
+        "name": "orange",
+        "hex": "#FFA300"
+      },
+      {
+        "index": 10,
+        "name": "yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "index": 11,
+        "name": "green",
+        "hex": "#00E436"
+      },
+      {
+        "index": 12,
+        "name": "blue",
+        "hex": "#29ADFF"
+      },
+      {
+        "index": 13,
+        "name": "lavender",
+        "hex": "#83769C"
+      },
+      {
+        "index": 14,
+        "name": "light_pink",
+        "hex": "#FF77A8"
+      },
+      {
+        "index": 15,
+        "name": "peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "layer_order": [
+      "background",
+      "cage_environment",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "export": {
+      "file_format": "png",
+      "background": "transparent",
+      "compression": "lossless",
+      "metadata": {
+        "include": false
+      }
+    },
+    "asset_naming": {
+      "case": "snake_case",
+      "separator": "_",
+      "task_id_prefix": "pico_echo"
+    },
+    "asset_output_root": {
+      "source": "art/pico_echo/source",
+      "export": "art/pico_echo/export"
+    }
+  },
+  "task_id": "pico_echo.character.echo_eating",
+  "asset_name": "echo_eating",
+  "category": "character",
+  "subcategory": "echo_state",
+  "description": "Create Echo eating animation as a horizontal sprite strip. Echo sprite frame size is 40x40px. Primary body color #FFA300, cheek patch #FF004D, crest #FFEC27, beak+feet #AB5236, eyes #1D2B53. Eyes are 2x2px blocks. No additional colors beyond the pico8_16 palette. No anti-aliasing; 1px steps only. Animation: 6 frames, 4 FPS, play once (non-loop) then return to idle. Spritesheet dimensions 240x40px. Head motion: frames 1-3 move head/beak down toward food bowl by +2px in y each frame (cumulative +6px by F3). Frame 4: beak open (beak triangle split into two 1px-separated halves). Frame 5: include a single 3x3 seed (#FFA300) touching beak tip at local position x=26,y=26. Frame 6: head returns up by -6px to match idle head height. Body stays centered (bounding box x=8..31,y=6..33) across all frames; only head/crest/beak region moves.",
+  "deliverables": [
+    {
+      "type": "source",
+      "path": "art/pico_echo/source/character/echo_eating.aseprite",
+      "format": "aseprite",
+      "notes": "Aseprite source file with layers and frames (no palette outside pico8_16)."
+    },
+    {
+      "type": "export",
+      "path": "art/pico_echo/export/character/echo_eating.png",
+      "format": "png",
+      "notes": "PNG export (indexed color, 16-color palette, nearest-neighbor scaling)."
+    }
+  ],
+  "specs": {
+    "dimensions": "240x40",
+    "frame_size": "40x40",
+    "animation": {
+      "frames": 6,
+      "fps": 4,
+      "loop": "once"
+    },
+    "timing": {
+      "expected_state_duration_sec": 3.0
+    }
+  },
+  "context": {
+    "role": "Triggered after Feed action; Echo pecks seeds.",
+    "screen_location": "Same base position as idle; head motion points toward food bowl at screen (16,100).",
+    "adjacent_elements": [
+      "food bowl sprite",
+      "seed_drop VFX"
+    ],
+    "layer": "character",
+    "usage": "Plays for ~1.5s (6 frames at 4 FPS)."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.environment.food_bowl_full",
+      "pico_echo.vfx.seed_drop_to_bowl"
+    ],
+    "relationship_notes": [
+      "This animation visually explains food consumption; do not add extra particles beyond the seed in frame 5."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.character.echo_idle",
+    "pico_echo.environment.food_bowl_full"
+  ],
+  "execution_order": 11,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.character.echo_idle",
+    "pico_echo.environment.food_bowl_full"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 240x40 px.",
+    "6 frames; frame 5 contains exactly one 3x3 seed touching the beak.",
+    "No colors outside pico8_16.",
+    "Background outside the sprite silhouette must be fully transparent (alpha=0).",
+    "Allowed colors: only pico8_16 palette. Hard fail if any pixel uses a hex value not in the palette list."
+  ]
+}

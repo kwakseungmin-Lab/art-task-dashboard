@@ -1,0 +1,152 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000005",
+  "asset_key": "echo_preening_5f_3fps",
+  "asset_name": "Echo (Cockatiel) — Preening (5 frames, 3fps one-shot)",
+  "category": "character",
+  "subcategory": "player_pet",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": "task_id_801000001",
+  "variant_of_asset_key": "echo_idle_4f_2fps",
+  "shared_properties": [
+    "Echo keeps crest, cheek patch, beak, and tail readable in every occupied frame.",
+    "Body footprint stays inside 40x40px and remains centered near x44 y42.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D."
+  ],
+  "differences": [
+    "State_preening uses 5 frames at 3fps for a grooming cycle.",
+    "Beak contact shifts across wing and chest feather zones in multiple frames.",
+    "Body tilt shifts 2px while the feet stay anchored on the perch line."
+  ],
+  "depends_on": [
+    "task_id_801000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000001"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "echo_behavior_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Echo.md",
+      "purpose": "Canonical Echo behavior and pose reference for the cockatiel silhouette and state-specific acting cues."
+    },
+    {
+      "label": "behavior_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/BehaviorSystem.md",
+      "purpose": "State machine grounding for idle, eating, sleeping, happy, preening, dirty, hungry, and singing transitions."
+    },
+    {
+      "label": "art_direction_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "purpose": "Palette, pixel density, outline, and 128x128 composition grounding for all Echo states."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-driven sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "EchoStateMarker"
+    ],
+    "asset_loading": "Load echo_preening_5f_3fps.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "preening",
+    "layer": "character",
+    "usage": "Echo behavior state: preening.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        44,
+        42
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#AB5236",
+      "#FFEC27",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 5,
+      "fps": 3,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 1
+      },
+      "loop": false
+    },
+    "pose_notes": [
+      "Beak touches wing feathers in frames 2-4.",
+      "Add 1-2 feather pixels flicking out in frame 4 using #FFA300."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/echo_preening_5f_3fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 200x40px (5 frames × 40x40) with 0px spacing.",
+    "Animation plays at 3fps and respects loop/play_count settings in specs.animation.",
+    "Sprite remains readable at 1x scale on a 128x128 canvas; no anti-aliasing and only listed colors are used."
+  ]
+}

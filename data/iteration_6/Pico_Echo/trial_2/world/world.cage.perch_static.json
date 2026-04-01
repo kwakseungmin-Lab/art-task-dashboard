@@ -1,0 +1,89 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.cage.perch_static",
+  "asset_name": "Perch (static)",
+  "category": "world",
+  "subcategory": "prop",
+  "priority": "P0",
+  "execution_order": 230,
+  "variant_of": null,
+  "depends_on": [
+    "world.cage.background_static"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.cage.background_static"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage.background_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "perch",
+    "layer": "world",
+    "usage": "Echo stands on perch; rendered behind the character layer.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        28,
+        70
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 72,
+      "height": 8
+    },
+    "colors_hex": [
+      "#AB5236",
+      "#1D2B53"
+    ],
+    "animation": null,
+    "shape_notes": [
+      "Main log is 72x4px with 1px outline (#1D2B53) and fill (#AB5236).",
+      "Add 3-5 1px notches using #1D2B53; do not use dithering."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.cage.perch_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Perch asset bounding box is exactly 72x8px.",
+    "Top surface is a straight horizontal line so Echo feet can align to a 1px baseline.",
+    "Texture pixels are limited to 5 or fewer to keep PICO-8 simplicity."
+  ]
+}

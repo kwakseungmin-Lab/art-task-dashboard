@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.environment.wine_barrel_explode_fx_8f_12fps_96rad",
+  "asset_name": "Environment FX — Wine Barrel Explosion (8 frames, 12fps, 96px radius)",
+  "category": "obstacles",
+  "subcategory": "environment_interactive",
+  "priority": "P2",
+  "execution_order": 290,
+  "variant_of": "obstacles.environment.wine_barrel_intact_48x48",
+  "shared_properties": {
+    "trigger": "hp_zero_after_2_hits",
+    "radius_px": 96,
+    "outline_hex": "#3D2B1F"
+  },
+  "differences": {
+    "frame_count": 8,
+    "animation_fps": 12,
+    "includes": "wood_splinters + coral_orange_burst"
+  },
+  "depends_on": [
+    "obstacles.environment.wine_barrel_intact_48x48"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.environment.wine_barrel_intact_48x48"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.wine_barrel_intact_48x48",
+      "character.noble.guard_patrol_6f_4fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "explosion_fx",
+    "layer": "world",
+    "usage": "Played when barrel explodes; conveys 96px radius elimination and pushback (gameplay in-engine).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 768,
+      "height": 96
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8704A",
+      "#F5F0E8",
+      "#D4A843",
+      "#8B5E3C",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 96,
+        "height": 96
+      },
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      },
+      "frame_count": 8,
+      "directions": null,
+      "note": "Expanding coral-orange burst with a few wood splinters."
+    },
+    "animation": {
+      "type": "one_shot",
+      "fps": 12,
+      "notes": "Play once; last frame sparse/fading."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.wine_barrel_explode_fx_8f_12fps_96rad.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 768x96px (8x1) with 96x96px frames; burst expands outward without clipping.",
+    "Explosion uses coral orange #E8704A with ivory highlights #F5F0E8; includes 3-6 wood splinter pixels in mid frames.",
+    "Tone remains non-gory/comedic; no debris resembling blood; no anti-aliasing."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.icon.feed_seed",
+  "asset_name": "Feed Icon (seed)",
+  "category": "ui",
+  "subcategory": "icon",
+  "priority": "P0",
+  "execution_order": 340,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "care_feed",
+    "layer": "ui",
+    "usage": "12x12 icon used inside care popup panel.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 12,
+      "height": 12
+    },
+    "colors_hex": [
+      "#FFEC27",
+      "#AB5236",
+      "#1D2B53"
+    ],
+    "animation": null,
+    "icon_rules": [
+      "Icon is readable in a 12x12 grid.",
+      "Uses a 1px outline in #1D2B53 where applicable.",
+      "No more than 3 internal detail pixels per icon to keep PICO-8 simplicity."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.icon.feed_seed.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 12x12px with transparent background.",
+    "Uses only the listed colors and transparency; no gradients.",
+    "At 1x scale, icon meaning is clear within 1 second (seed / broom / hand)."
+  ]
+}

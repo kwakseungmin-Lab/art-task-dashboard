@@ -1,0 +1,111 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.tile.goal_temple_64x64_8f_4fps",
+  "asset_name": "Goal Tile — Temple Light (64x64, 8 frames, 4fps)",
+  "category": "world",
+  "subcategory": "tile",
+  "priority": "P0",
+  "execution_order": 23,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "goal_tile",
+    "layer": "tilemap_marker",
+    "usage": "The GOAL tile that clears the stage when the player lands on it.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "grid_rules": {
+      "tile_size_px": [
+        64,
+        64
+      ],
+      "grid_size_tiles": [
+        12,
+        9
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#D4C5A9",
+      "#FBBF24",
+      "#F59E0B",
+      "#1E1B4B",
+      "#F8FAFC"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 4,
+      "loop": true,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Temple front with 2 columns and a triangular pediment.",
+      "Light beam pulses vertically in frames 1-8 using #FBBF24 and #F8FAFC."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tile.goal_temple_64x64_8f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 512x64px (8 frames × 64x64) with 0px spacing.",
+    "Glow intensity increases smoothly from frame 1 to frame 4 and decreases from frame 5 to frame 8.",
+    "Uses only listed colors and transparency with pixel-art edges (no anti-aliasing)."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.font.bitmap_serif_16px_ascii96",
+  "asset_name": "UI Font — Bitmap Serif 16px (ASCII 96 glyphs)",
+  "category": "ui",
+  "subcategory": "font",
+  "priority": "P0",
+  "execution_order": 410,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "font",
+    "layer": "ui",
+    "usage": "Primary UI font for stage name and counters. Serif feel to match medieval court theme.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 96
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#F5F0E8"
+    ],
+    "font": {
+      "glyph_size_px": {
+        "width": 16,
+        "height": 16
+      },
+      "layout": {
+        "columns": 16,
+        "rows": 6
+      },
+      "glyph_count": 96,
+      "baseline_px_from_top": 12,
+      "note": "ASCII 0x20-0x7F; include digits and degree symbol (°) if space allows via custom slot."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.font.bitmap_serif_16px_ascii96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Font sheet is exactly 256x96px (16x6 grid) with 16x16px glyph cells and consistent baseline.",
+    "Text pixels use #3D2B1F; background transparent; no anti-aliasing; serif terminals visible at 1px scale.",
+    "Digits 0-9 and symbols needed for UI (/, :, %, °) are legible at 16px height."
+  ]
+}

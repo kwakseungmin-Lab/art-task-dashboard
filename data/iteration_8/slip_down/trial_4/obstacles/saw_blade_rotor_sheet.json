@@ -1,0 +1,173 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040407",
+  "asset_key": "saw_blade_rotor_sheet",
+  "asset_name": "Saw Blade Rotor Sheet",
+  "category": "obstacles",
+  "subcategory": "rotating_hazard",
+  "priority": "P1",
+  "execution_order": 7,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Saw body keeps a 24x24 px footprint and cold-steel palette that stands out from the stone environment.",
+    "The rotation center remains fixed so collision cues do not wobble across frames."
+  ],
+  "differences": [
+    "This atlas supplies an eight-frame clockwise spin loop tuned for the late-game hazard density spike."
+  ],
+  "depends_on": [
+    "task_id_804040401",
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "blocks": [
+    "task_id_804040410",
+    "task_id_804040412"
+  ],
+  "blocked_by": [
+    "task_id_804040401",
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040401",
+      "task_id_804040402",
+      "task_id_804040404",
+      "task_id_804040405",
+      "task_id_804040410",
+      "task_id_804040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Saw size, 360-degree rotation rate, and damage role grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Cold metal finish and dark-room contrast grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout and advance one frame every FixedUpdate interval that matches a 24 FPS visual spin loop.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "SawBladeMarker"
+    ],
+    "asset_loading": "Load obstacles/saw_blade_rotor_sheet.png through AssetServer and bind the eight-frame clip to a hazard visual component keyed by asset_key.",
+    "runtime_notes": [
+      "Each frame is 24x24 px.",
+      "Keep the center axle pixel fixed in all frames.",
+      "Do not exceed the 24x24 bounds with tooth tips."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Rotating late-stage hazard that raises pressure in dark and abyss sections.",
+    "screen_position": {
+      "anchor": "tile_grid_origin",
+      "x_px": 0,
+      "y_px": 0
+    },
+    "layer": {
+      "name": "obstacle_rotor",
+      "z_index": 25
+    },
+    "usage": "Appears in the dark zone and abyss zone where precise friction braking is required."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 24
+    },
+    "colors_hex": [
+      "#8FA8B8",
+      "#3B3347",
+      "#0D0D0F",
+      "#8B2020"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 8,
+      "fps": 24,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "columns": 8,
+        "frame_size_px": {
+          "width": 24,
+          "height": 24
+        }
+      },
+      "state_clips": [
+        {
+          "state": "spin_loop",
+          "start_frame": 0,
+          "end_frame": 7,
+          "fps": 24,
+          "loop": true
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "saw_blade_rotor_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 192,
+        "height": 24
+      },
+      "notes": "Eight 24x24 frames for the rotor spin loop."
+    },
+    {
+      "artifact": "saw_blade_rotor_sheet_clips.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Single spin_loop clip definition for the saw hazard."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 192x24 px with eight 24x24 frames.",
+    "Center axle pixel stays fixed across all frames so collision feedback feels stable.",
+    "Tooth highlights remain readable on dark backgrounds without using colors outside the declared palette."
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003020",
+  "asset_key": "ui_round_combo_panel_180x64",
+  "asset_name": "Round and Combo Panel",
+  "category": "ui",
+  "subcategory": "status_ui",
+  "priority": "P1",
+  "execution_order": 200,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003018"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003018"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003007",
+      "task_id_008003008",
+      "task_id_008003011",
+      "task_id_008003016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the base panel and switch atlas slices for idle, good, perfect, and streak-highlight states.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "UiImage",
+      "Style",
+      "RoundComboPanelWidget"
+    ],
+    "asset_loading": "Load ui/ui_round_combo_panel_180x64.png through AssetServer and build a four-frame atlas for the upper-left feedback panel.",
+    "runtime_notes": [
+      "Panel anchors to the upper-left safe area with a 40 px inset.",
+      "Verdict flashes can play on top of the base panel without changing widget size.",
+      "Combo updates should complete inside one second so the next telegraph remains readable."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "round_and_combo_feedback",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        40,
+        40
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Upper-left panel that shows round label, combo count, and perfect or good result flashes.",
+    "adjacent_elements": [
+      "ui_hp_bars_dual_440x32",
+      "ui_timing_bar_600x30",
+      "player_student_reflect_success_6f_14fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space",
+      "facing": "left_aligned"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 64
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#00FFFF",
+      "#ADFF2F",
+      "#FFFACD"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 10,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compact framed panel with a round plate, combo digits, and a short verdict flash field.",
+      "components": [
+        "round_plate",
+        "combo_digits",
+        "verdict_flash",
+        "drop_shadow"
+      ]
+    },
+    "lighting": "Cyan and lime verdict flashes sit on a navy plate with gold border highlights."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_round_combo_panel_180x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 720x64 px with four 180x64 frames.",
+    "Combo digit field remains at least 72 px wide so two-digit streak counts fit cleanly.",
+    "Verdict flash occupies less than 40 percent of the panel width and never hides the round label plate."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.blizzard_particles_2px_strip_8",
+  "asset_name": "Blizzard Particles — 2px strip (8 frames)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P1",
+  "execution_order": 30,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "vfx_particles",
+    "layer": "vfx_overlay",
+    "usage": "Used for particle overlay; tiny sprites for fast batching.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 2
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "frames": 8,
+    "layout_note": "8 frames packed horizontally: 16×2 total; each frame 2×2."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.blizzard_particles_2px_strip_8.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Strip is exactly 16×2px.",
+    "Particles vary subtly per frame for organic motion.",
+    "Fully grayscale; no alpha fringes."
+  ]
+}

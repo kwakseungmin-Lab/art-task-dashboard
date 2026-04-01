@@ -1,0 +1,202 @@
+{
+  "task_id": "pico_echo_character_echo_dirty",
+  "asset_name": "echo_dirty_strip_120x40",
+  "category": "character",
+  "subcategory": "echo_state_animation",
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style": "pixel_art",
+      "constraints": [
+        "grid: 1px",
+        "no_antialiasing: true",
+        "no_gradients: true",
+        "scaling: nearest_neighbor"
+      ]
+    },
+    "render_target": {
+      "canvas_px": "128x128",
+      "view": "2D_front",
+      "origin": "top_left"
+    },
+    "color": {
+      "palette_name": "PICO-8",
+      "palette_hex_16": [
+        "#000000",
+        "#1D2B53",
+        "#7E2553",
+        "#008751",
+        "#AB5236",
+        "#5F574F",
+        "#C2C3C7",
+        "#FFF1E8",
+        "#FF004D",
+        "#FFA300",
+        "#FFEC27",
+        "#00E436",
+        "#29ADFF",
+        "#83769C",
+        "#FF77A8",
+        "#FFCCAA"
+      ],
+      "project_named_colors": {
+        "echo_body": "#FFA300",
+        "echo_cheek_patch": "#FF004D",
+        "echo_crest": "#FFEC27",
+        "echo_beak_and_feet": "#AB5236",
+        "ui_text": "#1D2B53",
+        "cage_background": "#FFF1E8",
+        "cage_bars": "#C2C3C7",
+        "perch": "#AB5236",
+        "floor": "#FFCCAA"
+      }
+    },
+    "export": {
+      "formats": [
+        "PNG"
+      ],
+      "png": {
+        "alpha": true,
+        "color_mode": "indexed",
+        "max_colors": 16
+      }
+    },
+    "layering_order": [
+      "environment_background",
+      "environment_structure",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ]
+  },
+  "description": "Create Echo state animation 'dirty' as a horizontal sprite strip PNG. Sheet size: 120x40px (3 frames, each 40x40). FPS: 2. Loop: true. Use only PICO-8 palette colors. Echo colors: body #FFA300, cheek patch #FF004D, crest #FFEC27, beak/feet #AB5236, outline #1D2B53. Transparent background (alpha=0) for all pixels outside the Echo silhouette. Frame instructions: All frames: add dust pixels (#C2C3C7) around body: at (x=9,y=22),(x=30,y=24),(x=12,y=30). F2: change eyes to half-closed: replace each 2x2 eye block with a 2x1 line at y=15. F3: add 1 pixel #7E2553 under right eye at (x=23,y=17).",
+  "context": {
+    "role": "Echo character animation for BehaviorSystem state 'dirty'.",
+    "screen_location": "Rendered near screen center above the perch; typical on-screen bbox approx x=44..83,y=40..79.",
+    "adjacent_elements": [
+      "perch_80x4",
+      "food_bowl_*_16x12",
+      "status_bubble_bg_12x10"
+    ],
+    "layer": "character",
+    "usage": "Triggered when BehaviorSystem enters 'dirty'."
+  },
+  "specs": {
+    "dimensions": "120x40",
+    "sprite_sheet": {
+      "layout": "horizontal_strip",
+      "frames": 3,
+      "frame_px": "40x40",
+      "frame_order": "left_to_right"
+    },
+    "animation": {
+      "fps": 2,
+      "loop": true
+    },
+    "echo_base": {
+      "frame_px": "40x40",
+      "anchor_in_screen_px": {
+        "x": 64,
+        "y": 60,
+        "anchor": "sprite_center"
+      },
+      "required_features": [
+        "crest_present: true (color #FFEC27)",
+        "cheek_patch_present: true (color #FF004D)",
+        "tail_present: true (color #FFA300)",
+        "eye_color: #1D2B53",
+        "beak_color: #AB5236"
+      ],
+      "base_geometry_px": {
+        "body_bbox": "x=10..29,y=12..32",
+        "head_bbox": "x=12..27,y=8..20",
+        "eyes_bbox_left": "x=15..16,y=14..15",
+        "eyes_bbox_right": "x=22..23,y=14..15",
+        "cheek_patch_bbox": "x=24..26,y=17..19",
+        "beak_bbox": "x=18..20,y=18..20",
+        "feet_bbox": "x=15..17,y=32..33 and x=22..24,y=32..33",
+        "crest_bbox": "x=16..22,y=2..7"
+      },
+      "colors_used_hex": [
+        "#1D2B53",
+        "#FFA300",
+        "#FF004D",
+        "#FFEC27",
+        "#AB5236",
+        "#FFF1E8"
+      ],
+      "outline": {
+        "enabled": true,
+        "color": "#1D2B53",
+        "thickness_px": 1
+      },
+      "background": {
+        "alpha": 0.0
+      }
+    },
+    "state_effects": [
+      "vfx_dust_particle_1x1"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "sprite_sheet",
+      "format": "PNG",
+      "path": "assets/pico_echo/character/echo_dirty_strip_120x40.png"
+    },
+    {
+      "type": "source",
+      "format": "ASEPRITE",
+      "path": "assets/pico_echo/character/echo_dirty.aseprite"
+    }
+  ],
+  "execution_order": 16,
+  "priority": "P0",
+  "depends_on": [
+    "pico_echo_character_echo_idle",
+    "pico_echo_object_poop"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo_character_echo_idle",
+    "pico_echo_object_poop"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo_character_echo_idle",
+      "pico_echo_character_echo_eating",
+      "pico_echo_character_echo_sleeping",
+      "pico_echo_character_echo_happy",
+      "pico_echo_character_echo_preening",
+      "pico_echo_character_echo_dirty",
+      "pico_echo_character_echo_hungry",
+      "pico_echo_character_echo_singing"
+    ],
+    "shared_visual_constraints": [
+      "frame_px: 40x40",
+      "outline_color: #1D2B53",
+      "body_color: #FFA300",
+      "cheek_patch_color: #FF004D",
+      "crest_color: #FFEC27",
+      "beak_and_feet_color: #AB5236"
+    ],
+    "differences": [
+      "state: dirty",
+      "frames: 3",
+      "fps: 2",
+      "loop: True",
+      "effects: vfx_dust_particle_1x1"
+    ]
+  },
+  "acceptance_criteria": [
+    "Sheet size is exactly 120x40 px.",
+    "Each frame is exactly 40x40 px with no padding between frames.",
+    "Only PICO-8 palette colors are used.",
+    "Cheek patch contains at least 6 pixels of #FF004D in every frame.",
+    "Crest contains at least 10 pixels of #FFEC27 in every frame.",
+    "Background outside the character silhouette is alpha=0.",
+    "Frame count equals 3 and matches the documented state animation spec."
+  ]
+}

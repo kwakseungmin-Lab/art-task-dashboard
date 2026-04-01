@@ -1,0 +1,152 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000005",
+  "asset_key": "projectile_fire_orb",
+  "asset_name": "Fire Orb Projectile",
+  "category": "obstacles",
+  "subcategory": "spell_projectile",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Projectile sheet fits inside 72x72 px per frame and keeps a crisp combat silhouette with one bright core and one readable trail direction.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while elemental flame colors appear inside specs.colors_hex.",
+    "The effect is authored for transparent background compositing above the duel lane and below UI overlays."
+  ],
+  "differences": [
+    "Six frames animate a compact fire orb with an orange core, ember shell, and short backward tail indicating travel toward the player.",
+    "The orb uses circular motion rather than a bolt silhouette so it contrasts against thunder and reflected spells.",
+    "Tail flicker accelerates on later frames to support the faster visual cadence of incoming attacks."
+  ],
+  "depends_on": [
+    "task_id_801000004"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000004"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000004",
+      "task_id_801000007",
+      "task_id_801000012",
+      "task_id_801000014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_3x2",
+    "ecs_components": [
+      "ProjectileTag",
+      "ElementFireTag",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load projectile_fire_orb.png during Loading and build a 3x2 TextureAtlasLayout for the incoming projectile entity.",
+    "runtime_notes": [
+      "Animate at 12 FPS while translation moves from enemy spawn to player reflect line.",
+      "Keep the authored trail aligned to the negative x direction so the projectile reads correctly without runtime rotation.",
+      "Place the sprite on a layer above world props and below the forecast icons plus HUD panels."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "incoming_fire_projectile",
+    "screen_position": {
+      "type": "dynamic_path",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Spawned from the enemy wand tip and moved across the duel lane toward the player reflect line."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 72,
+      "height": 72
+    },
+    "colors_hex": [
+      "#FF4500",
+      "#FF8C42",
+      "#FFD27F",
+      "#2B1B17"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        72,
+        72
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    "collision_profile": {
+      "shape": "circle",
+      "radius_px": 18
+    },
+    "travel_profile": {
+      "speed_px_per_s": 250,
+      "direction": "right_to_left"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/projectile_fire_orb.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 216x144 px for six 72x72 frames with no frame gutter.",
+    "The projectile reads as fire from silhouette and color alone at 50% preview scale.",
+    "The tail consistently points opposite the travel direction in every frame."
+  ]
+}

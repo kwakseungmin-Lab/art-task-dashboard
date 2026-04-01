@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020101",
+  "asset_key": "character_umbra_idle_6f_8fps",
+  "asset_name": "Umbra Idle Silhouette (6 frames, 8fps)",
+  "category": "character",
+  "subcategory": "player_state",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Umbra keeps a 32x48 px shadow-creature silhouette with a rounded crest, tapered arms, and a lower mist fringe.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while local violet and teal tones stay inside specs.colors_hex.",
+    "The pose preserves clear hand negative space so later grab-state swaps remain readable."
+  ],
+  "differences": [
+    "This base state shows neutral breathing inside a safe shadow region.",
+    "Six frames cycle shoulder lift, eye-glow shimmer, and mist-fringe drift rather than locomotion or damage feedback.",
+    "Glow intensity stays lower than beam-white hazards so the player body never resembles a light source."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_008020102",
+    "task_id_008020103",
+    "task_id_008020104",
+    "task_id_008020105"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020110",
+      "task_id_008020113",
+      "task_id_008020114"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds Umbra size, safe-shadow survival, and the player-state animation list."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the silhouette-first dusk mood and the gold-violet contrast target."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra body proportion and edge treatment for the base state."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with TextureAtlasLayout and FixedUpdate-driven animation timers.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility",
+      "UmbraActor"
+    ],
+    "asset_loading": "Load the idle atlas during FloorLoading and register it as the base visual for UmbraActor.",
+    "runtime_notes": [
+      "Advance frames at 8 fps under FixedUpdate.",
+      "Keep the origin at center-bottom so state swaps align on one collision capsule.",
+      "Bake eye glow into the sheet so atlas indexing stays deterministic."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "idle_player_state",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        420,
+        648
+      ]
+    },
+    "layer": "character",
+    "usage": "Default player state used in safe shadow lanes before movement or interaction begins.",
+    "adjacent_elements": [
+      "task_id_008020113",
+      "task_id_008020114"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        48
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "pose_notes": [
+      "Head crest rises 3 px above the shoulder line.",
+      "Mist fringe occupies the bottom 6 px.",
+      "Eye-glow cluster occupies a 4x2 px region in the upper torso silhouette."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_umbra_idle_6f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x48 px with 6 frames of 32x48 px and 0 px spacing.",
+    "Umbra silhouette reads clearly against both void-dark and exposure-white regions.",
+    "Idle motion remains subtle and does not imitate run, grab, or damage states."
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 3,
+    "prompt_version_used": "Assembled_Prompt_trial_4",
+    "concepts_used": [
+      "Concept_v2_Invariance.md v1.2",
+      "Concept_v3_Structurality.md v1.1",
+      "Concept_v4_Completeness.md v1.1"
+    ],
+    "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+    "gameplay_constraints": {
+      "screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "scrolling": "single_screen_no_camera_scroll_objects_move_left"
+    },
+    "art_direction": {
+      "style": "pixel_art_8bit",
+      "theme": "prehistoric_desert",
+      "rendering_rules": {
+        "pixel_perfect": true,
+        "anti_aliasing": false,
+        "subpixel_movement_in_art": false
+      },
+      "palette": [
+        {
+          "name": "Background",
+          "hex": "#F7F7F7",
+          "rgb": [
+            247,
+            247,
+            247
+          ],
+          "usage": [
+            "sky_background"
+          ]
+        },
+        {
+          "name": "Primary",
+          "hex": "#535353",
+          "rgb": [
+            83,
+            83,
+            83
+          ],
+          "usage": [
+            "sprites",
+            "ui_text",
+            "ground_line",
+            "clouds"
+          ]
+        },
+        {
+          "name": "Highlight",
+          "hex": "#FF0000",
+          "rgb": [
+            255,
+            0,
+            0
+          ],
+          "usage": [
+            "optional_game_over_state_indicator"
+          ]
+        },
+        {
+          "name": "White",
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "usage": [
+            "ui_flash_optional",
+            "screen_flash_optional"
+          ]
+        }
+      ],
+      "outline_standard": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "sprite_standards": {
+      "authoring_scale": "1x",
+      "runtime_scaling_support": [
+        "2x_nearest_neighbor"
+      ],
+      "file_format": "png",
+      "alpha_background": "transparent",
+      "naming_convention": "snake_case"
+    },
+    "source_trace": {
+      "gdd_files": [
+        "00_Global_Architecture/Art_Direction.md",
+        "00_Global_Architecture/Game_Direction.md",
+        "02_Objects/Player.md",
+        "02_Objects/Cactus.md",
+        "02_Objects/Pterodactyl.md",
+        "02_Objects/Ground.md",
+        "03_UI_Widgets/ScoreDisplay.md",
+        "03_UI_Widgets/GameOverScreen.md",
+        "04_World/Background.md"
+      ]
+    }
+  },
+  "task_id": "cdr_environment_background_sky",
+  "asset_name": "background_sky",
+  "category": "environment",
+  "subcategory": "background",
+  "description": "게임 화면 전체 배경 하늘 단색 채우기용 이미지.\n- 캔버스: 600x150 px (1x)\n- 배경: 불투명 단색 #F7F7F7 (alpha=255)\n- 다른 픽셀/노이즈/패턴/구름 포함: 없음 (구름은 별도 에셋)\n- 가장자리 1px 포함 전체 동일 색상\n",
+  "deliverables": [
+    {
+      "path": "art/export/environment/background_sky_600x150.png",
+      "type": "png",
+      "description": "배경 하늘 단색 이미지",
+      "dimensions": "600x150"
+    }
+  ],
+  "specs": {
+    "dimensions": {
+      "image_px": "600x150"
+    },
+    "colors": {
+      "fill_hex": "#F7F7F7"
+    },
+    "alpha": {
+      "background": "opaque"
+    },
+    "pixel_rules": {
+      "anti_aliasing": false,
+      "grid": "1px"
+    }
+  },
+  "context": {
+    "role": "게임의 최하위 배경 레이어(하늘).",
+    "screen_location": "화면 전체(0,0)~(599,149).",
+    "adjacent_elements": [
+      "ground_line_tile",
+      "cloud_small(optional)",
+      "cloud_large(optional)",
+      "player_*",
+      "obstacles_*",
+      "ui_*"
+    ],
+    "layer": "background_layer_0",
+    "usage": "매 프레임 고정 렌더링. 스크롤/패럴랙스 없음."
+  },
+  "relationships": {
+    "related_tasks": [
+      "cdr_environment_cloud_small",
+      "cdr_environment_cloud_large",
+      "cdr_environment_ground_line_tile"
+    ],
+    "shared_properties": [
+      "색상 #F7F7F7 사용(팔레트 Background).",
+      "픽셀 퍼펙트: 안티앨리어싱 없음."
+    ],
+    "differences": [
+      "구름/텍스처 요소는 포함하지 않음(별도 에셋)."
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 1,
+  "priority": "P0",
+  "blocks": [
+    "cdr_environment_ground_line_tile",
+    "cdr_character_player_run",
+    "cdr_obstacle_cactus_small",
+    "cdr_ui_score_display_spec"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "모든 산출물 PNG는 sRGB, 투명 배경(alpha=0)이며, 안티앨리어싱/블러/그라데이션이 0px/0단계로 존재하지 않는다.",
+    "팔레트는 프로젝트 팔레트(#F7F7F7, #535353, #FF0000(선택), #FFFFFF(선택)) 외의 색상을 포함하지 않는다.",
+    "PNG 크기가 정확히 600x150 px이다.",
+    "모든 픽셀의 RGB가 #F7F7F7이며(247,247,247), alpha=255이다."
+  ]
+}

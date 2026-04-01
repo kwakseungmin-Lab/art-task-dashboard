@@ -1,0 +1,139 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.hazard.fire_tile_64_sheet_8f",
+  "asset_name": "Fire Hazard Tile Sheet — 512x64, 8 frames",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P1",
+  "execution_order": 80,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.unit.guard_patrol_sheet_48_4f",
+      "world.tiles.marble_grid_64_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hazard_tile",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "layer": "world_hazards",
+    "usage": "Animated lethal flame tile for timed board hazards and enemy route denial.",
+    "adjacent_elements": [
+      "world.tiles.marble_grid_64_atlas",
+      "character.unit.guard_patrol_sheet_48_4f"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_2d",
+      "facing": "north_up"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 64
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#D97706",
+      "#F59E0B",
+      "#FBBF24",
+      "#FEF3C7",
+      "#DC2626"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 8,
+        "frame_size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "order": [
+          "fire_1",
+          "fire_2",
+          "fire_3",
+          "fire_4",
+          "fire_5",
+          "fire_6",
+          "fire_7",
+          "fire_8"
+        ],
+        "padding_px": 0
+      }
+    },
+    "shape": {
+      "silhouette": "64px square flame plume with a 24px base and a 40px peak.",
+      "components": [
+        "ember_base",
+        "main_flame",
+        "spark_pixels"
+      ]
+    },
+    "hazard": {
+      "damage_state": "lethal",
+      "peak_height_px": 40,
+      "base_width_px": 24
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.fire_tile_64_sheet_8f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 512x64px with 8 frames of 64x64px.",
+    "Flame peak reaches 40px height in at least 2 frames and never exceeds 44px.",
+    "Each frame uses orange, gold, ivory, and red values from specs.colors_hex only."
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.cosmos_heracles_run_variant",
+  "asset_name": "Cosmos Heracles base run loop",
+  "category": "character",
+  "subcategory": "player_animation_run",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": "character.player.cosmos_heracles_base",
+  "shared_properties": [
+    "primary #C47C2B",
+    "background #0B0C1E",
+    "accent #FFD966",
+    "frame_size 64x96",
+    "side_view_right"
+  ],
+  "differences": [
+    "6_frame_auto_run_cycle",
+    "sheet_width_384",
+    "stride_pose_progression_0_to_5"
+  ],
+  "depends_on": [
+    "character.player.cosmos_heracles_base"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.cosmos_heracles_base"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles_base",
+      "ui.icons.size_state_set"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art_16x16_upscaled",
+    "detail_level": "dense_16x16_cluster",
+    "shading": "two_tone_plus_one_highlight",
+    "outline": "1px_deep_space_outline"
+  },
+  "context": {
+    "role": "player_character",
+    "screen_position": {
+      "mode": "fixed_world_anchor",
+      "anchor_px": {
+        "x": 400,
+        "y": 820
+      },
+      "pivot": "bottom_center",
+      "type": "absolute_px"
+    },
+    "layer": "foreground_characters",
+    "usage": "Primary locomotion sheet for constant forward movement during all non-boss traversal segments.",
+    "adjacent_elements": [
+      "star floor strip under boots",
+      "narrow passage ceiling test lane",
+      "score label at top center"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 384,
+      "height": 96
+    },
+    "colors_hex": [
+      "#C47C2B",
+      "#E8B87A",
+      "#0B0C1E",
+      "#D9D0BE",
+      "#FFD966"
+    ],
+    "animation": {
+      "frame_count": 6,
+      "fps": 12,
+      "loop": "loop",
+      "frame_size_px": {
+        "width": 64,
+        "height": 96
+      },
+      "states": [
+        "run"
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    },
+    "shape": {
+      "silhouette": "upright armored runner with forward stride",
+      "components": [
+        "bronze chest plate",
+        "alternating leg stride",
+        "swinging arms",
+        "trailing lion-cloak edge"
+      ]
+    },
+    "face": {
+      "eyes": "focused_brown_pixels",
+      "mouth": "grim_line",
+      "nose": "short_profile"
+    },
+    "appendages": {
+      "arms": "two_human_arms",
+      "legs": "two_human_legs",
+      "tail": "none",
+      "accessories": [
+        "lion_cloak",
+        "bronze_bracers"
+      ]
+    },
+    "texture": "bronze_plate_over_skin_and_cloth",
+    "shading": "two_tone_with_gold_highlight"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/character.player.cosmos_heracles_run_variant.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Output sheet size is exactly 384x96 px.",
+    "Core palette remains primary #C47C2B, background #0B0C1E, accent #FFD966 with asset-local colors confined to specs.colors_hex.",
+    "Animation metadata is exactly frame_count 6, fps 12, loop loop.",
+    "Deliverable path is exactly character/character.player.cosmos_heracles_run_variant.png with transparent background enabled.",
+    "The sheet contains exactly 6 sequential run frames laid out in one row.",
+    "Foot contact occurs on frames 1 and 4 to minimize slide during 120 to 240 px per second scroll speeds.",
+    "specs.viewpoint.camera_angle is orthographic_side and specs.viewpoint.facing is right.",
+    "specs.shape.components list contains bronze chest plate, alternating leg stride, swinging arms, and trailing lion-cloak edge."
+  ]
+}

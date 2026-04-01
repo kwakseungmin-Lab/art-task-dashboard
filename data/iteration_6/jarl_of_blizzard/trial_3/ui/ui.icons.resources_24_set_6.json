@@ -1,0 +1,137 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.icons.resources_24_set_6",
+  "asset_name": "Resource Icons — 24px set (6)",
+  "category": "ui",
+  "subcategory": "icons",
+  "priority": "P1",
+  "execution_order": 42,
+  "variant_of": null,
+  "depends_on": [
+    "ui.typography.bitmap_font_bw_8px"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.typography.bitmap_font_bw_8px"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "resource_icons",
+    "layer": "ui_hud",
+    "usage": "Icons for resource bar and queue: food, wood, warrior, herbs, faith, trade goods.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 144,
+      "height": 24
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "icons": [
+      {
+        "id": "food",
+        "size_px": {
+          "width": 24,
+          "height": 24
+        },
+        "note": "Fish/meat."
+      },
+      {
+        "id": "wood",
+        "size_px": {
+          "width": 24,
+          "height": 24
+        },
+        "note": "Log."
+      },
+      {
+        "id": "warrior",
+        "size_px": {
+          "width": 24,
+          "height": 24
+        },
+        "note": "Helmet."
+      },
+      {
+        "id": "herbs",
+        "size_px": {
+          "width": 24,
+          "height": 24
+        },
+        "note": "Leaf."
+      },
+      {
+        "id": "faith",
+        "size_px": {
+          "width": 24,
+          "height": 24
+        },
+        "note": "Rune."
+      },
+      {
+        "id": "trade_goods",
+        "size_px": {
+          "width": 24,
+          "height": 24
+        },
+        "note": "Coin pouch."
+      }
+    ],
+    "layout_note": "6 icons packed horizontally: 144×24."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.icons.resources_24_set_6.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 144×24px.",
+    "Each icon recognizable at 24px in grayscale.",
+    "Silhouettes consistent with 2px outline."
+  ]
+}

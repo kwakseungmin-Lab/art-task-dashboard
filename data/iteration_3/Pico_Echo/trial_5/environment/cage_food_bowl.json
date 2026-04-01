@@ -1,0 +1,102 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px",
+      "note": "Full screen canvas, individual elements vary"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bars": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "rendering": "static (no animation)",
+      "layer": "background (behind Echo)",
+      "style": "minimal, functional pixel art",
+      "perspective": "none (flat 2D front view)"
+    }
+  },
+  "asset": {
+    "asset_id": "cage_food_bowl",
+    "asset_name": "Cage Food Bowl",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Interactive food container that holds seeds, target of feeding action",
+      "screen_position": "Lower left at x=16px, y=100px",
+      "adjacent_elements": [
+        "cage_water_bowl (to the right at x=40px, y=100px)",
+        "seed (contained within bowl when food_level > 0)",
+        "cage_floor (below at y=110px)",
+        "echo_eating (Echo leans toward this bowl when eating)",
+        "echo_hungry (Echo looks at this bowl when empty)"
+      ],
+      "usage_scenario": "Player taps feed button to fill bowl with seeds. Bowl has 3 visual states based on food_level: Full (2), Low (1), Empty (0). Echo eats from this bowl in eating state. When empty, triggers hungry state."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "16px",
+        "height": "12px"
+      },
+      "colors": {
+        "bowl": "#AB5236",
+        "seeds": "#FFA300",
+        "interior": "#5F574F"
+      },
+      "shape": "Simple bowl viewed from slight top-down angle. Oval/circular opening at top (12-14px wide), narrower base (8-10px wide). Bowl rim is 1-2px thick.",
+      "texture": "Pure pixel art, simple and functional",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "static",
+        "frames": 3,
+        "fps": 0,
+        "loop": false,
+        "description": "3 static states (not animated frames): State 0 (Empty): Brown bowl outline only, dark interior (#5F574F). State 1 (Low): 3-4 seed pixels (3x3px each, #FFA300) in bowl. State 2 (Full): 6-8 seed pixels filling bowl interior."
+      },
+      "details": "Bowl rim: #AB5236, 1px thick forming oval shape. Interior: #5F574F when empty. Seeds: 3x3px irregular ovals in #FFA300. Full state: 6-8 seeds clustered. Low state: 3-4 seeds scattered. Empty state: no seeds, only dark interior visible. Bowl positioned at x=16px (left edge), y=100px (top edge)."
+    },
+    "relationships": {
+      "related_assets": [
+        "seed",
+        "echo_eating",
+        "echo_hungry",
+        "cage_water_bowl",
+        "cage_floor"
+      ],
+      "shared_with": "Similar bowl shape to water bowl but contains seeds",
+      "differences_from": "Unlike water bowl: contains seeds (not water), larger size (16x12 vs 12x10), target of eating action. Unlike perch: on floor level, interactive."
+    },
+    "explicit_negations": [
+      "No 3D shading or gradients",
+      "No realistic bowl material",
+      "No reflections or highlights",
+      "No mounting hardware",
+      "No decorative patterns",
+      "No perspective distortion",
+      "No animation between states (instant state change)",
+      "No food particles outside bowl"
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-12px",
+      "note": "Varies by effect type - particles are 2-4px, speech bubble is 12x10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8",
+      "bubble_bg": "#FFF1E8",
+      "bubble_outline": "#1D2B53"
+    },
+    "shared_attributes": {
+      "rendering": "animated particles or static overlays",
+      "layer": "foreground (on top of all other elements)",
+      "style": "simple iconic pixel art",
+      "lifespan": "0.5-2 seconds (particles auto-destroy)"
+    }
+  },
+  "asset": {
+    "asset_id": "music_note_particle",
+    "asset_name": "Music Note Particle Effect",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Visual indicator that Echo is singing, appears during singing state",
+      "screen_position": "Spawns to right of Echo at x=75-85px, y=35-45px, floats upward",
+      "adjacent_elements": [
+        "echo_singing (spawns during this state)",
+        "cage_background"
+      ],
+      "usage_scenario": "3 music notes spawn during echo_singing animation at frames 2, 4, 6. Each note floats upward 10-15px over 1 second while fading. Indicates Echo is performing cockatiel whistle song."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "5px"
+      },
+      "colors": {
+        "primary": "#FFEC27"
+      },
+      "shape": "Musical eighth note (♪) symbol. 3px wide, 5px tall. Round note head (2x2px) at bottom, vertical stem (1px wide, 3px tall) extending upward.",
+      "texture": "Pure pixel art, solid color",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "particle",
+        "frames": 4,
+        "fps": 4,
+        "loop": false,
+        "description": "Frame 1: Note appears at spawn position. Frame 2: Moves up 4px. Frame 3: Moves up 4px, begins fade (75% opacity). Frame 4: Moves up 4px, fades to 25% then disappears. Total vertical movement: 12px upward. Duration: 1 second."
+      },
+      "details": "Note shape: 3x5px in #FFEC27. Note head: 2x2px circle at bottom. Stem: 1px wide, 3px tall vertical line. Spawns at x=78±5px (random offset), y=40px. Floats to y=28px. 3 notes spawn per singing animation with 0.5 second intervals."
+    },
+    "relationships": {
+      "related_assets": [
+        "echo_singing",
+        "cage_background"
+      ],
+      "shared_with": "Same yellow color (#FFEC27) as Echo's crest",
+      "differences_from": "Unlike hearts: music note shape, spawns during singing (not petting), yellow color. Unlike ZZZ: upward movement (not diagonal), different shape."
+    },
+    "explicit_negations": [
+      "No 3D shading",
+      "No outline stroke",
+      "No rotation",
+      "No size scaling",
+      "No motion blur",
+      "No multiple notes per particle",
+      "No staff lines",
+      "No horizontal drift"
+    ]
+  }
+}

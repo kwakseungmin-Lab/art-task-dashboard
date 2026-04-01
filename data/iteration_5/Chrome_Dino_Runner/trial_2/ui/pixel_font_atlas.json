@@ -1,0 +1,172 @@
+{
+  "task_id": "ui.pixel_font_atlas",
+  "asset_name": "Pixel Font Atlas for UI Text",
+  "category": "ui",
+  "subcategory": "bitmap_font",
+  "priority": "high",
+  "execution_order": 60,
+  "project_common": {
+    "project_id": "chrome_dino_runner_iter5_trial2_art_task_plan",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 2,
+    "canvas_px": [
+      600,
+      150
+    ],
+    "pixel_perfect": true,
+    "anti_aliasing": "none",
+    "palette_hex": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash": "#FFFFFF"
+    },
+    "outline_px": 2,
+    "outline_color_hex": "#535353"
+  },
+  "description": "Create a bitmap font atlas that includes digits, uppercase letters, space, colon, and period for score and game over UI.",
+  "context": {
+    "role": "UI text rendering resource used by score display and game over screen.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": 100,
+    "usage": {
+      "font_sizes_px": {
+        "score": 16,
+        "game_over": 24,
+        "restart_hint": 12
+      },
+      "color_hex": "#535353",
+      "alignment": "monospace"
+    }
+  },
+  "specs": {
+    "style": {
+      "font_style": "pixel_monospace",
+      "anti_aliasing": "none",
+      "allowed_hex": [
+        "#535353"
+      ],
+      "background_transparent": true
+    },
+    "glyphs": {
+      "required": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+        ":",
+        ".",
+        " ",
+        "-"
+      ],
+      "score_digit": {
+        "cell_width_px": 10,
+        "cell_height_px": 16
+      },
+      "game_over_text": {
+        "cell_width_px": 14,
+        "cell_height_px": 24
+      },
+      "hint_text": {
+        "cell_width_px": 8,
+        "cell_height_px": 12
+      }
+    },
+    "atlas": {
+      "file": "ui_font_atlas.png",
+      "atlas_size_px": [
+        256,
+        256
+      ],
+      "padding_px": 1,
+      "grid": {
+        "columns": 16,
+        "rows": 16
+      },
+      "mapping_file": "ui_font_atlas_mapping.json"
+    },
+    "export": {
+      "format": "png",
+      "background": "transparent",
+      "mapping_format": "json"
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "ui.score_display",
+      "ui.game_over_screen"
+    ]
+  },
+  "depends_on": [],
+  "blocks": [
+    "ui.score_display",
+    "ui.game_over_screen"
+  ],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "type": "png_font_atlas",
+      "file": "ui_font_atlas.png",
+      "size_px": [
+        256,
+        256
+      ],
+      "transparent_background": true,
+      "color_hex": [
+        "#535353"
+      ]
+    },
+    {
+      "type": "json",
+      "file": "ui_font_atlas_mapping.json",
+      "schema_notes": "Map each glyph to atlas coordinates and glyph cell size in pixels."
+    }
+  ],
+  "acceptance_criteria": [
+    "ui_font_atlas.png is exactly 256x256 pixels with transparent background outside glyph pixels (alpha=0).",
+    "All glyph pixels use #535353 only; no additional colors and no semi-transparent pixels.",
+    "Digits 0-9 are monospace with exact cell size 10x16 and align visually when rendering a 5-digit score string.",
+    "ui_font_atlas_mapping.json contains an entry for every required glyph and each entry includes x,y,width,height in pixels.",
+    "The string 'GAME OVER' renders without missing glyphs using the uppercase letter set."
+  ]
+}

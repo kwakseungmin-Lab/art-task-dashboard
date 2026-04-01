@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.court_window_far_layer",
+  "asset_name": "Court Window Far Layer",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.column_curtain_mid_layer",
+      "world.foreground.marble_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "background_far",
+    "layer": "world_background_far",
+    "usage": "Far depth layer for the court hall play zone with tall window arches and soft sky glow.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 50
+    },
+    "adjacent_elements": [
+      "world.background.column_curtain_mid_layer"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#A89880",
+      "#C8B4E0"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "three_window_arch_band_with_soft_sky_panels",
+      "components": [
+        "left_window_arch",
+        "center_window_arch",
+        "right_window_arch",
+        "sky_panel_band",
+        "stone_trim"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "view_depth": "far",
+    "tile_mode": "single_panel"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.court_window_far_layer.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1280x620px and starts at play-zone y=50px.",
+    "Three window arches share equal 320px inner widths with 80px side margins.",
+    "Only listed HEX values are used and sky glow stays under 40% of the layer area."
+  ]
+}

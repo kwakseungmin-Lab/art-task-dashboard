@@ -1,0 +1,174 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020117",
+  "asset_key": "ui_light_preview_overlay_1920x1080",
+  "asset_name": "Light Path Preview Overlay (1920x1080, 3 states)",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P1",
+  "execution_order": 170,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The overlay covers the full 1920x1080 viewport to support the Tab-triggered light-path preview.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while preview colors stay inside specs.colors_hex.",
+    "Transparency holes preserve world readability so the overlay adds guidance without erasing puzzle geometry."
+  ],
+  "differences": [
+    "This state sheet contains beam-only, shadow-only, and combined-preview variants.",
+    "Hazard beams use semi-transparent exposure white, safe-shadow areas use translucent teal, and combined mode preserves both with gold guide arrows.",
+    "A thin corner hint plate in the upper-right area reserves space for the preview toggle label."
+  ],
+  "depends_on": [
+    "task_id_008020106",
+    "task_id_008020107",
+    "task_id_008020109"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020106",
+    "task_id_008020107",
+    "task_id_008020109"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020106",
+      "task_id_008020107",
+      "task_id_008020109",
+      "task_id_008020113"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the Tab light-preview overlay, beam analysis, and safe-shadow visualization rule."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the soft transparent overlay treatment that fits the tower mood without flattening the scene."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds the need to preserve player silhouette readability beneath the overlay."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle or fullscreen ImageBundle on the overlay camera.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "Style",
+      "UiImage",
+      "Visibility",
+      "HudWidget"
+    ],
+    "asset_loading": "Load the overlay atlas during FloorLoading and toggle the appropriate frame when preview mode changes.",
+    "runtime_notes": [
+      "Render the overlay on the HUD camera with transparency preserved.",
+      "Swap states instantly on Tab input without rebuilding the widget tree.",
+      "Keep blend strength deterministic through authored alpha rather than post-process grading."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "full_screen_preview_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "ui",
+    "usage": "Optional full-screen overlay that previews current beam routes and safe-shadow coverage when analysis mode is toggled.",
+    "adjacent_elements": [
+      "task_id_008020106",
+      "task_id_008020107",
+      "task_id_008020109",
+      "task_id_008020113"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "beam_only",
+        "shadow_only",
+        "combined"
+      ],
+      "frame_count": 3,
+      "frame_size_px": [
+        1920,
+        1080
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "preview_notes": [
+      "Upper-right hint plate width is 180 px.",
+      "Beam guides target 50 percent alpha.",
+      "Safe-shadow guides target 40 percent alpha."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_light_preview_overlay_1920x1080.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 5760x1080 px with three 1920x1080 frames and 0 px spacing.",
+    "Beam-only, shadow-only, and combined states remain visually distinct while preserving puzzle-legible transparency.",
+    "The overlay does not obscure scale readouts, Umbra silhouette, or exit-door framing at common camera positions."
+  ]
+}

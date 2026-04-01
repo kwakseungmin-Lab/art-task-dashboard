@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020102",
+  "asset_key": "character_umbra_run_8f_12fps",
+  "asset_name": "Umbra Run Cycle (8 frames, 12fps)",
+  "category": "character",
+  "subcategory": "player_state",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": "task_id_008020101",
+  "variant_of_asset_key": "character_umbra_idle_6f_8fps",
+  "shared_properties": [
+    "Umbra keeps the 32x48 px silhouette envelope, eye-glow position, and mist-fringe language established by the idle base state.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while motion tones stay inside specs.colors_hex.",
+    "The center-bottom pivot remains identical to the idle sheet so runtime swaps do not create sprite-pop."
+  ],
+  "differences": [
+    "Eight frames show a low sprint tuned to the documented 240 px per second movement speed.",
+    "Mist fringe compresses on foot plant and trails during the passing pose to emphasize shadow-fluid motion.",
+    "Short amber contact sparks appear only on the two strongest footfall frames."
+  ],
+  "depends_on": [
+    "task_id_008020101"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020101"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020101",
+      "task_id_008020113",
+      "task_id_008020114"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds Umbra speed, side movement, and the run-state animation list."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the silhouette contrast target for motion against layered architecture."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra leg length and torso ratio for the run cycle."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with TextureAtlasLayout and fixed-step timers.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility",
+      "UmbraActor"
+    ],
+    "asset_loading": "Load the run atlas during FloorLoading and register it as the locomotion visual for UmbraActor.",
+    "runtime_notes": [
+      "Advance frames at 12 fps while horizontal speed exceeds the idle threshold.",
+      "Reuse the idle pivot for collision alignment.",
+      "Use flip_x for left travel rather than a second mirrored sheet."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "run_player_state",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        520,
+        648
+      ]
+    },
+    "layer": "character",
+    "usage": "Primary locomotion state for movement inside safe shadow lanes and across the scale assembly.",
+    "adjacent_elements": [
+      "task_id_008020113",
+      "task_id_008020111"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        48
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "pose_notes": [
+      "Strongest stride spans 22 px toe-to-toe.",
+      "Leading hand remains open for grab-state continuity.",
+      "Mist fringe extends 6 px behind the rear heel on peak motion frames."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_umbra_run_8f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 256x48 px with 8 frames of 32x48 px and 0 px spacing.",
+    "The cycle reads as forward sprinting and never resembles jump hang-time or grab posture.",
+    "All frames preserve the idle base pivot for seamless runtime swapping."
+  ]
+}

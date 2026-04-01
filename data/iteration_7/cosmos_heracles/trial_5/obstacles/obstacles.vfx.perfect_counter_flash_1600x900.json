@@ -1,0 +1,121 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.vfx.perfect_counter_flash_1600x900",
+  "asset_name": "Perfect Counter Flash",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P1",
+  "execution_order": 52,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "blocks": [
+    "ui.hud.counter_result_popup_320x64"
+  ],
+  "blocked_by": [
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "ui.hud.counter_result_popup_320x64"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "vfx",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.counter_result_popup_320x64",
+      "ui.hud.top_bar_overlay_1600x64",
+      "character.player.cosmos_heracles.core_states_sheet"
+    ],
+    "layer": "ui",
+    "usage": "Single-frame full-screen flash overlay for ±20ms perfect counters; appears above gameplay and below popup text.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#FFD966",
+      "#40E8D0"
+    ],
+    "animation": {
+      "type": "single_frame",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "sheet_dimensions_px": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    "shape": {
+      "silhouette": "full-screen rectangular flash with a centered burst ellipse and transparent edge falloff represented by stepped pixel bands",
+      "components": [
+        "full-screen frame",
+        "center burst ring",
+        "outer stepped bands"
+      ]
+    },
+    "duration_ms": 100,
+    "background_treatment": "transparent overlay with stepped opacity bands represented as discrete alpha levels"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.perfect_counter_flash_1600x900.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay is exactly 1600x900px and covers the full gameplay frame with no crop.",
+    "The brightest burst is centered within 8px of screen center and uses #F0EFE9 with #FFD966 accents.",
+    "The effect reads as a 1-frame flash and contains no blurred edges; stepped bands use discrete pixel transitions only."
+  ]
+}

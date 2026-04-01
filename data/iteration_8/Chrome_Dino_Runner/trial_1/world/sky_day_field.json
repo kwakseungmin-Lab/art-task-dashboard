@@ -1,0 +1,145 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000009",
+  "asset_key": "sky_day_field",
+  "asset_name": "Sky Day Field",
+  "category": "world",
+  "subcategory": "background_fill",
+  "priority": "P1",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Canvas target stays 600x150 px.",
+    "Background color uses #F7F7F7 across the full field.",
+    "No outline pixels appear in this fill asset."
+  ],
+  "differences": [
+    "This task supplies the full-screen daytime backdrop for the runner lane.",
+    "The fill remains static while ground and cloud layers move above it.",
+    "The art contains no decorative silhouettes so obstacle readability stays high."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000010",
+      "task_id_801000012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    },
+    {
+      "label": "offline_sprite_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "2x atlas for silhouette spacing, obstacle spacing, and hit-readability checks."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "BackgroundTag",
+      "SkyField"
+    ],
+    "asset_loading": "Load one 600x150 PNG during Loading state and attach it to the far background layer before gameplay begins.",
+    "runtime_notes": [
+      "Place the transform anchor at x=300 and y=75 so the field covers the entire camera view.",
+      "Keep render order behind cloud, ground, obstacle, and UI layers.",
+      "Do not animate the sprite or modify the color at runtime."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "sky_background_fill",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        300,
+        75
+      ]
+    },
+    "layer": "background_far",
+    "usage": "Visible for the entire play session as the static sky backdrop."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 150
+    },
+    "colors_hex": [
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        600,
+        150
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "coverage_px": {
+      "left": 0,
+      "top": 0,
+      "right": 600,
+      "bottom": 150
+    },
+    "fill_profile": {
+      "tileable": false,
+      "parallax_factor": 0.0
+    },
+    "shape_notes": [
+      "One solid fill rectangle covers the full frame."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/sky_day_field.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 600x150 px and fills every pixel with #F7F7F7.",
+    "No transparent holes or decorative marks appear inside the field.",
+    "Rendered field stays behind every moving gameplay layer."
+  ]
+}

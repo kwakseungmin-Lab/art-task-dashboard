@@ -1,0 +1,114 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.button.confirm_180x50_pressed",
+  "asset_name": "Button — CONFIRM (180x50) Pressed",
+  "category": "ui",
+  "subcategory": "button",
+  "priority": "P1",
+  "execution_order": 66,
+  "variant_of": "ui.button.confirm_180x50_normal",
+  "shared_properties": {
+    "dimensions_px": [
+      180,
+      50
+    ],
+    "corner_radius_px": 6,
+    "border_px": 2,
+    "border_hex": "#06B6D4",
+    "fill_hex": "#1C1917",
+    "text_centered": true
+  },
+  "differences": {
+    "state": "pressed",
+    "inset_px": 2,
+    "inset_shadow_hex": "#1E1B4B",
+    "inset_highlight_hex": "#FEF3C7"
+  },
+  "depends_on": [
+    "ui.button.confirm_180x50_normal"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.button.confirm_180x50_normal"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "button_confirm_pressed",
+    "layer": "ui",
+    "usage": "Pressed state for the CONFIRM button while mouse button is held down.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_right",
+      "offset_px": [
+        -12,
+        40
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 50
+    },
+    "colors_hex": [
+      "#06B6D4",
+      "#1C1917",
+      "#FEF3C7",
+      "#1E1B4B"
+    ],
+    "animation": null,
+    "state": "pressed",
+    "layout_rules": {
+      "border_px": 2,
+      "text_centered": true,
+      "corner_radius_px": 6,
+      "fill_hex": "#1C1917",
+      "border_hex": "#06B6D4",
+      "inset_px": 2,
+      "inset_shadow_hex": "#1E1B4B",
+      "inset_highlight_hex": "#FEF3C7"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.button.confirm_180x50_pressed.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Asset is exactly 180x50px with 6px corner radius and a 2px border (#06B6D4).",
+    "Pressed depth is represented by a 2px inset: top-left inset shadow uses #1E1B4B and bottom-right inset highlight uses #FEF3C7.",
+    "No anti-aliasing; uses only listed colors and transparency."
+  ]
+}

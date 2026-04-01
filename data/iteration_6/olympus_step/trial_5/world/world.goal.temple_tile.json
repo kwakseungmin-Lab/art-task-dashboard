@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.goal.temple_tile",
+  "asset_name": "Goal Tile - Temple Light (Animated)",
+  "category": "world",
+  "subcategory": "goal",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "goal",
+    "layer": "world",
+    "usage": "64x64 GOAL tile placed on grid; clears stage when player lands on it",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "sprite_dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "animation": {
+      "type": "loop",
+      "frame_count": 8,
+      "fps": 4,
+      "notes": "2.0s loop; temple pillar glow pulsates with sacred gold"
+    },
+    "colors_hex": [
+      "#D4C5A9",
+      "#FBBF24",
+      "#F59E0B",
+      "#F8FAFC",
+      "#1E1B4B"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.goal.temple_tile.png",
+      "transparent_background": true,
+      "layout": "horizontal_strip",
+      "frame_size_px": {
+        "width": 64,
+        "height": 64
+      },
+      "frame_count": 8
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG has exactly 8 frames in a single horizontal strip; each frame is 64x64px, total image size is 512x64px.",
+    "Glow animation reads as a loop: frame 1 and frame 8 are visually consistent with no abrupt brightness jump.",
+    "Dominant glow colors are #FBBF24/#F59E0B with small #F8FAFC highlights; no blurred bloom outside the 64x64 frame."
+  ]
+}

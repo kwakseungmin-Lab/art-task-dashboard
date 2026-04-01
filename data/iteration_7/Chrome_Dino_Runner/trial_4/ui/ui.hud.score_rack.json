@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.score_rack",
+  "asset_name": "UI — score rack overlay",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 310,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This overlay reserves slots rather than baking changing numbers into one texture.",
+    "The composition keeps all painted pixels in the upper-right reading zone.",
+    "No red accent pixels appear in the normal score state."
+  ],
+  "depends_on": [
+    "ui.font.score_digits"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.score_digits"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.score_digits",
+      "ui.banner.game_over_message"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hud_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        360,
+        10
+      ]
+    },
+    "layer": "ui",
+    "usage": "Top-right HUD layout for current score and HI score with right-aligned monospaced spacing."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 230,
+      "height": 14
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "layout_notes": [
+      "Allocate the left segment for HI and the right segment for current score.",
+      "Leave transparent gaps between labels and digit cells for legibility.",
+      "Right edge of the rack aligns to x=590 on a 600px canvas."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.score_rack.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 230x14px.",
+    "HI label plus two five-digit fields fit inside the width with at least 6px right margin.",
+    "Baseline alignment error across all digit slots stays at 0px."
+  ]
+}

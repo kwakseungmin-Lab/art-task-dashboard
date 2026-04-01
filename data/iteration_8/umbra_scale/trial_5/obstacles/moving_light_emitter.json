@@ -1,0 +1,171 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050006",
+  "asset_key": "moving_light_emitter",
+  "asset_name": "Moving Light Emitter",
+  "category": "obstacles",
+  "subcategory": "hazard_emitter",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The emitter uses the same hard-edge palette discipline and art deco hardware language as other puzzle props.",
+    "Every frame preserves transparent-background compositing so beams and masks can be layered independently in Bevy.",
+    "Gold hardware and amber light stay inside the project palette and never blur into the background architecture."
+  ],
+  "differences": [
+    "This asset is the primary danger-source visual and therefore carries the highest luminance contrast in the package.",
+    "The atlas frames communicate pulse timing rather than positional movement; rail motion is runtime-driven.",
+    "The nozzle geometry is more directional than the mirror or prism so players can parse beam origin immediately."
+  ],
+  "depends_on": [
+    "task_id_008050003",
+    "task_id_008050004",
+    "task_id_008050007"
+  ],
+  "blocks": [
+    "task_id_008050011",
+    "task_id_008050009",
+    "task_id_008050010"
+  ],
+  "blocked_by": [
+    "task_id_008050003",
+    "task_id_008050004",
+    "task_id_008050007"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050001",
+      "task_id_008050003",
+      "task_id_008050004",
+      "task_id_008050009",
+      "task_id_008050010",
+      "task_id_008050011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_3x2",
+    "ecs_components": [
+      "LightEmitterTag",
+      "LightPathVisual",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load moving_light_emitter.png during Loading, build a 3x2 atlas for pulse states, and register author-time beam anchor offsets used by Rapier2D raycast systems.",
+    "runtime_notes": [
+      "The sprite only represents the emitter core and authored beam origin; the actual beam path is drawn by the runtime light system.",
+      "Support fixed, moving, and focused light variants by swapping beam logic while keeping one consistent core silhouette.",
+      "Keep the beam anchor centered on the brightest core pixel so raycasts visually originate from the same point the player perceives."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "light_hazard_source",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1344,
+        232
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Represents the visible core for fixed, moving, and focused lights that define danger zones and drive shadow generation."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 128
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    "beam_profile": {
+      "beam_width_px": 48,
+      "max_length_px": 2048,
+      "moving_rail_speed_px_per_sec": 120,
+      "focused_cone_degrees": 30,
+      "focused_cone_length_px": 512
+    },
+    "collision_profile": {
+      "damages_player": true,
+      "casts_shadow_mask": true
+    },
+    "readability_notes": [
+      "The core remains the brightest non-UI element before the runtime beam is drawn.",
+      "A clear nozzle direction indicates beam forward orientation even when the core is idle.",
+      "Pulsing frames increase intensity without changing the anchor point."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/moving_light_emitter.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 192x128 px for six 64x64 frames with no frame gutter.",
+    "The beam origin sits on the same pixel coordinate across all six frames.",
+    "At 50% preview scale the emitter direction remains readable without the runtime beam attached."
+  ]
+}

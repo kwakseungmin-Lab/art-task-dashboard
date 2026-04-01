@@ -1,0 +1,146 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.icon.event_icons_24_set_5",
+  "asset_name": "Event Icons — 24×24 Set (Raid/Great Storm/Disease/Trader/Oracle)",
+  "category": "obstacles",
+  "subcategory": "icon",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.panel.event_popup_600x200",
+      "ui.panel.queue_panel_380x500"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "ui_icon_set",
+    "layer": "ui",
+    "usage": "Icons used in event popups and in the planning panel. Must remain recognizable in grayscale.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 24
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 5,
+      "fps": 0,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 5,
+        "frame_size_px": {
+          "width": 24,
+          "height": 24
+        },
+        "order": [
+          "raid",
+          "great_storm",
+          "disease",
+          "trader",
+          "oracle"
+        ],
+        "padding_px": 0
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.icon.event_icons_24_set_5.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 120x24px; each icon is 24x24px; no spacing.",
+    "Each icon is readable at 1x scale and distinct from the others using only grayscale.",
+    "Icons maintain a 1px outline or silhouette edge so they stay visible over both dark and light UI panels."
+  ]
+}

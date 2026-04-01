@@ -1,0 +1,88 @@
+{
+  "task_id": "ui.text.new_record",
+  "id": "text_new_record",
+  "asset_name": "UI Text: NEW RECORD",
+  "category": "ui",
+  "subcategory": "text",
+  "display_name": "UI Text: NEW RECORD",
+  "description": "Create asset for task_id 'ui.text.new_record' as specified in specs/context.",
+  "execution_order": 95,
+  "priority": "P2",
+  "depends_on": [
+    "ui.screen.game_over"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.screen.game_over"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 600,
+        "height": 150
+      },
+      "frame_rate_target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      },
+      "baseline_y_px": 148
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "highlight_optional_hex": "#FF0000"
+    },
+    "style": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "specs": {
+    "string": "NEW RECORD!",
+    "font_size_px": 18,
+    "color_hex": "#FF0000"
+  },
+  "context": {
+    "role": "game_over_high_score_feedback",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        35
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "game_over"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/text_new_record.png",
+      "dimensions_px": {
+        "width": 220,
+        "height": 30
+      },
+      "background": "transparent",
+      "notes": "Displayed only when final_score exceeds previous high score."
+    }
+  ],
+  "acceptance_criteria": [
+    "Text uses highlight color #FF0000 only; no other colors.",
+    "Legible and does not overlap other Game Over texts at 600x150."
+  ]
+}

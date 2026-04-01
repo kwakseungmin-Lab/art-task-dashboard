@@ -1,0 +1,297 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "pico_echo",
+    "project_name": "Pico_Echo"
+  },
+  "meta": {
+    "plan_id": "Pico_Echo__iter7__trial3",
+    "game_name": "Pico_Echo",
+    "iteration": 7,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-03-17T18:51:09Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md",
+    "gdd_resolution": "github_fallback_after_s3_check",
+    "s3_checked_experiments": [
+      "simple-exp-20260309194408",
+      "simple-exp-20260309194317",
+      "simple-exp-20260309194208",
+      "simple-exp-20260309194104",
+      "simple-exp-20260309194006"
+    ],
+    "kb_trace": {
+      "art_task_plan_kb_retrieve": "timeout",
+      "meta_iteration_kb_retrieve": "iter6 evaluator status stall signal retrieved for Pico_Echo; no asset schema failure retrieved",
+      "meta_analysis_game_status": "stable",
+      "meta_analysis_fail_rate": 0.0,
+      "avoidance_focus": [
+        "IF-9_variant_graph",
+        "IF-8_palette_drift",
+        "IF-4_reference_expression_zero"
+      ]
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "assets": [
+    {
+      "task_id": "character.echo.idle_4f_2fps",
+      "category": "character",
+      "file": "character/character.echo.idle_4f_2fps.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.echo.eating_6f_4fps",
+      "category": "character",
+      "file": "character/character.echo.eating_6f_4fps.json",
+      "execution_order": 20,
+      "variant_of": "character.echo.idle_4f_2fps"
+    },
+    {
+      "task_id": "character.echo.sleeping_3f_1fps",
+      "category": "character",
+      "file": "character/character.echo.sleeping_3f_1fps.json",
+      "execution_order": 30,
+      "variant_of": "character.echo.idle_4f_2fps"
+    },
+    {
+      "task_id": "character.echo.happy_8f_4fps",
+      "category": "character",
+      "file": "character/character.echo.happy_8f_4fps.json",
+      "execution_order": 40,
+      "variant_of": "character.echo.idle_4f_2fps"
+    },
+    {
+      "task_id": "character.echo.preening_5f_3fps",
+      "category": "character",
+      "file": "character/character.echo.preening_5f_3fps.json",
+      "execution_order": 50,
+      "variant_of": "character.echo.idle_4f_2fps"
+    },
+    {
+      "task_id": "character.echo.dirty_3f_2fps",
+      "category": "character",
+      "file": "character/character.echo.dirty_3f_2fps.json",
+      "execution_order": 60,
+      "variant_of": "character.echo.idle_4f_2fps"
+    },
+    {
+      "task_id": "character.echo.hungry_4f_2fps",
+      "category": "character",
+      "file": "character/character.echo.hungry_4f_2fps.json",
+      "execution_order": 70,
+      "variant_of": "character.echo.idle_4f_2fps"
+    },
+    {
+      "task_id": "character.echo.singing_8f_4fps",
+      "category": "character",
+      "file": "character/character.echo.singing_8f_4fps.json",
+      "execution_order": 80,
+      "variant_of": "character.echo.idle_4f_2fps"
+    },
+    {
+      "task_id": "obstacles.cage.seed_bowl_3state",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cage.seed_bowl_3state.json",
+      "execution_order": 110,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.cage.water_bowl_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cage.water_bowl_static.json",
+      "execution_order": 120,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.seed_3x3",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.seed_3x3.json",
+      "execution_order": 130,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.poop_2x2",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.poop_2x2.json",
+      "execution_order": 140,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.effect.heart_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.heart_particle_3f.json",
+      "execution_order": 150,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.effect.note_particle_4f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.note_particle_4f.json",
+      "execution_order": 160,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.effect.zzz_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.zzz_particle_3f.json",
+      "execution_order": 170,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.effect.feather_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.feather_particle_3f.json",
+      "execution_order": 180,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.effect.dust_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.dust_particle_3f.json",
+      "execution_order": 190,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.effect.sparkle_clean_4f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.sparkle_clean_4f.json",
+      "execution_order": 200,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.cage.background_static",
+      "category": "world",
+      "file": "world/world.cage.background_static.json",
+      "execution_order": 210,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.cage.bars_foreground",
+      "category": "world",
+      "file": "world/world.cage.bars_foreground.json",
+      "execution_order": 220,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.cage.perch_static",
+      "category": "world",
+      "file": "world/world.cage.perch_static.json",
+      "execution_order": 230,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.cage.floor_clean_dirty_2f",
+      "category": "world",
+      "file": "world/world.cage.floor_clean_dirty_2f.json",
+      "execution_order": 240,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.overlay.night_dim",
+      "category": "world",
+      "file": "world/world.overlay.night_dim.json",
+      "execution_order": 250,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.font.minipixel_3x5_ascii_96glyph",
+      "category": "ui",
+      "file": "ui/ui.font.minipixel_3x5_ascii_96glyph.json",
+      "execution_order": 310,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.happiness_bar_128x1",
+      "category": "ui",
+      "file": "ui/ui.hud.happiness_bar_128x1.json",
+      "execution_order": 320,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.relationship_label",
+      "category": "ui",
+      "file": "ui/ui.hud.relationship_label.json",
+      "execution_order": 330,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.icon.feed_seed",
+      "category": "ui",
+      "file": "ui/ui.icon.feed_seed.json",
+      "execution_order": 340,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.icon.clean_broom",
+      "category": "ui",
+      "file": "ui/ui.icon.clean_broom.json",
+      "execution_order": 350,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.icon.pet_hand",
+      "category": "ui",
+      "file": "ui/ui.icon.pet_hand.json",
+      "execution_order": 360,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.menu.care_popup_panel",
+      "category": "ui",
+      "file": "ui/ui.menu.care_popup_panel.json",
+      "execution_order": 370,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.bubble.seed_request_icon",
+      "category": "ui",
+      "file": "ui/ui.bubble.seed_request_icon.json",
+      "execution_order": 380,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.cursor.touch_indicator_2f",
+      "category": "ui",
+      "file": "ui/ui.cursor.touch_indicator_2f.json",
+      "execution_order": 390,
+      "variant_of": null
+    }
+  ]
+}

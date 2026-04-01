@@ -1,0 +1,84 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.item.poop_2x2",
+  "asset_name": "Poop (2x2 dirt spot)",
+  "category": "obstacles",
+  "subcategory": "cleanup_target",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "dirt",
+    "layer": "obstacles",
+    "usage": "Randomly spawned on floor; removed by swipe-to-clean.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 2,
+      "height": 2
+    },
+    "colors_hex": [
+      "#AB5236"
+    ],
+    "animation": null,
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.item.poop_2x2.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 2x2px and uses #AB5236 for all 4 pixels.",
+    "Remains visible on floor colors (#FFA300, #FFF1E8) by being a solid 2x2 block.",
+    "Background is fully transparent outside the 2x2 bounds."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

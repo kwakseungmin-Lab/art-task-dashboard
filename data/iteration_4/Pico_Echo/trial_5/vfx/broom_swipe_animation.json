@@ -1,0 +1,153 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.vfx.broom_swipe_animation",
+  "asset_name": "Broom swipe (clean effect)",
+  "category": "vfx",
+  "subcategory": "care",
+  "description": "Sprite strip 128x18px (4 frames horizontally; frame size 32x18). FPS=8, loop=false. The broom head is a 6x4px block #C2C3C7 with handle #AB5236. Across frames, broom moves left-to-right: frame1 x=0..5, frame2 x=9..14, frame3 x=18..23, frame4 x=27..32 within each 32x18 frame. Background fully transparent.",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/vfx/broom_swipe_strip_32x18_f4_8fps.png",
+      "format": "png",
+      "type": "sprite_strip"
+    }
+  ],
+  "specs": {
+    "dimensions": "128x18",
+    "frame_dimensions": "32x18",
+    "animation": {
+      "frame_count": 4,
+      "fps": 8,
+      "loop": false,
+      "layout": "horizontal_strip"
+    },
+    "palette_hex": [
+      "#C2C3C7",
+      "#AB5236"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Played when floor is swiped to clean poop.",
+    "screen_location": "Over floor band y=110..127.",
+    "adjacent_elements": [
+      "poop_sprite",
+      "sparkle_star_particle"
+    ],
+    "layer": "vfx",
+    "usage": "One-shot 0.5s."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.object.poop_sprite"
+    ],
+    "shared_properties": [
+      "Uses #C2C3C7 and #AB5236"
+    ],
+    "differences": [
+      "Animated motion across frames."
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 12,
+  "priority": "P1",
+  "blocks": [
+    "pico_echo.vfx.sparkle_star_particle"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Strip size is exactly 128x18px (4 frames of 32x18).",
+    "Only #C2C3C7, #AB5236, and transparent are used.",
+    "No background pixels are opaque outside broom shape."
+  ]
+}

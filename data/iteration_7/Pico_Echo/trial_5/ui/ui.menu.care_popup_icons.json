@@ -1,0 +1,136 @@
+{
+  "schema_version": "art_task@7",
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "task_id": "ui.menu.care_popup_icons",
+  "asset_name": "Care Popup Icons — feed, clean, pet",
+  "category": "ui",
+  "subcategory": "menu",
+  "priority": "P1",
+  "execution_order": 80,
+  "variant_of": null,
+  "shared_properties": [
+    "Three 8x8 icons stay compact to protect the tiny play area.",
+    "Button panel uses high-contrast navy framing for finger targeting.",
+    "Each icon keeps a single dominant silhouette for instant recognition."
+  ],
+  "differences": [
+    "This file covers popup controls only.",
+    "Persistent HUD meter and status bubbles stay outside this task."
+  ],
+  "depends_on": [
+    "obstacles.cage.feed_station_set"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.cage.feed_station_set"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cage.feed_station_set",
+      "obstacles.cage.cleanup_feedback_set",
+      "ui.hud.happiness_bar_states"
+    ]
+  },
+  "context": {
+    "role": "popup_menu",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        92,
+        104
+      ]
+    },
+    "layer": "ui_popup",
+    "usage": "Tap-triggered care menu shown near the lower-right corner with feed, clean, and pet actions.",
+    "viewpoint": {
+      "camera_angle": "screen_space_orthographic",
+      "facing": "screen_facing_0deg"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 36,
+      "height": 12
+    },
+    "colors_hex": [
+      "#1D2B53",
+      "#FFA300",
+      "#C2C3C7",
+      "#FFCCAA",
+      "#5F574F",
+      "#FFF1E8"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "active",
+        "cooldown"
+      ],
+      "frame_count": 2,
+      "frame_size_px": [
+        36,
+        12
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "icon_map": [
+      "feed icon at local x=2..9 uses seed silhouette in #FFA300.",
+      "clean icon at local x=14..21 uses broom silhouette in #C2C3C7.",
+      "pet icon at local x=26..33 uses hand silhouette in #FFCCAA.",
+      "cooldown state swaps active icon fills to #5F574F while keeping panel edges stable."
+    ],
+    "shape": {
+      "silhouette": "36x12 popup strip divided into three 12x12 action cells for feed, clean, and pet.",
+      "components": [
+        "feed cell",
+        "clean cell",
+        "pet cell",
+        "panel outline",
+        "cooldown fill swap"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.menu.care_popup_icons.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 72x12px with two 36x12 states.",
+    "Each state contains three readable 8x8 icons on a navy panel with at least 2px spacing between icon boxes.",
+    "Cooldown state visibly desaturates every icon with #5F574F while keeping silhouettes readable.",
+    "Panel fits inside the 128x128 canvas at x=92 y=104 without covering the happiness bar."
+  ]
+}

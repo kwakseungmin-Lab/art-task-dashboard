@@ -1,0 +1,78 @@
+{
+  "task_id": "obstacles.seed",
+  "asset_name": "Seed_And_BowlFill_Icons_12x3",
+  "category": "obstacles",
+  "subcategory": "food",
+  "description": "Create a 12x3 px sprite strip with 4 frames (each frame is 3x3 px, arranged left-to-right). Frame 0: single seed (primary #FFEC27 with 1 px outline #1D2B53). Frame 1: bowl fill icon (full) using #FFEC27. Frame 2: bowl fill icon (mid) using #FFA300. Frame 3: bowl fill icon (empty) using #FFF1E8 with outline #1D2B53. Each frame must fit inside its 3x3 cell with no pixels outside the cell.",
+  "execution_order": 90,
+  "priority": "P1",
+  "depends_on": ["world.food_bowl"],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.food_bowl",
+      "character.echo_sprite_sheet",
+      "ui.status_bubble"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": { "width": 128, "height": 128 },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": { "width": 12, "height": 3 },
+    "frame_dimensions_px": { "width": 3, "height": 3 },
+    "frame_count": 4,
+    "layout": { "direction": "horizontal", "frame_order": [0, 1, 2, 3] },
+    "colors": {
+      "seed_hex": "#FFEC27",
+      "seed_alt_hex": "#FFA300",
+      "outline_hex": "#1D2B53",
+      "empty_hex": "#FFF1E8"
+    }
+  },
+  "context": {
+    "role": "Seed visuals for feeding and for hungry thought bubbles.",
+    "screen_position": { "type": "anchor_offset", "anchor": "center", "offset_px": [0, 0] },
+    "layer": "world_props",
+    "usage": ["in_game", "feeding", "ui_icon"]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/obstacles/seed_icons_12x3.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/obstacles/seed_icons_12x3.png",
+      "dimensions_px": { "width": 12, "height": 3 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 12x3 px with transparent background.",
+    "There are 4 frames of exactly 3x3 px each in a horizontal strip.",
+    "Frame 0 includes #FFEC27 and #1D2B53.",
+    "No color outside project_common.palette_hex is used."
+  ]
+}

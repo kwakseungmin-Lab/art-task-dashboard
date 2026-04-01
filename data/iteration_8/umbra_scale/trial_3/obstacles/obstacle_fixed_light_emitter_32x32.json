@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003014",
+  "asset_key": "obstacle_fixed_light_emitter_32x32",
+  "asset_name": "Fixed Light Emitter Pulse",
+  "category": "obstacles",
+  "subcategory": "light_source",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001",
+    "task_id_008003002"
+  ],
+  "blocks": [
+    "task_id_008003008",
+    "task_id_008003010",
+    "task_id_008003011",
+    "task_id_008003015",
+    "task_id_008003020"
+  ],
+  "blocked_by": [
+    "task_id_008003001",
+    "task_id_008003002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003008",
+      "task_id_008003010",
+      "task_id_008003011",
+      "task_id_008003015",
+      "task_id_008003020"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle on beam source entities and pair the sprite with a raycast emitter component that owns direction and width data.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "LightEmitter",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/obstacle_fixed_light_emitter_32x32.png through AssetServer during level spawn and attach it to fixed emitter entities.",
+    "runtime_notes": [
+      "Pulse loop runs at 6 fps and does not affect gameplay beam timing.",
+      "Beam origin is the center of the front lens at x=24 y=16 within the 32x32 frame.",
+      "A separate shader beam mesh handles the long light strip rather than stretching the sprite."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "fixed_light_source",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1280,
+        272
+      ]
+    },
+    "layer": "obstacle_light",
+    "usage": "Primary stationary beam source used to define danger lanes and reflection puzzles on each floor.",
+    "adjacent_elements": [
+      "world_shadow_safezone_overlay_1920x1080",
+      "obstacle_planar_mirror_rotatable_16x96",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#D4682A",
+      "#F5EFE0",
+      "#C9A84C",
+      "#2D1B4E"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 6,
+      "fps": 6,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 6,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compact wall mounted lamp with a forward lens cone, gold housing, and bright core aperture.",
+      "components": [
+        "housing",
+        "front_lens",
+        "core_aperture",
+        "mount_bracket",
+        "signal_rim"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Metal housing with bright glass lens and a subtle warm core pulse.",
+    "shading": "White hot lens center with amber halo and dark violet housing shadows."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_fixed_light_emitter_32x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x32 px with six 32x32 frames.",
+    "Lens center stays fixed at x=24 y=16 in every frame for stable beam origin placement.",
+    "Pulse brightness changes only inside the lens and core aperture while the outer housing contour remains unchanged."
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player_dino.dead_static",
+  "asset_name": "Player Dino — Dead (static pose)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P1",
+  "execution_order": 50,
+  "variant_of": "character.player_dino.run_2f_12fps",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player_dino.idle_2f_6fps",
+      "character.player_dino.run_2f_12fps",
+      "character.player_dino.jump_static",
+      "character.player_dino.duck_2f_12fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "dead",
+    "layer": "character",
+    "usage": "Displayed on collision; eyes closed; no motion.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        100,
+        26
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Same outline as run frame; replace eye with closed line/\"X\" style using #535353."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player_dino.dead_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 88x94px.",
+    "Dead state is instantly readable (eye closed) while keeping original silhouette.",
+    "Only #535353 pixels + transparency are used."
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "task_id": "task_id_008004002",
+  "asset_key": "world_shadow_safe_zone_tilekit_32px",
+  "asset_name": "Shadow Safe Zone Tilekit",
+  "category": "world",
+  "subcategory": "tilekit",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008004001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004005",
+      "task_id_008004009",
+      "task_id_008004011",
+      "task_id_008004017"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use one tile atlas in SpriteSheetBundle or bevy_ecs_tilemap so shadow pockets and solid ledges can share material tags.",
+    "atlas_or_static": "tile_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "Transform",
+      "ShadowSafeZone",
+      "ColliderTile"
+    ],
+    "asset_loading": "Load world/world_shadow_safe_zone_tilekit_32px.png through AssetServer before collision tiles spawn.",
+    "runtime_notes": [
+      "Every tile snaps to a 32 px grid without sub-pixel offsets.",
+      "Safe shadow tiles pair with separate raycast blockers rather than encoded beam art.",
+      "Trim tiles preserve a sharp contour so safe zones read instantly against exposure white."
+    ]
+  },
+  "context": {
+    "role": "shadow_safe_zone_tiles",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "world_tiles",
+    "usage": "Tile atlas for safe shadow pockets, solid platforms, and shadow boundary trims created when light is blocked.",
+    "adjacent_elements": [
+      "obstacle_fixed_light_emitter_static_32x32",
+      "obstacle_balance_scale_rig_504x80",
+      "player_umbra_idle_6f_8fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#2D1B4E",
+      "#C9A84C"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Six-by-three tile atlas with full shadow fills, edge trims, cracked ledge caps, and soft teal safety tint inserts.",
+      "components": [
+        "full_shadow_tile",
+        "left_edge_trim",
+        "right_edge_trim",
+        "center_platform_tile",
+        "cracked_ledge_cap",
+        "teal_safe_tint_inset"
+      ]
+    },
+    "tile_grid": {
+      "tile_size_px": [
+        32,
+        32
+      ],
+      "columns": 6,
+      "rows": 3
+    },
+    "surface_roles": [
+      "solid_platform",
+      "safe_shadow_zone",
+      "shadow_boundary",
+      "ledge_cap"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_shadow_safe_zone_tilekit_32px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 192x96 px and divide cleanly into 32x32 tiles.",
+    "Safe tiles and boundary trims remain readable against both void black and exposure white.",
+    "Crack details stay inside each tile cell and never bleed across the atlas grid."
+  ],
+  "blocked_by": [
+    "task_id_008004001"
+  ],
+  "blocks": [
+    "task_id_008004004",
+    "task_id_008004005",
+    "task_id_008004009",
+    "task_id_008004011"
+  ],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

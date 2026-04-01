@@ -1,0 +1,99 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.effect.teleport_trail_48x48_3f_20fps",
+  "asset_name": "Effect — Teleport Trail Afterimage (48x48, 3 frames, 20fps)",
+  "category": "obstacles",
+  "subcategory": "effect",
+  "priority": "P1",
+  "execution_order": 49,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "teleport_trail",
+    "layer": "effect",
+    "usage": "Spawned behind the player during teleport hops; fades quickly.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#06B6D4",
+      "#F8FAFC",
+      "#1E1B4B"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 3,
+      "fps": 20,
+      "loop": false,
+      "frame_size_px": [
+        48,
+        48
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "fade_rules": {
+      "start_alpha_percent": 40,
+      "end_alpha_percent": 0
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.effect.teleport_trail_48x48_3f_20fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 144x48px (3 frames × 48x48).",
+    "Alpha decreases each frame: 40% in frame 1, 20% in frame 2, 0% in frame 3.",
+    "Uses only listed colors and transparency; no anti-aliasing."
+  ]
+}

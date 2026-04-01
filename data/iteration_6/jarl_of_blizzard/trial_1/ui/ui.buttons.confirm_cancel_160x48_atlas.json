@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.buttons.confirm_cancel_160x48_atlas",
+  "asset_name": "Buttons Atlas — Confirm/Cancel (160×48, 3 states each)",
+  "category": "ui",
+  "subcategory": "buttons",
+  "priority": "P0",
+  "execution_order": 28,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.panel.queue_panel_380x500",
+      "ui.panel.results_800x500"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "button_atlas",
+    "layer": "ui",
+    "usage": "Two buttons (Confirm and Cancel) with three visual states each: normal, hover, pressed.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 960,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 6,
+      "fps": 0,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 6,
+        "frame_size_px": {
+          "width": 160,
+          "height": 48
+        },
+        "order": [
+          "confirm_normal",
+          "confirm_hover",
+          "confirm_pressed",
+          "cancel_normal",
+          "cancel_hover",
+          "cancel_pressed"
+        ],
+        "padding_px": 0
+      }
+    },
+    "state_rules": {
+      "normal_bg_hex": "#333333",
+      "hover_bg_hex": "#555555",
+      "pressed_bg_hex": "#000000",
+      "text_hex": "#FFFFFF",
+      "border_hex": "#111111"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.buttons.confirm_cancel_160x48_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 960x48px; six frames of 160x48px; no spacing.",
+    "Hover and pressed states are clearly distinguishable using only grayscale contrast.",
+    "Button interior has at least a 1px border and a safe text area for an 8px label."
+  ]
+}

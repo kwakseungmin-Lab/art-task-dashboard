@@ -1,0 +1,77 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "items",
+  "category_common": {
+    "base_size": {
+      "width": "2-3px",
+      "height": "2-3px"
+    },
+    "color_scheme": {
+      "seed": "#FFA300",
+      "poop": "#AB5236"
+    },
+    "shared_attributes": {
+      "sprite_type": "small pixel objects",
+      "rendering": "flat 2D",
+      "scale": "tiny (2-3px)"
+    }
+  },
+  "asset": {
+    "asset_id": "poop",
+    "asset_name": "Bird Droppings",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Waste product; accumulates over time; triggers dirty state",
+      "screen_position": "Random positions on floor area (y=110-125, x=4-124)",
+      "adjacent_elements": ["floor", "echo_dirty", "dust_effect"],
+      "usage_scenario": "Spawns every 20 minutes; max 5 visible; removed by cleaning swipe gesture; 3+ triggers echo_dirty state"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "2px",
+        "height": "2px"
+      },
+      "colors": {
+        "main": "#AB5236"
+      },
+      "shape": "Small irregular blob/dot",
+      "texture": "Flat pixel art; solid color",
+      "outline": "None; pure color fill",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static poop sprite; no animation"
+      },
+      "details": "2x2px irregular shape; #AB5236 (brown); randomly placed on floor; up to 5 can be visible simultaneously"
+    },
+    "relationships": {
+      "related_assets": ["floor", "echo_dirty", "dust_effect", "sparkle_effect"],
+      "shared_with": "Same color as perch and beak (#AB5236)",
+      "differences_from": "seed (brown vs orange, floor vs bowl)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no shine",
+      "no 3D shape",
+      "no stink lines",
+      "no flies",
+      "no shadows"
+    ]
+  }
+}

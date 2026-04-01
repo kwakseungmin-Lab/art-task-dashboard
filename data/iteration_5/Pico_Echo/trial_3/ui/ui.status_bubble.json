@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "schema": "art_task_plan_asset_v5",
+    "game_name": "Pico_Echo",
+    "iteration": 5,
+    "plan_dir_name": "trial_3",
+    "generated_at_utc": "2026-03-04T06:56:07Z",
+    "git_ref": "art_task_plan/iter5_pipeline"
+  },
+  "task_id": "ui.status_bubble",
+  "id": "ui.status_bubble",
+  "asset_name": "Status bubble",
+  "category": "ui",
+  "subcategory": "indicator",
+  "description": "Speech/thought bubble used above Echo to show needs (e.g., hungry). Sprite size 20x14px transparent. Bubble fill #FFF1E8, outline #1D2B53 1px. Tail points down-left with tip at (x=6,y=13). Inner content area is 16x10px starting at (2,2) for placing small icons (seed/ZZZ/heart).",
+  "execution_order": 66,
+  "priority": "P1",
+  "depends_on": [
+    "ui.pixel_font_3x5",
+    "character.echo_sprite_sheet"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.pixel_font_3x5",
+    "character.echo_sprite_sheet"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.icon_feed",
+      "world.vfx_particles_atlas",
+      "character.echo_sprite_sheet"
+    ]
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1,
+    "snap_to_pixel_grid": true,
+    "canvas_resolution_px": {
+      "width": 128,
+      "height": 128
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 20,
+      "height": 14
+    },
+    "fill_hex": "#FFF1E8",
+    "outline_hex": "#1D2B53",
+    "tail_tip_px": {
+      "x": 6,
+      "y": 13
+    },
+    "content_region": {
+      "x": 2,
+      "y": 2,
+      "width": 16,
+      "height": 10
+    }
+  },
+  "context": {
+    "screen_position": {
+      "type": "relative_to_echo",
+      "echo_anchor": "head_top",
+      "offset_px": {
+        "x": 18,
+        "y": -10
+      }
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "need_indicator",
+      "status_feedback"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/ui.status_bubble.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/ui/ui.status_bubble.png",
+      "dimensions_px": {
+        "width": 20,
+        "height": 14
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 20x14 px with transparent background.",
+    "Bubble outline is 1px #1D2B53; fill is #FFF1E8.",
+    "Tail tip is exactly at (6,13) so it can point to Echo."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

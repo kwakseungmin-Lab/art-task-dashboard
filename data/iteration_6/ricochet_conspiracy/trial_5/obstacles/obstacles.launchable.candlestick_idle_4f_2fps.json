@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.candlestick_idle_4f_2fps",
+  "asset_name": "Launchable Object — Candlestick Idle (4 frames, 2fps loop with flame)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "launchable_object",
+    "layer": "obstacles",
+    "usage": "Launchable candlestick with small flame flicker; can ignite candle triggers on contact.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 48
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 2,
+      "loop": true,
+      "frame_size_px": [
+        24,
+        48
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "physics_tags": {
+      "mass_relative": 2,
+      "base_restitution": 0.7
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.candlestick_idle_4f_2fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x48px (4 frames × 24x48) with transparent background.",
+    "Flame flicker changes silhouette subtly (<=3px variation) and uses #E8704A/#F5F0E8 as core; body remains stable.",
+    "Candlestick reads as soft gold (#D4A843) with dark brown linework (#3D2B1F); no realistic gore/violence cues."
+  ]
+}

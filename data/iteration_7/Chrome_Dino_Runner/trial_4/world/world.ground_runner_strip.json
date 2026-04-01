@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.ground_runner_strip",
+  "asset_name": "World — runner ground strip",
+  "category": "world",
+  "subcategory": "foreground",
+  "priority": "P0",
+  "execution_order": 210,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This file defines the moving baseline rather than decorative scatter.",
+    "Most painted pixels sit in the upper half of the tile to preserve transparency.",
+    "Horizontal repeat quality matters more than interior variation."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "world.ground_pebble_overlay"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.ground_pebble_overlay",
+      "character.player.dino_runner_core",
+      "obstacles.cactus_single"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_baseline",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        110
+      ]
+    },
+    "layer": "world",
+    "usage": "Tileable ground strip that anchors the dinosaur feet and all ground hazard spawns."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 24
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "tiling": {
+      "tileable": true,
+      "axis": "x"
+    },
+    "composition": [
+      "Place the primary baseline at y=6 and y=7 inside the tile.",
+      "Reserve lower pixels for optional pebble accents handled in a separate task.",
+      "Match left and right edge pixels exactly."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground_runner_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 200x24px.",
+    "When tiled for 600px width, the baseline joins with no visible seam.",
+    "Top baseline stroke thickness remains 2px for the full tile width."
+  ]
+}

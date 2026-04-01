@@ -1,0 +1,131 @@
+{
+  "asset_name": "Standard Pillar 64x200",
+  "subcategory": "terrain",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.floor.star_floor_strip"
+  ],
+  "blocks": [
+    "obstacles.pillar.rotating_sheet"
+  ],
+  "blocked_by": [
+    "world.floor.star_floor_strip"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.heracles_form_120x180",
+      "world.floor.star_floor_strip"
+    ]
+  },
+  "context": {
+    "role": "breakable_obstacle",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "player_lock_x",
+      "offset_px": {
+        "x": 520,
+        "y": -104
+      }
+    },
+    "adjacent_elements": [
+      "character.player.heracles_form_120x180",
+      "world.floor.star_floor_strip"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Appears in every zone; breaks on collision with the 120x180 player form and drops 1 to 3 shards."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 200
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "stateful",
+      "frame_count": 7,
+      "frame_time_s": 0.05,
+      "loop": false,
+      "states": {
+        "idle": 1,
+        "break": 6
+      },
+      "sprite_sheet_layout": {
+        "columns": 7,
+        "rows": 1
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Vertical pillar with top cap width 64 px, shaft width 56 px, and total height 200 px.",
+      "components": [
+        "top cap 64x16",
+        "shaft 56x168",
+        "base 64x16",
+        "break shards x6"
+      ]
+    },
+    "collision_box_px": {
+      "width": 64,
+      "height": 200
+    },
+    "break_duration_s": 0.3,
+    "shading_model": "two_tone_flat"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.pillar.standard_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Idle frame bounding box is exactly 64x200 px.",
+    "Sheet contains 1 idle frame and 6 break frames.",
+    "Shaft width remains exactly 56 px for at least 150 vertical pixels.",
+    "Break frames produce at least 6 separate shard silhouettes."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.pillar.standard_sheet",
+  "category": "obstacles",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

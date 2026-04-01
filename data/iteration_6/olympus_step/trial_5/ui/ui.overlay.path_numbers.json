@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.overlay.path_numbers",
+  "asset_name": "Overlay - Path Step Numbers (1-12)",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P0",
+  "execution_order": 230,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "overlay",
+    "layer": "ui",
+    "usage": "UI element rendered in screen space",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "atlas": {
+      "cell_px": {
+        "width": 20,
+        "height": 20
+      },
+      "grid": {
+        "columns": 8,
+        "rows": 8
+      },
+      "included_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "text_color_hex": "#F8FAFC",
+      "outline_hex": "#1C1917"
+    },
+    "colors_hex": [
+      "#F8FAFC",
+      "#1C1917",
+      "#06B6D4",
+      "#EF4444"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.path_numbers.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas PNG size is exactly 256x256px and contains 20x20px number chips for 1 through 12.",
+    "Each number chip is readable when scaled to 1x and maintains a 1px #1C1917 outline.",
+    "No chip contains anti-aliased curves; all glyph pixels are crisp and aligned to whole pixels."
+  ]
+}

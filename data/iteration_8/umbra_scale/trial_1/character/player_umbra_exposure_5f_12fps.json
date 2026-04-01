@@ -1,0 +1,171 @@
+{
+  "task_id": "task_id_008101009",
+  "asset_key": "player_umbra_exposure_5f_12fps",
+  "asset_name": "Umbra Exposure Flash Loop",
+  "category": "character",
+  "subcategory": "player_damage_state",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": "task_id_008101005",
+  "variant_of_asset_key": "player_umbra_idle_6f_12fps",
+  "shared_properties": [
+    "Body footprint remains aligned to the same 32x48 bounds as the idle asset.",
+    "Head crest and base torso silhouette remain consistent with the player master asset.",
+    "The exposed state still reads as Umbra rather than a separate creature."
+  ],
+  "differences": [
+    "Adds exposure-white edge flashes and thin beam cuts across the body silhouette.",
+    "The pose curls inward slightly to show danger while staying gameplay-readable.",
+    "Frame timing emphasizes a pulsing flicker instead of calm breathing motion."
+  ],
+  "depends_on": [
+    "task_id_008101005",
+    "task_id_008101014"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101005",
+    "task_id_008101014"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Reuse the player SpriteSheetBundle and switch to the exposure atlas while the hitbox overlaps a lit region.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "UmbraPlayer",
+      "ExposureState"
+    ],
+    "asset_loading": "Load character/player_umbra_exposure_5f_12fps.png during Loading and bind it to the exposure status state.",
+    "runtime_notes": [
+      "The exposure loop should read clearly while the HUD gauge rises at 20 percent per second.",
+      "Keep the torso anchor stable so the collider does not shift when the flashing state activates.",
+      "Use frame brightness rhythm to support a looping warning hum without replacing the silhouette-based art direction."
+    ]
+  },
+  "context": {
+    "role": "player_exposure",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        820,
+        760
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Warning state shown whenever the player overlaps a live light beam and begins filling the exposure gauge.",
+    "adjacent_elements": [
+      "obstacle_fixed_light_core_6f_32x32",
+      "ui_exposure_gauge_160x12",
+      "ui_clear_rank_panel_480x270"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#F5EFE0",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 5,
+      "fps": 12,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 5,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Umbra recoils under sharp light, with the outer edge flashing white and thin beam cuts breaking the pure shadow mass.",
+      "components": [
+        "curled_torso",
+        "flashing_edge",
+        "beam_cut_marks",
+        "stressed_eye_glow"
+      ]
+    },
+    "damage_feedback": {
+      "gauge_rate_percent_per_second": 20,
+      "reset_on_damage": 100
+    }
+  },
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 160x48 px with five 32x48 frames.",
+    "Exposure-white flashes are visible in every frame without fully erasing the black silhouette core.",
+    "The warning state reads as pain and danger in profile without requiring additional VFX layers."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101005",
+      "task_id_008101014",
+      "task_id_008101015",
+      "task_id_008101017",
+      "task_id_008101020"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_umbra_exposure_5f_12fps.png",
+      "transparent_background": true
+    }
+  ]
+}

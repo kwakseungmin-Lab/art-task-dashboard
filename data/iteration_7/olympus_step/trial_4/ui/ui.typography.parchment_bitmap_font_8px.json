@@ -1,0 +1,122 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.typography.parchment_bitmap_font_8px",
+  "asset_name": "Parchment Bitmap Font Atlas — 128x48",
+  "category": "ui",
+  "subcategory": "typography",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "ui.hud.right_stats_panel_240x720",
+    "ui.overlay.path_tile_numbers_20_atlas",
+    "ui.hud.confirm_button_180x50_2state",
+    "ui.hud.reset_button_120x36_2state"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.right_stats_panel_240x720",
+      "ui.overlay.path_tile_numbers_20_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "bitmap_font",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "layer": "ui_text",
+    "usage": "8px bitmap font atlas for HUD numbers, button labels, and path counters.",
+    "adjacent_elements": [
+      "ui.hud.right_stats_panel_240x720",
+      "ui.overlay.path_tile_numbers_20_atlas"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 48
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#D4C5A9",
+      "#F8FAFC",
+      "#FBBF24"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "16-column bitmap glyph atlas with 8px cells and 1px parchment stroke.",
+      "components": [
+        "uppercase_26",
+        "lowercase_26",
+        "digits_10",
+        "punctuation_34"
+      ]
+    },
+    "font": {
+      "glyph_count": 96,
+      "cell_size_px": {
+        "width": 8,
+        "height": 8
+      },
+      "atlas_layout": {
+        "rows": 6,
+        "cols": 16
+      },
+      "baseline_px": 7
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.typography.parchment_bitmap_font_8px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 128x48px with 6 rows and 16 columns of 8x8 glyph cells.",
+    "Glyph count is 96 and includes digits 0-9 and uppercase A-Z.",
+    "Every glyph uses parchment ivory, white, gold, or charcoal values from specs.colors_hex."
+  ]
+}

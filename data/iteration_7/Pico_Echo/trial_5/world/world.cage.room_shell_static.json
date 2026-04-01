@@ -1,0 +1,123 @@
+{
+  "schema_version": "art_task@7",
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "task_id": "world.cage.room_shell_static",
+  "asset_name": "Cage Room Shell — static base layer",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": [
+    "128x128 full-screen cage interior view.",
+    "Warm indoor mood with PICO-8 readable silhouettes.",
+    "Perch, floor, wall, and bowl anchor zones stay locked for all sibling assets."
+  ],
+  "differences": [
+    "This file carries the opaque room shell only.",
+    "Foreground cage bars and interactive overlays stay outside this task."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "world.cage.foreground_bar_overlay",
+    "obstacles.cage.feed_station_set",
+    "obstacles.cage.cleanup_feedback_set",
+    "character.echo.behavior_core_sheet_21f",
+    "ui.hud.happiness_bar_states"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage.foreground_bar_overlay",
+      "obstacles.cage.feed_station_set",
+      "obstacles.cage.cleanup_feedback_set"
+    ]
+  },
+  "context": {
+    "role": "background",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world",
+    "usage": "Base room shell shown during the full play session behind Echo, bowls, and UI.",
+    "viewpoint": {
+      "camera_angle": "front_2d_orthographic",
+      "facing": "screen_facing_0deg"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#FFF1E8",
+      "#FFCCAA",
+      "#AB5236",
+      "#C2C3C7",
+      "#1D2B53"
+    ],
+    "animation": null,
+    "composition": [
+      "Wall fill uses #FFF1E8 on at least 72% of the canvas.",
+      "Perch spans x=24..104 at y=80 with 4px height using #AB5236 and 1px #1D2B53 underside.",
+      "Floor band fills y=110..127 with #FFCCAA so dirt markers stay readable.",
+      "Food bowl anchor box starts at x=16 y=100 and water bowl anchor box starts at x=40 y=100."
+    ],
+    "shape": {
+      "silhouette": "128x128 room shell with a cream wall field, centered perch, lower floor band, and two bowl anchor zones on the left half.",
+      "components": [
+        "cream wall field",
+        "rear cage frame",
+        "perch beam",
+        "lower floor band",
+        "food bowl anchor",
+        "water bowl anchor"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.cage.room_shell_static.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 128x128px and fully opaque.",
+    "Perch top edge lands at y=80 and leaves clear headroom for a 40x40 Echo sprite centered near x=64 y=60.",
+    "Floor zone from y=110 to y=127 remains unobstructed so five 2x2 dirt marks fit without overlap.",
+    "Only listed colors and transparency rules are used; no gradients or anti-aliasing appear."
+  ]
+}

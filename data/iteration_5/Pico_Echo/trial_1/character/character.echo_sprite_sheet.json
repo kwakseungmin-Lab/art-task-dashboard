@@ -1,0 +1,205 @@
+{
+    "task_id": "character.echo_sprite_sheet",
+    "asset_name": "Echo_Cockatiel_SpriteSheet_512x512",
+    "category": "character",
+    "subcategory": "pet_character",
+    "description": "Create a 512x512 px transparent sprite sheet containing Echo the cockatiel in 8 animation rows using 64x64 px cells (8 columns x 8 rows). Each frame must draw a 40x40 px bird sprite centered in the 64x64 cell. Use only the 16 palette colors listed in specs.palette_hex. Echo identity colors: cheek patch #FF004D, crest #FFEC27, main body #FFA300, beak and feet #AB5236, eye pixels are exactly 2x2 using #1D2B53.",
+    "execution_order": 20,
+    "priority": "P0",
+    "context": {
+        "role": "main controllable pet character",
+        "screen_position": {
+            "type": "absolute_px",
+            "x": 64,
+            "y": 54,
+            "anchor": "center"
+        },
+        "layer": "character",
+        "usage": "Echo sits on the perch and animates continuously; state changes depend on care actions and timers."
+    },
+    "relationships": {
+        "related_task_ids": [
+            "world.cage_background",
+            "world.bowl_contents_atlas",
+            "obstacles.poop_and_clean_sparkle_atlas",
+            "obstacles.particles_emotes_atlas",
+            "ui.hud_atlas"
+        ]
+    },
+    "depends_on": [
+        "world.cage_background"
+    ],
+    "blocks": [
+        "ui.hud_atlas"
+    ],
+    "blocked_by": [],
+    "deliverables": [
+        {
+            "file": "character_echo_spritesheet_512x512.png",
+            "format": "png",
+            "transparent_background": true,
+            "notes": "Pixels outside each 40x40 sprite draw area in every 64x64 cell must be alpha=0."
+        }
+    ],
+    "acceptance_criteria": [
+        "The sprite sheet image is exactly 512x512 px with transparent background.",
+        "Each cell is exactly 64x64 px and the sheet layout is exactly 8 columns x 8 rows.",
+        "For each row in specs.animations, only frames 0..frame_count-1 contain sprites; remaining cells in the row are fully transparent.",
+        "All non-transparent pixels use only the 16 hex values in specs.palette_hex.",
+        "Echo cheek patch pixels use only #FF004D and are visible in every frame.",
+        "Echo eye pixels are exactly a 2x2 square using #1D2B53 in every frame where the eyes are open."
+    ],
+    "specs": {
+        "sheet_dimensions_px": {
+            "width": 512,
+            "height": 512
+        },
+        "cell_dimensions_px": {
+            "width": 64,
+            "height": 64
+        },
+        "sheet_grid": {
+            "columns": 8,
+            "rows": 8
+        },
+        "sprite_draw_area_px": {
+            "width": 40,
+            "height": 40
+        },
+        "palette_hex": [
+            "#000000",
+            "#1D2B53",
+            "#7E2553",
+            "#008751",
+            "#AB5236",
+            "#5F574F",
+            "#C2C3C7",
+            "#FFF1E8",
+            "#FF004D",
+            "#FFA300",
+            "#FFEC27",
+            "#00E436",
+            "#29ADFF",
+            "#83769C",
+            "#FF77A8",
+            "#FFCCAA"
+        ],
+        "max_colors": 16,
+        "sprite_anchor": {
+            "type": "bottom_center",
+            "anchor_point_in_draw_area_px": {
+                "x": 20,
+                "y": 39
+            },
+            "intended_perch_contact_y_in_canvas_px": 60
+        },
+        "animations": [
+            {
+                "state": "idle",
+                "row_index": 0,
+                "frame_count": 4,
+                "fps": 2,
+                "loop": true
+            },
+            {
+                "state": "eating",
+                "row_index": 1,
+                "frame_count": 6,
+                "fps": 4,
+                "loop": false
+            },
+            {
+                "state": "sleeping",
+                "row_index": 2,
+                "frame_count": 3,
+                "fps": 1,
+                "loop": true
+            },
+            {
+                "state": "happy_singing",
+                "row_index": 3,
+                "frame_count": 8,
+                "fps": 4,
+                "loop": true
+            },
+            {
+                "state": "preening",
+                "row_index": 4,
+                "frame_count": 5,
+                "fps": 4,
+                "loop": false
+            },
+            {
+                "state": "dirty",
+                "row_index": 5,
+                "frame_count": 3,
+                "fps": 2,
+                "loop": true
+            },
+            {
+                "state": "hungry",
+                "row_index": 6,
+                "frame_count": 4,
+                "fps": 2,
+                "loop": true
+            },
+            {
+                "state": "neutral_breathing",
+                "row_index": 7,
+                "frame_count": 4,
+                "fps": 2,
+                "loop": true
+            }
+        ],
+        "row_to_cell_mapping": {
+            "row_index_to_state": {
+                "0": "idle",
+                "1": "eating",
+                "2": "sleeping",
+                "3": "happy_singing",
+                "4": "preening",
+                "5": "dirty",
+                "6": "hungry",
+                "7": "neutral_breathing"
+            },
+            "column_index_to_frame": "frame_index"
+        },
+        "recommended_rendering": {
+            "snap_to_pixel_grid": true,
+            "anti_aliasing": false,
+            "scaling_filter": "nearest_neighbor"
+        }
+    },
+    "project_common": {
+        "game_name": "Pico_Echo",
+        "iteration": 5,
+        "trial_index": 1,
+        "canvas_px": {
+            "width": 128,
+            "height": 128
+        },
+        "palette_hex": [
+            "#000000",
+            "#1D2B53",
+            "#7E2553",
+            "#008751",
+            "#AB5236",
+            "#5F574F",
+            "#C2C3C7",
+            "#FFF1E8",
+            "#FF004D",
+            "#FFA300",
+            "#FFEC27",
+            "#00E436",
+            "#29ADFF",
+            "#83769C",
+            "#FF77A8",
+            "#FFCCAA"
+        ],
+        "pixel_art": {
+            "snap_to_pixel_grid": true,
+            "anti_aliasing": false,
+            "scaling_filter": "nearest_neighbor"
+        }
+    }
+}

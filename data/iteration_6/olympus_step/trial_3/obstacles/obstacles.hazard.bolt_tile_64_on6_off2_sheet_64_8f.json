@@ -1,0 +1,126 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.hazard.bolt_tile_64_on6_off2_sheet_64_8f",
+  "asset_name": "Hazard Tile — BOLT (ON/OFF) Sheet (64px, 8 frames)",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P0",
+  "execution_order": 22,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_emissive",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tile_animation",
+    "layer": "world",
+    "usage": "Lightning hazard toggles ON/OFF every 2 turns (ON on even turns). Landing on ON fails.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 64
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "frame_size_px": {
+      "width": 64,
+      "height": 64
+    },
+    "frame_count": 8,
+    "fps": 12,
+    "frames": [
+      {
+        "id": "on_1",
+        "note": "ON flicker"
+      },
+      {
+        "id": "on_2",
+        "note": "ON flicker"
+      },
+      {
+        "id": "on_3",
+        "note": "ON flicker"
+      },
+      {
+        "id": "on_4",
+        "note": "ON flicker"
+      },
+      {
+        "id": "on_5",
+        "note": "ON flicker"
+      },
+      {
+        "id": "on_6",
+        "note": "ON flicker"
+      },
+      {
+        "id": "off_1",
+        "note": "OFF dim"
+      },
+      {
+        "id": "off_2",
+        "note": "OFF dim variant"
+      }
+    ],
+    "layout_note": "Frames 1-6 = ON; 7-8 = OFF. Border consistent to avoid jitter."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.bolt_tile_64_on6_off2_sheet_64_8f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "ON clearly dangerous; OFF clearly inactive.",
+    "Readable at zoom 80%~150%."
+  ]
+}

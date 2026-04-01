@@ -1,0 +1,217 @@
+{
+  "task_id": "cdr_character_player_dead",
+  "asset_name": "player_dead",
+  "category": "character",
+  "subcategory": "player",
+  "description": "Create Player Dead static sprite (single frame). Canvas size 88x94 px. Eye must be an 'X' cut-out using transparent pixels only: 5x5 px bounding box, with two diagonals thickness 1px, placed with top-left at (x=56, y=21). Color usage: #535353 only; background fully transparent (alpha 0).",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Player-controlled T-Rex character sprite.",
+    "screen_location": "Gameplay area; X fixed at 100 px from left; bottom aligned to ground baseline.",
+    "adjacent_elements": [
+      "ground_line",
+      "cactus obstacles",
+      "pterodactyl obstacles"
+    ],
+    "layer": "gameplay_foreground",
+    "usage": "Displayed immediately on collision; game state switches to GameOver."
+  },
+  "specs": {
+    "dimensions": "88x94",
+    "animation": {
+      "enabled": false,
+      "frame_count": 1
+    },
+    "pivot": {
+      "anchor": "bottom_left",
+      "pixel": {
+        "x": 0,
+        "y": 93
+      }
+    },
+    "view": "2D side view, facing right",
+    "colors": [
+      "#535353"
+    ],
+    "background": "transparent",
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    },
+    "shading": {
+      "enabled": false
+    },
+    "detail_rules": {
+      "eye": "Use transparent cut-out for the eye shape.",
+      "no_gradients": true,
+      "no_aa": true
+    },
+    "eye_x_cutout": {
+      "bbox_px": "5x5",
+      "top_left": {
+        "x": 56,
+        "y": 21
+      },
+      "stroke_thickness_px": 1
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/character/dino_dead.png",
+      "type": "sprite",
+      "format": "png",
+      "dimensions_px": "88x94",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/character/dino_dead@2x.png",
+      "type": "sprite",
+      "format": "png",
+      "dimensions_px": "176x188",
+      "scale": 2,
+      "background": "transparent",
+      "scale_method": "nearest_neighbor"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_character_player_idle",
+      "cdr_vfx_game_over_flash_red"
+    ],
+    "shared_properties": {
+      "primary_color_hex": "#535353",
+      "canvas_px": "88x94"
+    },
+    "differences": {
+      "vs_idle": "Dead uses X-eye cut-out and no blinking; Idle uses blink rectangles."
+    }
+  },
+  "depends_on": [
+    "cdr_character_player_idle"
+  ],
+  "execution_order": 8,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_character_player_idle"
+  ],
+  "acceptance_criteria": [
+    "1 frame only; dimensions 88x94 (and @2x 176x188).",
+    "Only #535353 opaque pixels and transparent pixels.",
+    "X-eye cutout: 5x5 bbox at (56,21) with both diagonals transparent.",
+    "No other facial cutouts besides the X-eye."
+  ]
+}

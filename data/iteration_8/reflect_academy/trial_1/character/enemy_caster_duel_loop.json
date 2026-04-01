@@ -1,0 +1,158 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000004",
+  "asset_key": "enemy_caster_duel_loop",
+  "asset_name": "Enemy Caster Duel Loop",
+  "category": "character",
+  "subcategory": "enemy_state",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Silhouette fits inside 120x180 px with a high collar, staff hand, and academy champion stance readable from the upper-right lane.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while spell charge colors appear inside specs.colors_hex.",
+    "The character uses the same 2 px outline discipline and ornate academy trim language as the player asset set."
+  ],
+  "differences": [
+    "Eight frames cycle between poised idle and active casting preparation with a brighter wand gem and robe sleeve motion.",
+    "The stance faces downward-left so the enemy clearly targets the player lane.",
+    "The upper body raises during the charge frames to support forecast icon timing before projectile release."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_801000005",
+    "task_id_801000006"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000005",
+      "task_id_801000006",
+      "task_id_801000014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_4x2",
+    "ecs_components": [
+      "EnemyCasterTag",
+      "CombatStateVisual",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load enemy_caster_duel_loop.png during Loading and build a 4x2 TextureAtlasLayout before enemy spawn.",
+    "runtime_notes": [
+      "Use idle frames at 6 FPS and accelerate to 10 FPS during the pre-cast forecast beat if the state machine exposes a charge flag.",
+      "Anchor the enemy to the upper podium so the projectile spawn point remains stable across all frames.",
+      "The casting hand should stay clear of the forecast icon anchor so UI overlays do not cover the silhouette."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "enemy_caster_idle_and_charge",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1560,
+        360
+      ]
+    },
+    "layer": "character",
+    "usage": "Displayed for the active duel opponent during idle, spell charge, and launch anticipation beats."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#2B1B17",
+      "#1A1A2E",
+      "#5C3317",
+      "#D4AF37",
+      "#C0392B",
+      "#8E44AD",
+      "#F8E9C0"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [
+        120,
+        180
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 2
+      }
+    },
+    "hitbox_px": {
+      "width": 86,
+      "height": 160,
+      "offset_px": [
+        17,
+        12
+      ]
+    },
+    "silhouette_notes": [
+      "High collar and staff head remain readable at 50% preview scale.",
+      "Casting hand always points toward the player lane.",
+      "Robe hem stays above the upper podium floor line."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/enemy_caster_duel_loop.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 480x360 px for eight 120x180 frames with no frame gutter.",
+    "The enemy silhouette remains readable against gold-trimmed windows and dark wall pillars.",
+    "The casting hand movement clearly escalates between idle frames and charge frames."
+  ]
+}

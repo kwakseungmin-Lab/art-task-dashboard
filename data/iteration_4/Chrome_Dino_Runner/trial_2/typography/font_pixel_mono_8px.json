@@ -1,0 +1,130 @@
+{
+  "task_id": "cdr_v2_typography_font_pixel_mono_8px",
+  "asset_name": "Font - Pixel Monospace 8px",
+  "category": "typography",
+  "subcategory": "font",
+  "description": "Bitmap font, authoring size 8px cap height.\nGlyph cell: 8x10 px.\nGlyph pixels: #535353 alpha=255; background alpha=0.\nGlyphs: 0-9, A-Z, space, colon(:), hyphen(-).\nMonospace advance: 5px at 8px (=> 10px at 16px after 2x).",
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_id": "chrome_dino_runner",
+    "art_task_plan_version": 2,
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+    "rendering": {
+      "style": "pixel_art",
+      "pixel_perfect": true,
+      "anti_aliasing": "disabled",
+      "target_fps": 60
+    },
+    "canvas": {
+      "base_resolution_px": "600x150",
+      "scale_support": {
+        "authoring_scale": "1x",
+        "runtime_scales": [
+          "1x",
+          "2x"
+        ],
+        "scaling_filter": "nearest_neighbor"
+      },
+      "coordinate_system": {
+        "origin": "bottom_left",
+        "x_axis": "right",
+        "y_axis": "up",
+        "ground_y_px": 0
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash_white": "#FFFFFF",
+      "transparent": "alpha=0"
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353"
+      },
+      "fill": {
+        "enabled": false,
+        "fill_color": "transparent"
+      },
+      "internal_detail": {
+        "enabled": true,
+        "line_thickness_px": 1,
+        "color": "#535353"
+      },
+      "allowed_hex_colors_for_sprites": [
+        "#535353"
+      ],
+      "background": "transparent"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "RGBA",
+      "bit_depth_per_channel": 8,
+      "compression": "lossless",
+      "file_naming": "snake_case"
+    }
+  },
+  "deliverables": [
+    {
+      "path": "GameAssets/chrome_dino_runner/ui/fonts/pixel_mono_8px_sheet.png",
+      "type": "bitmap_font_sheet",
+      "format": "png",
+      "scale": "1x"
+    },
+    {
+      "path": "GameAssets/chrome_dino_runner/ui/fonts/pixel_mono_8px_metrics.json",
+      "type": "bitmap_font_metrics",
+      "format": "json"
+    }
+  ],
+  "specs": {
+    "dimensions": "auto",
+    "glyph_cell_px": "8x10",
+    "authoring_size_px": 8,
+    "intended_scaled_sizes_px": [
+      16,
+      24
+    ],
+    "monospace_advance_px_at_8px": 5
+  },
+  "context": {
+    "role": "UI font for 16px and 24px via integer scaling.",
+    "screen_location": "UI layer.",
+    "adjacent_elements": "Readable on #F7F7F7.",
+    "layer": "ui",
+    "usage": "nearest_neighbor_scaling"
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v2_ui_score_display",
+      "cdr_v2_ui_game_over_screen"
+    ],
+    "shared_properties": [
+      "#535353",
+      "monospace"
+    ],
+    "differences": [
+      "8px authoring"
+    ]
+  },
+  "depends_on": [
+    "cdr_v2_project_common"
+  ],
+  "execution_order": 2,
+  "priority": "P0",
+  "blocks": [
+    "cdr_v2_ui_score_display",
+    "cdr_v2_ui_game_over_screen"
+  ],
+  "blocked_by": [
+    "cdr_v2_project_common"
+  ],
+  "acceptance_criteria": [
+    "Sheet PNG exists and background is transparent.",
+    "Metrics JSON exists and contains rectangles for all required glyphs.",
+    "No anti-alias: alpha values are only 0 or 255."
+  ]
+}

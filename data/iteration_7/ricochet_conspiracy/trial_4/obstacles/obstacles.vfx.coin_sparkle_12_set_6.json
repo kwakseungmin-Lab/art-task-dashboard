@@ -1,0 +1,97 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.vfx.coin_sparkle_12_set_6",
+  "asset_name": "VFX — Coin sparkle set (6 sprites)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P3",
+  "execution_order": 350,
+  "variant_of": null,
+  "depends_on": [
+    "obstacles.launchable.gold_urn_break_36x44_4f"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.gold_urn_break_36x44_4f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_brown",
+      "hex": "#2D1F1A"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "pale_gold",
+      "hex": "#D6B27A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "thin"
+  },
+  "context": {
+    "role": "debris",
+    "layer": "vfx",
+    "usage": "Coin burst accents.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        360
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 72,
+      "height": 12
+    },
+    "colors_hex": [
+      "#D6B27A",
+      "#F2C14E",
+      "#F4E9DA"
+    ],
+    "animation": null,
+    "layout": {
+      "columns": 6,
+      "rows": 1,
+      "cell_px": [
+        12,
+        12
+      ]
+    },
+    "silhouette_notes": [
+      "Soft whimsical sparkles."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.coin_sparkle_12_set_6.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Deliverable PNG matches the specified pixel dimensions (or sprite-sheet total size) with transparent background.",
+    "Uses the project palette as a guideline; any additional colors are limited and documented in specs.colors_hex.",
+    "Silhouette/readability holds at 100% and 50% zoom; no muddy edges or unintended blurs."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

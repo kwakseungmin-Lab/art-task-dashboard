@@ -1,0 +1,131 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 3,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "obstacles.pterodactyl.fly",
+  "asset_name": "pterodactyl_fly_sheet",
+  "category": "obstacles",
+  "subcategory": "pterodactyl",
+  "description": "Flying obstacle pterodactyl sprite sheet: 2 frames at 10 fps. Each frame 92x80, monochrome #535353 on transparent background.",
+  "context": {
+    "role": "air_obstacle",
+    "layer": "obstacles",
+    "usage": "Spawn at x=650 with bottom aligned to y=98 or y=68; move left at world speed.",
+    "screen_position": {
+      "type": "multiple_absolute_px",
+      "positions": [
+        {
+          "x": 650,
+          "y": 98,
+          "anchor": "bottom_left"
+        },
+        {
+          "x": 650,
+          "y": 68,
+          "anchor": "bottom_left"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_sprite_set",
+      "world.clouds.set"
+    ]
+  },
+  "depends_on": [
+    "world.clouds.set"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.clouds.set"
+  ],
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Art/Source/Chrome_Dino_Runner/obstacles/pterodactyl_fly_sheet.aseprite",
+      "notes": "2 frames; wing-up and wing-down."
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/obstacles/pterodactyl_fly_sheet/pterodactyl_fly_sheet.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 184,
+        "height": 80
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "Exported PNG sprite sheet is exactly 184x80 px with transparency.",
+    "All non-transparent pixels use #535353 only.",
+    "Frame-to-frame motion reads as wing flap at 10 fps with no 1px jitter on the body center."
+  ],
+  "priority": "P0",
+  "execution_order": 70,
+  "specs": {
+    "frame_size_px": {
+      "width": 92,
+      "height": 80
+    },
+    "frames": 2,
+    "fps": 10,
+    "loop": true,
+    "sprite_sheet_layout": {
+      "columns": 2,
+      "rows": 1,
+      "sheet_size_px": {
+        "width": 184,
+        "height": 80
+      }
+    },
+    "colors_hex": {
+      "primary": "#535353"
+    },
+    "transparent_background": true,
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    },
+    "spawn_heights_px": {
+      "low_bottom_y_px": 98,
+      "high_bottom_y_px": 68,
+      "baseline_y_px": 148
+    },
+    "collision_guidance": {
+      "obstacle_hitbox_inset_px": 3
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.noble.standard_idle_6f_4fps",
+  "asset_name": "Standard Noble — Idle (6 frames, 4fps loop)",
+  "category": "character",
+  "subcategory": "target_noble",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "target",
+    "layer": "character",
+    "usage": "Default target noble. Used as the baseline enemy in early stages.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#8BA7C7",
+      "#3D2B1F",
+      "#D4A843",
+      "#E8D5C4"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 4,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        48
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "pose_notes": [
+      "Subtle idle sway (±2px) and cape flutter; comedic, non-violent expression.",
+      "Silhouette must remain readable at 32x48px: head+shoulders distinct, no thin details below 2px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.standard_idle_6f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x48px (6×32x48) with 0px spacing and transparent background.",
+    "Idle loop at 4fps shows readable motion without positional jitter >2px between frames.",
+    "Uses only the listed palette colors (plus transparency); outlines are soft-ink style and consistent across frames."
+  ]
+}

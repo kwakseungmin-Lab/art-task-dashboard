@@ -1,0 +1,112 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.widget.power_slider_240x24",
+  "asset_name": "UI — Power slider",
+  "category": "ui",
+  "subcategory": "widget",
+  "priority": "P1",
+  "execution_order": 550,
+  "variant_of": null,
+  "depends_on": [
+    "ui.hud.bottom_bar_1280x50"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.bottom_bar_1280x50"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_brown",
+      "hex": "#2D1F1A"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "pale_gold",
+      "hex": "#D6B27A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "thin"
+  },
+  "context": {
+    "role": "slider",
+    "layer": "ui",
+    "usage": "Power adjust.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": [
+        180,
+        12
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 24
+    },
+    "colors_hex": [
+      "#2D1F1A",
+      "#D6B27A",
+      "#F4E9DA",
+      "#C07A6A"
+    ],
+    "elements": [
+      {
+        "id": "track",
+        "dimensions_px": {
+          "width": 200,
+          "height": 6
+        }
+      },
+      {
+        "id": "knob",
+        "dimensions_px": {
+          "width": 16,
+          "height": 16
+        }
+      },
+      {
+        "id": "value_text",
+        "dimensions_px": {
+          "width": 48,
+          "height": 24
+        },
+        "text_format": "100%"
+      }
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.widget.power_slider_240x24.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Deliverable PNG matches the specified pixel dimensions (or sprite-sheet total size) with transparent background.",
+    "Uses the project palette as a guideline; any additional colors are limited and documented in specs.colors_hex.",
+    "Silhouette/readability holds at 100% and 50% zoom; no muddy edges or unintended blurs."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

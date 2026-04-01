@@ -1,0 +1,84 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline included in sprite dimensions",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "variable",
+      "height": "variable"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "minimalist pixel font UI",
+      "font_type": "monospace pixel font",
+      "color": "primary #535353 for text",
+      "alignment": "specific to each UI element",
+      "purpose": "display game state and feedback",
+      "rendering": "pixel perfect text rendering"
+    }
+  },
+  "asset": {
+    "asset_id": "score_display",
+    "asset_name": "Score Display Widget",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Real-time display of current score during gameplay",
+      "screen_position": "Top right corner at (screen_width - 10px, 10px), right-aligned",
+      "adjacent_elements": ["game_over_screen (appears on death)", "player (indirectly related)"],
+      "usage_scenario": "Always visible during gameplay, updates every frame as score increases at 10 points per second, flashes white (optional) at 100-point milestones"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "50px (5 digits × 10px character width)",
+        "height": "16px"
+      },
+      "colors": {
+        "text": "#535353",
+        "flash": "#FFFFFF (optional, 0.1 second duration at milestones)"
+      },
+      "shape": "5-digit numeric text with zero-padding (e.g., 00042, 01234, 99999)",
+      "texture": "monospace pixel font, crisp pixel rendering",
+      "outline": "none (text only)",
+      "shadow": "none",
+      "animation": {
+        "type": "value update + optional flash",
+        "frames": 1,
+        "fps": 60,
+        "loop": true,
+        "description": "Score value updates every frame, optional white flash for 0.1 seconds when score reaches multiples of 100"
+      },
+      "details": "Font size 16px, monospace pixel font, 5 digits with leading zeros (00000-99999), right-aligned at top right with 10px margin, character width 10px each, optional milestone flash effect"
+    },
+    "relationships": {
+      "related_assets": ["game_over_screen", "player"],
+      "shared_with": "Same font style and color as game_over_screen text elements",
+      "differences_from": "game_over_screen has multiple text sizes (12px, 16px, 24px), score_display is fixed 16px and always visible during play"
+    },
+    "explicit_negations": [
+      "no anti-aliasing on text",
+      "no gradients or effects",
+      "no additional colors beyond #535353 and optional #FFFFFF flash",
+      "no smooth font rendering (pixel font only)",
+      "no transparency",
+      "no drop shadow or outline",
+      "no animation between number changes (instant update)",
+      "no decorative elements or icons",
+      "no background box or panel"
+    ]
+  }
+}

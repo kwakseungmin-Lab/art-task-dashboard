@@ -1,0 +1,114 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 3,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "ui.score_display",
+  "asset_name": "score_display_layout",
+  "category": "ui",
+  "subcategory": "hud",
+  "description": "HUD score display layout: 5 digits, zero-padded, top-right anchored with 10 px padding. Default color #535353; optional flash color #FFFFFF for 0.1 s on each 100-point milestone.",
+  "context": {
+    "role": "hud_score",
+    "layer": "ui",
+    "usage": "Visible only during active gameplay (not visible when game-over screen is visible).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -10,
+        10
+      ]
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_mono_16",
+      "ui.game_over_screen"
+    ]
+  },
+  "depends_on": [
+    "ui.font.bitmap_mono_16"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.bitmap_mono_16"
+  ],
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/ui/score_display_layout/score_display_layout.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 160,
+        "height": 32
+      },
+      "notes": "Mock layout; includes bounding box and sample score 00000."
+    }
+  ],
+  "acceptance_criteria": [
+    "Text renders as exactly 5 digits using the bitmap font atlas.",
+    "Top-right anchor places the right edge 10 px from canvas right edge and the top edge 10 px from canvas top edge on a 600x150 canvas.",
+    "Default text color is #535353.",
+    "Optional flash switches to #FFFFFF for 0.1 seconds when score is a multiple of 100."
+  ],
+  "priority": "P0",
+  "execution_order": 90,
+  "specs": {
+    "digits": 5,
+    "format": "zero_padded",
+    "font": {
+      "task_id": "ui.font.bitmap_mono_16",
+      "font_size_px": 16,
+      "digit_advance_px": 10
+    },
+    "default_color_hex": "#535353",
+    "flash": {
+      "enabled_optional": true,
+      "flash_color_hex": "#FFFFFF",
+      "duration_seconds": 0.1,
+      "trigger_modulo_score": 100
+    },
+    "placement": {
+      "anchor": "top_right",
+      "offset_px": [
+        -10,
+        10
+      ]
+    },
+    "layout_box_px": {
+      "width": 50,
+      "height": 16
+    }
+  }
+}

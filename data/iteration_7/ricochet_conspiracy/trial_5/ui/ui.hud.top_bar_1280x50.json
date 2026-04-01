@@ -1,0 +1,128 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.top_bar_1280x50",
+  "asset_name": "Top HUD Bar (1280x50)",
+  "category": "ui",
+  "subcategory": "hud_bar",
+  "priority": "P0",
+  "execution_order": 210,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [
+    "ui.button.hint_60x24",
+    "ui.button.restart_60x24",
+    "ui.button.menu_60x24",
+    "ui.screen.fail_overlay_320x200",
+    "ui.screen.clear_overlay_400x300"
+  ],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.button.hint_60x24",
+      "ui.button.restart_60x24",
+      "ui.button.menu_60x24"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "hud",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui",
+    "usage": "Visible during puzzle play; contains stage title slot, move counter, undo counter, and button anchors in a 1280x50 strip.",
+    "adjacent_elements": [
+      "stage title text",
+      "move counter",
+      "undo counter",
+      "hint button"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_2d",
+      "facing": "viewer"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 50
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#D4A843",
+      "#3D2B1F",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "full-width flat bar with left title plate and right counter plates",
+      "components": [
+        "base_strip",
+        "title_plate",
+        "move_counter_plate",
+        "undo_counter_plate",
+        "button_slots"
+      ]
+    },
+    "ui_behavior": {
+      "anchor_mode": "top_stretch",
+      "text_safe_zone_px": [
+        16,
+        8,
+        16,
+        8
+      ],
+      "button_slot_count": 3
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.top_bar_1280x50.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1280x50px and the base strip spans the full width with no crop.",
+    "Title plate width stays at 220px and the two right counter plates each stay at 132px width.",
+    "Only #E8D5C4, #D4A843, #3D2B1F, and #F5F0E8 are used on the UI sheet."
+  ]
+}

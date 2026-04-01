@@ -1,0 +1,188 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040412",
+  "asset_key": "pause_game_over_overlay_sheet",
+  "asset_name": "Pause Game Over Overlay Sheet",
+  "category": "ui",
+  "subcategory": "full_screen_overlay",
+  "priority": "P1",
+  "execution_order": 12,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Overlay cards keep the 200x120 px panel size defined for pause, game over, and clear screens.",
+    "Typography uses the same pixel-font framing and dark dungeon palette as the gameplay HUD."
+  ],
+  "differences": [
+    "This atlas packages pause, game_over, and clear overlay cards as three discrete states with distinct title lettering and badge accents."
+  ],
+  "depends_on": [
+    "task_id_804040401",
+    "task_id_804040403",
+    "task_id_804040404",
+    "task_id_804040410"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_804040401",
+    "task_id_804040403",
+    "task_id_804040404",
+    "task_id_804040410"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040401",
+      "task_id_804040403",
+      "task_id_804040404",
+      "task_id_804040405",
+      "task_id_804040407",
+      "task_id_804040409",
+      "task_id_804040410",
+      "task_id_804040411"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Pause, game over, and clear screen sizes plus text role grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Overlay contrast and dungeon ambience grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use a TextureAtlas-backed ImageNode for the centered overlay card while gameplay text and record values render in sibling UI text nodes.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "ImageNode",
+      "TextureAtlas",
+      "OverlayStateUi"
+    ],
+    "asset_loading": "Load ui/pause_game_over_overlay_sheet.png through AssetServer and store the atlas handle in the overlay state resource keyed by asset_key.",
+    "runtime_notes": [
+      "Each frame is 200x120 px.",
+      "Frames map to pause, game_over, and clear states in that order.",
+      "Center the panel at the screen midpoint with integer coordinates."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Centered overlay card used for pause, game over, and clear states.",
+    "screen_position": {
+      "anchor": "screen_center",
+      "x_px": 640,
+      "y_px": 360
+    },
+    "layer": {
+      "name": "ui_overlay",
+      "z_index": 110
+    },
+    "usage": "Shown only when active play is interrupted, failed, or completed."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 120
+    },
+    "colors_hex": [
+      "#0D0D0F",
+      "#1A1A2E",
+      "#D6D0C4",
+      "#E07B39",
+      "#C8A84B"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 3,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "columns": 3,
+        "frame_size_px": {
+          "width": 200,
+          "height": 120
+        }
+      },
+      "state_clips": [
+        {
+          "state": "pause",
+          "start_frame": 0,
+          "end_frame": 0,
+          "fps": 0,
+          "loop": false
+        },
+        {
+          "state": "game_over",
+          "start_frame": 1,
+          "end_frame": 1,
+          "fps": 0,
+          "loop": false
+        },
+        {
+          "state": "clear",
+          "start_frame": 2,
+          "end_frame": 2,
+          "fps": 0,
+          "loop": false
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "pause_game_over_overlay_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 600,
+        "height": 120
+      },
+      "notes": "Three 200x120 overlay cards for pause, game_over, and clear states."
+    },
+    {
+      "artifact": "pause_game_over_overlay_sheet_slices.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "State map for pause, game_over, and clear overlay frames."
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas size is exactly 600x120 px with three 200x120 overlay frames.",
+    "Pause, game_over, and clear titles are visually distinct while preserving one shared framing language.",
+    "Cards leave empty text regions for live timer and record values without clipping the title lettering."
+  ]
+}

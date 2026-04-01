@@ -1,0 +1,161 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003001",
+  "asset_key": "world_tower_chamber_backdrop_1920x1080",
+  "asset_name": "Tower Chamber Backdrop",
+  "category": "world",
+  "subcategory": "backdrop",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "task_id_008003002",
+    "task_id_008003003",
+    "task_id_008003004",
+    "task_id_008003005",
+    "task_id_008003010",
+    "task_id_008003013"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003003",
+      "task_id_008003004",
+      "task_id_008003018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra silhouette, limb taper, eye glow placement, and cloak-like vapor edge anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle on a fixed world backdrop entity with parallax layer slicing handled by child sprites inside one authored panorama.",
+    "atlas_or_static": "static_image",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TowerBackdrop",
+      "ParallaxLayerGroup"
+    ],
+    "asset_loading": "Load world/world_tower_chamber_backdrop_1920x1080.png through AssetServer during floor scene setup and attach it behind all gameplay colliders.",
+    "runtime_notes": [
+      "Backdrop origin stays at the camera center so ladder, mirror, and door anchors line up with gameplay coordinates.",
+      "Parallax depth uses foreground at 1.0, middle at 0.6, and distant window glow at 0.3 movement ratios.",
+      "No collision data comes from this texture; gameplay solids come from level RON files and Rapier colliders."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "world_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world_backdrop",
+    "usage": "Primary chamber art for floors that mix beam routing, climbing, and scale puzzles inside the twilight tower.",
+    "adjacent_elements": [
+      "world_shadow_safezone_overlay_1920x1080",
+      "world_ladder_tile_strip_16x256",
+      "world_exit_door_opening_8f_64x96"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#D4682A",
+      "#C9A84C",
+      "#1A4A52",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 1,
+        "order": "single"
+      }
+    },
+    "shape": {
+      "silhouette": "Art deco tower chamber with stepped pillars, tall window ribs, hanging counterweights, and a clear exit lane near the upper right quadrant.",
+      "components": [
+        "rear_wall_panels",
+        "arched_windows",
+        "gold_trim_lines",
+        "counterweight_chains",
+        "mid_platform_shadows",
+        "ceiling_beam_slots"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Polished stone surfaces with brushed metal trim and clean glass highlights.",
+    "shading": "Hard edge violet gradients with amber window bloom and deep black foreground silhouettes."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_tower_chamber_backdrop_1920x1080.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Backdrop canvas is exactly 1920x1080 px.",
+    "Foreground columns and hanging chains leave a readable gameplay corridor from x=320 to x=1600 without covering key interactive anchors.",
+    "Only listed palette colors plus transparency are used, and distant window bloom never exceeds a 64 px radius around each opening."
+  ]
+}

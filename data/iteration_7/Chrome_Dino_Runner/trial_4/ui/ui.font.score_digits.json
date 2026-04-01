@@ -1,0 +1,128 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.font.score_digits",
+  "asset_name": "UI — score digit sheet",
+  "category": "ui",
+  "subcategory": "font",
+  "priority": "P0",
+  "execution_order": 300,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This file is a font atlas rather than a screen element.",
+    "Transparent spacing rows support easier slicing in engine import.",
+    "Digit width is constant to preserve zero-padded score alignment."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "ui.hud.score_rack",
+    "ui.banner.game_over_message",
+    "ui.prompt.restart_hint"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.score_rack",
+      "ui.banner.game_over_message",
+      "ui.prompt.restart_hint"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "bitmap_font",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui",
+    "usage": "Monospaced digit sheet covering 0 through 9 for score and high-score rendering."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 50,
+      "height": 16
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 10,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        5,
+        7
+      ],
+      "layout": {
+        "columns": 10,
+        "rows": 1
+      },
+      "padding_px": 1
+    },
+    "glyph_set": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "layout_notes": [
+      "Place glyphs in numeric order from left to right.",
+      "Reserve at least 1 transparent row above and below the 7px glyph body.",
+      "Keep stroke width at 1px or 2px only."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.font.score_digits.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 50x16px.",
+    "Each glyph fits inside a 5x7 cell with a constant baseline.",
+    "The glyph for 8 contains two closed counters that remain readable at 1x scale."
+  ]
+}

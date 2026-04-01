@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003011",
+  "asset_key": "obstacle_moving_platform_2f_4fps_48x16",
+  "asset_name": "Moving Platform Loop",
+  "category": "obstacles",
+  "subcategory": "platform",
+  "priority": "P1",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003002"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the decorative sway and drive platform travel through a separate movement component.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "MovingPlatform",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/obstacle_moving_platform_2f_4fps_48x16.png through AssetServer and reuse the two-frame atlas for every platform instance.",
+    "runtime_notes": [
+      "The platform moves horizontally in a deterministic 80 px range while the sprite remains centered on its collider.",
+      "Travel speed is 60 px per second and animation cadence is independent from motion.",
+      "Top surface height stays constant so friction transitions feel readable."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "moving_platform",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        420
+      ]
+    },
+    "layer": "obstacles_platform",
+    "usage": "Short rescue platform that carries the player across narrow gaps while descent remains continuous.",
+    "adjacent_elements": [
+      "world_friction_tilekit_16px",
+      "player_prisoner_fall_4f_8fps",
+      "ui_survival_timer_48x16"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 16
+    },
+    "colors_hex": [
+      "#4E5940",
+      "#3B3347",
+      "#8FA8B8"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 2,
+      "fps": 4,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 2,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Stone platform with moss trim, side anchors, and a subtle sway in the hanging growth.",
+      "components": [
+        "stone_slab",
+        "moss_trim",
+        "side_anchor_left",
+        "side_anchor_right"
+      ]
+    },
+    "motion": {
+      "path": "horizontal_ping_pong",
+      "range_px": 80,
+      "speed_px_per_second": 60
+    },
+    "collision": {
+      "supports_player": true,
+      "one_way": false
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_moving_platform_2f_4fps_48x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 96x16 px with two 48x16 frames.",
+    "Platform top surface stays flat across both frames so the player silhouette never looks unstable.",
+    "Moss sway shifts no more than 1 px between frames."
+  ]
+}

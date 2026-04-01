@@ -1,0 +1,148 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.tiles.snow_ground_16_atlas",
+  "asset_name": "Snow Ground Tiles — 16×16 Atlas",
+  "category": "world",
+  "subcategory": "tiles",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.building.house_sheet_64x64_2f",
+      "world.building.warehouse_96x64_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "tile_atlas",
+    "layer": "world_background",
+    "usage": "16x16 tiles for the village ground. Includes packed snow, footprints, ice cracks, and edge transitions.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 256
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "tile_rules": {
+      "tile_size_px": {
+        "width": 16,
+        "height": 16
+      },
+      "grid": {
+        "cols": 16,
+        "rows": 16
+      },
+      "required_tiles": [
+        "solid_snow",
+        "snow_edge_n",
+        "snow_edge_s",
+        "snow_edge_e",
+        "snow_edge_w",
+        "snow_corner_ne",
+        "snow_corner_nw",
+        "snow_corner_se",
+        "snow_corner_sw",
+        "ice_patch",
+        "footprints"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tiles.snow_ground_16_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 256x256px and contains a 16x16 grid of 16x16px tiles with no padding.",
+    "At least the required tile set is present and visually distinct at 1x scale.",
+    "All tiles tile seamlessly on all four edges when repeated."
+  ]
+}

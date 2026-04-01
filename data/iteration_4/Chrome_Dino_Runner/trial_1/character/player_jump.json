@@ -1,0 +1,142 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_character_player_jump",
+  "asset_name": "player_jump",
+  "category": "character",
+  "subcategory": "player",
+  "description": "Create Player jump sprite as a single-frame PNG. Canvas 88x94 px. Use only #535353 for visible pixels with transparent background. Pose: both feet off ground, legs tucked to indicate airborne state.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/sprites/player/player_jump_1f_88x94_1x.png",
+      "type": "sprite",
+      "format": "PNG",
+      "notes": "Used while Jumping state; no animation."
+    }
+  ],
+  "specs": {
+    "dimensions": "88x94",
+    "frames": 1,
+    "hitbox": {
+      "size_px": "44x90",
+      "offset_px": "(22,2)"
+    },
+    "style": {
+      "colors_hex": [
+        "#535353"
+      ],
+      "outline": {
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      },
+      "bg": "transparent",
+      "view": "2D side view, facing right",
+      "usage_notes": "Shown during Jumping."
+    }
+  },
+  "context": {
+    "role": "Player airborne sprite during Jumping state.",
+    "screen_location": "x fixed at 100 px; y varies from 0 to ~-90 px (upward) relative to ground.",
+    "adjacent_elements": "Must read clearly when overlapping with pterodactyl at y=50/80.",
+    "layer": "gameplay_sprite",
+    "usage": "Displayed when is_grounded=false and is_dead=false."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_character_player_run"
+    ],
+    "shared_properties": [
+      "Same canvas 88x94",
+      "#535353 only"
+    ],
+    "differences": [
+      "Single frame; airborne pose; no leg alternation"
+    ]
+  },
+  "depends_on": [
+    "cdr_v1_character_player_idle"
+  ],
+  "execution_order": 6,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_v1_character_player_idle"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 88x94 px.",
+    "Only #535353 used for visible pixels; background alpha=0.",
+    "Lowest visible pixel is at least 2 px above the baseline compared to run/idle frames (to visually indicate airborne)."
+  ]
+}

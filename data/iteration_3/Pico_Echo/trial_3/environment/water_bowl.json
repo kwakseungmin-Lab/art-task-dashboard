@@ -1,0 +1,87 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bars": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "environment_type": "indoor bird cage",
+      "design_principle": "static background elements, minimal detail to keep focus on Echo"
+    }
+  },
+  "asset": {
+    "asset_id": "water_bowl",
+    "asset_name": "Water Bowl",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "decorative water bowl, no gameplay function (water is always available)",
+      "screen_position": "lower left (x=40, y=100), right of food bowl",
+      "adjacent_elements": ["food bowl (left)", "floor (below)"],
+      "usage_scenario": "always visible, purely decorative to complete cage environment, no interaction"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "12px",
+        "height": "10px"
+      },
+      "colors": {
+        "bowl": "#AB5236",
+        "water": "#29ADFF",
+        "outline": "#5F574F"
+      },
+      "shape": "simple bowl/dish shape, top-down view, smaller than food bowl",
+      "texture": "flat pixel art, minimal detail",
+      "outline": "1px dark brown (#5F574F)",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "static decorative element, always shows water (no empty state)"
+      },
+      "details": "brown bowl (#AB5236) with light blue water (#29ADFF) inside, always full, no interaction or state changes"
+    },
+    "relationships": {
+      "related_assets": ["food_bowl", "cage_background"],
+      "shared_with": "shares brown color (#AB5236) with food bowl and perch",
+      "differences_from": "purely decorative (no gameplay function), unlike interactive food bowl, always static (no state changes)"
+    },
+    "explicit_negations": [
+      "no 3D perspective or depth",
+      "no realistic water effects (ripples, reflections)",
+      "no shadows or highlights",
+      "no empty state (always has water)",
+      "no interaction or clickability",
+      "no animation"
+    ]
+  }
+}

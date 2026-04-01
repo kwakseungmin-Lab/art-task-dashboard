@@ -1,0 +1,170 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.last_olympian_god_teleport_sheet_48_6f",
+  "asset_name": "Last Olympian God Teleport Sheet — 288x48, 6 frames",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tiles.marble_grid_64_atlas",
+    "character.player.last_olympian_god_idle_sheet_48_4f"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.tiles.marble_grid_64_atlas",
+    "character.player.last_olympian_god_idle_sheet_48_4f"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.last_olympian_god_idle_sheet_48_4f",
+      "ui.overlay.path_link_dash_64_sheet_6f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "player_skill_sprite",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 736,
+      "y": 448
+    },
+    "layer": "world_characters",
+    "usage": "Teleport animation used after path confirmation and before the avatar lands on the target tile.",
+    "adjacent_elements": [
+      "world.tiles.marble_grid_64_atlas",
+      "ui.overlay.path_link_dash_64_sheet_6f"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_topdown",
+      "facing": "east"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 288,
+      "height": 48
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#FBBF24",
+      "#F8FAFC",
+      "#06B6D4",
+      "#7DD3FC"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 6,
+        "frame_size_px": {
+          "width": 48,
+          "height": 48
+        },
+        "order": [
+          "teleport_1",
+          "teleport_2",
+          "teleport_3",
+          "teleport_4",
+          "teleport_5",
+          "teleport_6"
+        ],
+        "padding_px": 0
+      }
+    },
+    "shape": {
+      "silhouette": "48px figure breaking into 3 cyan trail segments while the halo stays centered.",
+      "components": [
+        "cloak_fragment_a",
+        "cloak_fragment_b",
+        "cloak_fragment_c",
+        "halo_ring",
+        "landing_spark"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "count": 2,
+        "style": "2px amber dots",
+        "hex": "#FBBF24"
+      },
+      "mouth": null,
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "pose": "spread_teleport"
+      },
+      "legs": {
+        "count": 2,
+        "visibility": "1px in frames 2-5"
+      },
+      "tail": null,
+      "accessories": [
+        "halo_ring",
+        "cyan_trail"
+      ]
+    },
+    "texture": {
+      "fabric": "2-tone cloak folds",
+      "energy": "3 cyan trail bands"
+    },
+    "shading": {
+      "mode": "flat_2tone",
+      "shadow_hex": "#1C1917",
+      "highlight_hex": "#F8FAFC"
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.last_olympian_god_teleport_sheet_48_6f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 288x48px with 6 frames of 48x48px.",
+    "Frames 2-5 contain 3 cyan trail segments and frame 6 returns to a complete body silhouette.",
+    "Animation is non-looping and uses the listed cyan hex values for the trail."
+  ]
+}

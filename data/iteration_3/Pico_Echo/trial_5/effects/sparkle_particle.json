@@ -1,0 +1,99 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-12px",
+      "note": "Varies by effect type - particles are 2-4px, speech bubble is 12x10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8",
+      "bubble_bg": "#FFF1E8",
+      "bubble_outline": "#1D2B53"
+    },
+    "shared_attributes": {
+      "rendering": "animated particles or static overlays",
+      "layer": "foreground (on top of all other elements)",
+      "style": "simple iconic pixel art",
+      "lifespan": "0.5-2 seconds (particles auto-destroy)"
+    }
+  },
+  "asset": {
+    "asset_id": "sparkle_particle",
+    "asset_name": "Sparkle Particle Effect",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Cleaning success indicator that appears when player swipes floor to clean poop",
+      "screen_position": "Spawns on cage floor at y=110-125px, x=random across floor width (0-128px)",
+      "adjacent_elements": [
+        "cage_floor (spawns on this surface after cleaning)",
+        "poop (removed when sparkles appear)",
+        "cage_background"
+      ],
+      "usage_scenario": "3 sparkle particles spawn at random floor positions when player completes swipe-to-clean action. Each sparkle appears, expands slightly, then fades over 0.5 seconds. Provides satisfying visual feedback for cleaning."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "primary": "#FFF1E8"
+      },
+      "shape": "Star/sparkle shape. 3x3px with 4-point star pattern (center pixel + 4 pixels extending up/down/left/right).",
+      "texture": "Pure pixel art, simple icon",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "particle",
+        "frames": 3,
+        "fps": 6,
+        "loop": false,
+        "description": "Frame 1: Sparkle appears at 3x3px. Frame 2: Expands to 5x5px (adds diagonal pixels). Frame 3: Fades to 0%. Total duration: 0.5 seconds."
+      },
+      "details": "Star shape: Frame 1: 3x3px cross (5 pixels total - center + 4 cardinal directions) in #FFF1E8. Frame 2: 5x5px star (9 pixels - adds 4 diagonal pixels). Spawns at random x position on floor (y=115±5px). 3 sparkles spawn simultaneously at different x positions when cleaning occurs."
+    },
+    "relationships": {
+      "related_assets": [
+        "cage_floor",
+        "poop"
+      ],
+      "shared_with": "Same cream color (#FFF1E8) as background",
+      "differences_from": "Unlike other particles: expands instead of moving, spawns on floor (not near Echo), triggered by player action (not Echo state), shortest lifespan (0.5s), white/cream color."
+    },
+    "explicit_negations": [
+      "No 3D shading",
+      "No outline stroke",
+      "No rotation or spinning",
+      "No movement (only expansion)",
+      "No motion blur",
+      "No color variation",
+      "No glow or halo",
+      "No multiple sparkles per particle"
+    ]
+  }
+}

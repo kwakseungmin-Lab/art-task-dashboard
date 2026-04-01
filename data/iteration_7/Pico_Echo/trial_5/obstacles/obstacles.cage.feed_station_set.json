@@ -1,0 +1,139 @@
+{
+  "schema_version": "art_task@7",
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "task_id": "obstacles.cage.feed_station_set",
+  "asset_name": "Feed Station Set — food bowl states plus water bowl",
+  "category": "obstacles",
+  "subcategory": "cage_object",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": [
+    "Left floor placement aligns with room shell anchors.",
+    "PICO-8 readable 1px outlines and flat fills.",
+    "Food and water props stay small so Echo keeps visual priority."
+  ],
+  "differences": [
+    "This file covers bowl prop states and interaction cues.",
+    "Cleanup dirt markers stay outside this task."
+  ],
+  "depends_on": [
+    "world.cage.room_shell_static"
+  ],
+  "blocks": [
+    "ui.menu.care_popup_icons"
+  ],
+  "blocked_by": [
+    "world.cage.room_shell_static"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage.room_shell_static",
+      "ui.menu.care_popup_icons",
+      "character.echo.behavior_core_sheet_21f"
+    ]
+  },
+  "context": {
+    "role": "interactable_props",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        16,
+        100
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Food bowl communicates hunger state and water bowl stabilizes the care corner layout.",
+    "viewpoint": {
+      "camera_angle": "front_2d_orthographic",
+      "facing": "screen_facing_0deg"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 36,
+      "height": 12
+    },
+    "colors_hex": [
+      "#AB5236",
+      "#FFA300",
+      "#FFEC27",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "food_full",
+        "food_low",
+        "food_empty"
+      ],
+      "frame_count": 3,
+      "frame_size_px": [
+        36,
+        12
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "layout_notes": [
+      "Food bowl occupies x=0..15 and water bowl occupies x=20..31 inside each state frame.",
+      "Food bowl interior uses 7 to 8 seed pixels in food_full, 3 to 4 seed pixels in food_low, and 0 seed pixels in food_empty.",
+      "Water bowl stays static with pale fill so state changes stay focused on the food bowl."
+    ],
+    "shape": {
+      "silhouette": "36x12 twin-bowl prop with a left seed bowl, a 4px gap, and a right water bowl in one shallow horizontal profile.",
+      "components": [
+        "left seed bowl",
+        "seed fill cluster",
+        "4px gap",
+        "right water bowl",
+        "1px outline",
+        "flat base shadow"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cage.feed_station_set.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 108x12px with three 36x12 states and no padding.",
+    "Food bowl reads clearly at 1x scale in all three states and keeps the water bowl readable beside it.",
+    "Food bowl center aligns to x=24 y=106 when placed in scene, matching the room shell anchor area.",
+    "Only listed colors and transparency are used."
+  ]
+}

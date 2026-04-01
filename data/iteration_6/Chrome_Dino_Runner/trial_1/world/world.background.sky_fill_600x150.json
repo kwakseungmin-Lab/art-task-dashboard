@@ -1,0 +1,86 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.sky_fill_600x150",
+  "asset_name": "Background — Sky Fill (600x150)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.cloud_small_static",
+      "world.background.cloud_large_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background",
+    "layer": "world",
+    "usage": "Static sky-color layer behind everything.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "notes": "Matches GDD Background: sky color #F7F7F7."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 150
+    },
+    "colors_hex": [
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static"
+    },
+    "silhouette_notes": [
+      "Solid fill; no gradients, no noise."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.sky_fill_600x150.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 600x150px.",
+    "All pixels are #F7F7F7 (no variation)."
+  ]
+}

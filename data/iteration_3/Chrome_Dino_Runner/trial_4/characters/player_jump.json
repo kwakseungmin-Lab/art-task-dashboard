@@ -1,0 +1,81 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline included in sprite dimensions",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art T-Rex dinosaur",
+      "features": "short front legs, large eyes, thick tail",
+      "color": "monochrome primary color",
+      "outline": "2px included in dimensions"
+    }
+  },
+  "asset": {
+    "asset_id": "player_jump",
+    "asset_name": "Player Jumping Sprite",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Static sprite displayed when player is airborne",
+      "screen_position": "Fixed at x=100px from left edge, y varies from 0 to -90px (max jump height)",
+      "adjacent_elements": ["ground", "cactus_variants", "pterodactyl", "background"],
+      "usage_scenario": "Displayed during entire jump arc from takeoff to landing, triggered by Space key or tap input"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "88px",
+        "height": "94px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "T-Rex dinosaur with both feet off ground, legs tucked",
+      "texture": "pixel art, flat color, no gradients",
+      "outline": "2px solid, included in sprite dimensions",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Single static frame showing airborne pose with legs tucked under body"
+      },
+      "details": "Both feet clearly off ground, body in mid-air pose, tail extended for balance, eyes open"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_idle", "player_duck", "player_dead"],
+      "shared_with": "Same dimensions and color as player_idle, player_run, player_dead",
+      "differences_from": "player_run is animated (2 frames), player_duck has different dimensions (118x60px), player_jump is static single frame"
+    },
+    "explicit_negations": [
+      "no anti-aliasing",
+      "no gradients or shading",
+      "no motion blur",
+      "no additional colors beyond #535353",
+      "no smooth curves (pixel-aligned edges only)",
+      "no transparency except full alpha",
+      "no rotation or skewing",
+      "no animation frames (static only)"
+    ]
+  }
+}

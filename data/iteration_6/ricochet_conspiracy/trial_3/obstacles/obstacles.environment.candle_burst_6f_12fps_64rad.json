@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.environment.candle_burst_6f_12fps_64rad",
+  "asset_name": "Environment FX — Candle Ignition Burst (6 frames, 12fps, 64px radius)",
+  "category": "obstacles",
+  "subcategory": "environment_interactive",
+  "priority": "P1",
+  "execution_order": 250,
+  "variant_of": "obstacles.environment.candle_unlit_16x32",
+  "shared_properties": {
+    "trigger": "ignition",
+    "fire_palette": [
+      "#E8704A",
+      "#F5F0E8"
+    ],
+    "outline_hex": "#3D2B1F"
+  },
+  "differences": {
+    "effect_radius_px": 64,
+    "frame_count": 6,
+    "animation_fps": 12
+  },
+  "depends_on": [
+    "obstacles.environment.candle_unlit_16x32",
+    "obstacles.launchable.candlestick_move_4f_8fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.environment.candle_unlit_16x32"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.candle_unlit_16x32",
+      "obstacles.launchable.candlestick_move_4f_8fps",
+      "character.noble.basic_idle_6f_4fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "trigger_fx",
+    "layer": "world",
+    "usage": "Played when candle ignites; conveys 64px radius elimination effect (gameplay in-engine).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 384,
+      "height": 64
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8704A",
+      "#F5F0E8",
+      "#D4A843",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 64,
+        "height": 64
+      },
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      },
+      "frame_count": 6,
+      "directions": null,
+      "note": "Expanding flame ring; keep edges readable with sparse pixels."
+    },
+    "animation": {
+      "type": "one_shot",
+      "fps": 12,
+      "notes": "Plays once on ignition; final frame should fade out (few pixels)."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.candle_burst_6f_12fps_64rad.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 384x64px (6x1) with 64x64px frames; reads as an expanding burst.",
+    "Fire colors use #E8704A and #F5F0E8; no anti-aliasing; background transparent.",
+    "Visual radius cue: by frame 4-6, the burst reaches near the 64px frame edge without clipping."
+  ]
+}

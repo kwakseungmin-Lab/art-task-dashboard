@@ -1,0 +1,151 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_character_player_run",
+  "asset_name": "player_run",
+  "category": "character",
+  "subcategory": "player",
+  "description": "Create Player run animation as a 2-frame sprite sheet. Frame size 88x94 px. Sprite sheet size 176x94 px (2 frames laid out left-to-right). Use only #535353 for visible pixels with transparent background. Animation: 2 frames at 12 FPS looping. Frame 0: left foot forward. Frame 1: right foot forward.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/sprites/player/player_run_2f_12fps_176x94_1x.png",
+      "type": "sprite_sheet",
+      "format": "PNG",
+      "notes": "Frame size 88x94; frames ordered [left_foot_forward, right_foot_forward] left-to-right."
+    }
+  ],
+  "specs": {
+    "dimensions": "176x94",
+    "frame_size": "88x94",
+    "animation": {
+      "frames": 2,
+      "fps": 12,
+      "loop": true,
+      "layout": "horizontal"
+    },
+    "hitbox": {
+      "size_px": "44x90",
+      "offset_px": "(22,2)"
+    },
+    "style": {
+      "colors_hex": [
+        "#535353"
+      ],
+      "outline": {
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      },
+      "bg": "transparent",
+      "view": "2D side view, facing right",
+      "usage_notes": "Default state during Running."
+    }
+  },
+  "context": {
+    "role": "Default player animation during Running state.",
+    "screen_location": "Fixed x=100 px; baseline feet aligned to ground y=0.",
+    "adjacent_elements": "Must visually read clearly against background #F7F7F7; keep silhouette gaps >=1 px.",
+    "layer": "gameplay_sprite",
+    "usage": "Displayed whenever Player is grounded, not ducking, not dead, and Game_State=Running."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_character_player_idle"
+    ],
+    "shared_properties": [
+      "Same canvas 88x94",
+      "#535353 only",
+      "2 px outline"
+    ],
+    "differences": [
+      "12 FPS instead of 6 FPS",
+      "Leg positions alternate per frame"
+    ]
+  },
+  "depends_on": [
+    "cdr_v1_character_player_idle"
+  ],
+  "execution_order": 5,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_v1_character_player_idle"
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet PNG is exactly 176x94 px; each frame is exactly 88x94 px.",
+    "Only #535353 is used for visible pixels; background pixels alpha=0.",
+    "Frames are horizontally aligned (head and torso x,y positions unchanged between frames; only limbs change).",
+    "Animation loops cleanly at 12 FPS."
+  ]
+}

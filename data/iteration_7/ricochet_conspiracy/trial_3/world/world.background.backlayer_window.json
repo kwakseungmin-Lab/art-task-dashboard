@@ -1,0 +1,126 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.backlayer_window",
+  "asset_name": "Court Hall Backlayer Window Silhouette",
+  "category": "world",
+  "subcategory": "background_layer",
+  "priority": "P0",
+  "execution_order": 1,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This layer carries only distant architecture and no interactive collider shape."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "obstacles.environment.chandelier",
+    "world.background.midlayer_court"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.midlayer_court",
+      "obstacles.environment.chandelier"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "backdrop_layer",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 50,
+      "width": 1280,
+      "height": 360,
+      "anchor": "top_left"
+    },
+    "layer": "background_back",
+    "usage": "Used in every stage as the far palace silhouette behind puzzle play.",
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "world.background.midlayer_court",
+      "obstacles.environment.chandelier",
+      "ui.hud.top_bar"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 360
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#F5F0E8",
+      "#C8B4E0",
+      "#A89880"
+    ],
+    "animation": {
+      "has_animation": false,
+      "default_state": "static",
+      "states": [
+        {
+          "name": "static",
+          "frame_count": 1,
+          "fps": 0
+        }
+      ]
+    },
+    "notes": [
+      "Eight arched window bays span the width at 140 px bay width with 20 px mullions.",
+      "Moonlight glow uses #F5F0E8 at 24% opacity inside each arch."
+    ],
+    "shape": {
+      "silhouette": "wide palace wall band with eight arch window cutouts and a continuous sill line",
+      "components": [
+        "8 arch window cutouts",
+        "8 vertical mullions",
+        "top cornice band",
+        "continuous sill line"
+      ]
+    }
+  },
+  "deliverables": [
+    "Single layered background sheet 1280x360 px with transparent cutouts for eight arches.",
+    "Optional light mask sheet for arch glow using #F5F0E8.",
+    "Placement preview PNG on 1280x720 canvas."
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 1280x360 px with transparent outer margin.",
+    "Eight arch bays are visible and evenly spaced across 1280 px width.",
+    "No foreground prop or character silhouette crosses the lower 140 px of this layer."
+  ]
+}

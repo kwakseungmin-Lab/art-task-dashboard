@@ -1,0 +1,110 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.pterodactyl_flap_sheet",
+  "asset_name": "Obstacle — pterodactyl flap sheet",
+  "category": "obstacles",
+  "subcategory": "air_hazard",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This hazard occupies the air lane rather than the ground lane.",
+    "Beak length and wing spread create a broad horizontal read.",
+    "Animation cadence is tuned for 10 FPS to stay legible at runner speed."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_low_profile",
+      "character.player.dino_air_pose"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "air_hazard",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        560,
+        50
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Two-frame flying obstacle used after the score threshold that introduces a low-air lane and a high-air lane."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 80
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        92,
+        80
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "silhouette_notes": [
+      "Beak projects 8px to 12px ahead of the body mass.",
+      "Frame one uses raised wings and frame two uses lowered wings.",
+      "Tail and feet remain compact to avoid noisy lower pixels."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.pterodactyl_flap_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 184x80px with 0px gutter.",
+    "Wingtip travel between both frames measures at least 6px.",
+    "Body center shifts no more than 2px between both frames."
+  ]
+}

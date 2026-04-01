@@ -1,0 +1,92 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-4px",
+      "height": "2-5px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects",
+      "rendering": "top layer, temporary",
+      "style": "simple iconic shapes, PICO-8 aesthetic",
+      "behavior": "spawn, animate, fade/disappear",
+      "lifespan": "0.5-2 seconds"
+    }
+  },
+  "asset": {
+    "asset_id": "dust_particle",
+    "asset_name": "Dust Particle (Dirty State)",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Visual indicator of dirty cage environment, floats around Echo",
+      "screen_position": "Spawns around Echo (60-68, 55-65), random positions",
+      "adjacent_elements": ["echo_dirty (trigger source)", "poop (cause of dirty state)", "cage_background (behind)"],
+      "usage_scenario": "Appears when cage is dirty (3+ poop). 3-4 dust particles float randomly around Echo. Disappears when cage is cleaned."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "1px",
+        "height": "1px"
+      },
+      "colors": {
+        "dust": "#C2C3C7"
+      },
+      "shape": "Single pixel, simplest particle",
+      "texture": "Flat solid color",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "particle",
+        "frames": 1,
+        "fps": 2,
+        "loop": true,
+        "description": "Spawns around Echo, drifts slowly in random directions (1-2px/second), persists while dirty state active. 3-4 particles visible at once."
+      },
+      "details": "Dust: 1x1px gray (#C2C3C7) single pixel. Spawn area: around Echo (x=60-68, y=55-65). Movement: slow random drift, 1-2px/second in random directions. Lifespan: persists during dirty state (not time-limited). 3-4 particles visible simultaneously. Disappears instantly when cage cleaned."
+    },
+    "relationships": {
+      "related_assets": ["echo_dirty", "poop", "sparkle_particle (cleaning removes dust)"],
+      "shared_with": "Gray color with cage_bars",
+      "differences_from": "feather_particle: gray vs orange, dirty vs preening, random drift vs horizontal. sparkle_particle: dirty vs clean, gray vs white."
+    },
+    "explicit_negations": [
+      "Dust does not form clouds or clusters",
+      "No upward or downward bias (truly random drift)",
+      "Particles do not grow or shrink",
+      "No smell lines or stink waves",
+      "Dust does not settle on surfaces",
+      "No color variation (all gray)",
+      "Does not multiply over time (fixed 3-4)",
+      "No swirling or vortex pattern"
+    ]
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.fx.blizzard_overlay_medium",
+  "asset_name": "Blizzard Overlay (Medium)",
+  "category": "world",
+  "subcategory": "fx_overlay",
+  "priority": "P0",
+  "execution_order": 121,
+  "variant_of": "world.fx.blizzard_overlay_light",
+  "shared_properties": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "color_mode": "grayscale_only",
+    "transparent_center_allowed": true
+  },
+  "differences": {
+    "edge_opacity_range": [
+      0.2,
+      0.6
+    ],
+    "whiteout_region": {
+      "shape": "rounded_rect",
+      "center_visible_area_percent": 70
+    }
+  },
+  "depends_on": [
+    "world.fx.blizzard_overlay_light"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.fx.blizzard_overlay_light",
+      "world.fx.blizzard_overlay_heavy"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "screen_fx",
+    "layer": "overlay",
+    "usage": "Used at medium obstruction (31-60%). Stronger edge whiteout and more dense noise.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888"
+    ],
+    "animation": null,
+    "alpha_rules": {
+      "background_transparent": true,
+      "edge_opacity_range": [
+        0.2,
+        0.6
+      ],
+      "center_visible_area_percent": 70
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.fx.blizzard_overlay_medium.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay is exactly 1920x1080px and is denser than the light overlay while keeping the center area readable.",
+    "Edge opacity range is 20% to 60% and shows a clear vignette-like falloff.",
+    "Central safe area supports a 600x400 memory panel placed near screen center."
+  ]
+}

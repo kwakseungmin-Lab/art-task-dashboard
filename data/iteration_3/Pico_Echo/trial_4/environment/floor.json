@@ -1,0 +1,85 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "varies by element"
+    },
+    "color_scheme": {
+      "primary": "#FFF1E8",
+      "secondary": "#C2C3C7",
+      "accent": "#AB5236"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art",
+      "animation_method": "none (static elements)",
+      "layer_order": 1
+    }
+  },
+  "asset": {
+    "asset_id": "floor",
+    "asset_name": "Cage Floor",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Bottom area of cage where poop accumulates, cleaning interaction zone",
+      "screen_position": "Bottom section from y=110 to y=128, full width 128px",
+      "adjacent_elements": ["poop", "food_bowl", "water_bowl", "cage_background"],
+      "usage_scenario": "Area where poop items appear, player swipes to clean"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "128px",
+        "height": "18px"
+      },
+      "colors": {
+        "floor": "#FFCCAA"
+      },
+      "shape": "Horizontal rectangle at bottom of screen",
+      "texture": "Flat color with optional subtle texture (1-2px variation)",
+      "outline": "1px top edge (#AB5236) to separate from main cage area",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static floor, no animation (cleaning effects handled separately)"
+      },
+      "details": "Light peachy-brown color (#FFCCAA) filling bottom 18px of screen, 1px darker brown line (#AB5236) at y=110 to define top edge, provides contrast area for poop visibility"
+    },
+    "relationships": {
+      "related_assets": ["poop", "sparkle_particle", "food_bowl", "water_bowl"],
+      "shared_with": "All environment elements share background layer",
+      "differences_from": "cage_background (different color and position)"
+    },
+    "explicit_negations": [
+      "No grid or tile pattern",
+      "No permanent stains or marks",
+      "No texture beyond flat color",
+      "No depth or perspective",
+      "No animated cleaning (handled by particle effects)",
+      "No color changes when dirty (poop items show state)"
+    ]
+  }
+}

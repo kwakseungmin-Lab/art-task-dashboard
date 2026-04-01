@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.layer0_space_nebula",
+  "asset_name": "Parallax Background Layer 0 — Deep Space Nebula + Stars",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 20,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.layer1_temple_silhouette",
+      "world.background.layer2_column_hall"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "counter_cyan",
+      "hex": "#40E8D0"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "none",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "parallax_bg",
+    "layer": "world",
+    "usage": "Farthest background (Layer 0). Provides subtle starfield/nebula depth behind the floating temple.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "parallax_multiplier": 0.1,
+    "tiling": {
+      "horizontal": true,
+      "vertical": false
+    },
+    "elements": [
+      "small_stars_scattered",
+      "few_bright_stars",
+      "soft_nebula_band"
+    ],
+    "colors_hex": [
+      "#0B0C1E",
+      "#1A1B3A",
+      "#2A2F5A",
+      "#40E8D0",
+      "#F0EFE9"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.layer0_space_nebula.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Background reads as deep space and does not compete with foreground silhouettes.",
+    "Artwork is horizontally tileable (no visible seam when repeated).",
+    "Bright star pixels are sparse and limited to <= 1% of total pixels to avoid visual noise during rhythm timing."
+  ]
+}

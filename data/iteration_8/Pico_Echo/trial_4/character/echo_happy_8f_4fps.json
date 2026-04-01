@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008004004",
+  "asset_name": "Echo (Cockatiel) — Happy (8 frames, 4fps play twice)",
+  "category": "character",
+  "subcategory": "player_pet",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "task_id_008004001",
+  "depends_on": [
+    "task_id_008004001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008004001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004001"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "happy",
+    "layer": "character",
+    "usage": "Echo behavior state: happy.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        44,
+        42
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#FF004D",
+      "#FFEC27",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 4,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      },
+      "loop": false,
+      "play_count": 2
+    },
+    "pose_notes": [
+      "Crest fully raised (3px).",
+      "Wing flaps outward by 2px at peak frames."
+    ],
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/echo_happy_8f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 320x40px (8 frames × 40x40) with 0px spacing.",
+    "Animation plays at 4fps and respects loop/play_count settings in specs.animation.",
+    "Sprite remains readable at 1x scale on a 128x128 canvas; no anti-aliasing and only listed colors are used."
+  ],
+  "shared_properties": [
+    "Core palette #1D2B53/#FFF1E8/#FF004D.",
+    "Per-frame bounds remain 40x40 px with pixel-perfect pixel_art output.",
+    "Layer remains character with category character."
+  ],
+  "differences": [
+    "Asset purpose: Echo (Cockatiel) — Happy (8 frames, 4fps play twice).",
+    "Role focuses on happy behavior with usage: Echo behavior state: happy.",
+    "Animation contract uses 8 frame(s) at 4 fps with loop set to false."
+  ],
+  "asset_key": "echo_happy_8f_4fps",
+  "variant_of_asset_key": "echo_idle_4f_2fps",
+  "reference_images": [
+    {
+      "label": "echo_object_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Echo.md?raw=1",
+      "purpose": "Cockatiel body proportion, crest, cheek patch, and state silhouette anchor."
+    },
+    {
+      "label": "behavior_system_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/BehaviorSystem.md?raw=1",
+      "purpose": "Echo state machine timing, animation counts, and trigger anchor."
+    },
+    {
+      "label": "art_direction_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md?raw=1",
+      "purpose": "Pixel-art palette, silhouette, and warm interior mood anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle for character asset loading with nearest-neighbor sampling and deterministic z-order.",
+    "atlas_or_static": "sprite_sheet_8x1",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "EchoStateVisual"
+    ],
+    "asset_loading": "Load character/echo_happy_8f_4fps.png through AssetServer and store the handle under echo_happy_8f_4fps.",
+    "runtime_notes": [
+      "Use integer translation values so the 40x40 bird sprite remains pixel-perfect over the perch baseline.",
+      "Register manifest execution_order in a startup resource so build order stays deterministic during content validation.",
+      "Read frame size and bounds from specs.dimensions_px rather than texture metadata during runtime checks."
+    ]
+  }
+}

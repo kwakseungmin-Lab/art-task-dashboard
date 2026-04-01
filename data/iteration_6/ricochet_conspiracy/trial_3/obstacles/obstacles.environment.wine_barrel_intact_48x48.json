@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.environment.wine_barrel_intact_48x48",
+  "asset_name": "Environment — Wine Barrel (Intact, 48x48)",
+  "category": "obstacles",
+  "subcategory": "environment_interactive",
+  "priority": "P2",
+  "execution_order": 280,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "explosive_barrel",
+    "layer": "world",
+    "usage": "Explodes after 2 hits; intact state used before explosion.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#8B5E3C",
+      "#D4A843",
+      "#E8704A",
+      "#E8D5C4",
+      "#F5F0E8"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 48,
+        "height": 48
+      },
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      },
+      "frame_count": 1,
+      "directions": null,
+      "note": "Wood barrel with gold hoop accents; subtle wine stain hint allowed."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.wine_barrel_intact_48x48.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 48x48px; barrel reads clearly with wood staves and hoops; 1px outline #3D2B1F.",
+    "Hoops use soft gold #D4A843; optional small wine stain accent but keep violence-free tone.",
+    "No anti-aliasing; silhouette is stable for collision."
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000006",
+  "asset_key": "cactus_pair_cluster",
+  "asset_name": "Pair Cactus Cluster",
+  "category": "obstacles",
+  "subcategory": "ground_obstacle",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": "task_id_801000005",
+  "variant_of_asset_key": "cactus_single",
+  "shared_properties": [
+    "Primary painted tone uses #535353 with transparent background only.",
+    "Ground contact stays on y=0 for the spawn lane.",
+    "Outer silhouette keeps 2 px outline weight."
+  ],
+  "differences": [
+    "Width expands to 68 px so two stems read as one obstacle cluster.",
+    "The rear stem sits 12 px behind the front stem to create staggered jump timing.",
+    "Top spike groups remain below 70 px in height for mid-run readability."
+  ],
+  "depends_on": [
+    "task_id_801000005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000005",
+      "task_id_801000010"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    },
+    {
+      "label": "offline_sprite_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "2x atlas for silhouette spacing, obstacle spacing, and hit-readability checks."
+    },
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "ObstacleTag",
+      "GroundObstacle",
+      "ColliderAabb",
+      "ScrollVelocity"
+    ],
+    "asset_loading": "Load one 68x70 PNG during Loading state and spawn it from the ground obstacle pool.",
+    "runtime_notes": [
+      "Spawn the transform anchor at x=650 and y=0 in the obstacle lane.",
+      "Use one collider sized for the combined cluster to keep jump windows deterministic.",
+      "Cull the entity after x drops below -100."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_obstacle_pair_cluster",
+    "screen_position": {
+      "type": "spawn_anchor_px",
+      "position_px": [
+        650,
+        0
+      ]
+    },
+    "layer": "obstacle_ground",
+    "usage": "Spawns after the single cactus to tighten jump spacing without changing lane height."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 68,
+      "height": 70
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        68,
+        70
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "hitbox_px": {
+      "width": 65,
+      "height": 67,
+      "offset_px": [
+        2,
+        2
+      ]
+    },
+    "motion_profile": {
+      "speed_window_px_per_s": [
+        300,
+        900
+      ],
+      "spawn_x_px": 650,
+      "despawn_x_px": -100
+    },
+    "shape_notes": [
+      "Front stem width stays at 14 px and rear stem width stays at 16 px.",
+      "Gap between stem centers is 20 px.",
+      "Spike height variance stays within 4 px between stems."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/cactus_pair_cluster.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 68x70 px with transparent background beyond the silhouette.",
+    "Cluster collider maps cleanly to a 65x67 px obstacle hitbox.",
+    "Both stems remain readable as separate silhouettes at 1x scale."
+  ]
+}

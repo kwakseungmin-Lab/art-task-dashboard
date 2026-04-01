@@ -1,0 +1,14 @@
+{
+  "game_title": "Pico Echo",
+  "art_style": "PICO-8 style hand-drawn pixel art",
+  "resolution": "128x128",
+  "color_palette": {
+    "primary": "#FFA300",
+    "secondary": "#FF004D",
+    "accent": "#FFEC27",
+    "background": "#FFF1E8"
+  },
+  "pixel_density": "1:1 (no scaling)",
+  "outline_style": "none (pure pixel art)",
+  "rendering": "nearest neighbor"
+}

@@ -1,0 +1,212 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 5,
+    "source": {
+      "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+      "concepts": [
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+      ]
+    },
+    "rendering": {
+      "style": "pixel_art",
+      "bit_depth_style": "8-bit",
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "dithering": false
+    },
+    "canvas": {
+      "screen_dimensions_px": "600x150",
+      "target_fps": 60,
+      "coordinate_system": {
+        "ground_y": 0,
+        "positive_y": "up",
+        "note": "GDD uses Ground level y=0; airborne obstacles use y=50 and y=80 above ground."
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "allowed_colors": [
+        "#F7F7F7",
+        "#535353",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "rules": [
+        "All gameplay sprites (player, obstacles, ground, clouds) use only #535353 for non-transparent pixels.",
+        "Background sky uses only #F7F7F7 (no transparency).",
+        "UI text uses only #535353. White (#FFFFFF) is allowed only for runtime flash effects or overlays."
+      ]
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353",
+        "rule": "Sprite silhouettes must have a minimum 2px-thick edge where applicable; no 1px hairline edges."
+      },
+      "transparency": {
+        "background": "transparent",
+        "alpha_requirement": "All non-background sprites must have fully transparent background (alpha=0) outside the silhouette."
+      },
+      "scale_support": {
+        "base_scale": "1x",
+        "secondary_scale": "2x",
+        "scaling_method": "nearest_neighbor",
+        "note": "Export 1x originals; 2x exports must be integer-scaled using nearest-neighbor (no filtering)."
+      }
+    },
+    "export": {
+      "formats": [
+        "png"
+      ],
+      "color_space": "sRGB",
+      "png": {
+        "bit_depth": 8,
+        "interlaced": false
+      },
+      "naming": {
+        "frame_indexing": "1-based in filenames where specified by GDD (e.g., dino_run_1.png, dino_run_2.png)",
+        "scale_suffix": "@2x"
+      }
+    },
+    "priorities": {
+      "scheme": "P0-P3",
+      "definitions": {
+        "P0": "Required for a playable MVP (core gameplay and essential UI).",
+        "P1": "Feature-complete look but not strictly blocking MVP.",
+        "P2": "Optional polish.",
+        "P3": "Nice-to-have polish."
+      }
+    },
+    "layers": [
+      {
+        "name": "background_sky",
+        "z_index": 0
+      },
+      {
+        "name": "background_clouds",
+        "z_index": 1
+      },
+      {
+        "name": "ground",
+        "z_index": 5
+      },
+      {
+        "name": "obstacles",
+        "z_index": 10
+      },
+      {
+        "name": "player",
+        "z_index": 15
+      },
+      {
+        "name": "ui",
+        "z_index": 100
+      },
+      {
+        "name": "vfx_overlay",
+        "z_index": 200
+      }
+    ]
+  },
+  "task_id": "cdr_character_player_idle",
+  "asset_name": "Player Dino - Idle Animation",
+  "category": "character",
+  "subcategory": "player_animation",
+  "description": "Player sprite rules (apply to every Player sprite below):\n- Non-transparent pixels: #535353 only.\n- Background: fully transparent.\n- 2D side view, facing right (positive X).\n- No shading, no gradients, no anti-aliasing.\n- Silhouette edge thickness >=2px.\n\n\n    Create a 2-frame idle animation.\n\n    - Canvas per frame: 88x94 px.\n    - Frames: 2.\n    - FPS: 6.\n\n    Geometry anchors (both frames):\n    - Silhouette bounding box within canvas: x=8..79, y=0..89.\n    - At least 2 opaque pixels exist at y=0 in both frames.\n    - Eye negative space: a 6x6 transparent hole at top-left (55,68).\n    - Mouth negative space: a 10x2 transparent slit at top-left (58,60).\n\n    Frame differences:\n    - Frame 1: tail tip opaque pixels include at least one pixel at y=40.\n    - Frame 2: tail tip opaque pixels include at least one pixel at y=46.\n\n    Export names: dino_idle_1, dino_idle_2.",
+  "deliverables": [
+    {
+      "path": "Sprites/player/dino_idle_1.png",
+      "type": "png_sprite_frame",
+      "dimensions": "88x94",
+      "scale": "1x",
+      "background": "transparent"
+    },
+    {
+      "path": "Sprites/player/dino_idle_2.png",
+      "type": "png_sprite_frame",
+      "dimensions": "88x94",
+      "scale": "1x",
+      "background": "transparent"
+    },
+    {
+      "path": "Sprites/player/dino_idle_1@2x.png",
+      "type": "png_sprite_frame",
+      "dimensions": "176x188",
+      "scale": "2x",
+      "background": "transparent",
+      "scaling": "nearest_neighbor"
+    },
+    {
+      "path": "Sprites/player/dino_idle_2@2x.png",
+      "type": "png_sprite_frame",
+      "dimensions": "176x188",
+      "scale": "2x",
+      "background": "transparent",
+      "scaling": "nearest_neighbor"
+    },
+    {
+      "path": "Source/player_dino_idle.aseprite",
+      "type": "source",
+      "format": "aseprite"
+    }
+  ],
+  "specs": {
+    "dimensions": "88x94",
+    "animation": {
+      "frames": 2,
+      "fps": 6,
+      "loop": true
+    }
+  },
+  "context": {
+    "role": "Player idle (pre-start).",
+    "screen_location": "Fixed x=100; y=0 on ground.",
+    "adjacent_elements": [
+      "cdr_environment_ground_line"
+    ],
+    "layer": "player",
+    "usage": "Displayed before Running state."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_character_player_run",
+      "cdr_character_player_jump",
+      "cdr_character_player_duck",
+      "cdr_character_player_dead"
+    ],
+    "shared_properties": [
+      "facing=right",
+      "color=#535353",
+      "eye_hole=6x6@(55,68)",
+      "mouth_slit=10x2@(58,60)"
+    ],
+    "differences": [
+      "Idle uses 6 FPS subtle tail motion."
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 10,
+  "priority": "P0",
+  "blocks": [
+    "cdr_character_player_run",
+    "cdr_character_player_jump",
+    "cdr_character_player_duck",
+    "cdr_character_player_dead"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Two frames exist and are exactly 88x94 px.",
+    "Eye hole 6x6 at (55,68) and mouth slit 10x2 at (58,60) are transparent in both frames.",
+    "Only #535353 and transparent pixels exist.",
+    "Tail tip y anchor differs between frames (one includes y=40, the other includes y=46)."
+  ]
+}

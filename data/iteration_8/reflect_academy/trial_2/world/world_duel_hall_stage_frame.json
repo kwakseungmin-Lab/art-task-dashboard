@@ -1,0 +1,169 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000921",
+  "asset_key": "world_duel_hall_stage_frame",
+  "asset_name": "Duel Hall Stage Frame — academy hall shell and podiums",
+  "category": "world",
+  "subcategory": "arena_background",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The duel arena keeps a single-screen 1920x1080 composition under a fixed orthographic camera.",
+    "Warm maroon architecture, gold trim, and cool spell glow anchors define the academy identity.",
+    "Character podium zones stay readable and leave a clear projectile lane through the center band."
+  ],
+  "differences": [
+    "This task covers the static room shell, floor, curtains, pillars, and podium bases.",
+    "Interactive lane cues, telegraph overlays, and HUD panels stay in later tasks."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_000000922",
+    "task_id_000000925",
+    "task_id_000000926",
+    "task_id_000000927",
+    "task_id_000000928",
+    "task_id_000000929",
+    "task_id_000000930"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000922",
+      "task_id_000000925",
+      "task_id_000000926",
+      "task_id_000000927"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for the academy hall palette, lighting contrast, and magical ambience."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for scaling the two podium zones against a readable combatant footprint."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static_png",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "AcademyStageBackdrop"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/world_duel_hall_stage_frame.png during DuelLoading and keep the handle in a typed art manifest keyed by world_duel_hall_stage_frame.",
+    "runtime_notes": [
+      "Anchor the backdrop at screen center x=960 y=540 and keep parallax disabled for deterministic lane alignment.",
+      "Reserve unobstructed negative space through x=740..1260 and y=360..700 for projectile travel.",
+      "Keep podium tops aligned to the player and enemy combat roots so battle sheets can swap without shifting the arena shell."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "arena_background",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "world",
+    "usage": "Full-screen duel hall background used in every combat round and reward transition."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#2B1B17",
+      "#5C3317",
+      "#1A1A2E",
+      "#D4AF37",
+      "#8E44AD",
+      "#00FFFF",
+      "#FFFACD"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "default"
+      ],
+      "frame_count": 1,
+      "frame_size_px": [
+        1920,
+        1080
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "layout_notes": [
+      "Enemy podium center sits near x=340 y=265 and player podium center sits near x=340 y=770.",
+      "Top-right HUD reserve stays open inside x=1320..1880 and y=32..182.",
+      "Bottom card-hand reserve stays open inside x=240..1680 and y=900..1060."
+    ],
+    "shape": {
+      "silhouette": "Wide academy chamber with arch windows, banner pillars, duel floor, and two raised podium bases.",
+      "components": [
+        "rear arch wall",
+        "side pillars",
+        "gold trim bands",
+        "enemy podium base",
+        "player podium base",
+        "center floor lane",
+        "curtain accents"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_duel_hall_stage_frame.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1920x1080px and the arena shell fills the frame without letterboxing.",
+    "Player and enemy podium tops align to the documented combat roots without overlapping the center lane reserve.",
+    "Gold trim, maroon stone, and cool accent glows remain readable after UI overlay and projectile effects are layered on top.",
+    "No projectile-path obstruction appears inside the reserved center band."
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000809",
+  "asset_key": "ui_widget_status_bubble_set",
+  "asset_name": "Status Bubble Set — hungry, sleeping, happy",
+  "category": "ui",
+  "subcategory": "status_widget",
+  "priority": "P1",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Speech-bubble frame stays 12x10px for all status cues.",
+    "Cream fill and navy border preserve readability over the warm room background.",
+    "Icons stay minimal and legible near Echo head space."
+  ],
+  "differences": [
+    "This file carries event-driven cue bubbles only.",
+    "Persistent meter and care buttons stay outside this task."
+  ],
+  "depends_on": [
+    "task_id_000000805",
+    "task_id_000000806"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000805",
+    "task_id_000000806"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000805",
+      "task_id_000000806",
+      "task_id_000000808"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "proxy_hud_density",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_A2/_ReferenceImages/hud.png",
+      "purpose": "Proxy UI reference for fitting small bubble glyphs near the character without losing readability."
+    },
+    {
+      "label": "proxy_character_silhouette",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/echo_detective/_images/player.png",
+      "purpose": "Proxy sprite reference for keeping the bubble tail aligned to the bird head space."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_3x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "StatusBubble",
+      "OverlayUi",
+      "TimedEffect"
+    ],
+    "asset_loading": "Load assets/art/pico_echo/trial_5/ui_widget_status_bubble_set.png with AssetServer during Loading state and store the handle under ui_widget_status_bubble_set.",
+    "runtime_notes": [
+      "Create a 3-column TextureAtlasLayout for hungry, sleeping, and happy bubble states.",
+      "Spawn the bubble in the overlay camera but follow the Echo head anchor with integer offsets.",
+      "Limit visibility duration by a short timer so the bubble does not persist after the triggering state ends."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FFA300"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "status_indicator",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        84,
+        34
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Event bubble that appears near Echo during hunger, sleep, or positive care reactions."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 12,
+      "height": 10
+    },
+    "colors_hex": [
+      "#FFF1E8",
+      "#1D2B53",
+      "#FFA300",
+      "#7E2553",
+      "#FF004D"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "hungry_seed",
+        "sleeping_zzz",
+        "happy_heart"
+      ],
+      "frame_count": 3,
+      "frame_size_px": [
+        12,
+        10
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "icon_rules": [
+      "hungry_seed centers a 3x3 seed icon using #FFA300.",
+      "sleeping_zzz uses #7E2553 for a compact ZZZ glyph.",
+      "happy_heart uses #FF004D for a 4x4 heart icon.",
+      "Every state keeps a 1px navy outline and a 1px tail pointing toward Echo."
+    ],
+    "shape": {
+      "silhouette": "12x10 rounded speech bubble with a 1px tail and one centered status glyph.",
+      "components": [
+        "rounded bubble body",
+        "1px tail",
+        "seed glyph state",
+        "ZZZ glyph state",
+        "heart glyph state"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_widget_status_bubble_set.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 36x10px with three 12x10 states.",
+    "Bubble border uses #1D2B53 and fill uses #FFF1E8 in every state.",
+    "Each icon remains readable at 1x scale when placed near world position x=84 y=34.",
+    "Bubble tail points down-left so it visually belongs to Echo instead of the care menu."
+  ]
+}

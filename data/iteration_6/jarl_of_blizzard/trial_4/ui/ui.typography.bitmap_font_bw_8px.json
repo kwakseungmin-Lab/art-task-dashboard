@@ -1,0 +1,89 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.typography.bitmap_font_bw_8px",
+  "asset_name": "Bitmap Font — BW 8px (UI)",
+  "category": "ui",
+  "subcategory": "typography",
+  "priority": "P1",
+  "execution_order": 40,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "bitmap_font",
+    "layer": "ui",
+    "usage": "Primary UI font for labels, resource numbers, and short prompts. Optimized for grayscale readability over blizzard overlay.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 128
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "font": {
+      "glyph_height_px": 8,
+      "monospace": true,
+      "baseline_px": 7,
+      "supported": "ASCII letters, digits, basic punctuation (:./+-), and arrow (→)."
+    },
+    "layout_note": "Pack glyphs into a 256×128 sheet with consistent grid; transparent background."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.typography.bitmap_font_bw_8px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Font sheet is exactly 256×128px, transparent background.",
+    "Digits 0-9 are highly distinguishable at 1× scale (no ambiguous 6/8/9).",
+    "Only grayscale pixels; no anti-aliasing. Consistent stroke weight."
+  ]
+}

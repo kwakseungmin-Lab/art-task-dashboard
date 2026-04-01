@@ -1,0 +1,136 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.noble.boss_command_sheet",
+  "asset_name": "Boss Noble Command Sheet",
+  "category": "character",
+  "subcategory": "boss",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble.standard_pose_sheet",
+      "ui.screen.clear_overlay_card",
+      "ui.screen.fail_overlay_card"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "boss_noble",
+    "layer": "world_characters",
+    "usage": "Boss noble sheet with cape sway and command pose. Contains 8-frame loop for late stages.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip",
+      "world.background.curtain_column_mid_layer"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 448,
+      "height": 64
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#8B3A52",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "directions": 1,
+      "frame_count_per_direction": 8,
+      "fps": 3,
+      "loop": true,
+      "sheet_layout": {
+        "rows": 1,
+        "cols": 8,
+        "frame_size_px": {
+          "width": 56,
+          "height": 64
+        },
+        "ordering": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "tall_caped_noble_with_crown",
+      "components": [
+        "crown",
+        "head",
+        "cape",
+        "torso",
+        "arms",
+        "legs"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "face": {
+      "eyes": "dot_pair",
+      "mouth": "short_line",
+      "nose": "none"
+    },
+    "appendages": {
+      "arms": "long_cuffs",
+      "legs": "ornate_trousers",
+      "tail": "none",
+      "accessories": [
+        "crown",
+        "cape"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.boss_command_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 448x64px with 8 frames sized 56x64px.",
+    "Cape silhouette extends no more than 10px outside the torso width on each side.",
+    "Primary costume color uses #8B3A52 on at least 25% of visible body pixels."
+  ]
+}

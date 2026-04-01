@@ -1,0 +1,94 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.environment.mirror_intact_8x64",
+  "asset_name": "Environment — Mirror (Intact, 8x64)",
+  "category": "obstacles",
+  "subcategory": "environment_interactive",
+  "priority": "P2",
+  "execution_order": 260,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "reflector",
+    "layer": "world",
+    "usage": "Perfect reflection surface (bounce coefficient 1.0). Must read as mirror/reflective strip.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 64
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#F5F0E8",
+      "#C8B4E0",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 8,
+        "height": 64
+      },
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      },
+      "frame_count": 1,
+      "directions": null,
+      "note": "Thin mirror with subtle lavender highlight; keep reflective edge crisp."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.mirror_intact_8x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 8x64px; vertical strip with clean edges; 1px outline #3D2B1F.",
+    "Reflective highlight uses ivory #F5F0E8 and a small lavender tint #C8B4E0; no anti-aliasing.",
+    "No stray pixels beyond the 8px width so collision remains precise."
+  ]
+}

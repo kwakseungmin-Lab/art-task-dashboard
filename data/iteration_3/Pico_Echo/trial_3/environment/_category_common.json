@@ -1,0 +1,18 @@
+{
+  "base_size": {
+    "width": "128px",
+    "height": "128px"
+  },
+  "color_scheme": {
+    "background": "#FFF1E8",
+    "cage_bars": "#C2C3C7",
+    "perch": "#AB5236",
+    "floor": "#FFCCAA"
+  },
+  "shared_attributes": {
+    "environment_type": "indoor bird cage",
+    "design_principle": "static background elements, minimal detail to keep focus on Echo",
+    "perspective": "front-facing 2D view",
+    "lighting": "soft ambient (no dramatic shadows)"
+  }
+}

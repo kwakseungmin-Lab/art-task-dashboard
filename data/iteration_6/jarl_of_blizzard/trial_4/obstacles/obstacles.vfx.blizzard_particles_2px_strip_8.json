@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.blizzard_particles_2px_strip_8",
+  "asset_name": "Blizzard Particles — 2px Snow Strip (8 frames)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P1",
+  "execution_order": 30,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "particle_strip",
+    "layer": "vfx_overlay",
+    "usage": "Tiny snow particle sprites used for blizzard overlay (500–2000 particles).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 2
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 8,
+        "frame_size_px": {
+          "width": 2,
+          "height": 2
+        },
+        "order": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8"
+        ],
+        "padding_px": 0
+      }
+    },
+    "particle_notes": {
+      "size_px": [
+        1,
+        2
+      ],
+      "alpha": "use grayscale values; semi-transparent pixels optional.",
+      "motion_hint": "design frames as subtle shape/noise variations for shimmer, not big movement."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.blizzard_particles_2px_strip_8.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Strip is exactly 16×2px (8× 2×2 frames), transparent background.",
+    "Particles look like snow specks in grayscale; avoid perfectly round identical dots.",
+    "Frames are distinct enough to avoid a static look when looped."
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000016",
+  "asset_key": "restart_hint_label",
+  "asset_name": "Restart Hint Label",
+  "category": "ui",
+  "subcategory": "game_over_ui",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Primary painted tone uses #535353 with transparent background only.",
+    "Label aligns to the center of the camera view.",
+    "Letterforms keep hard pixel edges at 1x scale."
+  ],
+  "differences": [
+    "This task rasterizes the text PRESS SPACE TO RESTART as one centered label.",
+    "Label height stays at 12 px to sit below the main banner with lower emphasis.",
+    "Blink timing is controlled in runtime logic rather than by sprite-frame animation."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000015",
+      "task_id_801000004"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    },
+    {
+      "label": "run_loop_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/t-rex-runner-19janil.gif",
+      "purpose": "Run cadence, jump silhouette timing, and restart screen pacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "RestartHintUiTag",
+      "BlinkTimer",
+      "VisibilityToggle"
+    ],
+    "asset_loading": "Load one 180x12 PNG during Loading state and toggle visibility when the game state enters game_over.",
+    "runtime_notes": [
+      "Anchor the label at x=300 and y=100 in UI space.",
+      "Keep the sprite hidden during active play.",
+      "Drive blink timing at 0.5 second intervals while the game_over state waits for input."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "restart_prompt",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        300,
+        100
+      ]
+    },
+    "layer": "ui_center",
+    "usage": "Becomes visible after collision and prompts the restart input flow."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 12
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        180,
+        12
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "text_profile": {
+      "content": "PRESS SPACE TO RESTART",
+      "font_height_px": 12,
+      "alignment": "center",
+      "blink_interval_s": 0.5
+    },
+    "layout_notes": [
+      "Label baseline sits 9 px from the top edge.",
+      "Word gaps stay at 2 px.",
+      "Background remains transparent around the letterforms."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/restart_hint_label.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 180x12 px with transparent background beyond the text.",
+    "The phrase PRESS SPACE TO RESTART stays centered and remains readable at 1x scale.",
+    "Painted pixels use #535353 only and keep hard pixel edges."
+  ]
+}

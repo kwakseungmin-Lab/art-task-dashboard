@@ -1,0 +1,148 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.enemy.cyclops_sheet",
+  "asset_name": "Cyclops boss sheet",
+  "category": "character",
+  "subcategory": "enemy_boss",
+  "priority": "P1",
+  "execution_order": 80,
+  "variant_of": null,
+  "shared_properties": [
+    "primary #C47C2B",
+    "background #0B0C1E",
+    "accent #FFD966",
+    "enemy sheet standalone"
+  ],
+  "differences": [
+    "frame_size 120x160",
+    "8_frame_idle_plus_attack_cycle",
+    "zone1_boss"
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.zone1.corridor_backdrop",
+      "ui.widget.counter_gauge_ready_variant"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art_16x16_upscaled",
+    "detail_level": "dense_16x16_cluster",
+    "shading": "two_tone_plus_one_highlight",
+    "outline": "1px_deep_space_outline"
+  },
+  "context": {
+    "role": "enemy_boss",
+    "screen_position": {
+      "mode": "boss_arena_anchor",
+      "anchor_px": {
+        "x": 1220,
+        "y": 800
+      },
+      "pivot": "bottom_center",
+      "type": "absolute_px"
+    },
+    "layer": "foreground_characters",
+    "usage": "Zone 1 boss sheet with broad chest, single eye readability, and three-hit strike timing support.",
+    "adjacent_elements": [
+      "zone 1 boss arena backdrop",
+      "counter gauge hover marker",
+      "player fixed anchor lane"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 960,
+      "height": 160
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#6B6357",
+      "#E84040",
+      "#0B0C1E",
+      "#FFD966"
+    ],
+    "animation": {
+      "frame_count": 8,
+      "fps": 10,
+      "loop": "loop",
+      "frame_size_px": {
+        "width": 120,
+        "height": 160
+      },
+      "states": [
+        "idle",
+        "attack"
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "left"
+    },
+    "shape": {
+      "silhouette": "broad one-eyed giant with club arm",
+      "components": [
+        "single central eye",
+        "massive shoulders",
+        "club arm silhouette",
+        "sandaled feet"
+      ]
+    },
+    "face": {
+      "eyes": "single_gold_eye",
+      "mouth": "snarl_line",
+      "nose": "broad_profile"
+    },
+    "appendages": {
+      "arms": "two_giant_arms",
+      "legs": "two_giant_legs",
+      "tail": "none",
+      "accessories": [
+        "club"
+      ]
+    },
+    "texture": "stone_skin_with_leather_wrappings",
+    "shading": "two_tone_with_boss_highlight"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/character.enemy.cyclops_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Output sheet size is exactly 960x160 px.",
+    "Core palette remains primary #C47C2B, background #0B0C1E, accent #FFD966 with asset-local colors confined to specs.colors_hex.",
+    "Animation metadata is exactly frame_count 8, fps 10, loop loop.",
+    "Deliverable path is exactly character/character.enemy.cyclops_sheet.png with transparent background enabled.",
+    "Frames 1 to 4 cover idle and frames 5 to 8 cover attack.",
+    "The single eye remains centered and readable at 120x160 px without merging into the brow outline.",
+    "specs.viewpoint.camera_angle is orthographic_side and specs.viewpoint.facing is left.",
+    "context.screen_position.type is absolute_px and context.adjacent_elements contains exactly 3 local composition notes."
+  ]
+}

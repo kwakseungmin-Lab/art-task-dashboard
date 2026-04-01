@@ -1,0 +1,78 @@
+{
+  "task_id": "ui.icon_pet",
+  "asset_name": "icon_pet_8x8",
+  "category": "ui",
+  "subcategory": "care_icon",
+  "description": "Create an 8x8 px pet icon with transparent background. Icon pixels use #FFCCAA for hand shape. Do not use any other visible color. Keep background fully transparent.",
+  "execution_order": 132,
+  "priority": "P0",
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 8
+    },
+    "primary_hex": "#FFCCAA",
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": true
+  },
+  "context": {
+    "role": "Care action icon for petting Echo.",
+    "layer": "ui_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 112,
+      "y": 112,
+      "anchor": "top_left"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/ui/icon_pet_8x8/icon_pet_8x8.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/ui/icon_pet_8x8/icon_pet_8x8.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.care_menu_panel",
+      "ui.vfx_particles_atlas"
+    ]
+  },
+  "depends_on": [
+    "ui.care_menu_panel"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.care_menu_panel"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 8x8 px with transparent background.",
+    "All non-transparent pixels are #FFCCAA."
+  ]
+}

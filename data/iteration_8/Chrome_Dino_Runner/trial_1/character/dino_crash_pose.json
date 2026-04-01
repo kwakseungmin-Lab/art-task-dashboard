@@ -1,0 +1,163 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000004",
+  "asset_key": "dino_crash_pose",
+  "asset_name": "Player Dino Crash Pose",
+  "category": "character",
+  "subcategory": "player_feedback",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "task_id_801000001",
+  "variant_of_asset_key": "dino_runner_core",
+  "shared_properties": [
+    "Body footprint stays within 88x94 px.",
+    "Primary painted tone remains #535353 with transparent cutouts only.",
+    "Outline weight stays at 2 px for the body shell and tail edge."
+  ],
+  "differences": [
+    "Head pitches forward by 6 px and the jaw line drops to signal impact.",
+    "Eye cutout becomes a closed 6x6 px mark to read defeat state immediately.",
+    "Both legs freeze in an asymmetric stop pose with no loop animation."
+  ],
+  "depends_on": [
+    "task_id_801000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000001",
+      "task_id_801000015",
+      "task_id_801000016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "offline_sprite_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+      "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
+    },
+    {
+      "label": "gameplay_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+      "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+    },
+    {
+      "label": "run_loop_capture",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/t-rex-runner-19janil.gif",
+      "purpose": "Run cadence, jump silhouette timing, and restart screen pacing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "single_frame_sprite",
+    "ecs_components": [
+      "RunnerTag",
+      "DeadState",
+      "ColliderAabb"
+    ],
+    "asset_loading": "Load one 88x94 PNG during Loading state and swap the sprite handle on collision confirmation.",
+    "runtime_notes": [
+      "Freeze animation timers before this sprite becomes visible.",
+      "Keep the transform anchor at x=80 and y=56 so the death pose aligns with the ground line.",
+      "Disable input-driven sprite swaps while the dead state is active."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "runner_death_state",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "layer": "character",
+    "usage": "Displayed from obstacle collision until the restart flow begins."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7",
+      "#FF0000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "hitbox_px": {
+      "width": 44,
+      "height": 90,
+      "offset_px": [
+        22,
+        2
+      ]
+    },
+    "feedback_profile": {
+      "flash_window_ms": 120,
+      "state_lock": "game_over",
+      "restart_input": "space_or_tap"
+    },
+    "silhouette_notes": [
+      "Head tip moves 6 px forward relative to the run core muzzle tip.",
+      "Tail droops by 4 px to reduce motion energy.",
+      "Accent color #FF0000 is reserved for one 2x2 px impact mark only."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/dino_crash_pose.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 88x94 px with transparent background beyond the silhouette.",
+    "Eye mark reads as closed state at 1x scale without anti-aliased pixels.",
+    "Any #FF0000 pixel stays inside a single 2x2 px impact accent zone."
+  ]
+}

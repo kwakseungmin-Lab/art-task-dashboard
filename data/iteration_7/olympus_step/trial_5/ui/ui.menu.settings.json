@@ -1,0 +1,97 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.menu.settings",
+  "asset_name": "Menu - Settings",
+  "category": "ui",
+  "subcategory": "menu",
+  "priority": "P1",
+  "execution_order": 280,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "menu",
+    "layer": "ui",
+    "usage": "UI element rendered in screen space",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 360,
+      "height": 300
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#D4C5A9"
+    ],
+    "sliders": [
+      "bgm_volume",
+      "sfx_volume"
+    ],
+    "buttons": [
+      "restart",
+      "quit",
+      "close"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.menu.settings.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounding box is exactly 360x300px.",
+    "Text areas use #FEF3C7 or #F8FAFC for glyph pixels with no anti-aliasing.",
+    "Element aligns to an 8px grid and has at least 8px padding between border and text regions."
+  ]
+}

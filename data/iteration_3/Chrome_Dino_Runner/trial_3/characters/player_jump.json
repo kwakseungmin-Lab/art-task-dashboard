@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scalable",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art T-Rex dinosaur",
+      "features": "short front legs, large eyes, thick tail",
+      "outline": "2px included in dimensions",
+      "rendering": "pixel-perfect, no antialiasing"
+    }
+  },
+  "asset": {
+    "asset_id": "player_jump",
+    "asset_name": "Player Jump Sprite",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Player character airborne state during jump",
+      "screen_position": "x=100px from left edge, y varies from 0px to -90px (maximum jump height)",
+      "adjacent_elements": ["ground_line", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_fly", "score_display"],
+      "usage_scenario": "Displayed when player presses Space/Tap to jump over ground obstacles, remains visible during entire jump arc"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "88px",
+        "height": "94px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "T-Rex dinosaur with both feet off ground in mid-jump pose",
+      "texture": "Pixel art, hard edges, no gradients",
+      "outline": "2px solid outline integrated into sprite",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Single static frame held during entire jump duration (approximately 0.83 seconds at 60 FPS)"
+      },
+      "details": "Both legs tucked slightly, body upright, tail extended, eyes open, frozen in mid-air pose"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_idle", "player_duck", "player_dead", "ground_line", "cactus_small", "cactus_medium", "cactus_large"],
+      "shared_with": "Same dimensions as player_run and player_idle, same color scheme as all player states",
+      "differences_from": "player_run and player_idle are animated (2 frames), player_duck has different dimensions (118x60px), player_dead has closed eyes"
+    },
+    "explicit_negations": [
+      "No animation or frame changes",
+      "No motion blur",
+      "No arc trail or jump lines",
+      "No color gradients or shading",
+      "No smooth anti-aliased edges",
+      "No particle effects",
+      "No shadow beneath character",
+      "No squash and stretch deformation",
+      "No rotation of sprite"
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.zone1_entrance_corridor_1600x900",
+  "asset_name": "Zone 1 Entrance Corridor Background",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tileset.cosmic_temple_atlas_16x16"
+  ],
+  "blocks": [
+    "world.decor.star_floor_strip_1600x20",
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "blocked_by": [
+    "world.tileset.cosmic_temple_atlas_16x16"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.tileset.cosmic_temple_atlas_16x16",
+      "world.decor.star_floor_strip_1600x20"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "background",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "world.decor.star_floor_strip_1600x20",
+      "character.player.cosmos_heracles.core_states_sheet",
+      "obstacles.terrain.marble_pillar_set_64x200"
+    ],
+    "layer": "world",
+    "usage": "Zone 1 corridor backdrop for 0:00 to 1:30 gameplay with low threat density and clear readability around 120px per second scrolling.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#6B6357",
+      "#D9D0BE",
+      "#FFD966",
+      "#F0EFE9"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "long corridor with repeating columns, open star windows, and flat floor line that never occludes gameplay lane",
+      "components": [
+        "nebula sky layer",
+        "distant star points",
+        "rear temple silhouette",
+        "mid columns",
+        "foreground arch fragments"
+      ]
+    },
+    "parallax_layers": [
+      {
+        "layer": 0,
+        "speed_multiplier": 0.1,
+        "content": "nebula and distant stars",
+        "dominant_hex": "#0B0C1E"
+      },
+      {
+        "layer": 1,
+        "speed_multiplier": 0.3,
+        "content": "distant temple silhouette",
+        "dominant_hex": "#6B6357"
+      },
+      {
+        "layer": 2,
+        "speed_multiplier": 0.6,
+        "content": "near marble columns and arch trims",
+        "dominant_hex": "#D9D0BE"
+      }
+    ],
+    "looping": {
+      "horizontal": true,
+      "seam_tolerance_px": 1
+    },
+    "background_treatment": "opaque background"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.zone1_entrance_corridor_1600x900.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1600x900px and tiles horizontally with seam error no greater than 1px.",
+    "Layer multipliers are exactly 0.1, 0.3, and 0.6, and no column silhouette crosses into the gameplay lane below Y=700px.",
+    "The background uses only hard-edged pixel clusters with no blur and keeps the playfield contrast stable against #0B0C1E."
+  ]
+}

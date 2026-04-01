@@ -1,0 +1,97 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 3,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "world.ground.line_1200x2",
+  "asset_name": "ground_line_1200x2",
+  "category": "world",
+  "subcategory": "ground",
+  "description": "Ground baseline line tile for infinite horizontal scroll. Solid 2px line using #535353 on transparent background.",
+  "context": {
+    "role": "ground_visual_baseline",
+    "layer": "world_foreground",
+    "usage": "Render at y=148 with horizontal tiling; also used as alignment reference for ground-aligned sprites.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 148,
+      "anchor": "bottom_left"
+    }
+  },
+  "relationships": {
+    "related_task_ids": []
+  },
+  "depends_on": [],
+  "blocks": [
+    "character.player.dino_sprite_set",
+    "obstacles.cactus.set"
+  ],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Art/Source/Chrome_Dino_Runner/world/ground_line_1200x2.aseprite",
+      "notes": "1200x2 canvas; solid #535353 line."
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/world/ground_line_1200x2/ground_line_1200x2.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 1200,
+        "height": 2
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 1200x2 px with transparency.",
+    "All non-transparent pixels use #535353.",
+    "When tiled horizontally, left and right edges match with no visible seam."
+  ],
+  "priority": "P0",
+  "execution_order": 20,
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 2
+    },
+    "stroke_color_hex": "#535353",
+    "stroke_thickness_px": 2,
+    "transparent_background": true,
+    "tileable": {
+      "x": true,
+      "y": false
+    }
+  }
+}

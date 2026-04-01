@@ -1,0 +1,182 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000923",
+  "asset_key": "obstacles_elemental_projectile_sheet",
+  "asset_name": "Elemental Projectile Sheet — eight elements plus reflected and split states",
+  "category": "obstacles",
+  "subcategory": "projectile",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Every projectile keeps a centered readable core, a motion-tail direction cue, and a glow edge for fast recognition.",
+    "Element colors follow the GDD matrix so card conversion results can be read in one glance.",
+    "Projectile silhouettes stay within a 96x96 frame and support both slow and fast travel speeds."
+  ],
+  "differences": [
+    "This task covers hostile and reflected spell bodies only.",
+    "Timing windows, lane guides, and telegraph icons remain in separate tasks."
+  ],
+  "depends_on": [
+    "task_id_000000922",
+    "task_id_000000926"
+  ],
+  "blocks": [
+    "task_id_000000928"
+  ],
+  "blocked_by": [
+    "task_id_000000922",
+    "task_id_000000926"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000922",
+      "task_id_000000924",
+      "task_id_000000926",
+      "task_id_000000928",
+      "task_id_000000929"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for balancing warm hall lighting against saturated elemental glows."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for keeping projectile scale threatening without exceeding the target lane width."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_5x2",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "ProjectileState",
+      "Velocity",
+      "ElementType"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/obstacles_elemental_projectile_sheet.png during DuelLoading and register the atlas under obstacles_elemental_projectile_sheet.",
+    "runtime_notes": [
+      "Map frames to fire, water, thunder, wind, ice, poison, light, dark, reflected_return, and split_echo states in that order.",
+      "Keep the projectile pivot centered so Bevy rotation and sinusoidal movement do not offset the glow tail.",
+      "Allow a separate additive duplicate sprite for the light and thunder states when high-impact reflections occur."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "incoming_and_reflected_projectiles",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        980,
+        520
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Spell bodies used for enemy attacks, converted returns, and split-reflection combo moments."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 96
+    },
+    "colors_hex": [
+      "#FF4500",
+      "#1E90FF",
+      "#FFD700",
+      "#98FB98",
+      "#B0E0E6",
+      "#9B59B6",
+      "#FFFACD",
+      "#2C2C2C",
+      "#00FFFF",
+      "#FFFFFF"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "fire",
+        "water",
+        "thunder",
+        "wind",
+        "ice",
+        "poison",
+        "light",
+        "dark",
+        "reflected_return",
+        "split_echo"
+      ],
+      "frame_count": 10,
+      "frame_size_px": [
+        96,
+        96
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 2
+      }
+    },
+    "motion_notes": [
+      "Fire uses a tapered teardrop core with 10px ember tail.",
+      "Water uses a rounded droplet with a 6px trailing splash arc.",
+      "Thunder and light states keep the smallest hit silhouette but the brightest glow halo.",
+      "Reflected return adds a cyan outer ring to show ownership change."
+    ],
+    "shape": {
+      "silhouette": "Compact orb and shard projectile sheet with distinct elemental shapes and glow tails.",
+      "components": [
+        "element core",
+        "outer glow ring",
+        "motion tail",
+        "impact spark cluster"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_elemental_projectile_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 480x192px with ten 96x96 states and no padding.",
+    "Each of the eight elemental states reads as a different silhouette even before color is considered.",
+    "Reflected return and split echo states remain distinguishable from hostile projectiles during high-speed play.",
+    "Glow edges stay inside the 96x96 frame and preserve transparent margins for runtime batching."
+  ]
+}

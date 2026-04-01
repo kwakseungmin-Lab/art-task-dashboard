@@ -1,0 +1,93 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.enemies.slime",
+  "asset_name": "Slime Enemy — 48x40 (4-frame bounce loop)",
+  "category": "character",
+  "subcategory": "enemies",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.counter_gauge"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "counter_cyan",
+      "hex": "#40E8D0"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "danger_red",
+      "hex": "#E84040"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "enemy",
+    "layer": "character",
+    "usage": "Zone 1 basic enemy. Single attack telegraph then hit unless countered within ±80ms.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 48,
+      "height": 40
+    },
+    "frame_count": 4,
+    "fps": 10,
+    "loop": true,
+    "sheet_dimensions_px": {
+      "width": 192,
+      "height": 40
+    },
+    "colors_hex": [
+      "#40E8D0",
+      "#0B0C1E",
+      "#F0EFE9",
+      "#E84040"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "layout": "row"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemies.slime.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Each frame is exactly 48x40px.",
+    "Bounce loop reads clearly and stays within bounding box.",
+    "Silhouette is readable on marble and deep-space backgrounds."
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.enemy.cerberus_chase_sheet",
+  "asset_name": "Cerberus Chase Sheet",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 44,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.player.cosmos_heracles.core_states_sheet",
+    "world.background.zone3_stratosphere_altar_1600x900"
+  ],
+  "blocks": [
+    "ui.hud.counter_gauge_radial_48px"
+  ],
+  "blocked_by": [
+    "character.player.cosmos_heracles.core_states_sheet",
+    "world.background.zone3_stratosphere_altar_1600x900"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "world.background.zone3_stratosphere_altar_1600x900",
+      "ui.hud.counter_gauge_radial_48px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "enemy",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "right_center",
+      "offset_px": [
+        -300,
+        40
+      ]
+    },
+    "adjacent_elements": [
+      "world.background.zone3_stratosphere_altar_1600x900",
+      "ui.hud.counter_gauge_radial_48px",
+      "character.player.cosmos_heracles.core_states_sheet"
+    ],
+    "layer": "world",
+    "usage": "Zone 3 chase enemy sheet with 6 run frames and 2 bite frames tuned for scroll speed plus 30px per second pursuit.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 96
+    },
+    "colors_hex": [
+      "#7B2FBE",
+      "#D9D0BE",
+      "#6B6357",
+      "#E84040",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "stateful",
+      "states": {
+        "chase_run": {
+          "frame_count": 6,
+          "fps": 12,
+          "loop": true,
+          "frame_size_px": {
+            "width": 128,
+            "height": 96
+          },
+          "pursuit_bonus_px_per_s": 30
+        },
+        "bite_attack": {
+          "frame_count": 2,
+          "fps": 8,
+          "loop": false,
+          "frame_size_px": {
+            "width": 128,
+            "height": 96
+          },
+          "telegraph_duration_ms": 300,
+          "head_count": 3
+        }
+      },
+      "sheet_dimensions_px": {
+        "width": 1024,
+        "height": 96
+      }
+    },
+    "shape": {
+      "silhouette": "three-headed hound with a low forward body, spread front paws, and distinct head separation during bite frames",
+      "components": [
+        "left head",
+        "center head",
+        "right head",
+        "spine ridge",
+        "front paws",
+        "rear paws"
+      ]
+    },
+    "hp": 2,
+    "counter_window_ms": 80,
+    "background_treatment": "transparent outside sprite bounds"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemy.cerberus_chase_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 1024x96px with 6 chase frames followed by 2 bite frames, each 128x96px.",
+    "All 3 heads remain individually readable in at least one run frame and both bite frames.",
+    "The front paw contact points stay within a 1px vertical jitter band across the 6 run frames."
+  ]
+}

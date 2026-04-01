@@ -1,0 +1,85 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.resource_queue_strip_520x48",
+  "asset_name": "Resource Queue Strip — 520×48",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 28,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "ui_component",
+    "layer": "ui",
+    "usage": "Compact strip showing current planned queue in HUD (icons + arrows).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_center",
+      "offset_px": [
+        0,
+        16
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 520,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "max_steps": 7,
+    "layout_note": "Room for 7 resource icons (24px) + arrow glyphs + step numbers."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.resource_queue_strip_520x48.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "At 1×, queue order can be read quickly in under 1 second."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "base_size": {
+    "width": "variable",
+    "height": "variable"
+  },
+  "color_scheme": {
+    "primary": "#535353",
+    "background": "#F7F7F7"
+  },
+  "shared_attributes": {
+    "style": "minimal pixel art environment",
+    "scrolling": "parallax or synchronized with game speed",
+    "purpose": "provide visual context and depth",
+    "collision_layer": "2 (Ground) or non-interactive"
+  }
+}

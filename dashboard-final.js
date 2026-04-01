@@ -240,31 +240,7 @@ const Dashboard = {
                 <div class="file-selector">
                     <h3>Select JSON File (Iteration ${iterationNum} - ${gameName}):</h3>
                     <select id="file-dropdown" onchange="window.dashboard.viewTaskPlanJSON(${iterationNum}, '${gameName}', ${trialNum}, this.value)" style="width: 100%; padding: 8px; background: #1a1f2e; color: #e1e8ed; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px;">
-                        <option value="_project_common.json">📄 _project_common.json (Main Project File)</option>
-                        <optgroup label="Character (캐릭터)">
-                            <option value="character/dino_runner_core.json">🦖 dino_runner_core.json (달리기 애니메이션)</option>
-                            <option value="character/dino_air_pose.json">🦖 dino_air_pose.json (점프 자세)</option>
-                            <option value="character/dino_low_profile.json">🦖 dino_low_profile.json (숙이기 자세)</option>
-                            <option value="character/dino_crash_pose.json">🦖 dino_crash_pose.json (충돌 자세)</option>
-                        </optgroup>
-                        <optgroup label="Obstacles (장애물)">
-                            <option value="obstacles/cactus_single.json">🌵 cactus_single.json (작은 선인장)</option>
-                            <option value="obstacles/cactus_pair_cluster.json">🌵 cactus_pair_cluster.json (중간 선인장)</option>
-                            <option value="obstacles/cactus_triplet_cluster.json">🌵 cactus_triplet_cluster.json (큰 선인장)</option>
-                            <option value="obstacles/pterodactyl_flap_sheet.json">🦅 pterodactyl_flap_sheet.json (익룡)</option>
-                        </optgroup>
-                        <optgroup label="World (배경)">
-                            <option value="world/sky_day_field.json">☁️ sky_day_field.json (하늘 배경)</option>
-                            <option value="world/ground_runner_strip.json">🏃 ground_runner_strip.json (땅)</option>
-                            <option value="world/ground_pebble_overlay.json">🪨 ground_pebble_overlay.json (자갈)</option>
-                            <option value="world/cloud_pass_small.json">☁️ cloud_pass_small.json (구름)</option>
-                        </optgroup>
-                        <optgroup label="UI (인터페이스)">
-                            <option value="ui/score_digits_font.json">🔢 score_digits_font.json (점수 폰트)</option>
-                            <option value="ui/score_rack_panel.json">📊 score_rack_panel.json (점수판)</option>
-                            <option value="ui/game_over_message.json">💀 game_over_message.json (게임오버)</option>
-                            <option value="ui/restart_hint_label.json">🔄 restart_hint_label.json (재시작)</option>
-                        </optgroup>
+                        ${this.generateFileOptions(gameName)}
                     </select>
                 </div>
 
@@ -377,16 +353,21 @@ const Dashboard = {
 
         let jsonContent;
 
-        // Use DynamicJSONLoader to fetch from GitHub
-        if (typeof DynamicJSONLoader !== 'undefined') {
+        // Try LocalJSONLoader first (local repository data)
+        if (typeof LocalJSONLoader !== 'undefined') {
+            jsonContent = await LocalJSONLoader.loadJSON(iterationNum, gameName, trialNum, filename);
+            console.log('Loaded JSON:', jsonContent);
+        }
+        // Fallback to DynamicJSONLoader (GitHub)
+        else if (typeof DynamicJSONLoader !== 'undefined') {
             jsonContent = await DynamicJSONLoader.loadJSON(iterationNum, gameName, trialNum, filename);
             console.log('Loaded JSON from GitHub:', jsonContent);
         } else {
-            // Fallback
+            // Final fallback
             jsonContent = {
-                "error": "DynamicJSONLoader not found",
+                "error": "No JSON loader found",
                 "filename": filename,
-                "message": "Please ensure dynamic-json-loader.js is loaded"
+                "message": "Please ensure json loaders are loaded"
             };
         }
 
@@ -472,6 +453,81 @@ const Dashboard = {
                 }
             </style>
         `;
+    },
+
+    // Generate file options for dropdown based on game type
+    generateFileOptions(gameName) {
+        let html = '<option value="_project_common.json">📄 _project_common.json (Main Project File)</option>';
+
+        if (gameName === 'Chrome_Dino_Runner') {
+            html += `
+                <optgroup label="Character (캐릭터)">
+                    <option value="character/dino_runner_core.json">🦖 dino_runner_core.json (달리기 애니메이션)</option>
+                    <option value="character/dino_air_pose.json">🦖 dino_air_pose.json (점프 자세)</option>
+                    <option value="character/dino_low_profile.json">🦖 dino_low_profile.json (숙이기 자세)</option>
+                    <option value="character/dino_crash_pose.json">🦖 dino_crash_pose.json (충돌 자세)</option>
+                </optgroup>
+                <optgroup label="Obstacles (장애물)">
+                    <option value="obstacles/cactus_single.json">🌵 cactus_single.json (작은 선인장)</option>
+                    <option value="obstacles/cactus_pair_cluster.json">🌵 cactus_pair_cluster.json (중간 선인장)</option>
+                    <option value="obstacles/cactus_triplet_cluster.json">🌵 cactus_triplet_cluster.json (큰 선인장)</option>
+                    <option value="obstacles/pterodactyl_flap_sheet.json">🦅 pterodactyl_flap_sheet.json (익룡)</option>
+                </optgroup>
+                <optgroup label="World (배경)">
+                    <option value="world/sky_day_field.json">☁️ sky_day_field.json (하늘 배경)</option>
+                    <option value="world/ground_runner_strip.json">🏃 ground_runner_strip.json (땅)</option>
+                    <option value="world/ground_pebble_overlay.json">🪨 ground_pebble_overlay.json (자갈)</option>
+                    <option value="world/cloud_pass_small.json">☁️ cloud_pass_small.json (구름)</option>
+                </optgroup>
+                <optgroup label="UI (인터페이스)">
+                    <option value="ui/score_digits_font.json">🔢 score_digits_font.json (점수 폰트)</option>
+                    <option value="ui/score_rack_panel.json">📊 score_rack_panel.json (점수판)</option>
+                    <option value="ui/game_over_message.json">💀 game_over_message.json (게임오버)</option>
+                    <option value="ui/restart_hint_label.json">🔄 restart_hint_label.json (재시작)</option>
+                </optgroup>
+            `;
+        } else if (gameName === 'Pico_Echo') {
+            html += `
+                <optgroup label="Character">
+                    <option value="character/echo_idle_4f_2fps.json">🦜 echo_idle_4f_2fps.json</option>
+                    <option value="character/echo_happy_8f_4fps.json">🦜 echo_happy_8f_4fps.json</option>
+                    <option value="character/echo_hungry_4f_2fps.json">🦜 echo_hungry_4f_2fps.json</option>
+                    <option value="character/echo_eating_6f_4fps.json">🦜 echo_eating_6f_4fps.json</option>
+                    <option value="character/echo_dirty_3f_2fps.json">🦜 echo_dirty_3f_2fps.json</option>
+                    <option value="character/echo_preening_5f_3fps.json">🦜 echo_preening_5f_3fps.json</option>
+                    <option value="character/echo_singing_8f_4fps.json">🦜 echo_singing_8f_4fps.json</option>
+                </optgroup>
+                <optgroup label="Items">
+                    <option value="items/fruit_apple.json">🍎 fruit_apple.json</option>
+                    <option value="items/fruit_orange.json">🍊 fruit_orange.json</option>
+                    <option value="items/fruit_grape.json">🍇 fruit_grape.json</option>
+                    <option value="items/water_bowl.json">💧 water_bowl.json</option>
+                    <option value="items/bath_spray.json">🚿 bath_spray.json</option>
+                </optgroup>
+                <optgroup label="World">
+                    <option value="world/cage_background.json">🏠 cage_background.json</option>
+                    <option value="world/perch.json">🪵 perch.json</option>
+                    <option value="world/feeder.json">🥣 feeder.json</option>
+                </optgroup>
+                <optgroup label="UI">
+                    <option value="ui/hunger_meter.json">🍽️ hunger_meter.json</option>
+                    <option value="ui/happiness_meter.json">😊 happiness_meter.json</option>
+                    <option value="ui/cleanliness_meter.json">🧼 cleanliness_meter.json</option>
+                    <option value="ui/action_buttons.json">🎮 action_buttons.json</option>
+                </optgroup>
+            `;
+        } else {
+            // For other games, try to detect available files
+            html += `
+                <optgroup label="Files">
+                    <option value="character/main_character.json">👤 character/main_character.json</option>
+                    <option value="world/background.json">🌍 world/background.json</option>
+                    <option value="ui/interface.json">🎮 ui/interface.json</option>
+                </optgroup>
+            `;
+        }
+
+        return html;
     },
 
     // Load Art KB view

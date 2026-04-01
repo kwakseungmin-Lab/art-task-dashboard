@@ -1,0 +1,193 @@
+{
+  "task_id": "cdr_ui_score_display_mock",
+  "asset_name": "ui_score_display_mock",
+  "category": "ui",
+  "subcategory": "hud",
+  "description": "Create a UI mock overlay image for ScoreDisplay placement. Canvas size 600x150 px with fully transparent background (alpha 0). Render the text '00000' using the 16px bitmap font with glyph cell width 10px. Text color #535353. Right-aligned placement: the right edge of the last digit must be at x=590 px; top of text at y=10 px (origin top-left). No other UI elements in this mock.",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Visual reference for HUD placement; used by UI implementer and for QA screenshot comparisons.",
+    "screen_location": "Top-right corner with 10 px right margin and 10 px top margin.",
+    "adjacent_elements": [
+      "background_sky"
+    ],
+    "layer": "ui_overlay",
+    "usage": "Documentation / reference overlay only."
+  },
+  "specs": {
+    "dimensions": "600x150",
+    "background": "transparent",
+    "text": {
+      "string": "00000",
+      "font_task_id": "cdr_typography_font_pixel_mono_16px",
+      "font_size_px": 16,
+      "glyph_width_px": 10,
+      "color_hex": "#535353",
+      "alignment": "right",
+      "position_top_left_px": {
+        "x": 540,
+        "y": 10
+      },
+      "position_right_edge_x": 590
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/ui/ui_score_display_mock.png",
+      "type": "ui_mock_overlay",
+      "format": "png",
+      "dimensions_px": "600x150",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/ui/ui_score_display_mock@2x.png",
+      "type": "ui_mock_overlay",
+      "format": "png",
+      "dimensions_px": "1200x300",
+      "scale": 2,
+      "scale_method": "nearest_neighbor",
+      "background": "transparent"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_typography_font_pixel_mono_16px"
+    ],
+    "shared_properties": {
+      "ui_text_color_hex": "#535353",
+      "padding_right_px": 10,
+      "padding_top_px": 10
+    },
+    "differences": {
+      "content": "fixed reference string 00000"
+    }
+  },
+  "depends_on": [
+    "cdr_typography_font_pixel_mono_16px"
+  ],
+  "execution_order": 18,
+  "priority": "P1",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_typography_font_pixel_mono_16px"
+  ],
+  "acceptance_criteria": [
+    "PNG dimensions 600x150 (1x) and 1200x300 (2x).",
+    "Background fully transparent (alpha 0) except text pixels.",
+    "Text rendered exactly 5 digits '00000' with digit width 10px each.",
+    "Right edge of the last digit at x=590; top of text at y=10.",
+    "Only #535353 opaque pixels used for text."
+  ]
+}

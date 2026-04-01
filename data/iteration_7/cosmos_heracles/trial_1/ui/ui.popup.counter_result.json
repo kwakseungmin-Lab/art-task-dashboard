@@ -1,0 +1,122 @@
+{
+  "asset_name": "Counter Result Popup 320x96",
+  "subcategory": "popup",
+  "priority": "P0",
+  "execution_order": 43,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.counter_gauge"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.counter_gauge"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.heracles_counter_64x96"
+    ]
+  },
+  "context": {
+    "role": "popup_counter_result",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 940,
+      "y": 352
+    },
+    "adjacent_elements": [
+      "ui.hud.counter_gauge",
+      "character.player.heracles_counter_64x96"
+    ],
+    "layer": "ui_overlay",
+    "usage": "Visible for 0.6 seconds after counter success or perfect counter success at screen x 1100 y 400 center."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 96
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#40E8D0",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "stateful",
+      "frame_count": 6,
+      "frame_time_s": 0.1,
+      "loop": false,
+      "states": {
+        "counter": 3,
+        "perfect": 3
+      },
+      "sprite_sheet_layout": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "screen_flat",
+      "facing": "front",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Rectangular text popup 320x96 with two text states and a 4 px border.",
+      "components": [
+        "text line COUNTER",
+        "text line PERFECT",
+        "border 4 px",
+        "fade overlay frames x6"
+      ]
+    },
+    "display_duration_s": 0.6,
+    "shading_model": "flat_ui"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.popup.counter_result.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Popup frame size is exactly 320x96 px.",
+    "Sheet contains 3 COUNTER frames and 3 PERFECT frames.",
+    "COUNTER state uses #40E8D0 and PERFECT state uses #FFD966.",
+    "Border thickness remains exactly 4 px in all frames."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "ui.popup.counter_result",
+  "category": "ui",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

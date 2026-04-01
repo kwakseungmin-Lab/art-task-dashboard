@@ -1,0 +1,98 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position": "center of 128x128 screen, on perch at y=60",
+      "key_features": "crest, cheek patch, tail - 3 essential cockatiel traits",
+      "eye_size": "2x2px",
+      "outline": "1px, organic hand-drawn style"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_sleeping",
+    "asset_name": "Echo Sleeping Animation",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Activated during sleep hours (12-hour cycle set by player)",
+      "screen_position": "Center (x=64, y=60), on perch",
+      "adjacent_elements": ["perch (below)", "zzz_particle (above-right)", "happiness_bar (bottom)"],
+      "usage_scenario": "Plays continuously during sleep period. Player cannot interact with Echo during this state. Automatically transitions to idle when sleep period ends."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "hidden (head tucked)",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head tucked into feathers, rounded silhouette",
+      "texture": "Flat pixel art with hand-drawn organic edges, no gradients",
+      "outline": "1px black (#1D2B53) outline, hand-drawn style",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 3,
+        "fps": 1,
+        "loop": true,
+        "description": "Frame 1: Head fully tucked into feathers. Frame 2: Body slightly expanded (breathing in). Frame 3: Body slightly contracted (breathing out). Subtle breathing motion."
+      },
+      "details": "Head completely hidden in feathers - no visible eyes or beak. Crest flattened against head. Body appears more rounded/puffed. Tail visible but drooping slightly. Breathing motion: 1-2px vertical expansion/contraction. ZZZ particle spawns above-right every 2 seconds."
+    },
+    "relationships": {
+      "related_assets": ["zzz_particle", "echo_idle", "perch"],
+      "shared_with": "Same color palette and size as all Echo states",
+      "differences_from": "echo_idle: head tucked vs upright, eyes hidden vs visible, crest flat vs normal, rounded vs upright posture. All other states show visible head/eyes."
+    },
+    "explicit_negations": [
+      "No 3D modeling",
+      "No smooth gradients",
+      "Eyes not visible (not even closed - fully hidden)",
+      "Beak not visible",
+      "Crest not raised",
+      "No snoring sound waves (only ZZZ particle)",
+      "No pillow or sleep accessories",
+      "Body does not sway or move horizontally",
+      "No dream bubble"
+    ]
+  }
+}

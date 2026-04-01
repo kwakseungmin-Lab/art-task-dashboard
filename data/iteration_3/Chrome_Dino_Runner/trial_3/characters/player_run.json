@@ -1,0 +1,81 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scalable",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art T-Rex dinosaur",
+      "features": "short front legs, large eyes, thick tail",
+      "outline": "2px included in dimensions",
+      "rendering": "pixel-perfect, no antialiasing"
+    }
+  },
+  "asset": {
+    "asset_id": "player_run",
+    "asset_name": "Player Running Animation",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Player character default running state during active gameplay",
+      "screen_position": "Fixed at x=100px from left edge, y=0px (ground level)",
+      "adjacent_elements": ["ground_line", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_fly", "score_display"],
+      "usage_scenario": "Primary animation during gameplay when player is grounded and not ducking"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "88px",
+        "height": "94px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "T-Rex dinosaur in running pose with alternating leg positions",
+      "texture": "Pixel art, hard edges, no gradients",
+      "outline": "2px solid outline integrated into sprite",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 12,
+        "loop": true,
+        "description": "Running cycle - frame 1: left leg forward, frame 2: right leg forward. Total duration: 0.167 seconds per loop. Seamless loop required"
+      },
+      "details": "Legs alternate in running motion, body slightly leaned forward, tail extended for balance, eyes focused ahead"
+    },
+    "relationships": {
+      "related_assets": ["player_idle", "player_jump", "player_duck", "player_dead", "ground_line"],
+      "shared_with": "Same dimensions and base pose as player_idle, same color scheme as all player states",
+      "differences_from": "player_idle has slower animation (6 FPS vs 12 FPS), player_jump is static, player_duck has different dimensions (118x60px)"
+    },
+    "explicit_negations": [
+      "No color gradients or shading",
+      "No smooth anti-aliased edges",
+      "No motion blur on legs",
+      "No dust particles or trail effects",
+      "No speed lines",
+      "No color variations beyond primary #535353",
+      "No transparency except full alpha channel",
+      "No scaling or stretching between frames"
+    ]
+  }
+}

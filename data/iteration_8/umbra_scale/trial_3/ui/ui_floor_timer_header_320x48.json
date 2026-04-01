@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003018",
+  "asset_key": "ui_floor_timer_header_320x48",
+  "asset_name": "Floor And Timer Header",
+  "category": "ui",
+  "subcategory": "hud_panel",
+  "priority": "P0",
+  "execution_order": 180,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003016",
+    "task_id_008003001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003016",
+    "task_id_008003001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003001",
+      "task_id_008003003",
+      "task_id_008003004",
+      "task_id_008003016",
+      "task_id_008003021"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the panel frame and render floor text plus timer digits with the bitmap font atlas.",
+    "atlas_or_static": "static_image",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "HudWidget",
+      "FloorLabel",
+      "RunTimer"
+    ],
+    "asset_loading": "Load ui/ui_floor_timer_header_320x48.png through AssetServer during HUD setup and pair it with the bitmap font resource.",
+    "runtime_notes": [
+      "Panel anchors to the top center of the 1920x1080 UI canvas.",
+      "Numeric text remains live and is not baked into the panel art.",
+      "Header width leaves enough room for FLOOR XX / 30 on one line and MM:SS.ss on the second line."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "hud_floor_timer",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        800,
+        16
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Top center header for floor count and live elapsed time during each tower ascent attempt.",
+    "adjacent_elements": [
+      "world_tower_chamber_backdrop_1920x1080",
+      "world_ladder_tile_strip_16x256",
+      "ui_art_deco_numeric_font_16px_ascii_48glyph"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_flat",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#F5EFE0",
+      "#2D1B4E"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 1,
+        "order": "single"
+      }
+    },
+    "shape": {
+      "silhouette": "Wide stepped plaque with a title line, lower timer recess, and narrow side fins that echo the tower architecture.",
+      "components": [
+        "outer_frame",
+        "title_recess",
+        "timer_recess",
+        "left_fin",
+        "right_fin"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Dark lacquer panel with thin gold edge striping and clean white text windows.",
+    "shading": "Flat dark center with a slightly brighter gold top edge."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_floor_timer_header_320x48.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Header panel is exactly 320x48 px.",
+    "Top text recess is at least 280x16 px and lower timer recess is at least 220x16 px.",
+    "Side fins extend no more than 12 px beyond the main plaque to avoid crowding center stage action."
+  ]
+}

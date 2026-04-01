@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.death_retry_panel_640x200",
+  "asset_name": "Death Retry Panel",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 83,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.hud.top_bar_overlay_1600x64"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.hud.top_bar_overlay_1600x64"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.top_bar_overlay_1600x64"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "screen",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.top_bar_overlay_1600x64",
+      "ui.screen.pause_menu_panel_480x270",
+      "world.background.zone3_stratosphere_altar_1600x900"
+    ],
+    "layer": "ui",
+    "usage": "Death screen panel shown after HP reaches 0 with YOU DIED, score, and RETRY prompt.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 640,
+      "height": 200
+    },
+    "colors_hex": [
+      "#E84040",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "large central panel with a dominant top title row, a score row, and a retry prompt row",
+      "components": [
+        "YOU DIED title",
+        "score row",
+        "retry prompt",
+        "panel frame",
+        "shadow backing"
+      ]
+    },
+    "typography": {
+      "font_style": "pixel_bold",
+      "title_height_px": 40,
+      "body_height_px": 24
+    },
+    "background_treatment": "transparent outside panel and shadow"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.death_retry_panel_640x200.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel canvas is exactly 640x200px with the title row occupying the upper 64px band.",
+    "The title uses #E84040 as the dominant foreground color and a 40px tall pixel font.",
+    "The retry prompt remains readable at 1.0x scale with a minimum 24px font height and 16px vertical padding."
+  ]
+}

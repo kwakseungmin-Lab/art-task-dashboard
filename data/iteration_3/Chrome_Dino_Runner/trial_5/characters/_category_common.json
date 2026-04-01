@@ -1,0 +1,15 @@
+{
+  "base_size": {
+    "width": "88px",
+    "height": "94px"
+  },
+  "color_scheme": {
+    "primary": "#535353"
+  },
+  "shared_attributes": {
+    "style": "8-bit pixel art T-Rex dinosaur",
+    "features": "short front legs, large eyes, thick tail",
+    "outline": "2px included in dimensions",
+    "collision_margin": "5px smaller than sprite for forgiveness"
+  }
+}

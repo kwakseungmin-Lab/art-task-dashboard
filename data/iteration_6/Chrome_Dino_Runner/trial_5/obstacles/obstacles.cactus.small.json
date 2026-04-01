@@ -1,0 +1,84 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.cactus.small",
+  "asset_name": "Cactus - Small (Single)",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "obstacle",
+    "layer": "gameplay",
+    "usage": "Ground obstacle spawned at y=0 and moves right-to-left",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 650,
+      "y": 0,
+      "origin": "ground_baseline"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 34,
+      "height": 70
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus.small.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Single-frame sprite is exactly 34x70px and reads as a cactus with sharp silhouette at 1x scale.",
+    "Uses only #535353 for pixels and transparent/#F7F7F7 for non-obstacle pixels; no extra colors.",
+    "Bottom edge aligns to the ground baseline with no floating pixels below y=0 baseline."
+  ]
+}

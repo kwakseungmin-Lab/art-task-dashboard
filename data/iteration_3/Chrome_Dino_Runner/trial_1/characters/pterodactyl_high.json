@@ -1,0 +1,81 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "Pixel Art 8-bit",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art",
+      "outline": "2px solid",
+      "color_mode": "monochrome",
+      "anti_aliasing": "none"
+    }
+  },
+  "asset": {
+    "asset_id": "pterodactyl_high",
+    "asset_name": "Pterodactyl Flying Obstacle (High Height)",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Flying obstacle that player can pass under without ducking",
+      "screen_position": "Spawns at x=screen_width+50px, y=80px (ground+80px), scrolls left at Current_Speed",
+      "adjacent_elements": ["player_run", "player_jump", "ground", "background_clouds"],
+      "usage_scenario": "Mid-air obstacle appearing after score 200+, can be avoided by running normally or jumping (50% of pterodactyl spawns)"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "92px",
+        "height": "80px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353",
+        "wings": "#535353",
+        "beak": "#535353"
+      },
+      "shape": "Pteranodon with long beak, spread wings in flight pose",
+      "texture": "pixel art, flat color",
+      "outline": "2px solid black outline",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 10,
+        "loop": true,
+        "description": "Frame 1: wings up position, Frame 2: wings down position, flapping animation"
+      },
+      "details": "Flying pterodactyl at 80px height (above player running hitbox), wing flapping animation, hitbox 89x77px (3px margin from sprite)"
+    },
+    "relationships": {
+      "related_assets": ["pterodactyl_low", "player_run", "player_jump", "ground"],
+      "shared_with": "Identical sprite and animation as pterodactyl_low, only Y position differs",
+      "differences_from": "pterodactyl_low spawns at y=50px (requires ducking), pterodactyl_high at y=80px (can pass under)"
+    },
+    "explicit_negations": [
+      "No color variations",
+      "No attack animations",
+      "No diving or swooping motion",
+      "No particle effects or motion blur",
+      "No shadow on ground",
+      "No sound effects in sprite"
+    ]
+  }
+}

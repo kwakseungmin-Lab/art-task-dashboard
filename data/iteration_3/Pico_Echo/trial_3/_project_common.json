@@ -1,0 +1,28 @@
+{
+  "game_title": "Pico Echo",
+  "art_style": "PICO-8 style hand-drawn pixel art",
+  "resolution": "128x128",
+  "color_palette": {
+    "primary": "#FFA300",
+    "secondary": "#FF004D",
+    "accent": "#FFEC27",
+    "background": "#FFF1E8",
+    "cage_bar": "#C2C3C7",
+    "perch": "#AB5236",
+    "text": "#1D2B53",
+    "green": "#00E436",
+    "purple": "#7E2553",
+    "floor": "#FFCCAA",
+    "dark_gray": "#5F574F"
+  },
+  "pixel_density": "1:1 (no subpixels)",
+  "outline_style": "minimal, 1px where needed",
+  "rendering": "nearest neighbor (no anti-aliasing)",
+  "technical_constraints": {
+    "max_colors": 16,
+    "palette_source": "PICO-8 16-color palette",
+    "canvas_size": "128x128px",
+    "scaling": "integer scaling only",
+    "file_format": "PNG with indexed color"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.book",
+  "asset_name": "Library Book Projectile",
+  "category": "obstacles",
+  "subcategory": "launchable_object",
+  "priority": "P1",
+  "execution_order": 15,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This projectile uses a broad rectangular face for redirection readability."
+  ],
+  "depends_on": [
+    "world.foreground.floor_tiles"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.foreground.floor_tiles"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.stone_wall",
+      "ui.overlay.trajectory_guide"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "flat_face_projectile",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 392,
+      "y": 512,
+      "width": 28,
+      "height": 20,
+      "anchor": "top_left"
+    },
+    "layer": "midground_interactive",
+    "usage": "Used from stage 5-1 onward for ninety-degree redirection puzzles.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_right"
+    },
+    "adjacent_elements": [
+      "world.foreground.floor_tiles",
+      "character.noble_guard",
+      "ui.overlay.trajectory_guide"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 28,
+      "height": 20
+    },
+    "colors_hex": [
+      "#8B3A52",
+      "#D4A843",
+      "#F5F0E8",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "spin",
+      "states": [
+        {
+          "name": "spin",
+          "frame_count": 4,
+          "fps": 10
+        }
+      ]
+    },
+    "notes": [
+      "Cover thickness is 4 px and page block height is 12 px.",
+      "Corner fillet radius is 2 px to keep the projectile readable at small size."
+    ],
+    "shape": {
+      "silhouette": "closed book slab with a flat spine edge and squared page block",
+      "components": [
+        "front cover",
+        "back cover",
+        "page block",
+        "spine edge",
+        "corner tabs"
+      ]
+    }
+  },
+  "deliverables": [
+    "Spin loop 4 frames at 10 fps.",
+    "Static open-face guide for collision review.",
+    "Projectile icon export 28x20 px."
+  ],
+  "acceptance_criteria": [
+    "Projectile size is exactly 28x20 px.",
+    "Spin loop contains 4 frames at 10 fps.",
+    "Cover and page block remain visually distinct in every frame."
+  ]
+}

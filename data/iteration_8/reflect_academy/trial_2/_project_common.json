@@ -1,0 +1,283 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "reflect_academy",
+    "project_name": "Reflect Academy"
+  },
+  "meta": {
+    "plan_id": "reflect_academy__iter8__trial2",
+    "game_name": "reflect_academy",
+    "iteration": 8,
+    "trial_index": 2,
+    "plan_dir": "trial_2",
+    "created_at_utc": "2026-03-25T10:20:00Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md",
+    "run_id": "20260325_085239_53910769"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Primary visual board for academy architecture, magical ambience, and broad color planning."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Playable student silhouette board for character proportion, card-hand readability, and lane spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "sprite_pipeline": "Author layered high-resolution PNG sprites and atlases for a fixed 2D orthographic duel scene, using additive-emissive glow overlays for spells and a separate overlay camera for HUD and card UI.",
+    "ecs_model": "Use separate entities for stage shell, lane overlay, enemy champion, player student, projectile pool, telegraph markers, HUD panels, timing widget, hand cards, and reward overlay.",
+    "asset_loading": "Load every reflect_academy trial_2 art asset during DuelLoading with AssetServer and keep handles in a typed resource keyed by asset_key for deterministic round setup.",
+    "runtime_notes": [
+      "Use TextureAtlasLayout resources for both character sheets, projectile sheets, timing states, and reward overlay states before combat begins.",
+      "Keep world-space combat art under the main orthographic camera and render persistent UI through a dedicated overlay camera.",
+      "Match projectile travel and timing-bar feedback to the documented 0.1 second perfect window and 0.25 second good window.",
+      "Preserve a clear center lane for incoming spells even when reward and combo effects are active."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "file_stem_equals_asset_key"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "reflect_timing_window",
+      "label": "Reflect with precise timing",
+      "description": "Enemy spells travel through the center lane and the player must trigger the correct window before impact to send the magic back.",
+      "critical_states": [
+        "telegraph",
+        "incoming",
+        "good",
+        "perfect",
+        "miss",
+        "reflected"
+      ],
+      "task_ids": [
+        "task_id_000000922",
+        "task_id_000000923",
+        "task_id_000000924",
+        "task_id_000000925",
+        "task_id_000000928"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000928"
+      ]
+    },
+    {
+      "mechanic_id": "elemental_conversion_cards",
+      "label": "Convert spell elements with cards",
+      "description": "The hand exposes elemental and utility cards that let the player alter projectile color, attribute, and payoff before the reflection resolves.",
+      "critical_states": [
+        "hand_ready",
+        "card_hover",
+        "card_played",
+        "element_swapped",
+        "split_echo",
+        "perfect_reflect"
+      ],
+      "task_ids": [
+        "task_id_000000923",
+        "task_id_000000925",
+        "task_id_000000928",
+        "task_id_000000929"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000928",
+        "task_id_000000929"
+      ]
+    },
+    {
+      "mechanic_id": "enemy_spell_telegraph_and_feint",
+      "label": "Read honest telegraphs and fake-out cues",
+      "description": "Higher-rank champions add fake casts and feint markers, so character motion and warning graphics must make the deception game readable.",
+      "critical_states": [
+        "telegraph_idle",
+        "spell_cast",
+        "fake_cast",
+        "cast_warning",
+        "fake_warning",
+        "impact_flash"
+      ],
+      "task_ids": [
+        "task_id_000000922",
+        "task_id_000000923",
+        "task_id_000000924",
+        "task_id_000000926",
+        "task_id_000000928"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000928"
+      ]
+    },
+    {
+      "mechanic_id": "duel_status_and_resource_flow",
+      "label": "Track HP, cost, deck count, and round state",
+      "description": "The duel HUD and card-hand presentation tell the player who is winning, how many resources remain, and whether another reflect combo is possible.",
+      "critical_states": [
+        "enemy_hp_60",
+        "player_hp_90",
+        "cost_available",
+        "deck_remaining",
+        "round_transition"
+      ],
+      "task_ids": [
+        "task_id_000000925",
+        "task_id_000000926",
+        "task_id_000000927",
+        "task_id_000000929"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000927",
+        "task_id_000000929"
+      ]
+    },
+    {
+      "mechanic_id": "reward_card_progression",
+      "label": "Pick one reward card after victory",
+      "description": "After defeating a champion, the player chooses one of three reward cards before the next duel begins.",
+      "critical_states": [
+        "victory",
+        "reward_reveal",
+        "reward_hover",
+        "reward_selected",
+        "next_round_ready"
+      ],
+      "task_ids": [
+        "task_id_000000926",
+        "task_id_000000927",
+        "task_id_000000929",
+        "task_id_000000930"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_000000930"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_000000921",
+      "asset_key": "world_duel_hall_stage_frame",
+      "category": "world",
+      "file": "world/world_duel_hall_stage_frame.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000922",
+      "asset_key": "world_spell_lane_reflection_line",
+      "category": "world",
+      "file": "world/world_spell_lane_reflection_line.json",
+      "execution_order": 20,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000923",
+      "asset_key": "obstacles_elemental_projectile_sheet",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_elemental_projectile_sheet.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000924",
+      "asset_key": "obstacles_telegraph_feint_marker_sheet",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_telegraph_feint_marker_sheet.json",
+      "execution_order": 40,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000925",
+      "asset_key": "character_student_reflector_core_sheet",
+      "category": "character",
+      "file": "character/character_student_reflector_core_sheet.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000926",
+      "asset_key": "character_champion_caster_core_sheet",
+      "category": "character",
+      "file": "character/character_champion_caster_core_sheet.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000927",
+      "asset_key": "ui_duel_hud_bars_round_panel",
+      "category": "ui",
+      "file": "ui/ui_duel_hud_bars_round_panel.json",
+      "execution_order": 70,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000928",
+      "asset_key": "ui_timing_bar_judgement_strip",
+      "category": "ui",
+      "file": "ui/ui_timing_bar_judgement_strip.json",
+      "execution_order": 80,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000929",
+      "asset_key": "ui_card_hand_conversion_set",
+      "category": "ui",
+      "file": "ui/ui_card_hand_conversion_set.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_000000930",
+      "asset_key": "ui_reward_card_pick_panel",
+      "category": "ui",
+      "file": "ui/ui_reward_card_pick_panel.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

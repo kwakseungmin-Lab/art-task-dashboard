@@ -1,0 +1,113 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.cage.seed_bowl_3state",
+  "asset_name": "Seed Bowl (full / half / empty states)",
+  "category": "obstacles",
+  "subcategory": "cage_object",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "interactable",
+    "layer": "obstacles",
+    "usage": "Tap/drag feed interaction anchor; communicates hunger state.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        18,
+        78
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 10
+    },
+    "colors_hex": [
+      "#AB5236",
+      "#FFEC27",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "full",
+        "half",
+        "empty"
+      ],
+      "frame_count": 3,
+      "frame_size_px": [
+        16,
+        10
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "state_rules": [
+      "full: seed pixels cover about 70% of bowl interior",
+      "half: seed pixels cover about 35% of bowl interior",
+      "empty: 0 seed pixels; interior shows #FFF1E8"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cage.seed_bowl_3state.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 48x10px (3 states × 16x10) with 0px spacing.",
+    "Bowl outline is 1px using #1D2B53; bowl fill uses #C2C3C7 and rim detail uses #AB5236.",
+    "Each state is visually distinct at 1x scale and remains legible on #FFF1E8 background."
+  ],
+  "shared_properties": [
+    "Asset remains readable at 1x scale within the warm cage scene.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering and 1px outlines keep interaction targets crisp."
+  ],
+  "differences": [
+    "State sheet includes full, half, and empty bowl readouts for hunger feedback.",
+    "This prop anchors the feed interaction zone on the lower left area.",
+    "Visual separation between the three fill levels stays readable at 1x scale."
+  ]
+}

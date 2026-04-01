@@ -1,0 +1,371 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "umbra_scale",
+    "project_name": "Umbra Scale"
+  },
+  "meta": {
+    "plan_id": "umbra_scale__iter8__trial1",
+    "game_name": "umbra_scale",
+    "iteration": 8,
+    "trial_index": 1,
+    "plan_dir": "trial_1",
+    "created_at_utc": "2026-03-25T11:07:18Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 0.14 SpriteBundle and SpriteSheetBundle for actors, props, and world overlays, with an orthographic side-view camera targeting 1920x1080 output.",
+    "ecs_model": "Separate UmbraPlayer, EchoClone, ReflectorMirror, PrismGlass, WeightBlock, LightSource, ScaleAssembly, ExitDoor, and HudOverlay components so puzzle logic and rendering stay deterministic.",
+    "asset_loading": "Preload every PNG declared by this package through AssetServer during Loading, build TextureAtlasLayout resources from specs.animation metadata, and register handles in an UmbraScaleArtManifest keyed by task_id and asset_key.",
+    "runtime_notes": [
+      "Use Bevy Rapier2D for player, block, and scale collision while keeping light routing on custom raycast logic backed by Rapier queries.",
+      "Drive the Tab preview overlay through a full-screen UI layer or material pass without moving the main gameplay camera.",
+      "Keep actor pivots, deck anchors, and light origins aligned to authored guide positions so interaction and beam logic match the art precisely."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key_for_json_and_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "shadow_navigation_under_dynamic_light",
+      "label": "Shadow navigation under dynamic light",
+      "description": "Covers reading safe shadow corridors, moving through them with run and jump states, reacting to exposure, and recognizing the exit route while static and moving lights reshape the level.",
+      "critical_states": [
+        "light_path_scan",
+        "shadow_safe_route",
+        "jump_gap_crossing",
+        "exposure_rising",
+        "exit_approach"
+      ],
+      "task_ids": [
+        "task_id_008101001",
+        "task_id_008101002",
+        "task_id_008101004",
+        "task_id_008101005",
+        "task_id_008101006",
+        "task_id_008101007",
+        "task_id_008101009",
+        "task_id_008101014",
+        "task_id_008101015"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008101016",
+        "task_id_008101017",
+        "task_id_008101018",
+        "task_id_008101021"
+      ]
+    },
+    {
+      "mechanic_id": "mirror_and_prism_redirection",
+      "label": "Mirror and prism redirection",
+      "description": "Covers grabbing movable optics, redirecting one beam with a mirror, splitting another with a prism, and previewing the resulting light path before traversal.",
+      "critical_states": [
+        "mirror_grab",
+        "mirror_rotate",
+        "prism_split",
+        "reflected_beam",
+        "new_shadow_opened"
+      ],
+      "task_ids": [
+        "task_id_008101008",
+        "task_id_008101011",
+        "task_id_008101012",
+        "task_id_008101014",
+        "task_id_008101015"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008101019",
+        "task_id_008101021"
+      ]
+    },
+    {
+      "mechanic_id": "scale_weight_distribution",
+      "label": "Scale weight distribution",
+      "description": "Covers placing Umbra, echo clones, and numbered weight blocks on the scale decks until the target angle opens the puzzle route.",
+      "critical_states": [
+        "echo_deploy",
+        "block_drag",
+        "left_heavy",
+        "right_heavy",
+        "target_angle_met"
+      ],
+      "task_ids": [
+        "task_id_008101003",
+        "task_id_008101008",
+        "task_id_008101010",
+        "task_id_008101013"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008101016",
+        "task_id_008101019"
+      ]
+    },
+    {
+      "mechanic_id": "exposure_and_floor_clear_feedback",
+      "label": "Exposure and floor clear feedback",
+      "description": "Covers HP and exposure readability, live timer and floor tracking, and the clear-rank presentation after the player reaches the opened exit.",
+      "critical_states": [
+        "hp_loss",
+        "exposure_full",
+        "timer_read",
+        "floor_clear",
+        "shadow_rank_resolution"
+      ],
+      "task_ids": [
+        "task_id_008101004",
+        "task_id_008101009",
+        "task_id_008101014",
+        "task_id_008101015"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008101016",
+        "task_id_008101017",
+        "task_id_008101018",
+        "task_id_008101020",
+        "task_id_008101021"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_008101001",
+      "asset_key": "world_tower_backdrop_parallax_1920x1080",
+      "category": "world",
+      "file": "world/world_tower_backdrop_parallax_1920x1080.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101002",
+      "asset_key": "world_tower_tilekit_32px",
+      "category": "world",
+      "file": "world/world_tower_tilekit_32px.json",
+      "execution_order": 20,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101003",
+      "asset_key": "world_scale_assembly_512x96",
+      "category": "world",
+      "file": "world/world_scale_assembly_512x96.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101004",
+      "asset_key": "world_exit_door_8f_64x96",
+      "category": "world",
+      "file": "world/world_exit_door_8f_64x96.json",
+      "execution_order": 40,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101005",
+      "asset_key": "player_umbra_idle_6f_12fps",
+      "category": "character",
+      "file": "character/player_umbra_idle_6f_12fps.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101006",
+      "asset_key": "player_umbra_run_8f_12fps",
+      "category": "character",
+      "file": "character/player_umbra_run_8f_12fps.json",
+      "execution_order": 60,
+      "variant_of": "task_id_008101005",
+      "variant_of_asset_key": "player_umbra_idle_6f_12fps"
+    },
+    {
+      "task_id": "task_id_008101007",
+      "asset_key": "player_umbra_jump_4f_12fps",
+      "category": "character",
+      "file": "character/player_umbra_jump_4f_12fps.json",
+      "execution_order": 70,
+      "variant_of": "task_id_008101005",
+      "variant_of_asset_key": "player_umbra_idle_6f_12fps"
+    },
+    {
+      "task_id": "task_id_008101008",
+      "asset_key": "player_umbra_grab_4f_10fps",
+      "category": "character",
+      "file": "character/player_umbra_grab_4f_10fps.json",
+      "execution_order": 80,
+      "variant_of": "task_id_008101005",
+      "variant_of_asset_key": "player_umbra_idle_6f_12fps"
+    },
+    {
+      "task_id": "task_id_008101009",
+      "asset_key": "player_umbra_exposure_5f_12fps",
+      "category": "character",
+      "file": "character/player_umbra_exposure_5f_12fps.json",
+      "execution_order": 90,
+      "variant_of": "task_id_008101005",
+      "variant_of_asset_key": "player_umbra_idle_6f_12fps"
+    },
+    {
+      "task_id": "task_id_008101010",
+      "asset_key": "echo_clone_idle_4f_8fps",
+      "category": "character",
+      "file": "character/echo_clone_idle_4f_8fps.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101011",
+      "asset_key": "obstacle_plane_mirror_static_16x96",
+      "category": "obstacles",
+      "file": "obstacles/obstacle_plane_mirror_static_16x96.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101012",
+      "asset_key": "obstacle_prism_glass_static_48x48",
+      "category": "obstacles",
+      "file": "obstacles/obstacle_prism_glass_static_48x48.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101013",
+      "asset_key": "obstacle_weight_block_set_5states_32x32",
+      "category": "obstacles",
+      "file": "obstacles/obstacle_weight_block_set_5states_32x32.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101014",
+      "asset_key": "obstacle_fixed_light_core_6f_32x32",
+      "category": "obstacles",
+      "file": "obstacles/obstacle_fixed_light_core_6f_32x32.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101015",
+      "asset_key": "obstacle_moving_light_core_6f_32x32",
+      "category": "obstacles",
+      "file": "obstacles/obstacle_moving_light_core_6f_32x32.json",
+      "execution_order": 150,
+      "variant_of": "task_id_008101014",
+      "variant_of_asset_key": "obstacle_fixed_light_core_6f_32x32"
+    },
+    {
+      "task_id": "task_id_008101016",
+      "asset_key": "ui_hp_and_echo_tokens_sheet_192x32",
+      "category": "ui",
+      "file": "ui/ui_hp_and_echo_tokens_sheet_192x32.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101017",
+      "asset_key": "ui_exposure_gauge_160x12",
+      "category": "ui",
+      "file": "ui/ui_exposure_gauge_160x12.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101018",
+      "asset_key": "ui_floor_timer_strip_240x48",
+      "category": "ui",
+      "file": "ui/ui_floor_timer_strip_240x48.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101019",
+      "asset_key": "ui_scale_balance_floater_176x40",
+      "category": "ui",
+      "file": "ui/ui_scale_balance_floater_176x40.json",
+      "execution_order": 190,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101020",
+      "asset_key": "ui_clear_rank_panel_480x270",
+      "category": "ui",
+      "file": "ui/ui_clear_rank_panel_480x270.json",
+      "execution_order": 200,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008101021",
+      "asset_key": "ui_light_path_preview_overlay_1920x1080",
+      "category": "ui",
+      "file": "ui/ui_light_path_preview_overlay_1920x1080.json",
+      "execution_order": 210,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

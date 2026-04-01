@@ -1,0 +1,252 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "olympus_step",
+    "project_name": "OLYMPUS STEP"
+  },
+  "meta": {
+    "plan_id": "olympus_step__iter7__trial4",
+    "game_name": "olympus_step",
+    "iteration": 7,
+    "trial_index": 4,
+    "plan_dir": "trial_4",
+    "created_at_utc": "2026-03-17T19:11:44Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304201747/olympus_step/olympus_step.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "category_common": {
+    "character": {
+      "default_layer": "world_characters",
+      "cell_footprint_px": 64,
+      "output_root": "character/"
+    },
+    "obstacles": {
+      "default_layer": "world_hazards",
+      "cell_footprint_px": 64,
+      "output_root": "obstacles/"
+    },
+    "world": {
+      "default_layer": "world_floor",
+      "cell_footprint_px": 64,
+      "output_root": "world/"
+    },
+    "ui": {
+      "default_layer": "ui",
+      "cell_footprint_px": 0,
+      "output_root": "ui/"
+    }
+  },
+  "generation_log": {
+    "meta_analysis": {
+      "game_status": "stable_with_note",
+      "fail_rate": 0.0,
+      "pass_with_note_rate": 0.2,
+      "quality_trend": "recovering_but_below_global_target",
+      "recommendations_applied": [
+        "Maintain primary benchmark at or above 90 percent while improving total pass rate beyond iteration 6.",
+        "Keep trial_4 as a low-lineage package to avoid IF-9 risk from variant depends_on graphs.",
+        "Preserve core palette copying in every asset and keep asset-local colors in specs.colors_hex to avoid IF-8 drift."
+      ]
+    },
+    "kb_lookup": {
+      "art_task_plan_kb_status": "ok",
+      "meta_iteration_kb_status": "ok",
+      "art_task_plan_findings": [
+        "KB retrieve found olympus_step iteration_6 bad-plan control cases for trial_1 through trial_5 all PASS.",
+        "KB retrieve found olympus_step iteration_6 trial_4 harness_v6 PASS with IF Gate PASS and all four axis thresholds satisfied.",
+        "KB retrieve found olympus_step iteration_6 trial_3 harness_v5 FAIL, so this snapshot avoids additional lineage complexity."
+      ],
+      "meta_iteration_findings": [
+        "No olympus_step-specific incident pattern was surfaced by the meta-iteration retrieve query."
+      ]
+    },
+    "risk_avoidance": [
+      "All asset files keep schema_version art_task@7 and explicit acceptance_criteria arrays.",
+      "Every asset repeats the project core palette inline and keeps asset-local colors inside specs.colors_hex only.",
+      "This package keeps variant_of null across all assets, so IF-9 base-lineage validation has no derived-asset dependency path to break.",
+      "Target path remains experiments/iterations/iteration_7/data/task_plans/olympus_step/trial_4 with no legacy art_*.json usage."
+    ],
+    "gdd_resolution": {
+      "primary_source": "s3",
+      "resolved_s3_exp_id": "simple-exp-20260304201747",
+      "resolved_s3_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304201747/olympus_step/olympus_step.md",
+      "github_fallback_used": false
+    }
+  },
+  "assets": [
+    {
+      "task_id": "world.background.dusk_sky_1920x1080",
+      "category": "world",
+      "file": "world/world.background.dusk_sky_1920x1080.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.tiles.marble_grid_64_atlas",
+      "category": "world",
+      "file": "world/world.tiles.marble_grid_64_atlas.json",
+      "execution_order": 20,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.goal.temple_goal_tile_64_sheet_8f",
+      "category": "world",
+      "file": "world/world.goal.temple_goal_tile_64_sheet_8f.json",
+      "execution_order": 30,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.last_olympian_god_idle_sheet_48_4f",
+      "category": "character",
+      "file": "character/character.player.last_olympian_god_idle_sheet_48_4f.json",
+      "execution_order": 40,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.last_olympian_god_teleport_sheet_48_6f",
+      "category": "character",
+      "file": "character/character.player.last_olympian_god_teleport_sheet_48_6f.json",
+      "execution_order": 50,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.unit.guard_patrol_sheet_48_4f",
+      "category": "character",
+      "file": "character/character.unit.guard_patrol_sheet_48_4f.json",
+      "execution_order": 60,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.block_tile_64",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.block_tile_64.json",
+      "execution_order": 70,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.fire_tile_64_sheet_8f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.fire_tile_64_sheet_8f.json",
+      "execution_order": 80,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.bolt_tile_off_64_2f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.bolt_tile_off_64_2f.json",
+      "execution_order": 90,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.bolt_tile_on_64_sheet_6f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.bolt_tile_on_64_sheet_6f.json",
+      "execution_order": 100,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.fog_tile_64_sheet_6f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.fog_tile_64_sheet_6f.json",
+      "execution_order": 110,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.shard_icon_32_sheet_4f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.shard_icon_32_sheet_4f.json",
+      "execution_order": 120,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.amp_icon_32_sheet_4f",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.amp_icon_32_sheet_4f.json",
+      "execution_order": 130,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.typography.parchment_bitmap_font_8px",
+      "category": "ui",
+      "file": "ui/ui.typography.parchment_bitmap_font_8px.json",
+      "execution_order": 140,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.right_stats_panel_240x720",
+      "category": "ui",
+      "file": "ui/ui.hud.right_stats_panel_240x720.json",
+      "execution_order": 150,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.path_tile_numbers_20_atlas",
+      "category": "ui",
+      "file": "ui/ui.overlay.path_tile_numbers_20_atlas.json",
+      "execution_order": 160,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.path_link_dash_64_sheet_6f",
+      "category": "ui",
+      "file": "ui/ui.overlay.path_link_dash_64_sheet_6f.json",
+      "execution_order": 170,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.confirm_button_180x50_2state",
+      "category": "ui",
+      "file": "ui/ui.hud.confirm_button_180x50_2state.json",
+      "execution_order": 180,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.reset_button_120x36_2state",
+      "category": "ui",
+      "file": "ui/ui.hud.reset_button_120x36_2state.json",
+      "execution_order": 190,
+      "variant_of": null
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003016",
+  "asset_key": "ui_survival_timer_48x16",
+  "asset_name": "Survival Timer HUD",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003001",
+      "task_id_008003003",
+      "task_id_008003011",
+      "task_id_008003017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the backing plate and overlay bitmap text or digit sprites for the MM:SS value.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "HudOverlay"
+    ],
+    "asset_loading": "Load ui/ui_survival_timer_48x16.png through AssetServer and pin it to the upper-right margin.",
+    "runtime_notes": [
+      "Timer updates once per second from the run clock resource.",
+      "No progress bar, floor counter, or minimap accompanies this element.",
+      "The plate remains visible during play and dims only while full-screen panels take focus."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "hud_survival_timer",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1232,
+        32
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Top-right timer plate that displays the live MM:SS run duration and reinforces pressure without showing distance or floor count.",
+    "adjacent_elements": [
+      "world_dungeon_backdrop_parallax_1280x720",
+      "world_exit_gate_6f_32x32",
+      "ui_pause_and_result_panels_320x180"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 16
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#0D0D0F",
+      "#3B3347"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Compact timer plate with a dark backing and five monospace character slots for MM:SS.",
+      "components": [
+        "back_plate",
+        "digit_slot_1",
+        "digit_slot_2",
+        "colon_slot",
+        "digit_slot_3",
+        "digit_slot_4"
+      ]
+    },
+    "layout": {
+      "anchor": "top_right",
+      "margin_px": [
+        48,
+        32
+      ]
+    },
+    "typography": {
+      "font_style": "pixel_ui",
+      "character_count": 5
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_survival_timer_48x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 48x16 px.",
+    "Timer plate supports a five-character MM:SS layout with centered colon spacing.",
+    "Dark back plate extends at least 1 px beyond the digit region on all sides."
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.panel.results_800x500",
+  "asset_name": "Results Panel — 800×500",
+  "category": "ui",
+  "subcategory": "panel",
+  "priority": "P1",
+  "execution_order": 24,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.typography.bitmap_font_bw_8px",
+      "ui.hud.hud_panels_bw_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "modal_results",
+    "layer": "ui_modal",
+    "usage": "Shown after each winter round to display score, resource deltas, and next-round button. Positioned near (560, 200).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        560,
+        200
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 800,
+      "height": 500
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "layout_rules": {
+      "header_height_px": 64,
+      "table_area_bbox_px": {
+        "x": 32,
+        "y": 96,
+        "w": 736,
+        "h": 320
+      },
+      "button_area_bbox_px": {
+        "x": 32,
+        "y": 432,
+        "w": 736,
+        "h": 48
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.panel.results_800x500.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel is exactly 800x500px with sections clearly separated by grayscale lines.",
+    "Table area supports listing at least 6 resources with before/after numbers using 8px font.",
+    "Button area can host a 160x48 confirm button with at least 16px side padding."
+  ]
+}

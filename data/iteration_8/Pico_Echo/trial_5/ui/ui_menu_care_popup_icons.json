@@ -1,0 +1,167 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000808",
+  "asset_key": "ui_menu_care_popup_icons",
+  "asset_name": "Care Popup Icons — feed, clean, pet",
+  "category": "ui",
+  "subcategory": "menu",
+  "priority": "P1",
+  "execution_order": 80,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Three 8x8 icons stay compact to protect the tiny play area.",
+    "Button panel uses a high-contrast navy frame for finger targeting.",
+    "Each icon keeps a single dominant silhouette for instant recognition."
+  ],
+  "differences": [
+    "This file covers popup controls only.",
+    "Persistent HUD meter and status bubbles stay outside this task."
+  ],
+  "depends_on": [
+    "task_id_000000803",
+    "task_id_000000804"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000803",
+    "task_id_000000804"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000803",
+      "task_id_000000804",
+      "task_id_000000807"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "proxy_hud_density",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_A2/_ReferenceImages/hud.png",
+      "purpose": "Proxy UI reference for compressing three actions into a compact popup without crowding the play area."
+    },
+    {
+      "label": "proxy_environment_spacing",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_A2/_ReferenceImages/background.png",
+      "purpose": "Proxy layout reference for keeping the popup clear of the perch and floor anchors."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_2x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "CareMenu",
+      "OverlayUi",
+      "Interactable"
+    ],
+    "asset_loading": "Load assets/art/pico_echo/trial_5/ui_menu_care_popup_icons.png with AssetServer during Loading state and store the handle under ui_menu_care_popup_icons.",
+    "runtime_notes": [
+      "Create a 2-column TextureAtlasLayout for active and cooldown states.",
+      "Spawn this popup only when the care menu is visible and anchor it near x=92 y=104 on the overlay camera.",
+      "Keep the panel above the world floor but above the HUD by a distinct z layer within the UI camera."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FFA300"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "popup_menu",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        92,
+        104
+      ]
+    },
+    "layer": "ui_popup",
+    "usage": "Tap-triggered care menu shown near the lower-right corner with feed, clean, and pet actions."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 36,
+      "height": 12
+    },
+    "colors_hex": [
+      "#1D2B53",
+      "#FFA300",
+      "#C2C3C7",
+      "#FFCCAA",
+      "#5F574F",
+      "#FFF1E8"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "active",
+        "cooldown"
+      ],
+      "frame_count": 2,
+      "frame_size_px": [
+        36,
+        12
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "icon_map": [
+      "Feed icon at local x=2..9 uses a seed silhouette in #FFA300.",
+      "Clean icon at local x=14..21 uses a broom silhouette in #C2C3C7.",
+      "Pet icon at local x=26..33 uses a hand silhouette in #FFCCAA.",
+      "Cooldown state swaps active icon fills to #5F574F while keeping panel edges stable."
+    ],
+    "shape": {
+      "silhouette": "36x12 popup strip divided into three 12x12 action cells for feed, clean, and pet.",
+      "components": [
+        "feed cell",
+        "clean cell",
+        "pet cell",
+        "panel outline",
+        "cooldown fill swap"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_menu_care_popup_icons.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 72x12px with two 36x12 states.",
+    "Each state contains three readable 8x8 icons on a navy panel with at least 2px spacing between icon boxes.",
+    "Cooldown state visibly desaturates every icon with #5F574F while keeping silhouettes readable.",
+    "Panel fits inside the 128x128 canvas at x=92 y=104 without covering the happiness bar."
+  ]
+}

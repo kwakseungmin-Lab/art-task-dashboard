@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003013",
+  "asset_key": "obstacle_scale_platform_dual_520x96",
+  "asset_name": "Dual Scale Platform Atlas",
+  "category": "obstacles",
+  "subcategory": "scale_mechanic",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001",
+    "task_id_008003012"
+  ],
+  "blocks": [
+    "task_id_008003003",
+    "task_id_008003009",
+    "task_id_008003019",
+    "task_id_008003022"
+  ],
+  "blocked_by": [
+    "task_id_008003001",
+    "task_id_008003012"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003003",
+      "task_id_008003005",
+      "task_id_008003009",
+      "task_id_008003012",
+      "task_id_008003019",
+      "task_id_008003022"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle with authored discrete tilt states and drive frame selection from torque buckets instead of live rotating one image.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "ScalePlatform",
+      "Transform",
+      "TorqueState"
+    ],
+    "asset_loading": "Load obstacles/obstacle_scale_platform_dual_520x96.png through AssetServer and bind frame indices to the seven target angle buckets.",
+    "runtime_notes": [
+      "Frames cover minus 45, minus 30, minus 15, 0, plus 15, plus 30, and plus 45 degrees.",
+      "Center axle art stays aligned to the world pivot so physics and art stay in sync.",
+      "Objects on the platform use Rapier colliders while art remains a non physics child sprite."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "dual_scale_platform",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        700,
+        624
+      ]
+    },
+    "layer": "obstacle_scale",
+    "usage": "Main balance puzzle platform that shifts angle based on torque from Umbra, Echo helpers, and numbered weight blocks.",
+    "adjacent_elements": [
+      "player_umbra_idle_6f_6fps",
+      "player_echo_anchor_idle_4f_4fps",
+      "ui_scale_readout_panel_220x56"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 520,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#2D1B4E",
+      "#F5EFE0",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 7,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 7,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Wide two arm scale with a central axle, stepped art deco braces, and marked end caps for load placement.",
+      "components": [
+        "left_arm",
+        "right_arm",
+        "central_axle",
+        "brace_frame",
+        "end_caps",
+        "angle_markers"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Brushed gold trim over dark metal braces with a clear white axle highlight.",
+    "shading": "High contrast edge shading that preserves platform thickness across all seven tilt states."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_scale_platform_dual_520x96.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 3640x96 px with seven 520x96 frames.",
+    "Frame 4 is level and frames 1 and 7 show the full minus 45 and plus 45 degree endpoints.",
+    "The axle center remains on one pixel coordinate across all frames so world pivot alignment stays exact."
+  ]
+}

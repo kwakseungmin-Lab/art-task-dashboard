@@ -1,0 +1,117 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.whiteout_vignette_masks_512_set_4",
+  "asset_name": "Whiteout Vignette Masks — 512px set (4)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P1",
+  "execution_order": 32,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "vfx_mask",
+    "layer": "vfx_overlay",
+    "usage": "Mask visibility at high blizzard intensity (70%+).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1024,
+      "height": 512
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "masks": [
+      {
+        "id": "vignette_soft",
+        "size_px": {
+          "width": 512,
+          "height": 512
+        },
+        "note": "Soft edge for 40-55% intensity."
+      },
+      {
+        "id": "vignette_mid",
+        "size_px": {
+          "width": 512,
+          "height": 512
+        },
+        "note": "Mid edge for 55-70% intensity."
+      },
+      {
+        "id": "vignette_hard",
+        "size_px": {
+          "width": 512,
+          "height": 512
+        },
+        "note": "Hard edge for 70-85% intensity."
+      },
+      {
+        "id": "whiteout_center",
+        "size_px": {
+          "width": 512,
+          "height": 512
+        },
+        "note": "Only center visible for 85%+."
+      }
+    ],
+    "layout_note": "Pack 4 masks horizontally into 1024×512; use alpha for falloff."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.whiteout_vignette_masks_512_set_4.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 1024×512px.",
+    "Masks provide smooth falloff and preserve center readability.",
+    "Edges do not show banding at 1×."
+  ]
+}

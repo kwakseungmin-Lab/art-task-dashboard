@@ -1,0 +1,16 @@
+{
+  "base_size": {
+    "width": "2-3px",
+    "height": "2-3px"
+  },
+  "color_scheme": {
+    "seed": "#FFA300",
+    "poop": "#AB5236"
+  },
+  "shared_attributes": {
+    "sprite_type": "small pixel art objects",
+    "rendering": "rendered on top of environment",
+    "style": "minimal, simple shapes",
+    "interaction": "spawned and consumed by game systems"
+  }
+}

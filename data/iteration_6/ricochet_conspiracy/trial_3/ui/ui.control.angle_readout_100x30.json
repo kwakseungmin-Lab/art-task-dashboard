@@ -1,0 +1,98 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.control.angle_readout_100x30",
+  "asset_name": "Control — Angle Readout Plate (100x30)",
+  "category": "ui",
+  "subcategory": "control",
+  "priority": "P0",
+  "execution_order": 470,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.bitmap_serif_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_serif_16px_ascii96",
+      "ui.hud.bottom_control_bar_frame_1280x50"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "control_readout",
+    "layer": "ui",
+    "usage": "Plate for text \"각도: NNN°\" on bottom-left of control bar.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": [
+        12,
+        -38
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 100,
+      "height": 30
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#3D2B1F",
+      "#D4A843",
+      "#F5F0E8"
+    ],
+    "ui_element": {
+      "padding_px": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "note": "Must fit 16px font plus degree symbol."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.control.angle_readout_100x30.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Plate is exactly 100x30px with enough inner area for a 16px text line including degree symbol.",
+    "Border uses #3D2B1F; accent corners can use #D4A843; no anti-aliasing.",
+    "At 1280x720, anchored bottom-left with offset (12,-38), it stays fully within the bottom bar."
+  ]
+}

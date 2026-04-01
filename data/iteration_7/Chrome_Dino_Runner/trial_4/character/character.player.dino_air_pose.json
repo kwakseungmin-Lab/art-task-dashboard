@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.dino_air_pose",
+  "asset_name": "Player Dino — jump pose sheet",
+  "category": "character",
+  "subcategory": "player_motion",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "Both feet are off the ground in one compact silhouette.",
+    "Tail angle rises to support a jump read at 1x scale.",
+    "Body mass remains inside the 88x94 frame used by the ground motion core."
+  ],
+  "depends_on": [
+    "character.player.dino_runner_core"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.dino_runner_core"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_runner_core",
+      "obstacles.cactus_triplet_cluster",
+      "obstacles.pterodactyl_flap_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "airborne_pose",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        34
+      ]
+    },
+    "layer": "character",
+    "usage": "Single airborne pose for jump apex and descent frames during obstacle clearance."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "silhouette_notes": [
+      "Knee bend is visible with a 3px notch on the trailing leg.",
+      "Jaw line stays closed to avoid noise in the face area.",
+      "A 2px gap between both feet improves the airborne read."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_air_pose.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 88x94px.",
+    "Feet clear the baseline by at least 18px inside the silhouette.",
+    "Spine angle differs from ground motion core by 8 to 14 degrees to signal lift."
+  ]
+}

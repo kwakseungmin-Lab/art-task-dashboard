@@ -1,0 +1,134 @@
+{
+  "asset_name": "Counter Gauge 48x48",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 42,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.boss.cyclops_state_sheet",
+    "character.enemy.medusa_state_sheet",
+    "character.enemy.cerberus_state_sheet",
+    "character.boss.hydra_state_sheet"
+  ],
+  "blocks": [
+    "ui.popup.counter_result"
+  ],
+  "blocked_by": [
+    "character.boss.cyclops_state_sheet",
+    "character.enemy.medusa_state_sheet",
+    "character.enemy.cerberus_state_sheet",
+    "character.boss.hydra_state_sheet"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.popup.counter_result",
+      "character.player.heracles_counter_64x96"
+    ]
+  },
+  "context": {
+    "role": "hud_counter",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "enemy_head_center",
+      "offset_px": {
+        "x": 0,
+        "y": -20
+      }
+    },
+    "adjacent_elements": [
+      "character.player.heracles_counter_64x96",
+      "ui.popup.counter_result"
+    ],
+    "layer": "ui_overlay",
+    "usage": "Visible only during enemy telegraph windows; diameter 48 px and fill shrinks over 0.3 to 0.6 seconds depending on enemy."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#40E8D0",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "stateful",
+      "frame_count": 12,
+      "frame_time_s": 0.05,
+      "loop": false,
+      "states": {
+        "countdown": 12
+      },
+      "sprite_sheet_layout": {
+        "columns": 6,
+        "rows": 2
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "screen_flat",
+      "facing": "front",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Circular gauge with outer diameter 48 px and inner hole diameter 20 px.",
+      "components": [
+        "outer ring 48x48",
+        "inner hole 20x20",
+        "countdown wedge x12"
+      ]
+    },
+    "telegraph_range_s": {
+      "min": 0.3,
+      "max": 0.6
+    },
+    "shading_model": "flat_ui"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.counter_gauge.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Gauge frame size is exactly 48x48 px.",
+    "Sheet contains exactly 12 countdown frames.",
+    "Outer ring uses #40E8D0 and the warning highlight uses #FFD966.",
+    "Anchor offset is exactly y minus 20 relative to enemy head center."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.counter_gauge",
+  "category": "ui",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

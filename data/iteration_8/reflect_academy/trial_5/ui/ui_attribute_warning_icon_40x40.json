@@ -1,0 +1,169 @@
+{
+  "task_id": "task_id_000008511",
+  "asset_key": "ui_attribute_warning_icon_40x40",
+  "asset_name": "Attribute Warning Icon Set — eight elemental states",
+  "subcategory": "warning_icon",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the project core palette copy #D4AF37/#2B1B17/#00FFFF.",
+    "Each icon state fits the documented 40x40 px warning size.",
+    "Icon is readable during the 0.5 second warning beat near the enemy slot."
+  ],
+  "differences": [
+    "This file carries fire, water, thunder, wind, ice, poison, light, and dark states.",
+    "Each state swaps only the symbol fill and attribute accent while preserving the same gold frame and navy plate."
+  ],
+  "depends_on": [
+    "task_id_000008501",
+    "task_id_000008505"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000008501",
+    "task_id_000008505"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000008505",
+      "task_id_000008506",
+      "task_id_000008507",
+      "task_id_000008510"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "duel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png",
+      "purpose": "Ground warning-icon scale near the enemy slot."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground 40x40 px attribute icon size and 0.5 second pre-launch warning role."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_8x1",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "UiNodeAnchor",
+      "AttributeWarningIcon"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_5/ui_attribute_warning_icon_40x40.png with AssetServer during Loading state and store the handle under ui_attribute_warning_icon_40x40.",
+    "runtime_notes": [
+      "Create an 8-column TextureAtlasLayout for the eight elemental states.",
+      "Anchor the icon to the overlay camera at x=1500 y=180 while warning is active.",
+      "Swap frames from the incoming spell attribute enum before projectile spawn."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "attribute_warning_icon",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1500,
+        180
+      ]
+    },
+    "layer": "ui",
+    "usage": "Appears for the pre-launch forecast beat and changes frame by incoming projectile attribute."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#D4AF37",
+      "#1A1A2E",
+      "#FF4500",
+      "#1E90FF",
+      "#FFD700",
+      "#98FB98",
+      "#B0E0E6",
+      "#9B59B6",
+      "#FFFACD",
+      "#2C2C2C"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "fire",
+        "water",
+        "thunder",
+        "wind",
+        "ice",
+        "poison",
+        "light",
+        "dark"
+      ],
+      "frame_count": 8,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Square gold-framed icon plate with an elemental glyph centered on a navy field.",
+      "components": [
+        "gold frame",
+        "navy plate",
+        "glyph core",
+        "attribute accent ring"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_attribute_warning_icon_40x40.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet canvas is exactly 320x40 px with eight 40x40 states.",
+    "Each elemental glyph stays inside a 24x24 px safe area centered in the frame.",
+    "Frame border remains #D4AF37 at 2 px thickness in all eight states."
+  ],
+  "schema_version": "art_task@8",
+  "category": "ui"
+}

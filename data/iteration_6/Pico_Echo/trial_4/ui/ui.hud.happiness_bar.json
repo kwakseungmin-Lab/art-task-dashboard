@@ -1,0 +1,111 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.happiness_bar",
+  "asset_name": "HUD - Happiness Bar (2px height, 120px width)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo.idle",
+      "world.cage.interior_base"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "echo_body",
+      "hex": "#FFA300"
+    },
+    "background": {
+      "name": "cream_bg",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "echo_cheek",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "palette_mode": "indexed_16",
+    "pico8_inspired": true
+  },
+  "context": {
+    "role": "hud",
+    "layer": "ui",
+    "usage": "Always-visible happiness meter displayed at the bottom of the screen.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 4,
+      "y": 126
+    },
+    "alignment": {
+      "width_px": 120,
+      "height_px": 2,
+      "origin": "top_left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 2
+    },
+    "colors_hex": [
+      "#5F574F",
+      "#00E436",
+      "#FFEC27",
+      "#FFA300",
+      "#FFF1E8",
+      "#1D2B53"
+    ],
+    "states": [
+      {
+        "name": "background",
+        "fill_color_hex": "#5F574F"
+      },
+      {
+        "name": "fill_90_100",
+        "fill_color_hex": "#00E436"
+      },
+      {
+        "name": "fill_70_89",
+        "fill_color_hex": "#FFEC27"
+      },
+      {
+        "name": "fill_0_69",
+        "fill_color_hex": "#FFA300"
+      }
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.happiness_bar.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG contains a 120x2px asset intended to be blitted at x=4, y=126 on a 128x128 canvas.",
+    "Background uses #5F574F across the full width; fill layer is authored separately or as an alternate state using only one of #00E436, #FFEC27, or #FFA300.",
+    "No pixels extend outside the 120x2 bounding box; no anti-aliasing and no semi-transparent pixels."
+  ]
+}

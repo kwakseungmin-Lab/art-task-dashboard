@@ -1,0 +1,90 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.game_over.game_over_text",
+  "asset_name": "Game Over - Title Text",
+  "category": "ui",
+  "subcategory": "game_over",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.pixel_mono_16"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.pixel_mono_16"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "game_over",
+    "layer": "ui",
+    "usage": "Centered title shown when the player is dead",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        -30
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 216,
+      "height": 24
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.game_over.game_over_text.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Image is exactly 216x24px and contains the text \"GAME OVER\" centered within the image bounds.",
+    "When placed on a 600x150 canvas, the text baseline sits 30px above vertical center with no clipping.",
+    "Uses only #535353 for text pixels and transparent/#F7F7F7 for background; no anti-aliasing."
+  ]
+}

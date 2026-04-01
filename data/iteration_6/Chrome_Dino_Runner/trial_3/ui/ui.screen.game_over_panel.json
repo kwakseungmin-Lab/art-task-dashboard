@@ -1,0 +1,104 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.screen.game_over_panel",
+  "asset_name": "UI — Game Over Screen Panel (centered text)",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 320,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player_dino.dead_static",
+      "ui.hud.score_display_5digit_font16"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "game_over",
+    "layer": "ui",
+    "usage": "Shown after collision; includes GAME OVER text and optional restart hint.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        300,
+        60
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 300,
+      "height": 80
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7",
+      "#FF0000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        300,
+        80
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "layout": {
+      "alignment": "center",
+      "text_sizes_px": {
+        "title": 24,
+        "score": 16,
+        "hint": 12
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.game_over_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 300x80px with transparent background.",
+    "All text is center-aligned and uses only #535353 (accent #FF0000 optional for highlight).",
+    "No gradients, shadows, or anti-aliased edges."
+  ]
+}

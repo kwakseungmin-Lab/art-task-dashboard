@@ -1,0 +1,141 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.noble_basic",
+  "asset_name": "Basic Noble Target",
+  "category": "character",
+  "subcategory": "noble_target",
+  "priority": "P0",
+  "execution_order": 16,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This character is the baseline noble silhouette with no shield or patrol prop."
+  ],
+  "depends_on": [
+    "world.background.midlayer_court",
+    "world.foreground.floor_tiles"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.midlayer_court",
+    "world.foreground.floor_tiles"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble_guard",
+      "ui.screen.result_panel"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "primary_target_character",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 760,
+      "y": 420,
+      "width": 32,
+      "height": 48,
+      "anchor": "top_left"
+    },
+    "layer": "midground_character",
+    "usage": "Used from stage 1-1 onward as the base target silhouette.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_left"
+    },
+    "adjacent_elements": [
+      "world.foreground.floor_tiles",
+      "obstacles.environment.stone_wall",
+      "ui.screen.result_panel"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#8BA7C7",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#D4A843"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "idle",
+      "states": [
+        {
+          "name": "idle",
+          "frame_count": 6,
+          "fps": 4
+        },
+        {
+          "name": "hit",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "elimination",
+          "frame_count": 8,
+          "fps": 12
+        }
+      ]
+    },
+    "notes": [
+      "Head height is 12 px and shoulder width is 20 px for clean target readability.",
+      "Accessory count is capped at 2 visible ornaments to avoid silhouette noise."
+    ],
+    "shape": {
+      "silhouette": "upright robe figure with a small head, broad shoulders, and a bell hem",
+      "components": [
+        "head",
+        "shoulder cape",
+        "torso robe",
+        "left arm",
+        "right arm",
+        "hemline"
+      ]
+    }
+  },
+  "deliverables": [
+    "Idle loop 6 frames at 4 fps.",
+    "Single-frame hit pose.",
+    "8-frame elimination burst sequence."
+  ],
+  "acceptance_criteria": [
+    "Character size is exactly 32x48 px.",
+    "Idle loop contains 6 frames at 4 fps.",
+    "Base costume fill uses #8BA7C7 on the torso silhouette."
+  ]
+}

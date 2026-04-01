@@ -1,0 +1,160 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050006",
+  "asset_name": "Prisoner Wall Brace Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": "task_id_008050005",
+  "shared_properties": [
+    "Prisoner head shape, torso width, tunic palette, and chain accent stay aligned with the fall base sprite.",
+    "Each frame still fits a strict 16x24px player footprint for stable collision tuning.",
+    "Outline weight stays at 1px so runtime mirroring remains crisp on either wall side."
+  ],
+  "differences": [
+    "Sprite sheet is 32x24px with two brace frames that push hand and boot contact into the wall edge.",
+    "Torso leans 2px toward the contact side to communicate active braking rather than free-fall drift.",
+    "Animation rate slows to 6 FPS so the pose reads as controlled friction against the wall."
+  ],
+  "depends_on": [
+    "task_id_008050005",
+    "task_id_008050002"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008050005",
+    "task_id_008050002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050005",
+      "task_id_008050002",
+      "task_id_008050015"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "player_wall_brake",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        24,
+        60
+      ]
+    },
+    "layer": "character",
+    "usage": "Brace pose used when friction input engages a wall and the descent speed drops.",
+    "adjacent_elements": [
+      "task_id_008050005",
+      "task_id_008050002",
+      "task_id_008050015"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#E07B39",
+      "#0D0D0F",
+      "#3B3347"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        16,
+        24
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Compressed player pose with one hand and one boot pushing into a wall.",
+      "tiling": "Not tiled.",
+      "collision_read": "Contact limbs stay inside the 16x24px frame while still reading as wall pressure."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_prisoner_wall_brace_2f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 32x24px with two 16x24px frames.",
+    "The contact hand and boot reach the wall side of the frame without breaking the outer outline.",
+    "Runtime mirroring for the opposite wall keeps the silhouette readable with no asymmetrical noise on the face side."
+  ],
+  "asset_key": "character_prisoner_wall_brace_2f_6fps",
+  "variant_of_asset_key": "character_prisoner_fall_4f_8fps",
+  "reference_images": [
+    {
+      "label": "slip_down_player_reference",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds prisoner proportions, cloth folds, and animation posing for the active sprite."
+    },
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds dungeon lighting, palette temperature, and surrounding tile contrast for the active sprite."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with a TextureAtlasLayout and fixed-step animation timer.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer during the Loading state and bind it to the player state machine after the fall loop is available.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Drive gameplay motion in FixedUpdate at 60 FPS and keep art timing on deterministic timers.",
+      "Swap into this atlas when friction input is active and wall contact is confirmed by gameplay code."
+    ]
+  }
+}

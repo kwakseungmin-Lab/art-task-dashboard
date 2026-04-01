@@ -1,0 +1,192 @@
+{
+  "task_id": "cdr_environment_cloud_small",
+  "asset_name": "cloud_small",
+  "category": "environment",
+  "subcategory": "cloud",
+  "description": "Create optional cloud sprite for background parallax. Canvas size 46x14 px. Static sprite (1 frame). Color usage: #535353 only; background fully transparent (alpha 0). Cloud silhouette must be a single connected component (no separated islands).",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Optional parallax decoration.",
+    "screen_location": "Spawns at screen_width+50; y randomized in [10,40] px range; scroll speed = Current_Speed*0.5.",
+    "adjacent_elements": [
+      "background_sky"
+    ],
+    "layer": "background_mid",
+    "usage": "Optional; density controlled by 5-10s spawn interval and 30% spawn probability."
+  },
+  "specs": {
+    "dimensions": "46x14",
+    "animation": {
+      "enabled": false
+    },
+    "colors": [
+      "#535353"
+    ],
+    "background": "transparent",
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    },
+    "connectivity": {
+      "opaque_components": 1
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/environment/cloud_small.png",
+      "type": "sprite",
+      "format": "png",
+      "dimensions_px": "46x14",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/environment/cloud_small@2x.png",
+      "type": "sprite",
+      "format": "png",
+      "dimensions_px": "92x28",
+      "scale": 2,
+      "background": "transparent",
+      "scale_method": "nearest_neighbor"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_environment_background_sky"
+    ],
+    "shared_properties": {
+      "primary_color_hex": "#535353",
+      "parallax_speed_multiplier": 0.5
+    },
+    "differences": {
+      "size": "46x14"
+    }
+  },
+  "depends_on": [
+    "cdr_environment_background_sky"
+  ],
+  "execution_order": 13,
+  "priority": "P3",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_environment_background_sky"
+  ],
+  "acceptance_criteria": [
+    "1x PNG dimensions exactly 46x14; 2x dimensions are doubled.",
+    "Only #535353 opaque pixels and transparent background.",
+    "Opaque pixels form exactly 1 connected component (4-connected).",
+    "No anti-aliasing and no other colors."
+  ]
+}

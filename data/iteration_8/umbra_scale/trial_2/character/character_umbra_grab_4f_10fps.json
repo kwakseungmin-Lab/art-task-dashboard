@@ -1,0 +1,166 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020103",
+  "asset_key": "character_umbra_grab_4f_10fps",
+  "asset_name": "Umbra Grab and Push State (4 frames, 10fps)",
+  "category": "character",
+  "subcategory": "player_state",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "task_id_008020101",
+  "variant_of_asset_key": "character_umbra_idle_6f_8fps",
+  "shared_properties": [
+    "Umbra keeps the 32x48 px silhouette envelope, core palette metadata, and mist-fringe shape established by the idle base state.",
+    "The center-bottom pivot remains identical to the idle sheet so grab transitions do not move the collision capsule.",
+    "Hand silhouettes remain high-contrast against mirror edges and gold mechanical trim."
+  ],
+  "differences": [
+    "Four frames show both hands extended toward a nearby interactable with a slight torso lean and bent rear knee.",
+    "The forward arm line stays readable against a 16 px mirror panel and a 32 px weight block edge.",
+    "A thin amber contact highlight appears only at the fingertip cluster to indicate active grab engagement."
+  ],
+  "depends_on": [
+    "task_id_008020101"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020101"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020101",
+      "task_id_008020106",
+      "task_id_008020107",
+      "task_id_008020108"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the E-hold grab rule, 32 px interaction range, and object-manipulation play."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the metallic art deco material cues used around interactables."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra hand proportion and shoulder silhouette for contact poses."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with interaction-state timers.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility",
+      "UmbraActor",
+      "GrabState"
+    ],
+    "asset_loading": "Load the grab atlas during FloorLoading and use it when GrabState is active for UmbraActor.",
+    "runtime_notes": [
+      "Keep the hands aligned to a 32 px interaction reach window.",
+      "Use one looping atlas rather than procedural arm offsets.",
+      "Preserve center-bottom pivot compatibility with idle and run states."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "grab_player_state",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        708,
+        640
+      ]
+    },
+    "layer": "character",
+    "usage": "Interaction state used while holding E near mirrors, prisms, or weight blocks within 32 px.",
+    "adjacent_elements": [
+      "task_id_008020106",
+      "task_id_008020108"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        48
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "pose_notes": [
+      "Front shoulder shifts 4 px forward on frame 2.",
+      "Rear heel remains planted within the 32 px body width.",
+      "Hand reach never exceeds the rightmost asset bound."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_umbra_grab_4f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 128x48 px with 4 frames of 32x48 px and 0 px spacing.",
+    "The pose clearly communicates object manipulation against both mirror and weight silhouettes.",
+    "Runtime swap from idle to grab preserves the same center-bottom pivot."
+  ]
+}

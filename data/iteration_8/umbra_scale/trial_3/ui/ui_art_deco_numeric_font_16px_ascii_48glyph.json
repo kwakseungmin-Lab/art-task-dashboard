@@ -1,0 +1,155 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003016",
+  "asset_key": "ui_art_deco_numeric_font_16px_ascii_48glyph",
+  "asset_name": "Art Deco Numeric Font Atlas",
+  "category": "ui",
+  "subcategory": "font",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "task_id_008003017",
+    "task_id_008003018",
+    "task_id_008003019",
+    "task_id_008003021",
+    "task_id_008003022"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003017",
+      "task_id_008003018",
+      "task_id_008003019",
+      "task_id_008003021",
+      "task_id_008003022"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with a custom bitmap text system for HUD labels, floor numbers, timer digits, and scale angle readouts.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Image",
+      "TextureAtlas",
+      "BitmapFont",
+      "UiTextGlyphMap"
+    ],
+    "asset_loading": "Load ui/ui_art_deco_numeric_font_16px_ascii_48glyph.png through AssetServer during UI bootstrap and register glyph rectangles in a bitmap font resource.",
+    "runtime_notes": [
+      "Atlas covers digits, uppercase letters needed for FLOOR, HP, EXPOSURE, L, R, DEG, and punctuation used by timers.",
+      "Glyphs snap to whole pixels in Bevy UI space to avoid shimmer at the target 60 FPS presentation.",
+      "Text color tinting can reuse gold, white, teal, and amber from the core palette without repainting the atlas."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "bitmap_font",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui_font_resource",
+    "usage": "Bitmap font atlas for floor labels, timers, scale readouts, rank letters, and small stock counters across the HUD.",
+    "adjacent_elements": [
+      "ui_hud_hp_exposure_panel_240x80",
+      "ui_floor_timer_header_320x48",
+      "ui_scale_readout_panel_220x56"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_flat",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 96
+    },
+    "colors_hex": [
+      "#C9A84C",
+      "#F5EFE0",
+      "#0D0B14",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "atlas",
+      "frame_count": 48,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 6,
+        "cols": 8,
+        "order": "left_to_right_top_to_bottom"
+      }
+    },
+    "shape": {
+      "silhouette": "16 px tall geometric bitmap glyphs with stepped corners, narrow counters, and bold vertical stems suited for art deco UI framing.",
+      "components": [
+        "digit_set",
+        "uppercase_set",
+        "colon",
+        "slash",
+        "period",
+        "degree_marker",
+        "heart_outline_marker"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Solid fills with no anti aliasing and slightly heavier vertical stems than horizontal bars.",
+    "shading": "Flat one tone glyphs with optional engine tinting at runtime."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_art_deco_numeric_font_16px_ascii_48glyph.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Font atlas is exactly 128x96 px with forty eight 16x16 glyph cells in an 8 by 6 grid.",
+    "Digits 0 through 9, uppercase letters needed for HUD labels, colon, slash, period, and degree marker are all present.",
+    "All glyph strokes align to whole pixels and use only listed colors plus transparency."
+  ]
+}

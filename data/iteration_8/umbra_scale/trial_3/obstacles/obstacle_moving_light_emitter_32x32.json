@@ -1,0 +1,164 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003015",
+  "asset_key": "obstacle_moving_light_emitter_32x32",
+  "asset_name": "Moving Light Emitter Sweep",
+  "category": "obstacles",
+  "subcategory": "light_source",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": "task_id_008003014",
+  "variant_of_asset_key": "obstacle_fixed_light_emitter_32x32",
+  "shared_properties": [
+    "32x32 frame size.",
+    "Core palette #C9A84C/#0D0B14/#D4682A.",
+    "Forward lens cone and gold housing silhouette."
+  ],
+  "differences": [
+    "Adds a short rail carriage under the housing.",
+    "Core pulse sweeps through a wider amber arc.",
+    "Outer signal rim includes motion marks on the rear edge."
+  ],
+  "depends_on": [
+    "task_id_008003014"
+  ],
+  "blocks": [
+    "task_id_008003020"
+  ],
+  "blocked_by": [
+    "task_id_008003014"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003010",
+      "task_id_008003011",
+      "task_id_008003014",
+      "task_id_008003020"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle on rail light entities and reuse the fixed emitter beam code while the Transform moves along a path.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "LightEmitter",
+      "RailMover",
+      "Transform"
+    ],
+    "asset_loading": "Load obstacles/obstacle_moving_light_emitter_32x32.png through AssetServer and swap it onto moving emitter entities that follow authored rail points.",
+    "runtime_notes": [
+      "Sweep loop runs at 8 fps while the rail mover updates position in FixedUpdate.",
+      "Lens center stays at x=24 y=16 to preserve beam origin compatibility with the fixed emitter code path.",
+      "Motion marks must remain readable without creating false beam width cues."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "moving_light_source",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1440,
+        304
+      ]
+    },
+    "layer": "obstacle_light",
+    "usage": "Rail mounted beam source that sweeps danger across platforms and forces time based traversal through temporary shadow lanes.",
+    "adjacent_elements": [
+      "obstacle_fixed_light_emitter_32x32",
+      "world_shadow_safezone_overlay_1920x1080",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#D4682A",
+      "#F5EFE0",
+      "#C9A84C",
+      "#2D1B4E"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Lamp housing on a short rail carriage with a wider pulse arc and small motion marks trailing the mount.",
+      "components": [
+        "housing",
+        "front_lens",
+        "core_aperture",
+        "rail_carriage",
+        "motion_marks"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Metal rail carriage and bright glass lens with a warmer pulse than the fixed emitter.",
+    "shading": "White hot lens center with amber sweep halo and darker rail undercarriage."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_moving_light_emitter_32x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 256x32 px with eight 32x32 frames.",
+    "Rail carriage remains inside the lower 8 px of the frame on all eight frames.",
+    "Motion marks never extend past the 32 px frame edge and do not alter the beam origin point."
+  ]
+}

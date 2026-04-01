@@ -1,0 +1,121 @@
+{
+  "asset_name": "Wide Gap Gate 160x110",
+  "subcategory": "terrain",
+  "priority": "P1",
+  "execution_order": 33,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.floor.star_floor_strip"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.floor.star_floor_strip"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.heracles_form_64x96",
+      "character.player.heracles_form_120x180"
+    ]
+  },
+  "context": {
+    "role": "size_gate_wide",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "player_lock_x",
+      "offset_px": {
+        "x": 520,
+        "y": -110
+      }
+    },
+    "adjacent_elements": [
+      "character.player.heracles_form_64x96",
+      "world.floor.star_floor_strip"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Appears in all zones where the 64x96 form passes and the 120x180 form collides; opening height is exactly 110 px."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 110
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#E84040"
+    ],
+    "animation": {
+      "type": "none",
+      "frame_count": 1,
+      "frame_time_s": 0.0,
+      "loop": false
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Horizontal gate frame 160 px wide with a clear opening height of 110 px measured from floor contact.",
+      "components": [
+        "left post 16x130",
+        "right post 16x130",
+        "top lintel 128x16",
+        "warning crest 24x24"
+      ]
+    },
+    "collision_box_px": {
+      "width": 160,
+      "height": 110
+    },
+    "opening_height_px": 110,
+    "shading_model": "two_tone_flat"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.gap.wide_gate.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Gate opening height is exactly 110 px.",
+    "Total gate span is exactly 160 px.",
+    "Warning crest is centered at x 80 and uses #E84040.",
+    "Clear opening remains centered within the 160 px span."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.gap.wide_gate",
+  "category": "obstacles",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

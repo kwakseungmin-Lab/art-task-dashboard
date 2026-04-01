@@ -1,0 +1,87 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.midlayer_columns_curtains_1280x620",
+  "asset_name": "Background Midlayer — Columns & Curtains (1280x620)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 320,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "parallax_mid",
+    "layer": "world",
+    "usage": "Middle parallax layer behind puzzle objects: columns, curtains, decorative court elements.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 50
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#D4A843",
+      "#C8B4E0",
+      "#3D2B1F"
+    ],
+    "background": {
+      "layers": 1,
+      "parallax_factor": 0.4,
+      "note": "Reserve the central playfield with slightly flatter tones to keep obstacles readable."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.midlayer_columns_curtains_1280x620.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1280x620px; intended to sit behind the playfield (between top HUD and bottom bar).",
+    "Curtains and columns are readable but not distracting; avoid pure white; keep outlines minimal and consistent with 1px style.",
+    "Left/right edges can repeat without abrupt cutoff when camera pans in larger stages."
+  ]
+}

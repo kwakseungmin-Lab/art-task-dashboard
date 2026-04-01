@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.foreground.marble_floor_strip",
+  "asset_name": "Marble Floor Strip",
+  "category": "world",
+  "subcategory": "stage_surface",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.arch_front_layer",
+      "character.noble.standard_pose_sheet",
+      "obstacles.environment.stone_wall_segment"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "stage_floor",
+    "layer": "world_foreground",
+    "usage": "Foreground floor strip for bounce reads, shadow anchors, and object placement.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 574
+    },
+    "adjacent_elements": [
+      "character.noble.standard_pose_sheet",
+      "obstacles.environment.stone_wall_segment"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 96
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#A89880"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "straight_floor_band_with_tile_grid",
+      "components": [
+        "tile_row_top",
+        "tile_row_mid",
+        "tile_row_bottom",
+        "shadow_band"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "tile_size_px": 64,
+    "collision_hint": "flat_surface"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.foreground.marble_floor_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1280x96px and tile seams repeat every 64px.",
+    "Top edge stays straight on y=0px with no height shift across the strip.",
+    "Dark grout lines use #3D2B1F and remain 2px wide."
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003006",
+  "asset_key": "player_prisoner_brake_left_2f_6fps",
+  "asset_name": "Player Prisoner Left Brake",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": "task_id_008003005",
+  "variant_of_asset_key": "player_prisoner_fall_4f_8fps",
+  "shared_properties": [
+    "16x24 source frame size.",
+    "Core palette #D6D0C4/#0D0D0F/#E07B39.",
+    "Prisoner silhouette with shackles, tunic hem, and bent-knee descent pose."
+  ],
+  "differences": [
+    "Left hand and left boot press into the contact side.",
+    "Torso leans 3 px toward the left edge.",
+    "Cloth hem lifts upward to communicate drag."
+  ],
+  "depends_on": [
+    "task_id_008003005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003007",
+      "task_id_008003015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle and trigger this state through the same PlayerStateSprite entity that owns the fall loop.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerStateSprite",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_prisoner_brake_left_2f_6fps.png through AssetServer and swap to this atlas when left drag is active.",
+    "runtime_notes": [
+      "The pivot matches the base fall state so animation swaps do not slide on the wall.",
+      "Brake state takes priority over the generic fall loop while left drag input is pressed.",
+      "Frame cadence slows to 6 fps to emphasize friction resistance."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "player_left_brake",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        604,
+        236
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Left-wall contact pose used when the player holds the left input and drags on a high-friction surface.",
+    "adjacent_elements": [
+      "player_prisoner_fall_4f_8fps",
+      "world_friction_tilekit_16px",
+      "ui_friction_gauge_240x8"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#E07B39",
+      "#3B3347",
+      "#1A1A2E"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 2,
+      "fps": 6,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 2,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Bracing prisoner silhouette with the left hand and left boot pressed toward the wall, torso leaned into drag, and cloth pulled upward by resistance.",
+      "components": [
+        "head",
+        "bracing_left_hand",
+        "tunic",
+        "left_boot_press",
+        "right_leg_trail",
+        "ankle_shackles"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "single pixel pair",
+        "size_px": [
+          2,
+          1
+        ]
+      },
+      "mouth": {
+        "shape": "grim line",
+        "length_px": 2
+      },
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 6
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 8
+      },
+      "tail": null,
+      "accessories": "Ankle shackles and a waist chain."
+    },
+    "texture": "Shared tunic folds and iron shackle highlights.",
+    "shading": "Flat pixel shading with a darker left-edge contact shadow."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_prisoner_brake_left_2f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 32x24 px with two 16x24 frames.",
+    "Left hand and left boot remain the closest pixels to the wall-facing edge in both frames.",
+    "Torso lean changes no more than 2 px between frames, keeping collision logic stable."
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.cactus_triplet_cluster",
+  "asset_name": "Obstacle — triplet cactus cluster",
+  "category": "obstacles",
+  "subcategory": "ground_hazard",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This task extends height and width beyond the earlier cactus footprints.",
+    "Three trunks create the highest danger density in the ground hazard set.",
+    "Upper spike pattern needs 5 or more visible tips across the cluster."
+  ],
+  "depends_on": [
+    "obstacles.cactus_single",
+    "obstacles.cactus_pair_cluster"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.cactus_single",
+    "obstacles.cactus_pair_cluster"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus_single",
+      "obstacles.cactus_pair_cluster",
+      "character.player.dino_air_pose"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_hazard",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        560,
+        50
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Tallest cactus set used for later score ranges that demand tighter jump timing."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 102,
+      "height": 100
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "silhouette_notes": [
+      "Center trunk is tallest and widest in the cluster.",
+      "Side trunks overlap the center trunk to avoid isolated islands.",
+      "Lowest contour stays flat enough for a grounded spawn read."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus_triplet_cluster.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 102x100px.",
+    "At least one trunk reaches 96px to 100px height to create the tall variant read.",
+    "Outer silhouette remains readable as three connected units at 1x scale."
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.cosmos_heracles_counter_variant",
+  "asset_name": "Cosmos Heracles counter strike sheet",
+  "category": "character",
+  "subcategory": "player_animation_counter",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": "character.player.cosmos_heracles_base",
+  "shared_properties": [
+    "primary #C47C2B",
+    "background #0B0C1E",
+    "accent #FFD966",
+    "hero lineage"
+  ],
+  "differences": [
+    "3_frame_counter_action",
+    "frame_size 64x96",
+    "counter_flash_contact_pose"
+  ],
+  "depends_on": [
+    "character.player.cosmos_heracles_base"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.cosmos_heracles_base"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles_base",
+      "ui.widget.counter_gauge_ready_variant"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art_16x16_upscaled",
+    "detail_level": "dense_16x16_cluster",
+    "shading": "two_tone_plus_one_highlight",
+    "outline": "1px_deep_space_outline"
+  },
+  "context": {
+    "role": "player_character",
+    "screen_position": {
+      "mode": "fixed_world_anchor",
+      "anchor_px": {
+        "x": 400,
+        "y": 820
+      },
+      "pivot": "bottom_center",
+      "type": "absolute_px"
+    },
+    "layer": "foreground_characters",
+    "usage": "Three-frame strike used inside the ±80 ms counter window and synced with counter UI feedback.",
+    "adjacent_elements": [
+      "counter gauge popup near enemy",
+      "boss attack telegraph lane",
+      "score bonus popup region"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 96
+    },
+    "colors_hex": [
+      "#C47C2B",
+      "#E8B87A",
+      "#0B0C1E",
+      "#40E8D0",
+      "#FFD966"
+    ],
+    "animation": {
+      "frame_count": 3,
+      "fps": 18,
+      "loop": "once",
+      "frame_size_px": {
+        "width": 64,
+        "height": 96
+      },
+      "states": [
+        "counter"
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    },
+    "shape": {
+      "silhouette": "hero profile with shielded forearm and strike windup",
+      "components": [
+        "forward forearm guard",
+        "rear leg brace",
+        "open chest plate highlight",
+        "counter spark arc"
+      ]
+    },
+    "face": {
+      "eyes": "focused_brown_pixels",
+      "mouth": "battle_shout",
+      "nose": "short_profile"
+    },
+    "appendages": {
+      "arms": "two_human_arms",
+      "legs": "two_human_legs",
+      "tail": "none",
+      "accessories": [
+        "lion_cloak",
+        "bronze_bracers",
+        "counter_glow_arc"
+      ]
+    },
+    "texture": "bronze_plate_over_skin_and_cloth",
+    "shading": "two_tone_with_gold_highlight"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/character.player.cosmos_heracles_counter_variant.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Output sheet size is exactly 192x96 px.",
+    "Core palette remains primary #C47C2B, background #0B0C1E, accent #FFD966 with asset-local colors confined to specs.colors_hex.",
+    "Animation metadata is exactly frame_count 3, fps 18, loop once.",
+    "Deliverable path is exactly character/character.player.cosmos_heracles_counter_variant.png with transparent background enabled.",
+    "Frame 2 contains the impact pose and reserves #40E8D0 for the counter highlight only.",
+    "The animation plays once and returns to the run sheet without requiring extra cleanup frames.",
+    "specs.viewpoint.camera_angle is orthographic_side and specs.viewpoint.facing is right.",
+    "specs.shape.components list contains forward forearm guard, rear leg brace, open chest plate highlight, and counter spark arc."
+  ]
+}

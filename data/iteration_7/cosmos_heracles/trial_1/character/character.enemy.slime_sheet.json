@@ -1,0 +1,134 @@
+{
+  "asset_name": "Slime Enemy 48x40",
+  "subcategory": "enemy",
+  "priority": "P1",
+  "execution_order": 24,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [
+    "world.floor.star_floor_strip"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.counter_gauge",
+      "world.background.zone1_corridor_parallax"
+    ]
+  },
+  "context": {
+    "role": "enemy_zone_1",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "player_lock_x",
+      "offset_px": {
+        "x": 520,
+        "y": 56
+      }
+    },
+    "adjacent_elements": [
+      "world.floor.star_floor_strip",
+      "ui.hud.counter_gauge"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Spawns in Zone 1 at x 920 relative to the full screen and attacks once after a 0.5 second telegraph."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 40
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#FFD966",
+      "#40E8D0"
+    ],
+    "animation": {
+      "type": "loop",
+      "frame_count": 4,
+      "frame_time_s": 0.1,
+      "loop": true,
+      "sprite_sheet_layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "left",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Low blob with width 48 px, height 40 px, and one crest peak centered at x 24.",
+      "components": [
+        "body mass 48x32",
+        "crest peak 10x8",
+        "eye pair 2x2 x2",
+        "contact shadow 40x4"
+      ]
+    },
+    "face": {
+      "eyes": "2 px cyan eyes",
+      "mouth": "none",
+      "nose": "none"
+    },
+    "appendages": {
+      "arms": "none",
+      "legs": "none",
+      "tail": "none",
+      "accessories": []
+    },
+    "texture": "gel_surface",
+    "collision_box_px": {
+      "width": 48,
+      "height": 40
+    },
+    "telegraph_window_ms": 80,
+    "shading_model": "two_tone_flat"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemy.slime_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet bounding box is exactly 48x40 px per frame.",
+    "Sheet contains exactly 4 frames in one row.",
+    "Body contact shadow stays within the bottom 4 px band.",
+    "Enemy faces left toward the player lock position in all frames."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "character.enemy.slime_sheet",
+  "category": "character",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

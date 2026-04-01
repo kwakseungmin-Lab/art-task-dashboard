@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050017",
+  "asset_name": "Game Over Summary Panel",
+  "category": "ui",
+  "subcategory": "end_panel",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "shared_properties": [
+    "Panel canvas stays 200x120px so end-state screens align to the same centered safe area as the pause overlay.",
+    "Typography aligns to the 8px HUD font scale for data fields and a larger pixel title treatment.",
+    "Muted dungeon palette keeps the background dark while key outcome text remains bright and legible."
+  ],
+  "differences": [
+    "Panel includes SLIP DOWN title art, a survival time slot, a best record slot, and an R-key restart hint.",
+    "Outcome hierarchy emphasizes failure through darker border accents and restrained amber highlights.",
+    "Layout reserves dedicated value lanes for timer digits instead of mixing data directly into the title area."
+  ],
+  "depends_on": [
+    "task_id_008050013",
+    "task_id_008050014"
+  ],
+  "blocks": [
+    "task_id_008050018"
+  ],
+  "blocked_by": [
+    "task_id_008050013",
+    "task_id_008050014"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050013",
+      "task_id_008050014",
+      "task_id_008050018"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "game_over_summary",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        60,
+        30
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Centered end-state panel shown when player HP reaches zero.",
+    "adjacent_elements": [
+      "task_id_008050013",
+      "task_id_008050014",
+      "task_id_008050018"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_screen",
+      "facing": "forward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 120
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#3B3347",
+      "#D6D0C4",
+      "#E07B39"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        200,
+        120
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Centered rectangular summary panel with title block, stat slots, and restart footer.",
+      "tiling": "Not tiled.",
+      "collision_read": "UI-only asset with no collision meaning."
+    },
+    "text_content": [
+      "SLIP DOWN",
+      "SURVIVAL TIME",
+      "BEST RECORD",
+      "R: RESTART"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_game_over_summary_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 200x120px.",
+    "The panel contains separate visual lanes for title, current time, best record, and restart hint.",
+    "The restart hint remains readable while staying visually subordinate to the survival time value area."
+  ],
+  "asset_key": "ui_game_over_summary_panel",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds HUD contrast, muted dungeon palette, and low-saturation screen overlays for the active widget."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "ImageBundle for the summary frame with child atlas-driven digits and text labels.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Style",
+      "UiNode",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer during the Loading state and cache the frame handle inside an end-state UI resource.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Populate survival time and best record with atlas-driven digits sourced from the timer glyph set.",
+      "Toggle the panel visibility on game-over entry rather than rebuilding the UI tree."
+    ]
+  }
+}

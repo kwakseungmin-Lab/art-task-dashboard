@@ -1,0 +1,83 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "1-12px"
+    },
+    "color_scheme": {
+      "text": "#1D2B53",
+      "accent": "#FF004D",
+      "background": "#FFF1E8",
+      "bar_bg": "#5F574F",
+      "bar_green": "#00E436",
+      "bar_yellow": "#FFEC27",
+      "bar_orange": "#FFA300"
+    },
+    "shared_attributes": {
+      "font_size": "3x5px mini pixel font",
+      "ui_layer": "top layer (above all game elements)",
+      "minimalism": "minimal UI footprint"
+    }
+  },
+  "asset": {
+    "asset_id": "care_menu_pet_icon",
+    "asset_name": "Care Menu - Pet Icon",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Button icon for petting action in care menu",
+      "screen_position": "Popup menu at x=120, y=108 when menu is active",
+      "adjacent_elements": ["care_menu_feed_icon", "care_menu_clean_icon"],
+      "usage_scenario": "Appears when player taps screen; clickable to pet Echo; grayed out during cooldown"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "8px",
+        "height": "8px"
+      },
+      "colors": {
+        "active": "#FFCCAA",
+        "cooldown": "#5F574F"
+      },
+      "shape": "Simplified hand icon (palm with fingers)",
+      "texture": "Flat pixel art; solid color",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 2,
+        "fps": 0,
+        "loop": false,
+        "description": "2 states: active (#FFCCAA) and cooldown (#5F574F)"
+      },
+      "details": "8x8px icon showing simplified hand shape (palm with 3-4 finger pixels); active state is #FFCCAA (peach/skin tone); cooldown state is #5F574F (dark gray); appears in popup menu with 1px #1D2B53 background"
+    },
+    "relationships": {
+      "related_assets": ["echo_happy", "heart_effect", "care_menu_feed_icon", "care_menu_clean_icon"],
+      "shared_with": "Unique color for hand/skin representation",
+      "differences_from": "Other care icons (hand vs seed vs broom)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no glow",
+      "no animation",
+      "no text label",
+      "no border around icon",
+      "no hover effect"
+    ]
+  }
+}

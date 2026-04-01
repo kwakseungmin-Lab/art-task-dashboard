@@ -1,0 +1,108 @@
+{
+  "asset_name": "HUD HP Hearts Row",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.heracles_form_64x96",
+      "ui.hud.score_zone_header"
+    ]
+  },
+  "context": {
+    "role": "hud_hp",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 20,
+      "y": 20
+    },
+    "adjacent_elements": [
+      "ui.hud.score_zone_header"
+    ],
+    "layer": "ui_overlay",
+    "usage": "Visible during gameplay at all times; five heart icons of 32 px width each indicate HP 0 to 5."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 32
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#E84040"
+    ],
+    "animation": {
+      "type": "none",
+      "frame_count": 1,
+      "frame_time_s": 0.0,
+      "loop": false
+    },
+    "viewpoint": {
+      "camera_angle": "screen_flat",
+      "facing": "front",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Five heart icons arranged in a single row with 32 px width and 0 px vertical offset.",
+      "components": [
+        "heart icon x5",
+        "filled state overlay",
+        "empty state overlay"
+      ]
+    },
+    "digit_capacity": 5,
+    "shading_model": "flat_ui"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.hp_hearts_row.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "HUD strip width is exactly 160 px and height is exactly 32 px.",
+    "Heart count is exactly 5.",
+    "Filled heart uses #E84040 and empty heart uses #0B0C1E plus #F0EFE9 outline.",
+    "Asset aligns to x 20 y 20 without requiring additional crop."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.hp_hearts_row",
+  "category": "ui",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

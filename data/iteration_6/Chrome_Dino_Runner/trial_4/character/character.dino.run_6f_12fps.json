@@ -1,0 +1,69 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.dino.run_6f_12fps",
+  "asset_name": "Runner Dino — Run cycle (6 frames, 12fps loop)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.dino.jump_static",
+      "character.dino.duck_2f_10fps"
+    ]
+  },
+  "palette": {
+    "primary": {"name": "ink", "hex": "#2B2B2B"},
+    "background": {"name": "paper", "hex": "#F7F7F7"},
+    "accent": {"name": "alert", "hex": "#D23C3C"}
+  },
+  "canvas": {
+    "resolution_px": {"width": 600, "height": 150},
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "run",
+    "layer": "character",
+    "usage": "Primary locomotion animation while the player is on the ground.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [80, 88]
+    }
+  },
+  "specs": {
+    "dimensions_px": {"width": 44, "height": 47},
+    "colors_hex": ["#2B2B2B"],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [44, 47],
+      "layout": {"columns": 6, "rows": 1}
+    },
+    "silhouette_notes": [
+      "Keep the iconic T-Rex silhouette: large head + tiny arms, chunky tail.",
+      "Legs alternate clearly: at least 2px separation between the front/back leg in the mid-stride frames.",
+      "No anti-aliasing; the outline stays 1px thick and continuous across frames."
+    ]
+  },
+  "deliverables": [
+    {"type": "png", "file": "character/character.dino.run_6f_12fps.png", "transparent_background": true}
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 264x47px (6 frames × 44x47) with 0px spacing.",
+    "Run loop reads cleanly at 1x scale; feet contact the ground line consistently (no vertical jitter > 1px).",
+    "Only #2B2B2B and transparency are used."
+  ]
+}

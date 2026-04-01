@@ -1,0 +1,98 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "character.player.cosmos_counter_action",
+  "asset_name": "Player Counter Action (3-frame)",
+  "category": "character",
+  "group_id": "character.player.cosmos",
+  "variant_role": "variant",
+  "priority": "P0",
+  "execution_order": 23,
+  "depends_on": [
+    "character.player.cosmos_base_run"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.counter_gauge"
+    ]
+  },
+  "context": {
+    "role": "player_counter_action",
+    "screen_position": {
+      "type": "world_space",
+      "units": "px",
+      "pivot": "bottom_center"
+    },
+    "layer": "characters",
+    "usage": "Played on successful counter; 3 frames; then returns to base.",
+    "adjacent_elements": [
+      "character.enemy.medusa_float_attack"
+    ]
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 192,
+      "height_px": 96
+    },
+    "frame_layout": {
+      "grid_columns": 3,
+      "grid_rows": 1,
+      "frame_size_px": [
+        64,
+        96
+      ],
+      "row_order": [
+        "counter"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#40E8D0"
+      },
+      "secondary": [
+        {
+          "name": "armor",
+          "hex": "#C47C2B"
+        },
+        {
+          "name": "outline",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "player pose with strong forward arm/weapon flash; cyan highlight streaks",
+      "components": [
+        "pose_shift",
+        "counter_flash",
+        "afterimage"
+      ]
+    }
+  },
+  "description": "Create a 3-frame counter action animation at base size (64x96). Add a cyan (#40E8D0) hit-flash arc that reads as timing feedback. Non-looping.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/player_cosmos_counter_action.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 192x96 px (3 frames)",
+    "Each frame is 64x96 px",
+    "Includes visible #40E8D0 highlight that is distinct from UI white"
+  ]
+}

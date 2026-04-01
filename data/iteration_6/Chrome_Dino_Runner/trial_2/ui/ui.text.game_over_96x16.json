@@ -1,0 +1,83 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.text.game_over_96x16",
+  "asset_name": "UI Text — GAME OVER (static)",
+  "category": "ui",
+  "subcategory": "text",
+  "priority": "P0",
+  "execution_order": 320,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "game_over",
+    "layer": "ui",
+    "usage": "Centered game over message.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        252,
+        48
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 16
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7",
+      "#FF0000"
+    ],
+    "animation": null,
+    "shape_notes": [
+      "All caps pixel text; use Primary color only; no drop shadow."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.text.game_over_96x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "All edges are pixel-perfect (no anti-aliasing).",
+    "Uses only the defined palette colors and transparency.",
+    "Sprite fits within 96x16px bounds and aligns to whole pixels."
+  ]
+}

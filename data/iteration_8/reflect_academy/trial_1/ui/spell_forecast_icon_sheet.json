@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000014",
+  "asset_key": "spell_forecast_icon_sheet",
+  "asset_name": "Spell Forecast Icon Sheet",
+  "category": "ui",
+  "subcategory": "forecast_ui",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Icons use a consistent 40x40 px grid with bold outer shapes that stay legible above the enemy caster.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while elemental icon colors appear inside specs.colors_hex.",
+    "The sheet is authored for transparent background compositing and quick atlas lookup."
+  ],
+  "differences": [
+    "The atlas includes forecast icons for fire, water, thunder, wind, ice, poison, light, and dark spells.",
+    "Each icon uses one dominant elemental silhouette so players can recognize the upcoming spell during the short pre-launch warning beat.",
+    "A thin shared ring language keeps the set cohesive while allowing each center glyph to remain unique."
+  ],
+  "depends_on": [
+    "task_id_801000004"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000004"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000004",
+      "task_id_801000005",
+      "task_id_801000006",
+      "task_id_801000013"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_4x2",
+    "ecs_components": [
+      "ForecastIconTag",
+      "UiImage",
+      "Style",
+      "Visibility"
+    ],
+    "asset_loading": "Load spell_forecast_icon_sheet.png during Loading and build a 4x2 atlas for enemy forecast UI widgets.",
+    "runtime_notes": [
+      "Anchor the forecast icon slightly above the enemy caster head with UI or world-space screen-facing placement.",
+      "Swap atlas index based on elemental state without recoloring the icon at runtime.",
+      "Keep a dark outline or backing ring on each icon so pale symbols remain readable against window glow."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "enemy_spell_forecast_icons",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1500,
+        170
+      ]
+    },
+    "layer": "ui",
+    "usage": "Short-warning elemental icon UI shown above the enemy before projectile launch."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 80
+    },
+    "colors_hex": [
+      "#FF4500",
+      "#1E90FF",
+      "#FFD700",
+      "#98FB98",
+      "#B0E0E6",
+      "#9B59B6",
+      "#FFFACD",
+      "#2C2C2C",
+      "#FFFFFF"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 2
+      }
+    },
+    "icon_notes": [
+      "Fire uses a flame silhouette.",
+      "Thunder uses a bolt silhouette.",
+      "Light uses a starburst silhouette.",
+      "Dark uses a crescent void silhouette."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/spell_forecast_icon_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 160x80 px for eight 40x40 frames with no frame gutter.",
+    "Each icon remains recognizable at 24x24 px preview size.",
+    "No two elemental icons share the same primary silhouette."
+  ]
+}

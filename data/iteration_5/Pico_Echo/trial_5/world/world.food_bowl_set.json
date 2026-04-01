@@ -1,0 +1,215 @@
+{
+  "task_id": "world.food_bowl_set",
+  "id": "world.food_bowl_set",
+  "asset_name": "Food Bowl (3 Fill States)",
+  "category": "world",
+  "subcategory": "prop_sprite_sheet",
+  "description": "Food bowl sprite sheet containing 3 fill states (full, mid, empty).",
+  "execution_order": 13,
+  "priority": "P0",
+  "depends_on": [
+    "world.cage_background"
+  ],
+  "blocks": [
+    "obstacles.seed"
+  ],
+  "blocked_by": [
+    "world.cage_background"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage_background",
+      "obstacles.seed"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 128,
+        "height": 128
+      },
+      "pixel_aspect_ratio": 1,
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      }
+    },
+    "rendering": {
+      "camera": "2d_front",
+      "snap_to_pixel_grid": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor"
+    },
+    "palette": {
+      "name": "pico8_default_16",
+      "colors": [
+        {
+          "name": "black",
+          "hex": "#000000"
+        },
+        {
+          "name": "navy",
+          "hex": "#1D2B53"
+        },
+        {
+          "name": "purple",
+          "hex": "#7E2553"
+        },
+        {
+          "name": "dark_green",
+          "hex": "#008751"
+        },
+        {
+          "name": "brown",
+          "hex": "#AB5236"
+        },
+        {
+          "name": "dark_gray",
+          "hex": "#5F574F"
+        },
+        {
+          "name": "light_gray",
+          "hex": "#C2C3C7"
+        },
+        {
+          "name": "cream",
+          "hex": "#FFF1E8"
+        },
+        {
+          "name": "pink",
+          "hex": "#FF004D"
+        },
+        {
+          "name": "orange",
+          "hex": "#FFA300"
+        },
+        {
+          "name": "yellow",
+          "hex": "#FFEC27"
+        },
+        {
+          "name": "green",
+          "hex": "#00E436"
+        },
+        {
+          "name": "blue",
+          "hex": "#29ADFF"
+        },
+        {
+          "name": "lavender",
+          "hex": "#83769C"
+        },
+        {
+          "name": "light_pink",
+          "hex": "#FF77A8"
+        },
+        {
+          "name": "peach",
+          "hex": "#FFCCAA"
+        }
+      ]
+    },
+    "style": {
+      "art_style": "hand-drawn pixel art with a strict 16-color PICO-8 palette limit",
+      "view": "front-facing 2D",
+      "lighting": "indoor warm light approximated by a cream background (#FFF1E8) and low-contrast shading",
+      "line_weight_px": 1,
+      "dithering": "Allowed only on large flat surfaces using a 2x2 checker pattern."
+    }
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1
+  },
+  "specs": {
+    "sheet_dimensions_px": {
+      "width": 48,
+      "height": 12
+    },
+    "frame_dimensions_px": {
+      "width": 16,
+      "height": 12
+    },
+    "frames": [
+      {
+        "name": "full",
+        "index": 0,
+        "seed_fill_hex": "#FFEC27"
+      },
+      {
+        "name": "mid",
+        "index": 1,
+        "seed_fill_hex": "#FFEC27"
+      },
+      {
+        "name": "empty",
+        "index": 2,
+        "seed_fill_hex": "#FFEC27"
+      }
+    ],
+    "bowl_fill_hex": "#C2C3C7",
+    "outline_hex": "#1D2B53",
+    "placement_on_canvas_px": {
+      "x": 16,
+      "y": 92,
+      "anchor": "top_left"
+    }
+  },
+  "context": {
+    "role": "food_container",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 16,
+      "y": 92,
+      "anchor": "top_left"
+    },
+    "layer": "world_props",
+    "usage": [
+      "in_game",
+      "stateful_sprite"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/world/food_bowl_set.png",
+      "dimensions_px": {
+        "width": 48,
+        "height": 12
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 48x12 px with transparent background and three 16x12 frames laid out left-to-right.",
+    "All bowl outlines use #1D2B53; seed fill uses #FFEC27; no colors outside the 16-color palette.",
+    "When the 'full' frame is placed at (16,92), its interior seed pixels do not extend outside the bowl rim outline."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

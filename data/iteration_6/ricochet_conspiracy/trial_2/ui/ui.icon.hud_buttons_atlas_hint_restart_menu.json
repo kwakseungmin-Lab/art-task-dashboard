@@ -1,0 +1,89 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.icon.hud_buttons_atlas_hint_restart_menu",
+  "asset_name": "UI Icons — HUD Buttons Atlas (Hint, Restart, Menu)",
+  "category": "ui",
+  "subcategory": "icons",
+  "priority": "P1",
+  "execution_order": 180,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "2px_brush"
+  },
+  "context": {
+    "role": "ui_icons",
+    "layer": "ui",
+    "usage": "3-icon atlas for Hint/Restart/Menu; hover/pressed states tinted by code.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 64
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#8BA7C7",
+      "#8B3A52",
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#C8B4E0"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.icon.hud_buttons_atlas_hint_restart_menu.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is 192x64px with 3 cells of 64x64 laid left-to-right.",
+    "Icons are readable at 64x64 using #3D2B1F strokes and #D4A843 fills.",
+    "No text labels."
+  ]
+}

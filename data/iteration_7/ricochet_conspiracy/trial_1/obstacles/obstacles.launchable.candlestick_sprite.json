@@ -1,0 +1,102 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.candlestick_sprite",
+  "asset_name": "Candlestick Launchable Sprite",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.chandelier_swing_sheet",
+      "world.foreground.marble_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "launchable_object",
+    "layer": "world_objects",
+    "usage": "Single candlestick sprite for 24x48 launchable object with upright silhouette.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 48
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#D4A843",
+      "#F5F0E8",
+      "#E8704A"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "tall_candlestick_with_flame",
+      "components": [
+        "base",
+        "stem",
+        "candle_body",
+        "small_flame"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.candlestick_sprite.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 24x48px with transparent alpha outside the silhouette.",
+    "Gold stem uses #D4A843 and flame highlight uses #E8704A.",
+    "Base width stays within 14px so the object reads as stackable on narrow ledges."
+  ]
+}

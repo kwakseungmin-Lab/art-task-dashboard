@@ -1,0 +1,171 @@
+{
+  "task_id": "task_id_000008501",
+  "asset_key": "world_academy_duel_hall_1920x1080",
+  "asset_name": "Academy Duel Hall — full battle backdrop",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Uses the project core palette copy #D4AF37/#2B1B17/#00FFFF.",
+    "Maintains a fixed 16:9 duel composition for the full 1920x1080 combat camera.",
+    "Leaves clean character slots at x=360..480 and x=1440..1560 for duel readability."
+  ],
+  "differences": [
+    "This file carries the full academy hall shell without projectiles or overlay widgets.",
+    "Floor rune ring and pillar rhythm create depth with no scrolling layers."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_000008502",
+    "task_id_000008503",
+    "task_id_000008504",
+    "task_id_000008505",
+    "task_id_000008506",
+    "task_id_000008507",
+    "task_id_000008508",
+    "task_id_000008509",
+    "task_id_000008510",
+    "task_id_000008511"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000008502",
+      "task_id_000008503",
+      "task_id_000008505",
+      "task_id_000008510"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "duel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png",
+      "purpose": "Ground hall lighting, panel spacing, and arena depth."
+    },
+    {
+      "label": "source_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Ground the 1920x1080 battle layout and duel slot placement."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.14",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "DuelHallBackdrop"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_5/world_academy_duel_hall_1920x1080.png with AssetServer during Loading state and store the handle under world_academy_duel_hall_1920x1080.",
+    "runtime_notes": [
+      "Spawn this sprite at z=0 before any combatant or projectile entity.",
+      "Keep the duel floor ring centered at x=960 y=760 in world space.",
+      "Use one opaque texture so pillar shadows and floor band remain aligned during screen shake."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "gold_frame",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "academy_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_illustration",
+    "detail_level": "medium",
+    "shading": "soft_cell",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "battle_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world",
+    "usage": "Base arena shell shown during every duel state from round start through defeat or victory.",
+    "viewpoint": {
+      "camera_angle": "fixed_side_stage",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#2B1B17",
+      "#5C3317",
+      "#1A1A2E",
+      "#D4AF37",
+      "#BDC3C7",
+      "#FFFACD"
+    ],
+    "animation": {
+      "type": "static_sprite",
+      "frame_count": 1,
+      "loop": false,
+      "frame_size_px": [
+        1920,
+        1080
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "composition": [
+      "Floor rune ring outer diameter is 820 px and centered at x=960 y=760.",
+      "Left and right pillar stacks start at x=140 and x=1580 with 160 px width each.",
+      "Upper wall banner band occupies y=90..250 with three gold-trim arch windows.",
+      "Player slot footprint stays clear inside x=300..520 y=620..900 and enemy slot footprint stays clear inside x=1400..1620 y=220..500."
+    ],
+    "shape": {
+      "silhouette": "Wide academy hall with arched pillars, a rune-ring floor, and a dark maroon rear wall framed by gold trim.",
+      "components": [
+        "rear wall",
+        "arch windows",
+        "pillar pairs",
+        "floor rune ring",
+        "side torch glows"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_academy_duel_hall_1920x1080.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1920x1080 px and fills the full camera frame with no transparent gaps.",
+    "Player and enemy slot footprints remain unobstructed inside the documented coordinate ranges.",
+    "Gold trim uses #D4AF37 and wall base uses #2B1B17 with no gradients outside the listed palette."
+  ],
+  "schema_version": "art_task@8",
+  "category": "world"
+}

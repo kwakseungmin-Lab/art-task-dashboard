@@ -1,0 +1,26 @@
+{
+  "base_size": {
+    "width": "40px",
+    "height": "40px"
+  },
+  "color_scheme": {
+    "body": "#FFA300",
+    "cheek_patch": "#FF004D",
+    "crest": "#FFEC27",
+    "beak": "#AB5236",
+    "eyes": "#1D2B53"
+  },
+  "shared_attributes": {
+    "character_type": "cockatiel parrot",
+    "design_principle": "hand-drawn frame-by-frame animation",
+    "key_features": ["crest (볏)", "cheek patch (체크 패치)", "tail feathers"],
+    "position": "center screen on perch (x=64, y=60)",
+    "sprite_sheet_layout": "horizontal strip per state"
+  },
+  "animation_principles": {
+    "style": "frame-by-frame hand-drawn",
+    "timing": "varies by state (1-4 fps)",
+    "easing": "none (pixel art snapping)",
+    "consistency": "maintain Echo's identity across all states"
+  }
+}

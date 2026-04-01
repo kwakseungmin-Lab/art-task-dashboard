@@ -1,0 +1,92 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.bg.palace_midlayer_1280x620",
+  "asset_name": "BG — Palace mid layer",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 420,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.bg.palace_backlayer_1280x620",
+      "world.bg.palace_forelayer_1280x620"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_brown",
+      "hex": "#2D1F1A"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "pale_gold",
+      "hex": "#D6B27A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "thin"
+  },
+  "context": {
+    "role": "background_mid",
+    "layer": "world",
+    "usage": "Parallax layer 2.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        50
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#D6B27A",
+      "#C07A6A",
+      "#2D1F1A"
+    ],
+    "animation": null,
+    "parallax": {
+      "layer_index": 2,
+      "scroll_factor": 0.4
+    },
+    "silhouette_notes": [
+      "Columns frame play area; avoid busy texture."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.bg.palace_midlayer_1280x620.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Deliverable PNG matches the specified pixel dimensions (or sprite-sheet total size) with transparent background.",
+    "Uses the project palette as a guideline; any additional colors are limited and documented in specs.colors_hex.",
+    "Silhouette/readability holds at 100% and 50% zoom; no muddy edges or unintended blurs."
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.character.echo_happy_animation",
+  "asset_name": "Echo animation: Happy",
+  "category": "character",
+  "subcategory": "echo",
+  "description": "All Echo frames: frame canvas 40x40px, transparent background. No outlines. No shading. No gradients. No dithering. Colors: body #FFA300, cheek patch #FF004D, crest #FFEC27, beak/feet #AB5236, eyes #1D2B53. Echo occupies approx x=6..33,y=6..36 within the 40x40 canvas. Cheek patch is always present as a 3x3 block at x=24..26,y=18..20. Eyes are two 2x2 blocks at x=14..15,y=16..17 and x=22..23,y=16..17 unless the frame specifies eyes closed. Happy: 8 frames, FPS=4, loop=false (play twice then return to idle). Crest raised: add 6 additional #FFEC27 pixels above head compared to idle in all frames. Frames 3-6: wings slightly open (add 2px on both sides at y=24..26 in #FFA300).",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/sprites/echo/echo_happy_strip_40x40_f8_4fps.png",
+      "format": "png",
+      "type": "sprite_strip"
+    }
+  ],
+  "specs": {
+    "frame_dimensions": "40x40",
+    "sprite_anchor": {
+      "anchor_point": "feet_center",
+      "x": 20,
+      "y": 36
+    },
+    "palette_hex": [
+      "#FFA300",
+      "#FF004D",
+      "#FFEC27",
+      "#AB5236",
+      "#1D2B53"
+    ],
+    "alpha": "transparent_background",
+    "dimensions": "320x40",
+    "animation": {
+      "frame_count": 8,
+      "fps": 4,
+      "loop": false,
+      "layout": "horizontal_strip"
+    }
+  },
+  "context": {
+    "role": "Reaction after petting; lasts 5s in gameplay state but animation is 2s looped.",
+    "screen_location": "Same as idle.",
+    "adjacent_elements": [
+      "heart_particle_animation"
+    ],
+    "layer": "character",
+    "usage": "When state=HAPPY."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.vfx.heart_particle_animation"
+    ],
+    "shared_properties": [
+      "Same size and palette"
+    ],
+    "differences": [
+      "Raised crest; wing open frames."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.character.echo_idle_animation"
+  ],
+  "execution_order": 35,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.character.echo_idle_animation"
+  ],
+  "acceptance_criteria": [
+    "Strip size is exactly 320x40px.",
+    "Crest is visibly higher than idle in all frames.",
+    "Wings open is visible in frames 3-6.",
+    "Animation reads as happy motion at 4fps."
+  ]
+}

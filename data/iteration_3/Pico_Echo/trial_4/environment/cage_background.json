@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "varies by element"
+    },
+    "color_scheme": {
+      "primary": "#FFF1E8",
+      "secondary": "#C2C3C7",
+      "accent": "#AB5236"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art",
+      "animation_method": "none (static elements)",
+      "layer_order": 1
+    }
+  },
+  "asset": {
+    "asset_id": "cage_background",
+    "asset_name": "Cage Background Wall",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Background wall of the cage interior, provides context for entire scene",
+      "screen_position": "Fills entire 128x128px canvas",
+      "adjacent_elements": ["all other elements render on top of this"],
+      "usage_scenario": "Always visible as the base layer, represents the back wall of the cage"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "128px",
+        "height": "128px"
+      },
+      "colors": {
+        "wall": "#FFF1E8",
+        "cage_bars": "#C2C3C7"
+      },
+      "shape": "Full screen rectangle with vertical cage bars at top",
+      "texture": "Flat color with subtle pixel noise (optional, 1-2 pixels variation)",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static background, no animation"
+      },
+      "details": "Cream colored wall (#FFF1E8) filling entire canvas, top 8px shows vertical cage bars spaced 8px apart (#C2C3C7, 2px wide each), creates impression of viewing cage interior from inside"
+    },
+    "relationships": {
+      "related_assets": ["perch", "food_bowl", "water_bowl", "floor", "echo_idle"],
+      "shared_with": "All environment elements share this background",
+      "differences_from": "floor (different color and position)"
+    },
+    "explicit_negations": [
+      "No wallpaper patterns or decorations",
+      "No windows or external views",
+      "No lighting effects or gradients",
+      "No texture beyond flat color",
+      "No animated elements",
+      "No perspective or depth cues beyond cage bars"
+    ]
+  }
+}

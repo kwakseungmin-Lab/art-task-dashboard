@@ -1,0 +1,88 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.icon.hint_24x24",
+  "asset_name": "Hint Icon (24x24) — lightbulb / idea mark",
+  "category": "ui",
+  "subcategory": "icon",
+  "priority": "P1",
+  "execution_order": 330,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "icon",
+    "layer": "ui",
+    "usage": "Used on Hint button and hint-used disabled state (tinted by code).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D4A843",
+      "#3D2B1F",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "icon_rules": {
+      "stroke_hex": "#3D2B1F",
+      "fill_hex": "#D4A843",
+      "negative_space": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.icon.hint_24x24.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 24x24px with transparent background; icon centered with >=2px padding from edges.",
+    "Silhouette remains readable at 100% and 75% UI scale; uses #D4A843 fill with #3D2B1F stroke.",
+    "No text inside the icon; works in monochrome when tinted by code."
+  ]
+}

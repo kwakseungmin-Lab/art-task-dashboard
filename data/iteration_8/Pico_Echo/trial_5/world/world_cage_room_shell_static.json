@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000801",
+  "asset_key": "world_cage_room_shell_static",
+  "asset_name": "Cage Room Shell — static base layer",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "128x128 full-screen cage interior view.",
+    "Warm indoor mood with PICO-8 readable silhouettes.",
+    "Perch, floor, wall, and bowl anchor zones stay locked for all sibling assets."
+  ],
+  "differences": [
+    "This file carries the opaque room shell only.",
+    "Foreground cage bars and interactive overlays stay outside this task."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_000000802",
+    "task_id_000000803",
+    "task_id_000000804",
+    "task_id_000000805",
+    "task_id_000000807"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000802",
+      "task_id_000000803",
+      "task_id_000000804"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "proxy_environment_spacing",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_A2/_ReferenceImages/background.png",
+      "purpose": "Proxy background reference for room depth, floor band spacing, and low-resolution prop anchors."
+    },
+    {
+      "label": "proxy_pixel_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/quality-consistency/step0-gdd-generation/sample_gdds/echo_spin_4.2/_images/moodboard.png",
+      "purpose": "Proxy moodboard for preserving the warm compact pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "CageRoomShell"
+    ],
+    "asset_loading": "Load assets/art/pico_echo/trial_5/world_cage_room_shell_static.png with AssetServer during Loading state and store the handle under world_cage_room_shell_static.",
+    "runtime_notes": [
+      "Spawn this sprite before every other world or UI entity so anchor positions stay stable.",
+      "Keep the sprite at z=0 and render it with nearest-neighbor sampling only.",
+      "Author the floor band inside the same texture so cleanup states align without runtime stitching."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FFA300"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "background",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world",
+    "usage": "Base room shell shown during the full play session behind Echo, props, and UI."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#FFF1E8",
+      "#FFCCAA",
+      "#AB5236",
+      "#C2C3C7",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "static_sprite",
+      "frame_count": 1,
+      "loop": false,
+      "frame_size_px": [
+        128,
+        128
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "composition": [
+      "Wall fill uses #FFF1E8 on at least 72 percent of the canvas.",
+      "Perch spans x=24..104 at y=80 with 4px height using #AB5236 and a 1px #1D2B53 underside.",
+      "Floor band fills y=110..127 with #FFCCAA so dirt markers stay readable.",
+      "Food bowl anchor box starts at x=16 y=100 and water bowl anchor box starts at x=40 y=100."
+    ],
+    "shape": {
+      "silhouette": "128x128 room shell with a cream wall field, centered perch, lower floor band, and two bowl anchor zones on the left half.",
+      "components": [
+        "cream wall field",
+        "rear cage frame",
+        "perch beam",
+        "lower floor band",
+        "food bowl anchor",
+        "water bowl anchor"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_cage_room_shell_static.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 128x128px and fully opaque.",
+    "Perch top edge lands at y=80 and leaves clear headroom for a 40x40 Echo sprite centered near x=64 y=60.",
+    "Floor zone from y=110 to y=127 remains unobstructed so five 2x2 dirt marks fit without overlap.",
+    "Only listed colors and transparency rules are used, with no gradients or anti-aliasing."
+  ]
+}

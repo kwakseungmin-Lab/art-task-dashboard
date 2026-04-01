@@ -1,0 +1,144 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000013",
+  "asset_key": "hand_card_frame_sheet",
+  "asset_name": "Hand Card Frame Sheet",
+  "category": "ui",
+  "subcategory": "card_ui",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "All card frames use the 80x120 px hand size described by the GDD and preserve a legible center art window plus bottom cost gem area.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while rarity and hover colors appear inside specs.colors_hex.",
+    "Frames are authored for transparent background compositing on the lower card row."
+  ],
+  "differences": [
+    "The sheet contains normal, hover, use, discard, and rare card frame variants for quick UI state swaps.",
+    "Hover uses a brighter gold edge, use introduces a cyan cast line, discard pushes the frame into a desaturated silver treatment, and rare adds a purple inner rim.",
+    "Each frame reserves the same title, art, and cost zones so gameplay layout stays stable while states change."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000012",
+      "task_id_801000014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_5x1",
+    "ecs_components": [
+      "CardFrameTag",
+      "UiImage",
+      "Style",
+      "Visibility"
+    ],
+    "asset_loading": "Load hand_card_frame_sheet.png during Loading and build a 5x1 atlas for card state swaps in the hand UI.",
+    "runtime_notes": [
+      "Map frame order to normal, hover, use, discard, and rare states so UI code can stay deterministic.",
+      "Keep inner safe margins identical across all frames to avoid text jitter.",
+      "Use nearest or linear sampling consistently with the chosen UI scaling mode so 2 px borders stay sharp."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hand_card_frames",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        680,
+        830
+      ]
+    },
+    "layer": "ui",
+    "usage": "Lower hand row UI sheet for up to five card slots during active combat."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 120
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#BDC3C7",
+      "#8E44AD",
+      "#00FFFF",
+      "#FFFACD"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 5,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        80,
+        120
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 1
+      }
+    },
+    "layout_notes": [
+      "Reserve an inner art window of 64x70 px.",
+      "Reserve a top title zone of 64x14 px.",
+      "Reserve a bottom cost gem zone centered in the final 18 px of height."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/hand_card_frame_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 400x120 px for five 80x120 frames with no frame gutter.",
+    "All five frames preserve identical title, art, and cost safe zones.",
+    "Hover, use, discard, and rare states remain distinguishable in grayscale silhouette plus accent distribution."
+  ]
+}

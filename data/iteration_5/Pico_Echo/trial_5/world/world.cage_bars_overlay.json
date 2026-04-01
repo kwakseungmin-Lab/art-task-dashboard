@@ -1,0 +1,99 @@
+{
+  "task_id": "world.cage_bars_overlay",
+  "id": "world.cage_bars_overlay",
+  "asset_name": "Cage bars overlay",
+  "category": "world",
+  "subcategory": "environment_overlay",
+  "description": "Transparent overlay containing the cage bar pattern and top frame. Must be drawn so that it can be layered over cage_background without hiding key gameplay objects.",
+  "execution_order": 15,
+  "priority": "P0",
+  "depends_on": [
+    "world.cage_background"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage_background",
+      "character.echo_sprite_sheet"
+    ]
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "bar_hex": "#C2C3C7",
+    "outline_hex": "#1D2B53",
+    "bar_pattern": {
+      "vertical_bar_width_px": 1,
+      "vertical_bar_spacing_px": 10,
+      "top_frame_height_px": 10
+    },
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "origin": "canvas_top_left"
+    },
+    "layer": "world_structures",
+    "usage": [
+      "in_game",
+      "static_overlay"
+    ],
+    "role": "world_foreground_overlay"
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/world/cage_bars_overlay.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/world/cage_bars_overlay.png",
+      "dimensions_px": {
+        "width": 128,
+        "height": 128
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 128x128 px with transparent background.",
+    "Bars use #C2C3C7 and outlines use #1D2B53; no colors outside palette_hex.",
+    "Vertical bar pattern uses 1px bars spaced 10px apart across the canvas.",
+    "Overlay does not include any floor fill; floor area remains transparent."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

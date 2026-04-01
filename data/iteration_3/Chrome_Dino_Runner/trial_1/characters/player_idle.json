@@ -1,0 +1,79 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "Pixel Art 8-bit",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art",
+      "outline": "2px solid",
+      "color_mode": "monochrome",
+      "anti_aliasing": "none"
+    }
+  },
+  "asset": {
+    "asset_id": "player_idle",
+    "asset_name": "Player T-Rex Idle Animation",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Player character idle state before game starts",
+      "screen_position": "Fixed at x=100px, y=0px (ground level)",
+      "adjacent_elements": ["ground", "score_display"],
+      "usage_scenario": "Displayed before game starts, waiting for player input"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "88px",
+        "height": "94px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353",
+        "eyes": "#535353"
+      },
+      "shape": "T-Rex dinosaur with short front legs, large eyes, thick tail",
+      "texture": "pixel art, flat color",
+      "outline": "2px solid black outline",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 6,
+        "loop": true,
+        "description": "Subtle breathing animation, eyes blinking"
+      },
+      "details": "Cute T-Rex standing upright, eyes open, front legs slightly moving"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_jump", "player_duck", "player_dead"],
+      "shared_with": "Same character model, different states",
+      "differences_from": "player_run has faster animation (12 FPS vs 6 FPS)"
+    },
+    "explicit_negations": [
+      "No color variations",
+      "No facial expressions except eye blinking",
+      "No weapons or items",
+      "No background elements in sprite",
+      "No gradients or shading beyond pixel art style"
+    ]
+  }
+}

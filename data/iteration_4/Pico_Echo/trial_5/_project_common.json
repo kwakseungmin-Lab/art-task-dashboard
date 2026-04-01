@@ -1,0 +1,729 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "version": "v5",
+  "source_gdd": {
+    "root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "key_files": [
+      "00_Global_Architecture/Art_Direction.md",
+      "02_Objects/Echo.md",
+      "02_Objects/Cage.md",
+      "03_UI_Widgets/HUD.md"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "pico_echo.environment.cage_background",
+      "asset_name": "Cage background wall",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/environment/cage_background.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/cage/cage_background_128x128.png",
+          "format": "png",
+          "type": "background_layer"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 1
+    },
+    {
+      "task_id": "pico_echo.environment.cage_bars_overlay",
+      "asset_name": "Cage bars overlay",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/environment/cage_bars_overlay.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/cage/cage_bars_overlay_128x128.png",
+          "format": "png",
+          "type": "overlay_layer"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 2
+    },
+    {
+      "task_id": "pico_echo.environment.cage_floor_band",
+      "asset_name": "Cage floor band",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/environment/cage_floor_band.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/cage/cage_floor_band_y110_128x18.png",
+          "format": "png",
+          "type": "environment_layer"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 3
+    },
+    {
+      "task_id": "pico_echo.environment.cage_perch",
+      "asset_name": "Wood perch",
+      "category": "environment",
+      "subcategory": "cage",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/environment/cage_perch.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/cage/cage_perch_x24-103_y80-83.png",
+          "format": "png",
+          "type": "environment_layer"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 4
+    },
+    {
+      "task_id": "pico_echo.object.food_bowl_empty",
+      "asset_name": "Food bowl (empty)",
+      "category": "object",
+      "subcategory": "bowl",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/object/food_bowl_empty.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/objects/food_bowl_empty_16x12.png",
+          "format": "png",
+          "type": "sprite"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 5
+    },
+    {
+      "task_id": "pico_echo.object.food_bowl_low",
+      "asset_name": "Food bowl (low)",
+      "category": "object",
+      "subcategory": "bowl",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/object/food_bowl_low.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/objects/food_bowl_low_16x12.png",
+          "format": "png",
+          "type": "sprite"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 6
+    },
+    {
+      "task_id": "pico_echo.object.food_bowl_full",
+      "asset_name": "Food bowl (full)",
+      "category": "object",
+      "subcategory": "bowl",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/object/food_bowl_full.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/objects/food_bowl_full_16x12.png",
+          "format": "png",
+          "type": "sprite"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 7
+    },
+    {
+      "task_id": "pico_echo.object.water_bowl",
+      "asset_name": "Water bowl",
+      "category": "object",
+      "subcategory": "bowl",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/object/water_bowl.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/objects/water_bowl_12x10.png",
+          "format": "png",
+          "type": "sprite"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 8
+    },
+    {
+      "task_id": "pico_echo.object.seed_sprite",
+      "asset_name": "Seed (single)",
+      "category": "object",
+      "subcategory": "consumable",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/object/seed_sprite.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/objects/seed_single_3x3.png",
+          "format": "png",
+          "type": "sprite"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 9
+    },
+    {
+      "task_id": "pico_echo.object.poop_sprite",
+      "asset_name": "Poop (single)",
+      "category": "object",
+      "subcategory": "poop",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/object/poop_sprite.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/objects/poop_2x2.png",
+          "format": "png",
+          "type": "sprite"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 10
+    },
+    {
+      "task_id": "pico_echo.vfx.seed_drop_animation",
+      "asset_name": "Seed drop (feed effect)",
+      "category": "vfx",
+      "subcategory": "care",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/vfx/seed_drop_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/vfx/seed_drop_strip_16x16_f3_4fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 11
+    },
+    {
+      "task_id": "pico_echo.vfx.broom_swipe_animation",
+      "asset_name": "Broom swipe (clean effect)",
+      "category": "vfx",
+      "subcategory": "care",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/vfx/broom_swipe_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/vfx/broom_swipe_strip_32x18_f4_8fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 12
+    },
+    {
+      "task_id": "pico_echo.vfx.sparkle_star_particle",
+      "asset_name": "Sparkle star particle",
+      "category": "vfx",
+      "subcategory": "clean",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/vfx/sparkle_star_particle.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/vfx/sparkle_star_3x3.png",
+          "format": "png",
+          "type": "particle_sprite"
+        }
+      ],
+      "priority": "P2",
+      "execution_order": 13
+    },
+    {
+      "task_id": "pico_echo.vfx.heart_particle_animation",
+      "asset_name": "Heart particle (pet effect)",
+      "category": "vfx",
+      "subcategory": "care",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/vfx/heart_particle_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/vfx/heart_particle_strip_4x4_f2_4fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 14
+    },
+    {
+      "task_id": "pico_echo.vfx.music_note_particle",
+      "asset_name": "Music note particle",
+      "category": "vfx",
+      "subcategory": "singing",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/vfx/music_note_particle.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/vfx/music_note_3x5.png",
+          "format": "png",
+          "type": "particle_sprite"
+        }
+      ],
+      "priority": "P2",
+      "execution_order": 15
+    },
+    {
+      "task_id": "pico_echo.vfx.zzz_particle",
+      "asset_name": "ZZZ particle",
+      "category": "vfx",
+      "subcategory": "sleeping",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/vfx/zzz_particle.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/vfx/zzz_3x3.png",
+          "format": "png",
+          "type": "particle_sprite"
+        }
+      ],
+      "priority": "P2",
+      "execution_order": 16
+    },
+    {
+      "task_id": "pico_echo.vfx.feather_particle",
+      "asset_name": "Feather particle",
+      "category": "vfx",
+      "subcategory": "preening",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/vfx/feather_particle.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/vfx/feather_2x2.png",
+          "format": "png",
+          "type": "particle_sprite"
+        }
+      ],
+      "priority": "P2",
+      "execution_order": 17
+    },
+    {
+      "task_id": "pico_echo.vfx.dust_particle",
+      "asset_name": "Dust particle",
+      "category": "vfx",
+      "subcategory": "dirty",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/vfx/dust_particle.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/vfx/dust_1x1.png",
+          "format": "png",
+          "type": "particle_sprite"
+        }
+      ],
+      "priority": "P3",
+      "execution_order": 18
+    },
+    {
+      "task_id": "pico_echo.ui.status_bubble_frame",
+      "asset_name": "Status bubble frame",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/status_bubble_frame.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/status_bubble_12x10.png",
+          "format": "png",
+          "type": "ui_sprite"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 19
+    },
+    {
+      "task_id": "pico_echo.ui.ui_status_icon_seed",
+      "asset_name": "Status icon: seed",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/ui_status_icon_seed.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/icons/status_seed_6x6.png",
+          "format": "png",
+          "type": "ui_icon"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 20
+    },
+    {
+      "task_id": "pico_echo.ui.ui_status_icon_sleep",
+      "asset_name": "Status icon: sleep",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/ui_status_icon_sleep.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/icons/status_sleep_6x6.png",
+          "format": "png",
+          "type": "ui_icon"
+        }
+      ],
+      "priority": "P2",
+      "execution_order": 21
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_bar_bg",
+      "asset_name": "Happiness bar background",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/happiness_bar_bg.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/hud/happiness_bar_bg_120x2.png",
+          "format": "png",
+          "type": "ui_sprite"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 22
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_bar_fill_green",
+      "asset_name": "Happiness bar fill (90-100)",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/happiness_bar_fill_green.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/hud/happiness_bar_fill_green_120x2.png",
+          "format": "png",
+          "type": "ui_sprite"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 23
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_bar_fill_yellow",
+      "asset_name": "Happiness bar fill (70-89)",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/happiness_bar_fill_yellow.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/hud/happiness_bar_fill_yellow_120x2.png",
+          "format": "png",
+          "type": "ui_sprite"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 24
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_bar_fill_orange",
+      "asset_name": "Happiness bar fill (50-69)",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/happiness_bar_fill_orange.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/hud/happiness_bar_fill_orange_120x2.png",
+          "format": "png",
+          "type": "ui_sprite"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 25
+    },
+    {
+      "task_id": "pico_echo.ui.care_menu_panel_bg",
+      "asset_name": "Care menu panel background",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/care_menu_panel_bg.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/hud/care_menu_panel_bg_32x12.png",
+          "format": "png",
+          "type": "ui_sprite"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 26
+    },
+    {
+      "task_id": "pico_echo.ui.icon_feed_seed_8x8",
+      "asset_name": "Care icon: Feed (seed)",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/icon_feed_seed_8x8.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/icons/care_feed_seed_8x8.png",
+          "format": "png",
+          "type": "ui_icon"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 27
+    },
+    {
+      "task_id": "pico_echo.ui.icon_clean_broom_8x8",
+      "asset_name": "Care icon: Clean (broom)",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/icon_clean_broom_8x8.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/icons/care_clean_broom_8x8.png",
+          "format": "png",
+          "type": "ui_icon"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 28
+    },
+    {
+      "task_id": "pico_echo.ui.icon_pet_hand_8x8",
+      "asset_name": "Care icon: Pet (hand)",
+      "category": "ui",
+      "subcategory": "icon",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/icon_pet_hand_8x8.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/icons/care_pet_hand_8x8.png",
+          "format": "png",
+          "type": "ui_icon"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 29
+    },
+    {
+      "task_id": "pico_echo.ui.happiness_up_arrow",
+      "asset_name": "Happiness increase arrow flash",
+      "category": "ui",
+      "subcategory": "hud",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/ui/happiness_up_arrow.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/ui/hud/happiness_up_arrow_5x5.png",
+          "format": "png",
+          "type": "ui_sprite"
+        }
+      ],
+      "priority": "P2",
+      "execution_order": 30
+    },
+    {
+      "task_id": "pico_echo.typography.font_3x5",
+      "asset_name": "Mini pixel font 3x5",
+      "category": "typography",
+      "subcategory": "font",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/typography/font_3x5.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/typography/font_3x5_digits_percent_44x6.png",
+          "format": "png",
+          "type": "font_sheet"
+        }
+      ],
+      "priority": "P3",
+      "execution_order": 31
+    },
+    {
+      "task_id": "pico_echo.character.echo_idle_animation",
+      "asset_name": "Echo animation: Idle",
+      "category": "character",
+      "subcategory": "echo",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/character/echo_idle_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/echo/echo_idle_strip_40x40_f4_2fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 32
+    },
+    {
+      "task_id": "pico_echo.character.echo_eating_animation",
+      "asset_name": "Echo animation: Eating",
+      "category": "character",
+      "subcategory": "echo",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/character/echo_eating_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/echo/echo_eating_strip_40x40_f6_4fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 33
+    },
+    {
+      "task_id": "pico_echo.character.echo_sleeping_animation",
+      "asset_name": "Echo animation: Sleeping",
+      "category": "character",
+      "subcategory": "echo",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/character/echo_sleeping_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/echo/echo_sleeping_strip_40x40_f3_1fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 34
+    },
+    {
+      "task_id": "pico_echo.character.echo_happy_animation",
+      "asset_name": "Echo animation: Happy",
+      "category": "character",
+      "subcategory": "echo",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/character/echo_happy_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/echo/echo_happy_strip_40x40_f8_4fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 35
+    },
+    {
+      "task_id": "pico_echo.character.echo_preening_animation",
+      "asset_name": "Echo animation: Preening",
+      "category": "character",
+      "subcategory": "echo",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/character/echo_preening_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/echo/echo_preening_strip_40x40_f5_3fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 36
+    },
+    {
+      "task_id": "pico_echo.character.echo_dirty_animation",
+      "asset_name": "Echo animation: Dirty",
+      "category": "character",
+      "subcategory": "echo",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/character/echo_dirty_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/echo/echo_dirty_strip_40x40_f3_2fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 37
+    },
+    {
+      "task_id": "pico_echo.character.echo_hungry_animation",
+      "asset_name": "Echo animation: Hungry",
+      "category": "character",
+      "subcategory": "echo",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/character/echo_hungry_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/echo/echo_hungry_strip_40x40_f4_2fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P0",
+      "execution_order": 38
+    },
+    {
+      "task_id": "pico_echo.character.echo_singing_animation",
+      "asset_name": "Echo animation: Singing",
+      "category": "character",
+      "subcategory": "echo",
+      "plan_file": "Solutions/GameMaking/Planning/experiments/Art_EXP_2026-02-13/Art task plan/Pico_Echo/trial_5/character/echo_singing_animation.json",
+      "deliverables": [
+        {
+          "path": "assets/pico_echo/sprites/echo/echo_singing_strip_40x40_f8_4fps.png",
+          "format": "png",
+          "type": "sprite_strip"
+        }
+      ],
+      "priority": "P1",
+      "execution_order": 39
+    }
+  ]
+}

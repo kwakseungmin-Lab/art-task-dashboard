@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.widget.counter_gauge",
+  "asset_name": "Counter Gauge Widget — circular 48px (8-step fill)",
+  "category": "ui",
+  "subcategory": "widget",
+  "priority": "P0",
+  "execution_order": 230,
+  "variant_of": null,
+  "depends_on": [
+    "ui.atlas.core"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.atlas.core"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.enemies.slime",
+      "character.boss.cyclops",
+      "character.enemies.medusa",
+      "character.enemies.cerberus",
+      "character.boss.hydra"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "counter_cyan",
+      "hex": "#40E8D0"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "ui_white",
+      "hex": "#F0EFE9"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "ui_widget",
+    "layer": "ui",
+    "usage": "Shown above enemy head during attack telegraph. Shrinks over time to indicate ±80ms timing window.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 48,
+      "height": 48
+    },
+    "states": [
+      "fill_8",
+      "fill_7",
+      "fill_6",
+      "fill_5",
+      "fill_4",
+      "fill_3",
+      "fill_2",
+      "fill_1"
+    ],
+    "sheet_dimensions_px": {
+      "width": 384,
+      "height": 48
+    },
+    "layout": "Row of 8 states from full to near-empty.",
+    "colors_hex": [
+      "#40E8D0",
+      "#F0EFE9",
+      "#0B0C1E",
+      "#E84040"
+    ],
+    "animation": {
+      "type": "states",
+      "driven_by": "timer"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.widget.counter_gauge.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Each state is exactly 48x48px and centered.",
+    "Gauge remains readable against both bright and dark backgrounds.",
+    "State progression is monotonic (no ambiguous increase/decrease in fill)."
+  ]
+}

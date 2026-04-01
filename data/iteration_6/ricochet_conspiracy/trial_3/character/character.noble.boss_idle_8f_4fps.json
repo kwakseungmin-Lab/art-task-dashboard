@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.noble.boss_idle_8f_4fps",
+  "asset_name": "Target Noble — Boss (Idle, 8 frames, 4fps)",
+  "category": "character",
+  "subcategory": "target_boss",
+  "priority": "P1",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "boss_target",
+    "layer": "world",
+    "usage": "Boss noble with 3 HP and barrier stages. Must read as higher status (burgundy clothing).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 448,
+      "height": 64
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#8B3A52",
+      "#F5F0E8",
+      "#A89880",
+      "#C8B4E0"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 56,
+        "height": 64
+      },
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      },
+      "frame_count": 8,
+      "directions": null,
+      "note": "Include cape or ornate collar; optional subtle glow highlight in lavender #C8B4E0."
+    },
+    "animation": {
+      "type": "loop",
+      "fps": 4,
+      "notes": "Slow regal idle; keep motion under 2px; no smear."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.boss_idle_8f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 448x64px (8x1) with 56x64px frames; consistent baseline across frames.",
+    "Boss outfit prominently uses #8B3A52 (deep burgundy) with soft-gold accents #D4A843; 1px outline #3D2B1F.",
+    "Idle animation is readable at 4fps and clearly distinguishes boss from other nobles by silhouette and scale."
+  ]
+}

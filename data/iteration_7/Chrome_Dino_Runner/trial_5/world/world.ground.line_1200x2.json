@@ -1,0 +1,105 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.ground.line_1200x2",
+  "asset_name": "Ground Baseline Strip",
+  "category": "world",
+  "subcategory": "ground",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [
+    "world.ground.texture_1200x10"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_run_2f_12fps",
+      "obstacles.cactus.small_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_baseline",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        148
+      ]
+    },
+    "layer": "world_front",
+    "usage": "Provides the visible baseline and landing reference for the 600x150 play frame.",
+    "adjacent_elements": [
+      "character.player.dino_run_2f_12fps",
+      "obstacles.cactus.small_static"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 2
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Straight 1200 px horizontal strip with constant 2 px thickness for seamless tiling.",
+      "components": [
+        "horizontal_line_segment"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground.line_1200x2.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 1200x2 px.",
+    "Every opaque pixel uses #535353.",
+    "Left and right edges tile seamlessly when repeated at 1200 px intervals."
+  ]
+}

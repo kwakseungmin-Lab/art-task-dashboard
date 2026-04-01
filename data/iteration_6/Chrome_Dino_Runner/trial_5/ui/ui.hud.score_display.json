@@ -1,0 +1,90 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.score_display",
+  "asset_name": "HUD - Score Display Layout Spec",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.pixel_mono_16"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.pixel_mono_16"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hud",
+    "layer": "ui",
+    "usage": "Top-right aligned score area showing 5 digits with zero padding",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -10,
+        10
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 150,
+      "height": 20
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.score_display.mock.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Mock image is 150x20px and includes a 5-digit placeholder \"00000\" rendered with the bitmap font at 16px size.",
+    "Rightmost digit aligns to a 10px margin from the right edge when placed on a 600x150 canvas.",
+    "All glyph pixels use #535353 and remain pixel-perfect with no subpixel filtering."
+  ]
+}

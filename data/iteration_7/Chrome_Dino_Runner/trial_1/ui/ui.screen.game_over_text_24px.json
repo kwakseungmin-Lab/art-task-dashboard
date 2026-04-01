@@ -1,0 +1,111 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.game_over_text_24px",
+  "asset_name": "Game Over Center Text",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 170,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_dead_static",
+      "world.background.sky_fill_600x150"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "game_over_banner",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        210,
+        45
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Centered banner displayed after collision with 24 px letter height and optional #FF0000 highlight for record state.",
+    "adjacent_elements": [
+      "character.player.dino_dead_static",
+      "ui.hud.score_display_mock"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 24
+    },
+    "colors_hex": [
+      "#535353",
+      "#FF0000",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single-line GAME OVER wordmark occupying 180 px width and 24 px height in blocky uppercase pixels.",
+      "components": [
+        "G",
+        "A",
+        "M",
+        "E",
+        "O",
+        "V",
+        "E",
+        "R"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.game_over_text_24px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 180x24 px.",
+    "Primary text fill uses #535353 and optional record-state highlight uses #FF0000 only.",
+    "Wordmark remains horizontally centered when its top-left corner is placed at 210,45 in a 600x150 frame."
+  ]
+}

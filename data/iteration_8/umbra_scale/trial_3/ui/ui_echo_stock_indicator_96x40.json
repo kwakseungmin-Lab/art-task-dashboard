@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003022",
+  "asset_key": "ui_echo_stock_indicator_96x40",
+  "asset_name": "Echo Stock Indicator",
+  "category": "ui",
+  "subcategory": "hud_panel",
+  "priority": "P1",
+  "execution_order": 220,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003009",
+    "task_id_008003016"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003009",
+    "task_id_008003016"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003009",
+      "task_id_008003012",
+      "task_id_008003013",
+      "task_id_008003016",
+      "task_id_008003017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra silhouette, limb taper, eye glow placement, and cloak-like vapor edge anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the panel art and swap atlas frames based on the remaining summon count from the echo inventory state.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "EchoStockDisplay",
+      "HudWidget"
+    ],
+    "asset_loading": "Load ui/ui_echo_stock_indicator_96x40.png through AssetServer during HUD setup and bind frame selection to the echo stock resource.",
+    "runtime_notes": [
+      "Frames represent stock counts 2, 1, and 0.",
+      "Indicator anchors to the upper right at x=1808 y=16 in the 1920x1080 UI canvas.",
+      "Small echo icons can pulse through engine tint only and do not need separate animation frames."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "echo_stock",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1808,
+        16
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Upper right stock indicator that shows how many Echo helpers can still be placed on the current floor.",
+    "adjacent_elements": [
+      "player_echo_anchor_idle_4f_4fps",
+      "ui_hud_hp_exposure_panel_240x80",
+      "ui_art_deco_numeric_font_16px_ascii_48glyph"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_flat",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 40
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#C9A84C",
+      "#F5EFE0",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 3,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 3,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Compact top right plaque with two echo icon bays, one numeric cell, and a stepped gold frame.",
+      "components": [
+        "outer_frame",
+        "echo_icon_bays",
+        "numeric_cell",
+        "corner_hooks"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Flat dark panel with white echo icons and gold frame corners.",
+    "shading": "Minimal flat shading with a small teal fill inside the active icon bays."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_echo_stock_indicator_96x40.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 288x40 px with three 96x40 frames.",
+    "Two icon bays each reserve a 20x24 px area and the numeric cell reserves a 24x16 px area.",
+    "Zero stock frame dims both icon bays while keeping the panel frame and label cell fixed."
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline included in sprite dimensions",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "variable",
+      "height": "variable"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "minimalist pixel art environment",
+      "color": "monochrome or background colors only",
+      "purpose": "provide spatial reference and depth",
+      "movement": "parallax scrolling at varying speeds",
+      "collision": "ground provides landing reference, background is non-interactive"
+    }
+  },
+  "asset": {
+    "asset_id": "ground",
+    "asset_name": "Ground Line and Texture",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Defines ground level, provides landing reference for player, creates sense of movement through scrolling",
+      "screen_position": "Fixed at y=0 (bottom reference), scrolls horizontally left at Current_Speed",
+      "adjacent_elements": ["player", "cactus_variants", "background"],
+      "usage_scenario": "Always visible, scrolls continuously during gameplay, provides collision reference for player landing, tiles seamlessly for infinite scrolling"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "1200px",
+        "height": "2px (line) + 10px (optional texture)"
+      },
+      "colors": {
+        "line": "#535353",
+        "texture": "#535353"
+      },
+      "shape": "Horizontal line with optional small rocks/grass texture below",
+      "texture": "pixel art, flat color, minimal texture elements (small rocks or grass tufts spaced 50-100px apart)",
+      "outline": "none (line itself is 2px thick)",
+      "shadow": "none",
+      "animation": {
+        "type": "position-based scrolling",
+        "frames": 1,
+        "fps": 0,
+        "loop": true,
+        "description": "Tiles seamlessly - when x position reaches -1200px, resets to 0 for infinite scrolling, scrolls at Current_Speed (300-900 px/s)"
+      },
+      "details": "2px horizontal line at y=0, optional texture layer below with sparse rocks/grass for visual interest, tiles at 1200px width, collision reference at y=0 line"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_jump", "cactus_small", "cactus_medium", "cactus_large", "background"],
+      "shared_with": "Same scrolling speed as obstacles (Current_Speed), same primary color",
+      "differences_from": "background scrolls at 0.5x speed (parallax), ground scrolls at 1.0x speed, ground has collision, background does not"
+    },
+    "explicit_negations": [
+      "no anti-aliasing",
+      "no gradients or shading",
+      "no additional colors beyond #535353",
+      "no smooth curves (pixel-aligned edges only)",
+      "no transparency except full alpha",
+      "no complex textures (keep minimal)",
+      "no vertical variation (flat horizon)",
+      "no perspective or depth in line itself"
+    ]
+  }
+}

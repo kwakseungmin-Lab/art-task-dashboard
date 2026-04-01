@@ -1,0 +1,182 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 1,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "character.player.dino_sprite_set",
+  "asset_name": "player_dino_sprite_set",
+  "category": "character",
+  "subcategory": "player",
+  "description": "Player dino sprite sheet for core states: idle(2 frames, 6 fps), run(2 frames, 12 fps), jump(1 frame), duck(2 frames, 12 fps), dead(1 frame). Monochrome #535353 with 2px outline.",
+  "context": {
+    "role": "main_player_character",
+    "layer": "character",
+    "usage": "Visible during gameplay and game-over state.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 100,
+      "y": 148,
+      "anchor": "bottom_left"
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "world.ground.line_1200x2",
+      "obstacles.cactus.set",
+      "obstacles.pterodactyl.fly",
+      "ui.score_display",
+      "ui.game_over_screen"
+    ]
+  },
+  "depends_on": [
+    "world.ground.line_1200x2"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.ground.line_1200x2"
+  ],
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Art/Source/Chrome_Dino_Runner/character/player/player_dino_sprite_set.aseprite",
+      "notes": "8 frames in a 4x2 grid; animation tags: idle, run, jump, duck, dead."
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/character/player_dino_sprite_set/player_dino_sprite_set.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 472,
+        "height": 188
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "Exported PNG sprite sheet is exactly 472x188 px with a transparent background.",
+    "All non-transparent pixels use #535353 only.",
+    "Baseline contact pixels do not shift across run frames when rendered with bottom-left anchor at y=148.",
+    "Duck frames occupy a wider silhouette than run frames and remain readable at 1x."
+  ],
+  "priority": "P0",
+  "execution_order": 50,
+  "specs": {
+    "frame_cell_size_px": {
+      "width": 118,
+      "height": 94
+    },
+    "sprite_sheet_layout": {
+      "columns": 4,
+      "rows": 2,
+      "total_frames": 8,
+      "sheet_size_px": {
+        "width": 472,
+        "height": 188
+      }
+    },
+    "baseline_y_px": 148,
+    "pivot_px": {
+      "x": 59,
+      "y": 90
+    },
+    "colors_hex": {
+      "primary": "#535353",
+      "background": "#F7F7F7"
+    },
+    "transparent_background": true,
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    },
+    "animations": [
+      {
+        "name": "idle",
+        "frames": [
+          0,
+          1
+        ],
+        "fps": 6,
+        "loop": true
+      },
+      {
+        "name": "run",
+        "frames": [
+          2,
+          3
+        ],
+        "fps": 12,
+        "loop": true
+      },
+      {
+        "name": "jump",
+        "frames": [
+          4
+        ],
+        "fps": 0,
+        "loop": false
+      },
+      {
+        "name": "duck",
+        "frames": [
+          5,
+          6
+        ],
+        "fps": 12,
+        "loop": true
+      },
+      {
+        "name": "dead",
+        "frames": [
+          7
+        ],
+        "fps": 0,
+        "loop": false
+      }
+    ],
+    "duck_pose_note": {
+      "target_silhouette_size_px": {
+        "width": 118,
+        "height": 60
+      },
+      "cell_padding_px": {
+        "top": 0,
+        "bottom": 34,
+        "left": 0,
+        "right": 0
+      }
+    },
+    "collision_guidance": {
+      "player_hitbox_inset_px": 5
+    }
+  }
+}

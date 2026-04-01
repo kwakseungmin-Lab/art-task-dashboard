@@ -1,0 +1,238 @@
+{
+  "task_id": "cdr_character_player_idle",
+  "asset_name": "player_idle",
+  "category": "character",
+  "subcategory": "player",
+  "description": "Create Player Idle animation as 2-frame pixel art sprite. Each frame canvas is 88x94 px. Animation: 2 frames at 6 FPS, loop enabled. Color usage: #535353 only for opaque pixels; background fully transparent (alpha 0). Player must face right (positive X). Frame difference rule: body pixels identical between frame 1 and frame 2; only the eye pixels differ to simulate blink. Eye open (frame 1): transparent rectangle 4x4 px. Eye closed (frame 2): transparent rectangle 6x2 px. Both eye shapes must be placed with their top-left at (x=58, y=22) in the 88x94 canvas (origin top-left).",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Player-controlled T-Rex character sprite.",
+    "screen_location": "Gameplay area; X fixed at 100 px from left; bottom aligned to ground baseline.",
+    "adjacent_elements": [
+      "ground_line",
+      "cactus obstacles",
+      "pterodactyl obstacles"
+    ],
+    "layer": "gameplay_foreground",
+    "usage": "Visible during Running; state switches among Idle/Run/Jump/Duck/Dead."
+  },
+  "specs": {
+    "dimensions": "88x94",
+    "animation": {
+      "enabled": true,
+      "type": "frame_sequence",
+      "frame_count": 2,
+      "fps": 6,
+      "loop": true
+    },
+    "pivot": {
+      "anchor": "bottom_left",
+      "pixel": {
+        "x": 0,
+        "y": 93
+      },
+      "notes": "Bottom row (y=93) is ground-contact baseline."
+    },
+    "view": "2D side view, facing right",
+    "colors": [
+      "#535353"
+    ],
+    "background": "transparent",
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    },
+    "shading": {
+      "enabled": false
+    },
+    "detail_rules": {
+      "eye": "Use transparent cut-out for the eye shape.",
+      "no_gradients": true,
+      "no_aa": true
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/character/dino_idle_1.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "dimensions_px": "88x94",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/character/dino_idle_1@2x.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "dimensions_px": "176x188",
+      "scale": 2,
+      "background": "transparent",
+      "scale_method": "nearest_neighbor"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/character/dino_idle_2.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "dimensions_px": "88x94",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/character/dino_idle_2@2x.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "dimensions_px": "176x188",
+      "scale": 2,
+      "background": "transparent",
+      "scale_method": "nearest_neighbor"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_character_player_run",
+      "cdr_character_player_jump",
+      "cdr_character_player_duck",
+      "cdr_character_player_dead"
+    ],
+    "shared_properties": {
+      "primary_color_hex": "#535353",
+      "outline_thickness_px": 2,
+      "facing": "right"
+    },
+    "differences": {
+      "vs_run": "Idle uses blink-only change at 6 FPS; Run uses leg movement at 12 FPS.",
+      "vs_jump": "Jump is single static frame.",
+      "vs_duck": "Duck uses 118x60 canvas.",
+      "vs_dead": "Dead is single static frame with X-eye cutout."
+    }
+  },
+  "depends_on": [],
+  "execution_order": 4,
+  "priority": "P0",
+  "blocks": [
+    "cdr_character_player_run",
+    "cdr_character_player_jump",
+    "cdr_character_player_duck",
+    "cdr_character_player_dead"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Deliverables include 2 frames at 1x (88x94) and 2 frames at 2x (176x188).",
+    "Only #535353 opaque pixels and fully transparent background pixels (alpha 0) exist.",
+    "Frame 1 and frame 2 are identical except for the eye cut-out pixels.",
+    "Eye cut-out placement: top-left pixel at (58,22). Open eye is 4x4 in frame 1; closed eye is 6x2 in frame 2.",
+    "All opaque silhouette strokes are at least 2px thick; no isolated single-pixel spikes."
+  ]
+}

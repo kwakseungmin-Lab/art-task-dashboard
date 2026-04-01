@@ -1,0 +1,132 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.hazard.bolt_tile_off_64_2f",
+  "asset_name": "Bolt Hazard Tile OFF Sheet — 128x64, 2 frames",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P1",
+  "execution_order": 90,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "blocks": [
+    "obstacles.hazard.bolt_tile_on_64_sheet_6f"
+  ],
+  "blocked_by": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.hazard.bolt_tile_on_64_sheet_6f",
+      "ui.overlay.path_tile_numbers_20_atlas"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hazard_tile_state",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "layer": "world_hazards",
+    "usage": "Safe phase of the bolt hazard shown during one board turn before activation.",
+    "adjacent_elements": [
+      "world.tiles.marble_grid_64_atlas",
+      "ui.overlay.path_tile_numbers_20_atlas"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_2d",
+      "facing": "north_up"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 64
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#6B7280",
+      "#D4C5A9",
+      "#F8FAFC"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 2,
+      "fps": 2,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 2,
+        "frame_size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "order": [
+          "bolt_off_1",
+          "bolt_off_2"
+        ],
+        "padding_px": 0
+      }
+    },
+    "shape": {
+      "silhouette": "Square tile with a dark lightning groove and no active discharge.",
+      "components": [
+        "base_tile",
+        "lightning_groove",
+        "2 status_pips"
+      ]
+    },
+    "hazard": {
+      "damage_state": "inactive",
+      "status_pip_count": 2
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.bolt_tile_off_64_2f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 128x64px with 2 frames of 64x64px.",
+    "No frame contains a bright discharge wider than 4px.",
+    "Each frame shows 2 inactive status pips near the lower edge."
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.unit.villager_idle_sheet_32x48_4f",
+  "asset_name": "Villager Unit Idle Sheet — 32×48 (4 frames)",
+  "category": "character",
+  "subcategory": "unit",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "unit_sprite",
+    "layer": "world",
+    "usage": "Default civilian unit sprite for settlement view; used during resource distribution visualization.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "frame_size_px": {
+      "width": 32,
+      "height": 48
+    },
+    "frame_count": 4,
+    "fps": 6,
+    "frames": [
+      {
+        "id": "idle_1",
+        "note": "Breathing / small sway."
+      },
+      {
+        "id": "idle_2",
+        "note": "Breathing / small sway."
+      },
+      {
+        "id": "idle_3",
+        "note": "Breathing / small sway."
+      },
+      {
+        "id": "idle_4",
+        "note": "Breathing / small sway."
+      }
+    ],
+    "layout_note": "Single-row strip 128×48. Transparent background."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.unit.villager_idle_sheet_32x48_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG strip is exactly 128×48px with four 32×48 frames.",
+    "Silhouette and head/torso separation readable at 1× scale."
+  ]
+}

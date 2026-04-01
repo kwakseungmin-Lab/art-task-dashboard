@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003012",
+  "asset_key": "obstacle_weight_block_set_32x32_values_1_5",
+  "asset_name": "Weight Block Set 1 Through 5",
+  "category": "obstacles",
+  "subcategory": "weight_object",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001",
+    "task_id_008003009"
+  ],
+  "blocks": [
+    "task_id_008003013",
+    "task_id_008003019"
+  ],
+  "blocked_by": [
+    "task_id_008003001",
+    "task_id_008003009"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003009",
+      "task_id_008003013",
+      "task_id_008003019",
+      "task_id_008003022"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle with five numbered states and swap atlas frames based on the authored weight value in gameplay data.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "WeightBlock",
+      "Transform",
+      "GrabInteractable"
+    ],
+    "asset_loading": "Load obstacles/obstacle_weight_block_set_32x32_values_1_5.png through AssetServer and select frame indices from the weight value component.",
+    "runtime_notes": [
+      "Each frame maps to one discrete gameplay weight from 1 through 5.",
+      "Number glyphs must stay readable from the default camera without UI scaling.",
+      "Grip position stays centered so moving the block feels consistent across all five values."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "weight_block",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1184,
+        640
+      ]
+    },
+    "layer": "obstacle_weight",
+    "usage": "Movable block set used to tune scale torque and create alternate floor solutions with discrete visible weights.",
+    "adjacent_elements": [
+      "player_echo_anchor_idle_4f_4fps",
+      "obstacle_scale_platform_dual_520x96",
+      "ui_scale_readout_panel_220x56"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#F5EFE0",
+      "#D4682A"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 5,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 5,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Dense square block with beveled corners, central numeral plate, and a small grab lip on the top edge.",
+      "components": [
+        "outer_block",
+        "beveled_corners",
+        "number_plate",
+        "top_grab_lip",
+        "base_shadow"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Stone body with metal number plate and small amber wear accents on high contact edges.",
+    "shading": "Dark violet side faces with brighter gold rim around the numeral plate."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_weight_block_set_32x32_values_1_5.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 160x32 px with five 32x32 frames.",
+    "Numerals 1 through 5 are centered on the number plate and remain readable at 100 percent camera scale.",
+    "Every frame uses the same outer contour so value swaps do not alter collision bounds."
+  ]
+}

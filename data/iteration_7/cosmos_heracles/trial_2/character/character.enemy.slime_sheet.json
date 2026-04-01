@@ -1,0 +1,144 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.enemy.slime_sheet",
+  "asset_name": "Slime enemy bounce sheet",
+  "category": "character",
+  "subcategory": "enemy_common",
+  "priority": "P1",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": [
+    "primary #C47C2B",
+    "background #0B0C1E",
+    "accent #FFD966",
+    "enemy sheet standalone"
+  ],
+  "differences": [
+    "frame_size 48x40",
+    "4_frame_bounce_loop",
+    "zone1_only_enemy"
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.zone1.corridor_backdrop",
+      "ui.widget.counter_gauge_base"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art_16x16_upscaled",
+    "detail_level": "dense_16x16_cluster",
+    "shading": "two_tone_plus_one_highlight",
+    "outline": "1px_deep_space_outline"
+  },
+  "context": {
+    "role": "enemy_common",
+    "screen_position": {
+      "mode": "scroll_spawn_lane",
+      "anchor_px": {
+        "x": 1120,
+        "y": 812
+      },
+      "pivot": "bottom_center",
+      "type": "absolute_px"
+    },
+    "layer": "foreground_characters",
+    "usage": "Zone 1 common enemy used for single-hit bounce attacks with a 0.5 second warning beat.",
+    "adjacent_elements": [
+      "star floor strip contact point",
+      "player fixed anchor lane",
+      "counter gauge hover marker"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 40
+    },
+    "colors_hex": [
+      "#6B6357",
+      "#E84040",
+      "#0B0C1E",
+      "#FFD966"
+    ],
+    "animation": {
+      "frame_count": 4,
+      "fps": 8,
+      "loop": "loop",
+      "frame_size_px": {
+        "width": 48,
+        "height": 40
+      },
+      "states": [
+        "bounce"
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "left"
+    },
+    "shape": {
+      "silhouette": "low gelatin blob with bright core",
+      "components": [
+        "rounded dome",
+        "two eye dots",
+        "underside bounce shadow",
+        "single highlight streak"
+      ]
+    },
+    "face": {
+      "eyes": "two_cyan_dots",
+      "mouth": "none",
+      "nose": "none"
+    },
+    "appendages": {
+      "arms": "none",
+      "legs": "none",
+      "tail": "none",
+      "accessories": []
+    },
+    "texture": "gel_translucent_core",
+    "shading": "single_shadow_plus_top_highlight"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "character/character.enemy.slime_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Output sheet size is exactly 192x40 px.",
+    "Core palette remains primary #C47C2B, background #0B0C1E, accent #FFD966 with asset-local colors confined to specs.colors_hex.",
+    "Animation metadata is exactly frame_count 4, fps 8, loop loop.",
+    "Deliverable path is exactly character/character.enemy.slime_sheet.png with transparent background enabled.",
+    "The sheet contains exactly 4 frames at 48x40 px each.",
+    "Red threat marks use #E84040 and do not replace the project accent field.",
+    "specs.viewpoint.camera_angle is orthographic_side and specs.viewpoint.facing is left.",
+    "context.screen_position.type is absolute_px and context.adjacent_elements contains exactly 3 local composition notes."
+  ]
+}

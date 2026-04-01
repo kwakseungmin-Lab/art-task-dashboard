@@ -1,0 +1,118 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.enemy.cerberus",
+  "asset_name": "Cerberus Enemy (Zone 3)",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Danger Red",
+      "hex": "#E84040"
+    },
+    "shadow": {
+      "name": "Column Shadow",
+      "hex": "#6B6357"
+    },
+    "gold": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    },
+    "counter": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "boss": {
+      "name": "Boss Purple",
+      "hex": "#7B2FBE"
+    },
+    "ui_text": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "skin": {
+      "name": "Hero Skin",
+      "hex": "#E8B87A"
+    },
+    "armor": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "anti_aliasing": "none"
+  },
+  "context": {
+    "role": "enemy",
+    "layer": "world",
+    "usage": "Zone 3 chaser enemy; three heads with distinct bite cues."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#E84040",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "fps": 14,
+      "frame_count": 8,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      },
+      "loop": true,
+      "notes": "Frames 1-6 run; frames 7-8 bite. Bite frame should be visually distinct for counter."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemy.cerberus.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 1024x96px (8 frames × 128px wide each).",
+    "Three heads remain readable at 1.0x zoom; outlines do not merge into a single mass.",
+    "Bite frames use #E84040 pixels for danger emphasis with no glow gradients."
+  ]
+}

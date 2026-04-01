@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020107",
+  "asset_key": "obstacles_prism_glass_48x48_static",
+  "asset_name": "Prism Glass Splitter (48x48 static)",
+  "category": "obstacles",
+  "subcategory": "refractor",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The prism occupies a 48x48 px footprint that snaps cleanly to the grab grid while leaving enough surface area for split-light detail.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while refracted-glass tones stay inside specs.colors_hex.",
+    "The silhouette favors a faceted geometric form that fits the art deco tower motif."
+  ],
+  "differences": [
+    "The front face uses three dominant internal facets to hint at 120 degree light dispersion.",
+    "The art is non-rotating in gameplay, so bevel asymmetry remains fixed and the output notches are baked in one orientation.",
+    "A faint teal rim along the lower edges separates the object from amber beam cores and bright danger zones."
+  ],
+  "depends_on": [
+    "task_id_008020110"
+  ],
+  "blocks": [
+    "task_id_008020117"
+  ],
+  "blocked_by": [
+    "task_id_008020110"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020103",
+      "task_id_008020106",
+      "task_id_008020109",
+      "task_id_008020117"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds prism size, fixed orientation, and three-way split behavior."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the glass-and-gold material contrast used in the tower city."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds player-to-object scale for a readable grab interaction."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "PrismSplitter"
+    ],
+    "asset_loading": "Load the prism texture during FloorLoading and register it for PrismSplitter entities.",
+    "runtime_notes": [
+      "Keep the origin centered so drag placement feels stable.",
+      "Do not rotate the art at runtime because split directions are fixed by puzzle logic.",
+      "Render beam overlays above the prism but preserve visible bevel highlights."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "light_splitter",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1112,
+        404
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Grab-movable prism that splits an incoming beam into three fixed outputs for multi-target puzzles.",
+    "adjacent_elements": [
+      "task_id_008020103",
+      "task_id_008020109"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": null,
+    "surface_notes": [
+      "Primary triangular face occupies the central 28 px width.",
+      "Outer bevel thickness is 3 px.",
+      "Output notch markers appear on three edges and never exceed 6 px depth."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_prism_glass_48x48_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Prism texture is exactly 48x48 px with a clear faceted silhouette and three readable split directions.",
+    "The object remains visually distinct from the mirror panel through footprint, bevel language, and fixed orientation.",
+    "Facet highlights and shadow edges support bright-beam readability without flattening into a generic glass cube."
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.cosmos_heracles.base_run",
+  "asset_name": "Player Run (Base Size)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "extended": [
+      {
+        "name": "Column Shadow",
+        "hex": "#6B6357"
+      },
+      {
+        "name": "Hero Skin",
+        "hex": "#E8B87A"
+      },
+      {
+        "name": "Bronze Armor",
+        "hex": "#C47C2B"
+      },
+      {
+        "name": "Star Gold",
+        "hex": "#FFD966"
+      },
+      {
+        "name": "Danger Red",
+        "hex": "#E84040"
+      },
+      {
+        "name": "Boss Purple",
+        "hex": "#7B2FBE"
+      },
+      {
+        "name": "UI White",
+        "hex": "#F0EFE9"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "player",
+    "layer": "world",
+    "usage": "Default state while auto-running; shown for the majority of gameplay when no size key is held.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "left_center",
+      "offset_px": [
+        400,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 96
+    },
+    "colors_hex": [
+      "#E8B87A",
+      "#C47C2B",
+      "#6B6357",
+      "#D9D0BE",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "spritesheet_row",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": true,
+      "sheet_dimensions_px": {
+        "width": 384,
+        "height": 96
+      },
+      "frame_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "silhouette_requirements": [
+      "Clear head/torso separation in 1px outline",
+      "Leg stride readable at 1.0x zoom on 1600x900"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.cosmos_heracles.base_run.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 384x96px (6 frames in one row, each 64x96px).",
+    "At 1.0x zoom, the run loop reads as continuous forward motion with no frame-to-frame jitter larger than 1px at the feet contact point.",
+    "Uses 1px outline and no anti-aliasing; background is fully transparent with no semi-transparent pixels."
+  ]
+}

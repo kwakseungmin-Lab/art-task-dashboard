@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.button.confirm",
+  "asset_name": "Button - CONFIRM (Execute Teleport)",
+  "category": "ui",
+  "subcategory": "button",
+  "priority": "P0",
+  "execution_order": 210,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "button",
+    "layer": "ui",
+    "usage": "UI element rendered in screen space",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_right",
+      "offset_px": [
+        -24,
+        24
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 50
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#D4C5A9"
+    ],
+    "states": [
+      "disabled",
+      "normal",
+      "hover",
+      "pressed"
+    ],
+    "state_layout": {
+      "type": "vertical_strip",
+      "state_order": [
+        "disabled",
+        "normal",
+        "hover",
+        "pressed"
+      ]
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.button.confirm.png",
+      "transparent_background": true,
+      "layout": "vertical_strip",
+      "frame_size_px": {
+        "width": 180,
+        "height": 50
+      },
+      "frame_count": 4
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG has exactly 4 button states in a single vertical strip; each state is 180x50px, total image size is 180x200px.",
+    "Normal state uses #06B6D4 for the primary highlight and pressed state is at least 15% darker than normal.",
+    "Button label CONFIRM remains readable using #FEF3C7 pixels with a 1px outline or shadow using #1C1917."
+  ]
+}

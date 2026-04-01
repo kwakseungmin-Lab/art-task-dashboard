@@ -1,0 +1,103 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "ui.widget.counter_gauge",
+  "asset_name": "Counter Gauge (48px Circular UI)",
+  "category": "ui",
+  "group_id": "ui.widget.counter_gauge",
+  "variant_role": "standalone",
+  "priority": "P0",
+  "execution_order": 31,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.enemy.medusa_float_attack",
+      "character.player.cosmos_counter_action"
+    ]
+  },
+  "context": {
+    "role": "timing_ui",
+    "screen_position": {
+      "type": "screen_space",
+      "anchor": "above_enemy",
+      "offset_px": [
+        0,
+        -20
+      ]
+    },
+    "layer": "ui_world_attached",
+    "usage": "Displayed above enemy during attack windup; shrinks over time to indicate counter window.",
+    "adjacent_elements": []
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 144,
+      "height_px": 48
+    },
+    "frame_layout": {
+      "grid_columns": 3,
+      "grid_rows": 1,
+      "frame_size_px": [
+        48,
+        48
+      ],
+      "row_order": [
+        "gauge_states"
+      ]
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "ui_2d",
+      "facing": "none"
+    },
+    "colors": {
+      "main": {
+        "hex": "#40E8D0"
+      },
+      "secondary": [
+        {
+          "name": "ui_white",
+          "hex": "#F0EFE9"
+        },
+        {
+          "name": "danger_red",
+          "hex": "#E84040"
+        },
+        {
+          "name": "outline",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "circular ring gauge with tick marks and inner fill; 3 key states",
+      "components": [
+        "outer_ring",
+        "inner_arc",
+        "tick_marks",
+        "center_dot"
+      ]
+    }
+  },
+  "description": "Create a 3-frame (48x48 each) UI sprite for the counter gauge: frame1=full, frame2=mid, frame3=near-empty. Use cyan (#40E8D0) as main. Include a thin dark outline (#0B0C1E) for readability on bright backgrounds.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "ui/widget_counter_gauge.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 144x48 px (3 frames)",
+    "Each frame exactly 48x48 px",
+    "State progression from full to near-empty is obvious at a glance"
+  ]
+}

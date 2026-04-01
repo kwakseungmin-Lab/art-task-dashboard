@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000006",
+  "asset_key": "projectile_thunder_lance",
+  "asset_name": "Thunder Lance Projectile",
+  "category": "obstacles",
+  "subcategory": "spell_projectile",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Projectile sheet stays on transparent background and is authored for fast readability over the academy lane art.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while electric bolt colors appear inside specs.colors_hex.",
+    "The effect stays within a compact frame so high travel speed does not create UI overlap."
+  ],
+  "differences": [
+    "Six frames animate a narrow lightning spear with a bright core, forked front, and a short saw-tooth wake.",
+    "The silhouette is elongated rather than circular so players can instantly distinguish it from the fire orb.",
+    "Frame-to-frame edge shifts create a jittery electric cadence that supports the faster 320 px per second travel profile."
+  ],
+  "depends_on": [
+    "task_id_801000004"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_801000004"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000004",
+      "task_id_801000007",
+      "task_id_801000012",
+      "task_id_801000014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_3x2",
+    "ecs_components": [
+      "ProjectileTag",
+      "ElementThunderTag",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load projectile_thunder_lance.png during Loading and build a 3x2 TextureAtlasLayout for lightning projectile spawns.",
+    "runtime_notes": [
+      "Animate at 14 FPS so the bolt feels more volatile than the fire orb.",
+      "Keep the authored travel direction right-to-left with no runtime rotation requirement.",
+      "Preserve enough transparent margin around the bolt tips so additive glow shaders do not clip."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "incoming_thunder_projectile",
+    "screen_position": {
+      "type": "dynamic_path",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Spawned from advanced enemy casts that demand a faster read than the fire orb pattern."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFD700",
+      "#FFFACD",
+      "#FDE68A",
+      "#2B1B17"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 14,
+      "loop": true,
+      "frame_size_px": [
+        96,
+        48
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    "collision_profile": {
+      "shape": "capsule",
+      "width_px": 54,
+      "height_px": 18
+    },
+    "travel_profile": {
+      "speed_px_per_s": 320,
+      "direction": "right_to_left"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/projectile_thunder_lance.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 288x96 px for six 96x48 frames with no frame gutter.",
+    "The projectile reads as a lightning attack from silhouette and color alone at 50% preview scale.",
+    "The forward-facing point remains clearly sharper than the wake in every frame."
+  ]
+}

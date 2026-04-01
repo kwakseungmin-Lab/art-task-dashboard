@@ -1,0 +1,97 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position": "center of 128x128 screen, on perch at y=60",
+      "key_features": "crest, cheek patch, tail - 3 essential cockatiel traits",
+      "eye_size": "2x2px",
+      "outline": "1px, organic hand-drawn style"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_eating",
+    "asset_name": "Echo Eating Animation",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Triggered when player feeds Echo by tapping food bowl",
+      "screen_position": "Center (x=64, y=60), head moves toward food bowl at (16, 100)",
+      "adjacent_elements": ["food_bowl (target of head movement)", "perch (below)", "seed (consumed item)"],
+      "usage_scenario": "Plays once when food is provided. Echo's head bobs down to food bowl, pecks seed, returns to idle. Increases happiness by 15 points."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with head angled downward toward food bowl",
+      "texture": "Flat pixel art with hand-drawn organic edges, no gradients",
+      "outline": "1px black (#1D2B53) outline, hand-drawn style",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 6,
+        "fps": 4,
+        "loop": false,
+        "description": "Frame 1-3: Head gradually lowers toward food bowl. Frame 4: Beak opens (2px gap). Frame 5: Beak closes on seed. Frame 6: Head returns to neutral position. After animation completes, transitions to idle."
+      },
+      "details": "Head rotation: approximately 30-degree tilt downward in frames 2-5. Beak opens to 2px vertical gap in frame 4. Seed (3x3px #FFA300) visible in food bowl, disappears in frame 5. Body remains stationary, only head/neck moves."
+    },
+    "relationships": {
+      "related_assets": ["seed", "food_bowl", "echo_idle", "echo_hungry"],
+      "shared_with": "Same body structure as all Echo states",
+      "differences_from": "echo_idle: head angled down vs neutral. echo_hungry: actively eating vs looking at empty bowl. Beak opens in this animation, closed in idle."
+    },
+    "explicit_negations": [
+      "No 3D modeling",
+      "No smooth gradients",
+      "No thick outlines",
+      "Body does not move (only head/neck)",
+      "No chewing animation (single peck only)",
+      "No food particles flying",
+      "Seed does not animate (static until consumed)",
+      "No sound wave indicators"
+    ]
+  }
+}

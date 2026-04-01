@@ -1,0 +1,190 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003006",
+  "asset_key": "player_umbra_run_8f_10fps",
+  "asset_name": "Umbra Run Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": "task_id_008003005",
+  "variant_of_asset_key": "player_umbra_idle_6f_6fps",
+  "shared_properties": [
+    "32x48 frame size.",
+    "Core palette #C9A84C/#0D0B14/#D4682A.",
+    "Pointed head crest, eye slit, and trailing lower body silhouette."
+  ],
+  "differences": [
+    "Torso leans forward by 4 px.",
+    "Stride opens into a longer leg spread with a 10 px rear trail.",
+    "Lower body vapor stretches backward to show speed."
+  ],
+  "depends_on": [
+    "task_id_008003005"
+  ],
+  "blocks": [
+    "task_id_008003020"
+  ],
+  "blocked_by": [
+    "task_id_008003005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003007",
+      "task_id_008003017",
+      "task_id_008003020"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra silhouette, limb taper, eye glow placement, and cloak-like vapor edge anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle on the existing UmbraActor entity and switch to this loop when horizontal input magnitude is above the walk threshold.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "UmbraActor",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_umbra_run_8f_10fps.png through AssetServer and map it to the run state inside the player animation resource.",
+    "runtime_notes": [
+      "Run loop plays at 10 fps and can mirror on the X axis instead of storing a second facing atlas.",
+      "Rear foot contact frame stays consistent with dustless shadow traversal rather than physical ground debris.",
+      "Pivot remains aligned to the idle state rear foot midpoint."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "player_run",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        576,
+        624
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Fast shadow path traversal used when the player commits to a beam opening or clears a scale before the moving light returns.",
+    "adjacent_elements": [
+      "player_umbra_idle_6f_6fps",
+      "world_tower_chamber_backdrop_1920x1080",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#2D1B4E",
+      "#C9A84C",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 10,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Forward driven shadow form with stretched leading arm, long trailing vapor, and a narrow low profile suited for darting through safe lanes.",
+      "components": [
+        "head_crest",
+        "eye_slit",
+        "leading_arm",
+        "trailing_arm",
+        "front_stride",
+        "rear_stride",
+        "speed_trail"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "glow_slit",
+        "size_px": [
+          4,
+          2
+        ]
+      },
+      "mouth": null,
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 14
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 16
+      },
+      "tail": "extended_vapor_hem",
+      "accessories": "Gold chest sigil retained on the upper torso."
+    },
+    "texture": "Smooth silhouette fill with a slightly brighter trail edge on the rear hem.",
+    "shading": "Deep black core with thin teal streaks on the rear trail and one bright eye cut."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_umbra_run_8f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 256x48 px with eight 32x48 frames.",
+    "The forward lean never exceeds 4 px from the idle torso center so hitbox placement stays stable.",
+    "Rear trail length stays between 6 px and 10 px in every frame and never clips the 32x48 frame bounds."
+  ]
+}

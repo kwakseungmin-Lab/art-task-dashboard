@@ -1,0 +1,115 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.decor.star_floor_strip_1600x20",
+  "asset_name": "Star Floor Strip",
+  "category": "world",
+  "subcategory": "decor",
+  "priority": "P0",
+  "execution_order": 25,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.zone1_entrance_corridor_1600x900"
+  ],
+  "blocks": [
+    "character.player.cosmos_heracles.core_states_sheet",
+    "obstacles.terrain.gap_gate_set_160x110"
+  ],
+  "blocked_by": [
+    "world.background.zone1_entrance_corridor_1600x900"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.zone1_entrance_corridor_1600x900",
+      "character.player.cosmos_heracles.core_states_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "floor",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "bottom_left",
+      "offset_px": [
+        0,
+        -120
+      ]
+    },
+    "adjacent_elements": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "obstacles.terrain.marble_pillar_set_64x200",
+      "obstacles.terrain.gap_gate_set_160x110"
+    ],
+    "layer": "world",
+    "usage": "Grounding strip for the auto-run lane across all gameplay zones; provides contact baseline without collision details.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1600,
+      "height": 20
+    },
+    "colors_hex": [
+      "#D9D0BE",
+      "#FFD966",
+      "#6B6357",
+      "#0B0C1E"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "thin horizontal lane with repeating star inlays and a clean top contact edge",
+      "components": [
+        "top contact line",
+        "marble fill band",
+        "star inlay repeats",
+        "shadow underside"
+      ]
+    },
+    "repeat_interval_px": 64,
+    "background_treatment": "transparent outside strip"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.decor.star_floor_strip_1600x20.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1600x20px and the top collision-reading edge is a continuous hard line with 0px gaps.",
+    "A star inlay repeat occurs every 64px with phase error no greater than 1px across the strip.",
+    "The strip background is fully transparent above and below the marble band with no semi-transparent pixels."
+  ]
+}

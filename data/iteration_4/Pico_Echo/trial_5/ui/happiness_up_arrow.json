@@ -1,0 +1,176 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.ui.happiness_up_arrow",
+  "asset_name": "Happiness increase arrow flash",
+  "category": "ui",
+  "subcategory": "hud",
+  "description": "Sprite 5x5px, transparent background. Arrow color #00E436. Filled pixels for an up arrow: (2,0),(1,1),(2,1),(3,1),(2,2),(2,3),(2,4).",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/ui/hud/happiness_up_arrow_5x5.png",
+      "format": "png",
+      "type": "ui_sprite"
+    }
+  ],
+  "specs": {
+    "dimensions": "5x5",
+    "filled_pixels": [
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "palette_hex": [
+      "#00E436"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Flash 1 frame above HappinessBar when happiness increases.",
+    "screen_location": "Above bar at y=122..126.",
+    "adjacent_elements": [
+      "happiness_bar_bg"
+    ],
+    "layer": "ui",
+    "usage": "Shown 1 frame on care events."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.ui.happiness_bar_bg"
+    ],
+    "shared_properties": [
+      "HUD element"
+    ],
+    "differences": [
+      "Single 5x5 icon."
+    ]
+  },
+  "depends_on": [
+    "pico_echo.ui.happiness_bar_bg"
+  ],
+  "execution_order": 30,
+  "priority": "P2",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.ui.happiness_bar_bg"
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 5x5px.",
+    "Only #00E436 and transparent are used.",
+    "Filled pixels match specified arrow coordinates."
+  ]
+}

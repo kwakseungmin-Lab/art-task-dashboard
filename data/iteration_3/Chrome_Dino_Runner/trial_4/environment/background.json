@@ -1,0 +1,85 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline included in sprite dimensions",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "variable",
+      "height": "variable"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "minimalist pixel art environment",
+      "color": "monochrome or background colors only",
+      "purpose": "provide spatial reference and depth",
+      "movement": "parallax scrolling at varying speeds",
+      "collision": "ground provides landing reference, background is non-interactive"
+    }
+  },
+  "asset": {
+    "asset_id": "background",
+    "asset_name": "Sky and Clouds",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Provides depth through parallax scrolling, creates desert sky atmosphere",
+      "screen_position": "Fills entire screen, sky is static solid color #F7F7F7, clouds scroll at 0.5x Current_Speed",
+      "adjacent_elements": ["all game elements in foreground"],
+      "usage_scenario": "Always visible as backdrop, clouds (optional) spawn every 5-10 seconds at random heights (y=10-40px), scroll slower than ground for parallax effect"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "600px (full screen width)",
+        "height": "150px (full screen height)",
+        "cloud_small": "46x14px",
+        "cloud_large": "92x27px"
+      },
+      "colors": {
+        "sky": "#F7F7F7",
+        "clouds": "#535353"
+      },
+      "shape": "Solid color sky with optional simple cloud shapes",
+      "texture": "sky is flat solid color, clouds are simple pixel art silhouettes",
+      "outline": "clouds have 2px outline included in dimensions",
+      "shadow": "none",
+      "animation": {
+        "type": "position-based scrolling (clouds only)",
+        "frames": 1,
+        "fps": 0,
+        "loop": true,
+        "description": "Sky is static, clouds scroll left at Current_Speed * 0.5 (parallax), clouds respawn at right edge when exiting left, maximum 3 clouds on screen"
+      },
+      "details": "Sky is solid #F7F7F7 background, clouds (optional) are simple rounded shapes in primary color, spawn randomly at y=10-40px, scroll at half speed of ground for depth perception, 30% spawn probability every 5-10 seconds"
+    },
+    "relationships": {
+      "related_assets": ["ground", "pterodactyl", "all foreground elements"],
+      "shared_with": "Clouds use same primary color as obstacles",
+      "differences_from": "ground scrolls at 1.0x speed, background clouds scroll at 0.5x speed (parallax), background has no collision, ground has collision at y=0"
+    },
+    "explicit_negations": [
+      "no anti-aliasing",
+      "no gradients in sky (solid color only)",
+      "no additional colors beyond #F7F7F7 (sky) and #535353 (clouds)",
+      "no smooth curves (pixel-aligned edges only)",
+      "no transparency except full alpha",
+      "no complex cloud shapes (simple silhouettes only)",
+      "no sun, moon, or other celestial objects",
+      "no mountains or horizon features",
+      "no more than 3 clouds on screen simultaneously"
+    ]
+  }
+}

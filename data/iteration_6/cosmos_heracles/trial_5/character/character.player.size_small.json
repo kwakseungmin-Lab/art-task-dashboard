@@ -1,0 +1,103 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.size_small",
+  "asset_name": "Player SMALL Form — 40x40 (4 frames, shrink/hold loop)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "depends_on": [
+    "character.player.base_run"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.base_run"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.gap.narrow_marker"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "counter_cyan",
+      "hex": "#40E8D0"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "high",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "player",
+    "layer": "character",
+    "usage": "Displayed while holding ↓. Used to pass narrow gaps; keep silhouette extremely readable despite small size.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 400,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 40,
+      "height": 40
+    },
+    "frame_count": 4,
+    "fps": 12,
+    "loop": true,
+    "sheet_dimensions_px": {
+      "width": 160,
+      "height": 40
+    },
+    "animation_intent": "Frames can represent a compact running/rolling motion.",
+    "colors_hex": [
+      "#E8B87A",
+      "#C47C2B",
+      "#FFD966",
+      "#40E8D0",
+      "#0B0C1E"
+    ],
+    "hitbox_hint_px": {
+      "width": 36,
+      "height": 36
+    },
+    "animation": {
+      "type": "spritesheet",
+      "layout": "row"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.size_small.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Each frame is exactly 40x40px and centered.",
+    "Small form remains readable when auto-scrolling at 180px/s.",
+    "Silhouette clearly differs from base form even at a glance."
+  ]
+}

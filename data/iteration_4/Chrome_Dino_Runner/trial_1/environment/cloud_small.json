@@ -1,0 +1,131 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_environment_cloud_small",
+  "asset_name": "cloud_small",
+  "category": "environment",
+  "subcategory": "cloud",
+  "description": "(Optional) Create a cloud sprite, 46x14 px, 1 frame. Use only #535353 for visible pixels with transparent background. No outline requirement for clouds; silhouette pixels may be 1px thick. Shape must fit fully inside the 46x14 canvas.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/environment/cloud/cloud_small_46x14_1x.png",
+      "type": "sprite",
+      "format": "PNG",
+      "notes": "Used for parallax scrolling clouds at 0.5x ground speed."
+    }
+  ],
+  "specs": {
+    "dimensions": "46x14",
+    "frames": 1,
+    "colors_hex": [
+      "#535353"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Optional moving background element for depth cue.",
+    "screen_location": "Spawn y randomly between 10 and 40 px from the top edge of the screen.",
+    "adjacent_elements": "Must not overlap UI score digits at top-right (leave a 120x30 px safe region at top-right).",
+    "layer": "background (above sky, below ground and sprites)",
+    "usage": "Optional; maximum simultaneous clouds = 3."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_environment_cloud_large",
+      "cdr_v1_environment_background_sky"
+    ],
+    "shared_properties": [
+      "Primary color #535353",
+      "Transparent background"
+    ],
+    "differences": [
+      "Large cloud is 92x27; this is 46x14."
+    ]
+  },
+  "depends_on": [
+    "cdr_v1_environment_background_sky"
+  ],
+  "execution_order": 13,
+  "priority": "P3",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_v1_environment_background_sky"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 46x14 px.",
+    "Visible pixels use only #535353; all other pixels alpha=0.",
+    "No anti-aliased pixels (alpha must be either 0 or 255)."
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.stone_wall_segment_80x80",
+  "asset_name": "Stone Wall Segment (80x80)",
+  "category": "obstacles",
+  "subcategory": "environment_wall",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [
+    "obstacles.environment.mirror_panel_8x64"
+  ],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.mirror_panel_8x64",
+      "obstacles.launchable.stone_ball_static_32x32"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "environment_obstacle",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Placed in the play lane as a fixed bounce surface with 0.9 restitution and 80px modular width.",
+    "adjacent_elements": [
+      "mirror panel",
+      "stone ball"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 80
+    },
+    "colors_hex": [
+      "#A89880",
+      "#8C7E6E",
+      "#D8CDC2",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "square wall block with chipped top edge and readable mortar gaps at 80x80",
+      "components": [
+        "stone_block_faces",
+        "mortar_lines",
+        "top_chip_marks"
+      ]
+    },
+    "physics_tags": {
+      "hp": "infinite",
+      "base_restitution": 0.9,
+      "collision_shape": "box_80x80"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.stone_wall_segment_80x80.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 80x80px and keeps the outer collision silhouette inside the full square bounds.",
+    "Mortar gaps stay between 1px and 2px width and the top chip depth stays below 6px.",
+    "Only #A89880, #8C7E6E, #D8CDC2, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

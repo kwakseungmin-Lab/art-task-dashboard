@@ -1,0 +1,142 @@
+{
+  "task_id": "character.player.dino",
+  "id": "player_dino",
+  "asset_name": "Player Dino Sprite Sheet",
+  "category": "character",
+  "subcategory": "player",
+  "display_name": "Player Dino Sprite Sheet",
+  "description": "Create asset for task_id 'character.player.dino' as specified in specs/context.",
+  "execution_order": 30,
+  "priority": "P0",
+  "depends_on": [
+    "world.ground.line_tile_1200x2"
+  ],
+  "blocks": [
+    "obstacles.cactus.small_34x70",
+    "obstacles.cactus.medium_68x70",
+    "obstacles.cactus.large_102x100",
+    "obstacles.pterodactyl.fly_92x80_2f",
+    "ui.widget.score_display"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.ground.line_tile_1200x2",
+      "obstacles.cactus.small_34x70",
+      "obstacles.cactus.medium_68x70",
+      "obstacles.cactus.large_102x100",
+      "obstacles.pterodactyl.fly_92x80_2f",
+      "ui.widget.score_display"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 600,
+        "height": 150
+      },
+      "frame_rate_target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      },
+      "baseline_y_px": 148
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "highlight_optional_hex": "#FF0000"
+    },
+    "style": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 88,
+      "height": 94
+    },
+    "sprite_sheet": {
+      "total_frames": 7,
+      "layout": {
+        "columns": 4,
+        "rows": 2
+      },
+      "sheet_size_px": {
+        "width": 352,
+        "height": 188
+      },
+      "frame_order": [
+        "idle",
+        "run_1",
+        "run_2",
+        "duck_1",
+        "duck_2",
+        "jump",
+        "dead"
+      ]
+    },
+    "colors_hex": [
+      "#535353"
+    ],
+    "transparent_background": true,
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    }
+  },
+  "context": {
+    "role": "main_playable_character",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 100,
+      "y": 54,
+      "anchor": "top_left"
+    },
+    "layer": "character",
+    "usage": [
+      "start_screen",
+      "in_game",
+      "game_over"
+    ],
+    "motion": {
+      "world_scroll_convention": "character_x_is_fixed_world_moves_left",
+      "jump_arc": {
+        "max_height_px": 55,
+        "time_to_apex_s": 0.35
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/character/player_dino_sprite_sheet.aseprite",
+      "notes": "4x2 sheet containing 7 frames with named tags/frames."
+    },
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/character/player_dino_sprite_sheet.png",
+      "dimensions_px": {
+        "width": 352,
+        "height": 188
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG sprite sheet is exactly 352x188 px (4 columns x 2 rows, frame size 88x94).",
+    "All visible pixels use #535353 only; transparent background; no anti-aliasing.",
+    "Run loop (2 frames) reads clearly at 12 FPS; duck loop (2 frames) reads clearly at 12 FPS; fly not applicable.",
+    "Feet alignment is consistent across run frames when placed on baseline y=148."
+  ]
+}

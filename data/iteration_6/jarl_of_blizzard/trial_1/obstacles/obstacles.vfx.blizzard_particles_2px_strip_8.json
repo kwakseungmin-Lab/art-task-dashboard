@@ -1,0 +1,144 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.vfx.blizzard_particles_2px_strip_8",
+  "asset_name": "Blizzard Particle — 2×2 Strip (8 variations)",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.fx.blizzard_overlay_light",
+      "world.fx.blizzard_overlay_heavy"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "particle_sprite",
+    "layer": "overlay_particles",
+    "usage": "2x2 pixel particle variations used by the blizzard system; spawned 500-2000 particles.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 2
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 8,
+      "fps": 0,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 8,
+        "frame_size_px": {
+          "width": 2,
+          "height": 2
+        },
+        "order": [
+          "variant_1",
+          "variant_2",
+          "variant_3",
+          "variant_4",
+          "variant_5",
+          "variant_6",
+          "variant_7",
+          "variant_8"
+        ],
+        "padding_px": 0
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.blizzard_particles_2px_strip_8.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Strip is exactly 16x2px; contains 8 consecutive 2x2px particle variants; no padding.",
+    "Each particle is 1-4 pixels and uses only #FFFFFF/#E0E0E0/#C0C0C0 with transparency.",
+    "Variants are visually distinct enough that a 2000-particle field avoids obvious repetition."
+  ]
+}

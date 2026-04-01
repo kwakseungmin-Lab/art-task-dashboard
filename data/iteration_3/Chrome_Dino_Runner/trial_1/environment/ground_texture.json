@@ -1,0 +1,85 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit Pixel Art",
+    "theme": "Prehistoric Desert",
+    "mood": "Minimal, Retro, Focus-Demanding",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px outline included in sprites",
+    "rendering": "Pixel-perfect, no anti-aliasing"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "Variable (tiling/full screen)",
+      "height": "2-150px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "background": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "Minimal pixel art",
+      "color_mode": "Monochrome or background color",
+      "movement": "Scrolling or static",
+      "collision_layer": "Layer 2 (Ground) or no collision (Background)",
+      "rendering_priority": "Background layer (lowest)"
+    }
+  },
+  "asset": {
+    "asset_id": "ground_texture",
+    "asset_name": "Ground Texture (Optional)",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Optional decorative texture layer above ground line to add visual interest without cluttering gameplay",
+      "screen_position": "Horizontal strip at y=0px to y=10px (above ground line), spans entire screen width with tiling",
+      "adjacent_elements": ["ground_line", "player_run", "cactus_small", "cactus_medium", "cactus_large", "background_sky"],
+      "usage_scenario": "Optional visual enhancement, scrolls right-to-left at Current_Speed (300-900 px/s) synchronized with ground_line, tiles seamlessly"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "1200px",
+        "height": "10px"
+      },
+      "colors": {
+        "texture": "#535353"
+      },
+      "shape": "Horizontal strip with sparse small rocks or grass tufts",
+      "texture": "Minimal pixel art pattern with small decorative elements (rocks/grass) spaced 50-100px apart",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "position-based scrolling",
+        "frames": 1,
+        "fps": 0,
+        "loop": true,
+        "description": "Horizontal scrolling at -Current_Speed px/s, tiles seamlessly when X < -1200px by resetting X += 1200px, synchronized with ground_line"
+      },
+      "details": "Sparse decorative elements (small rocks or grass tufts) in Primary color, low visual density to avoid distraction, seamless tiling pattern"
+    },
+    "relationships": {
+      "related_assets": ["ground_line", "player_run", "cactus_small", "cactus_medium", "cactus_large", "background_sky"],
+      "shared_with": "Same scrolling speed and tiling behavior as ground_line",
+      "differences_from": "ground_line is mandatory 2px line, ground_texture is optional 10px decorative strip, ground_texture has sparse pattern while ground_line is solid"
+    },
+    "explicit_negations": [
+      "No gradients or color variations",
+      "No anti-aliasing",
+      "No dense or complex patterns (keep sparse)",
+      "No shadows or depth effects",
+      "No vertical movement",
+      "No animated elements within texture",
+      "No bright or contrasting colors (Primary #535353 only)",
+      "No 3D perspective or depth cues",
+      "No overlapping with player or obstacle sprites",
+      "No random generation (fixed tiling pattern)"
+    ]
+  }
+}

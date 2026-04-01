@@ -1,0 +1,172 @@
+{
+  "task_id": "task_id_008101006",
+  "asset_key": "player_umbra_run_8f_12fps",
+  "asset_name": "Umbra Run Loop",
+  "category": "character",
+  "subcategory": "player_motion",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": "task_id_008101005",
+  "variant_of_asset_key": "player_umbra_idle_6f_12fps",
+  "shared_properties": [
+    "Body footprint stays within 32x48 px.",
+    "Head crest, eye-glow placement, and base torso proportion match the idle master asset.",
+    "The silhouette remains mostly solid black with the same restrained teal highlight treatment."
+  ],
+  "differences": [
+    "Adds a longer stride with alternating forward and back leg pushes across eight frames.",
+    "Lower cloak wisps trail backward to indicate horizontal speed.",
+    "The torso leans slightly forward to communicate momentum while staying readable in silhouette."
+  ],
+  "depends_on": [
+    "task_id_008101005",
+    "task_id_008101002"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008101005",
+    "task_id_008101002"
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Reuse the player SpriteSheetBundle and swap to the run atlas clip when horizontal velocity exceeds the walk threshold.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "UmbraPlayer",
+      "HorizontalVelocity"
+    ],
+    "asset_loading": "Load character/player_umbra_run_8f_12fps.png during Loading and cache the eight-frame atlas as the run state.",
+    "runtime_notes": [
+      "Stride timing assumes 12 fps playback while gameplay movement uses 240 px per second.",
+      "Feet should return cleanly to a baseline so the run cycle blends into jump takeoff without a visible pop.",
+      "Do not widen the silhouette so much that narrow shadow corridors become visually ambiguous."
+    ]
+  },
+  "context": {
+    "role": "player_run",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        440,
+        760
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Primary locomotion state for traversing newly created shadow paths between mirrors, prisms, and scale decks.",
+    "adjacent_elements": [
+      "world_tower_tilekit_32px",
+      "obstacle_plane_mirror_static_16x96",
+      "ui_light_path_preview_overlay_1920x1080"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1A4A52",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Forward-leaning Umbra run with alternating strides, one arm leading, and a narrow trail of lower-body wisps.",
+      "components": [
+        "head_crest",
+        "forward_arm",
+        "rear_arm",
+        "stride_leg_front",
+        "stride_leg_back",
+        "wisp_trail"
+      ]
+    },
+    "motion": {
+      "travel_style": "ground_run",
+      "cadence_notes": "Eight frames cover one full left-right stride cycle."
+    }
+  },
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 256x48 px with eight 32x48 frames.",
+    "At least two frames show clear contact poses and two show a passing pose so motion reads as a continuous loop.",
+    "The silhouette never extends more than 4 px beyond the idle torso width, preserving narrow-path readability."
+  ],
+  "schema_version": "art_task@8",
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008101005",
+      "task_id_008101007",
+      "task_id_008101008",
+      "task_id_008101011",
+      "task_id_008101021"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds puzzle rules, object dimensions, HUD placement, and the Bevy 0.14 technical targets for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art-deco tower mood, silhouette layering, amber beam contrast, and architectural ornament rhythm."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds Umbra silhouette proportions, eye-glow placement, and cloak-like shadow contours for player and echo scale checks."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "shadow_teal",
+      "hex": "#1A4A52"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "sharp_shadow_with_luminous_beam_accents",
+    "outline": "selective_2px_gold_trim"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_umbra_run_8f_12fps.png",
+      "transparent_background": true
+    }
+  ]
+}

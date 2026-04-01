@@ -1,0 +1,132 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.hazard.bolt_tile_off_64x64_2f_2fps",
+  "asset_name": "Hazard Tile — Bolt OFF (64x64, 2 frames, 2fps)",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P1",
+  "execution_order": 42,
+  "variant_of": "obstacles.hazard.bolt_tile_on_64x64_6f_12fps",
+  "shared_properties": [
+    "Tile footprint remains 64x64 px.",
+    "Lightning glyph remains centered within the tile.",
+    "Base stone border silhouette stays unchanged."
+  ],
+  "differences": [
+    "Glow is removed and glyph luminance drops to an inactive state.",
+    "Animation is limited to 2 frames at 2 fps to signal dormancy."
+  ],
+  "depends_on": [
+    "obstacles.hazard.bolt_tile_on_64x64_6f_12fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.hazard.bolt_tile_on_64x64_6f_12fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.hazard.bolt_tile_on_64x64_6f_12fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hazard_toggle_off",
+    "layer": "hazard_tile",
+    "usage": "Bolt hazard in OFF state; safe to land on; rendered dim with no glow.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "grid_rules": {
+      "tile_size_px": [
+        64,
+        64
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#D4C5A9",
+      "#6B7280",
+      "#1E1B4B"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 2,
+      "loop": true,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "toggle_rules": {
+      "cycle_turns": 2,
+      "state": "off"
+    },
+    "glyph_rules": {
+      "glyph_box_px": [
+        24,
+        32
+      ],
+      "center_px": [
+        32,
+        32
+      ],
+      "fill_hex": "#6B7280",
+      "outline_hex": "#1E1B4B",
+      "glow_hex": null,
+      "glow_radius_px": 0
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.bolt_tile_off_64x64_2f_2fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 128x64px (2 frames × 64x64) with 0px spacing.",
+    "Lightning glyph uses #6B7280 fill with #1E1B4B 1px outline and has glow_radius_px = 0.",
+    "Uses only listed colors and transparency; no anti-aliasing."
+  ]
+}

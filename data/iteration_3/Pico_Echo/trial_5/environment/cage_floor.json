@@ -1,0 +1,100 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px",
+      "note": "Full screen canvas, individual elements vary"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bars": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "rendering": "static (no animation)",
+      "layer": "background (behind Echo)",
+      "style": "minimal, functional pixel art",
+      "perspective": "none (flat 2D front view)"
+    }
+  },
+  "asset": {
+    "asset_id": "cage_floor",
+    "asset_name": "Cage Floor Area",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Bottom area of cage where poop accumulates, target of cleaning interaction",
+      "screen_position": "Bottom section from y=110px to y=125px, full width x=0 to x=128 (128px wide, 15px tall)",
+      "adjacent_elements": [
+        "poop (spawns randomly on this floor at y=110-125px)",
+        "cage_food_bowl (above at y=100px)",
+        "cage_water_bowl (above at y=100px)",
+        "happiness_bar (below at y=126px)"
+      ],
+      "usage_scenario": "Interactive area where player swipes to clean poop. Poop objects (2x2px) appear randomly on this floor. When 3+ poop present, Echo enters dirty state. Swiping floor removes all poop and shows sparkle effect."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "128px",
+        "height": "15px"
+      },
+      "colors": {
+        "primary": "#FFCCAA",
+        "grid_lines": "#AB5236"
+      },
+      "shape": "Horizontal rectangular strip at bottom of screen. Represents cage floor/tray viewed from above.",
+      "texture": "Optional subtle grid pattern: 2-3 horizontal lines (1px tall, #AB5236) at y=113, 118, 123 to suggest floor grating or texture. Otherwise flat color.",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static background element. Poop objects appear on top of this floor."
+      },
+      "details": "Floor spans full width (128px) from y=110 to y=125 (15px tall). Base color #FFCCAA. Optional: 2-3 horizontal grid lines in #AB5236 spaced 5px apart. Poop objects (2x2px, #AB5236) spawn at random x positions within this area. Swipe gesture across this area triggers cleaning action."
+    },
+    "relationships": {
+      "related_assets": [
+        "poop",
+        "cage_food_bowl",
+        "cage_water_bowl",
+        "sparkle_particle",
+        "echo_dirty"
+      ],
+      "shared_with": "All cage environment elements",
+      "differences_from": "Unlike background: interactive (swipe to clean), darker color. Unlike perch: at bottom of screen, horizontal surface for poop. Unlike bowls: not a container, full width."
+    },
+    "explicit_negations": [
+      "No 3D perspective or depth",
+      "No gradients or shading",
+      "No realistic floor texture",
+      "No cage bars visible (interior view)",
+      "No shadows from objects above",
+      "No wear or damage marks",
+      "No decorative patterns",
+      "No color changes when dirty (poop is separate objects)"
+    ]
+  }
+}

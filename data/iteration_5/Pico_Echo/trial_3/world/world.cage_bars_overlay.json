@@ -1,0 +1,80 @@
+{
+  "task_id": "world.cage_bars_overlay",
+  "asset_name": "Cage_Bars_Overlay_128x128",
+  "category": "world",
+  "subcategory": "foreground_overlay",
+  "description": "Create a 128x128 px cage bars overlay sprite with transparent background. Draw vertical bars (1 px wide) using #C2C3C7 at x=8,24,40,56,72,88,104,120. Draw horizontal bars (1 px tall) using #C2C3C7 at y=16,32,48,64,80,96,112. Add a 1 px darker edge on the right side of each vertical bar using #5F574F.",
+  "execution_order": 60,
+  "priority": "P1",
+  "depends_on": ["world.cage_background", "world.perch", "world.food_bowl", "world.water_bowl"],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage_background",
+      "character.echo_sprite_sheet",
+      "ui.status_bubble"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": { "width": 128, "height": 128 },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": { "width": 128, "height": 128 },
+    "bar_light_hex": "#C2C3C7",
+    "bar_shadow_hex": "#5F574F",
+    "vertical_bars": {
+      "x_positions": [8, 24, 40, 56, 72, 88, 104, 120],
+      "width_px": 1,
+      "shadow_offset_px": { "x": 1, "y": 0 }
+    },
+    "horizontal_bars": {
+      "y_positions": [16, 32, 48, 64, 80, 96, 112],
+      "height_px": 1
+    }
+  },
+  "context": {
+    "role": "Foreground cage bars drawn in front of Echo and props.",
+    "screen_position": { "type": "absolute_px", "x": 0, "y": 0, "anchor": "top_left" },
+    "layer": "world_structures",
+    "usage": ["in_game", "foreground_overlay"]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/cage_bars_overlay_128x128.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/cage_bars_overlay_128x128.png",
+      "dimensions_px": { "width": 128, "height": 128 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 128x128 px with transparent background.",
+    "Vertical bar x positions match the specified list and are 1 px wide.",
+    "Horizontal bar y positions match the specified list and are 1 px tall.",
+    "All pixels use only colors from project_common.palette_hex."
+  ]
+}

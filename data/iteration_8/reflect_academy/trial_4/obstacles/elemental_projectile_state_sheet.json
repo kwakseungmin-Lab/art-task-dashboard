@@ -1,0 +1,197 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040406",
+  "asset_key": "elemental_projectile_state_sheet",
+  "asset_name": "Elemental Projectile State Sheet",
+  "category": "obstacles",
+  "subcategory": "projectile_hazard",
+  "priority": "P0",
+  "execution_order": 6,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Projectile frames use 160x160 px cells with centered motion arcs and transparent outer padding.",
+    "Each element row keeps the same flight axis so timing judgement stays deterministic."
+  ],
+  "differences": [
+    "This sheet contains 8 element rows and 14 columns per row, covering Fly, Reflect, and Hit clips for Fire, Water, Thunder, Wind, Ice, Poison, Light, and Dark projectiles."
+  ],
+  "depends_on": [
+    "task_id_825040402",
+    "task_id_825040403",
+    "task_id_825040404",
+    "task_id_825040405"
+  ],
+  "blocks": [
+    "task_id_825040407",
+    "task_id_825040408",
+    "task_id_825040411",
+    "task_id_825040412"
+  ],
+  "blocked_by": [
+    "task_id_825040402",
+    "task_id_825040403",
+    "task_id_825040404",
+    "task_id_825040405"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040404",
+      "task_id_825040405",
+      "task_id_825040407",
+      "task_id_825040408",
+      "task_id_825040411",
+      "task_id_825040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "Element color set, damage role, projectile size class, and state counts grounding."
+    },
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Glow intensity, corridor depth, and projectile visibility grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use one TextureAtlasLayout keyed by element and state clip tables inside a ProjectileVisualMap resource.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "ProjectileVisual",
+      "ProjectileMarker"
+    ],
+    "asset_loading": "Load obstacles/elemental_projectile_state_sheet.png through AssetServer and build a row-index lookup for all eight elements.",
+    "runtime_notes": [
+      "The atlas uses 8 rows and 14 columns with one 160x160 cell per frame.",
+      "Columns 0-5 are Fly, columns 6-9 are Reflect, and columns 10-13 are Hit.",
+      "Rows map top to bottom as Fire, Water, Thunder, Wind, Ice, Poison, Light, Dark."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Primary projectile hazard atlas for all elemental attacks and reflected returns.",
+    "screen_position": {
+      "anchor": "center",
+      "x_px": 960,
+      "y_px": 520
+    },
+    "layer": {
+      "name": "projectile_main",
+      "z_index": 35
+    },
+    "usage": "Spawned during every attack exchange and swapped to reflect or hit clips according to timing results."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 2240,
+      "height": 1280
+    },
+    "colors_hex": [
+      "#FF4500",
+      "#1E90FF",
+      "#FFD700",
+      "#98FB98",
+      "#B0E0E6",
+      "#9B59B6",
+      "#FFFACD",
+      "#2C2C2C",
+      "#00FFFF"
+    ],
+    "animation": {
+      "mode": "element_state_grid",
+      "frame_count": 112,
+      "fps": 12,
+      "loop": false,
+      "layout": {
+        "rows": 8,
+        "columns": 14,
+        "frame_size_px": {
+          "width": 160,
+          "height": 160
+        }
+      },
+      "state_clips": [
+        {
+          "state": "fly",
+          "start_column": 0,
+          "end_column": 5,
+          "fps": 12,
+          "loop": true
+        },
+        {
+          "state": "reflect",
+          "start_column": 6,
+          "end_column": 9,
+          "fps": 14,
+          "loop": false
+        },
+        {
+          "state": "hit",
+          "start_column": 10,
+          "end_column": 13,
+          "fps": 16,
+          "loop": false
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "elemental_projectile_state_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 2240,
+        "height": 1280
+      },
+      "notes": "Eight element rows with fourteen 160x160 frames per row."
+    },
+    {
+      "artifact": "elemental_projectile_state_sheet_clips.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Element row map and Fly/Reflect/Hit clip metadata."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 2240x1280 px with 8 rows and 14 columns of 160x160 cells.",
+    "Rows map top to bottom as Fire, Water, Thunder, Wind, Ice, Poison, Light, and Dark with the listed hex values present in specs.colors_hex.",
+    "Each row contains 6 Fly frames, 4 Reflect frames, and 4 Hit frames with no unused nontransparent pixels outside the 160x160 cell bounds."
+  ]
+}

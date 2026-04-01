@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.ground_pebble_overlay",
+  "asset_name": "World — pebble overlay strip",
+  "category": "world",
+  "subcategory": "foreground_detail",
+  "priority": "P1",
+  "execution_order": 220,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "Detail density is intentionally low to protect silhouette clarity.",
+    "This overlay occupies only the lower ground band.",
+    "Dot and dash accents are shorter than 4px per cluster."
+  ],
+  "depends_on": [
+    "world.ground_runner_strip"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.ground_runner_strip"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.ground_runner_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_detail",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        118
+      ]
+    },
+    "layer": "world",
+    "usage": "Sparse pebble overlay that adds motion texture below the baseline without reducing obstacle readability."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 10
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "tiling": {
+      "tileable": true,
+      "axis": "x"
+    },
+    "composition": [
+      "Scatter 1px to 3px pebbles below the baseline area.",
+      "Keep at least 60 percent of rows fully transparent.",
+      "Avoid vertical stacks taller than 2px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.ground_pebble_overlay.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 200x10px.",
+    "Pebble coverage remains between 2 percent and 4 percent of the tile area.",
+    "Horizontal tiling joins with no repeated clump at the tile edge."
+  ]
+}

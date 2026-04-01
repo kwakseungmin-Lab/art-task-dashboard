@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.cactus_single",
+  "asset_name": "Obstacle — single cactus",
+  "category": "obstacles",
+  "subcategory": "ground_hazard",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette uses #535353, #F7F7F7, #FF0000.",
+    "Canvas target is 600x150px at 60 FPS.",
+    "Pixel edges remain hard with 2px outline weight."
+  ],
+  "differences": [
+    "This obstacle defines the narrowest ground hazard footprint.",
+    "Side arm placement establishes the shape language for larger cactus tasks.",
+    "Top spike cluster reads with at least three visible tips."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "obstacles.cactus_pair_cluster",
+    "obstacles.cactus_triplet_cluster"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus_pair_cluster",
+      "obstacles.cactus_triplet_cluster",
+      "character.player.dino_air_pose"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_hazard",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        560,
+        80
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Base cactus silhouette used for early-game jump timing and width calibration."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 34,
+      "height": 70
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "silhouette_notes": [
+      "Base width occupies the lower 14px to keep collision read stable.",
+      "Left side arm begins between y=22 and y=30.",
+      "Top contour contains no diagonal step longer than 3px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus_single.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG size is exactly 34x70px.",
+    "Primary trunk width stays between 10px and 14px for a clear hit profile.",
+    "Painted pixels use only #535353 and transparency."
+  ]
+}

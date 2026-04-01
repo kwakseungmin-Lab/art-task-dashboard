@@ -1,0 +1,146 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008001012",
+  "asset_key": "obstacle_wind_vent_static_16x16",
+  "asset_name": "Wind Vent Marker",
+  "category": "obstacles",
+  "subcategory": "hazard_wind",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008001002"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008001002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008001005",
+      "task_id_008001015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle for the static vent marker and pair it with a separate trigger volume that applies additional downward speed.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "WindVent",
+      "TriggerArea"
+    ],
+    "asset_loading": "Load obstacles/obstacle_wind_vent_static_16x16.png through AssetServer during hazard setup.",
+    "runtime_notes": [
+      "Trigger volume adds 200 px per second of downward force while the player overlaps it.",
+      "The static sprite stays aligned to the wall tile grid.",
+      "Visual cue remains readable even when the player crosses the vent quickly."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "wind_acceleration_source",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        736,
+        472
+      ]
+    },
+    "layer": "obstacles_wall",
+    "usage": "Vent source that marks a local downward force zone and warns the player that free-fall speed will increase.",
+    "adjacent_elements": [
+      "world_friction_tilekit_16px",
+      "player_prisoner_fall_4f_8fps",
+      "ui_friction_gauge_240x8"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_side_cutaway",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#8FA8B8",
+      "#3B3347",
+      "#4A90A4"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Square wall vent with four slats, a dark cavity, and a pale airflow arrow motif.",
+      "components": [
+        "outer_frame",
+        "four_slats",
+        "airflow_arrow"
+      ]
+    },
+    "interaction": {
+      "force_direction": "down",
+      "force_px_per_second": 200
+    },
+    "material": "Cold steel vent inset into stone wall."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacle_wind_vent_static_16x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 16x16 px.",
+    "Four vent slats remain open and readable at a 4x scale.",
+    "The airflow arrow uses a cooler highlight than the surrounding frame, separating the hazard cue from wall tiles."
+  ]
+}

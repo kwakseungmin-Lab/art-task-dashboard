@@ -1,0 +1,257 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "ricochet_conspiracy",
+    "project_name": "Ricochet Conspiracy"
+  },
+  "meta": {
+    "plan_id": "ricochet_conspiracy__iter7__trial5",
+    "game_name": "ricochet_conspiracy",
+    "iteration": 7,
+    "trial_index": 5,
+    "plan_dir": "trial_5",
+    "created_at_utc": "2026-03-17T22:32:40Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304195524/ricochet_conspiracy/ricochet_conspiracy.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "assets": [
+    {
+      "task_id": "world.background.court_hall_far_1280x620",
+      "category": "world",
+      "file": "world/world.background.court_hall_far_1280x620.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.background.court_hall_mid_1280x620",
+      "category": "world",
+      "file": "world/world.background.court_hall_mid_1280x620.json",
+      "execution_order": 20,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.background.court_hall_front_1280x620",
+      "category": "world",
+      "file": "world/world.background.court_hall_front_1280x620.json",
+      "execution_order": 30,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.effect.candle_glow_radial_160x160",
+      "category": "world",
+      "file": "world/world.effect.candle_glow_radial_160x160.json",
+      "execution_order": 40,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.noble.standard_idle_6f_4fps",
+      "category": "character",
+      "file": "character/character.noble.standard_idle_6f_4fps.json",
+      "execution_order": 50,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.noble.guard_patrol_6f_6fps",
+      "category": "character",
+      "file": "character/character.noble.guard_patrol_6f_6fps.json",
+      "execution_order": 60,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.noble.shield_idle_6f_4fps",
+      "category": "character",
+      "file": "character/character.noble.shield_idle_6f_4fps.json",
+      "execution_order": 70,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.noble.boss_idle_6f_4fps",
+      "category": "character",
+      "file": "character/character.noble.boss_idle_6f_4fps.json",
+      "execution_order": 80,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.stone_wall_segment_80x80",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.stone_wall_segment_80x80.json",
+      "execution_order": 90,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.wood_pillar_24x120",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.wood_pillar_24x120.json",
+      "execution_order": 100,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.candle_16x32",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.candle_16x32.json",
+      "execution_order": 110,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.mirror_panel_8x64",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.mirror_panel_8x64.json",
+      "execution_order": 120,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.chandelier_80x24",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.chandelier_80x24.json",
+      "execution_order": 130,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.wine_barrel_48x48",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.wine_barrel_48x48.json",
+      "execution_order": 140,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.stone_ball_static_32x32",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.stone_ball_static_32x32.json",
+      "execution_order": 150,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.candlestick_idle_4f_2fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.candlestick_idle_4f_2fps.json",
+      "execution_order": 160,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.wine_glass_break_8f_12fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.wine_glass_break_8f_12fps.json",
+      "execution_order": 170,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.gold_urn_static_36x44",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.gold_urn_static_36x44.json",
+      "execution_order": 180,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.feather_quill_16x40_4f_8fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.feather_quill_16x40_4f_8fps.json",
+      "execution_order": 190,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.book_static_28x20",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.book_static_28x20.json",
+      "execution_order": 200,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.top_bar_1280x50",
+      "category": "ui",
+      "file": "ui/ui.hud.top_bar_1280x50.json",
+      "execution_order": 210,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.button.hint_60x24",
+      "category": "ui",
+      "file": "ui/ui.button.hint_60x24.json",
+      "execution_order": 220,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.button.restart_60x24",
+      "category": "ui",
+      "file": "ui/ui.button.restart_60x24.json",
+      "execution_order": 230,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.button.menu_60x24",
+      "category": "ui",
+      "file": "ui/ui.button.menu_60x24.json",
+      "execution_order": 240,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.controls.bottom_bar_1280x50",
+      "category": "ui",
+      "file": "ui/ui.controls.bottom_bar_1280x50.json",
+      "execution_order": 250,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.trajectory_dotted_line_640x96",
+      "category": "ui",
+      "file": "ui/ui.overlay.trajectory_dotted_line_640x96.json",
+      "execution_order": 260,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.object_selection_highlight_48x48",
+      "category": "ui",
+      "file": "ui/ui.overlay.object_selection_highlight_48x48.json",
+      "execution_order": 270,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.fail_overlay_320x200",
+      "category": "ui",
+      "file": "ui/ui.screen.fail_overlay_320x200.json",
+      "execution_order": 280,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.clear_overlay_400x300",
+      "category": "ui",
+      "file": "ui/ui.screen.clear_overlay_400x300.json",
+      "execution_order": 290,
+      "variant_of": null
+    }
+  ]
+}

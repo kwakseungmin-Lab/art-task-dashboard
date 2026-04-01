@@ -1,0 +1,80 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "Pixel Art 8-bit",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px solid outline",
+    "rendering": "pixel perfect, no anti-aliasing"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "1200px",
+      "height": "150px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "pixel art minimal",
+      "outline": "2px for objects",
+      "color_mode": "monochrome",
+      "anti_aliasing": "none",
+      "scrolling": "horizontal left"
+    }
+  },
+  "asset": {
+    "asset_id": "ground",
+    "asset_name": "Ground Line and Texture",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Ground surface that defines running level and provides visual reference",
+      "screen_position": "y=0px (ground level), x scrolls from 0 to -1200px then loops",
+      "adjacent_elements": ["player_run", "player_jump", "player_duck", "cactus_small", "cactus_medium", "cactus_large"],
+      "usage_scenario": "Continuously scrolling ground that creates sense of movement, landing surface for player"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "1200px",
+        "height": "2px"
+      },
+      "colors": {
+        "line": "#535353",
+        "texture": "#535353"
+      },
+      "shape": "Horizontal line with optional small rocks/grass texture below",
+      "texture": "pixel art, minimal texture (optional small rocks/grass every 50-100px)",
+      "outline": "none (line itself is 2px thick)",
+      "shadow": "none",
+      "animation": {
+        "type": "position-based scroll",
+        "frames": 0,
+        "fps": 0,
+        "loop": true,
+        "description": "Scrolls left at Current_Speed, loops when x < -1200px by adding 1200px to x position"
+      },
+      "details": "2px horizontal line at y=0, optional texture layer 10px tall below line, seamless tiling pattern"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_jump", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_low", "pterodactyl_high"],
+      "shared_with": "All ground-based objects use this as y=0 reference",
+      "differences_from": "background scrolls at 0.5x speed (parallax), ground scrolls at 1.0x speed"
+    },
+    "explicit_negations": [
+      "No complex textures or patterns",
+      "No color variations",
+      "No shadows or depth effects",
+      "No parallax scrolling for ground line itself",
+      "No animated elements",
+      "No decorative objects that affect gameplay"
+    ]
+  }
+}

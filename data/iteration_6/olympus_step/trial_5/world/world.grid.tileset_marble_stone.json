@@ -1,0 +1,125 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.grid.tileset_marble_stone",
+  "asset_name": "Grid Tileset - Marble Stone (64x64)",
+  "category": "world",
+  "subcategory": "tileset",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "grid_tiles",
+    "layer": "world",
+    "usage": "Tileset for the 12x9 tactical grid; base walkable tiles plus START and GOAL markers without hazards",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "tile_size_px": {
+      "width": 64,
+      "height": 64
+    },
+    "sheet_dimensions_px": {
+      "width": 512,
+      "height": 512
+    },
+    "tile_count_expected": 64,
+    "required_tile_ids": [
+      "floor_ivory_01",
+      "floor_ivory_02",
+      "floor_shadow_01",
+      "floor_shadow_02",
+      "border_n",
+      "border_s",
+      "border_e",
+      "border_w",
+      "corner_ne",
+      "corner_nw",
+      "corner_se",
+      "corner_sw",
+      "start_tile",
+      "goal_tile_frame"
+    ],
+    "grid_map": {
+      "columns": 12,
+      "rows": 9,
+      "map_dimensions_px": {
+        "width": 768,
+        "height": 576
+      }
+    },
+    "material_notes": {
+      "surface": "marble stone with small cracks",
+      "lighting_style": "hd2d-inspired rim light using #F8FAFC accents, but rendered as pixel art with flat shading"
+    },
+    "colors_hex": [
+      "#D4C5A9",
+      "#6B7280",
+      "#1C1917",
+      "#F8FAFC",
+      "#C17B2F"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.grid.tileset_marble_stone.png",
+      "transparent_background": true,
+      "layout": "grid",
+      "tile_size_px": {
+        "width": 64,
+        "height": 64
+      },
+      "sheet_dimensions_px": {
+        "width": 512,
+        "height": 512
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "Tileset PNG size is exactly 512x512px and contains a 8x8 grid of 64 tiles, each 64x64px.",
+    "Walkable floor tiles use #D4C5A9 as the dominant base color and include at least two variants with different crack patterns.",
+    "START and GOAL frame tiles are visually readable at 1x zoom and do not use hazard colors (#DC2626 or #EF4444) as dominant fills."
+  ]
+}

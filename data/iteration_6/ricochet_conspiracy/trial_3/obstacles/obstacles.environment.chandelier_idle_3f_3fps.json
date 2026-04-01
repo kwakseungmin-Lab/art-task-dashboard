@@ -1,0 +1,99 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.environment.chandelier_idle_3f_3fps",
+  "asset_name": "Environment — Chandelier (Idle sway, 3 frames, 3fps)",
+  "category": "obstacles",
+  "subcategory": "environment_interactive",
+  "priority": "P2",
+  "execution_order": 270,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "drop_trap",
+    "layer": "world",
+    "usage": "Hanging chandelier that drops when hit; idle sway frames loop while hanging.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 24
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#D4A843",
+      "#A89880",
+      "#F5F0E8",
+      "#E8D5C4"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 80,
+        "height": 24
+      },
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      },
+      "frame_count": 3,
+      "directions": null,
+      "note": "Sway left/center/right by <=3px; keep chain anchor aligned."
+    },
+    "animation": {
+      "type": "loop",
+      "fps": 3,
+      "notes": "Gentle sway loop."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.chandelier_idle_3f_3fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 240x24px (3x1) with 80x24px frames; sway offset <=3px.",
+    "Metal uses #D4A843 accents with outline #3D2B1F; no anti-aliasing.",
+    "Hanging point (top center) stays consistent to avoid perceived jitter when anchored in-engine."
+  ]
+}

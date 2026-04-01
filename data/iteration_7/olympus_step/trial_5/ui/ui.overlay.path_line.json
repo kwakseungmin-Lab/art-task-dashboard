@@ -1,0 +1,99 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.overlay.path_line",
+  "asset_name": "Overlay - Path Line Segments (Valid/Error)",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P0",
+  "execution_order": 240,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "overlay",
+    "layer": "ui",
+    "usage": "UI element rendered in screen space",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "segments": [
+      "straight",
+      "corner",
+      "endpoint"
+    ],
+    "states": [
+      "valid",
+      "error"
+    ],
+    "stroke_width_px": 4,
+    "valid_hex": "#06B6D4",
+    "error_hex": "#EF4444",
+    "animation": {
+      "type": "loop",
+      "frame_count": 3,
+      "fps": 10,
+      "notes": "0.3s flowing dash effect"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.path_line.png",
+      "transparent_background": true,
+      "layout": "horizontal_strip",
+      "frame_size_px": {
+        "width": 256,
+        "height": 64
+      },
+      "frame_count": 3
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG has exactly 3 frames in a single horizontal strip; each frame is 256x64px, total image size is 768x64px.",
+    "Valid stroke color uses #06B6D4 and error stroke uses #EF4444; no other dominant stroke colors appear.",
+    "Dash animation loops seamlessly: frame 1 and frame 3 connect without a visible jump."
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.right_stats_panel_240x720",
+  "asset_name": "Right Stats Panel — 240×720",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.typography.parchment_bitmap_font_8px"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.typography.parchment_bitmap_font_8px"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud_panel",
+    "layer": "ui",
+    "usage": "Right HUD container panel; marble dark theme + subtle gold trim.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": {
+        "x": -20,
+        "y": 20
+      }
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 720
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#C17B2F",
+      "#D4C5A9",
+      "#6B7280",
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#F59E0B",
+      "#DC2626",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC"
+    ],
+    "ui_style": {
+      "background_hex": "#1C1917",
+      "trim_hex": "#FBBF24",
+      "inner_fill_hex": "#1E1B4B",
+      "border_px": 2,
+      "corner_radius_px": 6
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.right_stats_panel_240x720.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel is exactly 240×720px; transparent outside pixels.",
+    "Border thickness consistent (2px) with subtle gold trim.",
+    "Interior contrast supports parchment text + cyan preview elements."
+  ]
+}

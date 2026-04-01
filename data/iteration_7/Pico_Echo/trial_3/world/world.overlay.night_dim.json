@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.overlay.night_dim",
+  "asset_name": "Night Overlay (sleep mode dim)",
+  "category": "world",
+  "subcategory": "overlay",
+  "priority": "P2",
+  "execution_order": 250,
+  "variant_of": null,
+  "depends_on": [
+    "world.cage.background_static"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.cage.background_static"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo.sleeping_3f_1fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "night_overlay",
+    "layer": "world_overlay",
+    "usage": "Runtime tint overlay for sleeping; keeps Echo area un-dimmed.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#1D2B53"
+    ],
+    "animation": null,
+    "alpha_rules": {
+      "implementation": "engine_tint",
+      "tint_hex": "#1D2B53",
+      "target_opacity": 0.35,
+      "hole_region_px": [
+        44,
+        42,
+        40,
+        40
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.overlay.night_dim.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay PNG is 128x128px and uses only #1D2B53 pixels and transparency.",
+    "Hole region (44,42,40,40) is fully transparent so character area is not tinted.",
+    "Runtime opacity target is 0.35 for non-hole pixels."
+  ],
+  "shared_properties": [],
+  "differences": []
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003002",
+  "asset_key": "world_duel_platform_960x180",
+  "asset_name": "Duel Platform Floor Strip",
+  "category": "world",
+  "subcategory": "arena",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003001"
+  ],
+  "blocks": [
+    "task_id_008003005",
+    "task_id_008003018"
+  ],
+  "blocked_by": [
+    "task_id_008003001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003001",
+      "task_id_008003003",
+      "task_id_008003005"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteBundle for the floor strip and place it on the midground layer under actors.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "Visibility",
+      "ArenaPlatform"
+    ],
+    "asset_loading": "Load world/world_duel_platform_960x180.png through AssetServer before character spawn and register the handle under world_duel_platform_960x180.",
+    "runtime_notes": [
+      "Keep the platform centered in world space so animation roots line up with the rune circle.",
+      "The transparent edge lets the hall background show through around the trim.",
+      "Collision and stance anchors read from the authored floor strip rather than procedural shapes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "combat_floor",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        480,
+        780
+      ]
+    },
+    "layer": "world_midground",
+    "usage": "Lower duel platform with brass trim, rune circle, and polished wood floor where the player stance anchors.",
+    "adjacent_elements": [
+      "world_academy_hall_background_1920x1080",
+      "player_student_idle_8f_8fps",
+      "ui_hp_bars_dual_440x32"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_stage",
+      "facing": "centered"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 960,
+      "height": 180
+    },
+    "colors_hex": [
+      "#5C3317",
+      "#2B1B17",
+      "#D4AF37",
+      "#FFFACD",
+      "#00FFFF"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Wide floor strip with a centered rune ring and shallow front bevel.",
+      "components": [
+        "wood_planks",
+        "brass_trim",
+        "rune_circle",
+        "front_shadow"
+      ]
+    },
+    "lighting": "Soft cyan rune bloom sits inside the center circle and warm edge light catches the trim."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_duel_platform_960x180.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Platform frame is exactly 960x180 px.",
+    "Centered rune circle diameter is 240 px with a clean open zone for the player silhouette.",
+    "Front edge trim remains a continuous gold band with no broken segments."
+  ]
+}

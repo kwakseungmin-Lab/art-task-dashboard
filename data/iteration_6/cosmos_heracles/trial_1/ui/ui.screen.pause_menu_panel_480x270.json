@@ -1,0 +1,129 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.screen.pause_menu_panel_480x270",
+  "asset_name": "Pause Menu Panel",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P2",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "extended": [
+      {
+        "name": "Column Shadow",
+        "hex": "#6B6357"
+      },
+      {
+        "name": "Hero Skin",
+        "hex": "#E8B87A"
+      },
+      {
+        "name": "Bronze Armor",
+        "hex": "#C47C2B"
+      },
+      {
+        "name": "Star Gold",
+        "hex": "#FFD966"
+      },
+      {
+        "name": "Danger Red",
+        "hex": "#E84040"
+      },
+      {
+        "name": "Boss Purple",
+        "hex": "#7B2FBE"
+      },
+      {
+        "name": "UI White",
+        "hex": "#F0EFE9"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "menu",
+    "layer": "ui",
+    "usage": "Shown when Esc is pressed; includes Resume and Quit options.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 480,
+      "height": 270
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#F0EFE9",
+      "#D9D0BE",
+      "#40E8D0"
+    ],
+    "animation": null,
+    "layout": {
+      "title_area_px": {
+        "x": 40,
+        "y": 32,
+        "width": 400,
+        "height": 48
+      },
+      "button_area_px": {
+        "x": 80,
+        "y": 120,
+        "width": 320,
+        "height": 120
+      },
+      "button_count": 2
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.pause_menu_panel_480x270.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 480x270px and centered on screen; panel border is 2px thick using #D9D0BE.",
+    "Contains two button slots of equal size aligned vertically with 16px spacing; each slot has a 1px inner outline.",
+    "Background outside the panel remains transparent; panel fill uses #0B0C1E with no gradients."
+  ]
+}

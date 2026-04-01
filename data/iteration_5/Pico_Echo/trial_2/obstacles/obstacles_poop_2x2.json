@@ -1,0 +1,86 @@
+{
+  "task_id": "obstacles.poop",
+  "asset_name": "poop_2x2",
+  "category": "obstacles",
+  "subcategory": "cleanable",
+  "description": "Create a 2x2 px poop sprite. All 4 pixels must be #AB5236. No transparency.",
+  "execution_order": 80,
+  "priority": "P1",
+  "specs": {
+    "dimensions_px": {
+      "width": 2,
+      "height": 2
+    },
+    "fill_hex": "#AB5236",
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": false
+  },
+  "context": {
+    "role": "Spawned obstacle on floor that triggers Dirty state when count >= 3.",
+    "layer": "world_props",
+    "spawn_area": {
+      "x_range_px": [
+        0,
+        127
+      ],
+      "y_range_px": [
+        110,
+        125
+      ]
+    },
+    "max_visible_count": 5
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/obstacles/poop_2x2/poop_2x2.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/obstacles/poop_2x2/poop_2x2.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.floor_strip",
+      "character.echo_sprite_sheet",
+      "ui.icon_clean"
+    ]
+  },
+  "depends_on": [
+    "world.floor_strip"
+  ],
+  "blocks": [
+    "ui.icon_clean"
+  ],
+  "blocked_by": [
+    "world.floor_strip"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 2x2 px.",
+    "All 4 pixels are #AB5236 with no transparency."
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.anim.building_collapse_sheet_64x64_8f",
+  "asset_name": "Building Destruction — 64×64 Sheet (8 frames collapse)",
+  "category": "world",
+  "subcategory": "animation",
+  "priority": "P1",
+  "execution_order": 110,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.building.house_sheet_64x64_2f",
+      "world.building.warehouse_96x64_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "destruction_fx",
+    "layer": "world_fx",
+    "usage": "Played when a building reaches 0 HP due to storm damage. Can be centered on building footprint.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 8,
+      "fps": 16,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 8,
+        "frame_size_px": {
+          "width": 64,
+          "height": 64
+        },
+        "order": [
+          "frame_1",
+          "frame_2",
+          "frame_3",
+          "frame_4",
+          "frame_5",
+          "frame_6",
+          "frame_7",
+          "frame_8"
+        ],
+        "padding_px": 0
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.anim.building_collapse_sheet_64x64_8f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 512x64px; each frame is 64x64px; no spacing.",
+    "Animation reads as a collapse over ~0.5 seconds at 16 fps (8 frames) with debris falling downward.",
+    "Debris remains inside the 64x64 bounding box and stays readable on snow ground."
+  ]
+}

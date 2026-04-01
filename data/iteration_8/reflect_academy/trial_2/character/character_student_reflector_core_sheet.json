@@ -1,0 +1,203 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000925",
+  "asset_key": "character_student_reflector_core_sheet",
+  "asset_name": "Student Reflector Core Sheet — idle, card ready, cast, hit, victory",
+  "category": "character",
+  "subcategory": "player_character",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The student keeps a readable academy uniform silhouette, one raised card hand, and a defensive off-hand stance.",
+    "All states fit the documented combat footprint and align to a shared floor contact point.",
+    "Card-reflection poses need clear arm silhouettes so the timing interaction reads without text."
+  ],
+  "differences": [
+    "This task covers the playable student avatar only.",
+    "Enemy champions, projectile effects, and card-face art stay in separate files."
+  ],
+  "depends_on": [
+    "task_id_000000921",
+    "task_id_000000922"
+  ],
+  "blocks": [
+    "task_id_000000928",
+    "task_id_000000929"
+  ],
+  "blocked_by": [
+    "task_id_000000921",
+    "task_id_000000922"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000921",
+      "task_id_000000922",
+      "task_id_000000928",
+      "task_id_000000929"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Moodboard for costume material contrast, gold academy trims, and spell-lit shading."
+    },
+    {
+      "label": "reflect_academy_player_silhouette",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette board for preserving a readable combatant pose with a visible card hand and shoulder line."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "atlas_texture_4x4",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerCombatState",
+      "CardCaster"
+    ],
+    "asset_loading": "Load assets/art/reflect_academy/trial_2/character_student_reflector_core_sheet.png during DuelLoading and store the atlas under character_student_reflector_core_sheet.",
+    "runtime_notes": [
+      "Map the animation states to idle, card_ready, reflect_cast, damage_react, and victory_loop ranges.",
+      "Keep the combat root at the character feet so the student locks to the player podium without per-state offset fixes.",
+      "Allow the reflect_cast state to layer the telegraph and projectile effects in front of the raised card hand."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_illustration",
+    "detail_level": "clean_readable_mid",
+    "shading": "soft_gradient_with_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_character_animation",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        340,
+        770
+      ]
+    },
+    "layer": "character",
+    "usage": "Playable student sheet used throughout combat, including idle reads, reaction frames, and successful reflection poses."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#BDC3C7",
+      "#00FFFF",
+      "#FFFACD",
+      "#2ECC71",
+      "#2B1B17"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 16,
+      "frame_size_px": [
+        120,
+        180
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 4
+      },
+      "fps_profile": {
+        "idle": 4,
+        "card_ready": 6,
+        "reflect_cast": 10,
+        "damage_react": 8,
+        "victory_loop": 5
+      },
+      "state_ranges": [
+        {
+          "state": "idle",
+          "start_frame": 0,
+          "end_frame": 3
+        },
+        {
+          "state": "card_ready",
+          "start_frame": 4,
+          "end_frame": 6
+        },
+        {
+          "state": "reflect_cast",
+          "start_frame": 7,
+          "end_frame": 10
+        },
+        {
+          "state": "damage_react",
+          "start_frame": 11,
+          "end_frame": 13
+        },
+        {
+          "state": "victory_loop",
+          "start_frame": 14,
+          "end_frame": 15
+        }
+      ]
+    },
+    "shape": {
+      "silhouette": "Slim academy student with capelet, raised card hand, staff-brace off hand, and forward defensive stance.",
+      "components": [
+        "short capelet",
+        "academy coat",
+        "raised card hand",
+        "defensive off hand",
+        "boots",
+        "gold trim",
+        "face and hair silhouette"
+      ]
+    },
+    "expression_notes": [
+      "Idle frames show focused concentration rather than aggression.",
+      "Reflect cast frames widen the stance and flare the card-hand glow toward the lane.",
+      "Damage react frames tilt the torso back without moving the feet off the podium anchor."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_student_reflector_core_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 480x720px with sixteen 120x180 frames and no padding.",
+    "All frames share one consistent floor contact point so state swaps do not make the student slide.",
+    "Card hand, coat trim, and face silhouette remain readable at gameplay scale over the academy backdrop.",
+    "Reflect cast frames visibly communicate a defensive counter motion rather than a direct attack swing."
+  ]
+}

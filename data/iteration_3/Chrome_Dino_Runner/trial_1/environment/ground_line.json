@@ -1,0 +1,85 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit Pixel Art",
+    "theme": "Prehistoric Desert",
+    "mood": "Minimal, Retro, Focus-Demanding",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scale support",
+    "outline_style": "2px outline included in sprites",
+    "rendering": "Pixel-perfect, no anti-aliasing"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "Variable (tiling/full screen)",
+      "height": "2-150px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "background": "#F7F7F7"
+    },
+    "shared_attributes": {
+      "style": "Minimal pixel art",
+      "color_mode": "Monochrome or background color",
+      "movement": "Scrolling or static",
+      "collision_layer": "Layer 2 (Ground) or no collision (Background)",
+      "rendering_priority": "Background layer (lowest)"
+    }
+  },
+  "asset": {
+    "asset_id": "ground_line",
+    "asset_name": "Ground Baseline",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Visual baseline representing the ground surface where player and obstacles exist",
+      "screen_position": "Horizontal line at y=0px (ground level), spans entire screen width with tiling",
+      "adjacent_elements": ["player_run", "player_jump", "player_duck", "cactus_small", "cactus_medium", "cactus_large", "background_sky"],
+      "usage_scenario": "Continuously visible throughout gameplay, scrolls right-to-left at Current_Speed (300-900 px/s) to create movement illusion, provides collision reference for player landing"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "1200px",
+        "height": "2px"
+      },
+      "colors": {
+        "line": "#535353"
+      },
+      "shape": "Horizontal line",
+      "texture": "Solid pixel line, no texture variation",
+      "outline": "None (line itself is 2px thick)",
+      "shadow": "None",
+      "animation": {
+        "type": "position-based scrolling",
+        "frames": 1,
+        "fps": 0,
+        "loop": true,
+        "description": "Horizontal scrolling at -Current_Speed px/s, tiles seamlessly when X < -1200px by resetting X += 1200px"
+      },
+      "details": "Simple 2px horizontal line in Primary color, minimal and clean, provides clear ground reference without visual clutter"
+    },
+    "relationships": {
+      "related_assets": ["ground_texture", "player_run", "player_jump", "player_duck", "cactus_small", "cactus_medium", "cactus_large", "background_sky"],
+      "shared_with": "Same y-coordinate (0px) as all ground-based objects",
+      "differences_from": "ground_texture is optional decorative layer above this line, background_sky is static while ground_line scrolls"
+    },
+    "explicit_negations": [
+      "No gradients or color variations",
+      "No anti-aliasing",
+      "No thickness variation (constant 2px)",
+      "No decorative elements on the line itself",
+      "No shadows or depth effects",
+      "No vertical movement or bobbing",
+      "No breaks or gaps in the line",
+      "No parallax effect (scrolls at 100% Current_Speed)",
+      "No fading at edges",
+      "No texture or pattern on the line"
+    ]
+  }
+}

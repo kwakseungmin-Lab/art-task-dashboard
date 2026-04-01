@@ -1,0 +1,196 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003010",
+  "asset_key": "enemy_champion_cast_6f_12fps",
+  "asset_name": "Enemy Champion Cast Pose",
+  "category": "character",
+  "subcategory": "enemy",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": "task_id_008003009",
+  "variant_of_asset_key": "enemy_champion_idle_8f_8fps",
+  "shared_properties": [
+    "120x180 frame size and champion body proportions.",
+    "High collar, cape panel layout, and staff focus silhouette.",
+    "Leftward facing stance on the upper-right duel anchor."
+  ],
+  "differences": [
+    "Staff swings forward by about 36 px toward the spell lane.",
+    "Free hand opens and emits a bright forecast ring near the wrist.",
+    "Cape panels flare outward to frame the launch motion."
+  ],
+  "depends_on": [
+    "task_id_008003009"
+  ],
+  "blocks": [
+    "task_id_008003012",
+    "task_id_008003019"
+  ],
+  "blocked_by": [
+    "task_id_008003009"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003009",
+      "task_id_008003012",
+      "task_id_008003019"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the cast state and trigger the projectile spawn on the authored launch frame.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "EnemyCaster",
+      "Transform"
+    ],
+    "asset_loading": "Load character/enemy_champion_cast_6f_12fps.png through AssetServer and cache the atlas under enemy_champion_cast_6f_12fps.",
+    "runtime_notes": [
+      "Projectile spawn timing aligns to frame 3.",
+      "Forecast icon placement uses the same head anchor as the idle state.",
+      "The cast animation returns to idle when the sixth frame completes if no chained spell follows."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "enemy_cast",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1450,
+        270
+      ]
+    },
+    "layer": "character_enemy",
+    "usage": "Shown during the 0.5 second telegraph and the first launch beat for each hostile projectile.",
+    "adjacent_elements": [
+      "projectile_fire_fly_6f_12fps",
+      "ui_enemy_forecast_icon_atlas_8x40",
+      "world_spell_lane_overlay_960x220"
+    ],
+    "viewpoint": {
+      "camera_angle": "three_quarter_front",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 180
+    },
+    "colors_hex": [
+      "#E74C3C",
+      "#1A1A2E",
+      "#D4AF37",
+      "#FFFACD",
+      "#00FFFF"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 6,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Expanded enemy silhouette with a forward staff line and a glowing casting ring.",
+      "components": [
+        "head",
+        "forward_staff",
+        "casting_hand",
+        "high_collar",
+        "cape_panels",
+        "boots",
+        "torso"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "narrow_almond",
+        "size_px": [
+          18,
+          7
+        ]
+      },
+      "mouth": {
+        "shape": "confident_line",
+        "length_px": 13
+      },
+      "nose": {
+        "shape": "straight_bridge",
+        "length_px": 9
+      }
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 60
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 74
+      },
+      "tail": null,
+      "accessories": "Staff focus, cape clasp, shoulder sigil, and casting ring."
+    },
+    "texture": "Gemstone glow intensifies at the staff head and cape lining catches cool light during the cast.",
+    "shading": "Soft gradient shading with brighter cyan edge light around the casting hand."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/enemy_champion_cast_6f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 720x180 px with six 120x180 frames.",
+    "Forward staff motion keeps the tip inside the frame while clearly pointing into the spell lane.",
+    "Casting ring remains readable above the wrist without merging into the cape outline."
+  ]
+}

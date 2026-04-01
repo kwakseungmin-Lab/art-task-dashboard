@@ -1,0 +1,306 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "olympus_step",
+    "project_name": "Olympus_Step"
+  },
+  "meta": {
+    "plan_id": "olympus_step__iter7__trial3",
+    "game_name": "olympus_step",
+    "iteration": 7,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-03-17T19:20:01Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304201747/olympus_step/olympus_step.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "assets": [
+    {
+      "task_id": "world.background.dusk_olympus_1920x1080",
+      "category": "world",
+      "file": "world/world.background.dusk_olympus_1920x1080.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.tile.stone_ivory_64x64",
+      "category": "world",
+      "file": "world/world.tile.stone_ivory_64x64.json",
+      "execution_order": 20,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.tile.stone_shadow_64x64",
+      "category": "world",
+      "file": "world/world.tile.stone_shadow_64x64.json",
+      "execution_order": 21,
+      "variant_of": "world.tile.stone_ivory_64x64"
+    },
+    {
+      "task_id": "world.tile.start_tile_64x64",
+      "category": "world",
+      "file": "world/world.tile.start_tile_64x64.json",
+      "execution_order": 22,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.tile.goal_temple_64x64_8f_4fps",
+      "category": "world",
+      "file": "world/world.tile.goal_temple_64x64_8f_4fps.json",
+      "execution_order": 23,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.overlay.grid_lines_768x576",
+      "category": "world",
+      "file": "world/world.overlay.grid_lines_768x576.json",
+      "execution_order": 24,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.fx.path_line_divine_cyan",
+      "category": "world",
+      "file": "world/world.fx.path_line_divine_cyan.json",
+      "execution_order": 25,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.god.idle_4f_5fps",
+      "category": "character",
+      "file": "character/character.god.idle_4f_5fps.json",
+      "execution_order": 30,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.god.teleport_6f_20fps",
+      "category": "character",
+      "file": "character/character.god.teleport_6f_20fps.json",
+      "execution_order": 31,
+      "variant_of": "character.god.idle_4f_5fps"
+    },
+    {
+      "task_id": "character.guard.patrol_4f_4fps",
+      "category": "character",
+      "file": "character/character.guard.patrol_4f_4fps.json",
+      "execution_order": 32,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.fire_tile_64x64_8f_8fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.fire_tile_64x64_8f_8fps.json",
+      "execution_order": 40,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.bolt_tile_on_64x64_6f_12fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.bolt_tile_on_64x64_6f_12fps.json",
+      "execution_order": 41,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.bolt_tile_off_64x64_2f_2fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.bolt_tile_off_64x64_2f_2fps.json",
+      "execution_order": 42,
+      "variant_of": "obstacles.hazard.bolt_tile_on_64x64_6f_12fps"
+    },
+    {
+      "task_id": "obstacles.hazard.block_tile_64x64",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.block_tile_64x64.json",
+      "execution_order": 43,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.fog_tile_64x64_6f_0_5fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.fog_tile_64x64_6f_0_5fps.json",
+      "execution_order": 44,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.hazard.bomb_tile_64x64_3state",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.hazard.bomb_tile_64x64_3state.json",
+      "execution_order": 45,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.shard_32x32_4f_3fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.shard_32x32_4f_3fps.json",
+      "execution_order": 46,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.amp_32x32_4f_3fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.amp_32x32_4f_3fps.json",
+      "execution_order": 47,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.item.seal_64x64",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.item.seal_64x64.json",
+      "execution_order": 48,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.effect.teleport_trail_48x48_3f_20fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.teleport_trail_48x48_3f_20fps.json",
+      "execution_order": 49,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.effect.path_error_flash_64x64_2f_6fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.effect.path_error_flash_64x64_2f_6fps.json",
+      "execution_order": 50,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.font.pixel_parchment_8x8_ascii_96glyph",
+      "category": "ui",
+      "file": "ui/ui.font.pixel_parchment_8x8_ascii_96glyph.json",
+      "execution_order": 60,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.stage_label_200x40",
+      "category": "ui",
+      "file": "ui/ui.hud.stage_label_200x40.json",
+      "execution_order": 61,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.stat_panel_180x220",
+      "category": "ui",
+      "file": "ui/ui.hud.stat_panel_180x220.json",
+      "execution_order": 62,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.path_preview_panel_180x120",
+      "category": "ui",
+      "file": "ui/ui.hud.path_preview_panel_180x120.json",
+      "execution_order": 63,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.button.confirm_180x50_normal",
+      "category": "ui",
+      "file": "ui/ui.button.confirm_180x50_normal.json",
+      "execution_order": 64,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.button.confirm_180x50_hover",
+      "category": "ui",
+      "file": "ui/ui.button.confirm_180x50_hover.json",
+      "execution_order": 65,
+      "variant_of": "ui.button.confirm_180x50_normal"
+    },
+    {
+      "task_id": "ui.button.confirm_180x50_pressed",
+      "category": "ui",
+      "file": "ui/ui.button.confirm_180x50_pressed.json",
+      "execution_order": 66,
+      "variant_of": "ui.button.confirm_180x50_normal"
+    },
+    {
+      "task_id": "ui.button.reset_path_120x36",
+      "category": "ui",
+      "file": "ui/ui.button.reset_path_120x36.json",
+      "execution_order": 67,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.tile_number_badge",
+      "category": "ui",
+      "file": "ui/ui.overlay.tile_number_badge.json",
+      "execution_order": 68,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.popup.failure_400x200",
+      "category": "ui",
+      "file": "ui/ui.popup.failure_400x200.json",
+      "execution_order": 69,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.bomb_countdown_badge",
+      "category": "ui",
+      "file": "ui/ui.overlay.bomb_countdown_badge.json",
+      "execution_order": 70,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.popup.clear_400x250",
+      "category": "ui",
+      "file": "ui/ui.popup.clear_400x250.json",
+      "execution_order": 71,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.popup.evolution_480x280",
+      "category": "ui",
+      "file": "ui/ui.popup.evolution_480x280.json",
+      "execution_order": 72,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.menu.settings_panel_360x300",
+      "category": "ui",
+      "file": "ui/ui.menu.settings_panel_360x300.json",
+      "execution_order": 73,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.cursor.drag_path_indicator_2f_10fps",
+      "category": "ui",
+      "file": "ui/ui.cursor.drag_path_indicator_2f_10fps.json",
+      "execution_order": 74,
+      "variant_of": null
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "obstacles.pillar.marble_static",
+  "asset_name": "Marble Pillar (Static)",
+  "category": "obstacles",
+  "group_id": "obstacles.pillar.marble",
+  "variant_role": "base",
+  "priority": "P0",
+  "execution_order": 10,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pillar.marble_break_anim",
+      "character.player.cosmos_large_transform_loop"
+    ]
+  },
+  "context": {
+    "role": "breakable_obstacle",
+    "screen_position": {
+      "type": "world_space",
+      "units": "px",
+      "pivot": "bottom_center"
+    },
+    "layer": "gameplay_obstacles",
+    "usage": "Zone 1+ pillar. Collides with player; breaks instantly when player is in LARGE state.",
+    "adjacent_elements": [
+      "world.parallax_layer2_column_backdrop",
+      "world.star_floor_strip"
+    ]
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 64,
+      "height_px": 200
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#D9D0BE"
+      },
+      "secondary": [
+        {
+          "name": "shadow",
+          "hex": "#6B6357"
+        },
+        {
+          "name": "deep_space_cracks",
+          "hex": "#0B0C1E"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "tall marble column with clear capital/base and mild cracks",
+      "components": [
+        "base",
+        "shaft",
+        "capital",
+        "hairline_cracks"
+      ]
+    }
+  },
+  "description": "Create a 64x200 px static marble pillar sprite. Must read clearly as a collidable obstacle. Include subtle cracks and chipped edges.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "obstacles/pillar_marble_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 64x200 px",
+    "Pillar silhouette is clearly vertical with visible base and capital at 1x scale",
+    "Uses #D9D0BE as main marble tone and #6B6357 for shadow"
+  ]
+}

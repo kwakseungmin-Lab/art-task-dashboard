@@ -1,0 +1,92 @@
+{
+  "task_id": "obstacles.seed",
+  "asset_name": "seed_3x3_variants2",
+  "category": "obstacles",
+  "subcategory": "food_particle",
+  "description": "Create a 6x3 px sprite sheet with 2 variants of a seed particle. Each variant is 3x3 px. Seed body pixels use #FFA300. Background must be fully transparent. Do not use any outline color; only #FFA300 and transparency.",
+  "execution_order": 70,
+  "priority": "P1",
+  "specs": {
+    "sprite_sheet_px": {
+      "width": 6,
+      "height": 3
+    },
+    "variant_frame_px": {
+      "width": 3,
+      "height": 3
+    },
+    "variant_count": 2,
+    "seed_hex": "#FFA300",
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": true
+  },
+  "context": {
+    "role": "Seed particle used in food bowl fill and nibble effect.",
+    "layer": "world_props",
+    "spawn_usage": [
+      "world.food_bowl",
+      "character.echo_sprite_sheet"
+    ],
+    "screen_position": {
+      "type": "relative_to_element",
+      "element_task_id": "world.food_bowl",
+      "offset_px": {
+        "x": 3,
+        "y": 3
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/obstacles/seed_3x3_variants2/seed_3x3_variants2.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/obstacles/seed_3x3_variants2/seed_3x3_variants2.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.food_bowl",
+      "ui.icon_feed"
+    ]
+  },
+  "depends_on": [
+    "world.food_bowl"
+  ],
+  "blocks": [
+    "ui.icon_feed"
+  ],
+  "blocked_by": [
+    "world.food_bowl"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 6x3 px with transparent background.",
+    "Sprite sheet contains exactly 2 frames of 3x3 px.",
+    "Only #FFA300 is used for non-transparent pixels."
+  ]
+}

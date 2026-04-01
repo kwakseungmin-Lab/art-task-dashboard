@@ -1,0 +1,85 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "position_base": "perch at y=60",
+      "character": "Echo the cockatiel"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_idle",
+    "asset_name": "Echo Idle State",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Default resting state of Echo the cockatiel",
+      "screen_position": "Center of screen at x=64, y=60, standing on perch",
+      "adjacent_elements": ["perch", "cage_background", "food_bowl", "water_bowl"],
+      "usage_scenario": "Displayed when no other state is active; base state for all transitions"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel silhouette with distinctive crest (3-4px tall spikes), round body (approx 20px diameter), tail feathers extending downward (8-10px)",
+      "texture": "Flat pixel art with no gradients; hand-drawn organic edges",
+      "outline": "None; pure pixel art with color blocking",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 4,
+        "fps": 2,
+        "loop": true,
+        "description": "Frame 1: eyes open, Frame 2: eyes open with slight body shift, Frame 3: eyes closed (blink), Frame 4: eyes open returning to Frame 1"
+      },
+      "details": "Eyes are 2x2px each; crest can be in 'normal' position (slightly raised); cheek patch is circular 4x4px area; beak is 3x2px triangle"
+    },
+    "relationships": {
+      "related_assets": ["perch", "cage_background"],
+      "shared_with": "All Echo states share same color palette and base body structure",
+      "differences_from": "echo_eating (no head bobbing), echo_sleeping (eyes open), echo_happy (crest not fully raised)"
+    },
+    "explicit_negations": [
+      "no smooth gradients",
+      "no anti-aliasing",
+      "no realistic feather texture",
+      "no 3D depth or shading",
+      "no motion blur",
+      "no wing details visible in idle state"
+    ]
+  }
+}

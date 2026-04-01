@@ -1,0 +1,105 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.size_large",
+  "asset_name": "Player LARGE Form — 120x180 (4 frames, expand/hold loop)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "depends_on": [
+    "character.player.base_run"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.base_run"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.pillar.standard_breakable",
+      "obstacles.pillar.rotating",
+      "obstacles.gap.wide_marker"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "danger_red",
+      "hex": "#E84040"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "high",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "player",
+    "layer": "character",
+    "usage": "Displayed while holding ↑. Height/width increase to smash pillars; cannot fit wide gaps.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 400,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 120,
+      "height": 180
+    },
+    "frame_count": 4,
+    "fps": 12,
+    "loop": true,
+    "sheet_dimensions_px": {
+      "width": 480,
+      "height": 180
+    },
+    "animation_intent": "Frames 1–2 can represent expansion; frames 3–4 represent a subtle breathing/hold loop.",
+    "colors_hex": [
+      "#E8B87A",
+      "#C47C2B",
+      "#FFD966",
+      "#E84040",
+      "#0B0C1E"
+    ],
+    "hitbox_hint_px": {
+      "width": 100,
+      "height": 170
+    },
+    "animation": {
+      "type": "spritesheet",
+      "layout": "row"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.size_large.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 120x180px per frame; baseline and forward-facing direction stay consistent.",
+    "Large form reads immediately as heavier/stronger and visually matches pillar-smash fantasy.",
+    "No excessive flashing; keep silhouettes stable for rhythm gameplay."
+  ]
+}

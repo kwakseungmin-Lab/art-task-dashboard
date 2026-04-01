@@ -1,0 +1,19 @@
+{
+  "base_size": {
+    "width": "128px",
+    "height": "128px",
+    "note": "Full screen canvas, individual elements vary"
+  },
+  "color_scheme": {
+    "background": "#FFF1E8",
+    "cage_bars": "#C2C3C7",
+    "wood": "#AB5236",
+    "floor": "#FFCCAA"
+  },
+  "shared_attributes": {
+    "rendering": "static (no animation)",
+    "layer": "background (behind Echo)",
+    "style": "minimal, functional pixel art",
+    "perspective": "none (flat 2D front view)"
+  }
+}

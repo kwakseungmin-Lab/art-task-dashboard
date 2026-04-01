@@ -1,0 +1,85 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.npc.trader_portrait_64",
+  "asset_name": "Trader NPC Portrait — 64px",
+  "category": "character",
+  "subcategory": "npc",
+  "priority": "P1",
+  "execution_order": 35,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "portrait",
+    "layer": "ui",
+    "usage": "Used in trade offer modal to represent the traveling merchant.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "pose_note": "Bust portrait with hood/fur silhouette distinct from the Jarl.",
+    "layout_note": "Square 64×64. Transparent background."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.npc.trader_portrait_64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Readable at 1×; distinct silhouette vs player portrait."
+  ]
+}

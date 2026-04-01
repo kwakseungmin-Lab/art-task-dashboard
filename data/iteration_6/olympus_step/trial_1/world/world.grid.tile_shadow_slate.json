@@ -1,0 +1,83 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.grid.tile_shadow_slate",
+  "asset_name": "Grid Tile - Shadow Slate (Alt)",
+  "category": "world",
+  "subcategory": "grid",
+  "priority": "P1",
+  "execution_order": 3,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "background": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "Divine Cyan",
+      "hex": "#06B6D4"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_hd2d_glow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "walkable_tile_alt",
+    "layer": "grid",
+    "usage": "Alternate tile for subtle checkerboard; used to aid path readability",
+    "grid": {
+      "tile_size_px": 64,
+      "grid_size_tiles": [
+        12,
+        9
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#6B7280",
+      "#D4C5A9",
+      "#1E1B4B"
+    ],
+    "animation": null,
+    "notes": "Darker variant; maintain same border rules as base tile"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.grid.tile_shadow_slate.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Tile is exactly 64x64px and matches the base tile’s border thickness/pattern.",
+    "When alternated with Stone Ivory, the checkerboard is subtle (no high-contrast flicker) but readable.",
+    "Does not visually compete with hazard tiles or UI overlays."
+  ]
+}

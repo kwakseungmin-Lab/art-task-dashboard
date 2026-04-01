@@ -1,0 +1,102 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.noble.shield_idle_6f_4fps",
+  "asset_name": "Target Noble — Shield (Idle, 6 frames, 4fps)",
+  "category": "character",
+  "subcategory": "target_shield",
+  "priority": "P1",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "target",
+    "layer": "world",
+    "usage": "Shield noble: direct frontal hits are blocked. Sprite must clearly indicate shield facing direction (default facing right).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 52
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#8BA7C7",
+      "#A89880",
+      "#F5F0E8"
+    ],
+    "sprite": {
+      "frame_size_px": {
+        "width": 40,
+        "height": 52
+      },
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      },
+      "frame_count": 6,
+      "directions": [
+        "E"
+      ],
+      "note": "Shield in front with soft-gold trim (#D4A843) to telegraph frontal immunity."
+    },
+    "animation": {
+      "type": "loop",
+      "fps": 4,
+      "notes": "Idle sway; keep shield edge consistent to read hit direction."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.shield_idle_6f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 240x52px (6x1) with 40x52px frames; facing is consistently to the right (E).",
+    "Shield clearly covers the front arc; shield trim uses #D4A843; 1px outline in #3D2B1F.",
+    "No ambiguous pose flips: shield position must not swap sides across frames."
+  ]
+}

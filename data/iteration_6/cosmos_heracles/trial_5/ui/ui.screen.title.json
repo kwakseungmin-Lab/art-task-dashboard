@@ -1,0 +1,102 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.screen.title",
+  "asset_name": "Title Screen Layout — logo + START prompt",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 260,
+  "variant_of": null,
+  "depends_on": [
+    "ui.atlas.core",
+    "world.background.layer0_space_nebula"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.atlas.core"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_white",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "ui_screen",
+    "layer": "ui",
+    "usage": "Initial title screen: logo centered and blinking [SPACE] START prompt.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "layout": {
+      "logo_center_px": [
+        800,
+        320
+      ],
+      "start_prompt_center_px": [
+        800,
+        600
+      ]
+    },
+    "logo_text": "COSMOS HERACLES",
+    "prompt_text": "[SPACE] START",
+    "font": {
+      "style": "pixel",
+      "logo_size_px": 48,
+      "prompt_size_px": 28
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#FFD966",
+      "#7B2FBE",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "ui",
+      "note": "Start prompt blinks at ~1Hz."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.title.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Title text is centered and readable at 48px.",
+    "Start prompt is readable and leaves sufficient empty space around the player preview area.",
+    "Design matches cosmic-temple theme (gold + white on deep space)."
+  ]
+}

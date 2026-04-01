@@ -1,0 +1,179 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000017",
+  "asset_name": "State Overlay Panels (paused, game_over, escaped)",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "shared_properties": [
+    "Each overlay state occupies a centered 200x120 px panel suited to pause, fail, and clear transitions.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while panel colors stay inside specs.colors_hex.",
+    "Panel framing leaves an internal safe text box of 176x88 px for titles, time readout, best-record callouts, and input hints."
+  ],
+  "differences": [
+    "Paused state uses a restrained dark frame, game_over state adds rust-red damage accents, and escaped state elevates gate-gold highlights.",
+    "The panel atlas covers paused, game_over, and escaped without embedding any depth meter or floor count.",
+    "Title lockups are aligned for reuse with the shared 8 px font atlas and the 64x12 timer panel styling."
+  ],
+  "depends_on": [
+    "task_id_802000013",
+    "task_id_802000014",
+    "task_id_802000015"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_802000013",
+    "task_id_802000014",
+    "task_id_802000015"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000012",
+      "task_id_802000013",
+      "task_id_802000014",
+      "task_id_802000015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the paused, game-over, and clear screen flow, 200x120 panel size, and the requirement to show survival time and best record without a progress bar."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the moody dungeon UI framing so overlays stay consistent with the shaft tone while still highlighting fail and clear states."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player-facing status feedback so pause, fail, and escape panels are readable and emotionally distinct."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "ImageBundle for static HUD art and SpriteSheetBundle for multi-state overlays and gauges that swap atlas indices.",
+    "atlas_or_static": "mixed_static_and_texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Style",
+      "UiImage",
+      "Visibility",
+      "TextureAtlas",
+      "AnimationTimer"
+    ],
+    "asset_loading": "Load UI textures during the shared Loading state and store handles in a HudVisualRegistry keyed by asset_key so gameplay systems never parse filenames.",
+    "runtime_notes": [
+      "Anchor UI nodes to whole pixels in the 1280x720 output space while the gameplay layer is upscaled from 320x180.",
+      "Keep the friction gauge, HP strip, and timer on a dedicated HUD layer above parallax and hazard sprites.",
+      "Swap overlay states by atlas index or visibility flags instead of rebuilding UI trees during pause, fail, or clear transitions."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        540,
+        300
+      ]
+    },
+    "layer": "ui",
+    "usage": "Central overlay atlas for pause menu, game-over summary, and escape result panel.",
+    "adjacent_elements": [
+      "task_id_802000012",
+      "task_id_802000013",
+      "task_id_802000015"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 200,
+      "height": 120
+    },
+    "colors_hex": [
+      "#0D0D0F",
+      "#1A1A2E",
+      "#3B3347",
+      "#8B2020",
+      "#C8A84B",
+      "#D6D0C4",
+      "#E07B39"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "paused",
+        "game_over",
+        "escaped"
+      ],
+      "frame_count": 3,
+      "frame_size_px": [
+        200,
+        120
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "layout_rules": {
+      "inner_safe_box_px": [
+        176,
+        88
+      ],
+      "title_y_px": 20,
+      "summary_y_px": 52,
+      "hint_y_px": 92
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_state_overlay_panels_3state_200x120.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 600x120 px with 3 frames of 200x120 px and 0 px spacing.",
+    "Paused, game_over, and escaped states are visually distinct through dark, rust-red, and gate-gold accent dominance respectively.",
+    "No frame includes a progress bar, floor counter, or minimap element; only panel framing and status decoration are authored."
+  ],
+  "asset_key": "ui_state_overlay_panels_3state_200x120",
+  "variant_of_asset_key": null
+}

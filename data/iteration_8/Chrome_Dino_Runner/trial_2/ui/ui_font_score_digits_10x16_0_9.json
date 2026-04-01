@@ -1,0 +1,152 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020015",
+  "asset_name": "Score Digit Font Atlas",
+  "category": "ui",
+  "subcategory": "font",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #535353, background #F7F7F7, and accent #FF0000.",
+    "Canvas target stays 600x150px with pixel-perfect presentation at 60 FPS.",
+    "All painted edges keep a 2px outline rhythm and flat shading."
+  ],
+  "differences": [
+    "The atlas contains ten numeric glyphs for digits 0 through 9.",
+    "Each glyph occupies a 10x16px cell to match the score display spec.",
+    "The asset is static and designed for repeated numeric composition."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_008020016"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020016"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "score_font",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        490,
+        10
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Numeric atlas for the five-digit live score readout and score values in fail-state UI.",
+    "adjacent_elements": [
+      "task_id_008020016"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 100,
+      "height": 16
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single-row digit atlas with ten evenly spaced monospace glyph cells.",
+      "components": [
+        "digit_0",
+        "digit_1",
+        "digit_2",
+        "digit_3",
+        "digit_4",
+        "digit_5",
+        "digit_6",
+        "digit_7",
+        "digit_8",
+        "digit_9"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_font_score_digits_10x16_0_9.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 100x16px.",
+    "The atlas contains ten 10x16px glyph cells laid out from left to right.",
+    "Only #535353 and transparency appear in painted pixels."
+  ],
+  "asset_key": "ui_font_score_digits_10x16_0_9",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "t_rex_runner_sprite_sheet_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "Grounds score glyph spacing and the game-over text treatment used in the HUD."
+    },
+    {
+      "label": "t_rex_runner_sprite_sheet_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/default_100_percent/100-offline-sprite.png",
+      "purpose": "Grounds score glyph spacing and the game-over text treatment used in the HUD."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-based UI sprite atlas loaded into ImageBundle draw targets.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Style",
+      "UiNode",
+      "Visibility",
+      "AnimationTimer"
+    ],
+    "asset_loading": "Load through AssetServer in the Loading state and store the handle in a typed resource before gameplay starts.",
+    "runtime_notes": [
+      "Anchor the HUD to whole pixels in the top-right or screen-center layout zone.",
+      "Keep all glyph quads on nearest-neighbor sampling to preserve the retro mono-space look.",
+      "Expose the atlas handle through a HUD resource so score and restart states can swap visibility without reallocating textures."
+    ]
+  }
+}

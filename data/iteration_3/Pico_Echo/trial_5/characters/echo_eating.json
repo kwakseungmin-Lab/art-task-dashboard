@@ -1,0 +1,106 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position_default": {
+        "x": "64px",
+        "y": "60px"
+      },
+      "rendering": "nearest neighbor",
+      "transparency": "indexed color transparency"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_eating",
+    "asset_name": "Echo Eating State",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Active feeding state triggered when player provides seeds to Echo",
+      "screen_position": "Center at x=64px, y=60px, but head moves toward food bowl during animation (head reaches toward x=16-24px range)",
+      "adjacent_elements": [
+        "cage_food_bowl (target of eating action at x=16px, y=100px)",
+        "seed (visible in food bowl, consumed during animation)",
+        "cage_perch (below at y=80px)"
+      ],
+      "usage_scenario": "Plays once when player taps feed button and food bowl has seeds. Animation shows Echo leaning down to food bowl, pecking seeds, and returning upright. Increases happiness by +15 points. Transitions back to idle after completion."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel bending forward and down toward food bowl. Body tilts approximately 30-45 degrees from vertical. Neck extends downward. Beak opens and closes during pecking motion.",
+      "texture": "Pure pixel art with no gradients. Hand-drawn frame-by-frame animation showing organic movement.",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 6,
+        "fps": 4,
+        "loop": false,
+        "description": "Frame 1: Start leaning forward, head tilts down 15 degrees. Frame 2: Body leans further, head moves down 8-10px. Frame 3: Head reaches lowest point near food bowl, beak closed. Frame 4: Beak opens (3-4px gap). Frame 5: Beak closes with seed, head starts rising. Frame 6: Return to upright position, seed consumed. Total duration: 1.5 seconds."
+      },
+      "details": "Beak opens to 3-4px width at widest point (frame 4). Head moves approximately 10-12px downward from resting position. Crest remains in neutral position throughout. Eyes remain open. One seed (3x3px) disappears from food bowl between frames 4-5. Feet remain planted on perch."
+    },
+    "relationships": {
+      "related_assets": [
+        "echo_idle",
+        "cage_food_bowl",
+        "seed",
+        "cage_perch"
+      ],
+      "shared_with": "Same base body structure and colors as all Echo states",
+      "differences_from": "Unlike idle: body is tilted/leaning, head position changes significantly, beak opens/closes. Unlike other states: specifically oriented toward food bowl location, involves seed consumption."
+    },
+    "explicit_negations": [
+      "No realistic feather detail",
+      "No 3D shading or depth",
+      "No motion blur",
+      "No outline stroke",
+      "No smooth gradients",
+      "No food particles flying",
+      "No exaggerated cartoon squash/stretch",
+      "No speed lines or motion effects"
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "varies by element"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bars": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "view_type": "interior view (no cage bars visible)",
+      "perspective": "flat 2D front-facing",
+      "lighting": "uniform (no shadows)"
+    }
+  },
+  "asset": {
+    "asset_id": "food_bowl",
+    "asset_name": "Food Bowl",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Container for seeds; shows food level (full/low/empty)",
+      "screen_position": "Bottom left at x=16, y=100",
+      "adjacent_elements": ["seed", "echo_eating", "echo_hungry", "floor"],
+      "usage_scenario": "Interactive element; player taps to fill with seeds; displays 3 states based on food_level"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "16px",
+        "height": "12px"
+      },
+      "colors": {
+        "bowl": "#AB5236",
+        "seeds": "#FFA300"
+      },
+      "shape": "Shallow bowl viewed from slight top-down angle; oval/ellipse shape",
+      "texture": "Flat pixel art with no gradients",
+      "outline": "1px #AB5236 outline defining bowl edge",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 3,
+        "fps": 0,
+        "loop": false,
+        "description": "3 static frames: Full (6-8 seeds visible), Low (3-4 seeds), Empty (bowl only)"
+      },
+      "details": "Bowl is 16x12px oval; seeds are 3x3px each; Full state shows 6-8 seeds (#FFA300) filling bowl interior; Low shows 3-4 seeds; Empty shows only brown bowl outline"
+    },
+    "relationships": {
+      "related_assets": ["seed", "echo_eating", "echo_hungry"],
+      "shared_with": "Seeds share color with Echo's body",
+      "differences_from": "water_bowl (contains seeds vs water)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no 3D depth shading",
+      "no reflections",
+      "no ceramic texture",
+      "no shadows",
+      "no spilled seeds outside bowl"
+    ]
+  }
+}

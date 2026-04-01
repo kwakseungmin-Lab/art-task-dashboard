@@ -1,0 +1,195 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 5,
+    "source": {
+      "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+      "concepts": [
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+      ]
+    },
+    "rendering": {
+      "style": "pixel_art",
+      "bit_depth_style": "8-bit",
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "dithering": false
+    },
+    "canvas": {
+      "screen_dimensions_px": "600x150",
+      "target_fps": 60,
+      "coordinate_system": {
+        "ground_y": 0,
+        "positive_y": "up",
+        "note": "GDD uses Ground level y=0; airborne obstacles use y=50 and y=80 above ground."
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "allowed_colors": [
+        "#F7F7F7",
+        "#535353",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "rules": [
+        "All gameplay sprites (player, obstacles, ground, clouds) use only #535353 for non-transparent pixels.",
+        "Background sky uses only #F7F7F7 (no transparency).",
+        "UI text uses only #535353. White (#FFFFFF) is allowed only for runtime flash effects or overlays."
+      ]
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353",
+        "rule": "Sprite silhouettes must have a minimum 2px-thick edge where applicable; no 1px hairline edges."
+      },
+      "transparency": {
+        "background": "transparent",
+        "alpha_requirement": "All non-background sprites must have fully transparent background (alpha=0) outside the silhouette."
+      },
+      "scale_support": {
+        "base_scale": "1x",
+        "secondary_scale": "2x",
+        "scaling_method": "nearest_neighbor",
+        "note": "Export 1x originals; 2x exports must be integer-scaled using nearest-neighbor (no filtering)."
+      }
+    },
+    "export": {
+      "formats": [
+        "png"
+      ],
+      "color_space": "sRGB",
+      "png": {
+        "bit_depth": 8,
+        "interlaced": false
+      },
+      "naming": {
+        "frame_indexing": "1-based in filenames where specified by GDD (e.g., dino_run_1.png, dino_run_2.png)",
+        "scale_suffix": "@2x"
+      }
+    },
+    "priorities": {
+      "scheme": "P0-P3",
+      "definitions": {
+        "P0": "Required for a playable MVP (core gameplay and essential UI).",
+        "P1": "Feature-complete look but not strictly blocking MVP.",
+        "P2": "Optional polish.",
+        "P3": "Nice-to-have polish."
+      }
+    },
+    "layers": [
+      {
+        "name": "background_sky",
+        "z_index": 0
+      },
+      {
+        "name": "background_clouds",
+        "z_index": 1
+      },
+      {
+        "name": "ground",
+        "z_index": 5
+      },
+      {
+        "name": "obstacles",
+        "z_index": 10
+      },
+      {
+        "name": "player",
+        "z_index": 15
+      },
+      {
+        "name": "ui",
+        "z_index": 100
+      },
+      {
+        "name": "vfx_overlay",
+        "z_index": 200
+      }
+    ]
+  },
+  "task_id": "cdr_typography_font_pixel_mono_12px",
+  "asset_name": "Pixel Monospace Bitmap Font 12px",
+  "category": "typography",
+  "subcategory": "bitmap_font",
+  "description": "Create a monospace pixel bitmap font at 12px height.\n\n- Glyph cell: 10x12 px.\n- Color: #535353 only.\n- Background: transparent.\n- Anti-aliasing: off.\n\nRequired character set (exact):\n- Digits: 0 1 2 3 4 5 6 7 8 9\n- Uppercase: A-Z\n- Symbols: space, colon(:), period(.), hyphen(-)\n\nAtlas layout:\n- 16 columns, row-major order in the exact sequence: \"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ :.-\"\n\nMetadata:\n- Provide BMFont text (.fnt) mapping with x,y,w,h,xadvance per glyph.\n- xadvance must be 10 for every glyph.",
+  "deliverables": [
+    {
+      "path": "Typography/font_pixel_mono_12px.png",
+      "type": "bitmap_font_atlas",
+      "glyph_cell": "10x12",
+      "columns": 16,
+      "background": "transparent"
+    },
+    {
+      "path": "Typography/font_pixel_mono_12px.fnt",
+      "type": "bitmap_font_metadata",
+      "format": "bmfont_text"
+    },
+    {
+      "path": "Source/font_pixel_mono_12px.aseprite",
+      "type": "source",
+      "format": "aseprite"
+    }
+  ],
+  "specs": {
+    "glyph_cell": {
+      "width": 10,
+      "height": 12
+    },
+    "monospace": true,
+    "colors": {
+      "pixels": "#535353",
+      "background": "transparent"
+    },
+    "character_set": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ :.-"
+  },
+  "context": {
+    "role": "UI font.",
+    "screen_location": "UI layer.",
+    "adjacent_elements": [
+      "cdr_ui_score_display",
+      "cdr_ui_game_over_screen"
+    ],
+    "layer": "ui",
+    "usage": "Used for 12px UI text."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_typography_font_pixel_mono_12px",
+      "cdr_typography_font_pixel_mono_16px",
+      "cdr_typography_font_pixel_mono_24px"
+    ],
+    "shared_properties": [
+      "monospace width=10",
+      "color=#535353"
+    ],
+    "differences": [
+      "This size is 12px."
+    ]
+  },
+  "depends_on": [
+    "cdr_typography_font_pixel_mono_16px"
+  ],
+  "execution_order": 42,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_typography_font_pixel_mono_16px"
+  ],
+  "acceptance_criteria": [
+    "Atlas PNG exists with transparent background.",
+    "All glyph pixels are #535353; no other colors.",
+    "Metadata includes all required characters in the specified order.",
+    "xadvance=10 for every glyph."
+  ]
+}

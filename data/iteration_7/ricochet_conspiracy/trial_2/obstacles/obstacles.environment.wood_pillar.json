@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.wood_pillar",
+  "asset_name": "Wood Pillar",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P0",
+  "execution_order": 190,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.library_book_sprite",
+      "character.noble.guard_patrol_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "breakable_support",
+    "layer": "world_geometry",
+    "usage": "Breakable pillar for delayed collapse routes after three hits.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 540,
+      "y": 454
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip",
+      "character.noble.guard_patrol_sheet"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 120
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#6B4B3A"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "vertical_wood_post_with_base_ring",
+      "components": [
+        "top_cap",
+        "post_body",
+        "grain_lines",
+        "base_ring"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "restitution": 0.6,
+    "hit_points": 3
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.wood_pillar.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 24x120px and body width stays at 16px.",
+    "Wood grain lines use #6B4B3A and remain inside the inner 14px band.",
+    "Base ring width is 20px and sits on the bottom 6px band."
+  ]
+}

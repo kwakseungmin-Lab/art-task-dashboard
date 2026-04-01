@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.noble.standard_idle_6f_4fps",
+  "asset_name": "Standard Noble Idle (6f 4fps)",
+  "category": "character",
+  "subcategory": "target_noble",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [
+    "character.noble.guard_patrol_6f_6fps",
+    "character.noble.shield_idle_6f_4fps",
+    "character.noble.boss_idle_6f_4fps"
+  ],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble.guard_patrol_6f_6fps",
+      "character.noble.shield_idle_6f_4fps",
+      "character.noble.boss_idle_6f_4fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "target",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "character",
+    "usage": "Used in early and mid stages as the base noble target with 1 HP and a calm idle loop.",
+    "adjacent_elements": [
+      "stone wall segment",
+      "launchable object"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#8BA7C7",
+      "#D4A843",
+      "#E8D5C4",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 4,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        48
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "small noble with oval wig, narrow coat body, and readable head to boot separation at 32x48",
+      "components": [
+        "powdered_wig",
+        "face",
+        "coat_body",
+        "sleeves",
+        "boots",
+        "cape_trim"
+      ]
+    },
+    "physics_tags": {
+      "target_hp": 1,
+      "hit_reaction": "single_pop"
+    },
+    "face": {
+      "eyes": "2px dark oval pair",
+      "mouth": "1px arc",
+      "nose": "1px wedge",
+      "beard": null
+    },
+    "appendages": {
+      "arms": "2 coat sleeves",
+      "legs": "2 trouser legs",
+      "tail": null,
+      "wings": null,
+      "accessories": [
+        "collar_trim",
+        "cape_pin"
+      ]
+    },
+    "texture": {
+      "material": "fabric_and_powder_wig",
+      "grain_percent": 4
+    },
+    "shading": {
+      "mode": "soft_watercolor",
+      "shadow_hex": "#6F7F99",
+      "highlight_hex": "#D8E1EC"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.standard_idle_6f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x48px with 6 columns, 1 row, and 0px spacing.",
+    "Idle motion stays within a 2px sway range on the torso and keeps both feet on the baseline at y=47px.",
+    "Only #8BA7C7, #D4A843, #E8D5C4, and #3D2B1F are used on the character sheet."
+  ]
+}

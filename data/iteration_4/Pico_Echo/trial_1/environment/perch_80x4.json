@@ -1,0 +1,130 @@
+{
+  "task_id": "pico_echo_environment_perch",
+  "asset_name": "perch_80x4",
+  "category": "environment",
+  "subcategory": "cage",
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style": "pixel_art",
+      "constraints": [
+        "grid: 1px",
+        "no_antialiasing: true",
+        "no_gradients: true",
+        "scaling: nearest_neighbor"
+      ]
+    },
+    "render_target": {
+      "canvas_px": "128x128",
+      "view": "2D_front",
+      "origin": "top_left"
+    },
+    "color": {
+      "palette_name": "PICO-8",
+      "palette_hex_16": [
+        "#000000",
+        "#1D2B53",
+        "#7E2553",
+        "#008751",
+        "#AB5236",
+        "#5F574F",
+        "#C2C3C7",
+        "#FFF1E8",
+        "#FF004D",
+        "#FFA300",
+        "#FFEC27",
+        "#00E436",
+        "#29ADFF",
+        "#83769C",
+        "#FF77A8",
+        "#FFCCAA"
+      ],
+      "project_named_colors": {
+        "echo_body": "#FFA300",
+        "echo_cheek_patch": "#FF004D",
+        "echo_crest": "#FFEC27",
+        "echo_beak_and_feet": "#AB5236",
+        "ui_text": "#1D2B53",
+        "cage_background": "#FFF1E8",
+        "cage_bars": "#C2C3C7",
+        "perch": "#AB5236",
+        "floor": "#FFCCAA"
+      }
+    },
+    "export": {
+      "formats": [
+        "PNG"
+      ],
+      "png": {
+        "alpha": true,
+        "color_mode": "indexed",
+        "max_colors": 16
+      }
+    },
+    "layering_order": [
+      "environment_background",
+      "environment_structure",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ]
+  },
+  "description": "Create an 80x4px perch sprite (PNG, transparent background). Perch is rendered at screen position x=24..103, y=80..83. Pixel design: a 1px outline in #1D2B53 around the whole perch rectangle. Fill interior with #AB5236. Top highlight line (inside outline) at y=1 uses #FFCCAA for x=1..78. Bottom shadow line (inside outline) at y=2 uses #5F574F for x=1..78.",
+  "context": {
+    "role": "Static perch that Echo stands on in all states.",
+    "screen_location": "Placed at (x=24,y=80) in the 128x128 screen.",
+    "adjacent_elements": [
+      "echo_*_strip_*",
+      "cage_background_wall_128x128"
+    ],
+    "layer": "environment_structure",
+    "usage": "Always visible during gameplay."
+  },
+  "specs": {
+    "dimensions": "80x4",
+    "colors_used_hex": [
+      "#1D2B53",
+      "#AB5236",
+      "#FFCCAA",
+      "#5F574F"
+    ],
+    "outline": {
+      "enabled": true,
+      "color": "#1D2B53",
+      "thickness_px": 1
+    },
+    "background": {
+      "alpha": 0.0
+    }
+  },
+  "deliverables": [
+    {
+      "type": "sprite",
+      "format": "PNG",
+      "path": "assets/pico_echo/environment/perch_80x4.png"
+    },
+    {
+      "type": "source",
+      "format": "ASEPRITE",
+      "path": "assets/pico_echo/environment/perch_80x4.aseprite"
+    }
+  ],
+  "execution_order": 3,
+  "priority": "P0",
+  "depends_on": [
+    "pico_echo_environment_cage_background_wall"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo_environment_cage_background_wall"
+  ],
+  "relationships": {},
+  "acceptance_criteria": [
+    "Image size is exactly 80x4 px.",
+    "Outside the perch rectangle is fully transparent.",
+    "Outline is exactly 1px and uses only #1D2B53.",
+    "Interior highlight/shadow rows match the specified colors and positions."
+  ]
+}

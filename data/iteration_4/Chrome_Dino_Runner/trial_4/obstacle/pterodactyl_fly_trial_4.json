@@ -1,0 +1,219 @@
+{
+  "task_id": "cdr_obstacle_pterodactyl_fly",
+  "asset_name": "pterodactyl_fly",
+  "category": "obstacle",
+  "subcategory": "pterodactyl",
+  "description": "Create Pterodactyl obstacle fly animation as 2-frame pixel art sprite. Each frame canvas is 92x80 px. Animation: 2 frames at 10 FPS, loop enabled. Frame 1: wings up. Frame 2: wings down. Color usage: #535353 only; background fully transparent (alpha 0). Outline rule: outer silhouette minimum thickness 2px.",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan": {
+      "type": "Art Task Plan",
+      "version": "v4",
+      "source_repo": "a2z-team/a2z-docs",
+      "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md"
+    },
+    "render_targets": {
+      "base_screen_resolution_px": "600x150",
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "antialiasing": false,
+      "supported_scales": [
+        1,
+        2
+      ],
+      "scale_method": "nearest_neighbor"
+    },
+    "palette": {
+      "background": {
+        "hex": "#F7F7F7",
+        "rgb": [
+          247,
+          247,
+          247
+        ],
+        "usage": [
+          "sky_fill",
+          "background_fill"
+        ]
+      },
+      "primary": {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "usage": [
+          "player",
+          "obstacles",
+          "ground",
+          "ui_text",
+          "clouds"
+        ]
+      },
+      "highlight": {
+        "hex": "#FF0000",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "usage": [
+          "game_over_state_optional"
+        ]
+      },
+      "ui_flash": {
+        "hex": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "usage": [
+          "score_milestone_flash_optional"
+        ]
+      }
+    },
+    "global_sprite_rules": {
+      "style": {
+        "art_style": "pixel_art_8bit",
+        "color_style": "monochrome_plus_effect_colors",
+        "shading": {
+          "enabled": false,
+          "levels": 0,
+          "notes": "No gradients. No dithering."
+        },
+        "outline": {
+          "enabled": true,
+          "thickness_px": 2,
+          "color_hex": "#535353",
+          "rule": "Outer silhouette must not contain any 1px-wide protrusions; minimum stroke thickness is 2px everywhere."
+        },
+        "background": {
+          "default": "transparent",
+          "transparent_alpha": 0
+        }
+      },
+      "file_format": {
+        "raster": {
+          "format": "PNG",
+          "color_space": "sRGB",
+          "alpha": true
+        },
+        "naming": {
+          "case": "lower_snake_case",
+          "frame_indexing": {
+            "base": 1,
+            "padding": 0
+          },
+          "scale_suffix": {
+            "1x": "",
+            "2x": "@2x"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "role": "Air obstacle; collision triggers GameOver.",
+    "screen_location": "Spawn at screen_width+50; y variant is 50 px or 80 px above ground baseline (engine-defined); moves left with Current_Speed.",
+    "adjacent_elements": [
+      "player_duck for Low variant avoidance",
+      "ground_line"
+    ],
+    "layer": "gameplay_foreground",
+    "usage": "Spawns when score >= 200; uses continuous 2-frame loop while on screen."
+  },
+  "specs": {
+    "dimensions": "92x80",
+    "animation": {
+      "enabled": true,
+      "type": "frame_sequence",
+      "frame_count": 2,
+      "fps": 10,
+      "loop": true
+    },
+    "pivot": {
+      "anchor": "bottom_left",
+      "pixel": {
+        "x": 0,
+        "y": 79
+      }
+    },
+    "colors": [
+      "#535353"
+    ],
+    "background": "transparent",
+    "outline": {
+      "enabled": true,
+      "thickness_px": 2,
+      "color_hex": "#535353"
+    },
+    "hitbox_reference": {
+      "from_gdd": true,
+      "hitbox_px": "89x77"
+    }
+  },
+  "deliverables": [
+    {
+      "path": "art_output/chrome_dino_runner/obstacle/ptero_fly_1.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "dimensions_px": "92x80",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/obstacle/ptero_fly_1@2x.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "dimensions_px": "184x160",
+      "scale": 2,
+      "background": "transparent",
+      "scale_method": "nearest_neighbor"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/obstacle/ptero_fly_2.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "dimensions_px": "92x80",
+      "scale": 1,
+      "background": "transparent"
+    },
+    {
+      "path": "art_output/chrome_dino_runner/obstacle/ptero_fly_2@2x.png",
+      "type": "sprite_frame",
+      "format": "png",
+      "dimensions_px": "184x160",
+      "scale": 2,
+      "background": "transparent",
+      "scale_method": "nearest_neighbor"
+    }
+  ],
+  "relationships": {
+    "related_tasks": [
+      "cdr_character_player_duck",
+      "cdr_character_player_jump"
+    ],
+    "shared_properties": {
+      "primary_color_hex": "#535353",
+      "outline_thickness_px": 2
+    },
+    "differences": {
+      "vs_cactus": "Pterodactyl is animated (2 frames @ 10 FPS) and spawned above ground (y=50 or y=80)."
+    }
+  },
+  "depends_on": [],
+  "execution_order": 12,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "2 frames at 10 FPS loop; 1x frames are 92x80 and 2x frames are 184x160.",
+    "Only #535353 opaque pixels and transparent background.",
+    "Frame 1 and frame 2 differ only in wing pixel positions; head/body pixels remain consistent.",
+    "No anti-aliasing; outer contour minimum thickness 2px."
+  ]
+}

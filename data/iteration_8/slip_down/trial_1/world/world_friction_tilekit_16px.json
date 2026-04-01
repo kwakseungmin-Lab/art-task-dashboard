@@ -1,0 +1,169 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008001002",
+  "asset_key": "world_friction_tilekit_16px",
+  "asset_name": "Friction Surface Tilekit",
+  "category": "world",
+  "subcategory": "tilekit",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "task_id_008001003",
+    "task_id_008001005",
+    "task_id_008001009",
+    "task_id_008001010",
+    "task_id_008001011",
+    "task_id_008001012",
+    "task_id_008001013",
+    "task_id_008001015"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008001005",
+      "task_id_008001009",
+      "task_id_008001011",
+      "task_id_008001012",
+      "task_id_008001015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlas-style tile extraction for bevy_ecs_tilemap and map tile indices to material tags in a FrictionSurfaceLegend resource.",
+    "atlas_or_static": "tile_atlas",
+    "ecs_components": [
+      "TileTextureIndex",
+      "Transform",
+      "FrictionSurface",
+      "ColliderTile"
+    ],
+    "asset_loading": "Load world/world_friction_tilekit_16px.png through AssetServer before spawning the tilemap chunk.",
+    "runtime_notes": [
+      "Material tags drive friction coefficients 1.0, 0.5, 0.1, and 0.8 without reading pixels at runtime.",
+      "Tile pivots align to the 16x16 grid and never use sub-pixel offsets.",
+      "Vent grille markers share the atlas so hazard placement and world styling stay coherent."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "friction_surface_library",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        360
+      ]
+    },
+    "layer": "world_tiles",
+    "usage": "Tile atlas for stone wall drag, slick floor acceleration, moss floor moderation, safe ledge, and vent grille markers.",
+    "adjacent_elements": [
+      "player_prisoner_fall_4f_8fps",
+      "obstacle_spike_cluster_static_48x16",
+      "ui_friction_gauge_240x8"
+    ],
+    "viewpoint": {
+      "camera_angle": "frontal_tile_sheet",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 32
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#4A90A4",
+      "#4E5940",
+      "#8FA8B8",
+      "#C8A84B"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Compact 16x16 tile atlas with five material reads: rough wall, slick floor, moss floor, safe ledge, and vent grille.",
+      "components": [
+        "rough_wall_tile",
+        "slick_floor_tile",
+        "moss_floor_tile",
+        "safe_ledge_tile",
+        "vent_grille_tile",
+        "edge_caps"
+      ]
+    },
+    "tile_grid": {
+      "tile_size_px": [
+        16,
+        16
+      ],
+      "columns": 6,
+      "rows": 2
+    },
+    "surface_roles": [
+      "high_friction_wall",
+      "low_friction_floor",
+      "medium_friction_floor",
+      "safe_ledge",
+      "wind_vent_marker"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_friction_tilekit_16px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 96x32 px and divide cleanly into 16x16 tiles.",
+    "Stone, slick, moss, ledge, and vent materials remain visually distinct at a 4x nearest-neighbor scale.",
+    "The vent grille tile keeps at least four open slats so airflow sources remain readable."
+  ]
+}

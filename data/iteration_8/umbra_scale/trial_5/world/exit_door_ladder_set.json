@@ -1,0 +1,192 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050008",
+  "asset_key": "exit_door_ladder_set",
+  "asset_name": "Exit Door and Ladder Set",
+  "category": "world",
+  "subcategory": "progression_prop_set",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The asset reuses the package palette and art deco trim language established by the tower tileset and scale rig.",
+    "All frames and ladder segments are authored for transparent-background compositing inside the fixed orthographic camera.",
+    "Module sizing stays aligned to the 16 px grid used by world placement and climb logic."
+  ],
+  "differences": [
+    "This set combines animated goal-door states with static ladder modules because both belong to room-to-room progression readability.",
+    "The unlock animation carries the brightest gold motion in the world layer outside the beam system.",
+    "Ladder pieces remain intentionally simple so the player climb path stays readable behind the moving character silhouette."
+  ],
+  "depends_on": [
+    "task_id_008050005",
+    "task_id_008050007"
+  ],
+  "blocks": [
+    "task_id_008050012"
+  ],
+  "blocked_by": [
+    "task_id_008050005",
+    "task_id_008050007"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050005",
+      "task_id_008050009",
+      "task_id_008050012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_4x2",
+    "ecs_components": [
+      "ExitDoorTag",
+      "LadderSetTag",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load exit_door_ladder_set.png during Loading and expose atlas slices for door closed, unlock, open, ladder cap, ladder body, and ladder base elements.",
+    "runtime_notes": [
+      "Door animation should trigger from balance-goal events while ladder segments stay static and tile-aligned.",
+      "Keep the door opening frames centered on the same hinge line so gameplay collision swaps do not appear to jump.",
+      "Ladder rungs must tile cleanly with the tower grid and stay visible against both shadow and lit wall sections."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "goal_gate_and_vertical_traversal_set",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1560,
+        520
+      ]
+    },
+    "layer": "world",
+    "usage": "Used for level exits, unlock feedback, and the climbable ladder surfaces that connect stacked tower rooms."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 384,
+      "height": 192
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0"
+    ],
+    "animation": {
+      "type": "stateful_sprite_sheet",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": false,
+      "frame_size_px": [
+        96,
+        96
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 2
+      }
+    },
+    "state_clusters": [
+      {
+        "state": "door_closed",
+        "frames": [
+          0
+        ],
+        "fps": 0,
+        "loop": false
+      },
+      {
+        "state": "door_opening",
+        "frames": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "fps": 8,
+        "loop": false
+      },
+      {
+        "state": "door_open",
+        "frames": [
+          7
+        ],
+        "fps": 0,
+        "loop": false
+      }
+    ],
+    "ladder_metrics_px": {
+      "segment_width": 16,
+      "segment_step_height": 16,
+      "door_size": [
+        64,
+        96
+      ]
+    },
+    "readability_notes": [
+      "The door silhouette reads as the highest-priority goal object on the floor even before it unlocks.",
+      "Ladder rails stay darker than the door trim so the exit remains the focal point.",
+      "Rung spacing stays even across repeated body segments."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/exit_door_ladder_set.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 384x192 px for eight 96x96 frames with no frame gutter.",
+    "The door hinge line stays fixed across every opening frame.",
+    "Ladder rung spacing remains exactly 16 px center-to-center for seamless stacking."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.popup.clear_400x250",
+  "asset_name": "Popup — Stage Clear (400x250)",
+  "category": "ui",
+  "subcategory": "popup",
+  "priority": "P0",
+  "execution_order": 69,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "popup_clear",
+    "layer": "ui_modal",
+    "usage": "Shown after reaching GOAL; includes clear time, shards gained, and Next Stage button.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 250
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#6B7280",
+      "#FEF3C7",
+      "#FBBF24",
+      "#F59E0B"
+    ],
+    "animation": null,
+    "layout_rules": {
+      "padding_px": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "button_area_height_px": 60,
+      "title_height_px": 32
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.popup.clear_400x250.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Popup is exactly 400x250px with a 2px border using #6B7280 and fill using #1C1917.",
+    "Title area supports rendering \"CLEAR\" using #FBBF24 and body text using #FEF3C7.",
+    "No anti-aliasing; uses only listed colors and transparency."
+  ]
+}

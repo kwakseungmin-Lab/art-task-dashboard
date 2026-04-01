@@ -1,0 +1,155 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_000000403",
+  "asset_key": "character_player_dino_jump_static",
+  "asset_name": "Player Dino Jump Pose",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": "task_id_000000401",
+  "variant_of_asset_key": "character_player_dino_idle_2f_6fps",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000 duplicated in this file.",
+    "88x94 pose bounds.",
+    "Side-profile dinosaur silhouette with 2px outline."
+  ],
+  "differences": [
+    "Both feet clear the baseline in a single airborne pose.",
+    "Tail angle lifts by about 6 px at the tip.",
+    "Animation is a single-frame static jump pose."
+  ],
+  "depends_on": [
+    "task_id_000000401"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_000000401"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_000000401",
+      "task_id_000000406",
+      "task_id_000000407",
+      "task_id_000000408"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "player",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/player_dinosaur.png",
+      "purpose": "Ground the dinosaur body proportions and pose silhouettes."
+    },
+    {
+      "label": "style",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png",
+      "purpose": "Ground the monochrome pixel-art outline and spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "RunnerState",
+      "Collider"
+    ],
+    "asset_loading": "Load assets/art/chrome_dino_runner/trial_4/character_player_dino_jump_static.png with AssetServer during Loading state and keep the handle in a resource entry keyed by character_player_dino_jump_static.",
+    "runtime_notes": [
+      "Apply nearest-neighbor sampling and integer-pixel transforms at runtime.",
+      "Keep the authored 1x pixel ratio and scale only by integer multiples in camera space.",
+      "Use a deterministic startup registration order so task execution order maps to asset registration order.",
+      "Spawn the sprite as a single-image handle with no runtime atlas index changes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_jump",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        36
+      ]
+    },
+    "layer": "character",
+    "usage": "Used during the airborne window that clears ground cactus obstacles and returns to the baseline after gravity resolves.",
+    "adjacent_elements": [
+      "task_id_000000406",
+      "task_id_000000413"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Airborne T-Rex with both feet raised and torso pitched slightly upward.",
+      "components": [
+        "head",
+        "eye_cutout",
+        "mouth_line",
+        "torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_player_dino_jump_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 88x94 px.",
+    "Visible pixels use only the hex colors listed in specs.colors_hex plus transparency.",
+    "Opaque pixels stay inside the authored bounds with no anti-aliased edge pixels."
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.dino_idle_2f_6fps",
+  "asset_name": "Player Dino Idle Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #535353, background #F7F7F7, and accent #FF0000.",
+    "Canvas target stays 600x150px with pixel-perfect presentation at 60 FPS.",
+    "All painted edges keep a 2px outline rhythm and flat shading."
+  ],
+  "differences": [
+    "Idle frames keep the full upright profile and only shift the leading leg cluster.",
+    "Head, torso, and tail masses remain stable so the idle sheet becomes the base for all player poses.",
+    "The stance reads as ready-to-run rather than fully static."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "character.player.dino_run_2f_12fps",
+    "character.player.dino_jump_static",
+    "character.player.dino_duck_2f_12fps",
+    "character.player.dino_dead_static"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_run_2f_12fps",
+      "world.ground.line_1200x2",
+      "ui.hud.score_display"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "layer": "character",
+    "usage": "Shown at session start and after restart reset before obstacle pressure ramps up.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "ui.hud.score_display"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Side-profile T-Rex with a large head, short forearms, wide torso, and thick balancing tail.",
+      "components": [
+        "head",
+        "eye_cutout",
+        "mouth_line",
+        "torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    },
+    "face": {
+      "eyes": "One 4x4px eye cutout sits at x20-23 and y18-21 in each frame.",
+      "mouth": "One 12px horizontal mouth slit sits below the eye line.",
+      "nose": null
+    },
+    "appendages": {
+      "arms": "Two short forearm clusters stay within a 10x8px chest block.",
+      "legs": "Two hind legs use silhouette swaps that preserve the ground contact read.",
+      "tail": "One thick tail extends 36px from the torso and rises 6px above the baseline at the tip.",
+      "accessories": null
+    },
+    "texture": "Solid monochrome fill with transparent cutout background.",
+    "shading": "Flat 1-tone fill with outline emphasis."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_idle_2f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 176x94px with 2 columns and 1 row.",
+    "Only #535353 and transparency appear in painted pixels.",
+    "The last opaque foot pixel in both frames lands on the same ground baseline within a 1px tolerance."
+  ]
+}

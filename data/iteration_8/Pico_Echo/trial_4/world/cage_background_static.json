@@ -1,0 +1,128 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008004019",
+  "asset_name": "Cage Interior Background (static base layer)",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 210,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [
+    "task_id_008004020",
+    "task_id_008004021",
+    "task_id_008004022",
+    "task_id_008004023"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "background",
+    "layer": "world",
+    "usage": "Full-screen base layer behind cage bars; warm cream tone.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#FFF1E8",
+      "#C2C3C7"
+    ],
+    "animation": null,
+    "composition": [
+      "Base fill is #FFF1E8.",
+      "Add 6-10 subtle 1px specks using #C2C3C7; keep total speck pixels under 0.7% of the canvas."
+    ],
+    "face": null,
+    "appendages": null,
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/cage_background_static.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Background is exactly 128x128px and fully opaque.",
+    "At least 99% of pixels are #FFF1E8; remaining pixels may be #C2C3C7 only.",
+    "No gradients, patterns, or anti-aliasing; all pixels are solid colors."
+  ],
+  "shared_properties": [],
+  "differences": [],
+  "asset_key": "cage_background_static",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "cage_object_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md?raw=1",
+      "purpose": "Cage layout, perch, bowl placement, and floor bounds anchor."
+    },
+    {
+      "label": "art_direction_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md?raw=1",
+      "purpose": "Pixel-art palette, silhouette, and warm interior mood anchor."
+    },
+    {
+      "label": "time_system_doc",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/TimeSystem.md?raw=1",
+      "purpose": "Sleep cycle, food decay, and poop spawn cadence anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for world asset loading with nearest-neighbor sampling and deterministic z-order.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "CageLayer"
+    ],
+    "asset_loading": "Load world/cage_background_static.png through AssetServer and store the handle under cage_background_static.",
+    "runtime_notes": [
+      "Keep world layers on deterministic z-order bands: background < perch/floor < foreground bars < night overlay.",
+      "Register manifest execution_order in a startup resource so build order stays deterministic during content validation.",
+      "Read frame size and bounds from specs.dimensions_px rather than texture metadata during runtime checks."
+    ]
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.widget.counter_gauge_ready_variant",
+  "asset_name": "Counter gauge ready animation",
+  "category": "ui",
+  "subcategory": "widget_counter_gauge_ready",
+  "priority": "P0",
+  "execution_order": 230,
+  "variant_of": "ui.widget.counter_gauge_base",
+  "shared_properties": [
+    "primary #C47C2B",
+    "background #0B0C1E",
+    "accent #FFD966",
+    "48x48 widget family"
+  ],
+  "differences": [
+    "6_frame_countdown_ring",
+    "accent_flash_on_final_frame"
+  ],
+  "depends_on": [
+    "ui.widget.counter_gauge_base"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.widget.counter_gauge_base"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.widget.counter_gauge_base",
+      "character.player.cosmos_heracles_counter_variant"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art_16x16_upscaled",
+    "detail_level": "dense_16x16_cluster",
+    "shading": "two_tone_plus_one_highlight",
+    "outline": "1px_deep_space_outline"
+  },
+  "context": {
+    "role": "ui_widget",
+    "screen_position": {
+      "mode": "screen_space",
+      "anchor_px": {
+        "x": 1100,
+        "y": 400
+      },
+      "pivot": "center",
+      "type": "absolute_px"
+    },
+    "layer": "ui_floating",
+    "usage": "Animated countdown ring used during the active ±80 ms counter timing window.",
+    "adjacent_elements": [
+      "enemy head anchor",
+      "counter result popup",
+      "player fixed anchor lane"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 288,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFD966",
+      "#40E8D0",
+      "#0B0C1E",
+      "#F0EFE9"
+    ],
+    "animation": {
+      "frame_count": 6,
+      "fps": 12,
+      "loop": "once",
+      "frame_size_px": {
+        "width": 48,
+        "height": 48
+      },
+      "states": [
+        "countdown"
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "screen_flat",
+      "facing": "front"
+    },
+    "shape": {
+      "silhouette": "circular timing ring with cyan ready highlight",
+      "components": [
+        "outer ring",
+        "cyan ready flash",
+        "center emblem",
+        "danger tick markers"
+      ]
+    },
+    "texture": "none",
+    "shading": "two_tone_with_outline"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "ui/ui.widget.counter_gauge_ready_variant.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Output sheet size is exactly 288x48 px.",
+    "Core palette remains primary #C47C2B, background #0B0C1E, accent #FFD966 with asset-local colors confined to specs.colors_hex.",
+    "Animation metadata is exactly frame_count 6, fps 12, loop once.",
+    "Deliverable path is exactly ui/ui.widget.counter_gauge_ready_variant.png with transparent background enabled.",
+    "The sheet contains exactly 6 frames at 48x48 px each.",
+    "The final frame introduces #40E8D0 as the flash cue while preserving the project accent field as #FFD966.",
+    "specs.viewpoint.camera_angle is screen_flat and specs.viewpoint.facing is front.",
+    "context.screen_position.type is absolute_px and context.adjacent_elements contains exactly 3 local composition notes."
+  ]
+}

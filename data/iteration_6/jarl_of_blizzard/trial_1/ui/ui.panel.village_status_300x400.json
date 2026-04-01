@@ -1,0 +1,134 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.panel.village_status_300x400",
+  "asset_name": "Village Status Panel — 300×400",
+  "category": "ui",
+  "subcategory": "panel",
+  "priority": "P2",
+  "execution_order": 27,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.building.house_sheet_64x64_2f",
+      "ui.typography.bitmap_font_bw_8px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "status_panel",
+    "layer": "ui",
+    "usage": "Tab-toggled left-side panel listing buildings and HP. Positioned near (16, 160).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        16,
+        160
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 300,
+      "height": 400
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "layout_rules": {
+      "list_area_bbox_px": {
+        "x": 16,
+        "y": 48,
+        "w": 268,
+        "h": 336
+      },
+      "row_height_px": 20
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.panel.village_status_300x400.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel is exactly 300x400px and supports at least 10 rows at 20px height.",
+    "List area has a subtle grid or separators visible in grayscale only.",
+    "Panel does not visually conflict with the top-left portrait when both are shown."
+  ]
+}

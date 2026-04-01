@@ -1,0 +1,112 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.wine_barrel",
+  "asset_name": "Wine Barrel",
+  "category": "obstacles",
+  "subcategory": "environment",
+  "priority": "P1",
+  "execution_order": 220,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "obstacles.launchable.wine_glass_sprite"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.launchable.wine_glass_sprite"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.wine_glass_sprite",
+      "obstacles.effect.wine_glass_shard_cluster"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "explosive_trigger",
+    "layer": "world_objects",
+    "usage": "Barrel prop with heavy body for two-hit blast routes and push chains.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 860,
+      "y": 526
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip",
+      "obstacles.launchable.wine_glass_sprite"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#6B4B3A",
+      "#8B3A52"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "round_barrel_with_two_metal_bands",
+      "components": [
+        "top_rim",
+        "body",
+        "band_upper",
+        "band_lower",
+        "base_shadow"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "blast_radius_px": 96,
+    "hit_points": 2
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.wine_barrel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 48x48px with a 36px body width.",
+    "Two metal bands stay 6px tall and keep even spacing.",
+    "Body wood uses #6B4B3A and wine accent uses #8B3A52 in the top opening."
+  ]
+}

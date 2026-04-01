@@ -1,0 +1,87 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.popup.failure",
+  "asset_name": "UI Popup - Failure",
+  "category": "ui",
+  "subcategory": "popup",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.layout.right_panel_frame"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "background": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "Divine Cyan",
+      "hex": "#06B6D4"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_hd2d_glow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "modal",
+    "layer": "ui_modal",
+    "usage": "Shown immediately on failure; includes message + buttons [Restart] [Stage Select]",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 200
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#FEF3C7",
+      "#EF4444",
+      "#6B7280"
+    ],
+    "animation": null,
+    "notes": "Dark modal with red header accent; include 2 button slots (not buttons themselves)"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.popup.failure.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Popup frame is exactly 400x200px with clear header/body separation.",
+    "Failure accent uses #EF4444 but does not reduce readability of title text (#FEF3C7).",
+    "Provides two 140x36px button placeholder areas aligned on bottom row."
+  ]
+}

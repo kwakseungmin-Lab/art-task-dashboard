@@ -1,0 +1,138 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.wine_barrel",
+  "asset_name": "Wine Barrel",
+  "category": "obstacles",
+  "subcategory": "environment_object",
+  "priority": "P0",
+  "execution_order": 9,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This asset packages intact, damaged, and explosive readability for two-hit logic."
+  ],
+  "depends_on": [
+    "world.foreground.floor_tiles"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.foreground.floor_tiles"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.environment.chandelier",
+      "character.noble_guard"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "two_hit_explosive_object",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 860,
+      "y": 500,
+      "width": 48,
+      "height": 48,
+      "anchor": "top_left"
+    },
+    "layer": "midground_interactive",
+    "usage": "Used from stage 6-1 onward for radial removal chains.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_right"
+    },
+    "adjacent_elements": [
+      "world.foreground.floor_tiles",
+      "character.noble_guard",
+      "obstacles.launchable.wine_glass"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#8B6A4A",
+      "#D4A843",
+      "#E8704A",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "intact",
+      "states": [
+        {
+          "name": "intact",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "damage",
+          "frame_count": 2,
+          "fps": 6
+        },
+        {
+          "name": "explode",
+          "frame_count": 8,
+          "fps": 12
+        }
+      ]
+    },
+    "notes": [
+      "Explosion radius preview is 96 px with 12 px ring thickness.",
+      "Metal band width is 4 px with two horizontal bands per barrel."
+    ],
+    "shape": {
+      "silhouette": "rounded barrel body with two metal hoops and a flat ground contact edge",
+      "components": [
+        "barrel body",
+        "top hoop",
+        "bottom hoop",
+        "front bung",
+        "ground contact edge"
+      ]
+    }
+  },
+  "deliverables": [
+    "Intact barrel sprite 48x48 px.",
+    "Damage state sheet for first hit and second hit.",
+    "8-frame explosion sequence plus 96 px radius preview."
+  ],
+  "acceptance_criteria": [
+    "Barrel body is exactly 48x48 px.",
+    "Explosion sequence contains 8 frames at 12 fps.",
+    "Radius preview marks 96 px from the barrel center."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "character_type": "cockatiel parrot",
+      "design_principle": "hand-drawn frame-by-frame animation",
+      "key_features": ["crest (볏)", "cheek patch (체크 패치)", "tail feathers"],
+      "position": "center screen on perch (x=64, y=60)"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_happy",
+    "asset_name": "Echo Happy State",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "joyful reaction state triggered by petting interaction",
+      "screen_position": "center (x=64, y=60) on perch",
+      "adjacent_elements": ["perch (below)", "cage background", "heart particle effects (above)"],
+      "usage_scenario": "plays for 5 seconds after player pets Echo, increases happiness by +5, shows affection"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "cockatiel with raised crest, slightly bouncing motion",
+      "texture": "pixel art with minimal dithering, hand-drawn organic feel",
+      "outline": "1px dark outline (#1D2B53) on key features only",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 8,
+        "fps": 4,
+        "loop": false,
+        "description": "F1-2: crest raising, F3-4: body sway left, F5-6: wings slightly spread, F7-8: return to center, plays twice then returns to idle"
+      },
+      "details": "crest fully raised (#FFEC27), eyes wide open, slight body bounce, wings may flutter slightly, heart particles spawn above head, cheek patch prominent"
+    },
+    "relationships": {
+      "related_assets": ["echo_idle", "particle_heart"],
+      "shared_with": "all Echo states share same base body structure and color palette",
+      "differences_from": "unique raised crest, bouncing animation, accompanied by heart particle effects, more energetic than idle"
+    },
+    "explicit_negations": [
+      "no realistic rendering or gradients",
+      "no anti-aliasing or smooth edges",
+      "no 3D effects or depth shading",
+      "no colors outside PICO-8 16-color palette",
+      "no motion blur or tweening between frames",
+      "no exaggerated cartoon expressions (keep subtle)",
+      "no jumping off perch (stays grounded)",
+      "crest must be raised (not flat like idle)"
+    ]
+  }
+}

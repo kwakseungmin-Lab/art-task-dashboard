@@ -1,0 +1,159 @@
+{
+  "task_id": "task_id_008004003",
+  "asset_key": "world_ladder_vine_tilekit_16x48",
+  "asset_name": "Ladder and Vine Tilekit",
+  "category": "world",
+  "subcategory": "climbable",
+  "priority": "P1",
+  "execution_order": 30,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008004001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008004011",
+      "task_id_008004012",
+      "task_id_008004018"
+    ]
+  },
+  "bevy_constraints": {
+    "bundle_strategy": "Use a slim texture atlas and spawn climb segments as repeated SpriteBundle strips that align to ladder colliders.",
+    "atlas_or_static": "tile_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "Transform",
+      "Climbable",
+      "WorldProp"
+    ],
+    "asset_loading": "Load world/world_ladder_vine_tilekit_16x48.png through AssetServer before climb routes are instantiated.",
+    "runtime_notes": [
+      "Each segment keeps a 16 px width so player hands align during climb loops.",
+      "Vine sway remains decorative and does not alter collider width.",
+      "Anchor caps sit on grid intersections to simplify floor authoring."
+    ]
+  },
+  "context": {
+    "role": "climbable_route_tilekit",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1560,
+        540
+      ]
+    },
+    "layer": "world_climbable",
+    "usage": "Climbable ladder and hanging vine set for vertical recovery routes between shadow platforms.",
+    "adjacent_elements": [
+      "world_tower_backdrop_parallax_1920x1080",
+      "player_umbra_jump_4f_10fps",
+      "ui_floor_counter_panel_220x48"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 96
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#2D1B4E",
+      "#1A4A52",
+      "#C9A84C"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Atlas with rigid brass ladder rails, rung repeats, and a vine strip wrapped with sparse leaves.",
+      "components": [
+        "ladder_segment",
+        "ladder_cap_top",
+        "ladder_cap_bottom",
+        "vine_segment",
+        "vine_leaf_cluster",
+        "anchor_bracket"
+      ]
+    },
+    "tile_grid": {
+      "tile_size_px": [
+        16,
+        48
+      ],
+      "columns": 6,
+      "rows": 2
+    },
+    "climb_rules": {
+      "grip_spacing_px": 16,
+      "rung_interval_px": 12
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_ladder_vine_tilekit_16x48.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 96x96 px and divide cleanly into 16x48 cells.",
+    "Rung spacing stays visually consistent across all ladder cells.",
+    "Leaf clusters never extend beyond a 4 px side margin so climb silhouettes remain readable."
+  ],
+  "blocked_by": [
+    "task_id_008004001"
+  ],
+  "blocks": [],
+  "schema_version": "art_task@8",
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Art deco tower skyline, twilight palette, gold trim rhythm, and layered silhouette depth anchor."
+    },
+    {
+      "label": "umbra_scale_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Umbra body proportions, horn silhouette, limb taper, and exposure glow anchor."
+    }
+  ],
+  "palette": {
+    "primary": {
+      "name": "Art Deco Gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "Void Black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "Amber Dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "medium_high",
+    "shading": "hard_shadow_with_additive_light",
+    "outline": "selective_gold_rim"
+  }
+}

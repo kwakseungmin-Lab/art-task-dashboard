@@ -1,0 +1,170 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008020114",
+  "asset_key": "ui_hp_exposure_panel_220x56",
+  "asset_name": "HP Hearts and Exposure Meter Panel (220x56, 4 states)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 140,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The panel occupies a 220x56 px HUD footprint sized to the top-left HP and exposure readout area.",
+    "Core palette metadata remains primary #C9A84C, background #0D0B14, and accent #D4682A while heart-fill and meter colors stay inside specs.colors_hex.",
+    "Layout keeps three heart slots above a horizontal exposure bar so health loss and beam danger can be read in one glance."
+  ],
+  "differences": [
+    "This state sheet includes full, damaged, critical, and exposure-full variants rather than a single static frame.",
+    "Hearts use bright fill loss and subtle crack detail, while the exposure bar pushes from amber toward exposure-white as danger rises.",
+    "A reserved numeric inset at the right edge supports optional percentage text without crowding the bar."
+  ],
+  "depends_on": [
+    "task_id_008020113"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008020113"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008020101",
+      "task_id_008020104",
+      "task_id_008020109",
+      "task_id_008020113"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds HP count, exposure gauge placement, and continuous beam-danger feedback."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the panel-dark and gold-trim UI language for HUD widgets."
+    },
+    {
+      "label": "umbra_character",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/umbra_character.png",
+      "purpose": "Grounds readable player-danger framing around Umbra survival states."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle rendered by the HUD overlay camera.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "Style",
+      "UiImage",
+      "Visibility",
+      "HudWidget"
+    ],
+    "asset_loading": "Load the HP-exposure panel atlas during FloorLoading and register state frames in the HUD widget registry.",
+    "runtime_notes": [
+      "Anchor the widget to the top-left screen corner with whole-pixel placement.",
+      "Swap atlas frames for coarse status changes while the exposure fill amount may be masked inside the bar region.",
+      "Keep the panel above world-space camera motion and beam overlays."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette",
+    "detail_level": "mid_art_deco_readable",
+    "shading": "hard_edge_shadow_with_selective_glow",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hud_status_panel",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        126,
+        44
+      ]
+    },
+    "layer": "ui",
+    "usage": "Top-left persistent HUD widget for current HP and exposure buildup state.",
+    "adjacent_elements": [
+      "task_id_008020104",
+      "task_id_008020113"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 220,
+      "height": 56
+    },
+    "colors_hex": [
+      "#0D0B14",
+      "#1C1826",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "full",
+        "damaged",
+        "critical",
+        "exposure_full"
+      ],
+      "frame_count": 4,
+      "frame_size_px": [
+        220,
+        56
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "layout_notes": [
+      "Three heart slots occupy the top 24 px band.",
+      "Exposure bar footprint is 160x12 px.",
+      "Right status inset width is 36 px."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_hp_exposure_panel_220x56.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 880x56 px with four 220x56 frames and 0 px spacing.",
+    "HP loss and exposure escalation remain readable within one glance at 1920x1080 output scale.",
+    "The widget leaves enough negative space for runtime numbers without obscuring hearts or the bar fill."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "project_common": {
+    "project": {
+      "project_id": "chrome_dino_runner",
+      "project_name": "Chrome Dino Runner",
+      "iteration": 5,
+      "trial": 5
+    },
+    "canvas": {
+      "resolution_px": { "width": 600, "height": 150 },
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "baseline_y_px": 148,
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      }
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "accent_hex": "#FF0000"
+    },
+    "style": {
+      "art_style": "pixel_art_8bit_minimal",
+      "theme": "prehistoric_desert",
+      "outline": { "enabled": true, "thickness_px": 2, "color_hex": "#535353" },
+      "max_colors_total": 3
+    },
+    "export_defaults": {
+      "format": "png",
+      "scale": "1x",
+      "transparent_background_default": true
+    }
+  },
+  "task_id": "obstacles.cactus.large",
+  "asset_name": "Cactus Large (3-cactus cluster)",
+  "category": "obstacles",
+  "subcategory": "cactus_cluster_3",
+  "execution_order": 80,
+  "priority": "P0",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": ["character.player.jump", "world.ground.line"]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_5/obstacles/cactus_large/cactus_large_102x100.png",
+      "dimensions_px": { "width": 102, "height": 100 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 102x100 px with transparent background.",
+    "Visible pixels use only #535353.",
+    "When drawn at anchor=top_left (x=650,y=48) on a 600x150 canvas, the lowest cactus pixel aligns at y=148."
+  ],
+  "description": "Large cactus obstacle composed as a 3-cactus cluster silhouette. Sprite canvas is 102x100 px. Use #535353 only with a 2 px outline in #535353 and transparent background.",
+  "specs": {
+    "dimensions_px": { "width": 102, "height": 100 },
+    "outline": { "enabled": true, "thickness_px": 2, "color_hex": "#535353" },
+    "allowed_colors_hex": ["#535353"],
+    "transparent_background": true
+  },
+  "context": {
+    "role": "ground_obstacle",
+    "screen_position": { "type": "absolute_px", "x": 650, "y": 48, "anchor": "top_left" },
+    "layer": "obstacles",
+    "usage": ["in_game", "spawned_by_spawn_system"]
+  }
+}

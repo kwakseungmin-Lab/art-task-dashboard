@@ -1,0 +1,150 @@
+{
+  "asset_name": "Cyclops Boss State Sheet 120x160",
+  "subcategory": "boss",
+  "priority": "P1",
+  "execution_order": 25,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "ui.hud.counter_gauge"
+  ],
+  "blocked_by": [
+    "world.background.zone1_corridor_parallax"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.counter_gauge",
+      "ui.popup.counter_result"
+    ]
+  },
+  "context": {
+    "role": "boss_zone_1",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "player_lock_x",
+      "offset_px": {
+        "x": 760,
+        "y": -20
+      }
+    },
+    "adjacent_elements": [
+      "ui.hud.counter_gauge",
+      "world.background.zone1_corridor_parallax"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Visible during Zone 1 boss fight with three attacks spaced 0.6 seconds apart after a 0.4 second telegraph."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 160
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#FFD966",
+      "#7B2FBE",
+      "#E84040"
+    ],
+    "animation": {
+      "type": "stateful",
+      "frame_count": 8,
+      "frame_time_s": 0.1,
+      "loop": false,
+      "states": {
+        "idle": 4,
+        "attack": 4
+      },
+      "sprite_sheet_layout": {
+        "columns": 4,
+        "rows": 2
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "left",
+      "zoom": 0.85
+    },
+    "shape": {
+      "silhouette": "Single eye giant with shoulder width 88 px, head width 56 px, and club arc extending 36 px behind the back.",
+      "components": [
+        "head 56x52",
+        "single eye 8x8",
+        "torso 72x60",
+        "club arm 24x76",
+        "leg pair 36x56"
+      ]
+    },
+    "face": {
+      "eyes": "single 8 px eye",
+      "mouth": "12 px horizontal line",
+      "nose": "6 px wedge"
+    },
+    "appendages": {
+      "arms": "2",
+      "legs": "2",
+      "tail": "none",
+      "accessories": [
+        "club"
+      ]
+    },
+    "texture": "stone_skin_plus_leather",
+    "collision_box_px": {
+      "width": 120,
+      "height": 160
+    },
+    "telegraph_window_ms": 80,
+    "attack_pattern": {
+      "hit_count": 3,
+      "hit_interval_s": 0.6,
+      "telegraph_s": 0.4
+    },
+    "shading_model": "two_tone_flat"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.boss.cyclops_state_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet bounding box is exactly 120x160 px per frame.",
+    "Sheet contains 8 frames arranged as 4 columns by 2 rows.",
+    "Single eye remains visible in all 8 frames.",
+    "Attack row shifts the club forward by at least 20 px relative to idle row."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "character.boss.cyclops_state_sheet",
+  "category": "character",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

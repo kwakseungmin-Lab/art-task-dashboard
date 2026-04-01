@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.unit.warrior_idle_sheet_32x48_4f",
+  "asset_name": "Warrior Unit — Idle Sheet (32×48, 4 frames)",
+  "category": "character",
+  "subcategory": "unit",
+  "priority": "P2",
+  "execution_order": 11,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.building.viking_settlement_bw_atlas",
+      "obstacles.icon.event_icons_24_set_5"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "unit_sprite",
+    "layer": "world_characters",
+    "usage": "Small in-world warrior representation used in barracks/training and as defenders during raider events.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 4,
+      "fps": 3,
+      "loop": true,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 4,
+        "frame_size_px": {
+          "width": 32,
+          "height": 48
+        },
+        "order": [
+          "idle_1",
+          "idle_2",
+          "idle_3",
+          "idle_4"
+        ],
+        "padding_px": 0
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.unit.warrior_idle_sheet_32x48_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 128×48px (4× 32×48 frames).",
+    "Silhouette reads clearly at 1× scale; helmet/axe/shield are distinguishable using value contrast, not color.",
+    "Animation uses subtle idle motion (breathing/weight shift) and loops seamlessly."
+  ]
+}

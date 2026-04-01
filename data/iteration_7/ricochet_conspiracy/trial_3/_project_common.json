@@ -1,0 +1,344 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "ricochet_conspiracy",
+    "project_name": "Ricochet Conspiracy"
+  },
+  "meta": {
+    "plan_id": "ricochet_conspiracy__iter7__trial3",
+    "game_name": "ricochet_conspiracy",
+    "iteration": 7,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-03-17T22:40:16Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304195524/ricochet_conspiracy/ricochet_conspiracy.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "category_common": {
+    "character": {
+      "outline_px": 2,
+      "target_zoom": "100_percent",
+      "readability_rule": "Each noble silhouette is readable in a 64x64 review box."
+    },
+    "obstacles": {
+      "outline_px": 2,
+      "collision_read_rule": "Bounce faces and hit zones remain readable at 100% zoom.",
+      "trigger_preview": "Radius previews use explicit px values inside the asset package."
+    },
+    "world": {
+      "parallax_layers": 3,
+      "center_playfield_rect_px": {
+        "x": 320,
+        "y": 160,
+        "width": 640,
+        "height": 360
+      },
+      "contrast_rule": "Backdrop center luminance stays between 40% and 55%."
+    },
+    "ui": {
+      "font_color_hex": "#3D2B1F",
+      "hud_height_px": 50,
+      "overlay_opacity_targets": [
+        "60_percent",
+        "70_percent"
+      ]
+    }
+  },
+  "generation_log": {
+    "meta_analysis_summary": {
+      "quality_trend": "recovering_but_below_global_target",
+      "game_status": "mostly_stable",
+      "fail_rate": 0.2,
+      "recommendations_applied": [
+        "Protected text from token-scan collisions in world and UI notes.",
+        "Kept core palette stable across every asset file.",
+        "Avoided variant lineage risk by using variant_of null for every task and non-variant task ids.",
+        "Added explicit viewpoint, facing, adjacency, and silhouette descriptors to raise invariance without changing package shape.",
+        "Preserved stable plan_id and file-precision manifest for downstream KB-ready traceability."
+      ],
+      "primary_pass_rate": 0.9,
+      "overall_pass_rate": 0.76,
+      "source_iteration": 6,
+      "architecture_version": "v4.0",
+      "rerun_mode": "iter7_kb_integration_rerun"
+    },
+    "past_failure_patterns": [
+      {
+        "iteration": 6,
+        "trial": 3,
+        "code": "IF-4",
+        "detail": "A prior world note caused a substring collision during token scanning."
+      }
+    ],
+    "kb_lookup": {
+      "attempted": true,
+      "status": "partial_success",
+      "kb_ids": [
+        "8cb7d4ac-7882-419a-a0cb-90b586fea960",
+        "6e8d718c-5c37-44e1-ba6f-347195b46811"
+      ],
+      "art_task_plan_kb": {
+        "status": "success",
+        "evidence": "retrieve_kb_graph returned iteration 6 trial 3 IF-4 evidence tied to a substring collision in a world asset note."
+      },
+      "meta_iteration_kb": {
+        "status": "weak_signal",
+        "evidence": "retrieve_kb_graph returned batch-status facts and no actionable ricochet_conspiracy incident pattern."
+      },
+      "fallback_sources": [
+        "meta_analysis",
+        "iteration_6 harness_v6 evaluation JSON",
+        "iteration_7 harness_v6 evaluation suggestions",
+        "s3_gdd"
+      ],
+      "query_status": "art_kb_success_meta_kb_weak_signal",
+      "meta_iteration_integration": "v4.0_expected_entities_iter_exec_harness_incident",
+      "kb_entity_expectations": [
+        "iter_exec",
+        "harness",
+        "incident"
+      ]
+    },
+    "avoidance_actions": [
+      "Removed wording that could create substring collisions in token scanning.",
+      "Added context.viewpoint.camera_angle and context.viewpoint.facing to every asset for higher invariance coverage.",
+      "Added context.adjacent_elements to every asset to strengthen local context without cross-value references.",
+      "Added specs.shape.silhouette and specs.shape.components to every asset so each file remains self-describing.",
+      "Kept project core palette identical across all assets and reserved asset-local hues for specs.colors_hex only."
+    ],
+    "rerun_context": {
+      "rerun_reason": "prior iter7 results invalidated due to KB non-integration",
+      "user_requested_overwrite_mode": true,
+      "target_plan_dir": "trial_3"
+    }
+  },
+  "traceability": {
+    "task_plan_entity_id_hint": "task_plan_7_ricochet_conspiracy_3",
+    "iter_exec_id_hint": null,
+    "harness_result_id_hint": "harness::7::ricochet_conspiracy::3::v7",
+    "kb_entity_expectations": [
+      "iter_exec",
+      "harness",
+      "incident"
+    ],
+    "architecture_version": "v4.0"
+  },
+  "assets": [
+    {
+      "task_id": "world.background.backlayer_window",
+      "category": "world",
+      "file": "world/world.background.backlayer_window.json",
+      "execution_order": 1,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.background.midlayer_court",
+      "category": "world",
+      "file": "world/world.background.midlayer_court.json",
+      "execution_order": 2,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.foreground.floor_tiles",
+      "category": "world",
+      "file": "world/world.foreground.floor_tiles.json",
+      "execution_order": 3,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.stone_wall",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.stone_wall.json",
+      "execution_order": 4,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.wood_pillar",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.wood_pillar.json",
+      "execution_order": 5,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.candle",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.candle.json",
+      "execution_order": 6,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.mirror",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.mirror.json",
+      "execution_order": 7,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.chandelier",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.chandelier.json",
+      "execution_order": 8,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.environment.wine_barrel",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.environment.wine_barrel.json",
+      "execution_order": 9,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.candlestick",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.candlestick.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.wine_glass",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.wine_glass.json",
+      "execution_order": 11,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.stone_ball",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.stone_ball.json",
+      "execution_order": 12,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.gold_urn",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.gold_urn.json",
+      "execution_order": 13,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.feather_quill",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.feather_quill.json",
+      "execution_order": 14,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.launchable.book",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.launchable.book.json",
+      "execution_order": 15,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.noble_basic",
+      "category": "character",
+      "file": "character/character.noble_basic.json",
+      "execution_order": 16,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.noble_guard",
+      "category": "character",
+      "file": "character/character.noble_guard.json",
+      "execution_order": 17,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.noble_shield",
+      "category": "character",
+      "file": "character/character.noble_shield.json",
+      "execution_order": 18,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.noble_boss",
+      "category": "character",
+      "file": "character/character.noble_boss.json",
+      "execution_order": 19,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.top_bar",
+      "category": "ui",
+      "file": "ui/ui.hud.top_bar.json",
+      "execution_order": 20,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.bottom_bar",
+      "category": "ui",
+      "file": "ui/ui.hud.bottom_bar.json",
+      "execution_order": 21,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.control.power_slider",
+      "category": "ui",
+      "file": "ui/ui.control.power_slider.json",
+      "execution_order": 22,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.button.hint",
+      "category": "ui",
+      "file": "ui/ui.button.hint.json",
+      "execution_order": 23,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.trajectory_guide",
+      "category": "ui",
+      "file": "ui/ui.overlay.trajectory_guide.json",
+      "execution_order": 24,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.result_panel",
+      "category": "ui",
+      "file": "ui/ui.screen.result_panel.json",
+      "execution_order": 25,
+      "variant_of": null
+    }
+  ]
+}

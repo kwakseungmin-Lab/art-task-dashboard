@@ -1,0 +1,85 @@
+{
+  "schema_version": "art_task_asset_v6",
+  "task_id": "world.ground.star_floor_strip",
+  "asset_name": "Star Floor Strip (Non-colliding Decorative Ground)",
+  "category": "world",
+  "group_id": "world.ground.star_floor",
+  "variant_role": "standalone",
+  "priority": "P1",
+  "execution_order": 4,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.topbar"
+    ]
+  },
+  "context": {
+    "role": "decorative_ground",
+    "screen_position": {
+      "type": "world_space",
+      "units": "px",
+      "pivot": "bottom_left"
+    },
+    "layer": "world_foreground_decor",
+    "usage": "A thin decorative floor line for cosmic temple; no collision; scroll speed x1.0.",
+    "adjacent_elements": [
+      "character.player.cosmos_base_run"
+    ]
+  },
+  "specs": {
+    "canvas": {
+      "width_px": 512,
+      "height_px": 20
+    },
+    "art_style": {
+      "style": "pixel_art",
+      "rendering": "flat",
+      "detail_level": "medium"
+    },
+    "viewpoint": {
+      "camera_angle": "side_view_2d",
+      "facing": "right"
+    },
+    "colors": {
+      "main": {
+        "hex": "#D9D0BE"
+      },
+      "secondary": [
+        {
+          "name": "star_gold_specks",
+          "hex": "#FFD966"
+        },
+        {
+          "name": "shadow",
+          "hex": "#6B6357"
+        }
+      ],
+      "background": {
+        "hex": "#000000"
+      }
+    },
+    "shape": {
+      "silhouette": "flat strip with subtle marble texture and embedded star specks",
+      "components": [
+        "base_strip",
+        "star_specks",
+        "top_edge_highlight"
+      ]
+    }
+  },
+  "description": "Create a 512x20 px horizontally tiling floor strip. Marble base (#D9D0BE) with small embedded star specks (#FFD966). Keep top edge clean for character contact illusion.",
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "world/star_floor_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 512x20 px",
+    "Tiles seamlessly horizontally",
+    "At least 8 visible star specks using #FFD966"
+  ]
+}

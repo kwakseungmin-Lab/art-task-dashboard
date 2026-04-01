@@ -1,0 +1,104 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.curtain_column_mid_layer",
+  "asset_name": "Court Hall Curtain and Column Mid Layer",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.court_far_layer",
+      "world.foreground.marble_floor_strip",
+      "character.noble.standard_pose_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "gameplay_backdrop",
+    "layer": "world_mid",
+    "usage": "Mid layer with columns, curtain folds, and balcony trims that frame the playable lane.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.background.court_far_layer",
+      "world.foreground.marble_floor_strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#C8B4E0",
+      "#3D2B1F"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "column_pairs_with_curtain_arcs",
+      "components": [
+        "left_column_pair",
+        "right_column_pair",
+        "curtain_folds",
+        "balcony_trim"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.curtain_column_mid_layer.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1280x620px with transparent alpha outside painted shapes.",
+    "Central play lane keeps clear negative space from x=320 to x=960.",
+    "Column edges use #3D2B1F lines no wider than 2px."
+  ]
+}

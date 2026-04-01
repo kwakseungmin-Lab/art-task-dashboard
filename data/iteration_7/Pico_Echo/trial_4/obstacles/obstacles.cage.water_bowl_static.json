@@ -1,0 +1,93 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.cage.water_bowl_static",
+  "asset_name": "Water Bowl (static)",
+  "category": "obstacles",
+  "subcategory": "cage_object",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "interactable",
+    "layer": "obstacles",
+    "usage": "Static prop next to seed bowl; can be tapped but does not change state in MVP.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        36,
+        78
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 14,
+      "height": 9
+    },
+    "colors_hex": [
+      "#C2C3C7",
+      "#1D2B53",
+      "#FFF1E8"
+    ],
+    "animation": null,
+    "shape_notes": [
+      "Bowl is an oval outline with a 1px highlight gap at top-left."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cage.water_bowl_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Water bowl is exactly 14x9px and aligns to whole pixels.",
+    "Uses #1D2B53 for 1px outline and #C2C3C7 for body; interior is transparent or #FFF1E8 (no gradients).",
+    "Does not visually compete with the seed bowl (lower contrast and fewer detail pixels)."
+  ],
+  "shared_properties": [
+    "Asset remains readable at 1x scale within the warm cage scene.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering and 1px outlines keep interaction targets crisp."
+  ],
+  "differences": [
+    "This prop stays static and signals hydration support without animation.",
+    "The bowl silhouette stays compact so it does not crowd the play area.",
+    "Water surface contrast stays readable against the warm cage palette."
+  ]
+}

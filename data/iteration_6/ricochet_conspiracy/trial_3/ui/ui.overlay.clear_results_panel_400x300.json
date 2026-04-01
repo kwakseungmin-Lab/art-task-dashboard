@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.overlay.clear_results_panel_400x300",
+  "asset_name": "Overlay — Clear Results Panel (400x300)",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P1",
+  "execution_order": 490,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.bitmap_serif_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_serif_16px_ascii96"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ui_text_dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "overlay_panel",
+    "layer": "ui",
+    "usage": "Centered results overlay shown on clear: star rating + stats + buttons (layout in-engine).",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 300
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#3D2B1F",
+      "#D4A843",
+      "#C8B4E0",
+      "#F5F0E8"
+    ],
+    "ui_panel": {
+      "border_thickness_px": 3,
+      "inner_padding_px": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "star_slots": 3,
+      "note": "Include 3 star placeholders at top; keep panel readable over dimmed background."
+    },
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.clear_results_panel_400x300.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel is exactly 400x300px with a 3px border; inner padding 16px maintained on all sides.",
+    "Includes visual placeholders for 3 stars and two button areas; accent uses #D4A843; no anti-aliasing.",
+    "Readable over a 60% dimmed backdrop: avoid very low contrast between panel fill and border."
+  ]
+}

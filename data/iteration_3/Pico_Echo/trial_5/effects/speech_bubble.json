@@ -1,0 +1,102 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-12px",
+      "height": "2-12px",
+      "note": "Varies by effect type - particles are 2-4px, speech bubble is 12x10px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "music_note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8",
+      "bubble_bg": "#FFF1E8",
+      "bubble_outline": "#1D2B53"
+    },
+    "shared_attributes": {
+      "rendering": "animated particles or static overlays",
+      "layer": "foreground (on top of all other elements)",
+      "style": "simple iconic pixel art",
+      "lifespan": "0.5-2 seconds (particles auto-destroy)"
+    }
+  },
+  "asset": {
+    "asset_id": "speech_bubble",
+    "asset_name": "Speech Bubble with Icon",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Communication bubble that appears when Echo is hungry, displays seed icon to indicate need",
+      "screen_position": "To right of Echo's head at x=80-92px, y=40-50px",
+      "adjacent_elements": [
+        "echo_hungry (appears during this state)",
+        "seed (icon displayed inside bubble)",
+        "cage_background"
+      ],
+      "usage_scenario": "Appears when Echo enters hungry state (food bowl empty). Displays continuously while hungry. Contains seed icon (3x3px) to communicate Echo's need for food. Disappears when player feeds Echo."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "12px",
+        "height": "10px"
+      },
+      "colors": {
+        "background": "#FFF1E8",
+        "outline": "#1D2B53",
+        "icon": "#FFA300"
+      },
+      "shape": "Rounded rectangular speech bubble. 12px wide, 10px tall. 1px outline in dark blue. Small tail/pointer (2x2px) extending toward Echo's head on left side.",
+      "texture": "Pure pixel art, simple and clean",
+      "outline": "1px stroke in #1D2B53",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static bubble that appears/disappears instantly (no animation). Contains static seed icon (3x3px) centered inside."
+      },
+      "details": "Bubble: 12x10px rectangle with 1px #1D2B53 outline, #FFF1E8 fill. Tail: 2x2px triangle pointing left toward Echo. Seed icon: 3x3px #FFA300 oval centered in bubble at x=84-86px, y=44-46px (relative to bubble position). Positioned at x=80px, y=40px (top-left corner)."
+    },
+    "relationships": {
+      "related_assets": [
+        "echo_hungry",
+        "seed",
+        "cage_food_bowl"
+      ],
+      "shared_with": "Contains seed icon (same as seed item asset)",
+      "differences_from": "Unlike particles: static (no movement), persists during state (not temporary), contains icon (not pure shape), has outline stroke."
+    },
+    "explicit_negations": [
+      "No 3D shading or gradients",
+      "No rounded corners beyond pixel limitations",
+      "No drop shadow",
+      "No animation or bobbing",
+      "No text (icon only)",
+      "No multiple icons",
+      "No thought bubble style (speech bubble only)",
+      "No color variation"
+    ]
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.score_display",
+  "asset_name": "HUD Score Display",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": [
+    "The widget uses the 10x16 digit atlas for every numeric glyph.",
+    "The widget stays in the top-right safe area with monochrome text styling.",
+    "The display shows five digits with zero padding from the first frame of play."
+  ],
+  "differences": [
+    "The widget composes five numeric slots rather than a raw atlas sheet.",
+    "The right edge aligns 10px from the screen boundary.",
+    "A milestone flash state can invert to the background color for 100ms."
+  ],
+  "depends_on": [
+    "ui.font.score_digits_10x16_0_9"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.score_digits_10x16_0_9"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.score_digits_10x16_0_9",
+      "character.player.dino_idle_2f_6fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "live_score_readout",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        490,
+        10
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Always-visible score widget during gameplay with zero-padded numeric output.",
+    "adjacent_elements": [
+      "ui.font.score_digits_10x16_0_9",
+      "character.player.dino_idle_2f_6fps"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 100,
+      "height": 16
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Five-digit right-aligned score rack with equal-width numeric slots.",
+      "components": [
+        "slot_1",
+        "slot_2",
+        "slot_3",
+        "slot_4",
+        "slot_5"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.score_display.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 100x16px.",
+    "The widget supports five visible numeric cells with zero padding from 00000 to 99999.",
+    "The rightmost painted pixel sits 10px from the 600px screen edge when placed at the declared position."
+  ]
+}

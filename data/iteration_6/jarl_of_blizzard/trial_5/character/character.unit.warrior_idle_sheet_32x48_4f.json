@@ -1,0 +1,106 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.unit.warrior_idle_sheet_32x48_4f",
+  "asset_name": "Warrior Unit Idle Sheet — 32×48 (4 frames)",
+  "category": "character",
+  "subcategory": "unit",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "unit_sprite",
+    "layer": "world",
+    "usage": "Basic warrior unit sprite; appears in training/raid outcomes and in settlement view.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "frame_size_px": {
+      "width": 32,
+      "height": 48
+    },
+    "frame_count": 4,
+    "fps": 6,
+    "frames": [
+      {
+        "id": "idle_1",
+        "note": "Breathing / stance."
+      },
+      {
+        "id": "idle_2",
+        "note": "Breathing / stance."
+      },
+      {
+        "id": "idle_3",
+        "note": "Breathing / stance."
+      },
+      {
+        "id": "idle_4",
+        "note": "Breathing / stance."
+      }
+    ],
+    "layout_note": "Single-row strip 128×48. Include readable weapon silhouette within 32px width."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.unit.warrior_idle_sheet_32x48_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Weapon silhouette remains readable without exceeding 32×48 frame bounds.",
+    "No subpixel wobble: animation stays on integer pixel positions."
+  ]
+}

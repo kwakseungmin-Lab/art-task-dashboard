@@ -1,0 +1,75 @@
+{
+  "task_id": "world.perch",
+  "asset_name": "Perch_Wood_80x4",
+  "category": "world",
+  "subcategory": "structure",
+  "description": "Create an 80x4 px wooden perch sprite. Base wood color: #AB5236. Add a 1 px top highlight line using #FFCCAA and a 1 px bottom shadow line using #5F574F. The perch is intended to be placed with top-left at (24,78) so that the perch contact line is at canvas y=80.",
+  "execution_order": 30,
+  "priority": "P0",
+  "depends_on": ["world.cage_background"],
+  "blocks": ["character.echo_sprite_sheet"],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo_sprite_sheet",
+      "world.cage_bars_overlay"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": { "width": 128, "height": 128 },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": { "width": 80, "height": 4 },
+    "wood_base_hex": "#AB5236",
+    "highlight_hex": "#FFCCAA",
+    "shadow_hex": "#5F574F",
+    "intended_in_canvas_position_px": {
+      "top_left": { "x": 24, "y": 78 },
+      "contact_line_y_px": 80
+    }
+  },
+  "context": {
+    "role": "Standing surface for Echo animations.",
+    "screen_position": { "type": "absolute_px", "x": 24, "y": 78, "anchor": "top_left" },
+    "layer": "world_structures",
+    "usage": ["in_game", "echo_standing_surface"]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/perch_80x4.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/perch_80x4.png",
+      "dimensions_px": { "width": 80, "height": 4 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 80x4 px with transparent background.",
+    "Perch contains a 1 px highlight line using #FFCCAA and a 1 px shadow line using #5F574F.",
+    "All pixels use only colors from project_common.palette_hex.",
+    "When placed at (24,78), the intended contact line is at canvas y=80."
+  ]
+}

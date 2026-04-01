@@ -1,0 +1,171 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000016",
+  "asset_name": "Friction Gauge (5 states, 240x8 each)",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": [
+    "Gauge occupies a 240x8 px bar centered near the bottom HUD edge so it remains visible without obscuring the shaft lane.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while friction zone colors stay inside specs.colors_hex.",
+    "Left, center, and right segments stay symmetrical so the player can read one-sided and dual braking states instantly."
+  ],
+  "differences": [
+    "State sheet includes left_brake, dual_brake, neutral, right_brake, and slick states rather than a single static bar.",
+    "High-friction segments use #3B3347, medium support markers use #4E5940, and low-friction or free-fall cues use #4A90A4.",
+    "A 4 px amber indicator notch shifts among authored positions so input direction is readable even during fast descent."
+  ],
+  "depends_on": [
+    "task_id_802000010"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_802000010"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000002",
+      "task_id_802000007",
+      "task_id_802000010"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the 240x8 bottom-center friction gauge, left-right input mapping, and no-extra-progress-UI rule described by the GDD."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the cold dungeon palette so the gauge can echo friction materials without feeling like a modern neon UI."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player-readable control feedback for the no-jump descent mechanic and dual-brake minimum speed state."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "ImageBundle for static HUD art and SpriteSheetBundle for multi-state overlays and gauges that swap atlas indices.",
+    "atlas_or_static": "mixed_static_and_texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Style",
+      "UiImage",
+      "Visibility",
+      "TextureAtlas",
+      "AnimationTimer"
+    ],
+    "asset_loading": "Load UI textures during the shared Loading state and store handles in a HudVisualRegistry keyed by asset_key so gameplay systems never parse filenames.",
+    "runtime_notes": [
+      "Anchor UI nodes to whole pixels in the 1280x720 output space while the gameplay layer is upscaled from 320x180.",
+      "Keep the friction gauge, HP strip, and timer on a dedicated HUD layer above parallax and hazard sprites.",
+      "Swap overlay states by atlas index or visibility flags instead of rebuilding UI trees during pause, fail, or clear transitions."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        520,
+        708
+      ]
+    },
+    "layer": "ui",
+    "usage": "Bottom-center mechanic readout for friction intensity and directional contact.",
+    "adjacent_elements": [
+      "task_id_802000002",
+      "task_id_802000010"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 8
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#4E5940",
+      "#4A90A4",
+      "#E07B39",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "left_brake",
+        "dual_brake",
+        "neutral",
+        "right_brake",
+        "slick"
+      ],
+      "frame_count": 5,
+      "frame_size_px": [
+        240,
+        8
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 1
+      }
+    },
+    "fill_rules": {
+      "segment_count": 30,
+      "segment_width_px": 8,
+      "indicator_width_px": 4,
+      "high_friction_hex": "#3B3347",
+      "low_friction_hex": "#4A90A4"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_friction_gauge_5state_240x8.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 1200x8 px with 5 frames of 240x8 px and 0 px spacing.",
+    "Each frame preserves 30 segments of 8 px width and a 4 px amber indicator notch at a deterministic authored position.",
+    "High-friction and low-friction zones remain visually distinct through #3B3347 versus #4A90A4 dominance."
+  ],
+  "asset_key": "ui_friction_gauge_5state_240x8",
+  "variant_of_asset_key": null
+}

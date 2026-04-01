@@ -1,0 +1,20 @@
+{
+  "base_size": {
+    "width": "varies",
+    "height": "2-12px"
+  },
+  "color_scheme": {
+    "text": "#1D2B53",
+    "background": "#FFF1E8",
+    "accent": "#FF004D",
+    "green": "#00E436",
+    "yellow": "#FFEC27",
+    "orange": "#FFA300"
+  },
+  "shared_attributes": {
+    "ui_type": "minimal overlay interface",
+    "design_principle": "maximum clarity at minimum size, non-intrusive",
+    "font": "3x5px pixel font",
+    "transparency": "solid colors (no alpha blending)"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050011",
+  "asset_key": "shadow_safe_zone_overlay",
+  "asset_name": "Shadow Safe Zone Overlay",
+  "category": "world",
+  "subcategory": "mask_overlay",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The overlay follows the package palette and is authored for layered composition above world tiles and below UI.",
+    "Every mask region respects the fixed 16:9 camera contract and the hard-edge visual language of the project.",
+    "Transparency is intentional and must remain editable by shader tint rather than being baked into opaque color blocks."
+  ],
+  "differences": [
+    "This asset defines safety readability rather than a tangible prop or persistent HUD element.",
+    "The overlay uses large compositional fields instead of object-centric silhouettes.",
+    "Danger edges are intentionally slimmer and brighter than safe-zone fills to prevent the mask from flattening the scene."
+  ],
+  "depends_on": [
+    "task_id_008050006",
+    "task_id_008050007"
+  ],
+  "blocks": [
+    "task_id_008050010"
+  ],
+  "blocked_by": [
+    "task_id_008050006",
+    "task_id_008050007"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050001",
+      "task_id_008050006",
+      "task_id_008050009",
+      "task_id_008050010"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "ShadowMaskOverlayTag",
+      "Transform",
+      "Visibility",
+      "Sprite"
+    ],
+    "asset_loading": "Load shadow_safe_zone_overlay.png during Loading and feed it into the world-space mask compositor used by the WGSL fragment shader.",
+    "runtime_notes": [
+      "Author the overlay with separate safe-zone and danger-edge channels so the shader can tint them independently.",
+      "Keep the darkest safe-zone fill transparent enough to preserve architecture and character readability under the mask.",
+      "The asset should tile or crop cleanly to the fixed 1920x1080 gameplay camera without subpixel seams."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "world_shadow_safety_mask",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "world",
+    "usage": "Supplies the base world overlay that distinguishes safe shadow pockets from active light hazard regions during gameplay."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#0D0B14C0",
+      "#1A4A5299",
+      "#F5EFE066",
+      "#D4682A66"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        1920,
+        1080
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "mask_profile": {
+      "safe_zone_tint": "#1A4A5299",
+      "danger_edge_tint": "#F5EFE066",
+      "camera_size_px": [
+        1920,
+        1080
+      ],
+      "intended_shader": "WGSL fragment shadow mask compositor"
+    },
+    "composition": {
+      "safe_zone_priority": "player_readability_first",
+      "danger_edge_width_px": 6,
+      "occlusion_free_regions": [
+        "hud_anchor_zones",
+        "door_unlock_flash_core"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/shadow_safe_zone_overlay.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1920x1080 px with no non-transparent pixels extending outside the camera frame.",
+    "Safe-zone tint remains visibly distinct from the background while still allowing the player silhouette to read through it.",
+    "Danger-edge bands stay at approximately 6 px width in authored resolution and remain continuous across beam intersections."
+  ]
+}

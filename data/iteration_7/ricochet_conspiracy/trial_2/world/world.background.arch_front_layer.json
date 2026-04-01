@@ -1,0 +1,112 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.arch_front_layer",
+  "asset_name": "Court Arch Front Layer",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.column_curtain_mid_layer"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.column_curtain_mid_layer"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.background.column_curtain_mid_layer",
+      "world.foreground.marble_floor_strip",
+      "obstacles.environment.chandelier_swing_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "background_front",
+    "layer": "world_background_front",
+    "usage": "Front depth trim layer with gold arch frames, balcony ledges, and chandelier mount points.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 50
+    },
+    "adjacent_elements": [
+      "world.background.column_curtain_mid_layer",
+      "obstacles.environment.chandelier_swing_sheet"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 620
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#D4A843",
+      "#F5F0E8",
+      "#A89880",
+      "#6B4B3A"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "arched_frame_band_with_balcony_ledges",
+      "components": [
+        "top_arch_trim",
+        "left_balcony_ledge",
+        "right_balcony_ledge",
+        "mount_hooks"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor",
+    "view_depth": "front",
+    "tile_mode": "single_panel"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.arch_front_layer.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1280x620px and keeps top trim inside the top 96px band.",
+    "Two balcony ledges each reserve 180x28px blocks at x=104px and x=996px.",
+    "Gold trim uses #D4A843 on less than 18% of total pixels."
+  ]
+}

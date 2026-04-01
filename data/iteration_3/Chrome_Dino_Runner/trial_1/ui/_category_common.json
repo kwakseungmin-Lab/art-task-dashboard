@@ -1,0 +1,17 @@
+{
+  "base_size": {
+    "width": "variable",
+    "height": "variable"
+  },
+  "color_scheme": {
+    "primary": "#535353",
+    "secondary": "#F7F7F7"
+  },
+  "shared_attributes": {
+    "style": "pixel font monospace",
+    "outline": "none",
+    "color_mode": "monochrome",
+    "anti_aliasing": "none",
+    "alignment": "varies by element"
+  }
+}

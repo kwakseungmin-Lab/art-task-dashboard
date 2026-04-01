@@ -1,0 +1,116 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.form_small_run",
+  "asset_name": "Player Small Form Run Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": "character.player.base_run",
+  "shared_properties": {
+    "role": "player_avatar",
+    "base_pose_family": "run",
+    "pivot": "bottom_center",
+    "camera_lane_x_px": 400
+  },
+  "differences": {
+    "dimensions_change_px": {
+      "width": {
+        "from": 64,
+        "to": 40
+      },
+      "height": {
+        "from": 96,
+        "to": 40
+      }
+    },
+    "gameplay_capability": "Fits narrow passages while Down is held.",
+    "animation_profile": "Four-frame compact scuttle with compressed shoulders and tucked knees."
+  },
+  "depends_on": [
+    "character.player.base_run"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.base_run",
+      "obstacles.gap.narrow_passage"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "player_avatar",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 400,
+      "y_px": 780
+    },
+    "layer": "character",
+    "usage": "Small form used during Down input; silhouette compresses to clear 50px passages."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#E8B87A",
+      "#C47C2B",
+      "#FFD966",
+      "#6B6357",
+      "#0B0C1E",
+      "#F0EFE9"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 10,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.form_small_run.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 160x40px with four 40x40 frames.",
+    "Hero silhouette keeps a readable face band and shoulder cue even at 40px height.",
+    "Small form visibly clears a 50px gate with at least 5px headroom."
+  ]
+}

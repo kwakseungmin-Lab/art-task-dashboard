@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.cactus.medium_static",
+  "asset_name": "Medium Cactus Pair Cluster",
+  "category": "obstacles",
+  "subcategory": "ground_hazard",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": "obstacles.cactus.small_static",
+  "shared_properties": [
+    "Each stalk uses the same spike language and monochrome palette as the small cactus base.",
+    "The grounded base stays aligned to the same lane as the small cactus.",
+    "The hazard remains fully static with one frame."
+  ],
+  "differences": [
+    "A second stalk widens the obstacle to 68px while keeping the 70px height cap.",
+    "The rear stalk offsets by 12px to keep the silhouette readable at speed.",
+    "Negative space between stalks stays at least 4px wide."
+  ],
+  "depends_on": [
+    "obstacles.cactus.small_static"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "obstacles.cactus.small_static"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.cactus.small_static",
+      "obstacles.cactus.large_static",
+      "character.player.dino_jump_static"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_obstacle_medium",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        520,
+        48
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Mid-width jump obstacle used after the early tutorial rhythm is established.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "character.player.dino_jump_static"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 68,
+      "height": 70
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Two-stalk cactus grouping with a forward thin stalk and a rear support stalk.",
+      "components": [
+        "front_stalk",
+        "rear_stalk",
+        "spike_arms",
+        "shared_base_pad"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus.medium_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 68x70px.",
+    "The rightmost silhouette edge remains inside the 68px frame without clipping.",
+    "Only #535353 and transparency appear in painted pixels."
+  ]
+}

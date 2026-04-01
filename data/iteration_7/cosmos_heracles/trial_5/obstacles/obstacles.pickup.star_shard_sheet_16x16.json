@@ -1,0 +1,128 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.pickup.star_shard_sheet_16x16",
+  "asset_name": "Star Shard Pickup Sheet",
+  "category": "obstacles",
+  "subcategory": "pickup",
+  "priority": "P1",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "obstacles.terrain.marble_pillar_set_64x200"
+  ],
+  "blocks": [
+    "ui.hud.top_bar_overlay_1600x64"
+  ],
+  "blocked_by": [
+    "obstacles.terrain.marble_pillar_set_64x200"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.terrain.marble_pillar_set_64x200",
+      "ui.hud.top_bar_overlay_1600x64"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "pickup",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "obstacles.terrain.marble_pillar_set_64x200",
+      "ui.hud.top_bar_overlay_1600x64",
+      "world.decor.star_floor_strip_1600x20"
+    ],
+    "layer": "world",
+    "usage": "Score pickup spawned from pillar destruction; rotates in a 4-frame loop and awards 100 points per shard.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFD966",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "spritesheet_row",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "sheet_dimensions_px": {
+        "width": 64,
+        "height": 16
+      },
+      "frame_order": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "shape": {
+      "silhouette": "small four-point shard with a bright core and readable rotation steps at 16px scale",
+      "components": [
+        "core diamond",
+        "top point",
+        "side points",
+        "bottom point"
+      ]
+    },
+    "score_value": 100,
+    "background_treatment": "transparent outside pickup bounds"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.pickup.star_shard_sheet_16x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 64x16px with 4 frames of 16x16px each.",
+    "The shard remains centered within a 16x16px frame and preserves a readable 4-point silhouette in every frame.",
+    "At least 2 pixels of #F0EFE9 highlight appear in each frame to keep the pickup legible over dark backgrounds."
+  ]
+}

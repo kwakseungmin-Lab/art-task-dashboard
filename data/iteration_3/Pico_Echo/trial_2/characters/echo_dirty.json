@@ -1,0 +1,86 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "position_base": "perch at y=60",
+      "character": "Echo the cockatiel"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_dirty",
+    "asset_name": "Echo Dirty State",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Echo uncomfortable due to dirty cage (3+ poops)",
+      "screen_position": "Center at x=64, y=60 on perch",
+      "adjacent_elements": ["perch", "poop", "dust_effect", "cage_background"],
+      "usage_scenario": "Triggered when poop count >= 3; persists until cage is cleaned; spawns dust particle effects"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with crest slightly lowered, body posture showing discomfort",
+      "texture": "Flat pixel art with no gradients; hand-drawn organic edges",
+      "outline": "None; pure pixel art with color blocking",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 3,
+        "fps": 2,
+        "loop": true,
+        "description": "Frame 1: normal stance with lowered crest, Frame 2: slight body shift (uncomfortable), Frame 3: return to frame 1"
+      },
+      "details": "Crest lowered to 2-3px height; eyes half-closed (2x1px); body shifts 1-2px side to side showing discomfort; no major pose changes"
+    },
+    "relationships": {
+      "related_assets": ["poop", "dust_effect", "perch", "echo_idle"],
+      "shared_with": "Same base structure as all Echo states",
+      "differences_from": "echo_idle (lowered crest, half-closed eyes), echo_sleeping (eyes visible)"
+    },
+    "explicit_negations": [
+      "no smooth gradients",
+      "no anti-aliasing",
+      "no realistic dirt texture",
+      "no 3D depth",
+      "no motion blur",
+      "no visible dirt on Echo's body",
+      "no flies or insects"
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "art_style": "PICO-8-style hand-drawn pixel art",
+    "view": {
+      "camera": "2D",
+      "angle": "front",
+      "perspective": "none",
+      "rotation_degrees": 0
+    },
+    "screen_resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "rendering_rules": {
+      "pixel_grid": "1px grid",
+      "scaling": "nearest_neighbor_only",
+      "anti_aliasing": "none",
+      "subpixel": "not_allowed_in_art",
+      "dithering": "none",
+      "gradients": "none",
+      "outline": "none",
+      "shading": "none"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "indexed",
+      "max_palette_colors": 16,
+      "alpha": "allowed_for_transparency",
+      "scale": 1
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "palette": [
+      {
+        "name": "echo_body_orange",
+        "hex": "#FFA300"
+      },
+      {
+        "name": "echo_cheek_pink",
+        "hex": "#FF004D"
+      },
+      {
+        "name": "echo_crest_yellow",
+        "hex": "#FFEC27"
+      },
+      {
+        "name": "beak_wood_brown",
+        "hex": "#AB5236"
+      },
+      {
+        "name": "background_cream",
+        "hex": "#FFF1E8"
+      },
+      {
+        "name": "cage_bar_gray",
+        "hex": "#C2C3C7"
+      },
+      {
+        "name": "ui_navy",
+        "hex": "#1D2B53"
+      },
+      {
+        "name": "happiness_green",
+        "hex": "#00E436"
+      },
+      {
+        "name": "ui_dark_brown",
+        "hex": "#5F574F"
+      },
+      {
+        "name": "sleep_purple",
+        "hex": "#7E2553"
+      },
+      {
+        "name": "hand_peach",
+        "hex": "#FFCCAA"
+      }
+    ],
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down"
+    }
+  },
+  "task_id": "pico_echo.typography.font_3x5",
+  "asset_name": "Mini pixel font 3x5",
+  "category": "typography",
+  "subcategory": "font",
+  "description": "Create a 3x5px monospaced pixel font sprite sheet for characters: '0'-'9' and '%'. Glyph color #1D2B53 on transparent background. Each glyph cell is 4x6px (3x5 drawing + 1px spacing). Layout: 11 glyphs in a single row: 0-9 then %. Sheet size 44x6px.",
+  "deliverables": [
+    {
+      "path": "assets/pico_echo/typography/font_3x5_digits_percent_44x6.png",
+      "format": "png",
+      "type": "font_sheet"
+    }
+  ],
+  "specs": {
+    "dimensions": "44x6",
+    "cell_dimensions": "4x6",
+    "glyph_size": "3x5",
+    "glyphs": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "%"
+    ],
+    "palette_hex": [
+      "#1D2B53"
+    ],
+    "alpha": "transparent_background"
+  },
+  "context": {
+    "role": "Optional numeric display (e.g., happiness percent in debug/build).",
+    "screen_location": "HUD.",
+    "adjacent_elements": [
+      "happiness_bar_bg"
+    ],
+    "layer": "ui",
+    "usage": "Text rendering if needed."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.ui.happiness_bar_bg"
+    ],
+    "shared_properties": [
+      "Uses #1D2B53"
+    ],
+    "differences": [
+      "Font sheet; not an icon."
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 31,
+  "priority": "P3",
+  "blocks": [],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Sheet size is exactly 44x6px.",
+    "Only #1D2B53 and transparent are used.",
+    "Each glyph is contained within its 4x6 cell and does not touch cell borders (except intended pixels)."
+  ]
+}

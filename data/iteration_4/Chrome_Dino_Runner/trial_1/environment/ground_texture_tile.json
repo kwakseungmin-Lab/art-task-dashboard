@@ -1,0 +1,139 @@
+{
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_name": "chrome_dino_runner",
+    "art_task_plan": {
+      "type": "Art Task Plan",
+      "version": 1,
+      "source_inputs": {
+        "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+        "concepts": [
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+          "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+        ],
+        "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/"
+      }
+    },
+    "runtime": {
+      "target_fps": 60,
+      "screen_px": {
+        "width": 600,
+        "height": 150
+      },
+      "min_resolution_px": {
+        "width": 600,
+        "height": 150
+      }
+    },
+    "art_direction": {
+      "style": {
+        "rendering": "pixel_art",
+        "pixel_grid": "1x1",
+        "anti_aliasing": false,
+        "filtering": "nearest",
+        "subpixel_movement": "not_allowed (pixel-perfect)"
+      },
+      "palette": {
+        "background_hex": "#F7F7F7",
+        "primary_hex": "#535353",
+        "highlight_hex": "#FF0000",
+        "transparent": "RGBA(0,0,0,0)"
+      },
+      "sprite_rules": {
+        "colors_per_sprite_max": 1,
+        "allowed_sprite_colors_hex": [
+          "#535353"
+        ],
+        "background": "transparent",
+        "outline": {
+          "required": true,
+          "thickness_px": 2,
+          "color_hex": "#535353"
+        },
+        "shading": {
+          "enabled": false,
+          "steps": 0
+        },
+        "gradients": false
+      },
+      "export": {
+        "format": "PNG",
+        "color_space": "sRGB",
+        "alpha": true,
+        "trim": false,
+        "scale_policy": {
+          "authoring": "1x",
+          "runtime_supported": [
+            "2x"
+          ],
+          "scaling_filter": "nearest"
+        }
+      }
+    },
+    "deliverable_root": "game_assets/chrome_dino_runner/"
+  },
+  "task_id": "cdr_v1_environment_ground_texture_tile",
+  "asset_name": "ground_texture_tile",
+  "category": "environment",
+  "subcategory": "ground",
+  "description": "(Optional) Create a seamless ground texture strip to render above the ground line. Canvas 1200x10 px. Use only #535353 for visible pixels. Place sparse 1-2 px sized texture clusters (stones/tufts) with a horizontal spacing of 50-100 px. Background must be fully transparent where there is no texture pixel.",
+  "deliverables": [
+    {
+      "path": "game_assets/chrome_dino_runner/environment/ground/ground_texture_tile_1200x10_1x.png",
+      "type": "sprite",
+      "format": "PNG",
+      "notes": "If implemented, draw with its bottom aligned to the ground line (y=0)."
+    }
+  ],
+  "specs": {
+    "dimensions": "1200x10",
+    "tileable": true,
+    "colors_hex": [
+      "#535353"
+    ],
+    "alpha": "transparent_background",
+    "texture_cluster_px": {
+      "min": "1x1",
+      "max": "2x2"
+    },
+    "texture_spacing_px": {
+      "min": 50,
+      "max": 100
+    }
+  },
+  "context": {
+    "role": "Adds subtle ground detail without affecting gameplay readability.",
+    "screen_location": "Bottom strip immediately above the ground baseline.",
+    "adjacent_elements": "Must not intersect with cactus silhouettes at y=0; keep texture pixels within y=1..9.",
+    "layer": "foreground_environment (same group as ground line)",
+    "usage": "Optional; can be disabled for strict minimal look."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v1_environment_ground_line_tile"
+    ],
+    "shared_properties": [
+      "Primary color #535353",
+      "Seamless tile width 1200 px"
+    ],
+    "differences": [
+      "This asset contains sparse texture pixels; ground line is a solid 2px stripe."
+    ]
+  },
+  "depends_on": [
+    "cdr_v1_environment_ground_line_tile"
+  ],
+  "execution_order": 3,
+  "priority": "P2",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_v1_environment_ground_line_tile"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 1200x10 px.",
+    "Visible pixels use only #535353; all other pixels alpha=0.",
+    "When tiled seamlessly, there is no visible seam at x=0/1199 boundary.",
+    "No texture pixel occupies y=0 (reserve y=0 for the 2px ground line)."
+  ]
+}

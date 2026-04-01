@@ -1,0 +1,79 @@
+{
+  "project_common": {
+    "project": {
+      "project_id": "chrome_dino_runner",
+      "project_name": "Chrome Dino Runner",
+      "iteration": 5,
+      "trial": 5
+    },
+    "canvas": {
+      "resolution_px": { "width": 600, "height": 150 },
+      "target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "baseline_y_px": 148,
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      }
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "accent_hex": "#FF0000"
+    },
+    "style": {
+      "art_style": "pixel_art_8bit_minimal",
+      "theme": "prehistoric_desert",
+      "outline": { "enabled": true, "thickness_px": 2, "color_hex": "#535353" },
+      "max_colors_total": 3
+    },
+    "export_defaults": {
+      "format": "png",
+      "scale": "1x",
+      "transparent_background_default": true
+    }
+  },
+  "task_id": "world.ground.texture",
+  "asset_name": "Ground Texture Band (tileable)",
+  "category": "world",
+  "subcategory": "ground",
+  "execution_order": 7,
+  "priority": "P1",
+  "depends_on": ["world.background.sky_fill"],
+  "blocks": [],
+  "blocked_by": ["world.background.sky_fill"],
+  "relationships": {
+    "related_task_ids": ["world.ground.line", "character.player.run", "obstacles.cactus.small"]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_5/world/ground_texture/ground_texture_1200x10.png",
+      "dimensions_px": { "width": 1200, "height": 10 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1200x10 px with transparent background.",
+    "Visible pixels use only #535353.",
+    "When tiled horizontally, there is no seam at x=0/1200; the first and last columns match."
+  ],
+  "description": "Tileable ground texture band placed just above the ground line. Image size is 1200x10 px. Use sparse #535353 pixels/dashes to suggest sand texture on transparent background.",
+  "specs": {
+    "dimensions_px": { "width": 1200, "height": 10 },
+    "allowed_colors_hex": ["#535353"],
+    "transparent_background": true,
+    "tileable": { "x": true, "y": false },
+    "density": { "max_coverage_percent": 15 }
+  },
+  "context": {
+    "role": "ground_decoration",
+    "screen_position": { "type": "absolute_px", "x": 0, "y": 138, "anchor": "top_left" },
+    "layer": "world",
+    "usage": ["in_game", "scrolling_world"]
+  }
+}

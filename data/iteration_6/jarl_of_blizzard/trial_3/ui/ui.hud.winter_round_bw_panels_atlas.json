@@ -1,0 +1,141 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.winter_round_bw_panels_atlas",
+  "asset_name": "Winter Round HUD — BW Panels Atlas",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P1",
+  "execution_order": 44,
+  "variant_of": null,
+  "depends_on": [
+    "ui.typography.bitmap_font_bw_8px",
+    "ui.icons.resources_24_set_6",
+    "obstacles.icon.event_icons_24_set_5"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.typography.bitmap_font_bw_8px",
+    "ui.icons.resources_24_set_6",
+    "obstacles.icon.event_icons_24_set_5"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "hud_panels",
+    "layer": "ui_hud",
+    "usage": "Major UI panels: top bar, queue panel, memory panel, confirm/cancel buttons.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1024,
+      "height": 512
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "atlas": {
+      "packing_rule": "exact_rects_no_rotation",
+      "sprites": [
+        {
+          "id": "top_bar",
+          "size_px": {
+            "width": 960,
+            "height": 64
+          },
+          "frames": 1,
+          "note": "Resource bar + turn indicator."
+        },
+        {
+          "id": "queue_panel",
+          "size_px": {
+            "width": 480,
+            "height": 360
+          },
+          "frames": 1,
+          "note": "Plan phase queue container."
+        },
+        {
+          "id": "memory_panel",
+          "size_px": {
+            "width": 480,
+            "height": 240
+          },
+          "frames": 1,
+          "note": "Centered memory phase panel."
+        },
+        {
+          "id": "button_confirm",
+          "size_px": {
+            "width": 160,
+            "height": 48
+          },
+          "frames": 2,
+          "note": "Normal/hover."
+        },
+        {
+          "id": "button_cancel",
+          "size_px": {
+            "width": 160,
+            "height": 48
+          },
+          "frames": 2,
+          "note": "Normal/hover."
+        }
+      ],
+      "layout_note": "Pack into 1024×512 with ≥2px padding; keep button states adjacent."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.winter_round_bw_panels_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 1024×512px.",
+    "Panels provide clear contrast for 8px font and icons.",
+    "Buttons have distinct hover state in grayscale."
+  ]
+}

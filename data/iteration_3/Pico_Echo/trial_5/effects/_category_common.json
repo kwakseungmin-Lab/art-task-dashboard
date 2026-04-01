@@ -1,0 +1,23 @@
+{
+  "base_size": {
+    "width": "2-12px",
+    "height": "2-12px",
+    "note": "Varies by effect type - particles are 2-4px, speech bubble is 12x10px"
+  },
+  "color_scheme": {
+    "heart": "#FF004D",
+    "music_note": "#FFEC27",
+    "zzz": "#7E2553",
+    "feather": "#FFA300",
+    "dust": "#C2C3C7",
+    "sparkle": "#FFF1E8",
+    "bubble_bg": "#FFF1E8",
+    "bubble_outline": "#1D2B53"
+  },
+  "shared_attributes": {
+    "rendering": "animated particles or static overlays",
+    "layer": "foreground (on top of all other elements)",
+    "style": "simple iconic pixel art",
+    "lifespan": "0.5-2 seconds (particles auto-destroy)"
+  }
+}

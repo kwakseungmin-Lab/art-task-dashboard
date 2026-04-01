@@ -1,0 +1,130 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.counter_gauge_radial_48px",
+  "asset_name": "Counter Gauge Radial 48px",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 71,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.enemy.slime_combat_sheet",
+    "character.enemy.cyclops_boss_sheet",
+    "character.enemy.medusa_combat_sheet",
+    "character.enemy.cerberus_chase_sheet",
+    "character.boss.hydra_dualhead_sheet"
+  ],
+  "blocks": [
+    "ui.hud.counter_result_popup_320x64"
+  ],
+  "blocked_by": [
+    "character.enemy.slime_combat_sheet",
+    "character.enemy.cyclops_boss_sheet",
+    "character.enemy.medusa_combat_sheet",
+    "character.enemy.cerberus_chase_sheet",
+    "character.boss.hydra_dualhead_sheet"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.enemy.slime_combat_sheet",
+      "character.enemy.cyclops_boss_sheet",
+      "character.enemy.medusa_combat_sheet",
+      "character.enemy.cerberus_chase_sheet",
+      "character.boss.hydra_dualhead_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "hud",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        -20
+      ]
+    },
+    "adjacent_elements": [
+      "character.enemy.cyclops_boss_sheet",
+      "character.enemy.medusa_combat_sheet",
+      "ui.hud.counter_result_popup_320x64"
+    ],
+    "layer": "ui",
+    "usage": "Enemy-local radial gauge that appears above the attacker during the ±80ms counter window and updates with time decay.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#40E8D0",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "small circular ring with 16 evenly spaced tick marks and a clear hollow center",
+      "components": [
+        "outer ring",
+        "inner void",
+        "16 tick marks",
+        "countdown wedge"
+      ]
+    },
+    "gauge": {
+      "outer_radius_px": 24,
+      "inner_radius_px": 16,
+      "tick_count": 16,
+      "counter_window_ms": 80,
+      "perfect_window_ms": 20
+    },
+    "background_treatment": "transparent outside gauge ring"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.counter_gauge_radial_48px.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Gauge canvas is exactly 48x48px with an outer radius of 24px and an inner radius of 16px.",
+    "There are exactly 16 tick marks placed at 22.5 degree steps around the ring.",
+    "The countdown wedge remains readable over both #0B0C1E and #6B6357 backgrounds using only #40E8D0 and #F0EFE9."
+  ]
+}

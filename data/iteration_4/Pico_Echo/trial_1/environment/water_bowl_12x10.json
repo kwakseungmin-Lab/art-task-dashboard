@@ -1,0 +1,129 @@
+{
+  "task_id": "pico_echo_environment_water_bowl",
+  "asset_name": "water_bowl_12x10",
+  "category": "environment",
+  "subcategory": "cage_object",
+  "project": {
+    "project_id": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style": "pixel_art",
+      "constraints": [
+        "grid: 1px",
+        "no_antialiasing: true",
+        "no_gradients: true",
+        "scaling: nearest_neighbor"
+      ]
+    },
+    "render_target": {
+      "canvas_px": "128x128",
+      "view": "2D_front",
+      "origin": "top_left"
+    },
+    "color": {
+      "palette_name": "PICO-8",
+      "palette_hex_16": [
+        "#000000",
+        "#1D2B53",
+        "#7E2553",
+        "#008751",
+        "#AB5236",
+        "#5F574F",
+        "#C2C3C7",
+        "#FFF1E8",
+        "#FF004D",
+        "#FFA300",
+        "#FFEC27",
+        "#00E436",
+        "#29ADFF",
+        "#83769C",
+        "#FF77A8",
+        "#FFCCAA"
+      ],
+      "project_named_colors": {
+        "echo_body": "#FFA300",
+        "echo_cheek_patch": "#FF004D",
+        "echo_crest": "#FFEC27",
+        "echo_beak_and_feet": "#AB5236",
+        "ui_text": "#1D2B53",
+        "cage_background": "#FFF1E8",
+        "cage_bars": "#C2C3C7",
+        "perch": "#AB5236",
+        "floor": "#FFCCAA"
+      }
+    },
+    "export": {
+      "formats": [
+        "PNG"
+      ],
+      "png": {
+        "alpha": true,
+        "color_mode": "indexed",
+        "max_colors": 16
+      }
+    },
+    "layering_order": [
+      "environment_background",
+      "environment_structure",
+      "objects",
+      "character",
+      "vfx",
+      "ui"
+    ]
+  },
+  "description": "Create a 12x10px water bowl sprite. Outside bowl is fully transparent (alpha=0). Bowl outline: #AB5236 (1px). Inner fill: #FFF1E8. Water surface fill area: a 8x3 rectangle (x=2..9,y=5..7) in #29ADFF.",
+  "context": {
+    "role": "Decorative water bowl; no interaction required.",
+    "screen_location": "Food bowl at (16,100), water bowl at (40,100) on 128x128 screen.",
+    "adjacent_elements": [
+      "seed_single_3x3",
+      "echo_eating_strip_240x40"
+    ],
+    "layer": "objects",
+    "usage": "Interactive target for feeding (food bowl) or decorative (water bowl)."
+  },
+  "specs": {
+    "dimensions": "12x10",
+    "colors_used_hex": [
+      "#AB5236",
+      "#FFF1E8",
+      "#29ADFF"
+    ],
+    "transparency": {
+      "outside_bowl_alpha": 0.0,
+      "bowl_alpha": 1.0
+    },
+    "geometry": {
+      "outline_color": "#AB5236",
+      "inner_fill_color": "#FFF1E8",
+      "water_fill_box": "x=2..9,y=5..7"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "sprite",
+      "format": "PNG",
+      "path": "assets/pico_echo/environment/water_bowl_12x10.png"
+    },
+    {
+      "type": "source",
+      "format": "ASEPRITE",
+      "path": "assets/pico_echo/environment/water_bowl_12x10.aseprite"
+    }
+  ],
+  "execution_order": 8,
+  "priority": "P1",
+  "depends_on": [
+    "pico_echo_environment_cage_background_wall"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo_environment_cage_background_wall"
+  ],
+  "relationships": {},
+  "acceptance_criteria": [
+    "Image size is exactly 12x10 px.",
+    "Outside-bowl pixels are alpha=0.",
+    "Water fill area exists exactly at x=2..9,y=5..7 and uses #29ADFF."
+  ]
+}

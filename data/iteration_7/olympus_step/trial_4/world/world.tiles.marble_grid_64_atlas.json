@@ -1,0 +1,138 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.tiles.marble_grid_64_atlas",
+  "asset_name": "Marble Grid Tile Atlas — 256x192",
+  "category": "world",
+  "subcategory": "tiles",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.dusk_sky_1920x1080"
+  ],
+  "blocks": [
+    "world.goal.temple_goal_tile_64_sheet_8f",
+    "character.player.last_olympian_god_idle_sheet_48_4f",
+    "character.player.last_olympian_god_teleport_sheet_48_6f",
+    "character.unit.guard_patrol_sheet_48_4f",
+    "obstacles.hazard.block_tile_64",
+    "obstacles.hazard.fire_tile_64_sheet_8f",
+    "obstacles.hazard.bolt_tile_off_64_2f",
+    "obstacles.hazard.bolt_tile_on_64_sheet_6f",
+    "obstacles.hazard.fog_tile_64_sheet_6f",
+    "ui.overlay.path_link_dash_64_sheet_6f",
+    "ui.overlay.path_tile_numbers_20_atlas"
+  ],
+  "blocked_by": [
+    "world.background.dusk_sky_1920x1080"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.goal.temple_goal_tile_64_sheet_8f",
+      "ui.overlay.path_link_dash_64_sheet_6f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "board_tile_atlas",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "layer": "world_floor",
+    "usage": "Primary atlas for all walkable cells on the 12x9 marble board.",
+    "adjacent_elements": [
+      "world.goal.temple_goal_tile_64_sheet_8f",
+      "obstacles.hazard.block_tile_64"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_2d",
+      "facing": "north_up"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 192
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#8B7355",
+      "#FBBF24"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "Rectangular atlas of 12 square 64px tiles with 2px bevel borders.",
+      "components": [
+        "plain_marble_tile",
+        "cracked_marble_tile",
+        "gold_inlay_tile",
+        "shadow_corner_tile"
+      ]
+    },
+    "atlas_layout": {
+      "rows": 3,
+      "cols": 4,
+      "tile_size_px": {
+        "width": 64,
+        "height": 64
+      },
+      "tile_count": 12
+    },
+    "surface": {
+      "material": "marble",
+      "border_px": 2,
+      "inlay_hex": "#FBBF24",
+      "shadow_hex": "#6B7280"
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": true
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tiles.marble_grid_64_atlas.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas is exactly 256x192px with 3 rows and 4 columns of 64x64 tiles.",
+    "Every tile keeps a 2px outer bevel and uses marble ivory or marble gray values from specs.colors_hex.",
+    "Atlas contains 12 tile variants and no frame animation."
+  ]
+}

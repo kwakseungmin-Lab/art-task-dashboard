@@ -1,0 +1,57 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.dino.jump_static",
+  "asset_name": "Runner Dino — Jump pose (static)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {"related_task_ids": ["character.dino.run_6f_12fps"]},
+  "palette": {
+    "primary": {"name": "ink", "hex": "#2B2B2B"},
+    "background": {"name": "paper", "hex": "#F7F7F7"},
+    "accent": {"name": "alert", "hex": "#D23C3C"}
+  },
+  "canvas": {
+    "resolution_px": {"width": 600, "height": 150},
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "jump",
+    "layer": "character",
+    "usage": "Single-frame jump pose used for the entire airborne state.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [80, 68]
+    }
+  },
+  "specs": {
+    "dimensions_px": {"width": 44, "height": 47},
+    "colors_hex": ["#2B2B2B"],
+    "animation": null,
+    "pose_notes": [
+      "Dino is tilted slightly upward (1–2px raise at snout) to read as a jump.",
+      "Legs tuck inward: reduce ground-contact pixels; keep outline continuous.",
+      "Match head/body proportions to the run cycle for seamless transitions."
+    ]
+  },
+  "deliverables": [
+    {"type": "png", "file": "character/character.dino.jump_static.png", "transparent_background": true}
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 44x47px with transparent background.",
+    "Silhouette matches the run cycle (no scale change > 1px in width/height).",
+    "Only #2B2B2B and transparency are used."
+  ]
+}

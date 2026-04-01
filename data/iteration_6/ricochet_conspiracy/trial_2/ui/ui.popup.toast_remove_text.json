@@ -1,0 +1,89 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.popup.toast_remove_text",
+  "asset_name": "UI Popup — Removed Toast Frame (no baked letters)",
+  "category": "ui",
+  "subcategory": "popup",
+  "priority": "P2",
+  "execution_order": 200,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector",
+    "detail_level": "medium",
+    "shading": "soft",
+    "outline": "2px_brush"
+  },
+  "context": {
+    "role": "feedback_popup",
+    "layer": "ui",
+    "usage": "240x48 toast frame used when a noble is removed; actual text rendered by engine.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        -120
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 48
+    },
+    "colors_hex": [
+      "#E8D5C4",
+      "#A89880",
+      "#8BA7C7",
+      "#8B3A52",
+      "#D4A843",
+      "#E8704A",
+      "#F5F0E8",
+      "#3D2B1F",
+      "#C8B4E0"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.popup.toast_remove_text.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Image is 240x48px; centered safe area for dynamic text.",
+    "Frame/background uses #D4A843 at ~80% opacity; interior remains transparent for text.",
+    "No rasterized letters are included."
+  ]
+}

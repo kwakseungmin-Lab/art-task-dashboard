@@ -1,0 +1,135 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000008",
+  "asset_key": "academy_hall_backdrop",
+  "asset_name": "Academy Hall Backdrop",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The stage establishes a 1920x1080 single-screen duel hall with the enemy lane high on the right and the player lane low on the left.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while supporting stone and UI panel hues appear inside specs.colors_hex.",
+    "Perspective remains shallow and side-on so combat readability wins over environmental depth."
+  ],
+  "differences": [
+    "The backdrop combines tall rosewood pillars, dark maroon wall planes, and warm gold trim that frame the duel lanes.",
+    "Upper windows and hanging banners concentrate light near the enemy podium while the lower floor remains clear for timing reads.",
+    "Background detail is richest near the far edges and quieter behind projectiles and characters."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_801000009",
+    "task_id_801000010"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000009",
+      "task_id_801000010",
+      "task_id_801000011"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "WorldBackdropTag",
+      "Transform",
+      "Visibility",
+      "Sprite"
+    ],
+    "asset_loading": "Load academy_hall_backdrop.png during Loading and spawn it as the lowest world layer before characters and projectiles.",
+    "runtime_notes": [
+      "Render as one opaque backdrop sprite at the origin of the fixed orthographic duel camera.",
+      "Keep the floor gradient subtle so the timing line and projectiles remain the highest-contrast motion elements.",
+      "Do not scroll the background during combat; the duel scene is intentionally fixed."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "combat_background",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "world",
+    "usage": "Full-screen academy hall base layer behind all gameplay elements during combat."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#2B1B17",
+      "#5C3317",
+      "#D4AF37",
+      "#1A1A2E",
+      "#8B5A2B",
+      "#C8A96B"
+    ],
+    "animation": null,
+    "composition": [
+      "Leave the central duel lane behind the projectile path at least 35% darker than bright spell effects.",
+      "Reserve the lower-center floor for timing readability with minimal prop clutter.",
+      "Keep banner and window ornament concentrated in the upper third of the frame."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/academy_hall_backdrop.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1920x1080 px and fully opaque.",
+    "The lower combat lane remains visibly clear when a cyan timing strip mockup is overlaid at the bottom center.",
+    "No single background ornament competes with the player or enemy silhouette at 50% preview scale."
+  ]
+}

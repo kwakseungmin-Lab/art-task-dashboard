@@ -1,0 +1,174 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040403",
+  "asset_key": "exit_gate_altar_sheet",
+  "asset_name": "Exit Gate Altar Sheet",
+  "category": "world",
+  "subcategory": "goal_prop",
+  "priority": "P1",
+  "execution_order": 3,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Exit gate keeps the 32x32 px gate body and warm gold highlight called out in the GDD.",
+    "Base stone trim uses the dungeon palette so the goal prop reads as part of the same prison architecture."
+  ],
+  "differences": [
+    "This sheet adds a six-frame pulse cycle for the escape light while preserving a fixed gate silhouette for collision and interaction."
+  ],
+  "depends_on": [
+    "task_id_804040401",
+    "task_id_804040402"
+  ],
+  "blocks": [
+    "task_id_804040412"
+  ],
+  "blocked_by": [
+    "task_id_804040401",
+    "task_id_804040402"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040401",
+      "task_id_804040402",
+      "task_id_804040404",
+      "task_id_804040410",
+      "task_id_804040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Exit gate size, six-frame pulse, and clear trigger grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Gold light bloom against dark stone grounding."
+    },
+    {
+      "label": "Slip Down S3 GDD",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Goal prop placement in the lowest layer of the dungeon grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout for the six-frame gate pulse and spawn it as a goal SpriteBundle with a looping AnimationTimer.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "ExitGateMarker"
+    ],
+    "asset_loading": "Load world/exit_gate_altar_sheet.png through AssetServer and map the clip to an ExitGateVisual component keyed by asset_key.",
+    "runtime_notes": [
+      "Frame size is 32x32 px.",
+      "Pulse loop runs at 6 FPS and never changes the collision bounds.",
+      "Anchor the gate to the tile grid center at the final room floor."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Animated escape target that marks the bottom-most clear room.",
+    "screen_position": {
+      "anchor": "tile_grid_origin",
+      "x_px": 0,
+      "y_px": 0
+    },
+    "layer": {
+      "name": "world_goal_prop",
+      "z_index": 18
+    },
+    "usage": "Visible only in the clear room and during the clear transition before return to title."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 32
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#C8A84B",
+      "#0D0D0F",
+      "#F5A623"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 6,
+      "fps": 6,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "columns": 6,
+        "frame_size_px": {
+          "width": 32,
+          "height": 32
+        }
+      },
+      "state_clips": [
+        {
+          "state": "idle_pulse",
+          "start_frame": 0,
+          "end_frame": 5,
+          "fps": 6,
+          "loop": true
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "exit_gate_altar_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 192,
+        "height": 32
+      },
+      "notes": "Six 32x32 frames for the gate pulse loop."
+    },
+    {
+      "artifact": "exit_gate_altar_sheet_clips.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Clip map for the idle_pulse loop used by the clear-room goal entity."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 192x32 px with six 32x32 frames.",
+    "Pulse brightness escalates toward the center frames while the gate silhouette stays fixed in all six frames.",
+    "Gold highlight remains readable against the abyss background at 4x nearest-neighbor scaling."
+  ]
+}

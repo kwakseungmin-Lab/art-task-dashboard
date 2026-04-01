@@ -1,0 +1,207 @@
+{
+    "task_id": "world.cage_background",
+    "asset_name": "Cage_Background_128x128",
+    "category": "world",
+    "subcategory": "environment_room",
+    "description": "Create one 128x128 px opaque background image for the inside of a bird cage. The image must be pixel-perfect with no anti-aliasing. Use only the 16 palette colors listed in specs.palette_hex. All coordinates and sizes are in pixels.",
+    "execution_order": 10,
+    "priority": "P0",
+    "context": {
+        "role": "static gameplay background layer",
+        "screen_position": {
+            "type": "absolute_px",
+            "x": 0,
+            "y": 0,
+            "anchor": "top_left"
+        },
+        "layer": "background",
+        "usage": "Always visible during gameplay; all other sprites render on top of this layer."
+    },
+    "relationships": {
+        "related_task_ids": [
+            "world.bowl_contents_atlas",
+            "character.echo_sprite_sheet",
+            "obstacles.poop_and_clean_sparkle_atlas",
+            "ui.hud_atlas"
+        ]
+    },
+    "depends_on": [],
+    "blocks": [
+        "world.bowl_contents_atlas",
+        "character.echo_sprite_sheet",
+        "obstacles.poop_and_clean_sparkle_atlas",
+        "ui.hud_atlas"
+    ],
+    "blocked_by": [],
+    "deliverables": [
+        {
+            "file": "world_cage_background_128x128.png",
+            "format": "png",
+            "transparent_background": false,
+            "notes": "All pixels must be fully opaque."
+        }
+    ],
+    "acceptance_criteria": [
+        "The output image is exactly 128x128 px.",
+        "Every pixel color is one of the 16 hex values in specs.palette_hex.",
+        "Cage top bar is a 1 px line from x=0..127 at y=6 using #C2C3C7.",
+        "Cage vertical bars are 1 px lines at x=[8,20,32,44,56,68,80,92,104,116] from y=6..100 using #C2C3C7.",
+        "Perch base is a rectangle from x=20..107 and y=60..63 using #AB5236, with a 1 px highlight line at y=60 using #FFCCAA.",
+        "Floor strip fill is a rectangle from y=104..127 using #FFCCAA, and the top border of the floor strip is a 1 px line at y=103 using #5F574F.",
+        "Food bowl outline occupies x=18..35 and y=74..84; water bowl outline occupies x=92..109 and y=74..84; outlines use #5F574F and interiors use #FFF1E8."
+    ],
+    "specs": {
+        "dimensions_px": {
+            "width": 128,
+            "height": 128
+        },
+        "palette_hex": [
+            "#000000",
+            "#1D2B53",
+            "#7E2553",
+            "#008751",
+            "#AB5236",
+            "#5F574F",
+            "#C2C3C7",
+            "#FFF1E8",
+            "#FF004D",
+            "#FFA300",
+            "#FFEC27",
+            "#00E436",
+            "#29ADFF",
+            "#83769C",
+            "#FF77A8",
+            "#FFCCAA"
+        ],
+        "max_colors": 16,
+        "background_fill_hex": "#FFF1E8",
+        "cage_bars": {
+            "color_hex": "#C2C3C7",
+            "top_bar": {
+                "y": 6,
+                "x_start": 0,
+                "x_end": 127,
+                "thickness_px": 1
+            },
+            "vertical_bars": {
+                "x_positions": [
+                    8,
+                    20,
+                    32,
+                    44,
+                    56,
+                    68,
+                    80,
+                    92,
+                    104,
+                    116
+                ],
+                "y_start": 6,
+                "y_end": 100,
+                "thickness_px": 1
+            }
+        },
+        "perch": {
+            "base_color_hex": "#AB5236",
+            "highlight_color_hex": "#FFCCAA",
+            "rect": {
+                "x_start": 20,
+                "x_end": 107,
+                "y_start": 60,
+                "y_end": 63
+            },
+            "highlight_line": {
+                "y": 60,
+                "x_start": 20,
+                "x_end": 107,
+                "thickness_px": 1
+            }
+        },
+        "floor_strip": {
+            "fill_color_hex": "#FFCCAA",
+            "border_color_hex": "#5F574F",
+            "border_line": {
+                "y": 103,
+                "x_start": 0,
+                "x_end": 127,
+                "thickness_px": 1
+            },
+            "fill_rect": {
+                "x_start": 0,
+                "x_end": 127,
+                "y_start": 104,
+                "y_end": 127
+            },
+            "poop_spawn_region": {
+                "x_min": 6,
+                "x_max": 121,
+                "y_min": 106,
+                "y_max": 124
+            }
+        },
+        "bowls": {
+            "outline_color_hex": "#5F574F",
+            "interior_color_hex": "#FFF1E8",
+            "food_bowl": {
+                "outer_rect": {
+                    "x_start": 18,
+                    "x_end": 35,
+                    "y_start": 74,
+                    "y_end": 84
+                },
+                "interior_rect": {
+                    "x_start": 20,
+                    "x_end": 33,
+                    "y_start": 76,
+                    "y_end": 81
+                }
+            },
+            "water_bowl": {
+                "outer_rect": {
+                    "x_start": 92,
+                    "x_end": 109,
+                    "y_start": 74,
+                    "y_end": 84
+                },
+                "interior_rect": {
+                    "x_start": 94,
+                    "x_end": 107,
+                    "y_start": 76,
+                    "y_end": 81
+                }
+            }
+        }
+    },
+    "project_common": {
+        "game_name": "Pico_Echo",
+        "iteration": 5,
+        "trial_index": 1,
+        "canvas_px": {
+            "width": 128,
+            "height": 128
+        },
+        "palette_hex": [
+            "#000000",
+            "#1D2B53",
+            "#7E2553",
+            "#008751",
+            "#AB5236",
+            "#5F574F",
+            "#C2C3C7",
+            "#FFF1E8",
+            "#FF004D",
+            "#FFA300",
+            "#FFEC27",
+            "#00E436",
+            "#29ADFF",
+            "#83769C",
+            "#FF77A8",
+            "#FFCCAA"
+        ],
+        "pixel_art": {
+            "snap_to_pixel_grid": true,
+            "anti_aliasing": false,
+            "scaling_filter": "nearest_neighbor"
+        }
+    }
+}

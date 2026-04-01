@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000012",
+  "asset_name": "Exit Gate (32x32, 6 frames, 6fps)",
+  "category": "world",
+  "subcategory": "goal_gate",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": [
+    "Gate footprint remains 32x32 px so the final interaction reads larger than standard hazards and supports a clear completion target.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while gate-specific colors stay inside specs.colors_hex.",
+    "Stone frame thickness remains 3 px on both sides so the glowing center feels enclosed inside dungeon architecture."
+  ],
+  "differences": [
+    "Six frames pulse the central glow between gate gold and torch amber to signal the single clear objective.",
+    "The opening uses a darker interior in frames 1 to 3 and a brighter interior in frames 4 to 6 for a clear attract cycle.",
+    "No textual signage, arrow UI, or progress number is embedded into the gate art."
+  ],
+  "depends_on": [
+    "task_id_802000009",
+    "task_id_802000010"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_802000009",
+    "task_id_802000010"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000009",
+      "task_id_802000010",
+      "task_id_802000017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the 32x32 exit gate size, clear condition, and end-of-run visual priority at the lowest dungeon layer."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the somber dungeon architecture and the single warm gold focal point reserved for escape."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds player-to-goal scale so the prisoner silhouette feels small but visibly able to enter the gate opening."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for parallax backdrops and TilemapChunk-backed textures for reusable 16x16 surface modules.",
+    "atlas_or_static": "mixed_static_and_tile_sheet",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "TileTextureIndex",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load world textures before gameplay, cache tile indices for high, medium, and low friction surfaces, and keep shaft layer handles in a WorldVisualRegistry resource.",
+    "runtime_notes": [
+      "Render the shaft backdrop from an offscreen 320x180 target and upscale by an integer factor of 4 to preserve pixel integrity.",
+      "Move parallax layers at 0.4x camera speed and keep their anchors fixed to the downward-only camera model.",
+      "Treat one-way ledges and exit gates as separate gameplay entities even when they share world art atlases."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "goal_gate",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        624,
+        536
+      ]
+    },
+    "layer": "world",
+    "usage": "Final interactable gate at the bottom of the shaft that triggers the clear sequence.",
+    "adjacent_elements": [
+      "task_id_802000009",
+      "task_id_802000017"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#0D0D0F",
+      "#C8A84B",
+      "#F5A623",
+      "#1A1A2E"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        32
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "glow_notes": [
+      "Opening width is 16 px centered within the 32 px frame.",
+      "Gold glow reaches peak brightness in frames 5 and 6.",
+      "Top arch rises to y1 and keeps a symmetrical curve within the 32 px canvas."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_exit_gate_6f_32x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x32 px with 6 frames of 32x32 px and 0 px spacing.",
+    "Frames 5 and 6 visibly brighten the gate interior with #C8A84B or #F5A623 while preserving the 3 px stone frame thickness.",
+    "No text, arrow glyphs, or progress numerals appear inside the gate art."
+  ],
+  "asset_key": "world_exit_gate_6f_32x32",
+  "variant_of_asset_key": null
+}

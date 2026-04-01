@@ -1,0 +1,80 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "varies by element"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bars": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "view_type": "interior view (no cage bars visible)",
+      "perspective": "flat 2D front-facing",
+      "lighting": "uniform (no shadows)"
+    }
+  },
+  "asset": {
+    "asset_id": "cage_background",
+    "asset_name": "Cage Interior Background",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Main background representing interior of Echo's cage",
+      "screen_position": "Full screen 128x128px, layer 0 (bottom)",
+      "adjacent_elements": ["all other game elements render on top"],
+      "usage_scenario": "Persistent background for entire game; never changes"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "128px",
+        "height": "128px"
+      },
+      "colors": {
+        "main": "#FFF1E8",
+        "top_bars": "#C2C3C7"
+      },
+      "shape": "Rectangular fill with optional horizontal bar pattern at top (y=0-8) representing cage top",
+      "texture": "Flat solid color; optional subtle pixel noise for organic feel",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static background, no animation"
+      },
+      "details": "Top 8px may show 3-4 horizontal bars (#C2C3C7, 1px thick, 2px spacing) to suggest cage top; rest is solid #FFF1E8"
+    },
+    "relationships": {
+      "related_assets": ["all game elements"],
+      "shared_with": "Provides base layer for all other assets",
+      "differences_from": "floor (background vs interactive area)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no perspective lines",
+      "no visible cage bars on sides",
+      "no wallpaper pattern",
+      "no texture mapping",
+      "no lighting effects"
+    ]
+  }
+}

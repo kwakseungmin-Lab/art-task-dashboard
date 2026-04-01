@@ -1,0 +1,79 @@
+{
+  "schema_version": "art_task_plan_pkg@6",
+  "project": {
+    "project_id": "pico_echo",
+    "project_name": "Pico_Echo"
+  },
+  "meta": {
+    "game_name": "Pico_Echo",
+    "iteration": 6,
+    "trial_index": 5,
+    "plan_dir": "trial_5",
+    "created_at_utc": "2026-03-10T06:10:48Z",
+    "git_ref": "art_task_plan/iter6_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v6.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "coordinate_rules": {
+    "screen_position_types": [
+      "absolute_px",
+      "anchor_offset"
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "character.echo.idle_4f_2fps",
+      "category": "character",
+      "file": "character/character.echo.idle_4f_2fps.json"
+    },
+    {
+      "task_id": "obstacles.cage.seed_bowl_3state",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cage.seed_bowl_3state.json"
+    },
+    {
+      "task_id": "world.cage.background_static",
+      "category": "world",
+      "file": "world/world.cage.background_static.json"
+    },
+    {
+      "task_id": "ui.icon.feed_seed",
+      "category": "ui",
+      "file": "ui/ui.icon.feed_seed.json"
+    }
+  ]
+}

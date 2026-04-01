@@ -1,0 +1,139 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.wood_pillar",
+  "asset_name": "Wood Pillar",
+  "category": "obstacles",
+  "subcategory": "environment_object",
+  "priority": "P0",
+  "execution_order": 5,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This asset includes hit-count readability and topple motion in one production package."
+  ],
+  "depends_on": [
+    "world.foreground.floor_tiles",
+    "world.background.midlayer_court"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.foreground.floor_tiles",
+    "world.background.midlayer_court"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble_basic",
+      "character.noble_guard"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "breakable_trigger_object",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 320,
+      "y": 250,
+      "width": 24,
+      "height": 120,
+      "anchor": "top_left"
+    },
+    "layer": "midground_interactive",
+    "usage": "Used from stage 2-3 onward for three-hit topple chains.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_forward"
+    },
+    "adjacent_elements": [
+      "world.foreground.floor_tiles",
+      "character.noble_guard",
+      "obstacles.environment.chandelier"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 120
+    },
+    "colors_hex": [
+      "#8B6A4A",
+      "#D4A843",
+      "#3D2B1F",
+      "#E8D5C4"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "upright",
+      "states": [
+        {
+          "name": "upright",
+          "frame_count": 1,
+          "fps": 0
+        },
+        {
+          "name": "hit_flash",
+          "frame_count": 2,
+          "fps": 8
+        },
+        {
+          "name": "topple",
+          "frame_count": 6,
+          "fps": 12
+        }
+      ]
+    },
+    "notes": [
+      "Topple frame path rotates from 90 degrees upright to 0 degrees over 1.0 second across a 120 px arc.",
+      "Damage notches increase after hit counts 1 and 2 with notch width 3 px."
+    ],
+    "shape": {
+      "silhouette": "tall vertical pillar with a narrow shaft, cap block, and base block",
+      "components": [
+        "cap block",
+        "shaft column",
+        "base block",
+        "crack markers"
+      ]
+    }
+  },
+  "deliverables": [
+    "Upright pillar sprite 24x120 px.",
+    "Topple animation sequence with 6 frames.",
+    "Hit-count overlay sheet for two damage levels."
+  ],
+  "acceptance_criteria": [
+    "Upright state is exactly 24x120 px.",
+    "Topple sequence reaches full horizontal pose by frame 6 at 12 fps.",
+    "Damage marks are visible after hit count 1 and hit count 2 without changing outer width."
+  ]
+}

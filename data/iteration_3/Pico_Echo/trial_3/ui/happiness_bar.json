@@ -1,0 +1,90 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "floor": "#FFCCAA",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no subpixels)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor (no anti-aliasing)"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "varies",
+      "height": "2-12px"
+    },
+    "color_scheme": {
+      "text": "#1D2B53",
+      "background": "#FFF1E8",
+      "accent": "#FF004D",
+      "green": "#00E436",
+      "yellow": "#FFEC27",
+      "orange": "#FFA300"
+    },
+    "shared_attributes": {
+      "ui_type": "minimal overlay interface",
+      "design_principle": "maximum clarity at minimum size, non-intrusive"
+    }
+  },
+  "asset": {
+    "asset_id": "happiness_bar",
+    "asset_name": "Happiness Bar",
+    "context": {
+      "game": "Pico Echo - virtual pet game",
+      "role": "displays Echo's current happiness level (0-100), only persistent UI element",
+      "screen_position": "bottom edge (x=4-124, y=126-127)",
+      "adjacent_elements": ["floor (above)", "screen edge (below)"],
+      "usage_scenario": "always visible, updates in real-time as happiness changes, color-coded by happiness level"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "120px",
+        "height": "2px"
+      },
+      "colors": {
+        "background": "#5F574F",
+        "fill_90_100": "#00E436",
+        "fill_70_89": "#FFEC27",
+        "fill_50_69": "#FFA300"
+      },
+      "shape": "horizontal bar, filled proportionally to happiness value",
+      "texture": "solid color fill, no pattern",
+      "outline": "none",
+      "shadow": "none",
+      "animation": {
+        "type": "dynamic",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "fill width updates dynamically based on happiness value (0-100), color changes at thresholds (50-69=orange, 70-89=yellow, 90-100=green)"
+      },
+      "details": "background bar (#5F574F) 120px wide, fill bar overlays from left, fill width = (happiness/100) * 120px, color determined by happiness range, positioned at y=126-127 (bottom 2px of screen)"
+    },
+    "relationships": {
+      "related_assets": ["floor", "all Echo states"],
+      "shared_with": "color scheme reflects happiness states (green=ecstatic, yellow=happy, orange=content)",
+      "differences_from": "only persistent UI element (always visible), dynamically updates unlike static environment, overlays game screen"
+    },
+    "explicit_negations": [
+      "no percentage text (bar only)",
+      "no border or outline",
+      "no gradients or smooth transitions",
+      "no animation between color changes (instant switch at thresholds)",
+      "no decorative elements (hearts, icons)",
+      "no vertical orientation (horizontal only)"
+    ]
+  }
+}

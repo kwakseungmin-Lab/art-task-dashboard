@@ -1,0 +1,102 @@
+{
+  "task_id": "world.ground.texture_tile_1200x10",
+  "id": "ground_texture_tile_1200x10",
+  "asset_name": "Ground Texture Tile (1200x10)",
+  "category": "world",
+  "subcategory": "ground",
+  "display_name": "Ground Texture Tile (1200x10)",
+  "description": "Create asset for task_id 'world.ground.texture_tile_1200x10' as specified in specs/context.",
+  "execution_order": 21,
+  "priority": "P2",
+  "depends_on": [
+    "world.ground.line_tile_1200x2"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.ground.line_tile_1200x2"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 600,
+        "height": 150
+      },
+      "frame_rate_target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      },
+      "baseline_y_px": 148
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "highlight_optional_hex": "#FF0000"
+    },
+    "style": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 10
+    },
+    "colors_hex": [
+      "#535353"
+    ],
+    "density_guidance": "low (one small rock/tuft every ~50-100px)",
+    "transparent_background": true
+  },
+  "context": {
+    "role": "ground_detail_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 138,
+      "anchor": "top_left"
+    },
+    "layer": "world_ground",
+    "usage": [
+      "in_game"
+    ],
+    "motion": {
+      "scroll_speed_px_per_s": "Current_Speed",
+      "loop_rule": "if x < -1200 then x += 1200"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/ground_texture_tile_1200x10.aseprite",
+      "notes": "Optional sparse ground texture (rocks/tufts)."
+    },
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/world/ground_texture_tile_1200x10.png",
+      "dimensions_px": {
+        "width": 1200,
+        "height": 10
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 1200x10 px and transparent outside the texture pixels.",
+    "All visible pixels are #535353 only; no anti-aliasing.",
+    "Texture density stays low and does not distract from gameplay.",
+    "Tile is seamless when repeated horizontally."
+  ]
+}

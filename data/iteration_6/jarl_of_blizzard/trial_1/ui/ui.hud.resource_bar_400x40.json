@@ -1,0 +1,131 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.hud.resource_bar_400x40",
+  "asset_name": "Resource Bar Frame — 400×40",
+  "category": "ui",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 17,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.icons.resources_24_set_6",
+      "ui.typography.bitmap_font_bw_8px"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "snow_black",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "snow_white",
+      "hex": "#FFFFFF"
+    },
+    "steps": [
+      {
+        "name": "white",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "gray_1",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "gray_2",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "gray_3",
+        "hex": "#888888"
+      },
+      {
+        "name": "gray_4",
+        "hex": "#555555"
+      },
+      {
+        "name": "gray_5",
+        "hex": "#333333"
+      },
+      {
+        "name": "gray_6",
+        "hex": "#111111"
+      },
+      {
+        "name": "black",
+        "hex": "#000000"
+      }
+    ]
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "color_mode": "grayscale_only"
+  },
+  "context": {
+    "role": "hud_frame",
+    "layer": "ui_hud",
+    "usage": "Frame for the top-center resource list (icons + numbers). Positioned near (760, 8).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        760,
+        8
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": null,
+    "layout_rules": {
+      "icon_size_px": 24,
+      "slot_count": 6,
+      "slot_spacing_px": 6,
+      "text_baseline_y_px": 26
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.resource_bar_400x40.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Frame is exactly 400x40px with a 1px border and clean interior padding.",
+    "Has 6 icon slots sized for 24x24 icons with consistent spacing and room for numbers.",
+    "Works over both light and dark backgrounds without losing the border."
+  ]
+}

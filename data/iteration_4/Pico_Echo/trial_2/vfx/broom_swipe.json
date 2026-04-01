@@ -1,0 +1,147 @@
+{
+  "task_id": "pico_echo.vfx.broom_swipe",
+  "asset_name": "Broom swipe strip (512x18)",
+  "category": "vfx",
+  "subcategory": "animation",
+  "description": "512x18 spritesheet (4 frames of 128x18) fps=4 once. Broom bbox top-left per frame: (0,6),(32,6),(64,6),(96,6).",
+  "project": {
+    "game_name": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style_family": "pixel_art",
+      "style_reference": "PICO-8 default palette",
+      "view": "2D_front_facing",
+      "canvas_px": {
+        "width": 128,
+        "height": 128
+      },
+      "color_constraints": {
+        "mode": "indexed_color",
+        "max_colors": 16,
+        "palette_name": "PICO8_16",
+        "palette_hex": [
+          "#000000",
+          "#1D2B53",
+          "#7E2553",
+          "#008751",
+          "#AB5236",
+          "#5F574F",
+          "#C2C3C7",
+          "#FFF1E8",
+          "#FF004D",
+          "#FFA300",
+          "#FFEC27",
+          "#00E436",
+          "#29ADFF",
+          "#83769C",
+          "#FF77A8",
+          "#FFCCAA"
+        ],
+        "alpha": "binary"
+      },
+      "rendering": {
+        "scaling": "nearest_neighbor",
+        "outline": {
+          "enabled": true,
+          "color": "#1D2B53",
+          "thickness_px": 1
+        },
+        "shading": {
+          "enabled": true,
+          "steps": 2,
+          "shadow_color": "#5F574F"
+        }
+      }
+    },
+    "layer_order_top_to_bottom": [
+      "ui",
+      "vfx",
+      "character",
+      "object",
+      "environment"
+    ],
+    "source_gdd_paths": [
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Echo.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md"
+    ]
+  },
+  "deliverables": [
+    {
+      "path": "game_assets/pico_echo/vfx/broom_swipe_strip_4f.png",
+      "format": "PNG",
+      "type": "spritesheet"
+    }
+  ],
+  "specs": {
+    "dimensions_px": "512x18",
+    "format": "PNG",
+    "color_mode": "indexed",
+    "max_colors": 16,
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "animation": {
+      "frame_size_px": "128x18",
+      "frame_count": 4,
+      "fps": 4,
+      "loop": "once",
+      "layout": "horizontal_strip"
+    }
+  },
+  "context": {
+    "role": "clean VFX",
+    "screen_location": "over floor",
+    "adjacent_elements": [
+      "poop"
+    ],
+    "layer": "vfx",
+    "usage": "clean"
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.environment.cage_floor",
+      "pico_echo.object.poop"
+    ],
+    "shared_constraints": [
+      "128x18"
+    ],
+    "differences": [
+      "moving"
+    ]
+  },
+  "depends_on": [
+    "pico_echo.environment.cage_floor"
+  ],
+  "execution_order": 38,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.environment.cage_floor"
+  ],
+  "acceptance_criteria": [
+    "PNG 512x18px",
+    "4 frames 128x18",
+    "Only #C2C3C7,#AB5236,transparent"
+  ],
+  "source_gdd": [
+    "CareSystem.md",
+    "Poop.md"
+  ]
+}

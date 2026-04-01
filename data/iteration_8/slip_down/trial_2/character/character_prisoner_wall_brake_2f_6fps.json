@@ -1,0 +1,164 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_802000002",
+  "asset_name": "Prisoner Wall Brake (2 frames, 6fps)",
+  "category": "character",
+  "subcategory": "player_state",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": "task_id_802000001",
+  "variant_of_asset_key": "character_prisoner_fall_4f_8fps",
+  "shared_properties": [
+    "Prisoner silhouette stays inside 16x24 px with the cuffed wrists, cropped hair, and orange shoulder stripe preserved.",
+    "Core palette metadata remains primary #3B3347, background #0D0D0F, and accent #E07B39 while local highlight colors stay inside specs.colors_hex.",
+    "The contact pose still reads clearly after a horizontal flip so one authored sheet covers left and right wall braking."
+  ],
+  "differences": [
+    "Two frames show one forearm and one boot pressed against the wall with the torso leaning 2 px into the contact surface.",
+    "Coat hem motion is reduced relative to free fall so the animation conveys braking drag rather than acceleration.",
+    "Dust abrasion pixels appear on the contact side using #8B2020 and #4E5940 in a 2 px wide streak."
+  ],
+  "depends_on": [
+    "task_id_802000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_802000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_802000001",
+      "task_id_802000010",
+      "task_id_802000016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Grounds the friction-control rule where player braking happens only during wall contact and directional input."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds the stone-wall scrape mood, limited dust accents, and tight vertical shaft spacing around the braking silhouette."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Grounds the prisoner body proportions so the contact pose remains readable without changing character identity."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with TextureAtlasLayout and a fixed-step animation timer driven by Bevy 0.13 FixedUpdate.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer during a Loading state, register the atlas handle by task_id and asset_key, and keep animation metadata in a typed DescentActorVisual resource.",
+    "runtime_notes": [
+      "Advance frames at the authored fps inside FixedUpdate so movement logic and animation cadence stay locked at 60 FPS.",
+      "Use flip_x for mirrored wall contact instead of authoring an extra right-facing sheet.",
+      "Snap the actor Transform to whole pixels after motion integration so the 16x24 silhouette stays crisp on the 4x upscale."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "mid_readable_platformer",
+    "shading": "flat_plus_selective_1step",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "wall_brake",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        608,
+        208
+      ]
+    },
+    "layer": "character",
+    "usage": "Player visual used during active friction contact on either wall.",
+    "adjacent_elements": [
+      "task_id_802000001",
+      "task_id_802000010"
+    ],
+    "viewpoint": {
+      "camera_angle": "front_facing_2d",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#E07B39",
+      "#3B3347",
+      "#0D0D0F",
+      "#4E5940",
+      "#8B2020"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        16,
+        24
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "pose_notes": [
+      "Leading hand plants at x1 or x14 depending on horizontal flip and occupies a 2x3 px contact block.",
+      "Contact boot bends inward by 1 px to imply downward drag instead of horizontal walking.",
+      "Torso rotates at most 8 degrees relative to the vertical axis to keep the no-jump control fantasy intact."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_prisoner_wall_brake_2f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 32x24 px with 2 frames of 16x24 px and 0 px spacing.",
+    "After horizontal flip the pose still keeps one hand and one foot visibly aligned to a wall edge within a 2 px contact band.",
+    "Animation reads as braking rather than climbing and uses only the listed colors plus transparency."
+  ],
+  "asset_key": "character_prisoner_wall_brake_2f_6fps"
+}

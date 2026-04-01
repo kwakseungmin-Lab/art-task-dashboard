@@ -1,0 +1,17 @@
+{
+  "base_size": {
+    "width": "34-102px",
+    "height": "70-100px"
+  },
+  "color_scheme": {
+    "primary": "#535353",
+    "secondary": "#535353"
+  },
+  "shared_attributes": {
+    "style": "8-bit pixel art with sharp, dangerous silhouette",
+    "outline": "2px solid outline included in dimensions",
+    "shading": "flat color, no gradients or shading",
+    "spawn_position": "screen right edge + 50px offset",
+    "movement": "scrolls left at current game speed"
+  }
+}

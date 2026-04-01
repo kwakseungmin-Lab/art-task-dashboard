@@ -1,0 +1,92 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame",
+      "position_reference": "perch at y=80px",
+      "layer_order": 3
+    }
+  },
+  "asset": {
+    "asset_id": "echo_singing",
+    "asset_name": "Echo Singing State",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Highest happiness state (90+), unlocked at relationship level 4",
+      "screen_position": "Center at x=64, y=60, on perch at y=80",
+      "adjacent_elements": ["perch", "note_particle"],
+      "usage_scenario": "Triggered when happiness >= 90 and relationship level >= 4, autonomous behavior showing maximum contentment"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "beak_interior": "#1D2B53",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with crest fully raised, beak open, body upright and proud",
+      "texture": "Pixel art with organic hand-drawn feel, no gradients",
+      "outline": "1px dark outline (#1D2B53) on crest, beak, and body silhouette",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 8,
+        "fps": 4,
+        "loop": true,
+        "description": "Frame 1-2: beak opens, crest raises, Frame 3-4: beak wide open, head tilts up, Frame 5-6: beak closes slightly, Frame 7-8: beak opens again, cycle repeats"
+      },
+      "details": "Crest fully raised adding 6px to height, beak opens to 3px gap showing interior (#1D2B53), eyes wide open and bright (2x2px), body posture upright and extended, chest puffed out by 1-2px, tail feathers fanned, overall impression of joyful vocalization"
+    },
+    "relationships": {
+      "related_assets": ["echo_idle", "echo_happy", "note_particle", "perch"],
+      "shared_with": "Same color palette as all Echo states",
+      "differences_from": "echo_happy (beak open vs closed), echo_idle (crest and posture), all other states (highest positive emotional expression)"
+    },
+    "explicit_negations": [
+      "No visible sound waves (handled by note particles)",
+      "No exaggerated cartoon singing mouth",
+      "No color changes or glowing effects",
+      "No dancing or jumping (stays on perch)",
+      "No continuous loop without happiness requirement",
+      "No visible throat vibration or movement"
+    ]
+  }
+}

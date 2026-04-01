@@ -1,0 +1,188 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003005",
+  "asset_key": "player_prisoner_fall_4f_8fps",
+  "asset_name": "Player Prisoner Fall Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003002"
+  ],
+  "blocks": [
+    "task_id_008003006",
+    "task_id_008003007",
+    "task_id_008003008",
+    "task_id_008003015"
+  ],
+  "blocked_by": [
+    "task_id_008003002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003006",
+      "task_id_008003007",
+      "task_id_008003008",
+      "task_id_008003015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Dungeon shaft palette, cold stone texture, vertical pressure mood, and obstacle rhythm anchor."
+    },
+    {
+      "label": "slip_down_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/player.png",
+      "purpose": "Prisoner silhouette, fall pose, cloth volume, and shackle readability anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use SpriteSheetBundle for the player state atlas and switch states by swapping atlas handles on one PlayerStateSprite entity.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "PlayerStateSprite",
+      "Transform"
+    ],
+    "asset_loading": "Load character/player_prisoner_fall_4f_8fps.png through AssetServer during player bootstrap and cache the atlas under player_prisoner_fall_4f_8fps.",
+    "runtime_notes": [
+      "Animation timing follows the base 8 fps fall cadence in FixedUpdate.",
+      "The sprite origin stays centered on the torso so brake variants inherit a stable pivot.",
+      "Logical collision bounds remain 12x22 px regardless of cloth motion."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "prisoner_white",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "abyss_black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "chain_orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_dither",
+    "outline": "1px_crisp"
+  },
+  "context": {
+    "role": "player_free_fall",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        220
+      ]
+    },
+    "layer": "character_player",
+    "usage": "Default descent state used whenever no friction input is active and the player is dropping through open space.",
+    "adjacent_elements": [
+      "world_friction_tilekit_16px",
+      "ui_friction_gauge_240x8",
+      "obstacle_spike_cluster_static_48x16"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 24
+    },
+    "colors_hex": [
+      "#D6D0C4",
+      "#E07B39",
+      "#1A1A2E",
+      "#8B2020"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Slim prisoner silhouette with bent knees, trailing tunic hem, one raised hand, and ankle shackles that swing during descent.",
+      "components": [
+        "head",
+        "tunic",
+        "raised_hand",
+        "trailing_hand",
+        "knees",
+        "boots",
+        "ankle_shackles"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "single pixel pair",
+        "size_px": [
+          2,
+          1
+        ]
+      },
+      "mouth": {
+        "shape": "short line",
+        "length_px": 2
+      },
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 6
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 8
+      },
+      "tail": null,
+      "accessories": "Ankle shackles and a short waist chain."
+    },
+    "texture": "One-step dither on tunic shadows and chipped iron highlights on the shackles.",
+    "shading": "Flat pixel shading with a single darker pass on the underside of the torso."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_prisoner_fall_4f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 64x24 px with four 16x24 frames.",
+    "Shackle chain swing remains inside a 2 px horizontal envelope so collision bounds stay stable.",
+    "The orange shackle accent stays visible in every frame against the darkest background band."
+  ]
+}

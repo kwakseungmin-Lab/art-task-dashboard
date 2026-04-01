@@ -1,0 +1,96 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.hazard.block_tile_64",
+  "asset_name": "BLOCK Tile (No-Land Zone) — 64px",
+  "category": "obstacles",
+  "subcategory": "hazard",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "no_land_tile",
+    "layer": "world_hazards",
+    "usage": "Cannot be entered while drawing path; forbidden rune + dark fill; not FIRE/BOLT.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#C17B2F",
+      "#D4C5A9",
+      "#6B7280",
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#F59E0B",
+      "#DC2626",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC"
+    ],
+    "visual": {
+      "base": "Shadow Slate + Marble Dark",
+      "symbol": "Diagonal barred rune; minimal red outline allowed."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.hazard.block_tile_64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 64×64px.",
+    "Reads forbidden at a glance (bar + dark).",
+    "Avoid dominant fire-red fills and gold lightning motif."
+  ]
+}

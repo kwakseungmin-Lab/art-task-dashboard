@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.dusk_sky_1920x1080",
+  "asset_name": "Dusk Sky Background — 1920×1080",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "background",
+    "layer": "bg_sky",
+    "usage": "Static dusk sky gradient/texture behind the 12×9 grid map.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#C17B2F",
+      "#D4C5A9",
+      "#6B7280",
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#F59E0B",
+      "#DC2626",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC"
+    ],
+    "background": {
+      "gradient": [
+        {
+          "stop": 0.0,
+          "hex": "#1E1B4B"
+        },
+        {
+          "stop": 0.55,
+          "hex": "#C17B2F"
+        },
+        {
+          "stop": 1.0,
+          "hex": "#1C1917"
+        }
+      ],
+      "noise": {
+        "enabled": true,
+        "scale_px": 4,
+        "opacity": 0.08
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.dusk_sky_1920x1080.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1920×1080px.",
+    "Gradient is smooth (no banding) with subtle noise <=10% opacity.",
+    "Hazards/UI remain higher contrast than background."
+  ]
+}

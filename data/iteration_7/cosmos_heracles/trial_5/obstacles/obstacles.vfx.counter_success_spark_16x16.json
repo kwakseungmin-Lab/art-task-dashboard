@@ -1,0 +1,131 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.vfx.counter_success_spark_16x16",
+  "asset_name": "Counter Success Spark",
+  "category": "obstacles",
+  "subcategory": "vfx",
+  "priority": "P1",
+  "execution_order": 51,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "blocks": [
+    "ui.hud.counter_result_popup_320x64"
+  ],
+  "blocked_by": [
+    "character.player.cosmos_heracles.core_states_sheet"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "ui.hud.counter_result_popup_320x64"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "vfx",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "character.player.cosmos_heracles.core_states_sheet",
+      "character.enemy.cyclops_boss_sheet",
+      "ui.hud.counter_result_popup_320x64"
+    ],
+    "layer": "world",
+    "usage": "Local spark effect spawned on standard counter success; appears for 6 frames at the collision point.",
+    "viewpoint": {
+      "camera_angle": "2d_side_orthographic",
+      "facing": "right",
+      "zoom": "1.0x gameplay / 0.85x boss intro"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#40E8D0",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "spritesheet_row",
+      "frame_count": 6,
+      "fps": 20,
+      "loop": false,
+      "sheet_dimensions_px": {
+        "width": 96,
+        "height": 16
+      },
+      "frame_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "shape": {
+      "silhouette": "compact outward spark burst with a bright center and 4 to 6 shard spokes",
+      "components": [
+        "center flash",
+        "north-east shard",
+        "south-east shard",
+        "south-west shard",
+        "north-west shard"
+      ]
+    },
+    "duration_ms": 300,
+    "background_treatment": "transparent outside vfx bounds"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.vfx.counter_success_spark_16x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 96x16px with 6 frames of 16x16px each.",
+    "The spark reaches maximum spread by frame 3 and fades to fewer than 8 visible pixels by frame 6.",
+    "Only #40E8D0 and #F0EFE9 are used for the burst; no soft gradients are present."
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "task_id": "world.background_sky_and_clouds",
+  "asset_name": "Background Sky Fill and Cloud Sprites",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "medium",
+  "execution_order": 50,
+  "project_common": {
+    "project_id": "chrome_dino_runner_iter5_trial2_art_task_plan",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 2,
+    "canvas_px": [
+      600,
+      150
+    ],
+    "pixel_perfect": true,
+    "anti_aliasing": "none",
+    "palette_hex": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash": "#FFFFFF"
+    },
+    "outline_px": 2,
+    "outline_color_hex": "#535353"
+  },
+  "description": "Define the background sky color and create two cloud sprites for a slow parallax layer.",
+  "context": {
+    "role": "Provides visual depth and speed feedback with minimal distraction.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "anchor": "top_left"
+    },
+    "layer": 0,
+    "usage": {
+      "sky_fill": {
+        "hex": "#F7F7F7"
+      },
+      "cloud_parallax": {
+        "scroll_speed_multiplier": 0.5,
+        "spawn_interval_seconds_range": [
+          5,
+          10
+        ],
+        "max_clouds": 3,
+        "spawn_probability": 0.3,
+        "y_range_px_from_top": [
+          10,
+          40
+        ]
+      }
+    }
+  },
+  "specs": {
+    "style": {
+      "art_style": "8_bit_pixel_art",
+      "anti_aliasing": "none",
+      "sky_color_hex": "#F7F7F7",
+      "cloud_color_hex": "#535353"
+    },
+    "cloud_sprites": {
+      "cloud_small": {
+        "width": 46,
+        "height": 14,
+        "frame_count": 1,
+        "outline_px": 2
+      },
+      "cloud_large": {
+        "width": 92,
+        "height": 27,
+        "frame_count": 1,
+        "outline_px": 2
+      }
+    },
+    "export": {
+      "format": "png",
+      "background": "transparent",
+      "files": {
+        "cloud_small": "cloud_small.png",
+        "cloud_large": "cloud_large.png"
+      }
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "world.ground_tile",
+      "obstacles.pterodactyl_fly_sprite"
+    ]
+  },
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "type": "color_spec",
+      "name": "sky_fill",
+      "hex": "#F7F7F7"
+    },
+    {
+      "type": "png",
+      "file": "cloud_small.png",
+      "size_px": [
+        46,
+        14
+      ],
+      "transparent_background": true,
+      "color_hex": [
+        "#535353"
+      ]
+    },
+    {
+      "type": "png",
+      "file": "cloud_large.png",
+      "size_px": [
+        92,
+        27
+      ],
+      "transparent_background": true,
+      "color_hex": [
+        "#535353"
+      ]
+    }
+  ],
+  "acceptance_criteria": [
+    "The sky fill color is exactly #F7F7F7 and is used as the canvas clear color.",
+    "cloud_small.png is exactly 46x14 pixels and cloud_large.png is exactly 92x27 pixels.",
+    "Cloud sprites use #535353 only for non-transparent pixels and have transparent background outside shapes (alpha=0).",
+    "Cloud silhouettes are readable at 1x scale and do not contain interior noise exceeding 5 isolated pixels per 100px area.",
+    "When a cloud sprite scrolls at 0.5x ground speed, it remains visually stable with no sub-pixel motion artifacts when snapped to integer pixel positions."
+  ]
+}

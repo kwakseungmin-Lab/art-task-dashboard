@@ -1,0 +1,155 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003017",
+  "asset_key": "ui_hand_card_strip_5x80x120",
+  "asset_name": "Hand Card Strip",
+  "category": "ui",
+  "subcategory": "card_ui",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003006"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003006"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003005",
+      "task_id_008003006",
+      "task_id_008003013",
+      "task_id_008003014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "reflect_academy_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Academy hall color rhythm, duel staging, card layout balance, and warm-versus-cool lighting anchor."
+    },
+    {
+      "label": "reflect_academy_player",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Player silhouette, costume layering, hand pose, and magical focus posture anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the strip container and swap atlas slices for hover, use, and discard states as needed.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "UiImage",
+      "Style",
+      "HandCardStripWidget"
+    ],
+    "asset_loading": "Load ui/ui_hand_card_strip_5x80x120.png through AssetServer and create a four-frame atlas for the hand widget states.",
+    "runtime_notes": [
+      "Hand strip anchors to the bottom center safe area above the timing bar.",
+      "Runtime card data can overlay text and elemental glyphs inside the authored frame openings.",
+      "State swaps should not resize the widget footprint so mouse targets stay stable."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "arcane_gold",
+      "hex": "#D4AF37"
+    },
+    "background": {
+      "name": "hall_maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "perfect_cyan",
+      "hex": "#00FFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d",
+    "detail_level": "medium_high",
+    "shading": "soft_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "hand_cards",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        760,
+        920
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Bottom-center five-slot hand strip with element badges, cost pips, and hover or commit state changes.",
+    "adjacent_elements": [
+      "player_student_idle_8f_8fps",
+      "player_student_reflect_ready_4f_12fps",
+      "ui_round_combo_panel_180x64"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space",
+      "facing": "centered"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 120
+    },
+    "colors_hex": [
+      "#1A1A2E",
+      "#D4AF37",
+      "#BDC3C7",
+      "#8E44AD",
+      "#00FFFF",
+      "#FF4500",
+      "#1E90FF"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 4,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Five connected card frames with badge slots, gem pips, and a slim lower cost rail.",
+      "components": [
+        "card_frames",
+        "element_badges",
+        "cost_pips",
+        "hover_glow",
+        "discard_sweep"
+      ]
+    },
+    "lighting": "Gold trim and cyan hover light sit on a deep navy card body with rare-frame violet accents."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_hand_card_strip_5x80x120.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 1600x120 px with four 400x120 frames.",
+    "Each frame contains five 80x120 card slots with even 0 px joins and no overlap.",
+    "Cost pips remain legible at 16 px diameter and retain contrast on both idle and hover states."
+  ]
+}

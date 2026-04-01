@@ -1,0 +1,220 @@
+{
+  "schema_version": "art_task@7",
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "task_id": "character.echo.affection_rest_sheet_20f",
+  "asset_name": "Echo Affection and Rest Sheet — happy, preening, sleeping, singing",
+  "category": "character",
+  "subcategory": "player_pet",
+  "priority": "P1",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": [
+    "Uses the locked 40x40 front-facing cockatiel body plan.",
+    "Maintains bright orange body and pink cheek identity in every state.",
+    "Animation timing stays gentle and readable for a healing pet-game tone."
+  ],
+  "differences": [
+    "This sheet covers reward, rest, and self-care expressions.",
+    "Feed and discomfort cues stay in the core behavior sheet."
+  ],
+  "depends_on": [
+    "character.echo.behavior_core_sheet_21f"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.echo.behavior_core_sheet_21f"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.echo.behavior_core_sheet_21f",
+      "ui.widget.status_bubble_set"
+    ]
+  },
+  "context": {
+    "role": "secondary_character_animation",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        44,
+        40
+      ]
+    },
+    "layer": "character",
+    "usage": "Companion sheet for affection feedback, sleep cycle, preening, and high-happiness singing moments.",
+    "viewpoint": {
+      "camera_angle": "front_2d_orthographic",
+      "facing": "front_facing_0deg"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#FFEC27",
+      "#FF004D",
+      "#AB5236",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#1D2B53",
+      "#7E2553"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 20,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 5,
+        "rows": 4
+      },
+      "fps_profile": {
+        "happy": 4,
+        "preening": 3,
+        "sleeping": 1,
+        "singing": 4
+      },
+      "state_ranges": [
+        {
+          "state": "happy",
+          "start_frame": 0,
+          "end_frame": 7
+        },
+        {
+          "state": "preening",
+          "start_frame": 8,
+          "end_frame": 12
+        },
+        {
+          "state": "sleeping",
+          "start_frame": 13,
+          "end_frame": 15
+        },
+        {
+          "state": "singing",
+          "start_frame": 16,
+          "end_frame": 19
+        }
+      ]
+    },
+    "effect_hooks": [
+      "Happy frames leave 4px headroom for heart particles.",
+      "Sleeping frames leave 6px right-side space for ZZZ glyphs.",
+      "Singing frames open the beak and reserve upper-right space for note icons."
+    ],
+    "shape": {
+      "silhouette": "40x40 cockatiel using the core crest, cheek patch, beak, torso, and tail footprint, with pose shifts only inside the existing outline envelope.",
+      "components": [
+        "3-point crest",
+        "round head",
+        "2x2 eyes",
+        "4px beak",
+        "4px to 6px cheek patch",
+        "oval torso",
+        "folded wing mass",
+        "two feet",
+        "6px to 8px tail"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "count": 2,
+        "shape": "2x2 pixel ovals",
+        "states": [
+          "open",
+          "half_closed",
+          "closed_sleep"
+        ],
+        "outline_hex": "#1D2B53"
+      },
+      "mouth": {
+        "type": "beak",
+        "width_px": 4,
+        "states": [
+          "closed",
+          "open_sing",
+          "soft_smile_curve"
+        ],
+        "color_hex": "#AB5236"
+      },
+      "nose": null
+    },
+    "appendages": {
+      "arms": null,
+      "legs": {
+        "count": 2,
+        "footprint_px": [
+          2,
+          3
+        ],
+        "pose": "perch_grip_or_tucked_sleep",
+        "color_hex": "#AB5236"
+      },
+      "tail": {
+        "count": 1,
+        "length_range_px": [
+          6,
+          8
+        ],
+        "direction": "down_right",
+        "shape": "tapered"
+      },
+      "accessories": "none"
+    },
+    "texture": {
+      "type": "flat_pixel_feather_clusters",
+      "dithering": "none",
+      "subclusters": 4
+    },
+    "shading": {
+      "mode": "flat",
+      "highlight_clusters_px": "0_to_2",
+      "shadow_clusters_px": "0_to_2",
+      "gradient": "none"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.echo.affection_rest_sheet_20f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 200x160px with five columns and four rows of 40x40 frames.",
+    "Happy, preening, sleeping, and singing ranges use the documented frame counts with no overlap.",
+    "Sleeping state shows the head tucked into feathers and leaves readable room for a 3x3 ZZZ cue.",
+    "Singing state reads as high-energy with raised crest and open beak at 1x scale."
+  ]
+}

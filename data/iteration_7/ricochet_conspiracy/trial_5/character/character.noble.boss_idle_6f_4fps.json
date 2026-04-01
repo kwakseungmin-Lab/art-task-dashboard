@@ -1,0 +1,158 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.noble.boss_idle_6f_4fps",
+  "asset_name": "Boss Noble Idle (6f 4fps)",
+  "category": "character",
+  "subcategory": "target_boss",
+  "priority": "P1",
+  "execution_order": 80,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620",
+    "character.noble.standard_idle_6f_4fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620",
+    "character.noble.standard_idle_6f_4fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble.standard_idle_6f_4fps",
+      "obstacles.environment.chandelier_80x24",
+      "obstacles.environment.wine_barrel_48x48"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "boss_target",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "character",
+    "usage": "Used in final stages as a 3 HP noble with a large silhouette, crown, and layered robe.",
+    "adjacent_elements": [
+      "chandelier drop zone",
+      "wine barrel blast zone"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 56,
+      "height": 64
+    },
+    "colors_hex": [
+      "#8B3A52",
+      "#D4A843",
+      "#E8D5C4",
+      "#3D2B1F",
+      "#A89880"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 4,
+      "loop": true,
+      "frame_size_px": [
+        56,
+        64
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "tall boss silhouette with wide robe base, crown spikes, and a large headpiece readable at 56x64",
+      "components": [
+        "crown",
+        "face",
+        "robe_body",
+        "sleeves",
+        "medallion",
+        "boots"
+      ]
+    },
+    "physics_tags": {
+      "target_hp": 3,
+      "shield_layers": 3,
+      "movement_mode": "path_patrol"
+    },
+    "face": {
+      "eyes": "3px dark oval pair",
+      "mouth": "2px stern line",
+      "nose": "2px wedge",
+      "beard": null
+    },
+    "appendages": {
+      "arms": "2 robe sleeves",
+      "legs": "2 robe hems with boot tips",
+      "tail": null,
+      "wings": null,
+      "accessories": [
+        "crown",
+        "medallion",
+        "shoulder_trim"
+      ]
+    },
+    "texture": {
+      "material": "heavy_robe_and_gold_trim",
+      "grain_percent": 5
+    },
+    "shading": {
+      "mode": "soft_watercolor",
+      "shadow_hex": "#6C2D40",
+      "highlight_hex": "#C27A8D"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.noble.boss_idle_6f_4fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 336x64px with 6 columns, 1 row, and 0px spacing.",
+    "Crown height stays between 8px and 10px and robe width stays between 34px and 38px in all frames.",
+    "Only #8B3A52, #D4A843, #E8D5C4, #3D2B1F, and #A89880 are used on the character sheet."
+  ]
+}

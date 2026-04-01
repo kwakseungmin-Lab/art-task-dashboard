@@ -1,0 +1,83 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.cactus.group_medium_2_static",
+  "asset_name": "Cactus — Medium group (2, static)",
+  "category": "obstacles",
+  "subcategory": "cactus",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "obstacle",
+    "layer": "obstacles",
+    "usage": "Mid-game ground obstacle variant (2 cactus cluster).",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        520,
+        68
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 68,
+      "height": 80
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7",
+      "#FF0000"
+    ],
+    "animation": null,
+    "shape_notes": [
+      "Two cacti with 4px gap; heights slightly different."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.cactus.group_medium_2_static.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "All edges are pixel-perfect (no anti-aliasing).",
+    "Uses only the defined palette colors and transparency.",
+    "Sprite fits within 68x80px bounds and aligns to whole pixels."
+  ]
+}

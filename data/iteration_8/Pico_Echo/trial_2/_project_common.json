@@ -1,0 +1,158 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "pico_echo",
+    "project_name": "Pico Echo"
+  },
+  "meta": {
+    "plan_id": "Pico_Echo__iter8__trial2",
+    "game_name": "Pico_Echo",
+    "iteration": 8,
+    "trial_index": 2,
+    "plan_dir": "trial_2",
+    "created_at_utc": "2026-03-25T16:27:21Z",
+    "git_ref": "art_task_plan/iter8_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md",
+    "run_id": "20260325_085239_53910769"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "reference_images": [
+    {
+      "label": "cockatiel_reference_photo",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Cockatiel_3.jpg",
+      "purpose": "Grounds Echo's crest, cheek patch placement, beak silhouette, and real cockatiel anatomy for the pet-care presentation."
+    },
+    {
+      "label": "pico_8_topic_art",
+      "url": "https://raw.githubusercontent.com/github/explore/main/topics/pico-8/pico-8.png",
+      "purpose": "Grounds the constrained 128x128 retro framing and tiny handheld-style readability required by the game."
+    },
+    {
+      "label": "pixel_art_topic_art",
+      "url": "https://raw.githubusercontent.com/github/explore/main/topics/pixel-art/pixel-art.png",
+      "purpose": "Grounds crisp nearest-neighbor pixel clusters, flat shading, and single-pixel outline discipline across world, pet, prop, and HUD assets."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 2D with ImagePlugin::default_nearest(), SpriteBundle for world and prop art, TextureAtlasLayout plus SpriteSheetBundle for animated character states, and ImageBundle for HUD overlays.",
+    "ecs_model": "Organize art handles with typed resources/components such as EchoState, CageLayer, FeedState, and HappinessHud so gameplay swaps visuals by stable task identity rather than ad-hoc pointers.",
+    "asset_loading": "Preload every texture through AssetServer in a dedicated Loading state and store handles in typed resources keyed by asset_key before gameplay starts.",
+    "runtime_notes": [
+      "Run visual updates on a fixed 60 FPS gameplay cadence while sprite-sheet animation timers use their declared per-asset fps.",
+      "Nearest-neighbor sampling and whole-pixel transform snapping are mandatory so 128x128 output remains crisp on mobile and web.",
+      "Keep gameplay state transitions separate from art bundle definitions so care tuning can swap visuals without schema drift."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "care_feed_loop",
+      "label": "Feed Care Loop",
+      "description": "Echo remains visible in the cage, requests seed when hungry, and recovers happiness after the bowl is replenished.",
+      "critical_states": [
+        "idle",
+        "hungry",
+        "feed_request",
+        "feeding_complete"
+      ],
+      "task_ids": [
+        "task_id_008020001",
+        "task_id_008020009",
+        "task_id_008020019",
+        "task_id_008020025"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008020025"
+      ]
+    },
+    {
+      "mechanic_id": "ambient_pet_watch_loop",
+      "label": "Ambient Pet Watch Loop",
+      "description": "The player observes Echo inside a calm cage scene while the happiness meter stays readable as a persistent relationship indicator.",
+      "critical_states": [
+        "idle",
+        "ambient_wait",
+        "relationship_check"
+      ],
+      "task_ids": [
+        "task_id_008020001",
+        "task_id_008020019",
+        "task_id_008020025"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_008020025"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_008020001",
+      "asset_key": "character_echo_idle_4f_2fps",
+      "category": "character",
+      "file": "character/character_echo_idle_4f_2fps.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008020009",
+      "asset_key": "obstacles_cage_seed_bowl_3state",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_cage_seed_bowl_3state.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008020019",
+      "asset_key": "world_cage_background_static",
+      "category": "world",
+      "file": "world/world_cage_background_static.json",
+      "execution_order": 210,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_008020025",
+      "asset_key": "ui_hud_happiness_bar_128x1",
+      "category": "ui",
+      "file": "ui/ui_hud_happiness_bar_128x1.json",
+      "execution_order": 320,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

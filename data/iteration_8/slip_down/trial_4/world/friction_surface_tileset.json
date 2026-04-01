@@ -1,0 +1,162 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040402",
+  "asset_key": "friction_surface_tileset",
+  "asset_name": "Friction Surface Tileset",
+  "category": "world",
+  "subcategory": "collision_tileset",
+  "priority": "P0",
+  "execution_order": 2,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Every tile snaps to a 16x16 px grid and keeps collision silhouettes easy to read during high-speed descent.",
+    "High-friction stone, low-friction slick floor, mid-friction moss floor, and safe ledge surfaces all stay within one dungeon palette family."
+  ],
+  "differences": [
+    "This tileset packs four gameplay surface classes with explicit material contrast so players can read friction state without UI text."
+  ],
+  "depends_on": [
+    "task_id_804040401"
+  ],
+  "blocks": [
+    "task_id_804040403",
+    "task_id_804040404",
+    "task_id_804040405",
+    "task_id_804040406",
+    "task_id_804040408",
+    "task_id_804040409",
+    "task_id_804040411"
+  ],
+  "blocked_by": [
+    "task_id_804040401"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040401",
+      "task_id_804040404",
+      "task_id_804040405",
+      "task_id_804040406",
+      "task_id_804040408",
+      "task_id_804040409",
+      "task_id_804040411"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Exact wall, floor, and ledge friction roles plus 16x16 tile size grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Stone wear, damp moss, and cold slick-floor contrast grounding."
+    },
+    {
+      "label": "Slip Down S3 GDD",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/slip_down.md",
+      "purpose": "Surface material list and safety ledge function grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use bevy_ecs_tilemap with one texture sheet and per-tile metadata that tags friction coefficients in gameplay code.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "TilemapBundle",
+      "TileTextureIndex",
+      "FrictionSurfaceTag"
+    ],
+    "asset_loading": "Load world/friction_surface_tileset.png into the tilemap texture atlas and bind material metadata from a sidecar table keyed by tile index.",
+    "runtime_notes": [
+      "Tile size is exactly 16x16 px.",
+      "Reserve tile groups for stone wall, slick floor, moss floor, and one-way ledge states.",
+      "Do not introduce sub-pixel edges because the project uses nearest-neighbor scaling."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Core collision art for walls, floors, and ledges that define friction-controlled descent routes.",
+    "screen_position": {
+      "anchor": "tile_grid_origin",
+      "x_px": 0,
+      "y_px": 0
+    },
+    "layer": {
+      "name": "world_collision",
+      "z_index": 10
+    },
+    "usage": "Used in every stage segment to communicate surface friction before player contact."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 256,
+      "height": 112
+    },
+    "colors_hex": [
+      "#3B3347",
+      "#4A90A4",
+      "#4E5940",
+      "#D6D0C4",
+      "#0D0D0F"
+    ],
+    "animation": {
+      "mode": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "friction_surface_tileset.png",
+      "format": "png",
+      "size_px": {
+        "width": 256,
+        "height": 112
+      },
+      "notes": "Sixteen columns by seven rows of 16x16 tiles covering wall, floor, ledge, and transition variants."
+    },
+    {
+      "artifact": "friction_surface_tileset_legend.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Tile index map that labels stone_wall, slick_floor, moss_floor, and safe_ledge groups."
+    }
+  ],
+  "acceptance_criteria": [
+    "Tileset size is exactly 256x112 px and every tile aligns to a 16x16 px grid.",
+    "Stone wall, slick floor, moss floor, and safe ledge groups are visually distinct under grayscale preview and color preview.",
+    "Legend file names the four surface classes with indices that match the authored sheet layout."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scaling supported",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "8-bit pixel art T-Rex dinosaur",
+      "features": "short front legs, large eyes, thick tail",
+      "outline": "2px included in dimensions",
+      "collision_margin": "5px smaller than sprite for forgiveness"
+    }
+  },
+  "asset": {
+    "asset_id": "player_jump",
+    "asset_name": "Player Jump Pose",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Player character airborne state when jumping over obstacles",
+      "screen_position": "Fixed x=100px, y varies from 0 to ~90px above ground during jump arc",
+      "adjacent_elements": ["ground", "cactus_small", "cactus_medium", "cactus_large", "background_sky"],
+      "usage_scenario": "Displayed when player presses Space/Tap to jump, remains until landing on ground"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "88px",
+        "height": "94px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "T-Rex dinosaur with both feet off ground",
+      "texture": "Pixel art, solid color fill",
+      "outline": "2px thick, included in sprite dimensions",
+      "shadow": "none",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Single static frame showing jump pose - both legs tucked, body slightly arched"
+      },
+      "details": "Both feet lifted off ground, legs slightly bent, tail curved upward, eyes open"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_idle", "player_duck", "player_dead", "ground", "cactus_small", "cactus_medium", "cactus_large"],
+      "shared_with": "Same dimensions as player_run and player_idle",
+      "differences_from": "player_run is animated (2 frames), player_duck has different dimensions (118x60px)"
+    },
+    "explicit_negations": [
+      "No motion blur or jump trails",
+      "No squash and stretch animation",
+      "No rotation during jump arc",
+      "No facial expression changes",
+      "No additional jump effects or particles",
+      "No shadow on ground during airborne state"
+    ]
+  }
+}

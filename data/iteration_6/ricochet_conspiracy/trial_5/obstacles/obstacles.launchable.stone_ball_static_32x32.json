@@ -1,0 +1,87 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "obstacles.launchable.stone_ball_static_32x32",
+  "asset_name": "Launchable Object — Stone Ball (32x32 static)",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "launchable_object",
+    "layer": "obstacles",
+    "usage": "Primary high-bounce launchable object; used by player to hit nobles and trigger ricochets.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#A89880",
+      "#3D2B1F",
+      "#E8D5C4"
+    ],
+    "animation": null,
+    "physics_tags": {
+      "mass_relative": 5,
+      "base_restitution": 0.9
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.stone_ball_static_32x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 32x32px; circular silhouette is centered and fits within bounds with >=1px padding.",
+    "Shading is soft and readable; do not include motion blur (rotation handled by engine).",
+    "Uses only listed colors; outline/edge definition uses #3D2B1F for clarity on #E8D5C4 background."
+  ]
+}

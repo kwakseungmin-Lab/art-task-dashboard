@@ -1,0 +1,140 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.noble_shield",
+  "asset_name": "Shield Noble Target",
+  "category": "character",
+  "subcategory": "noble_target",
+  "priority": "P0",
+  "execution_order": 18,
+  "variant_of": null,
+  "shared_properties": [
+    "Canvas target is 1280x720 px at 60 fps.",
+    "Core palette copy is embedded in this file with primary #3D2B1F, background #E8D5C4, accent #D4A843.",
+    "Outline stroke uses 2 px dark brown edge color #3D2B1F."
+  ],
+  "differences": [
+    "This character reserves frontal space for a shield read and directional hit feedback."
+  ],
+  "depends_on": [
+    "world.background.midlayer_court",
+    "world.foreground.floor_tiles"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.midlayer_court",
+    "world.foreground.floor_tiles"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.noble_basic",
+      "obstacles.environment.stone_wall"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "project_primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "project_background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "project_accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_vector_sprite",
+    "detail_level": "medium_high",
+    "shading": "flat_fill_with_soft_bloom",
+    "outline": "2px #3D2B1F"
+  },
+  "context": {
+    "role": "front_block_target_character",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 980,
+      "y": 416,
+      "width": 40,
+      "height": 52,
+      "anchor": "top_left"
+    },
+    "layer": "midground_character",
+    "usage": "Used from stage 6-1 onward for directional immunity puzzles.",
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_left"
+    },
+    "adjacent_elements": [
+      "world.foreground.floor_tiles",
+      "obstacles.environment.mirror",
+      "ui.screen.result_panel"
+    ]
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 52
+    },
+    "colors_hex": [
+      "#8BA7C7",
+      "#D4A843",
+      "#F5F0E8",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "has_animation": true,
+      "default_state": "idle",
+      "states": [
+        {
+          "name": "idle",
+          "frame_count": 6,
+          "fps": 4
+        },
+        {
+          "name": "block_flash",
+          "frame_count": 2,
+          "fps": 10
+        },
+        {
+          "name": "elimination",
+          "frame_count": 8,
+          "fps": 12
+        }
+      ]
+    },
+    "notes": [
+      "Shield face width is 16 px and covers the front side from chest to knee.",
+      "Block flash uses #F5F0E8 at 70% opacity on frame 1 and #D4A843 at 80% opacity on frame 2."
+    ],
+    "shape": {
+      "silhouette": "defensive figure with a forward shield arc and a compact body stance",
+      "components": [
+        "head",
+        "torso armor",
+        "front shield",
+        "rear arm",
+        "leg stance"
+      ]
+    }
+  },
+  "deliverables": [
+    "Idle loop 6 frames at 4 fps.",
+    "2-frame block flash response.",
+    "8-frame elimination burst sequence."
+  ],
+  "acceptance_criteria": [
+    "Character size is exactly 40x52 px.",
+    "Shield face width is exactly 16 px on the idle silhouette.",
+    "Block flash contains 2 frames at 10 fps."
+  ]
+}

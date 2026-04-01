@@ -1,0 +1,140 @@
+{
+  "task_id": "pico_echo.ui.icon_clean",
+  "asset_name": "Care icon icon_clean",
+  "category": "ui",
+  "subcategory": "icon",
+  "description": "8x8 transparent. #C2C3C7 handle at x=4,y=1..5; brush x=2..6,y=6..7.",
+  "project": {
+    "game_name": "pico_echo",
+    "game_title": "Pico Echo",
+    "art_style": {
+      "style_family": "pixel_art",
+      "style_reference": "PICO-8 default palette",
+      "view": "2D_front_facing",
+      "canvas_px": {
+        "width": 128,
+        "height": 128
+      },
+      "color_constraints": {
+        "mode": "indexed_color",
+        "max_colors": 16,
+        "palette_name": "PICO8_16",
+        "palette_hex": [
+          "#000000",
+          "#1D2B53",
+          "#7E2553",
+          "#008751",
+          "#AB5236",
+          "#5F574F",
+          "#C2C3C7",
+          "#FFF1E8",
+          "#FF004D",
+          "#FFA300",
+          "#FFEC27",
+          "#00E436",
+          "#29ADFF",
+          "#83769C",
+          "#FF77A8",
+          "#FFCCAA"
+        ],
+        "alpha": "binary"
+      },
+      "rendering": {
+        "scaling": "nearest_neighbor",
+        "outline": {
+          "enabled": true,
+          "color": "#1D2B53",
+          "thickness_px": 1
+        },
+        "shading": {
+          "enabled": true,
+          "steps": 2,
+          "shadow_color": "#5F574F"
+        }
+      }
+    },
+    "layer_order_top_to_bottom": [
+      "ui",
+      "vfx",
+      "character",
+      "object",
+      "environment"
+    ],
+    "source_gdd_paths": [
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Echo.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md"
+    ]
+  },
+  "deliverables": [
+    {
+      "path": "game_assets/pico_echo/ui/icon_clean.png",
+      "format": "PNG",
+      "type": "icon"
+    }
+  ],
+  "specs": {
+    "dimensions_px": "8x8",
+    "format": "PNG",
+    "color_mode": "indexed",
+    "max_colors": 16,
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "animation": null
+  },
+  "context": {
+    "role": "care button icon",
+    "screen_location": "within care panel",
+    "adjacent_elements": [
+      "care_menu_panel"
+    ],
+    "layer": "ui",
+    "usage": "button"
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.ui.care_menu_panel"
+    ],
+    "shared_constraints": [
+      "8x8"
+    ],
+    "differences": [
+      "icon_clean"
+    ]
+  },
+  "depends_on": [
+    "pico_echo.ui.care_menu_panel"
+  ],
+  "execution_order": 25,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "pico_echo.ui.care_menu_panel"
+  ],
+  "acceptance_criteria": [
+    "PNG 8x8px",
+    "Transparent bg",
+    "Uses specified colors"
+  ],
+  "source_gdd": [
+    "HUD.md",
+    "CareSystem.md"
+  ]
+}

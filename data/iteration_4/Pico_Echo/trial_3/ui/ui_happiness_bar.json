@@ -1,0 +1,158 @@
+{
+  "project": {
+    "game_name": "pico_echo",
+    "project_title": "Pico Echo",
+    "task_plan_type": "Art Task Plan",
+    "task_plan_output_version": "v3",
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/",
+    "source_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+    "canvas": {
+      "resolution_px": "128x128",
+      "pixel_aspect_ratio": "1:1",
+      "coordinate_origin": "top_left",
+      "x_range_px": "0-127",
+      "y_range_px": "0-127",
+      "render_scale_rule": "nearest_neighbor_only"
+    },
+    "view": {
+      "camera_angle": "front",
+      "perspective": "none_2d"
+    },
+    "style": {
+      "art_style": "pixel_art",
+      "color_mode": "indexed",
+      "max_unique_colors": 16,
+      "palette_hex": [
+        "#FFA300",
+        "#FF004D",
+        "#FFEC27",
+        "#AB5236",
+        "#FFF1E8",
+        "#C2C3C7",
+        "#1D2B53",
+        "#FFCCAA",
+        "#5F574F",
+        "#00E436",
+        "#7E2553"
+      ],
+      "anti_aliasing": "forbidden",
+      "gradient": "forbidden",
+      "dither": "forbidden_unless_explicit",
+      "outline": "none_unless_explicit"
+    },
+    "file_spec": {
+      "format": "png",
+      "background": {
+        "sprites": "transparent_alpha_0",
+        "full_screen_background": "opaque"
+      }
+    },
+    "layer_order": [
+      "background",
+      "cage",
+      "character",
+      "vfx",
+      "ui"
+    ],
+    "engine_notes": {
+      "recommended_sprite_anchor": "center",
+      "default_anchor_px": [
+        64,
+        64
+      ]
+    }
+  },
+  "task_id": "pico_echo.ui.ui_happiness_bar",
+  "asset_name": "UI_HappinessBar_Primitives",
+  "category": "ui",
+  "subcategory": "hud",
+  "description": "Define HUD happiness bar drawing primitives for 128x128 screen: bar_x=4, bar_y=126, bar_width=120, bar_height=2. Background color #5F574F. Foreground color by happiness: 90-100 #00E436; 70-89 #FFEC27; 50-69 #FFA300. Numeric text is not included as sprite.",
+  "deliverables": [
+    {
+      "type": "ui_style_spec",
+      "format": "json",
+      "path": "GameAssets/Pico_Echo/ui/happiness_bar_style.json",
+      "dimensions_px": "N/A",
+      "background": "N/A"
+    }
+  ],
+  "specs": {
+    "dimensions": "N/A",
+    "screen_placement": {
+      "happiness_bar": {
+        "x": 4,
+        "y": 126,
+        "w": 120,
+        "h": 2
+      },
+      "care_menu_buttons": [
+        {
+          "type": "feed",
+          "x": 96,
+          "y": 108,
+          "icon_size": "8x8"
+        },
+        {
+          "type": "clean",
+          "x": 108,
+          "y": 108,
+          "icon_size": "8x8"
+        },
+        {
+          "type": "pet",
+          "x": 120,
+          "y": 108,
+          "icon_size": "8x8"
+        }
+      ],
+      "status_bubble": {
+        "relative_to_echo_center": [
+          22,
+          -22
+        ]
+      }
+    }
+  },
+  "context": {
+    "role": "hud",
+    "screen_location": "overlay",
+    "adjacent_elements": [
+      "Echo sprite",
+      "cage bars"
+    ],
+    "layer": "ui",
+    "usage": {
+      "always_visible": true,
+      "event_visible": false
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "pico_echo.character.echo_idle",
+      "pico_echo.environment.cage_background"
+    ],
+    "shared_constraints": [
+      "palette_hex == project.style.palette_hex"
+    ],
+    "differences": [
+      "ui_element == ui_happiness_bar"
+    ]
+  },
+  "depends_on": [],
+  "execution_order": 19,
+  "priority": "P0",
+  "blocks": [
+    "pico_echo.ui.ui_care_menu_panel",
+    "pico_echo.ui.ui_care_icon_feed",
+    "pico_echo.ui.ui_care_icon_clean",
+    "pico_echo.ui.ui_care_icon_pet",
+    "pico_echo.ui.ui_status_bubble_frame",
+    "pico_echo.ui.ui_status_icon_seed",
+    "pico_echo.ui.ui_status_icon_sleep"
+  ],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "icon_size_px == 8x8 when applicable",
+    "status_bubble_size_px == 12x10 when applicable"
+  ]
+}

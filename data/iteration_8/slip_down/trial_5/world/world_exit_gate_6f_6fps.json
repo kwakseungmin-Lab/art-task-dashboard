@@ -1,0 +1,154 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050012",
+  "asset_name": "Exit Gate Pulse Loop",
+  "category": "world",
+  "subcategory": "goal_gate",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "shared_properties": [
+    "Gate footprint stays 32x32px to match the escape object size in the GDD.",
+    "Dungeon palette remains dark around the edges so the goal aperture can glow clearly.",
+    "Outline weight stays crisp at 1px for stable read at 4x upscale."
+  ],
+  "differences": [
+    "Sprite sheet is 192x32px with six pulse frames in a single row.",
+    "Gold gate bars and interior light ramp up and down to signal the final objective.",
+    "A bright inner aperture contrasts with the surrounding abyss tones to pull attention downward."
+  ],
+  "depends_on": [
+    "task_id_008050001"
+  ],
+  "blocks": [
+    "task_id_008050018"
+  ],
+  "blocked_by": [
+    "task_id_008050001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050001",
+      "task_id_008050018"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Prisoner White",
+      "hex": "#D6D0C4"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 320,
+      "height": 180
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_art",
+    "detail_level": "low_medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "goal_exit_gate",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        144,
+        24
+      ]
+    },
+    "layer": "world_mid",
+    "usage": "Goal object placed in the deepest shaft segment to trigger the clear state on contact.",
+    "adjacent_elements": [
+      "task_id_008050001",
+      "task_id_008050018"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "forward"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 32
+    },
+    "colors_hex": [
+      "#C8A84B",
+      "#0D0D0F",
+      "#1A1A2E",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        32
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Square barred gate with a bright inner opening and stone border.",
+      "tiling": "Not tiled.",
+      "collision_read": "Outer frame keeps a stable 32x32 silhouette while the interior pulse changes."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_exit_gate_6f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 192x32px with six 32x32px frames.",
+    "The inner light pulse stays readable at 6 FPS without obscuring the gate bars.",
+    "The goal object remains visibly distinct from hazard colors through gold-dominant highlights."
+  ],
+  "asset_key": "world_exit_gate_6f_6fps",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "slip_down_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194208/slip_down/_images/moodboard.png",
+      "purpose": "Grounds stone texture breakup, low-key lighting, and vertical shaft composition for the active environment asset."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle on a goal entity with a separate trigger collider.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Transform",
+      "Visibility",
+      "GoalGateTag"
+    ],
+    "asset_loading": "Load through AssetServer during the Loading state and bind it to the exit gate prefab.",
+    "runtime_notes": [
+      "Use Bevy 0.13 with ImagePlugin::default_nearest() so every asset stays pixel-perfect at 4x upscale.",
+      "Drive gameplay motion in FixedUpdate at 60 FPS and keep art timing on deterministic timers.",
+      "Keep clear-trigger logic in gameplay code and let the sprite sheet communicate discoverability only."
+    ]
+  }
+}

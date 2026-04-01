@@ -1,0 +1,170 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_804040409",
+  "asset_key": "torch_pickup_sheet",
+  "asset_name": "Torch Pickup Sheet",
+  "category": "obstacles",
+  "subcategory": "healing_pickup",
+  "priority": "P2",
+  "execution_order": 9,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Torch pickup keeps the 8x16 px footprint described in the GDD and uses the same amber family as the HP icon.",
+    "Flame motion stays subtle so the pickup remains legible in narrow shafts and on dark floors."
+  ],
+  "differences": [
+    "This sheet adds a four-frame flame loop that distinguishes the heal pickup from static wall torches in the backdrop."
+  ],
+  "depends_on": [
+    "task_id_804040401",
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "blocks": [
+    "task_id_804040410"
+  ],
+  "blocked_by": [
+    "task_id_804040401",
+    "task_id_804040402",
+    "task_id_804040404"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_804040402",
+      "task_id_804040404",
+      "task_id_804040410",
+      "task_id_804040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Slip Down GDD mirror",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/slip_down.md?raw=1",
+      "purpose": "Pickup size, heal rule, and amber color grounding."
+    },
+    {
+      "label": "Slip Down moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/slip_down/_images/moodboard.png?raw=1",
+      "purpose": "Warm light contrast inside cold dungeon spaces grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout for the flame loop and attach the visual to a collectible entity with a simple trigger collider.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Transform",
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "CollectibleMarker"
+    ],
+    "asset_loading": "Load obstacles/torch_pickup_sheet.png through AssetServer and bind it to the heal-pickup visual recipe keyed by asset_key.",
+    "runtime_notes": [
+      "Each frame is 8x16 px.",
+      "Loop runs at 8 FPS.",
+      "Glow should not exceed the 8x16 frame bounds."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Dungeon Stone",
+      "hex": "#3B3347"
+    },
+    "background": {
+      "name": "Abyss Black",
+      "hex": "#0D0D0F"
+    },
+    "accent": {
+      "name": "Chain Orange",
+      "hex": "#E07B39"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "retro_pixel_dungeon_platformer",
+    "detail_level": "medium",
+    "shading": "selective_1px_dither",
+    "outline": "1px_dark_outline"
+  },
+  "context": {
+    "role": "Rare heal pickup that restores one HP when touched.",
+    "screen_position": {
+      "anchor": "tile_grid_origin",
+      "x_px": 0,
+      "y_px": 0
+    },
+    "layer": {
+      "name": "obstacle_pickup",
+      "z_index": 26
+    },
+    "usage": "Placed sparingly in stages where the player has lost health and needs a recovery option."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 16
+    },
+    "colors_hex": [
+      "#F5A623",
+      "#3D2B00",
+      "#0D0D0F",
+      "#D6D0C4"
+    ],
+    "animation": {
+      "mode": "stateful_sprite_sheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "columns": 4,
+        "frame_size_px": {
+          "width": 8,
+          "height": 16
+        }
+      },
+      "state_clips": [
+        {
+          "state": "idle_loop",
+          "start_frame": 0,
+          "end_frame": 3,
+          "fps": 8,
+          "loop": true
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "torch_pickup_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 32,
+        "height": 16
+      },
+      "notes": "Four 8x16 frames for the heal-pickup flame loop."
+    },
+    {
+      "artifact": "torch_pickup_sheet_clips.json",
+      "format": "json",
+      "size_px": {
+        "width": 0,
+        "height": 0
+      },
+      "notes": "Single idle_loop clip definition for the heal pickup."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 32x16 px with four 8x16 frames.",
+    "Amber flame remains readable against the abyss background and does not exceed the frame bounds.",
+    "Pickup silhouette stays distinct from wall lighting because the handle and flame shape remain centered in all frames."
+  ]
+}

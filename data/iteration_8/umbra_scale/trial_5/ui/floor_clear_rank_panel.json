@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008050012",
+  "asset_key": "floor_clear_rank_panel",
+  "asset_name": "Floor Clear Rank Panel",
+  "category": "ui",
+  "subcategory": "modal_results_panel",
+  "priority": "P1",
+  "execution_order": 120,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The results panel follows the package palette, gold trim language, and transparent-background UI compositing rules.",
+    "All text-safe zones are deterministic so runtime strings can be bound without manual layout nudging.",
+    "The modal assumes a fixed 1920x1080 target and centered presentation above gameplay."
+  ],
+  "differences": [
+    "This asset is a large post-floor modal rather than a persistent gameplay HUD panel.",
+    "The atlas includes rank-accent variants so celebratory color emphasis can change without altering the text layout.",
+    "Decorative corners are more pronounced than the HUD because the panel appears only after gameplay control is suspended."
+  ],
+  "depends_on": [
+    "task_id_008050008",
+    "task_id_008050009"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008050008",
+    "task_id_008050009"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008050008",
+      "task_id_008050009"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/umbra_scale.md",
+      "purpose": "Grounds the shadow survival loop, mirror and prism puzzle rules, scale targets, HUD placements, and Bevy runtime constraints for Umbra Scale."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Grounds the twilight art deco tower mood, silhouette contrast, gold trims, and hard-edge lighting style."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_2x2",
+    "ecs_components": [
+      "FloorClearPanelTag",
+      "UiImage",
+      "Style",
+      "Visibility"
+    ],
+    "asset_loading": "Load floor_clear_rank_panel.png during Loading and register atlas slices for neutral panel, S-rank accent, A-rank accent, and shard-summary variant states.",
+    "runtime_notes": [
+      "Render the panel above gameplay and pause menus as a centered modal after the exit door transition finishes.",
+      "Leave safe zones for FLOOR, clear time, Shadow Rank, and Shadow Shard totals without stretching ornamental corners.",
+      "Keep the panel readable against both dark gameplay frames and bright exposure reset flashes by using a deep panel body and gold rim."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#2D1B4E"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#C9A84C"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_silhouette_art_deco",
+    "detail_level": "mid_readable_puzzle",
+    "shading": "hard_edge_shadow",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "post_floor_results_modal",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "ui",
+    "usage": "Shown after floor completion to report rank, time, and shard count before the player chooses next floor or returns to menu."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#1C1826",
+      "#0D0B14",
+      "#2D1B4E",
+      "#C9A84C",
+      "#D4682A",
+      "#F5EFE0",
+      "#1A4A52"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        960,
+        540
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    "layout_notes": [
+      "Reserve a centered 440x72 px title zone for FLOOR CLEAR or FLOOR XX / 30.",
+      "Reserve separate 280x56 px zones for clear time, rank letter, and shard count with 32 px vertical spacing.",
+      "Keep the lower 220 px band free for two button labels without overlapping the decorative frame."
+    ],
+    "modal_profile": {
+      "fade_in_seconds": 0.6,
+      "button_count": 2,
+      "primary_text_scale_px": 48
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/floor_clear_rank_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 1920x1080 px for four 960x540 frames with no frame gutter.",
+    "Every frame preserves clear title, stat, and button-safe zones with no ornament overlap.",
+    "Rank-accent variants remain readable at 75% preview scale and clearly differentiate neutral, S-rank, and A-rank presentations."
+  ]
+}

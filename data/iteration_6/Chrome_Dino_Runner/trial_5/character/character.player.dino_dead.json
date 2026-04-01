@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.dino_dead",
+  "asset_name": "Player Dino - Dead",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": "character.player.dino_idle",
+  "shared_properties": {
+    "palette_primary_hex": "#535353",
+    "canvas_resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "outline": "2px",
+    "base_bounding_box_px": {
+      "width": 88,
+      "height": 94
+    }
+  },
+  "differences": {
+    "animation": null,
+    "pose_notes": [
+      "neutral body",
+      "dead eyes mark"
+    ]
+  },
+  "depends_on": [
+    "character.player.dino_idle",
+    "character.player.dino_run"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_idle",
+      "character.player.dino_run"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player",
+    "layer": "gameplay",
+    "usage": "Displayed when collision occurs and game enters game-over state",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 100,
+      "y": 0,
+      "origin": "ground_baseline"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_dead.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Single-frame sprite is exactly 88x94px and visually communicates failure (eyes closed or X-shaped) without extra colors.",
+    "Feet baseline and bounding box match the run/idle baseline to prevent position shift at the moment of death.",
+    "Uses only #535353 for dino pixels and transparent/#F7F7F7 for non-dino pixels; no anti-aliasing."
+  ]
+}

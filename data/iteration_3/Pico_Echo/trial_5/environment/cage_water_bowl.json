@@ -1,0 +1,98 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "green": "#00E436",
+      "purple": "#7E2553"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px",
+      "note": "Full screen canvas, individual elements vary"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bars": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "rendering": "static (no animation)",
+      "layer": "background (behind Echo)",
+      "style": "minimal, functional pixel art",
+      "perspective": "none (flat 2D front view)"
+    }
+  },
+  "asset": {
+    "asset_id": "cage_water_bowl",
+    "asset_name": "Cage Water Bowl",
+    "context": {
+      "game": "Pico Echo - virtual pet game where player cares for Echo the cockatiel",
+      "role": "Decorative water container, non-interactive environmental detail",
+      "screen_position": "Lower left at x=40px, y=100px (to the right of food bowl)",
+      "adjacent_elements": [
+        "cage_food_bowl (to the left at x=16px, y=100px)",
+        "cage_floor (below at y=110px)",
+        "cage_background"
+      ],
+      "usage_scenario": "Static decorative element that adds realism to cage environment. Always visible, always full. Not interactive in current game version. Provides visual balance with food bowl."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "12px",
+        "height": "10px"
+      },
+      "colors": {
+        "bowl": "#AB5236",
+        "water": "#29ADFF",
+        "water_highlight": "#FFF1E8"
+      },
+      "shape": "Small bowl similar to food bowl but smaller. Oval opening at top (10-12px wide), narrower base (6-8px wide). Contains water represented by blue color.",
+      "texture": "Pure pixel art, simple",
+      "outline": "No outline stroke",
+      "shadow": "No shadow",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static object, always shows full water state"
+      },
+      "details": "Bowl rim: #AB5236, 1px thick. Water interior: #29ADFF filling bowl. Optional: 1-2 white pixels (#FFF1E8) on water surface as highlight to suggest liquid. Bowl is 12px wide, 10px tall. Positioned at x=40px, y=100px."
+    },
+    "relationships": {
+      "related_assets": [
+        "cage_food_bowl",
+        "cage_floor",
+        "cage_background"
+      ],
+      "shared_with": "Similar bowl shape to food bowl",
+      "differences_from": "Unlike food bowl: smaller (12x10 vs 16x12), contains water (not seeds), non-interactive, no state changes. Unlike perch: on floor level, decorative only."
+    },
+    "explicit_negations": [
+      "No 3D shading or gradients",
+      "No realistic water ripples",
+      "No reflections",
+      "No water level changes",
+      "No drinking animation",
+      "No decorative patterns",
+      "No perspective distortion",
+      "No water splashes or particles"
+    ]
+  }
+}

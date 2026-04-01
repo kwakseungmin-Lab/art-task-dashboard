@@ -1,0 +1,153 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040412",
+  "asset_key": "combo_damage_popup_sheet",
+  "asset_name": "Combo Damage Popup Sheet",
+  "category": "ui",
+  "subcategory": "feedback_ui",
+  "priority": "P1",
+  "execution_order": 12,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Popup frames use 160x80 px cells and stay legible against both the dark hall background and the cyan counter burst.",
+    "Typography panels keep centered numeric readouts with the copied package palette preserved in the file."
+  ],
+  "differences": [
+    "This sheet provides eight frames for Perfect, Good, combo count, and damage-number popups with one-shot fade timing."
+  ],
+  "depends_on": [
+    "task_id_825040408",
+    "task_id_825040409",
+    "task_id_825040411"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_825040408",
+    "task_id_825040409",
+    "task_id_825040411"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040404",
+      "task_id_825040405",
+      "task_id_825040406",
+      "task_id_825040408",
+      "task_id_825040409",
+      "task_id_825040411"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "Damage popup role, combo counter location, and one-second display duration grounding."
+    },
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Glow readability and layered feedback contrast grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with eight frames and despawn or hide the UI node after the non-looping popup animation completes.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "ImageNode",
+      "TextureAtlas",
+      "AnimationTimer",
+      "DamagePopupUi"
+    ],
+    "asset_loading": "Load ui/combo_damage_popup_sheet.png through AssetServer and instance the atlas near hit positions or combo anchors.",
+    "runtime_notes": [
+      "Popup lifetime target is 1.0 second at 8 fps.",
+      "Use screen-space spawn offsets that start 24 px above the hit point.",
+      "Frame 0 is the strongest alpha and frame 7 is nearly transparent."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Floating popup atlas for damage numbers, Perfect or Good labels, and combo count bursts.",
+    "screen_position": {
+      "anchor": "top_left",
+      "x_px": 260,
+      "y_px": 180
+    },
+    "layer": {
+      "name": "ui_feedback",
+      "z_index": 84
+    },
+    "usage": "Spawned after timing judgement and enemy hit confirmation, then faded out over one second."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 640,
+      "height": 160
+    },
+    "colors_hex": [
+      "#00FFFF",
+      "#ADFF2F",
+      "#FFFACD",
+      "#E74C3C",
+      "#1A1A2E"
+    ],
+    "animation": {
+      "mode": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 8,
+      "loop": false,
+      "layout": {
+        "rows": 2,
+        "columns": 4,
+        "frame_size_px": {
+          "width": 160,
+          "height": 80
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "combo_damage_popup_sheet.png",
+      "format": "png",
+      "size_px": {
+        "width": 640,
+        "height": 160
+      },
+      "notes": "Eight-frame popup atlas for combo and damage feedback."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 640x160 px with eight 160x80 frames arranged as 4 columns by 2 rows.",
+    "Visible feedback labels use only #00FFFF, #ADFF2F, #FFFACD, #E74C3C, and #1A1A2E.",
+    "Frame alpha descends monotonically from frame 0 through frame 7 for deterministic fade timing."
+  ]
+}

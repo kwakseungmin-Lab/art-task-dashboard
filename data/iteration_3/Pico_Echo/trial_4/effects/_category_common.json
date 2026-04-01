@@ -1,0 +1,20 @@
+{
+  "category": "effects",
+  "base_size": {
+    "width": "2-4px",
+    "height": "2-5px"
+  },
+  "color_scheme": {
+    "primary": "#FF004D",
+    "secondary": "#FFEC27",
+    "accent": "#FFF1E8"
+  },
+  "shared_attributes": {
+    "sprite_type": "particle effects and visual feedback",
+    "animation_method": "frame-by-frame with movement",
+    "layer_order": 4,
+    "rendering": "top layer, temporary display",
+    "lifespan": "0.5-2 seconds typical",
+    "behavior": "spawn, animate, then despawn"
+  }
+}

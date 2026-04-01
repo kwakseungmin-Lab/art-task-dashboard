@@ -1,0 +1,21 @@
+{
+  "base_size": {
+    "width": "2-4px",
+    "height": "2-5px"
+  },
+  "color_scheme": {
+    "heart": "#FF004D",
+    "note": "#FFEC27",
+    "zzz": "#7E2553",
+    "feather": "#FFA300",
+    "dust": "#C2C3C7",
+    "sparkle": "#FFF1E8"
+  },
+  "shared_attributes": {
+    "sprite_type": "particle effects",
+    "rendering": "top layer, temporary",
+    "style": "simple iconic shapes, PICO-8 aesthetic",
+    "behavior": "spawn, animate, fade/disappear",
+    "lifespan": "0.5-2 seconds"
+  }
+}

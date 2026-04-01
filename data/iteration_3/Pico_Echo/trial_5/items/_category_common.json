@@ -1,0 +1,16 @@
+{
+  "base_size": {
+    "width": "3px",
+    "height": "3px",
+    "note": "Small consumable/interactive objects"
+  },
+  "color_scheme": {
+    "seed": "#FFA300",
+    "poop": "#AB5236"
+  },
+  "shared_attributes": {
+    "rendering": "static sprites",
+    "style": "minimal pixel art",
+    "layer": "foreground (on top of environment)"
+  }
+}

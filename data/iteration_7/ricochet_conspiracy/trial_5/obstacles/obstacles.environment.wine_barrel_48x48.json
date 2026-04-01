@@ -1,0 +1,129 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.environment.wine_barrel_48x48",
+  "asset_name": "Wine Barrel (48x48)",
+  "category": "obstacles",
+  "subcategory": "environment_barrel",
+  "priority": "P1",
+  "execution_order": 140,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.background.court_hall_front_1280x620"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.launchable.wine_glass_break_8f_12fps",
+      "character.noble.boss_idle_6f_4fps"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_hand_drawn",
+    "detail_level": "medium",
+    "shading": "soft_watercolor",
+    "outline": "soft_ink_1px"
+  },
+  "context": {
+    "role": "environment_explosive",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Placed in the play lane as a 2-hit explosive prop with a 96px blast radius and side splash push.",
+    "adjacent_elements": [
+      "wine glass",
+      "boss noble"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#8B6B5C",
+      "#5F463A",
+      "#D4A843",
+      "#E8704A",
+      "#3D2B1F"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": false,
+      "frame_size_px": [
+        48,
+        48
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "round barrel body with 3 metal bands and a centered lid ellipse",
+      "components": [
+        "barrel_body",
+        "top_lid",
+        "band_top",
+        "band_mid",
+        "band_bottom"
+      ]
+    },
+    "physics_tags": {
+      "hp": 2,
+      "blast_radius_px": 96,
+      "push_speed_px_per_sec": 200,
+      "push_duration_sec": 0.5
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.environment.wine_barrel_48x48.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 384x48px with 8 columns, 1 row, and 0px spacing.",
+    "Idle frame keeps a 40px barrel body width and the burst frames never exceed the 48px frame box.",
+    "Only #8B6B5C, #5F463A, #D4A843, #E8704A, and #3D2B1F are used on the obstacle sheet."
+  ]
+}

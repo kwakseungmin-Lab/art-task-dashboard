@@ -1,0 +1,88 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.background.cloud_small",
+  "asset_name": "Background - Cloud Small",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P2",
+  "execution_order": 12,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "Background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "Highlight",
+      "hex": "#FF0000"
+    },
+    "ground": {
+      "name": "Ground",
+      "hex": "#535353"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background_decor",
+    "layer": "world_back",
+    "usage": "Optional parallax cloud sprite scrolling at 50% of ground speed",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 650,
+      "y": 20,
+      "origin": "top_left",
+      "allowed_y_range_px": [
+        10,
+        40
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 46,
+      "height": 14
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.cloud_small.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Single-frame sprite is exactly 46x14px with a simple cloud silhouette readable at 1x scale.",
+    "Uses only #535353 for cloud pixels and transparent/#F7F7F7 for non-cloud pixels; no anti-aliasing.",
+    "Cloud edges are clean with no isolated single pixels detached more than 1px from the main shape."
+  ]
+}

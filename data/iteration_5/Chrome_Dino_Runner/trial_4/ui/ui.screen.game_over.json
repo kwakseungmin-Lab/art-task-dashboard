@@ -1,0 +1,99 @@
+{
+  "task_id": "ui.screen.game_over",
+  "id": "screen_game_over",
+  "asset_name": "UI Screen: Game Over",
+  "category": "ui",
+  "subcategory": "screen",
+  "display_name": "UI Screen: Game Over",
+  "description": "Create asset for task_id 'ui.screen.game_over' as specified in specs/context.",
+  "execution_order": 90,
+  "priority": "P0",
+  "depends_on": [
+    "ui.font.bitmap_mono_16",
+    "ui.widget.score_display",
+    "ui.widget.high_score_display"
+  ],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.bitmap_mono_16",
+      "ui.widget.score_display",
+      "ui.widget.high_score_display"
+    ]
+  },
+  "project_common": {
+    "canvas": {
+      "resolution_px": {
+        "width": 600,
+        "height": 150
+      },
+      "frame_rate_target_fps": 60,
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor",
+      "coordinate_system": {
+        "origin": "canvas_top_left",
+        "x_axis": "right_positive",
+        "y_axis": "down_positive",
+        "units": "px"
+      },
+      "baseline_y_px": 148
+    },
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "highlight_optional_hex": "#FF0000"
+    },
+    "style": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "specs": {
+    "layout": {
+      "title": "GAME OVER",
+      "title_font_px": 24,
+      "score_font_px": 16,
+      "hi_font_px": 16,
+      "restart_font_px": 12,
+      "centered": true
+    },
+    "color_hex": "#535353"
+  },
+  "context": {
+    "role": "game_over_overlay",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "game_over"
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "path": "Output/Chrome_Dino_Runner/iteration_5/trial_4/ui/screen_game_over_mock.png",
+      "dimensions_px": {
+        "width": 600,
+        "height": 150
+      },
+      "background": "transparent",
+      "notes": "Mock layout overlay without dimmed background."
+    }
+  ],
+  "acceptance_criteria": [
+    "All text is #535353 and legible on #F7F7F7.",
+    "Layout matches GDD spec: title above center, score and HI below, restart prompt lower.",
+    "No translucent overlay or background box."
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.tile.stone_ivory_64x64",
+  "asset_name": "Grid Tile — Stone Ivory (64x64)",
+  "category": "world",
+  "subcategory": "tile",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "tile_base",
+    "layer": "tilemap",
+    "usage": "Default walkable tile used for most grid cells.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "grid_rules": {
+      "tile_size_px": [
+        64,
+        64
+      ],
+      "grid_size_tiles": [
+        12,
+        9
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#D4C5A9",
+      "#6B7280",
+      "#1E1B4B",
+      "#F8FAFC"
+    ],
+    "animation": null,
+    "surface_rules": {
+      "base_fill_hex": "#D4C5A9",
+      "inner_shadow_hex": "#6B7280",
+      "highlight_hex": "#F8FAFC",
+      "outline_hex": "#1E1B4B",
+      "outline_px": 1
+    },
+    "crack_layout": [
+      {
+        "type": "segment",
+        "x1": 18,
+        "y1": 10,
+        "x2": 18,
+        "y2": 54,
+        "width_px": 1,
+        "color_hex": "#6B7280"
+      },
+      {
+        "type": "segment",
+        "x1": 8,
+        "y1": 32,
+        "x2": 56,
+        "y2": 32,
+        "width_px": 1,
+        "color_hex": "#6B7280"
+      },
+      {
+        "type": "segment",
+        "x1": 40,
+        "y1": 12,
+        "x2": 52,
+        "y2": 24,
+        "width_px": 1,
+        "color_hex": "#6B7280"
+      },
+      {
+        "type": "segment",
+        "x1": 24,
+        "y1": 48,
+        "x2": 36,
+        "y2": 56,
+        "width_px": 1,
+        "color_hex": "#6B7280"
+      }
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.tile.stone_ivory_64x64.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Tile is exactly 64x64px and tiles seamlessly on all 4 edges.",
+    "Crack segments match the provided crack_layout coordinates and use #6B7280 at 1px width.",
+    "Uses only #D4C5A9, #6B7280, #1E1B4B, #F8FAFC and transparency; no anti-aliasing."
+  ]
+}

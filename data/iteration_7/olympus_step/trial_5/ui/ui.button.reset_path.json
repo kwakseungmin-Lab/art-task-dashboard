@@ -1,0 +1,100 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.button.reset_path",
+  "asset_name": "Button - Reset Path",
+  "category": "ui",
+  "subcategory": "button",
+  "priority": "P1",
+  "execution_order": 220,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Olympus Indigo",
+      "hex": "#1E1B4B"
+    },
+    "background": {
+      "name": "Stone Ivory",
+      "hex": "#D4C5A9"
+    },
+    "accent": {
+      "name": "Zeus Gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 8,
+    "tile_size_px": 64
+  },
+  "context": {
+    "role": "button",
+    "layer": "ui",
+    "usage": "UI element rendered in screen space",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_left",
+      "offset_px": [
+        24,
+        24
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 36
+    },
+    "colors_hex": [
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#D4C5A9"
+    ],
+    "states": [
+      "disabled",
+      "normal",
+      "hover",
+      "pressed"
+    ],
+    "animation": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.button.reset_path.png",
+      "transparent_background": true,
+      "layout": "vertical_strip",
+      "frame_size_px": {
+        "width": 120,
+        "height": 36
+      },
+      "frame_count": 4
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG has exactly 4 button states in a single vertical strip; each state is 120x36px, total image size is 120x144px.",
+    "Button label is readable at 1x zoom using #FEF3C7 pixels on a #1C1917 background.",
+    "Pressed state shows a clear 1px inward offset effect and no anti-aliased edges."
+  ]
+}

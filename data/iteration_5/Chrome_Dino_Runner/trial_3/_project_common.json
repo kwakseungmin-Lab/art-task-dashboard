@@ -1,0 +1,134 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner"
+  },
+  "meta": {
+    "game_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-03-05T07:07:23Z",
+    "git_ref": "art_task_plan/iter5_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v5.md",
+    "overwrite_mode": true,
+    "snapshot_note": "Regenerated trial_3 package snapshot for Iteration 5 (overwrite_mode=true)."
+  },
+  "style_guide": {
+    "art_style": "pixel_art_8bit_minimal",
+    "theme": "prehistoric_desert_minimal",
+    "palette": {
+      "background_hex": "#F7F7F7",
+      "primary_hex": "#535353",
+      "accent_optional_hex": "#FF0000"
+    },
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "supported_integer_scales": [
+        1,
+        2
+      ],
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "target_fps": 60
+  },
+  "export_rules": {
+    "default_transparent_background": true,
+    "primary_formats": [
+      "png"
+    ],
+    "source_formats": [
+      "aseprite"
+    ],
+    "path_template": "Art/Exports/{game_name}/{category}/{asset_name}/{asset_name}.{ext}",
+    "file_name_case": "lower_snake_case"
+  },
+  "coordinate_rules": {
+    "baseline_y_px": 148,
+    "ground_line_y_px_range": [
+      148,
+      149
+    ]
+  },
+  "assets": [
+    {
+      "task_id": "world.background.sky_fill_600x150",
+      "category": "world",
+      "file": "world/world.background.sky_fill_600x150.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/world/sky_fill_600x150/sky_fill_600x150.png"
+    },
+    {
+      "task_id": "world.clouds.set",
+      "category": "world",
+      "file": "world/world.clouds.set.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/world/cloud_small_46x14/cloud_small_46x14.png"
+    },
+    {
+      "task_id": "world.ground.line_1200x2",
+      "category": "world",
+      "file": "world/world.ground.line_1200x2.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/world/ground_line_1200x2/ground_line_1200x2.png"
+    },
+    {
+      "task_id": "world.ground.texture_1200x10",
+      "category": "world",
+      "file": "world/world.ground.texture_1200x10.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/world/ground_texture_1200x10/ground_texture_1200x10.png"
+    },
+    {
+      "task_id": "character.player.dino_sprite_set",
+      "category": "character",
+      "file": "character/character.player.dino_sprite_set.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/character/player_dino_sprite_set/player_dino_sprite_set.png"
+    },
+    {
+      "task_id": "obstacles.cactus.set",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.cactus.set.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/obstacles/cactus_small_34x70/cactus_small_34x70.png"
+    },
+    {
+      "task_id": "obstacles.pterodactyl.fly",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pterodactyl.fly.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/obstacles/pterodactyl_fly_sheet/pterodactyl_fly_sheet.png"
+    },
+    {
+      "task_id": "ui.font.bitmap_mono_16",
+      "category": "ui",
+      "file": "ui/ui.font.bitmap_mono_16.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/ui/font_bitmap_mono_16/font_bitmap_mono_16.png"
+    },
+    {
+      "task_id": "ui.score_display",
+      "category": "ui",
+      "file": "ui/ui.score_display.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/ui/score_display_layout/score_display_layout.png"
+    },
+    {
+      "task_id": "ui.start_prompt",
+      "category": "ui",
+      "file": "ui/ui.start_prompt.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/ui/start_prompt_layout/start_prompt_layout.png"
+    },
+    {
+      "task_id": "ui.game_over_screen",
+      "category": "ui",
+      "file": "ui/ui.game_over_screen.json",
+      "primary_deliverable": "Art/Exports/Chrome_Dino_Runner/ui/game_over_screen_layout/game_over_screen_layout.png"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.base_run",
+  "asset_name": "Player (Base Form) Run Loop — 64x96 (6 frames)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [
+    "character.player.counter_pose"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.size_large",
+      "character.player.size_small"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "high",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "player",
+    "layer": "character",
+    "usage": "Auto-running player character (base size 64x96). Anchored at ~25% screen width. Used during most gameplay.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 400,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "frame_size_px": {
+      "width": 64,
+      "height": 96
+    },
+    "animations": {
+      "run": {
+        "frame_count": 6,
+        "fps": 12,
+        "loop": true
+      }
+    },
+    "sheet_layout": "Single row: 6 run frames.",
+    "sheet_dimensions_px": {
+      "width": 384,
+      "height": 96
+    },
+    "colors_hex": [
+      "#E8B87A",
+      "#C47C2B",
+      "#6B6357",
+      "#FFD966",
+      "#0B0C1E",
+      "#F0EFE9"
+    ],
+    "hitbox_hint_px": {
+      "width": 48,
+      "height": 80
+    },
+    "animation": {
+      "type": "spritesheet",
+      "layout": "row"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.base_run.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Each frame is exactly 64x96px with the feet aligned to a consistent baseline.",
+    "Run loop reads clearly at 12fps and remains readable on both marble (#D9D0BE) and deep-space (#0B0C1E) backgrounds.",
+    "Silhouette is strong and consistent with Greek-hero + cosmic temple theme (bronze armor + subtle star accents)."
+  ]
+}

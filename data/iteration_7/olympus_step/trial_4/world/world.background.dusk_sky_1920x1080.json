@@ -1,0 +1,130 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "world.background.dusk_sky_1920x1080",
+  "asset_name": "Dusk Sky Background — 1920x1080",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P1",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "world.tiles.marble_grid_64_atlas"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.tiles.marble_grid_64_atlas",
+      "ui.hud.right_stats_panel_240x720"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "background",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "layer": "bg_sky",
+    "usage": "Static full-screen sky backdrop for the 12x9 marble board and the 240px right HUD column.",
+    "adjacent_elements": [
+      "world.tiles.marble_grid_64_atlas",
+      "ui.hud.right_stats_panel_240x720"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_front",
+      "facing": "screen_front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#7C3AED",
+      "#C17B2F",
+      "#F59E0B",
+      "#1C1917"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "Full-screen dusk band with a 96px dark horizon strip and no foreground objects.",
+      "components": [
+        "indigo_upper_gradient",
+        "amber_horizon_band",
+        "charcoal_lower_band",
+        "4px noise_grid"
+      ]
+    },
+    "background": {
+      "gradient": [
+        {
+          "stop": 0.0,
+          "hex": "#1E1B4B"
+        },
+        {
+          "stop": 0.55,
+          "hex": "#C17B2F"
+        },
+        {
+          "stop": 1.0,
+          "hex": "#1C1917"
+        }
+      ],
+      "noise": {
+        "enabled": true,
+        "scale_px": 4,
+        "opacity": 0.08
+      },
+      "horizon_band_height_px": 96
+    },
+    "export": {
+      "format": "png",
+      "transparent_background": false
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.background.dusk_sky_1920x1080.png",
+      "transparent_background": false
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 1920x1080px.",
+    "Gradient contains 3 stops at 0.0, 0.55, and 1.0 with the listed hex values.",
+    "Noise opacity is 0.08 and the image contains no sprites, tiles, or UI glyphs."
+  ]
+}

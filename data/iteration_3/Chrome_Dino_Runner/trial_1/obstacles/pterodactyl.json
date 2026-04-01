@@ -1,0 +1,82 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art, retro minimalist aesthetic inspired by Google Chrome offline game",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base resolution with 2x scale support",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel perfect rendering with no anti-aliasing"
+  },
+  "category": "obstacles",
+  "category_common": {
+    "base_size": {
+      "width": "34-102px",
+      "height": "70-100px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "8-bit pixel art with sharp, dangerous silhouette",
+      "outline": "2px solid outline included in dimensions",
+      "shading": "flat color, no gradients or shading",
+      "spawn_position": "screen right edge + 50px offset",
+      "movement": "scrolls left at current game speed"
+    }
+  },
+  "asset": {
+    "asset_id": "pterodactyl",
+    "asset_name": "Pterodactyl Flying Animation",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Airborne obstacle requiring player to duck or time jump carefully",
+      "screen_position": "Spawns at x=650px (screen_width + 50), y=50px or y=80px (two height variants), scrolls left",
+      "adjacent_elements": ["background", "player_run", "player_duck", "player_jump"],
+      "usage_scenario": "Appears after score 200+, forces player to use duck action, flies at two possible heights (Low: 50px, High: 80px)"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "92px",
+        "height": "80px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "Pteranodon-style flying reptile with long beak, extended wings in flight pose",
+      "texture": "solid pixel art, no texture patterns",
+      "outline": "2px solid outline integrated into sprite",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 10,
+        "loop": true,
+        "description": "Wing flapping animation - frame 1: wings up position, frame 2: wings down position, creates flying motion"
+      },
+      "details": "Long pointed beak extending forward, wings spread wide in flight, small body, distinctive pteranodon crest on head, clear wing membrane shape"
+    },
+    "relationships": {
+      "related_assets": ["player_duck", "player_jump", "background", "cactus_small", "cactus_medium", "cactus_large"],
+      "shared_with": "Same color (#535353) as all other game objects",
+      "differences_from": "Only flying obstacle, only obstacle with animation (2 frames @ 10fps), spawns at elevated y positions (50px or 80px) unlike ground-based cacti (0px)"
+    },
+    "explicit_negations": [
+      "No color variations or gradients",
+      "No detailed feathers or scales",
+      "No open beak or facial expressions",
+      "No legs visible (tucked during flight)",
+      "No motion blur or speed lines",
+      "No background elements integrated into sprite",
+      "Not static - must have 2-frame wing flapping animation",
+      "Not ground-based - always spawns at elevated y position"
+    ]
+  }
+}

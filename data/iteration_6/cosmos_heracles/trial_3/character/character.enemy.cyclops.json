@@ -1,0 +1,119 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.enemy.cyclops",
+  "asset_name": "Cyclops Boss (Zone 1)",
+  "category": "character",
+  "subcategory": "boss",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "Marble Ivory",
+      "hex": "#D9D0BE"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Danger Red",
+      "hex": "#E84040"
+    },
+    "shadow": {
+      "name": "Column Shadow",
+      "hex": "#6B6357"
+    },
+    "gold": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    },
+    "counter": {
+      "name": "Counter Cyan",
+      "hex": "#40E8D0"
+    },
+    "boss": {
+      "name": "Boss Purple",
+      "hex": "#7B2FBE"
+    },
+    "ui_text": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "skin": {
+      "name": "Hero Skin",
+      "hex": "#E8B87A"
+    },
+    "armor": {
+      "name": "Bronze Armor",
+      "hex": "#C47C2B"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "anti_aliasing": "none"
+  },
+  "context": {
+    "role": "boss",
+    "layer": "world",
+    "usage": "Zone 1 boss; 3-hit pattern with clear windups."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 120,
+      "height": 160
+    },
+    "colors_hex": [
+      "#0B0C1E",
+      "#D9D0BE",
+      "#6B6357",
+      "#7B2FBE",
+      "#E84040",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "spritesheet",
+      "fps": 12,
+      "frame_count": 8,
+      "layout": {
+        "rows": 1,
+        "cols": 8,
+        "order": "left_to_right"
+      },
+      "loop": true,
+      "notes": "Frames 1-4 idle; frames 5-8 attack windup+strike. Keep attack frame readable for counter timing."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemy.cyclops.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 960x160px (8 frames × 120px wide each).",
+    "Attack frames use #E84040 pixels to mark the strike moment for counter timing readability.",
+    "Idle-to-attack transition is clear without motion blur or gradients."
+  ]
+}

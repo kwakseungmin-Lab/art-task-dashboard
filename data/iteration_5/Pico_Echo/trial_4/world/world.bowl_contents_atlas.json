@@ -1,0 +1,230 @@
+{
+  "task_id": "world.bowl_contents_atlas",
+  "asset_name": "Bowl_Contents_Atlas_Food3_Water3",
+  "category": "world",
+  "subcategory": "interactive_props",
+  "description": "Create a transparent sprite atlas (48x16 px) containing 6 frames of bowl contents: 3 food fill levels and 3 water fill levels. Each frame is a 16x8 cell. Food cells use only #FFEC27 and #FFA300 for seeds. Water cells use only #29ADFF and #1D2B53 for water shading. All unused pixels must be fully transparent.",
+  "execution_order": 15,
+  "priority": "P1",
+  "context": {
+    "role": "dynamic overlay sprites that render inside the bowl outlines on the background",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "anchor": "top_left"
+    },
+    "layer": "world_overlay",
+    "usage": "Rendered conditionally based on food and water meters; the atlas provides 3 discrete fill levels for each bowl."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "world.cage_background",
+      "ui.hud_atlas"
+    ]
+  },
+  "depends_on": [
+    "world.cage_background"
+  ],
+  "blocks": [
+    "ui.hud_atlas"
+  ],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "file": "world_bowl_contents_atlas_48x16.png",
+      "format": "png",
+      "transparent_background": true,
+      "notes": "All pixels outside the 16x8 content rectangles must be alpha=0."
+    }
+  ],
+  "acceptance_criteria": [
+    "The atlas image is exactly 48x16 px with transparent background.",
+    "Every non-transparent pixel color is one of the 16 hex values in specs.palette_hex.",
+    "Cell layout matches specs.layout and each cell is exactly 16x8 px.",
+    "Food fill sprites fit completely inside the food bowl interior rectangle x=20..33, y=76..81 when drawn at (20,76) on the 128x128 canvas.",
+    "Water fill sprites fit completely inside the water bowl interior rectangle x=94..107, y=76..81 when drawn at (94,76) on the 128x128 canvas.",
+    "Food full/medium/empty are visually distinct by seed count; water full/medium/empty are visually distinct by fill height."
+  ],
+  "specs": {
+    "atlas_dimensions_px": {
+      "width": 48,
+      "height": 16
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "cell_dimensions_px": {
+      "width": 16,
+      "height": 8
+    },
+    "layout": {
+      "food_row": {
+        "y": 0,
+        "cells": [
+          {
+            "name": "food_full",
+            "x": 0
+          },
+          {
+            "name": "food_medium",
+            "x": 16
+          },
+          {
+            "name": "food_empty",
+            "x": 32
+          }
+        ]
+      },
+      "water_row": {
+        "y": 8,
+        "cells": [
+          {
+            "name": "water_full",
+            "x": 0
+          },
+          {
+            "name": "water_medium",
+            "x": 16
+          },
+          {
+            "name": "water_empty",
+            "x": 32
+          }
+        ]
+      }
+    },
+    "food": {
+      "seed_colors_hex": [
+        "#FFEC27",
+        "#FFA300"
+      ],
+      "content_rect_in_cell": {
+        "x_start": 1,
+        "x_end": 14,
+        "y_start": 2,
+        "y_end": 6
+      },
+      "seed_pixel_clusters": {
+        "food_full": [
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            12,
+            4
+          ]
+        ],
+        "food_medium": [
+          [
+            4,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            12,
+            4
+          ]
+        ],
+        "food_empty": []
+      }
+    },
+    "water": {
+      "water_colors_hex": [
+        "#29ADFF",
+        "#1D2B53"
+      ],
+      "content_rect_in_cell": {
+        "x_start": 1,
+        "x_end": 14,
+        "y_start": 2,
+        "y_end": 6
+      },
+      "fill_heights_px": {
+        "water_full": 5,
+        "water_medium": 3,
+        "water_empty": 0
+      },
+      "top_surface_highlight_hex": "#29ADFF",
+      "shadow_hex": "#1D2B53"
+    },
+    "placement_on_canvas": {
+      "food_bowl_fill_top_left_px": [
+        20,
+        76
+      ],
+      "water_bowl_fill_top_left_px": [
+        94,
+        76
+      ]
+    }
+  },
+  "project_common": {
+    "game_name": "Pico_Echo",
+    "iteration": 5,
+    "trial_index": 4,
+    "canvas_px": {
+      "width": 128,
+      "height": 128
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "pixel_art": {
+      "snap_to_pixel_grid": true,
+      "anti_aliasing": false,
+      "scaling_filter": "nearest_neighbor"
+    }
+  }
+}

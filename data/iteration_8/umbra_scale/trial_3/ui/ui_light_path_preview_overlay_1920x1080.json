@@ -1,0 +1,163 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_008003020",
+  "asset_key": "ui_light_path_preview_overlay_1920x1080",
+  "asset_name": "Light Path Preview Overlay",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P0",
+  "execution_order": 200,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "task_id_008003010",
+    "task_id_008003011",
+    "task_id_008003014",
+    "task_id_008003015",
+    "task_id_008003016"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_008003010",
+    "task_id_008003011",
+    "task_id_008003014",
+    "task_id_008003015",
+    "task_id_008003016"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_008003002",
+      "task_id_008003006",
+      "task_id_008003007",
+      "task_id_008003010",
+      "task_id_008003011",
+      "task_id_008003014",
+      "task_id_008003015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "umbra_scale_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194317/umbra_scale/_images/moodboard.png",
+      "purpose": "Tower chamber palette, art deco framing, light beam composition, and shadow contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use ImageBundle for the authored frame art and blend it with dynamic beam geometry only while the Tab preview mode flag is active.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "ImageNode",
+      "Style",
+      "LightPreviewOverlay",
+      "HudWidget",
+      "Visibility"
+    ],
+    "asset_loading": "Load ui/ui_light_path_preview_overlay_1920x1080.png through AssetServer during floor setup and toggle atlas frames with the preview mode state.",
+    "runtime_notes": [
+      "Frame 0 is fully hidden guidance and frame 1 is the visible preview overlay.",
+      "Visible preview uses 50 percent alpha with clean yellow lane edges that align to the dynamic beam path.",
+      "Overlay must not cover HUD text or change input hit regions."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "art_deco_gold",
+      "hex": "#C9A84C"
+    },
+    "background": {
+      "name": "void_black",
+      "hex": "#0D0B14"
+    },
+    "accent": {
+      "name": "amber_dusk",
+      "hex": "#D4682A"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hd_2d_sprite",
+    "detail_level": "medium_high",
+    "shading": "hard_edge_gradient",
+    "outline": "2px_crisp"
+  },
+  "context": {
+    "role": "light_path_preview",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Full screen guidance overlay toggled with Tab to preview beam routes and safe shadow lanes before the player commits to movement.",
+    "adjacent_elements": [
+      "world_shadow_safezone_overlay_1920x1080",
+      "obstacle_planar_mirror_rotatable_16x96",
+      "obstacle_moving_light_emitter_32x32"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_flat",
+      "facing": "front"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#F5EFE0",
+      "#D4682A",
+      "#C9A84C",
+      "#1A4A52",
+      "#0D0B14"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "frame_count": 2,
+      "fps": 0,
+      "loop": false,
+      "layout": {
+        "rows": 1,
+        "cols": 2,
+        "order": "left_to_right"
+      }
+    },
+    "shape": {
+      "silhouette": "Full screen overlay with beam lane edges, target hit zones, and highlighted safe landing pockets drawn as clean translucent bands.",
+      "components": [
+        "beam_lanes",
+        "target_hit_zones",
+        "safe_landing_pockets",
+        "edge_markers",
+        "legend_corner"
+      ]
+    },
+    "face": null,
+    "appendages": null,
+    "texture": "Clean translucent lanes with no grain and sharp corner markers for mirror targets.",
+    "shading": "Flat semi transparent fills with bright amber borders and pale white center glow."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_light_path_preview_overlay_1920x1080.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 3840x1080 px with two 1920x1080 frames.",
+    "Visible preview frame uses 50 percent alpha on beam bands and 35 percent alpha on safe landing pockets.",
+    "Legend corner remains within a 180x72 px box in the lower right without blocking the scale readout anchor zone."
+  ]
+}

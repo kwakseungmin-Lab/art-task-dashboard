@@ -1,0 +1,105 @@
+{
+  "project_common": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 3,
+    "canvas_px": {
+      "width": 600,
+      "height": 150
+    },
+    "frame_rate_target_fps": 60,
+    "rendering": {
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color_hex": "#535353"
+      }
+    },
+    "palette_hex": [
+      "#F7F7F7",
+      "#535353",
+      "#FF0000"
+    ],
+    "background_color_hex": "#F7F7F7",
+    "primary_color_hex": "#535353",
+    "baseline_y_px": 148,
+    "coordinate_system": {
+      "origin": "top_left",
+      "x_positive": "right",
+      "y_positive": "down",
+      "units": "px"
+    }
+  },
+  "task_id": "ui.font.bitmap_mono_16",
+  "asset_name": "font_bitmap_mono_16",
+  "category": "ui",
+  "subcategory": "font",
+  "description": "Monospace bitmap font atlas for HUD and game-over text. Cell size 10x16; include digits 0-9 and uppercase A-Z plus space, colon, and period. Glyph color #535353 on transparent background.",
+  "context": {
+    "role": "ui_text_font",
+    "layer": "ui",
+    "usage": "Used by score display, start prompt, and game-over screen.",
+    "screen_position": {
+      "type": "not_applicable",
+      "notes": "Font atlas is not placed directly; it is sampled by UI text rendering."
+    }
+  },
+  "relationships": {
+    "related_task_ids": []
+  },
+  "depends_on": [],
+  "blocks": [
+    "ui.score_display",
+    "ui.start_prompt",
+    "ui.game_over_screen"
+  ],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Art/Source/Chrome_Dino_Runner/ui/font_bitmap_mono_16.aseprite",
+      "notes": "160x48 canvas; 16x3 grid of 10x16 cells; uppercase glyphs."
+    },
+    {
+      "type": "png",
+      "path": "Art/Exports/Chrome_Dino_Runner/ui/font_bitmap_mono_16/font_bitmap_mono_16.png",
+      "background": "transparent",
+      "dimensions_px": {
+        "width": 160,
+        "height": 48
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    "Exported PNG atlas is exactly 160x48 px with transparency.",
+    "All non-transparent pixels use #535353 only.",
+    "Each glyph fits inside a 10x16 cell with consistent baseline and left bearing."
+  ],
+  "priority": "P0",
+  "execution_order": 80,
+  "specs": {
+    "glyph_cell_px": {
+      "width": 10,
+      "height": 16
+    },
+    "atlas_grid": {
+      "columns": 16,
+      "rows": 3,
+      "atlas_size_px": {
+        "width": 160,
+        "height": 48
+      }
+    },
+    "charset": {
+      "required_characters": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ:. ",
+      "missing_character_policy": "render_as_blank_cell"
+    },
+    "digit_advance_px": 10,
+    "font_size_px": 16,
+    "color_hex": "#535353",
+    "transparent_background": true
+  }
+}

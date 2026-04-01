@@ -1,0 +1,85 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8"
+    },
+    "pixel_density": "1:1 (no scaling)",
+    "outline_style": "none (pure pixel art)",
+    "rendering": "nearest neighbor"
+  },
+  "category": "ui",
+  "category_common": {
+    "base_size": {
+      "width": "varies by element",
+      "height": "1-12px"
+    },
+    "color_scheme": {
+      "text": "#1D2B53",
+      "accent": "#FF004D",
+      "background": "#FFF1E8",
+      "bar_bg": "#5F574F",
+      "bar_green": "#00E436",
+      "bar_yellow": "#FFEC27",
+      "bar_orange": "#FFA300"
+    },
+    "shared_attributes": {
+      "font_size": "3x5px mini pixel font",
+      "ui_layer": "top layer (above all game elements)",
+      "minimalism": "minimal UI footprint"
+    }
+  },
+  "asset": {
+    "asset_id": "happiness_bar",
+    "asset_name": "Happiness Bar",
+    "context": {
+      "game": "Pico Echo virtual pet game",
+      "role": "Visual indicator of Echo's current happiness level",
+      "screen_position": "Bottom of screen at x=4, y=126, spanning 120px width",
+      "adjacent_elements": ["floor", "all game elements above"],
+      "usage_scenario": "Persistent UI element; updates in real-time as happiness changes; color changes based on happiness thresholds"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "120px",
+        "height": "2px"
+      },
+      "colors": {
+        "background": "#5F574F",
+        "fill_90_100": "#00E436",
+        "fill_70_89": "#FFEC27",
+        "fill_50_69": "#FFA300"
+      },
+      "shape": "Horizontal rectangular bar",
+      "texture": "Flat pixel art; solid color fill",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static bar; fill width and color change based on happiness value"
+      },
+      "details": "120px wide x 2px tall bar at y=126; background is #5F574F (dark brown); fill width = (happiness/100) * 120px; fill color: 90-100 = #00E436 (green), 70-89 = #FFEC27 (yellow), 50-69 = #FFA300 (orange)"
+    },
+    "relationships": {
+      "related_assets": ["all Echo states"],
+      "shared_with": "Reflects happiness value from HappinessSystem",
+      "differences_from": "care_menu_icons (persistent vs popup)"
+    },
+    "explicit_negations": [
+      "no gradients",
+      "no glow",
+      "no animation",
+      "no percentage text",
+      "no border",
+      "no 3D effect"
+    ]
+  }
+}

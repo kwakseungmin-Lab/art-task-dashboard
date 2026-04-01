@@ -1,0 +1,101 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "obstacles.launchable.library_book_sprite",
+  "asset_name": "Library Book Launchable Sprite",
+  "category": "obstacles",
+  "subcategory": "launchable",
+  "priority": "P1",
+  "execution_order": 110,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.foreground.marble_floor_strip"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "launchable_object",
+    "layer": "world_objects",
+    "usage": "Closed hardback book sprite for medium-mass launchable object.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    },
+    "adjacent_elements": [
+      "world.foreground.marble_floor_strip"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 24
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#8B3A52",
+      "#F5F0E8",
+      "#D4A843"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "rectangular_book_with_spine",
+      "components": [
+        "front_cover",
+        "spine",
+        "page_block",
+        "corner_band"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles.launchable.library_book_sprite.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite is exactly 32x24px and reads as a closed book at 100% scale.",
+    "Cover uses #8B3A52 and page edge uses #F5F0E8.",
+    "Spine band in #D4A843 stays 3px wide across the full height."
+  ]
+}

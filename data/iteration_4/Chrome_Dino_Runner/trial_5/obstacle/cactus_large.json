@@ -1,0 +1,185 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner",
+    "task_plan_type": "art_task_plan",
+    "task_plan_version": 5,
+    "source": {
+      "gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+      "assembled_prompt": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_trial_4.md",
+      "concepts": [
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v2_Invariance.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v3_Structurality.md",
+        "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v4_Completeness.md"
+      ]
+    },
+    "rendering": {
+      "style": "pixel_art",
+      "bit_depth_style": "8-bit",
+      "pixel_perfect": true,
+      "anti_aliasing": false,
+      "dithering": false
+    },
+    "canvas": {
+      "screen_dimensions_px": "600x150",
+      "target_fps": 60,
+      "coordinate_system": {
+        "ground_y": 0,
+        "positive_y": "up",
+        "note": "GDD uses Ground level y=0; airborne obstacles use y=50 and y=80 above ground."
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "allowed_colors": [
+        "#F7F7F7",
+        "#535353",
+        "#FF0000",
+        "#FFFFFF"
+      ],
+      "rules": [
+        "All gameplay sprites (player, obstacles, ground, clouds) use only #535353 for non-transparent pixels.",
+        "Background sky uses only #F7F7F7 (no transparency).",
+        "UI text uses only #535353. White (#FFFFFF) is allowed only for runtime flash effects or overlays."
+      ]
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353",
+        "rule": "Sprite silhouettes must have a minimum 2px-thick edge where applicable; no 1px hairline edges."
+      },
+      "transparency": {
+        "background": "transparent",
+        "alpha_requirement": "All non-background sprites must have fully transparent background (alpha=0) outside the silhouette."
+      },
+      "scale_support": {
+        "base_scale": "1x",
+        "secondary_scale": "2x",
+        "scaling_method": "nearest_neighbor",
+        "note": "Export 1x originals; 2x exports must be integer-scaled using nearest-neighbor (no filtering)."
+      }
+    },
+    "export": {
+      "formats": [
+        "png"
+      ],
+      "color_space": "sRGB",
+      "png": {
+        "bit_depth": 8,
+        "interlaced": false
+      },
+      "naming": {
+        "frame_indexing": "1-based in filenames where specified by GDD (e.g., dino_run_1.png, dino_run_2.png)",
+        "scale_suffix": "@2x"
+      }
+    },
+    "priorities": {
+      "scheme": "P0-P3",
+      "definitions": {
+        "P0": "Required for a playable MVP (core gameplay and essential UI).",
+        "P1": "Feature-complete look but not strictly blocking MVP.",
+        "P2": "Optional polish.",
+        "P3": "Nice-to-have polish."
+      }
+    },
+    "layers": [
+      {
+        "name": "background_sky",
+        "z_index": 0
+      },
+      {
+        "name": "background_clouds",
+        "z_index": 1
+      },
+      {
+        "name": "ground",
+        "z_index": 5
+      },
+      {
+        "name": "obstacles",
+        "z_index": 10
+      },
+      {
+        "name": "player",
+        "z_index": 15
+      },
+      {
+        "name": "ui",
+        "z_index": 100
+      },
+      {
+        "name": "vfx_overlay",
+        "z_index": 200
+      }
+    ]
+  },
+  "task_id": "cdr_obstacle_cactus_large",
+  "asset_name": "Cactus Large (3-group)",
+  "category": "obstacle",
+  "subcategory": "cactus",
+  "description": "Create cactus obstacle sprite: Large.\n\n- Canvas: 102x100 px.\n- Non-transparent pixels: #535353 only.\n- Background: fully transparent.\n- Single connected component.\n- Silhouette edge thickness >=2px.\n- No animation.\nGroup anchors:\n- Three cactus masses merged into one connected silhouette.\n- Overlap regions:\n  - x=30..33 opaque (left-middle connect)\n  - x=64..67 opaque (middle-right connect)\n- Height anchors (topmost opaque pixel y):\n  - Left mass: y>=99\n  - Middle mass: y>=89\n  - Right mass: y>=94",
+  "deliverables": [
+    {
+      "path": "Sprites/obstacles/cactus_large.png",
+      "type": "png_sprite",
+      "dimensions": "102x100",
+      "scale": "1x",
+      "background": "transparent"
+    },
+    {
+      "path": "Sprites/obstacles/cactus_large@2x.png",
+      "type": "png_sprite",
+      "dimensions": "204x200",
+      "scale": "2x",
+      "background": "transparent",
+      "scaling": "nearest_neighbor"
+    }
+  ],
+  "specs": {
+    "dimensions": "102x100",
+    "animation": {
+      "frames": 1,
+      "fps": 0
+    }
+  },
+  "context": {
+    "role": "Tall/wide ground obstacle.",
+    "screen_location": "Spawn x=screen_width+50; y=0.",
+    "adjacent_elements": [
+      "cdr_character_player_jump"
+    ],
+    "layer": "obstacles",
+    "usage": "Spawn probability 25% among cactus variants."
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_obstacle_cactus_small",
+      "cdr_obstacle_cactus_medium"
+    ],
+    "shared_properties": [
+      "same palette and outline"
+    ],
+    "differences": [
+      "3-group with varied heights; 102x100."
+    ]
+  },
+  "depends_on": [
+    "cdr_obstacle_cactus_small"
+  ],
+  "execution_order": 22,
+  "priority": "P0",
+  "blocks": [],
+  "blocked_by": [
+    "cdr_obstacle_cactus_small"
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 102x100 (1x) and 204x200 (2x).",
+    "Only #535353 and transparent pixels exist.",
+    "Overlap regions x=30..33 and x=64..67 are opaque.",
+    "Topmost opaque pixels meet height anchors (y>=99, y>=89, y>=94)."
+  ]
+}

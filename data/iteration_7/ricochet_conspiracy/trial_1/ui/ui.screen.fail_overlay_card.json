@@ -1,0 +1,110 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.screen.fail_overlay_card",
+  "asset_name": "Stage Fail Overlay Card",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 240,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.font.serif_bitmap_16px_ascii96"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.font.serif_bitmap_16px_ascii96",
+      "character.noble.boss_command_sheet"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "dark_brown",
+      "hex": "#3D2B1F"
+    },
+    "background": {
+      "name": "dusty_rose",
+      "hex": "#E8D5C4"
+    },
+    "accent": {
+      "name": "soft_gold",
+      "hex": "#D4A843"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "hand_drawn_2d_vector",
+    "detail_level": "medium",
+    "shading": "watercolor_flat",
+    "outline": "2px_dark_brown"
+  },
+  "context": {
+    "role": "result_overlay",
+    "layer": "ui",
+    "usage": "Centered overlay card for fail state with retry prompt and two action buttons.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "adjacent_elements": [
+      "ui.hud.top_status_bar"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 480,
+      "height": 272
+    },
+    "colors_hex": [
+      "#3D2B1F",
+      "#E8D5C4",
+      "#8B3A52",
+      "#F5F0E8"
+    ],
+    "animation": null,
+    "shape": {
+      "silhouette": "rounded_panel_card",
+      "components": [
+        "panel_frame",
+        "title_band",
+        "message_box",
+        "left_button",
+        "right_button"
+      ]
+    },
+    "texture": "smooth_painted_fill",
+    "shading": "two_tone_watercolor"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.screen.fail_overlay_card.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas is exactly 480x272px and keeps a centered panel frame of 432x224px.",
+    "Title band height is 44px and uses #8B3A52 as the main fill.",
+    "Button wells are 140x40px and aligned on the same baseline."
+  ]
+}

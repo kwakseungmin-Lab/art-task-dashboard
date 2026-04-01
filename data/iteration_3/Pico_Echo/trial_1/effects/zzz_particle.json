@@ -1,0 +1,92 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "effects",
+  "category_common": {
+    "base_size": {
+      "width": "2-4px",
+      "height": "2-5px"
+    },
+    "color_scheme": {
+      "heart": "#FF004D",
+      "note": "#FFEC27",
+      "zzz": "#7E2553",
+      "feather": "#FFA300",
+      "dust": "#C2C3C7",
+      "sparkle": "#FFF1E8"
+    },
+    "shared_attributes": {
+      "sprite_type": "particle effects",
+      "rendering": "top layer, temporary",
+      "style": "simple iconic shapes, PICO-8 aesthetic",
+      "behavior": "spawn, animate, fade/disappear",
+      "lifespan": "0.5-2 seconds"
+    }
+  },
+  "asset": {
+    "asset_id": "zzz_particle",
+    "asset_name": "ZZZ Sleep Particle",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Visual indicator of Echo sleeping, classic sleep symbol",
+      "screen_position": "Spawns above-right of Echo at (75, 50), floats upward",
+      "adjacent_elements": ["echo_sleeping (trigger source)", "status_bubble (also shows ZZZ)", "cage_background (behind)"],
+      "usage_scenario": "Spawns during sleep state. ZZZ text floats upward every 2 seconds. Indicates Echo is sleeping and cannot be interacted with."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "zzz": "#7E2553"
+      },
+      "shape": "Text 'Z', pixelated letter",
+      "texture": "Flat solid color",
+      "outline": "None",
+      "shadow": "None",
+      "animation": {
+        "type": "particle",
+        "frames": 1,
+        "fps": 1,
+        "loop": false,
+        "description": "Spawns above-right of Echo, floats upward at 5px/second, fades after 2 seconds. Spawns every 2 seconds during sleep."
+      },
+      "details": "Letter 'Z': 3x3px purple (#7E2553) text. Spawn position: above-right of Echo at (75, 50). Movement: floats upward slowly at 5px/second. Lifespan: 2 seconds. Fade: last 0.5 seconds. Spawn rate: every 2 seconds during sleep. Only 1 Z visible at a time (slow spawn rate)."
+    },
+    "relationships": {
+      "related_assets": ["echo_sleeping", "status_bubble (ZZZ variant)"],
+      "shared_with": "Purple color from palette",
+      "differences_from": "note_particle: Z vs note, sleeping vs singing, purple vs yellow, slower spawn rate. heart_particle: text vs icon, sleep vs affection."
+    },
+    "explicit_negations": [
+      "Not multiple Z's forming 'ZZZ' (single Z only)",
+      "No horizontal movement (only vertical)",
+      "Z does not grow or shrink",
+      "No rotation",
+      "No snoring sound wave lines",
+      "Does not spawn rapidly (2s interval)",
+      "No pillow or sleep accessories",
+      "Z does not fall (only rises)"
+    ]
+  }
+}

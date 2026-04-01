@@ -1,0 +1,107 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.popup.counter_result",
+  "asset_name": "Counter Result Popup — COUNTER! / PERFECT!!",
+  "category": "ui",
+  "subcategory": "popup",
+  "priority": "P1",
+  "execution_order": 240,
+  "variant_of": null,
+  "depends_on": [
+    "ui.atlas.core"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.atlas.core"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.counter_pose"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "counter_cyan",
+      "hex": "#40E8D0"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "ui_feedback",
+    "layer": "ui",
+    "usage": "Appears near screen center-right for ~0.6s after counter success.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        300,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "variants": [
+      {
+        "id": "counter",
+        "text": "COUNTER!",
+        "font_size_px": 32,
+        "primary_hex": "#40E8D0"
+      },
+      {
+        "id": "perfect",
+        "text": "PERFECT!!",
+        "font_size_px": 32,
+        "primary_hex": "#FFD966"
+      }
+    ],
+    "bounding_box_px": {
+      "width": 320,
+      "height": 80
+    },
+    "colors_hex": [
+      "#40E8D0",
+      "#FFD966",
+      "#F0EFE9",
+      "#0B0C1E"
+    ],
+    "animation": {
+      "type": "ui",
+      "note": "Optional: 0.2s pop scale-in + 0.4s fade-out; no flashing."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.popup.counter_result.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Text is readable at 32px and fits within 320x80px.",
+    "COUNTER and PERFECT variants are visually distinct (cyan vs gold emphasis).",
+    "Popup remains legible over both dark and bright playfield regions."
+  ]
+}

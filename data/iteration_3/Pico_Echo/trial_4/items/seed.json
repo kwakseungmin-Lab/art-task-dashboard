@@ -1,0 +1,84 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "text": "#1D2B53",
+      "cage_bar": "#C2C3C7",
+      "wood": "#AB5236",
+      "floor": "#FFCCAA",
+      "dark_purple": "#7E2553",
+      "green": "#00E436",
+      "dark_gray": "#5F574F"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "minimal, 1px where needed",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "items",
+  "category_common": {
+    "base_size": {
+      "width": "2-3px",
+      "height": "2-3px"
+    },
+    "color_scheme": {
+      "primary": "#FFA300",
+      "secondary": "#AB5236"
+    },
+    "shared_attributes": {
+      "sprite_type": "small pixel art objects",
+      "animation_method": "static or simple state changes",
+      "layer_order": 2
+    }
+  },
+  "asset": {
+    "asset_id": "seed",
+    "asset_name": "Golden Millet Seed",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel simulation",
+      "role": "Food item for Echo, appears in food bowl",
+      "screen_position": "Inside food bowl at (16, 100), 6-8 seeds when full, 3-4 when low",
+      "adjacent_elements": ["food_bowl", "echo_eating"],
+      "usage_scenario": "Displayed in food bowl based on food_level state, consumed when Echo eats"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "3px",
+        "height": "3px"
+      },
+      "colors": {
+        "seed": "#FFA300"
+      },
+      "shape": "Small irregular oval/ellipse representing millet seed",
+      "texture": "Flat color, no detail at 3x3px size",
+      "outline": "None (too small)",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "Static seed sprite, no animation"
+      },
+      "details": "Golden orange (#FFA300) 3x3px oval shape, multiple seeds clustered in food bowl, each seed is identical sprite placed at slightly different positions"
+    },
+    "relationships": {
+      "related_assets": ["food_bowl", "echo_eating", "echo_hungry"],
+      "shared_with": "All seeds use same sprite",
+      "differences_from": "poop (color and context)"
+    },
+    "explicit_negations": [
+      "No individual seed animation",
+      "No falling or scattering effects",
+      "No size variations",
+      "No color variations",
+      "No detailed texture (too small)",
+      "No seeds outside food bowl"
+    ]
+  }
+}

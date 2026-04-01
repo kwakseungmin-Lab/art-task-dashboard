@@ -1,0 +1,89 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "ui.typography.pixel_font_8px_olympus",
+  "asset_name": "Bitmap Font — Olympus UI 8px (KR+EN)",
+  "category": "ui",
+  "subcategory": "typography",
+  "priority": "P0",
+  "execution_order": 56,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "bitmap_font",
+    "layer": "ui",
+    "usage": "Primary UI font for HUD labels/popups/stage indicator; readable at 1× scale.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 512
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "glyph_height_px": 8,
+    "baseline_px": 7,
+    "supported_charset": "ASCII 32-126 plus Korean UI sprite-words: [설정, 재시작, 스테이지, 스테이지 선택, 다음 스테이지, 실패, 클리어, 확인, 취소, 경로, 초기화, 신성 조각].",
+    "layout_note": "512×512 atlas, fixed-width (6px advance + 1px spacing), transparent. Korean may be provided as word sprites if needed."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.typography.pixel_font_8px_olympus.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas 512×512 and includes required glyphs/words.",
+    "Pixel-perfect; consistent baseline; no anti-aliasing."
+  ]
+}

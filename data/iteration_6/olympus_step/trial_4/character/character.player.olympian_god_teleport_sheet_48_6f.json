@@ -1,0 +1,125 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.olympian_god_teleport_sheet_48_6f",
+  "asset_name": "Last Olympian God — Teleport Sheet (48×48, 6 frames)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [
+    "character.player.olympian_god_idle_sheet_48_4f",
+    "ui.overlay.path_link_dash_64_sheet_6f"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.olympian_god_idle_sheet_48_4f",
+    "ui.overlay.path_link_dash_64_sheet_6f"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.hazard.bolt_tile_on_64_sheet_6f",
+      "world.goal.temple_goal_tile_64_sheet_8f"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "marble_dark",
+      "hex": "#1C1917"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "player_teleport_anim",
+    "layer": "world_characters",
+    "usage": "Teleport per hop (0.15s); includes 3 afterimages (~30% opacity).",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 288,
+      "height": 48
+    },
+    "colors_hex": [
+      "#1E1B4B",
+      "#C17B2F",
+      "#D4C5A9",
+      "#6B7280",
+      "#1C1917",
+      "#FEF3C7",
+      "#FBBF24",
+      "#F59E0B",
+      "#DC2626",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC"
+    ],
+    "animation": {
+      "type": "frame_strip",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": false,
+      "strip_layout": {
+        "rows": 1,
+        "cols": 6,
+        "frame_size_px": {
+          "width": 48,
+          "height": 48
+        },
+        "order": [
+          "teleport_1",
+          "teleport_2",
+          "teleport_3",
+          "teleport_4",
+          "teleport_5",
+          "teleport_6"
+        ],
+        "padding_px": 0
+      }
+    },
+    "vfx_notes": {
+      "afterimage_count": 3,
+      "afterimage_opacity": 0.3,
+      "trail_color_hex": "#06B6D4"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.olympian_god_teleport_sheet_48_6f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet is exactly 288×48px (6×48×48).",
+    "Reads as divine teleport (cyan + gold), not lightning hazard strobe.",
+    "Usable at 0.15s hop cadence; transparent background."
+  ]
+}

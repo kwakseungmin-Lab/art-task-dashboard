@@ -1,0 +1,157 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_825040411",
+  "asset_key": "timing_reflection_judgement_bar",
+  "asset_name": "Timing Reflection Judgement Bar",
+  "category": "ui",
+  "subcategory": "timing_ui",
+  "priority": "P0",
+  "execution_order": 11,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Timing UI stays centered on the lower screen and uses exact 600x30 px frame bounds declared in the GDD.",
+    "Judgement zones use fixed hex colors for Perfect, Good, and neutral rails."
+  ],
+  "differences": [
+    "This sheet provides two pulse frames for the reflection bar that marks Perfect and Good timing windows."
+  ],
+  "depends_on": [
+    "task_id_825040402",
+    "task_id_825040406",
+    "task_id_825040409",
+    "task_id_825040410"
+  ],
+  "blocks": [
+    "task_id_825040412"
+  ],
+  "blocked_by": [
+    "task_id_825040402",
+    "task_id_825040406",
+    "task_id_825040409",
+    "task_id_825040410"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_825040404",
+      "task_id_825040406",
+      "task_id_825040407",
+      "task_id_825040409",
+      "task_id_825040410",
+      "task_id_825040412"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "Reflect Academy GDD",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/reflect_academy.md?raw=1",
+      "purpose": "600x30 timing bar size, Perfect and Good window rule, and lower-center anchor grounding."
+    },
+    {
+      "label": "Reflect Academy moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter8_pipeline/Solutions/GameMaking/Ideation/experiments/evaluator-discrimination_1076/q3-10-pipeline-distribution/gdds/reflect_academy/_images/moodboard.png?raw=1",
+      "purpose": "Bar glow intensity and contrast against the hall floor grounding."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Use TextureAtlasLayout with two 600x30 frames and swap frames on a short pulse timer while projectiles are active.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Node",
+      "ImageNode",
+      "TextureAtlas",
+      "AnimationTimer",
+      "TimingBarUi"
+    ],
+    "asset_loading": "Load ui/timing_reflection_judgement_bar.png through AssetServer and keep the atlas handle in the HUD state resource.",
+    "runtime_notes": [
+      "Frame width is 600 px and frame height is 30 px.",
+      "Perfect zone width is 96 px centered inside the bar.",
+      "Good zones are 144 px wide on both sides of the Perfect zone."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#1A1A2E"
+    },
+    "background": {
+      "name": "Dark Maroon",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "Academy Gold",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "vector_2d_fantasy_battle",
+    "detail_level": "medium",
+    "shading": "flat_fill_with_soft_rim",
+    "outline": "2px_clean_outline"
+  },
+  "context": {
+    "role": "Lower-center timing bar that displays Perfect and Good windows during projectile approach.",
+    "screen_position": {
+      "anchor": "bottom_center",
+      "x_px": 960,
+      "y_px": 70
+    },
+    "layer": {
+      "name": "ui_timing",
+      "z_index": 83
+    },
+    "usage": "Visible only while at least one projectile is traveling toward the player."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 30
+    },
+    "colors_hex": [
+      "#00FFFF",
+      "#ADFF2F",
+      "#D4AF37",
+      "#1A1A2E",
+      "#E74C3C"
+    ],
+    "animation": {
+      "mode": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 4,
+      "loop": true,
+      "layout": {
+        "rows": 1,
+        "columns": 2,
+        "frame_size_px": {
+          "width": 600,
+          "height": 30
+        }
+      }
+    }
+  },
+  "deliverables": [
+    {
+      "artifact": "timing_reflection_judgement_bar.png",
+      "format": "png",
+      "size_px": {
+        "width": 1200,
+        "height": 30
+      },
+      "notes": "Two-frame pulse atlas for the 600x30 timing bar."
+    }
+  ],
+  "acceptance_criteria": [
+    "Sheet size is exactly 1200x30 px with two 600x30 frames laid left to right.",
+    "Perfect zone width is exactly 96 px and both Good zones are exactly 144 px wide in each frame.",
+    "Only #00FFFF, #ADFF2F, #D4AF37, #1A1A2E, and #E74C3C are used for visible pixels."
+  ]
+}

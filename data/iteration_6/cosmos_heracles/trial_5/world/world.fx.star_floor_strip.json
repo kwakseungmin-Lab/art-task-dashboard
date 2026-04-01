@@ -1,0 +1,94 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "world.fx.star_floor_strip",
+  "asset_name": "Star Floor Strip (tileable) — non-colliding sparkle band",
+  "category": "world",
+  "subcategory": "fx",
+  "priority": "P2",
+  "execution_order": 50,
+  "variant_of": null,
+  "depends_on": [
+    "world.tileset.temple_marble"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.tileset.temple_marble"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "obstacles.collectible.star_shard"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "ui_white",
+      "hex": "#F0EFE9"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "none",
+    "grid_base_px": 16,
+    "tile_size_px": 16
+  },
+  "context": {
+    "role": "world_fx",
+    "layer": "world",
+    "usage": "A thin, horizontally tileable sparkle band used as a decorative ground overlay (no collision) to reinforce the cosmic theme.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x_px": 0,
+      "y_px": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 512,
+      "height": 20
+    },
+    "tiling": {
+      "horizontal": true,
+      "vertical": false
+    },
+    "sparkle_density": "low",
+    "colors_hex": [
+      "#0B0C1E",
+      "#FFD966",
+      "#F0EFE9"
+    ],
+    "animation": {
+      "type": "optional",
+      "note": "If animated, keep to 4 frames with very subtle twinkle and no high-contrast flashing."
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world.fx.star_floor_strip.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Artwork is horizontally tileable with no visible seam.",
+    "The strip height is exactly 20px and can be aligned to the bottom ground line.",
+    "Sparkles remain subtle (no bright 1px flicker clusters) to avoid distracting rhythm timing."
+  ]
+}

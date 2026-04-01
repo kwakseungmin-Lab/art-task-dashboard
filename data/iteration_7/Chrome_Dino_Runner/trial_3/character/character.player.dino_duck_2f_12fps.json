@@ -1,0 +1,159 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "character.player.dino_duck_2f_12fps",
+  "asset_name": "Player Dino Duck Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "character.player.dino_idle_2f_6fps",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000.",
+    "2px outline width.",
+    "Side-profile T-Rex body components: head, torso, forearms, hind legs, tail."
+  ],
+  "differences": [
+    "Body height reduces from 94 px to 60 px.",
+    "Snout extends forward within a 118 px width envelope.",
+    "Leg rhythm stays at 12 fps to preserve gameplay timing."
+  ],
+  "depends_on": [
+    "character.player.dino_idle_2f_6fps"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "character.player.dino_idle_2f_6fps"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "character.player.dino_idle_2f_6fps",
+      "world.ground.line_1200x2"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_duck",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        90
+      ]
+    },
+    "layer": "character",
+    "usage": "Used when down input is active and a low pterodactyl is within the dodge window.",
+    "adjacent_elements": [
+      "world.ground.line_1200x2",
+      "obstacles.cactus.small_static"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 118,
+      "height": 60
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        118,
+        60
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Side-profile T-Rex silhouette with 2px outline, single-body fill, and background cutout for eye and mouth details.",
+      "components": [
+        "head",
+        "eye_cutout",
+        "mouth_line",
+        "torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    },
+    "face": {
+      "eyes": {
+        "shape": "single rectangular cutout",
+        "size_px": [
+          6,
+          6
+        ]
+      },
+      "mouth": {
+        "shape": "1 px horizontal mouth line",
+        "length_px": 12
+      },
+      "nose": null
+    },
+    "appendages": {
+      "arms": {
+        "count": 2,
+        "length_px": 10
+      },
+      "legs": {
+        "count": 2,
+        "length_px": 26
+      },
+      "tail": {
+        "length_px": 28
+      },
+      "accessories": null
+    },
+    "texture": null,
+    "shading": null
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.dino_duck_2f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Asset canvas is exactly 118x60 px per frame.",
+    "Primary body fill remains #535353 and background cutout stays transparent.",
+    "Leg, tail, and head pixels stay aligned to whole-pixel positions with no anti-aliasing."
+  ]
+}

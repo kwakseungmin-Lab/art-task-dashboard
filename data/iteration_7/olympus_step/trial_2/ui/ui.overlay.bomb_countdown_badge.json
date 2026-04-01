@@ -1,0 +1,109 @@
+{
+  "schema_version": "art_task@7",
+  "task_id": "ui.overlay.bomb_countdown_badge",
+  "asset_name": "UI Overlay - Bomb Countdown Badge",
+  "category": "ui",
+  "subcategory": "overlay",
+  "priority": "P1",
+  "execution_order": 69,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [
+    "ui.overlay.tile_number_badge"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.overlay.tile_number_badge"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.overlay.tile_number_badge",
+      "obstacles.hazard.bomb_tile_64x64_3state"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#FEF3C7"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rimlight",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "countdown",
+    "layer": "ui_overlay",
+    "usage": "Displayed above bomb tiles showing 3->2->1 countdown",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "tile_top_right",
+      "offset_px": [
+        -4,
+        4
+      ]
+    },
+    "viewpoint": {
+      "camera_angle": "screen_space_orthographic",
+      "facing": "front",
+      "framing": "panel_or_overlay"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 24
+    },
+    "colors_hex": [
+      "#EF4444",
+      "#FEF3C7",
+      "#1C1917"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        24,
+        24
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "notes": "Red rim indicates urgency; digits in parchment"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.overlay.bomb_countdown_badge.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Badge is exactly 24x24px; red rim uses #EF4444; interior remains dark for contrast.",
+    "Supports single-digit countdown numerals at 10–14px pixel font.",
+    "Does not overlap the tile number badge when both are present (designed for opposite corners)."
+  ]
+}

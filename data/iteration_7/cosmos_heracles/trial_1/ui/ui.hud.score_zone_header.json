@@ -1,0 +1,111 @@
+{
+  "asset_name": "HUD Score and Zone Header",
+  "subcategory": "hud",
+  "priority": "P0",
+  "execution_order": 41,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.hp_hearts_row"
+    ]
+  },
+  "context": {
+    "role": "hud_score_zone",
+    "screen_position": {
+      "type": "absolute_px",
+      "anchor": "top_left",
+      "x": 680,
+      "y": 16
+    },
+    "adjacent_elements": [
+      "ui.hud.hp_hearts_row"
+    ],
+    "layer": "ui_overlay",
+    "usage": "Visible during gameplay at all times; score center anchor x 800 and zone label right anchor x 1560 are included in one atlas element."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 900,
+      "height": 32
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#FFD966"
+    ],
+    "animation": {
+      "type": "none",
+      "frame_count": 1,
+      "frame_time_s": 0.0,
+      "loop": false
+    },
+    "viewpoint": {
+      "camera_angle": "screen_flat",
+      "facing": "front",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Single 900x32 HUD strip containing a centered score label field and a right-aligned zone field.",
+      "components": [
+        "score label area 320x32",
+        "zone label area 140x32",
+        "zero padding glyph set 0-9"
+      ]
+    },
+    "font_px": {
+      "score": 24,
+      "zone": 20
+    },
+    "score_digits": 6,
+    "shading_model": "flat_ui"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui.hud.score_zone_header.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "HUD strip width is exactly 900 px and height is exactly 32 px.",
+    "Score field supports exactly 6 digits with zero padding.",
+    "Score font height is 24 px and zone font height is 20 px.",
+    "Text uses #F0EFE9 with #FFD966 reserved for highlight separators."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "ui.hud.score_zone_header",
+  "category": "ui",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

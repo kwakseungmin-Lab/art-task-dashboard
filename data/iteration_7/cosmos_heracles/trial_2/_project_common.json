@@ -1,0 +1,295 @@
+{
+  "schema_version": "art_task_plan_pkg@7",
+  "project": {
+    "project_id": "cosmos_heracles",
+    "project_name": "Cosmos Heracles"
+  },
+  "meta": {
+    "plan_id": "cosmos_heracles__iter7__trial2",
+    "game_name": "cosmos_heracles",
+    "iteration": 7,
+    "trial_index": 2,
+    "plan_dir": "trial_2",
+    "created_at_utc": "2026-03-17T00:00:00Z",
+    "git_ref": "art_task_plan/iter7_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260304202957/cosmos_heracles/cosmos_heracles.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v7.md",
+    "guardrails": {
+      "meta_analysis_status": "cosmos_heracles unstable fail_rate 0.6",
+      "kb_lookup": "attempted retrieve_kb_graph on Art Task Plan and Meta Iteration KB; both timed out",
+      "avoided_patterns": [
+        "IF-9 variant depends_on omission",
+        "IF-8 core palette drift",
+        "IF-4 reference token reuse"
+      ]
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "bronze_armor",
+      "hex": "#C47C2B"
+    },
+    "background": {
+      "name": "deep_space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "star_gold",
+      "hex": "#FFD966"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art_16x16_upscaled",
+    "detail_level": "dense_16x16_cluster",
+    "shading": "two_tone_plus_one_highlight",
+    "outline": "1px_deep_space_outline"
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": {
+      "path_prefix": "<category>/",
+      "file": "<task_id>.png"
+    }
+  },
+  "assets": [
+    {
+      "task_id": "character.player.cosmos_heracles_base",
+      "category": "character",
+      "file": "character/character.player.cosmos_heracles_base.json",
+      "execution_order": 10,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.player.cosmos_heracles_run_variant",
+      "category": "character",
+      "file": "character/character.player.cosmos_heracles_run_variant.json",
+      "execution_order": 20,
+      "variant_of": "character.player.cosmos_heracles_base"
+    },
+    {
+      "task_id": "character.player.cosmos_heracles_large_variant",
+      "category": "character",
+      "file": "character/character.player.cosmos_heracles_large_variant.json",
+      "execution_order": 30,
+      "variant_of": "character.player.cosmos_heracles_base"
+    },
+    {
+      "task_id": "character.player.cosmos_heracles_small_variant",
+      "category": "character",
+      "file": "character/character.player.cosmos_heracles_small_variant.json",
+      "execution_order": 40,
+      "variant_of": "character.player.cosmos_heracles_base"
+    },
+    {
+      "task_id": "character.player.cosmos_heracles_counter_variant",
+      "category": "character",
+      "file": "character/character.player.cosmos_heracles_counter_variant.json",
+      "execution_order": 50,
+      "variant_of": "character.player.cosmos_heracles_base"
+    },
+    {
+      "task_id": "character.enemy.slime_sheet",
+      "category": "character",
+      "file": "character/character.enemy.slime_sheet.json",
+      "execution_order": 60,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.medusa_sheet",
+      "category": "character",
+      "file": "character/character.enemy.medusa_sheet.json",
+      "execution_order": 70,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.cyclops_sheet",
+      "category": "character",
+      "file": "character/character.enemy.cyclops_sheet.json",
+      "execution_order": 80,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.cerberus_sheet",
+      "category": "character",
+      "file": "character/character.enemy.cerberus_sheet.json",
+      "execution_order": 90,
+      "variant_of": null
+    },
+    {
+      "task_id": "character.enemy.hydra_sheet",
+      "category": "character",
+      "file": "character/character.enemy.hydra_sheet.json",
+      "execution_order": 100,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.pillar.marble_base",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pillar.marble_base.json",
+      "execution_order": 110,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.pillar.marble_break_variant",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pillar.marble_break_variant.json",
+      "execution_order": 120,
+      "variant_of": "obstacles.pillar.marble_base"
+    },
+    {
+      "task_id": "obstacles.gate.narrow_passage",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.gate.narrow_passage.json",
+      "execution_order": 130,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.gate.wide_passage",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.gate.wide_passage.json",
+      "execution_order": 140,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.pillar.rotating_sheet",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.pillar.rotating_sheet.json",
+      "execution_order": 150,
+      "variant_of": null
+    },
+    {
+      "task_id": "obstacles.collectible.star_shard",
+      "category": "obstacles",
+      "file": "obstacles/obstacles.collectible.star_shard.json",
+      "execution_order": 160,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.zone1.corridor_backdrop",
+      "category": "world",
+      "file": "world/world.zone1.corridor_backdrop.json",
+      "execution_order": 170,
+      "variant_of": null
+    },
+    {
+      "task_id": "world.zone2.celestial_hall_variant",
+      "category": "world",
+      "file": "world/world.zone2.celestial_hall_variant.json",
+      "execution_order": 180,
+      "variant_of": "world.zone1.corridor_backdrop"
+    },
+    {
+      "task_id": "world.zone3.altar_variant",
+      "category": "world",
+      "file": "world/world.zone3.altar_variant.json",
+      "execution_order": 190,
+      "variant_of": "world.zone2.celestial_hall_variant"
+    },
+    {
+      "task_id": "world.floor.star_strip",
+      "category": "world",
+      "file": "world/world.floor.star_strip.json",
+      "execution_order": 200,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.hud.ingame_layout",
+      "category": "ui",
+      "file": "ui/ui.hud.ingame_layout.json",
+      "execution_order": 210,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.widget.counter_gauge_base",
+      "category": "ui",
+      "file": "ui/ui.widget.counter_gauge_base.json",
+      "execution_order": 220,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.widget.counter_gauge_ready_variant",
+      "category": "ui",
+      "file": "ui/ui.widget.counter_gauge_ready_variant.json",
+      "execution_order": 230,
+      "variant_of": "ui.widget.counter_gauge_base"
+    },
+    {
+      "task_id": "ui.icons.size_state_set",
+      "category": "ui",
+      "file": "ui/ui.icons.size_state_set.json",
+      "execution_order": 240,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.screen.title_logo",
+      "category": "ui",
+      "file": "ui/ui.screen.title_logo.json",
+      "execution_order": 250,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.pause_panel",
+      "category": "ui",
+      "file": "ui/ui.overlay.pause_panel.json",
+      "execution_order": 260,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.zone_clear_panel",
+      "category": "ui",
+      "file": "ui/ui.overlay.zone_clear_panel.json",
+      "execution_order": 270,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.death_retry_panel",
+      "category": "ui",
+      "file": "ui/ui.overlay.death_retry_panel.json",
+      "execution_order": 280,
+      "variant_of": null
+    },
+    {
+      "task_id": "ui.overlay.ending_score_panel",
+      "category": "ui",
+      "file": "ui/ui.overlay.ending_score_panel.json",
+      "execution_order": 290,
+      "variant_of": null
+    }
+  ],
+  "category_common": {
+    "character": {
+      "camera_angle": "orthographic_side",
+      "default_facing": "player right, enemies left",
+      "layer": "foreground_characters",
+      "anchor_rule": "player fixed at x 400 y 820; enemies spawn between x 1120 and x 1230 with bottom aligned combat lanes"
+    },
+    "obstacles": {
+      "camera_angle": "orthographic_side",
+      "layer": "midground_obstacles",
+      "floor_rule": "all obstacle bases align to the 20 px star floor strip and preserve readable collision openings",
+      "spawn_rule": "scroll spawn anchors sit near x 1110 to x 1120 in traversal lanes"
+    },
+    "world": {
+      "camera_angle": "orthographic_side",
+      "layer": "background_world",
+      "coverage_rule": "backdrops cover full 1600x900 frame while the floor strip spans the full width at y 890",
+      "parallax_rule": "zone backdrops preserve four depth bands: space, silhouette, hall columns, foreground floor"
+    },
+    "ui": {
+      "camera_angle": "screen_flat",
+      "layer": "ui_hud_or_overlay",
+      "anchor_rule": "HUD and overlays follow the GDD coordinate table on the 1600x900 canvas",
+      "readability_rule": "text and icon shapes remain readable against deep space background with UI white and star gold accents"
+    }
+  }
+}

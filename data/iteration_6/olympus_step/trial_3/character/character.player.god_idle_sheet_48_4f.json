@@ -1,0 +1,111 @@
+{
+  "schema_version": "art_task@6",
+  "task_id": "character.player.god_idle_sheet_48_4f",
+  "asset_name": "Player God — Idle Sprite Sheet (48px, 4 frames)",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "palette": {
+    "primary": {
+      "name": "divine_cyan",
+      "hex": "#06B6D4"
+    },
+    "background": {
+      "name": "olympus_indigo",
+      "hex": "#1E1B4B"
+    },
+    "accent": {
+      "name": "zeus_gold",
+      "hex": "#FBBF24"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "hd2d_rim_light",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "sprite_sheet",
+    "layer": "world",
+    "usage": "Main player character (the last Olympian god). Used while planning path and when standing still on a tile.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 48
+    },
+    "colors_hex": [
+      "#C17B2F",
+      "#1E1B4B",
+      "#D4C5A9",
+      "#6B7280",
+      "#DC2626",
+      "#FBBF24",
+      "#06B6D4",
+      "#EF4444",
+      "#F8FAFC",
+      "#F59E0B",
+      "#1C1917",
+      "#FEF3C7"
+    ],
+    "frame_size_px": {
+      "width": 48,
+      "height": 48
+    },
+    "frame_count": 4,
+    "fps": 5,
+    "frames": [
+      {
+        "id": "idle_1",
+        "note": "Neutral stance; subtle cloak/energy movement."
+      },
+      {
+        "id": "idle_2",
+        "note": "Upward float (2px)."
+      },
+      {
+        "id": "idle_3",
+        "note": "Downward float (2px)."
+      },
+      {
+        "id": "idle_4",
+        "note": "Return + glow pulse."
+      }
+    ],
+    "layout_note": "Single-row strip 192×48. Transparent background. Silhouette must read at 1× on both dark and light tiles."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.player.god_idle_sheet_48_4f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG is exactly 192×48px (4×48×48) aligned to pixel grid.",
+    "No anti-aliasing; consistent rim light.",
+    "Readable on Stone Ivory and Olympus Indigo backgrounds."
+  ]
+}

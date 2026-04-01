@@ -1,0 +1,139 @@
+{
+  "task_id": "obstacles.pterodactyl_fly_sprite",
+  "asset_name": "Pterodactyl Flying Sprite",
+  "category": "obstacles",
+  "subcategory": "flying_obstacle",
+  "priority": "high",
+  "execution_order": 30,
+  "project_common": {
+    "project_id": "chrome_dino_runner_iter5_trial2_art_task_plan",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 2,
+    "canvas_px": [
+      600,
+      150
+    ],
+    "pixel_perfect": true,
+    "anti_aliasing": "none",
+    "palette_hex": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash": "#FFFFFF"
+    },
+    "outline_px": 2,
+    "outline_color_hex": "#535353"
+  },
+  "description": "Create the flying pterodactyl obstacle with a 2-frame wing flap animation.",
+  "context": {
+    "role": "Flying obstacle that appears after score threshold and requires duck timing.",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 650,
+      "y": 80,
+      "anchor": "bottom_left"
+    },
+    "layer": 26,
+    "usage": {
+      "spawn_score_threshold": 200,
+      "spawn_heights_px_above_ground": [
+        50,
+        80
+      ],
+      "movement": {
+        "from_x_px": 650,
+        "to_x_px": -100
+      }
+    }
+  },
+  "specs": {
+    "style": {
+      "art_style": "8_bit_pixel_art",
+      "color_usage": {
+        "allowed_hex": [
+          "#535353"
+        ],
+        "background_transparent": true
+      },
+      "outline": {
+        "enabled": true,
+        "outline_px": 2,
+        "outline_hex": "#535353"
+      },
+      "anti_aliasing": "none"
+    },
+    "sprite_dimensions_px": {
+      "width": 92,
+      "height": 80
+    },
+    "animation": {
+      "frame_count": 2,
+      "fps": 10,
+      "loop": true,
+      "frame_labels": [
+        "fly_0",
+        "fly_1"
+      ]
+    },
+    "export": {
+      "format": "png",
+      "background": "transparent",
+      "sprite_sheet": {
+        "file": "pterodactyl_fly_sprite_sheet.png",
+        "frame_size_px": [
+          92,
+          80
+        ],
+        "layout": "row_major",
+        "total_frames": 2
+      },
+      "individual_frames": [
+        "pterodactyl_fly_0.png",
+        "pterodactyl_fly_1.png"
+      ],
+      "recommended_pivot": {
+        "type": "center",
+        "x_px_from_left": 46,
+        "y_px_from_bottom": 40
+      }
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "character.player_dino_sprite_set",
+      "obstacles.cactus_sprite_set",
+      "world.background_sky_and_clouds"
+    ]
+  },
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "deliverables": [
+    {
+      "type": "png_sprite_sheet",
+      "file": "pterodactyl_fly_sprite_sheet.png",
+      "transparent_background": true,
+      "frame_cell_px": [
+        92,
+        80
+      ],
+      "total_frames": 2
+    },
+    {
+      "type": "png_frames",
+      "files": [
+        "pterodactyl_fly_0.png",
+        "pterodactyl_fly_1.png"
+      ],
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite dimensions for each frame are exactly 92x80 pixels.",
+    "Animation loops seamlessly at 10 fps with exactly 2 frames and no positional jitter when pivot is at center (46,40).",
+    "All non-transparent pixels use #535353 only; no additional colors and no semi-transparent pixels.",
+    "Wing motion is clearly readable: frame 0 shows wings higher than frame 1 by at least 8 px vertical difference.",
+    "The silhouette remains fully inside the 92x80 frame bounds for both frames."
+  ]
+}

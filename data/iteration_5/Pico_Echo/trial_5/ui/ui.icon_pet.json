@@ -1,0 +1,95 @@
+{
+  "task_id": "ui.icon_pet",
+  "id": "ui.icon_pet",
+  "asset_name": "Pet icon",
+  "category": "ui",
+  "subcategory": "care_icon",
+  "description": "8x8 pixel icon representing the pet action. Primary shape is a simplified hand.",
+  "execution_order": 78,
+  "priority": "P0",
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "ui.care_menu_icons",
+      "character.echo_sprite_sheet",
+      "world.vfx_heart"
+    ]
+  },
+  "style_constraints": {
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "max_colors": 16,
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor",
+    "line_weight_px": 1
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 8,
+      "height": 8
+    },
+    "primary_hex": "#FFCCAA",
+    "outline_hex": "#1D2B53",
+    "background": "transparent"
+  },
+  "context": {
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "screen_bottom_right",
+      "offset_px": {
+        "x": -8,
+        "y": -16
+      }
+    },
+    "layer": "ui_overlay",
+    "usage": [
+      "ui_overlay",
+      "interactive_button"
+    ],
+    "role": "ui_care_action_icon"
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/ui/icon_pet.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_5/ui/icon_pet.png",
+      "dimensions_px": {
+        "width": 8,
+        "height": 8
+      },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 8x8 px with transparent background.",
+    "Hand pixels use #FFCCAA with #1D2B53 outline if present.",
+    "Silhouette is readable at 1x scale on a #1D2B53 panel background.",
+    "No colors outside palette_hex are used."
+  ],
+  "export": {
+    "format": "png",
+    "transparent_bg": true,
+    "scale": "1x"
+  }
+}

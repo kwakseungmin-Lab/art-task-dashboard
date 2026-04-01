@@ -1,0 +1,118 @@
+{
+  "task_id": "ui.game_over_screen",
+  "asset_name": "Game Over Screen UI Layout",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "critical",
+  "execution_order": 80,
+  "project_common": {
+    "project_id": "chrome_dino_runner_iter5_trial2_art_task_plan",
+    "project_name": "Chrome_Dino_Runner",
+    "iteration": 5,
+    "trial_index": 2,
+    "canvas_px": [
+      600,
+      150
+    ],
+    "pixel_perfect": true,
+    "anti_aliasing": "none",
+    "palette_hex": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash": "#FFFFFF"
+    },
+    "outline_px": 2,
+    "outline_color_hex": "#535353"
+  },
+  "description": "Define the game over UI layout including headline text, final score, high score, and restart hint.",
+  "context": {
+    "role": "Shown when the player is dead. Communicates end state and restart instruction.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    "layer": 95,
+    "usage": {
+      "visible_when": [
+        "dead_game_over"
+      ],
+      "restart_input": "Space"
+    }
+  },
+  "specs": {
+    "text": {
+      "font_asset_task_id": "ui.pixel_font_atlas",
+      "color_hex": "#535353",
+      "alignment": "center"
+    },
+    "layout": {
+      "center_px": [
+        300,
+        75
+      ],
+      "elements": [
+        {
+          "name": "headline",
+          "content": "GAME OVER",
+          "font_size_px": 24,
+          "offset_y_px": -30
+        },
+        {
+          "name": "final_score",
+          "content_template": "Score: {score_5digits}",
+          "font_size_px": 16,
+          "offset_y_px": 0
+        },
+        {
+          "name": "high_score",
+          "content_template": "HI {high_score_5digits}",
+          "font_size_px": 16,
+          "offset_y_px": 20
+        },
+        {
+          "name": "restart_hint",
+          "content": "Press SPACE to restart",
+          "font_size_px": 12,
+          "offset_y_px": 50,
+          "blink": {
+            "enabled": true,
+            "interval_seconds": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "related_task_ids": [
+      "ui.pixel_font_atlas",
+      "ui.score_display",
+      "character.player_dino_sprite_set"
+    ]
+  },
+  "depends_on": [
+    "ui.pixel_font_atlas"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "ui.pixel_font_atlas"
+  ],
+  "deliverables": [
+    {
+      "type": "layout_spec",
+      "file": "game_over_screen_layout.json",
+      "notes": "Include element positions, font sizes, and blink timing."
+    }
+  ],
+  "acceptance_criteria": [
+    "The headline text 'GAME OVER' is centered at canvas center (300,75) with vertical offset -30 and font size 24 px.",
+    "Final score and high score lines use 5-digit zero-padded numbers and are centered with offsets 0 and +20 pixels.",
+    "Restart hint text uses font size 12 px, centered with offset +50, and blinks with 0.5 second interval.",
+    "All text color is #535353 in normal state and has no semi-transparent pixels when rendered with the bitmap font.",
+    "The game over UI does not use any full-screen overlay; the gameplay scene remains visible behind the text."
+  ]
+}

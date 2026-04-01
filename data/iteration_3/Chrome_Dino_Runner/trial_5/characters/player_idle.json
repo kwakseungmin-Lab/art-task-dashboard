@@ -1,0 +1,78 @@
+{
+  "project_common": {
+    "game_title": "Chrome Dino Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scaling supported",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "8-bit pixel art T-Rex dinosaur",
+      "features": "short front legs, large eyes, thick tail",
+      "outline": "2px included in dimensions",
+      "collision_margin": "5px smaller than sprite for forgiveness"
+    }
+  },
+  "asset": {
+    "asset_id": "player_idle",
+    "asset_name": "Player Idle Animation",
+    "context": {
+      "game": "Chrome Dino Runner",
+      "role": "Player character idle state before game starts",
+      "screen_position": "Fixed at x=100px from left edge, y=0 (ground level)",
+      "adjacent_elements": ["ground", "score_display"],
+      "usage_scenario": "Displayed when game is not started, waiting for player input to begin"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "88px",
+        "height": "94px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "T-Rex dinosaur standing upright",
+      "texture": "Pixel art, solid color fill",
+      "outline": "2px thick, included in sprite dimensions",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 6,
+        "loop": true,
+        "description": "Subtle breathing animation - 2 frames alternating at 6 FPS showing slight body movement"
+      },
+      "details": "Short front legs, large round eyes, thick tail, standing pose"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_jump", "player_duck", "player_dead", "ground"],
+      "shared_with": "Same base sprite as player_run but slower animation",
+      "differences_from": "player_run has faster FPS (12 vs 6), player_jump is single frame static"
+    },
+    "explicit_negations": [
+      "No color variations or gradients",
+      "No smooth interpolation between frames",
+      "No shadows or lighting effects",
+      "No background elements in sprite",
+      "No rotation or scaling effects",
+      "No additional decorative elements"
+    ]
+  }
+}

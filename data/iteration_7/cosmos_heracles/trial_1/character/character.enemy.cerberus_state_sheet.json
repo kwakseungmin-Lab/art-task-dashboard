@@ -1,0 +1,149 @@
+{
+  "asset_name": "Cerberus Enemy State Sheet 128x96",
+  "subcategory": "enemy",
+  "priority": "P1",
+  "execution_order": 27,
+  "variant_of": null,
+  "shared_properties": null,
+  "differences": null,
+  "depends_on": [],
+  "blocks": [
+    "ui.hud.counter_gauge"
+  ],
+  "blocked_by": [
+    "world.background.zone3_altar_parallax"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "ui.hud.counter_gauge",
+      "world.background.zone3_altar_parallax"
+    ]
+  },
+  "context": {
+    "role": "enemy_zone_3",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "player_lock_x",
+      "offset_px": {
+        "x": 760,
+        "y": 0
+      }
+    },
+    "adjacent_elements": [
+      "world.floor.star_floor_strip",
+      "ui.hud.counter_gauge"
+    ],
+    "layer": "gameplay_layer_3",
+    "usage": "Visible in Zone 3 traversal with pursuit speed 30 px per second above the scroll speed and three separate bite telegraphs."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 96
+    },
+    "colors_hex": [
+      "#F0EFE9",
+      "#0B0C1E",
+      "#FFD966",
+      "#E84040"
+    ],
+    "animation": {
+      "type": "stateful",
+      "frame_count": 8,
+      "frame_time_s": 0.08,
+      "loop": false,
+      "states": {
+        "run": 6,
+        "bite": 2
+      },
+      "sprite_sheet_layout": {
+        "columns": 4,
+        "rows": 2
+      }
+    },
+    "viewpoint": {
+      "camera_angle": "side_orthographic",
+      "facing": "left",
+      "zoom": 1.0
+    },
+    "shape": {
+      "silhouette": "Quadruped body with total width 128 px and three head circles of 20 px diameter each.",
+      "components": [
+        "body mass 72x40",
+        "head cluster x3",
+        "leg set x4",
+        "tail 24x10",
+        "bite flare 12x8"
+      ]
+    },
+    "face": {
+      "eyes": "2 px red eyes per head",
+      "mouth": "6 px bite line per head",
+      "nose": "2 px wedge per head"
+    },
+    "appendages": {
+      "arms": "none",
+      "legs": "4",
+      "tail": "single tail",
+      "accessories": [
+        "head cluster x3"
+      ]
+    },
+    "texture": "fur_plus_shadow",
+    "collision_box_px": {
+      "width": 128,
+      "height": 96
+    },
+    "telegraph_window_ms": 80,
+    "attack_pattern": {
+      "head_count": 3,
+      "telegraph_s_per_head": 0.3,
+      "pursuit_speed_bonus_px_per_s": 30
+    },
+    "shading_model": "two_tone_flat"
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character.enemy.cerberus_state_sheet.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet bounding box is exactly 128x96 px per frame.",
+    "Sheet contains 8 frames with 6 run frames and 2 bite frames.",
+    "Three heads remain readable as separate silhouettes in every frame.",
+    "Each head has one red eye pair using #E84040."
+  ],
+  "schema_version": "art_task@7",
+  "task_id": "character.enemy.cerberus_state_sheet",
+  "category": "character",
+  "palette": {
+    "primary": {
+      "name": "UI White",
+      "hex": "#F0EFE9"
+    },
+    "background": {
+      "name": "Deep Space",
+      "hex": "#0B0C1E"
+    },
+    "accent": {
+      "name": "Star Gold",
+      "hex": "#FFD966"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1600,
+      "height": 900
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "16px_grid_upscaled",
+    "shading": "flat_two_tone",
+    "outline": "1px"
+  }
+}

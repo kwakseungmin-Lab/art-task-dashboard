@@ -1,0 +1,99 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "40px",
+      "height": "40px"
+    },
+    "color_scheme": {
+      "body": "#FFA300",
+      "cheek_patch": "#FF004D",
+      "crest": "#FFEC27",
+      "beak": "#AB5236",
+      "eyes": "#1D2B53"
+    },
+    "shared_attributes": {
+      "sprite_type": "hand-drawn pixel art",
+      "animation_method": "frame-by-frame spritesheet",
+      "position": "center of 128x128 screen, on perch at y=60",
+      "key_features": "crest, cheek patch, tail - 3 essential cockatiel traits",
+      "eye_size": "2x2px",
+      "outline": "1px, organic hand-drawn style"
+    }
+  },
+  "asset": {
+    "asset_id": "echo_singing",
+    "asset_name": "Echo Singing Animation",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Unlocked at relationship level 4, triggers when happiness >= 90",
+      "screen_position": "Center (x=64, y=60), on perch",
+      "adjacent_elements": ["perch (below)", "note_particle (spawns above-right)", "happiness_bar (bottom, at 90+)"],
+      "usage_scenario": "Reward behavior for high happiness. Echo sings cockatiel whistle. Plays for 5-10 seconds then returns to idle. Musical note particles float upward. Accompanied by actual cockatiel sound recording."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "40px",
+        "height": "40px"
+      },
+      "colors": {
+        "body": "#FFA300",
+        "cheek_patch": "#FF004D",
+        "crest": "#FFEC27",
+        "beak": "#AB5236",
+        "eyes": "#1D2B53",
+        "feet": "#AB5236"
+      },
+      "shape": "Cockatiel with raised crest, open beak, upright proud posture",
+      "texture": "Flat pixel art with hand-drawn organic edges, no gradients",
+      "outline": "1px black (#1D2B53) outline, hand-drawn style",
+      "shadow": "None",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 8,
+        "fps": 4,
+        "loop": true,
+        "description": "Frame 1-2: Crest raises, beak opens. Frame 3-4: Beak opens wider (3px gap), head tilts up slightly. Frame 5-6: Beak closes partially. Frame 7-8: Beak opens again, body sways. Rhythmic singing motion."
+      },
+      "details": "Crest: fully raised, 6-7px tall. Beak: opens to 3px vertical gap in frames 3-4. Head: tilts upward approximately 15 degrees. Eyes: wide open, bright. Body: subtle sway (1-2px) in rhythm. Musical notes (♪ shape, 3x5px #FFEC27) spawn above-right, float upward 8-10px before fading."
+    },
+    "relationships": {
+      "related_assets": ["note_particle", "echo_happy", "echo_idle"],
+      "shared_with": "Same base body as all Echo states",
+      "differences_from": "echo_happy: beak open vs closed, head tilted up vs level, note particles vs heart particles. echo_idle: crest raised vs normal, beak open vs closed. Only state with open beak besides eating."
+    },
+    "explicit_negations": [
+      "No 3D modeling",
+      "No smooth gradients",
+      "No sound wave lines emanating from beak",
+      "Musical notes do not multiply excessively (max 3 visible)",
+      "Body does not bounce or jump",
+      "Wings do not spread",
+      "No microphone or stage elements",
+      "Beak does not open unrealistically wide (max 3px)",
+      "No rainbow or sparkle effects",
+      "Tail does not fan"
+    ]
+  }
+}

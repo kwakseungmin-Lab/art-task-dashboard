@@ -1,0 +1,90 @@
+{
+  "project_common": {
+    "game_title": "Pico Echo",
+    "art_style": "PICO-8 style hand-drawn pixel art",
+    "resolution": "128x128",
+    "color_palette": {
+      "primary": "#FFA300",
+      "secondary": "#FF004D",
+      "accent": "#FFEC27",
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "text": "#1D2B53",
+      "dark_bg": "#5F574F",
+      "green": "#00E436",
+      "purple": "#7E2553",
+      "light_skin": "#FFCCAA"
+    },
+    "pixel_density": "1:1 (no anti-aliasing)",
+    "outline_style": "hand-drawn, organic feel, 1px outline",
+    "rendering": "nearest neighbor scaling"
+  },
+  "category": "environment",
+  "category_common": {
+    "base_size": {
+      "width": "128px",
+      "height": "128px"
+    },
+    "color_scheme": {
+      "background": "#FFF1E8",
+      "cage_bar": "#C2C3C7",
+      "perch": "#AB5236",
+      "floor": "#FFCCAA"
+    },
+    "shared_attributes": {
+      "sprite_type": "static pixel art background",
+      "rendering": "single layer, no parallax",
+      "style": "minimal, clean, PICO-8 aesthetic",
+      "perspective": "front-facing 2D, no depth"
+    }
+  },
+  "asset": {
+    "asset_id": "water_bowl",
+    "asset_name": "Water Bowl",
+    "context": {
+      "game": "Pico Echo - virtual pet cockatiel game",
+      "role": "Decorative element, indicates cage completeness (not interactive in current version)",
+      "screen_position": "Bottom-left at (40, 100), to the right of food bowl",
+      "adjacent_elements": ["food_bowl (to the left)", "floor (below)"],
+      "usage_scenario": "Always visible, always full. Purely decorative - no gameplay interaction. Provides visual balance with food bowl."
+    },
+    "visual_specification": {
+      "size": {
+        "width": "12px",
+        "height": "10px"
+      },
+      "colors": {
+        "bowl": "#AB5236",
+        "water": "#29ADFF"
+      },
+      "shape": "Small bowl viewed from above, circular top view",
+      "texture": "Flat pixel art, no gradients",
+      "outline": "1px dark brown (#5F574F) outline",
+      "shadow": "None",
+      "animation": {
+        "type": "static",
+        "frames": 1,
+        "fps": 0,
+        "loop": false,
+        "description": "No animation. Always shows full water state."
+      },
+      "details": "Brown bowl (#AB5236) outline, 12px wide, 10px tall. Interior filled with blue water (#29ADFF). Water surface: flat, no ripples. Slightly smaller than food bowl. Simple oval shape. Always appears full."
+    },
+    "relationships": {
+      "related_assets": ["food_bowl", "floor"],
+      "shared_with": "Brown bowl color with food_bowl and perch",
+      "differences_from": "food_bowl: smaller vs larger, blue water vs orange seeds, static vs 3 states, decorative vs interactive."
+    },
+    "explicit_negations": [
+      "No 3D depth",
+      "Water does not ripple or animate",
+      "Bowl does not tip",
+      "No reflection or shine on water surface",
+      "Not interactive (cannot be clicked)",
+      "Water level does not change",
+      "No droplets or splashes",
+      "Echo does not drink from it visually"
+    ]
+  }
+}

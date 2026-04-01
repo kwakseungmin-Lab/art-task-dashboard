@@ -1,0 +1,124 @@
+{
+  "task_id": "cdr_v2_character_player_dead",
+  "asset_name": "Player - Dead (1 frame)",
+  "category": "character",
+  "subcategory": "player",
+  "description": "1 frame. Canvas: 88x94 px, transparent.\nColor: #535353 only. Outline 2px.\nFeet contact y=0.\nEye mark: X-shape within 6x6 area centered near (70,75).",
+  "project": {
+    "game_title": "Chrome Dino Runner",
+    "game_id": "chrome_dino_runner",
+    "art_task_plan_version": 2,
+    "source_gdd_root": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/",
+    "rendering": {
+      "style": "pixel_art",
+      "pixel_perfect": true,
+      "anti_aliasing": "disabled",
+      "target_fps": 60
+    },
+    "canvas": {
+      "base_resolution_px": "600x150",
+      "scale_support": {
+        "authoring_scale": "1x",
+        "runtime_scales": [
+          "1x",
+          "2x"
+        ],
+        "scaling_filter": "nearest_neighbor"
+      },
+      "coordinate_system": {
+        "origin": "bottom_left",
+        "x_axis": "right",
+        "y_axis": "up",
+        "ground_y_px": 0
+      }
+    },
+    "palette": {
+      "background": "#F7F7F7",
+      "primary": "#535353",
+      "highlight": "#FF0000",
+      "flash_white": "#FFFFFF",
+      "transparent": "alpha=0"
+    },
+    "sprite_standards": {
+      "outline": {
+        "enabled": true,
+        "thickness_px": 2,
+        "color": "#535353"
+      },
+      "fill": {
+        "enabled": false,
+        "fill_color": "transparent"
+      },
+      "internal_detail": {
+        "enabled": true,
+        "line_thickness_px": 1,
+        "color": "#535353"
+      },
+      "allowed_hex_colors_for_sprites": [
+        "#535353"
+      ],
+      "background": "transparent"
+    },
+    "export": {
+      "format": "png",
+      "color_mode": "RGBA",
+      "bit_depth_per_channel": 8,
+      "compression": "lossless",
+      "file_naming": "snake_case"
+    }
+  },
+  "deliverables": [
+    {
+      "path": "GameAssets/chrome_dino_runner/sprites/character/player_dead_88x94.png",
+      "type": "sprite",
+      "format": "png",
+      "scale": "1x"
+    }
+  ],
+  "specs": {
+    "dimensions": "88x94",
+    "animation": {
+      "frame_count": 1
+    }
+  },
+  "context": {
+    "role": "Shown after collision.",
+    "screen_location": "x fixed; y=0.",
+    "adjacent_elements": "Game over UI appears.",
+    "layer": "gameplay",
+    "usage": "dead"
+  },
+  "relationships": {
+    "related_task_ids": [
+      "cdr_v2_ui_game_over_screen",
+      "cdr_v2_vfx_screen_flash"
+    ],
+    "shared_properties": [
+      "#535353"
+    ],
+    "differences": [
+      "X eye"
+    ]
+  },
+  "depends_on": [
+    "cdr_v2_project_common",
+    "cdr_v2_character_player_run",
+    "cdr_v2_vfx_screen_flash"
+  ],
+  "execution_order": 50,
+  "priority": "P0",
+  "blocks": [
+    "cdr_v2_ui_game_over_screen"
+  ],
+  "blocked_by": [
+    "cdr_v2_project_common",
+    "cdr_v2_character_player_run",
+    "cdr_v2_vfx_screen_flash"
+  ],
+  "acceptance_criteria": [
+    "Dead PNG exists and is 88x94.",
+    "Feet contact y=0.",
+    "X eye mark present.",
+    "Only #535353 opaque pixels."
+  ]
+}

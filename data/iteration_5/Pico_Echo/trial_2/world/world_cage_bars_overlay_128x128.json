@@ -1,0 +1,93 @@
+{
+  "task_id": "world.cage_bars_overlay",
+  "asset_name": "cage_bars_overlay_128x128",
+  "category": "world",
+  "subcategory": "foreground_overlay",
+  "description": "Create a 128x128 px cage bars overlay with transparent background. Draw vertical bars as 1px wide lines in #C2C3C7 at x = 0, 6, 12, ..., 126. Draw one top horizontal bar at y=8 with thickness 1px in #C2C3C7 across x=0..127. Keep all other pixels fully transparent.",
+  "execution_order": 20,
+  "priority": "P1",
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "bar_color_hex": "#C2C3C7",
+    "vertical_bar": {
+      "width_px": 1,
+      "spacing_px": 6,
+      "x_start_px": 0,
+      "x_end_px": 126
+    },
+    "top_bar": {
+      "y_px": 8,
+      "thickness_px": 1,
+      "x_range_px": [
+        0,
+        127
+      ]
+    },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "transparent_background": true
+  },
+  "context": {
+    "role": "Foreground cage bars drawn on top of scene.",
+    "layer": "world_structures",
+    "screen_position": {
+      "type": "absolute_px",
+      "x": 0,
+      "y": 0,
+      "anchor": "top_left"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "export_sprite",
+      "format": "png",
+      "scale_factors": [
+        1,
+        2
+      ],
+      "export_path_template": "Art/Exports/Pico_Echo/world/cage_bars_overlay_128x128/cage_bars_overlay_128x128.png"
+    },
+    {
+      "type": "source_file",
+      "format": "aseprite",
+      "suggested_source_path": "Art/Sources/Pico_Echo/world/cage_bars_overlay_128x128/cage_bars_overlay_128x128.aseprite"
+    }
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage_background"
+    ]
+  },
+  "depends_on": [
+    "world.cage_background"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "world.cage_background"
+  ],
+  "acceptance_criteria": [
+    "Exported PNG is exactly 128x128 px with transparent background.",
+    "Every vertical bar is 1px wide and located at x multiples of 6 (0..126).",
+    "All non-bar pixels are fully transparent.",
+    "Only #C2C3C7 is used for non-transparent pixels."
+  ]
+}

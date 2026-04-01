@@ -1,0 +1,15 @@
+{
+  "base_size": {
+    "width": "2-3px",
+    "height": "2-3px"
+  },
+  "color_scheme": {
+    "seed": "#FFA300",
+    "poop": "#AB5236"
+  },
+  "shared_attributes": {
+    "sprite_type": "small pixel objects",
+    "rendering": "flat 2D",
+    "scale": "tiny (2-3px)"
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_801000003",
+  "asset_key": "player_duelist_reflect_success",
+  "asset_name": "Player Duelist Reflect Success",
+  "category": "character",
+  "subcategory": "player_state",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": "task_id_801000001",
+  "variant_of_asset_key": "player_duelist_idle_loop",
+  "shared_properties": [
+    "The student duelist keeps the academy coat silhouette, body proportion, and lower-lane anchor established by player_duelist_idle_loop.",
+    "Core palette metadata remains primary #5C3317, background #2B1B17, and accent #D4AF37 while success energy adds cyan and warm white in specs.colors_hex.",
+    "Hand, wand, and card fan landmarks stay consistent so the state transition remains readable inside one combat beat."
+  ],
+  "differences": [
+    "Six frames show a committed counter release with the wand sweeping upward and a crescent reflection arc leaving the player toward the enemy lane.",
+    "The off-hand card flashes gold-white to sell a successful timing confirmation.",
+    "Cape tails flare outward and the torso twists slightly so the state reads as an active payoff rather than a defensive hold."
+  ],
+  "depends_on": [
+    "task_id_801000001"
+  ],
+  "blocks": [
+    "task_id_801000007"
+  ],
+  "blocked_by": [
+    "task_id_801000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_801000001",
+      "task_id_801000002",
+      "task_id_801000007",
+      "task_id_801000015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "gdd_markdown",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/reflect_academy.md",
+      "purpose": "Grounds the duel loop, projectile attributes, UI layout, and Bevy runtime constraints for Reflect Academy."
+    },
+    {
+      "label": "moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/moodboard.png",
+      "purpose": "Grounds the warm academy hall mood, layered duel composition, and luminous spell contrast."
+    },
+    {
+      "label": "player_concept",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194104/reflect_academy/_images/player.png",
+      "purpose": "Grounds the student duelist silhouette, costume trim, wand handling, and heroic stance."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle",
+    "atlas_or_static": "texture_atlas_3x2",
+    "ecs_components": [
+      "PlayerDuelistTag",
+      "CombatStateVisual",
+      "ReflectSuccessState",
+      "AnimationTimer",
+      "Transform"
+    ],
+    "asset_loading": "Load player_duelist_reflect_success.png and build a 3x2 atlas for the short payoff animation played immediately after a successful reflect.",
+    "runtime_notes": [
+      "Play once at 12 FPS, then transition back to the idle or ready atlas based on the next projectile state.",
+      "Keep the root transform on the same duel floor anchor so downstream hit sparks and popup UI align correctly.",
+      "The authored arc should remain readable even when camera shake amplitude reaches 8 px during a large counter."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#5C3317"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#2B1B17"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#D4AF37"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": false,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "stylized_2d_vector_like",
+    "detail_level": "mid_readable_combat",
+    "shading": "cel_shaded_soft_gradient",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_successful_reflect_pose",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        340,
+        760
+      ]
+    },
+    "layer": "character",
+    "usage": "Displayed for the short reward beat immediately after a successful reflect sends the spell back toward the enemy."
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 160,
+      "height": 200
+    },
+    "colors_hex": [
+      "#2B1B17",
+      "#1A1A2E",
+      "#5C3317",
+      "#D4AF37",
+      "#F6D1B1",
+      "#00FFFF",
+      "#FFFACD"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 12,
+      "loop": false,
+      "frame_size_px": [
+        160,
+        200
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    "hitbox_px": {
+      "width": 86,
+      "height": 156,
+      "offset_px": [
+        34,
+        28
+      ]
+    },
+    "effect_notes": [
+      "The counter arc exits the wand tip and curves toward the upper-right lane.",
+      "Gold-white confirmation flash should occupy less than 20% of the frame area.",
+      "The cape flare should never extend beyond the 160 px frame width."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/player_duelist_reflect_success.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Atlas canvas is exactly 480x400 px for six 160x200 frames with no frame gutter.",
+    "The reflected arc direction is unambiguous toward the upper-right in every frame.",
+    "The success pose remains visually distinct from the ready pose when both sheets are previewed side by side."
+  ]
+}

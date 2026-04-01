@@ -1,0 +1,81 @@
+{
+  "task_id": "world.floor_strip",
+  "asset_name": "Cage_Floor_Strip_128x18",
+  "category": "world",
+  "subcategory": "floor",
+  "description": "Create a 128x18 px floor strip sprite that sits at the bottom of the 128x128 canvas. This is the cage floor area that can receive dirt/poop overlays. Base fill: #FFCCAA. Add a 1 px top edge line across the full width using #AB5236 at local y=0.",
+  "execution_order": 20,
+  "priority": "P0",
+  "depends_on": ["world.cage_background"],
+  "blocks": ["obstacles.poop"],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "world.cage_background",
+      "world.food_bowl",
+      "world.water_bowl",
+      "obstacles.poop"
+    ]
+  },
+  "project_common": {
+    "canvas_resolution_px": { "width": 128, "height": 128 },
+    "palette_hex": [
+      "#000000",
+      "#1D2B53",
+      "#7E2553",
+      "#008751",
+      "#AB5236",
+      "#5F574F",
+      "#C2C3C7",
+      "#FFF1E8",
+      "#FF004D",
+      "#FFA300",
+      "#FFEC27",
+      "#00E436",
+      "#29ADFF",
+      "#83769C",
+      "#FF77A8",
+      "#FFCCAA"
+    ],
+    "anti_aliasing": false,
+    "scaling_filter": "nearest_neighbor"
+  },
+  "specs": {
+    "dimensions_px": { "width": 128, "height": 18 },
+    "in_canvas_position_px": {
+      "top_left": { "x": 0, "y": 110 },
+      "bottom_right": { "x": 127, "y": 127 }
+    },
+    "base_fill_hex": "#FFCCAA",
+    "top_edge_line_hex": "#AB5236",
+    "top_edge_line_y_local_px": 0,
+    "reserved_clear_zone": {
+      "purpose": "Reserve area for happiness bar UI overlay",
+      "in_canvas_rect_px": { "x": 0, "y": 122, "width": 128, "height": 6 }
+    }
+  },
+  "context": {
+    "role": "Bottom floor surface used as a base for dirt and cleaning feedback.",
+    "screen_position": { "type": "absolute_px", "x": 0, "y": 110, "anchor": "top_left" },
+    "layer": "world_structures",
+    "usage": ["in_game", "floor_region"]
+  },
+  "deliverables": [
+    {
+      "type": "aseprite",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/floor_strip_128x18.aseprite"
+    },
+    {
+      "type": "png",
+      "path": "Output/Pico_Echo/iteration_5/trial_3/world/floor_strip_128x18.png",
+      "dimensions_px": { "width": 128, "height": 18 },
+      "background": "transparent"
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG export is exactly 128x18 px with transparent background.",
+    "Local y=0 is a 1 px full-width line using #AB5236.",
+    "All pixels use only colors from project_common.palette_hex.",
+    "When placed at canvas position (0,110), the sprite does not exceed the 128x128 canvas bounds."
+  ]
+}

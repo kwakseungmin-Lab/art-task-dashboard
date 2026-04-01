@@ -1,0 +1,80 @@
+{
+  "project_common": {
+    "game_title": "Chrome_Dino_Runner",
+    "art_style": "8-bit pixel art",
+    "resolution": "600x150",
+    "color_palette": {
+      "primary": "#535353",
+      "secondary": "#535353",
+      "accent": "#FF0000",
+      "background": "#F7F7F7"
+    },
+    "pixel_density": "1x base, 2x scalable",
+    "outline_style": "2px outline included in sprite dimensions",
+    "rendering": "pixel-perfect, no antialiasing"
+  },
+  "category": "characters",
+  "category_common": {
+    "base_size": {
+      "width": "88px",
+      "height": "94px"
+    },
+    "color_scheme": {
+      "primary": "#535353",
+      "secondary": "#535353"
+    },
+    "shared_attributes": {
+      "style": "pixel art T-Rex dinosaur",
+      "features": "short front legs, large eyes, thick tail",
+      "outline": "2px included in dimensions",
+      "rendering": "pixel-perfect, no antialiasing"
+    }
+  },
+  "asset": {
+    "asset_id": "player_idle",
+    "asset_name": "Player Idle Animation",
+    "context": {
+      "game": "Chrome_Dino_Runner",
+      "role": "Player character idle state before game starts",
+      "screen_position": "Fixed at x=100px from left edge, y=0px (ground level)",
+      "adjacent_elements": ["ground_line", "score_display"],
+      "usage_scenario": "Displayed when game is in pre-start state, waiting for player input to begin"
+    },
+    "visual_specification": {
+      "size": {
+        "width": "88px",
+        "height": "94px"
+      },
+      "colors": {
+        "body": "#535353",
+        "outline": "#535353"
+      },
+      "shape": "T-Rex dinosaur with upright posture, short front legs, large head, thick tail",
+      "texture": "Pixel art, hard edges, no gradients",
+      "outline": "2px solid outline integrated into sprite",
+      "shadow": "none",
+      "animation": {
+        "type": "spritesheet",
+        "frames": 2,
+        "fps": 6,
+        "loop": true,
+        "description": "Subtle breathing animation - frame 1: neutral pose, frame 2: slight body shift. Total duration: 0.33 seconds per loop"
+      },
+      "details": "Eyes open and alert, standing upright on two legs, tail extended horizontally for balance"
+    },
+    "relationships": {
+      "related_assets": ["player_run", "player_jump", "player_duck", "player_dead", "ground_line"],
+      "shared_with": "Same base sprite dimensions and color as all player states",
+      "differences_from": "player_run has faster animation (12 FPS vs 6 FPS), player_jump is static single frame, player_duck is wider (118px) and shorter (60px)"
+    },
+    "explicit_negations": [
+      "No color gradients or shading",
+      "No smooth anti-aliased edges",
+      "No color variations beyond primary #535353",
+      "No decorative elements or accessories",
+      "No motion blur or particle effects",
+      "No transparency except full alpha channel",
+      "No rotation or skewing of sprite"
+    ]
+  }
+}
