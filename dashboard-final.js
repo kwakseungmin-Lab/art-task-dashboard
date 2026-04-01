@@ -26,37 +26,82 @@ const Dashboard = {
     loadIterationsView() {
         const content = document.getElementById('main-content');
         content.innerHTML = `
-            <div class="iterations-grid">
-                ${this.generateIterationCards()}
-            </div>
-            <div class="pipeline-overview">
-                <h3>Pipeline Architecture</h3>
-                <div class="pipeline-diagram">
-                    <div class="agent-flow">
-                        <span class="agent-node">Orchestrator</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="agent-node">Designer</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="agent-node">Analyzer(E)</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="agent-node">Generator</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="agent-node">Evaluator</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="agent-node">Analyzer(L)</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="agent-node">Process Validator</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="agent-node">Evolver</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="agent-node">Evolver Reviewer</span>
+            <div class="overview-container">
+                <div class="left-section">
+                    <div class="iterations-grid">
+                        ${this.generateIterationCards()}
                     </div>
-                    <div class="kb-writers">
-                        <span class="kb-node">Art KB Writer</span>
-                        <span class="kb-node">Meta KB Writer</span>
+                    <div class="pipeline-overview">
+                        <h3>Pipeline Architecture</h3>
+                        <div class="pipeline-diagram">
+                            <div class="agent-flow">
+                                <span class="agent-node">Orchestrator</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="agent-node">Designer</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="agent-node">Analyzer(E)</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="agent-node">Generator</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="agent-node">Evaluator</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="agent-node">Analyzer(L)</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="agent-node">Process Validator</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="agent-node">Evolver</span>
+                                <span class="flow-arrow">→</span>
+                                <span class="agent-node">Evolver Reviewer</span>
+                            </div>
+                            <div class="kb-writers">
+                                <span class="kb-node">Art KB Writer</span>
+                                <span class="kb-node">Meta KB Writer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <div class="kb-panel">
+                        <h3>Art Task Plan KB</h3>
+                        <iframe src="kb-network-complete.html?kb=art" frameborder="0" style="width: 100%; height: 350px; border-radius: 8px;"></iframe>
+                    </div>
+                    <div class="kb-panel">
+                        <h3>Meta Iteration KB</h3>
+                        <iframe src="kb-network-complete.html?kb=meta" frameborder="0" style="width: 100%; height: 350px; border-radius: 8px;"></iframe>
                     </div>
                 </div>
             </div>
+            <style>
+                .overview-container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 20px;
+                    height: calc(100vh - 150px);
+                }
+                .left-section {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    overflow-y: auto;
+                }
+                .right-section {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    overflow-y: auto;
+                }
+                .kb-panel {
+                    background: rgba(15, 20, 25, 0.6);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    padding: 15px;
+                }
+                .kb-panel h3 {
+                    margin: 0 0 15px 0;
+                    color: #e1e8ed;
+                    font-size: 16px;
+                }
+            </style>
         `;
     },
 
@@ -255,16 +300,17 @@ const Dashboard = {
                 }
                 .task-plan-container {
                     display: grid;
-                    grid-template-columns: 280px 1fr;
-                    gap: 20px;
-                    height: calc(100vh - 180px);
+                    grid-template-columns: 250px 1fr;
+                    gap: 15px;
+                    height: calc(100vh - 150px);
                 }
                 .file-browser {
                     background: rgba(15, 20, 25, 0.6);
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     border-radius: 8px;
-                    padding: 20px;
+                    padding: 15px;
                     overflow-y: auto;
+                    font-size: 12px;
                 }
                 .file-browser h3 {
                     margin: 0 0 20px 0;
@@ -319,6 +365,8 @@ const Dashboard = {
                     padding: 20px;
                     overflow-y: auto;
                     position: relative;
+                    height: 100%;
+                    min-height: 600px;
                 }
                 .viewer-placeholder {
                     display: flex;
@@ -415,15 +463,16 @@ const Dashboard = {
                 }
                 .json-content {
                     background: #0a0e1a;
-                    padding: 20px;
+                    padding: 25px;
                     border-radius: 8px;
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     overflow-x: auto;
-                    font-family: 'Fira Code', monospace;
-                    font-size: 15px;
+                    font-family: 'Fira Code', 'Courier New', monospace;
+                    font-size: 16px;
                     line-height: 1.8;
                     color: #e1e8ed;
-                    max-height: calc(100vh - 280px);
+                    min-height: 500px;
+                    max-height: calc(100vh - 250px);
                     overflow-y: auto;
                     white-space: pre;
                 }
