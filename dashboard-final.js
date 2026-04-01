@@ -728,11 +728,83 @@ const DashboardApp = {
                 "asset_name": "Sky Day Field",
                 "category": "world",
                 "subcategory": "background",
+                "priority": "P0",
+                "execution_order": 90,
+                "variant_of": null,
+                "variant_of_asset_key": null,
+                "depends_on": [],
+                "blocks": [],
+                "blocked_by": [],
+                "reference_images": [
+                    {
+                        "label": "gameplay_capture",
+                        "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+                        "purpose": "Gameplay frame for sky-ground composition reference"
+                    }
+                ],
+                "bevy_constraints": {
+                    "bundle_strategy": "SpriteBundle",
+                    "atlas_or_static": "single_frame_sprite",
+                    "ecs_components": ["BackgroundLayer", "StaticFill"],
+                    "asset_loading": "Load one 600x150 PNG during Loading state as background layer.",
+                    "runtime_notes": [
+                        "Render at z=-100 behind all gameplay elements.",
+                        "No scrolling or parallax motion.",
+                        "Static fill color provides contrast for silhouettes."
+                    ]
+                },
+                "palette": {
+                    "primary": { "name": "background", "hex": "#F7F7F7" },
+                    "secondary": { "name": "none", "hex": "transparent" }
+                },
+                "canvas": {
+                    "resolution_px": { "width": 600, "height": 150 },
+                    "pixel_perfect": true,
+                    "target_fps": 60
+                },
+                "style_guide": {
+                    "rendering": "solid_fill",
+                    "detail_level": "minimal",
+                    "shading": "flat",
+                    "outline": "none"
+                },
+                "context": {
+                    "role": "background_sky",
+                    "screen_position": {
+                        "type": "fullscreen",
+                        "position_px": [0, 0]
+                    },
+                    "layer": "background",
+                    "usage": "Static backdrop providing contrast for all game elements."
+                },
                 "specs": {
                     "dimensions_px": { "width": 600, "height": 150 },
                     "colors_hex": ["#F7F7F7"],
-                    "type": "static_fill"
-                }
+                    "type": "static_fill",
+                    "animation": {
+                        "type": "static",
+                        "frame_count": 1,
+                        "fps": 0,
+                        "loop": false
+                    },
+                    "shape_notes": [
+                        "Single solid color fill.",
+                        "No gradients or textures.",
+                        "Provides maximum contrast for dark silhouettes."
+                    ]
+                },
+                "deliverables": [
+                    {
+                        "type": "png",
+                        "file": "world/sky_day_field.png",
+                        "transparent_background": false
+                    }
+                ],
+                "acceptance_criteria": [
+                    "Canvas is exactly 600x150 px with solid #F7F7F7 fill.",
+                    "No transparency, gradients, or texture patterns.",
+                    "Provides clear contrast for all foreground elements."
+                ]
             };
         } else {
             // Default detailed content for any other file
