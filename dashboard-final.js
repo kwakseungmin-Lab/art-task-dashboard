@@ -255,9 +255,9 @@ const Dashboard = {
                 }
                 .task-plan-container {
                     display: grid;
-                    grid-template-columns: 350px 1fr;
+                    grid-template-columns: 280px 1fr;
                     gap: 20px;
-                    height: calc(100vh - 300px);
+                    height: calc(100vh - 180px);
                 }
                 .file-browser {
                     background: rgba(15, 20, 25, 0.6);
@@ -420,11 +420,12 @@ const Dashboard = {
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     overflow-x: auto;
                     font-family: 'Fira Code', monospace;
-                    font-size: 13px;
-                    line-height: 1.6;
+                    font-size: 15px;
+                    line-height: 1.8;
                     color: #e1e8ed;
-                    max-height: 500px;
+                    max-height: calc(100vh - 280px);
                     overflow-y: auto;
+                    white-space: pre;
                 }
                 .btn-copy {
                     background: rgba(59, 130, 246, 0.1);
@@ -524,6 +525,115 @@ const Dashboard = {
                 </div>
             </div>
         `;
+    },
+
+    // Load Unified View - 3 panels
+    loadUnifiedView() {
+        const content = document.getElementById('main-content');
+        content.innerHTML = `
+            <div class="unified-header">
+                <h2>Unified Dashboard - Complete View</h2>
+                <div class="layout-controls">
+                    <button onclick="window.dashboard.changeLayout('horizontal')" class="layout-btn active">Horizontal</button>
+                    <button onclick="window.dashboard.changeLayout('vertical')" class="layout-btn">Vertical</button>
+                    <button onclick="window.dashboard.changeLayout('grid')" class="layout-btn">Grid</button>
+                </div>
+            </div>
+            <div id="unified-container" class="unified-container horizontal">
+                <div class="panel panel-main">
+                    <div class="panel-header">Main Dashboard</div>
+                    <iframe src="index.html" frameborder="0"></iframe>
+                </div>
+                <div class="panel panel-art">
+                    <div class="panel-header">Art Task Plan KB</div>
+                    <iframe src="kb-network-complete.html?kb=art" frameborder="0"></iframe>
+                </div>
+                <div class="panel panel-meta">
+                    <div class="panel-header">Meta Iteration KB</div>
+                    <iframe src="kb-network-complete.html?kb=meta" frameborder="0"></iframe>
+                </div>
+            </div>
+            <style>
+                .unified-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    padding: 15px;
+                    background: rgba(255, 255, 255, 0.03);
+                    border-radius: 8px;
+                }
+                .layout-controls {
+                    display: flex;
+                    gap: 10px;
+                }
+                .layout-btn {
+                    padding: 8px 16px;
+                    background: rgba(59, 130, 246, 0.1);
+                    border: 1px solid rgba(59, 130, 246, 0.3);
+                    color: #8b92a9;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+                .layout-btn.active,
+                .layout-btn:hover {
+                    background: rgba(59, 130, 246, 0.2);
+                    color: #3b82f6;
+                    border-color: #3b82f6;
+                }
+                .unified-container {
+                    display: grid;
+                    gap: 15px;
+                    height: calc(100vh - 200px);
+                }
+                .unified-container.horizontal {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+                .unified-container.vertical {
+                    grid-template-rows: repeat(3, 1fr);
+                }
+                .unified-container.grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                }
+                .unified-container.grid .panel-main {
+                    grid-column: 1 / 3;
+                }
+                .panel {
+                    background: rgba(15, 20, 25, 0.6);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .panel-header {
+                    padding: 10px 15px;
+                    background: rgba(255, 255, 255, 0.05);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    font-weight: 600;
+                    color: #e1e8ed;
+                }
+                .panel iframe {
+                    flex: 1;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                }
+            </style>
+        `;
+    },
+
+    // Change unified view layout
+    changeLayout(layout) {
+        const container = document.getElementById('unified-container');
+        container.className = `unified-container ${layout}`;
+
+        document.querySelectorAll('.layout-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        // Active state handled above
     }
 };
 
