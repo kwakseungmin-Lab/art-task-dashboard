@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test JSON Loader</title>
+    <style>
+        body {
+            background: #0f1419;
+            color: #e1e8ed;
+            font-family: monospace;
+            padding: 20px;
+        }
+        .test-result {
+            margin: 20px 0;
+            padding: 20px;
+            background: #1a1f2e;
+            border-radius: 8px;
+            white-space: pre-wrap;
+        }
+        .success {
+            border-left: 4px solid #10b981;
+        }
+        .error {
+            border-left: 4px solid #ff7b72;
+        }
+    </style>
+</head>
+<body>
+    <h1>Testing JSON File Loading</h1>
+    <div id="results"></div>
+
+    <script>
+        const results = document.getElementById('results');
+
+        async function testFile(path, description) {
+            const div = document.createElement('div');
+            div.className = 'test-result';
+
+            try {
+                console.log(`Testing: ${path}`);
+                const response = await fetch(path);
+                const text = await response.text();
+
+                if (response.ok) {
+                    const json = JSON.parse(text);
+                    div.className += ' success';
+                    div.innerHTML = `✅ ${description}
+Path: ${path}
+Status: ${response.status}
+File found! Keys: ${Object.keys(json).slice(0, 5).join(', ')}...
+Asset: ${json.asset_key || 'N/A'}`;
+                } else {
+                    div.className += ' error';
+                    div.innerHTML = `❌ ${description}
+Path: ${path}
+Status: ${response.status}
+Error: File not found`;
+                }
+            } catch (error) {
+                div.className += ' error';
+                div.innerHTML = `❌ ${description}
+Path: ${path}
+Error: ${error.message}`;
+            }
+
+            results.appendChild(div);
+        }
+
+        // Test various paths
+        async function runTests() {
+            // Test direct paths
+            await testFile('data/iteration_8/Chrome_Dino_Runner/trial_1/_project_common.json',
+                          'Direct path: iteration_8/Chrome_Dino_Runner/trial_1/_project_common.json');
+
+            await testFile('data/iteration_8/Chrome_Dino_Runner/trial_1/character/dino_runner_core.json',
+                          'Direct path: dino_runner_core.json');
+
+            await testFile('/data/iteration_8/Chrome_Dino_Runner/trial_1/character/dino_runner_core.json',
+                          'Absolute path: /data/...');
+
+            await testFile('./data/iteration_8/Chrome_Dino_Runner/trial_1/character/dino_runner_core.json',
+                          'Relative path: ./data/...');
+
+            // Test umbra_scale
+            await testFile('data/iteration_8/umbra_scale/trial_5/character/umbra_player_core_states.json',
+                          'umbra_scale character file');
+
+            // Test Pico_Echo
+            await testFile('data/iteration_8/Pico_Echo/trial_1/_project_common.json',
+                          'Pico_Echo project file');
+        }
+
+        runTests();
+    </script>
+</body>
+</html>

@@ -7,7 +7,9 @@ const DynamicJSONLoader = {
 
     // Build the file path
     buildPath(iterationNum, gameName, trialNum, fileName) {
-        return `Solutions/GameMaking/Planning/experiments/iterations/iteration_${iterationNum}/data/task_plans/${gameName}/trial_${trialNum}/${fileName}`;
+        // Clean up the filename if it contains path separators
+        const cleanFileName = fileName.replace(/\\/g, '/');
+        return `Solutions/GameMaking/Planning/experiments/iterations/iteration_${iterationNum}/data/task_plans/${gameName}/trial_${trialNum}/${cleanFileName}`;
     },
 
     // Load JSON file from GitHub

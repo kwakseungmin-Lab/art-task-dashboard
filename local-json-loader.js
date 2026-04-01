@@ -5,7 +5,9 @@ const LocalJSONLoader = {
 
     // Build the file path
     buildPath(iterationNum, gameName, trialNum, fileName) {
-        return `data/iteration_${iterationNum}/${gameName}/${trialNum}/${fileName}`;
+        // Clean up the filename if it contains path separators
+        const cleanFileName = fileName.replace(/\\/g, '/');
+        return `data/iteration_${iterationNum}/${gameName}/trial_${trialNum}/${cleanFileName}`;
     },
 
     // Load JSON file from local repository

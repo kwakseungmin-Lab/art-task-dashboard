@@ -407,16 +407,27 @@ const Dashboard = {
             .replace(/(".*?":\s*)(true|false)/g, '$1<span style="color: #ff7b72;">$2</span>')
             .replace(/(".*?":\s*)(null)/g, '$1<span style="color: #8b949e;">$2</span>');
 
+        // Get total lines and size
+        const lineCount = jsonString.split('\n').length;
+        const sizeKB = (JSON.stringify(jsonContent).length / 1024).toFixed(2);
+
         viewer.innerHTML = `
             <div class="json-header">
                 <h3 style="font-size: 20px; color: #3b82f6;">📄 ${filename}</h3>
-                <button class="btn-copy" onclick="navigator.clipboard.writeText(JSON.stringify(${JSON.stringify(jsonContent)}, null, 2))">
-                    📋 Copy JSON
-                </button>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <span style="color: #8b92a9; font-size: 14px;">
+                        Lines: ${lineCount} | Size: ${sizeKB} KB
+                    </span>
+                    <button class="btn-copy" onclick="navigator.clipboard.writeText(JSON.stringify(${JSON.stringify(jsonContent)}, null, 2))">
+                        📋 Copy JSON
+                    </button>
+                </div>
             </div>
             <pre class="json-content">${highlightedJson}</pre>
             ${this.getJsonViewerStyles()}
         `;
+
+        console.log(`Displayed JSON: ${filename}, Lines: ${lineCount}, Size: ${sizeKB}KB`);
 
         // Highlight the active file
         document.querySelectorAll('.file-item').forEach(item => {
