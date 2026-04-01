@@ -429,64 +429,99 @@
     <!-- D3.js for KB Network Visualization -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
-    <!-- KB Network Visualization Module -->
+    <!-- KB Network Visualization Modules -->
     <script src="kb-network.js"></script>
+    <script src="kb-network-radial.js"></script>
 
     <!-- Final Dashboard with Real KB Data -->
     <script src="dashboard-final.js?v=2026033102"></script>
 
     <!-- KB Network Patch -->
     <script>
-    // Wait for dashboard to load
-    setTimeout(() => {
-        if (window.dashboard && window.KBNetwork) {
-            // Override loadArtKB
-            window.dashboard.loadArtKB = function() {
-                const content = document.getElementById('main-content');
-                content.innerHTML = `
-                    <div class="kb-header">
-                        <h2>Art Task Plan KB - Network Visualization</h2>
-                        <div class="kb-stats">
-                            <div class="stat">
-                                <div class="label">총 엔티티</div>
-                                <div class="value">${this.kbConfig.artKb.totalEntities.toLocaleString()}</div>
-                            </div>
-                            <div class="stat">
-                                <div class="label">Atomic Facts</div>
-                                <div class="value">${this.kbConfig.artKb.atomicFacts.toLocaleString()}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="art-kb-network" style="width: 100%; height: 700px; background: #0a0e1a; border-radius: 12px;"></div>
-                `;
-                setTimeout(() => KBNetwork.init('art-kb-network', 'art'), 100);
-            };
-
-            // Override loadMetaKB
-            window.dashboard.loadMetaKB = function() {
-                const content = document.getElementById('main-content');
-                content.innerHTML = `
-                    <div class="kb-header">
-                        <h2>Meta Iteration KB - Network Visualization</h2>
-                        <div class="kb-stats">
-                            <div class="stat">
-                                <div class="label">총 엔티티</div>
-                                <div class="value">${this.kbConfig.metaKb.totalEntities.toLocaleString()}</div>
-                            </div>
-                            <div class="stat">
-                                <div class="label">Atomic Facts</div>
-                                <div class="value">${this.kbConfig.metaKb.atomicFacts.toLocaleString()}</div>
+    // Wait for dashboard and modules to load
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            if (window.dashboard && window.KBNetworkRadial) {
+                // Override loadArtKB with radial visualization
+                window.dashboard.loadArtKB = function() {
+                    const content = document.getElementById('main-content');
+                    content.innerHTML = `
+                        <div class="kb-header">
+                            <h2>Art Task Plan KB - Network Visualization</h2>
+                            <div class="kb-stats">
+                                <div class="stat">
+                                    <div class="label">Total Entities</div>
+                                    <div class="value">${this.kbConfig.artKb.totalEntities.toLocaleString()}</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="label">Atomic Facts</div>
+                                    <div class="value">${this.kbConfig.artKb.atomicFacts.toLocaleString()}</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="label">Relations</div>
+                                    <div class="value">1,585</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="label">Success Rate</div>
+                                    <div class="value">96%</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="meta-kb-network" style="width: 100%; height: 700px; background: #0a0e1a; border-radius: 12px;"></div>
-                `;
-                setTimeout(() => KBNetwork.init('meta-kb-network', 'meta'), 100);
-            };
+                        <div id="art-kb-network" style="width: 100%; height: 700px; border-radius: 12px;"></div>
+                    `;
+                    // Use the radial visualization
+                    setTimeout(() => {
+                        if (window.KBNetworkRadial) {
+                            KBNetworkRadial.init('art-kb-network', 'art');
+                        } else {
+                            console.error('KBNetworkRadial not loaded');
+                        }
+                    }, 100);
+                };
 
-            console.log('KB Network patch applied');
-        }
-    }, 1000);
+                // Override loadMetaKB with radial visualization
+                window.dashboard.loadMetaKB = function() {
+                    const content = document.getElementById('main-content');
+                    content.innerHTML = `
+                        <div class="kb-header">
+                            <h2>Meta Iteration KB - Network Visualization</h2>
+                            <div class="kb-stats">
+                                <div class="stat">
+                                    <div class="label">Total Entities</div>
+                                    <div class="value">${this.kbConfig.metaKb.totalEntities.toLocaleString()}</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="label">Atomic Facts</div>
+                                    <div class="value">${this.kbConfig.metaKb.atomicFacts.toLocaleString()}</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="label">Relations</div>
+                                    <div class="value">476</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="label">Improvement</div>
+                                    <div class="value">+37%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="meta-kb-network" style="width: 100%; height: 700px; border-radius: 12px;"></div>
+                    `;
+                    // Use the radial visualization
+                    setTimeout(() => {
+                        if (window.KBNetworkRadial) {
+                            KBNetworkRadial.init('meta-kb-network', 'meta');
+                        } else {
+                            console.error('KBNetworkRadial not loaded');
+                        }
+                    }, 100);
+                };
+
+                console.log('KB Network Radial patch applied successfully');
+            } else {
+                console.error('Dashboard or KBNetworkRadial not loaded yet');
+            }
+        }, 1500);
+    });
     </script>
 </body>
 </html>
