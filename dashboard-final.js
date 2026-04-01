@@ -993,7 +993,7 @@ ${sampleContent[path] || '// Content would be loaded from S3...'}
             <h2>전체 이터레이션 진행 상황</h2>
             <div class="iterations-grid">
                 ${iterationData.map(iter => `
-                    <div class="glass-container iteration-card">
+                    <div class="glass-container iteration-card" onclick="window.dashboard.showIterationDetails(${iter.iter})" style="cursor: pointer;">
                         <div class="iteration-header">
                             <h3>Iteration ${iter.iter}</h3>
                             <span class="status-badge ${iter.status === 'pass' ? 'complete' : 'in-progress'}">
@@ -1009,10 +1009,241 @@ ${sampleContent[path] || '// Content would be loaded from S3...'}
                 `).join('')}
             </div>
         `;
+    },
+
+    // Show iteration details with Task Plan JSON
+    showIterationDetails(iteration) {
+        const content = document.getElementById('main-content');
+        const games = ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down', 'umbra_scale'];
+
+        // Get evaluation results for this iteration
+        const iterResults = this.artKbEntities.evaluationResults.filter(r =>
+            r.entity_id.includes(`harness::${iteration}::`));
+
+        content.innerHTML = `
+            <div class="back-button" onclick="window.dashboard.loadIterations()">
+                ← Back to Iterations
+            </div>
+            <h2>Iteration ${iteration} - Task Plan Results</h2>
+            <div class="iteration-detail-grid">
+                ${games.map(game => {
+                    const gameResults = iterResults.filter(r => r.game === game);
+                    return `
+                        <div class="game-results glass-container">
+                            <h3>${game.replace(/_/g, ' ')}</h3>
+                            <div class="trials-grid">
+                                ${[1, 2, 3, 4, 5].map(trial => {
+                                    const result = gameResults.find(r => r.trial === trial);
+                                    return `
+                                        <div class="trial-card ${result ? (result.result === 'PASS' ? 'pass' : 'fail') : 'unknown'}"
+                                             onclick="window.dashboard.showTaskPlanJSON(${iteration}, '${game}', ${trial})"
+                                             style="cursor: pointer;">
+                                            <div class="trial-number">Trial ${trial}</div>
+                                            <div class="trial-status">${result ? result.result : 'N/A'}</div>
+                                            ${result ? `
+                                                <div class="trial-scores">
+                                                    <div>Inv: ${result.invariance}%</div>
+                                                    <div>Str: ${result.structurality}%</div>
+                                                    <div>Ref: ${result.ref_integrity}%</div>
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+            <style>
+                .back-button {
+                    cursor: pointer;
+                    color: #3b82f6;
+                    margin-bottom: 20px;
+                    display: inline-block;
+                    font-size: 14px;
+                }
+                .back-button:hover {
+                    text-decoration: underline;
+                }
+                .iteration-detail-grid {
+                    display: grid;
+                    gap: 20px;
+                }
+                .game-results {
+                    padding: 20px;
+                }
+                .trials-grid {
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 10px;
+                    margin-top: 15px;
+                }
+                .trial-card {
+                    padding: 10px;
+                    border-radius: 8px;
+                    text-align: center;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    transition: all 0.2s;
+                }
+                .trial-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+                }
+                .trial-card.pass {
+                    background: rgba(16, 185, 129, 0.1);
+                    border-color: #10b981;
+                }
+                .trial-card.fail {
+                    background: rgba(239, 68, 68, 0.1);
+                    border-color: #ef4444;
+                }
+                .trial-number {
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                }
+                .trial-status {
+                    font-size: 12px;
+                    color: #94a3b8;
+                }
+                .trial-scores {
+                    margin-top: 8px;
+                    font-size: 11px;
+                    color: #64748b;
+                }
+            </style>
+        `;
+    },
+
+    // Show Task Plan JSON content
+    showTaskPlanJSON(iteration, game, trial) {
+        const content = document.getElementById('main-content');
+
+        // Sample Task Plan JSON for demonstration
+        const taskPlanJSON = {
+            "task_id": `art_${String(iteration).padStart(6, '0')}`,
+            "game": game,
+            "trial": trial,
+            "iteration": iteration,
+            "created_at": "2026-03-25T12:00:00Z",
+            "engine_version": "v8",
+            "execution_time": "45.3s",
+            "art_task_plan": {
+                "visual_elements": [
+                    {
+                        "element_id": "background",
+                        "type": "static_background",
+                        "properties": {
+                            "color_scheme": ["#1a1a2e", "#16213e", "#0f3460"],
+                            "gradient_type": "linear",
+                            "complexity": "simple"
+                        }
+                    },
+                    {
+                        "element_id": "character_main",
+                        "type": "animated_sprite",
+                        "properties": {
+                            "sprite_sheet_size": "256x256",
+                            "frames": 8,
+                            "animation_fps": 12,
+                            "style": "pixel_art"
+                        }
+                    }
+                ],
+                "ui_components": [
+                    {
+                        "component": "health_bar",
+                        "position": {"x": 10, "y": 10},
+                        "size": {"width": 200, "height": 20},
+                        "style": "modern_flat"
+                    }
+                ],
+                "effects": [
+                    {
+                        "effect_type": "particle_system",
+                        "trigger": "on_collision",
+                        "particle_count": 50,
+                        "duration": "500ms"
+                    }
+                ],
+                "color_palette": {
+                    "primary": "#3b82f6",
+                    "secondary": "#8b5cf6",
+                    "accent": "#10b981",
+                    "warning": "#f59e0b",
+                    "danger": "#ef4444"
+                },
+                "asset_requirements": {
+                    "total_sprites": 25,
+                    "total_animations": 8,
+                    "texture_atlas_count": 2,
+                    "estimated_memory": "12MB"
+                }
+            }
+        };
+
+        content.innerHTML = `
+            <div class="back-button" onclick="window.dashboard.showIterationDetails(${iteration})">
+                ← Back to Iteration ${iteration}
+            </div>
+            <h2>Task Plan JSON - ${game.replace(/_/g, ' ')} (Trial ${trial})</h2>
+            <div class="json-viewer glass-container">
+                <div class="json-header">
+                    <span>📄 art_${String(iteration).padStart(6, '0')}_${game}_trial_${trial}.json</span>
+                    <button class="btn-copy" onclick="navigator.clipboard.writeText(JSON.stringify(${JSON.stringify(taskPlanJSON)}, null, 2))">
+                        📋 Copy
+                    </button>
+                </div>
+                <pre class="json-content">${JSON.stringify(taskPlanJSON, null, 2)}</pre>
+            </div>
+            <style>
+                .json-viewer {
+                    padding: 20px;
+                    max-width: 100%;
+                }
+                .json-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                .json-content {
+                    background: #0a0e1a;
+                    padding: 20px;
+                    border-radius: 8px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    overflow-x: auto;
+                    font-family: 'Fira Code', monospace;
+                    font-size: 13px;
+                    line-height: 1.6;
+                    color: #e1e8ed;
+                }
+                .btn-copy {
+                    background: rgba(59, 130, 246, 0.1);
+                    border: 1px solid rgba(59, 130, 246, 0.3);
+                    color: #3b82f6;
+                    padding: 6px 12px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-size: 13px;
+                    transition: all 0.2s;
+                }
+                .btn-copy:hover {
+                    background: rgba(59, 130, 246, 0.2);
+                    border-color: #3b82f6;
+                }
+            </style>
+        `;
     }
 };
 
-// Initialize when DOM is ready
+// Initialize when DOM is ready and expose to window
+if (typeof window !== 'undefined') {
+    window.dashboard = DashboardApp;
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => DashboardApp.init());
 } else {

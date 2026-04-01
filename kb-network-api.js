@@ -12,6 +12,10 @@ const KBNetworkAPI = {
 
     // KB 엔티티 조회 API
     async fetchKBEntities(kbId, limit = 1000, offset = 0) {
+        // 현재는 항상 Mock 데이터를 사용 (실제 API 준비되면 주석 해제)
+        return this.getMockKBData(kbId);
+
+        /* 실제 API 사용시 주석 해제
         try {
             const url = `${this.config.apiBase}/kb/${kbId}/entities?limit=${limit}&offset=${offset}`;
             const response = await fetch(url, {
@@ -31,10 +35,15 @@ const KBNetworkAPI = {
             // Fallback to mock data for demonstration
             return this.getMockKBData(kbId);
         }
+        */
     },
 
     // KB 관계 조회 API
     async fetchKBRelations(kbId, limit = 1000, offset = 0) {
+        // 현재는 항상 Mock 데이터를 사용 (실제 API 준비되면 주석 해제)
+        return this.getMockRelations(kbId);
+
+        /* 실제 API 사용시 주석 해제
         try {
             const url = `${this.config.apiBase}/kb/${kbId}/relations?limit=${limit}&offset=${offset}`;
             const response = await fetch(url, {
@@ -53,6 +62,7 @@ const KBNetworkAPI = {
             console.error('Failed to fetch KB relations:', error);
             return this.getMockRelations(kbId);
         }
+        */
     },
 
     // 전체 KB 데이터 조회 (페이징 처리)

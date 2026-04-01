@@ -322,15 +322,31 @@
             const urlParams = new URLSearchParams(window.location.search);
             const kbType = urlParams.get('kb') || 'art'; // default to 'art'
 
-            // Update title based on KB type
+            // Update title and stats display based on KB type
+            const titleElement = document.querySelector('h2');
+            const statsDescription = document.getElementById('stats-description');
+
             if (kbType === 'meta') {
-                document.querySelector('h2').textContent = 'Meta Iteration KB Network Visualization';
+                titleElement.textContent = 'Meta Iteration KB Network Visualization';
                 // Update API config for meta KB
                 KBNetworkAPI.config.currentKbId = KBNetworkAPI.config.metaKbId;
+                // Update stats for Meta KB
+                document.getElementById('total-entities').textContent = '8,032';
+                document.getElementById('total-relations').textContent = '476';
+                document.getElementById('success-rate').textContent = '+37%';
+                // Update legend for Meta KB
+                document.querySelector('.legend').innerHTML = `
+                    <div class="legend-item"><span class="legend-dot" style="background: #3b82f6;"></span> Agent</div>
+                    <div class="legend-item"><span class="legend-dot" style="background: #10b981;"></span> Iteration</div>
+                    <div class="legend-item"><span class="legend-dot" style="background: #f59e0b;"></span> Strategy</div>
+                    <div class="legend-item"><span class="legend-dot" style="background: #8b5cf6;"></span> Analysis</div>
+                    <div class="legend-item"><span class="legend-dot" style="background: #ef4444;"></span> Metadata</div>
+                `;
             } else {
-                document.querySelector('h2').textContent = 'Art Task Plan KB Network Visualization';
+                titleElement.textContent = 'Art Task Plan KB Network Visualization';
                 // Update API config for art KB
                 KBNetworkAPI.config.currentKbId = KBNetworkAPI.config.artKbId;
+                // Stats will be updated by loadKBData()
             }
 
             await loadKBData();
