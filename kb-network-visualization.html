@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Task Plan KB - Network Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a2332 100%);
+            color: #e1e8ed;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat .value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .stat .label {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        #network-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .kb-tooltip {
+            position: absolute;
+            background: rgba(26, 31, 46, 0.98);
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 12px;
+            color: #e1e8ed;
+            font-size: 13px;
+            pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            z-index: 10000;
+        }
+
+        .controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            color: #60a5fa;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        .btn.active {
+            background: #3b82f6;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Art Task Plan Pipeline - Knowledge Base Network</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div class="value">26,789</div>
+                    <div class="label">Total Entities</div>
+                </div>
+                <div class="stat">
+                    <div class="value">1,585</div>
+                    <div class="label">Relations</div>
+                </div>
+                <div class="stat">
+                    <div class="value">9</div>
+                    <div class="label">Iterations</div>
+                </div>
+                <div class="stat">
+                    <div class="value">96%</div>
+                    <div class="label">Success Rate</div>
+                </div>
+            </div>
+        </div>
+        <div id="network-container">
+            <div class="controls">
+                <button class="btn active" onclick="switchView('radial')">Radial View</button>
+                <button class="btn" onclick="switchView('force')">Force Network</button>
+                <button class="btn" onclick="resetZoom()">Reset Zoom</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentView = 'radial';
+        let svg, g, zoom;
+
+        // Initialize visualization on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initRadialNetwork();
+        });
+
+        function switchView(view) {
+            currentView = view;
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (view === 'radial') {
+                initRadialNetwork();
+            } else {
+                initForceNetwork();
+            }
+        }
+
+        function resetZoom() {
+            if (svg && zoom) {
+                svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
+            }
+        }
+
+        function initRadialNetwork() {
+            const container = document.getElementById('network-container');
+            container.innerHTML = '<div class="controls">' + container.querySelector('.controls').outerHTML + '</div>';
+
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            const centerX = width / 2;
+            const centerY = height / 2;
+
+            // Create SVG
+            svg = d3.select('#network-container')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            g = svg.append('g')
+                .attr('transform', `translate(${centerX}, ${centerY})`);
+
+            // Add zoom behavior
+            zoom = d3.zoom()
+                .scaleExtent([0.3, 5])
+                .on('zoom', (event) => {
+                    g.attr('transform', `translate(${centerX}, ${centerY}) scale(${event.transform.k})`);
+                });
+
+            svg.call(zoom);
+
+            // Create hierarchical data
+            const data = {
+                name: 'Art Task Plan KB',
+                type: 'root',
+                children: [
+                    {
+                        name: 'Iterations (0-8)',
+                        type: 'category',
+                        children: [
+                            {
+                                name: 'Iter 8 (96%)',
+                                type: 'iteration',
+                                value: '24/25 PASS',
+                                children: [
+                                    {
+                                        name: 'Chrome_Dino_Runner',
+                                        type: 'task_plan',
+                                        children: [
+                                            { name: 'Trial 1: PASS', type: 'atomic_fact' },
+                                            { name: 'Trial 2: PASS', type: 'atomic_fact' },
+                                            { name: 'Trial 3: PASS', type: 'atomic_fact' },
+                                            { name: 'Trial 4: PASS', type: 'atomic_fact' },
+                                            { name: 'Trial 5: PASS', type: 'atomic_fact' }
+                                        ]
+                                    },
+                                    {
+                                        name: 'Pico_Echo',
+                                        type: 'task_plan',
+                                        children: [
+                                            { name: 'All 5 Trials PASS', type: 'atomic_fact' }
+                                        ]
+                                    },
+                                    {
+                                        name: 'reflect_academy',
+                                        type: 'task_plan',
+                                        children: [
+                                            { name: 'Trial 1: FAIL', type: 'harness' },
+                                            { name: '4 Trials PASS', type: 'atomic_fact' }
+                                        ]
+                                    },
+                                    { name: 'slip_down: 5/5', type: 'task_plan' },
+                                    { name: 'umbra_scale: 5/5', type: 'task_plan' }
+                                ]
+                            },
+                            {
+                                name: 'Iter 7 (100%)',
+                                type: 'iteration',
+                                value: '25/25 PASS',
+                                children: [
+                                    { name: '5 Games', type: 'task_plan' },
+                                    { name: '25 Trials', type: 'task_plan' },
+                                    { name: 'All PASS', type: 'atomic_fact' }
+                                ]
+                            },
+                            { name: 'Iter 6 (84%)', type: 'iteration' },
+                            { name: 'Iter 5 (72%)', type: 'iteration' },
+                            { name: 'Iter 4 (56%)', type: 'iteration' },
+                            { name: 'Iter 3 (44%)', type: 'iteration' },
+                            { name: 'Iter 2 (28%)', type: 'iteration' },
+                            { name: 'Iter 1 (12%)', type: 'iteration' },
+                            { name: 'Iter 0 (Baseline)', type: 'iteration' }
+                        ]
+                    },
+                    {
+                        name: 'Pipeline Agents',
+                        type: 'category',
+                        children: [
+                            { name: 'Orchestrator', type: 'pipeline' },
+                            { name: 'Designer', type: 'pipeline' },
+                            { name: 'Analyzer', type: 'pipeline' },
+                            { name: 'Generator', type: 'pipeline' },
+                            { name: 'Evaluator', type: 'pipeline' },
+                            { name: 'Process Validator', type: 'pipeline' },
+                            { name: 'Evolver', type: 'pipeline' },
+                            { name: 'Evolver Reviewer', type: 'pipeline' },
+                            { name: 'Monitor', type: 'pipeline' },
+                            { name: 'Art KB Writer', type: 'pipeline' },
+                            { name: 'Meta KB Writer', type: 'pipeline' }
+                        ]
+                    },
+                    {
+                        name: 'Methodology',
+                        type: 'category',
+                        children: [
+                            { name: 'v8 Latest', type: 'methodology' },
+                            { name: 'v7 Previous', type: 'methodology' },
+                            { name: 'v6 Archive', type: 'methodology' }
+                        ]
+                    },
+                    {
+                        name: 'Harness Results',
+                        type: 'category',
+                        children: [
+                            { name: 'CDR: 92%', type: 'harness' },
+                            { name: 'Umbra: 88%', type: 'harness' },
+                            { name: 'Eclipse: 95%', type: 'harness' },
+                            { name: 'Pico: 91%', type: 'harness' },
+                            { name: 'Nebula: 94%', type: 'harness' }
+                        ]
+                    },
+                    {
+                        name: 'Analysis',
+                        type: 'category',
+                        children: [
+                            { name: 'Performance Trends', type: 'analysis' },
+                            { name: 'Success Patterns', type: 'analysis' },
+                            { name: 'Failure Analysis', type: 'analysis' }
+                        ]
+                    },
+                    {
+                        name: 'Atomic Facts',
+                        type: 'category',
+                        children: [
+                            { name: '26,313 Facts', type: 'atomic_fact' },
+                            { name: 'High Confidence', type: 'atomic_fact' },
+                            { name: 'Validated', type: 'atomic_fact' }
+                        ]
+                    }
+                ]
+            };
+
+            // Create hierarchy
+            const root = d3.hierarchy(data)
+                .sum(d => d.value || 1);
+
+            // Create radial tree layout
+            const treeLayout = d3.tree()
+                .size([2 * Math.PI, Math.min(width, height) / 2 - 150])
+                .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
+
+            treeLayout(root);
+
+            // Color scheme
+            const colorScheme = {
+                root: '#9333ea',
+                iteration: '#f59e0b',
+                task_plan: '#60a5fa',
+                harness: '#ef4444',
+                methodology: '#10b981',
+                strategy: '#a855f7',
+                analysis: '#ec4899',
+                atomic_fact: '#6b7280',
+                pipeline: '#3b82f6',
+                category: '#22d3ee'
+            };
+
+            // Draw links
+            const link = g.selectAll('.link')
+                .data(root.links())
+                .enter().append('path')
+                .attr('class', 'link')
+                .attr('d', d3.linkRadial()
+                    .angle(d => d.x)
+                    .radius(d => d.y))
+                .style('fill', 'none')
+                .style('stroke', '#374151')
+                .style('stroke-opacity', 0.4)
+                .style('stroke-width', 1.5);
+
+            // Draw nodes
+            const node = g.selectAll('.node')
+                .data(root.descendants())
+                .enter().append('g')
+                .attr('class', d => `node ${d.data.type}`)
+                .attr('transform', d => `
+                    rotate(${d.x * 180 / Math.PI - 90})
+                    translate(${d.y},0)
+                `);
+
+            // Add circles
+            node.append('circle')
+                .attr('r', d => {
+                    if (d.depth === 0) return 35;
+                    if (d.depth === 1) return 25;
+                    if (d.depth === 2) return 15;
+                    return 10;
+                })
+                .style('fill', d => colorScheme[d.data.type] || '#6b7280')
+                .style('stroke', '#fff')
+                .style('stroke-width', 2)
+                .style('cursor', 'pointer')
+                .on('mouseover', function(event, d) {
+                    highlightPath(d);
+                    showTooltip(event, d);
+                })
+                .on('mouseout', function() {
+                    resetHighlight();
+                    hideTooltip();
+                })
+                .on('click', function(event, d) {
+                    console.log('Clicked:', d.data.name);
+                });
+
+            // Add text labels
+            node.append('text')
+                .attr('dy', '0.31em')
+                .attr('x', d => d.x < Math.PI === !d.children ? 6 : -6)
+                .attr('text-anchor', d => d.x < Math.PI === !d.children ? 'start' : 'end')
+                .attr('transform', d => d.x >= Math.PI ? 'rotate(180)' : null)
+                .text(d => d.data.name)
+                .style('font-size', d => {
+                    if (d.depth === 0) return '16px';
+                    if (d.depth === 1) return '14px';
+                    if (d.depth === 2) return '12px';
+                    return '10px';
+                })
+                .style('fill', '#e1e8ed')
+                .style('font-weight', d => d.depth <= 1 ? '600' : '400');
+
+            // Helper functions
+            function highlightPath(node) {
+                const ancestors = node.ancestors();
+
+                link.style('stroke', d => {
+                    if (ancestors.includes(d.source) && ancestors.includes(d.target)) {
+                        return '#60a5fa';
+                    }
+                    return '#374151';
+                })
+                .style('stroke-opacity', d => {
+                    if (ancestors.includes(d.source) && ancestors.includes(d.target)) {
+                        return 1;
+                    }
+                    return 0.2;
+                })
+                .style('stroke-width', d => {
+                    if (ancestors.includes(d.source) && ancestors.includes(d.target)) {
+                        return 3;
+                    }
+                    return 1.5;
+                });
+            }
+
+            function resetHighlight() {
+                link.style('stroke', '#374151')
+                    .style('stroke-opacity', 0.4)
+                    .style('stroke-width', 1.5);
+            }
+
+            function showTooltip(event, d) {
+                const tooltip = d3.select('body').append('div')
+                    .attr('class', 'kb-tooltip')
+                    .html(`
+                        <div style="font-weight: 600; color: #60a5fa; margin-bottom: 8px;">${d.data.name}</div>
+                        <div style="color: #94a3b8;">Type: ${d.data.type}</div>
+                        <div style="color: #94a3b8;">Depth: Level ${d.depth}</div>
+                        ${d.data.value ? `<div style="color: #10b981; margin-top: 4px;">Value: ${d.data.value}</div>` : ''}
+                    `)
+                    .style('left', (event.pageX + 10) + 'px')
+                    .style('top', (event.pageY - 10) + 'px');
+            }
+
+            function hideTooltip() {
+                d3.selectAll('.kb-tooltip').remove();
+            }
+
+            // Add center label
+            g.append('text')
+                .attr('class', 'center-label')
+                .attr('text-anchor', 'middle')
+                .attr('dy', '0.35em')
+                .text('Art Task Plan KB')
+                .style('font-size', '20px')
+                .style('font-weight', '700')
+                .style('fill', '#fff');
+
+            // Add stats around the center
+            const stats = [
+                { label: '26,789', desc: 'Entities' },
+                { label: '1,585', desc: 'Relations' },
+                { label: '96%', desc: 'Success' }
+            ];
+
+            stats.forEach((stat, i) => {
+                const angle = (i * 120 - 90) * Math.PI / 180;
+                const radius = 70;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+
+                const statGroup = g.append('g')
+                    .attr('transform', `translate(${x}, ${y})`);
+
+                statGroup.append('text')
+                    .attr('text-anchor', 'middle')
+                    .attr('dy', '-0.3em')
+                    .text(stat.label)
+                    .style('font-size', '24px')
+                    .style('font-weight', '700')
+                    .style('fill', '#60a5fa');
+
+                statGroup.append('text')
+                    .attr('text-anchor', 'middle')
+                    .attr('dy', '1em')
+                    .text(stat.desc)
+                    .style('font-size', '12px')
+                    .style('fill', '#94a3b8');
+            });
+        }
+
+        function initForceNetwork() {
+            const container = document.getElementById('network-container');
+            container.innerHTML = '<div class="controls">' + container.querySelector('.controls').outerHTML + '</div>';
+
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            // Create SVG
+            svg = d3.select('#network-container')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            g = svg.append('g');
+
+            // Add zoom
+            zoom = d3.zoom()
+                .scaleExtent([0.1, 10])
+                .on('zoom', (event) => {
+                    g.attr('transform', event.transform);
+                });
+
+            svg.call(zoom);
+
+            // Generate nodes and links
+            const nodes = [
+                {id: 'root', name: 'Art Task Plan KB', type: 'root', fx: width/2, fy: height/2},
+
+                // Iterations
+                {id: 'iter8', name: 'Iteration 8 (96%)', type: 'iteration'},
+                {id: 'iter7', name: 'Iteration 7 (100%)', type: 'iteration'},
+                {id: 'iter6', name: 'Iteration 6 (84%)', type: 'iteration'},
+                {id: 'iter5', name: 'Iteration 5 (72%)', type: 'iteration'},
+
+                // Pipeline
+                {id: 'orchestrator', name: 'Orchestrator', type: 'pipeline'},
+                {id: 'designer', name: 'Designer', type: 'pipeline'},
+                {id: 'analyzer', name: 'Analyzer', type: 'pipeline'},
+                {id: 'generator', name: 'Generator', type: 'pipeline'},
+                {id: 'evaluator', name: 'Evaluator', type: 'pipeline'},
+
+                // Task Plans
+                {id: 'cdr', name: 'Chrome_Dino_Runner', type: 'task_plan'},
+                {id: 'pico', name: 'Pico_Echo', type: 'task_plan'},
+                {id: 'reflect', name: 'reflect_academy', type: 'task_plan'},
+                {id: 'slip', name: 'slip_down', type: 'task_plan'},
+                {id: 'umbra', name: 'umbra_scale', type: 'task_plan'},
+
+                // Harness Results
+                {id: 'h_cdr', name: 'CDR: 92%', type: 'harness'},
+                {id: 'h_umbra', name: 'Umbra: 88%', type: 'harness'},
+                {id: 'h_eclipse', name: 'Eclipse: 95%', type: 'harness'},
+
+                // Methodology
+                {id: 'method8', name: 'Methodology v8', type: 'methodology'},
+                {id: 'strategy8', name: 'Strategy Iter 8', type: 'strategy'},
+                {id: 'analysis8', name: 'Analysis Iter 8', type: 'analysis'},
+
+                // Facts
+                {id: 'fact1', name: '24/25 Pass', type: 'atomic_fact'},
+                {id: 'fact2', name: '+16% Improvement', type: 'atomic_fact'}
+            ];
+
+            const links = [
+                // Root connections
+                {source: 'root', target: 'iter8'},
+                {source: 'root', target: 'iter7'},
+                {source: 'root', target: 'orchestrator'},
+
+                // Pipeline connections
+                {source: 'orchestrator', target: 'designer'},
+                {source: 'orchestrator', target: 'analyzer'},
+                {source: 'orchestrator', target: 'generator'},
+                {source: 'orchestrator', target: 'evaluator'},
+
+                // Iteration connections
+                {source: 'iter8', target: 'cdr'},
+                {source: 'iter8', target: 'pico'},
+                {source: 'iter8', target: 'reflect'},
+                {source: 'iter8', target: 'slip'},
+                {source: 'iter8', target: 'umbra'},
+
+                // Harness connections
+                {source: 'cdr', target: 'h_cdr', type: 'evaluates'},
+                {source: 'umbra', target: 'h_umbra', type: 'evaluates'},
+
+                // Method connections
+                {source: 'iter8', target: 'method8'},
+                {source: 'iter8', target: 'strategy8'},
+                {source: 'iter8', target: 'analysis8'},
+
+                // Facts
+                {source: 'analysis8', target: 'fact1', type: 'contains'},
+                {source: 'analysis8', target: 'fact2', type: 'contains'}
+            ];
+
+            // Color scheme
+            const colorScheme = {
+                root: '#9333ea',
+                iteration: '#f59e0b',
+                task_plan: '#60a5fa',
+                harness: '#ef4444',
+                methodology: '#10b981',
+                strategy: '#a855f7',
+                analysis: '#ec4899',
+                atomic_fact: '#6b7280',
+                pipeline: '#3b82f6'
+            };
+
+            // Create simulation
+            const simulation = d3.forceSimulation(nodes)
+                .force('link', d3.forceLink(links).id(d => d.id).distance(120))
+                .force('charge', d3.forceManyBody().strength(-800))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide().radius(50));
+
+            // Draw links
+            const link = g.append('g')
+                .selectAll('line')
+                .data(links)
+                .enter().append('line')
+                .attr('stroke', d => {
+                    if (d.type === 'evaluates') return '#ef4444';
+                    if (d.type === 'contains') return '#10b981';
+                    return '#374151';
+                })
+                .attr('stroke-opacity', 0.6)
+                .attr('stroke-width', 2);
+
+            // Draw nodes
+            const nodeGroup = g.append('g')
+                .selectAll('g')
+                .data(nodes)
+                .enter().append('g')
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended));
+
+            // Add circles
+            nodeGroup.append('circle')
+                .attr('r', d => {
+                    if (d.type === 'root') return 40;
+                    if (d.type === 'iteration') return 30;
+                    if (d.type === 'task_plan') return 25;
+                    return 20;
+                })
+                .attr('fill', d => colorScheme[d.type] || '#6b7280')
+                .attr('stroke', '#fff')
+                .attr('stroke-width', 2)
+                .style('cursor', 'pointer');
+
+            // Add labels
+            nodeGroup.append('text')
+                .attr('text-anchor', 'middle')
+                .attr('dy', d => {
+                    if (d.type === 'root') return 55;
+                    if (d.type === 'iteration') return 45;
+                    return 35;
+                })
+                .text(d => d.name)
+                .style('fill', '#fff')
+                .style('font-size', d => d.type === 'root' ? '14px' : '11px')
+                .style('font-weight', d => d.type === 'root' ? '600' : '400');
+
+            // Add hover effects
+            nodeGroup.on('mouseover', function(event, d) {
+                // Show tooltip
+                const tooltip = d3.select('body').append('div')
+                    .attr('class', 'kb-tooltip')
+                    .html(`
+                        <strong>${d.name}</strong><br>
+                        Type: ${d.type}<br>
+                        ID: ${d.id}
+                    `)
+                    .style('left', (event.pageX + 10) + 'px')
+                    .style('top', (event.pageY - 10) + 'px');
+            }).on('mouseout', function() {
+                d3.selectAll('.kb-tooltip').remove();
+            });
+
+            // Update positions on tick
+            simulation.on('tick', () => {
+                link
+                    .attr('x1', d => d.source.x)
+                    .attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x)
+                    .attr('y2', d => d.target.y);
+
+                nodeGroup
+                    .attr('transform', d => `translate(${d.x},${d.y})`);
+            });
+
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+        }
+    </script>
+</body>
+</html>
