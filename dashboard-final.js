@@ -238,23 +238,35 @@ const Dashboard = {
 
             <div class="task-plan-container">
                 <div class="file-selector">
-                    <h3>Select JSON File:</h3>
+                    <h3>Select JSON File (실제 파일 구조):</h3>
                     <select id="file-dropdown" onchange="window.dashboard.viewTaskPlanJSON('${basePath}' + this.value)" style="width: 100%; padding: 8px; background: #1a1f2e; color: #e1e8ed; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px;">
                         <option value="_project_common.json">📄 _project_common.json (Main)</option>
-                        <option value="character/dino_runner_core.json">🦖 character/dino_runner_core.json</option>
-                        <option value="character/dino_low_profile.json">🦖 character/dino_low_profile.json</option>
-                        <option value="obstacles/cactus_single.json">🚧 obstacles/cactus_single.json</option>
-                        <option value="obstacles/cactus_pair_cluster.json">🚧 obstacles/cactus_pair_cluster.json</option>
-                        <option value="obstacles/cactus_triplet_cluster.json">🚧 obstacles/cactus_triplet_cluster.json</option>
-                        <option value="obstacles/pterodactyl_flap_sheet.json">🚧 obstacles/pterodactyl_flap_sheet.json</option>
-                        <option value="world/sky_day_field.json">🌍 world/sky_day_field.json</option>
-                        <option value="world/cloud_pass_small.json">🌍 world/cloud_pass_small.json</option>
-                        <option value="world/ground_runner_strip.json">🌍 world/ground_runner_strip.json</option>
-                        <option value="world/ground_pebble_overlay.json">🌍 world/ground_pebble_overlay.json</option>
-                        <option value="ui/game_over_message.json">🎨 ui/game_over_message.json</option>
-                        <option value="ui/restart_hint_label.json">🎨 ui/restart_hint_label.json</option>
-                        <option value="ui/score_digits_font.json">🎨 ui/score_digits_font.json</option>
-                        <option value="ui/score_rack_panel.json">🎨 ui/score_rack_panel.json</option>
+                        <optgroup label="Characters">
+                            <option value="characters/player_run.json">🦖 player_run.json</option>
+                            <option value="characters/player_jump.json">🦖 player_jump.json</option>
+                            <option value="characters/player_duck.json">🦖 player_duck.json</option>
+                            <option value="characters/player_idle.json">🦖 player_idle.json</option>
+                            <option value="characters/player_dead.json">🦖 player_dead.json</option>
+                        </optgroup>
+                        <optgroup label="Obstacles">
+                            <option value="obstacles/cactus_small.json">🚧 cactus_small.json</option>
+                            <option value="obstacles/cactus_medium.json">🚧 cactus_medium.json</option>
+                            <option value="obstacles/cactus_large.json">🚧 cactus_large.json</option>
+                            <option value="obstacles/pterodactyl_fly.json">🚧 pterodactyl_fly.json</option>
+                            <option value="obstacles/pterodactyl_high.json">🚧 pterodactyl_high.json</option>
+                            <option value="obstacles/pterodactyl_low.json">🚧 pterodactyl_low.json</option>
+                        </optgroup>
+                        <optgroup label="Environment">
+                            <option value="environment/ground.json">🌍 ground.json</option>
+                            <option value="environment/background.json">🌍 background.json</option>
+                            <option value="environment/ground_line.json">🌍 ground_line.json</option>
+                            <option value="environment/cloud_small.json">🌍 cloud_small.json</option>
+                            <option value="environment/cloud_large.json">🌍 cloud_large.json</option>
+                        </optgroup>
+                        <optgroup label="UI">
+                            <option value="ui/game_over_screen.json">🎨 game_over_screen.json</option>
+                            <option value="ui/score_display.json">🎨 score_display.json</option>
+                        </optgroup>
                     </select>
                 </div>
 
@@ -338,8 +350,11 @@ const Dashboard = {
         // Load actual complete JSON content
         let jsonContent;
 
-        // Use ActualJSONLoader if available
-        if (typeof ActualJSONLoader !== 'undefined') {
+        // Use RealJSONLoader if available, fallback to ActualJSONLoader
+        if (typeof RealJSONLoader !== 'undefined') {
+            jsonContent = RealJSONLoader.getJSON(filename);
+            console.log('Loaded REAL JSON from RealJSONLoader:', jsonContent);
+        } else if (typeof ActualJSONLoader !== 'undefined') {
             jsonContent = ActualJSONLoader.getJSON(filename);
             console.log('Loaded JSON from ActualJSONLoader:', jsonContent);
         } else {
