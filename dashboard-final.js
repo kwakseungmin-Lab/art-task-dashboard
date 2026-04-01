@@ -239,7 +239,7 @@ const Dashboard = {
             <div class="task-plan-container">
                 <div class="file-selector">
                     <h3>Select JSON File (Iteration ${iterationNum} - ${gameName}):</h3>
-                    <select id="file-dropdown" onchange="window.dashboard.viewTaskPlanJSON('${basePath}' + this.value)" style="width: 100%; padding: 8px; background: #1a1f2e; color: #e1e8ed; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px;">
+                    <select id="file-dropdown" onchange="window.dashboard.viewTaskPlanJSON(${iterationNum}, '${gameName}', ${trialNum}, this.value)" style="width: 100%; padding: 8px; background: #1a1f2e; color: #e1e8ed; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px;">
                         <option value="_project_common.json">📄 _project_common.json (Main Project File)</option>
                         <optgroup label="Character (캐릭터)">
                             <option value="character/dino_runner_core.json">🦖 dino_runner_core.json (달리기 애니메이션)</option>
@@ -335,32 +335,58 @@ const Dashboard = {
         `;
 
         // Auto-load the main file
-        this.viewTaskPlanJSON(basePath + '_project_common.json');
+        this.viewTaskPlanJSON(iterationNum, gameName, trialNum, '_project_common.json');
     },
 
-    // View Task Plan JSON content - COMPLETE FILE
-    viewTaskPlanJSON(filepath) {
+    // View Task Plan JSON content - DYNAMIC LOADING
+    async viewTaskPlanJSON(iterationNum, gameName, trialNum, filepath) {
         const viewer = document.getElementById('json-viewer') || document.querySelector('.json-viewer-centered');
         const filename = filepath.split('/').pop();
 
-        console.log('viewTaskPlanJSON called with:', filepath, 'filename:', filename);
+        console.log('viewTaskPlanJSON called:', iterationNum, gameName, trialNum, filepath);
 
-        // Load actual complete JSON content
+        // Show loading state
+        viewer.innerHTML = `
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading ${filename} from iteration_${iterationNum}/${gameName}/trial_${trialNum}...</p>
+            </div>
+            <style>
+                .loading-state {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 400px;
+                    color: #8b92a9;
+                }
+                .spinner {
+                    border: 3px solid rgba(59, 130, 246, 0.1);
+                    border-radius: 50%;
+                    border-top: 3px solid #3b82f6;
+                    width: 40px;
+                    height: 40px;
+                    animation: spin 1s linear infinite;
+                }
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+        `;
+
         let jsonContent;
 
-        // Use RealJSONLoader if available, fallback to ActualJSONLoader
-        if (typeof RealJSONLoader !== 'undefined') {
-            jsonContent = RealJSONLoader.getJSON(filename);
-            console.log('Loaded REAL JSON from RealJSONLoader:', jsonContent);
-        } else if (typeof ActualJSONLoader !== 'undefined') {
-            jsonContent = ActualJSONLoader.getJSON(filename);
-            console.log('Loaded JSON from ActualJSONLoader:', jsonContent);
+        // Use DynamicJSONLoader to fetch from GitHub
+        if (typeof DynamicJSONLoader !== 'undefined') {
+            jsonContent = await DynamicJSONLoader.loadJSON(iterationNum, gameName, trialNum, filename);
+            console.log('Loaded JSON from GitHub:', jsonContent);
         } else {
-            // Fallback if ActualJSONLoader not available
+            // Fallback
             jsonContent = {
-                "error": "ActualJSONLoader not found",
+                "error": "DynamicJSONLoader not found",
                 "filename": filename,
-                "message": "Please ensure actual-json-loader.js is loaded"
+                "message": "Please ensure dynamic-json-loader.js is loaded"
             };
         }
 
