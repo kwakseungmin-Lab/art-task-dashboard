@@ -1139,6 +1139,59 @@ S3: s3://a2z-art-assets-prd/planning/Art_Task_Plan/iteration_${iterationId}/
     showGameDetails(gameName, iterationId) {
         const content = document.getElementById('main-content');
 
+        // Sample Task Plan JSON data
+        const sampleTaskPlan = {
+            "_project_common.json": {
+                "schema_version": "art_task_plan_pkg@8",
+                "project": {
+                    "project_id": gameName.toLowerCase(),
+                    "project_name": gameName
+                },
+                "meta": {
+                    "plan_id": `${gameName}__iter${iterationId}__trial1`,
+                    "game_name": gameName,
+                    "iteration": iterationId,
+                    "trial_index": 1,
+                    "created_at_utc": "2026-03-25T08:52:39Z"
+                },
+                "canvas": {
+                    "width": 1024,
+                    "height": 768,
+                    "background_color": "#87CEEB"
+                }
+            },
+            "character/dino.json": {
+                "id": "dino_character",
+                "type": "player_character",
+                "sprite_path": "assets/characters/dino.png",
+                "animations": {
+                    "idle": { "frames": [0], "duration": 100 },
+                    "run": { "frames": [0, 1, 2, 3], "duration": 100 },
+                    "jump": { "frames": [4], "duration": 300 },
+                    "duck": { "frames": [5, 6], "duration": 200 }
+                },
+                "physics": {
+                    "width": 44,
+                    "height": 47,
+                    "gravity": 0.6,
+                    "jump_velocity": -10
+                }
+            },
+            "obstacles/cactus.json": {
+                "id": "cactus_obstacle",
+                "type": "static_obstacle",
+                "sprite_variants": [
+                    "assets/obstacles/cactus_small.png",
+                    "assets/obstacles/cactus_large.png"
+                ],
+                "collision_box": {
+                    "width": 25,
+                    "height": 50
+                },
+                "spawn_frequency": 0.02
+            }
+        };
+
         content.innerHTML = `
             <div class="glass-container">
                 <h2>${gameName} - Iteration ${iterationId}</h2>
@@ -1146,55 +1199,89 @@ S3: s3://a2z-art-assets-prd/planning/Art_Task_Plan/iteration_${iterationId}/
                     ← 이터레이션으로
                 </button>
 
-                <h3>Trial 결과</h3>
-                <div style="margin-top: 16px">
-                    ${[1,2,3,4,5].map(trial => `
-                        <div class="glass-container" style="margin-bottom: 12px; padding: 16px">
-                            <h4>Trial ${trial}</h4>
-                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 12px">
-                                <div>
-                                    <span style="color: #94a3b8">Invariance:</span>
-                                    <span style="color: #10b981; margin-left: 8px">${85 + Math.random() * 15}%</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
+                    <!-- 왼쪽: Trial 결과 요약 -->
+                    <div>
+                        <h3>Trial 평가 결과</h3>
+                        <div style="margin-top: 16px">
+                            ${[1,2,3,4,5].map(trial => `
+                                <div class="glass-container" style="margin-bottom: 12px; padding: 16px; cursor: pointer" onclick="DashboardApp.showTrialDetails('${gameName}', ${iterationId}, ${trial})">
+                                    <div style="display: flex; justify-content: space-between; align-items: center">
+                                        <h4>Trial ${trial}</h4>
+                                        <span class="status-badge ${trial !== 1 || gameName !== 'reflect_academy' ? 'complete' : 'in-progress'}">
+                                            ${trial !== 1 || gameName !== 'reflect_academy' ? 'PASS' : 'FAIL'}
+                                        </span>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; font-size: 12px">
+                                        <div>Invariance: <span style="color: #10b981">${trial === 1 && gameName === 'reflect_academy' ? '85' : (85 + Math.random() * 15).toFixed(1)}%</span></div>
+                                        <div>Structurality: <span style="color: #10b981">${(90 + Math.random() * 10).toFixed(1)}%</span></div>
+                                        <div>Completeness: <span style="color: #10b981">100%</span></div>
+                                        <div>Ref Integrity: <span style="color: #10b981">${trial === 1 && gameName === 'reflect_academy' ? '50' : (95 + Math.random() * 5).toFixed(1)}%</span></div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <span style="color: #94a3b8">Structurality:</span>
-                                    <span style="color: #10b981; margin-left: 8px">${90 + Math.random() * 10}%</span>
-                                </div>
-                                <div>
-                                    <span style="color: #94a3b8">Completeness:</span>
-                                    <span style="color: #10b981; margin-left: 8px">100%</span>
-                                </div>
-                                <div>
-                                    <span style="color: #94a3b8">Ref Integrity:</span>
-                                    <span style="color: #10b981; margin-left: 8px">${95 + Math.random() * 5}%</span>
-                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- 오른쪽: Task Plan 파일 목록 -->
+                    <div>
+                        <h3>Task Plan Files</h3>
+                        <div style="margin-top: 16px">
+                            <select id="taskPlanFileSelect" onchange="DashboardApp.showTaskPlanContent()" style="width: 100%; padding: 8px; background: #0a0e1a; color: #e1e8ed; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; margin-bottom: 12px">
+                                <option value="_project_common.json">_project_common.json</option>
+                                <option value="character/dino.json">character/dino.json</option>
+                                <option value="obstacles/cactus.json">obstacles/cactus.json</option>
+                            </select>
+                            <div id="taskPlanContent" class="code-block" style="font-size: 11px; max-height: 400px; overflow-y: auto">
+${JSON.stringify(sampleTaskPlan["_project_common.json"], null, 2)}
                             </div>
                         </div>
-                    `).join('')}
+                    </div>
                 </div>
 
-                <h3>Task Plan 파일</h3>
-                <div class="code-block" style="font-size: 12px; margin-top: 16px">
-${gameName}/trial_1/
-├── _project_common.json
-├── character/
-│   ├── dino.json
-│   └── meta.json
-├── obstacles/
-│   ├── cactus.json
-│   └── bird.json
-├── world/
-│   └── desert.json
-└── ui/
-    ├── score_display.json
-    └── game_over_screen.json
+                <div style="margin-top: 24px">
+                    <h3>Full Task Plan Structure</h3>
+                    <div class="code-block" style="font-size: 12px">
+${gameName}/
+├── trial_1/
+│   ├── _project_common.json
+│   ├── character/
+│   │   ├── dino.json
+│   │   └── meta.json
+│   ├── obstacles/
+│   │   ├── cactus.json
+│   │   └── bird.json
+│   ├── world/
+│   │   └── desert.json
+│   └── ui/
+│       ├── score_display.json
+│       └── game_over_screen.json
+├── trial_2/ ...
+├── trial_3/ ...
+├── trial_4/ ...
+└── trial_5/ ...
+                    </div>
                 </div>
-
-                <button class="btn-modern" style="margin-top: 16px" onclick="alert('S3 경로: s3://a2z-art-assets-prd/planning/Art_Task_Plan/iteration_${iterationId}/${gameName}/')">
-                    S3에서 보기
-                </button>
             </div>
         `;
+
+        // Store sample data globally for file selection
+        window.sampleTaskPlanData = sampleTaskPlan;
+    },
+
+    // Show Task Plan content
+    showTaskPlanContent() {
+        const select = document.getElementById('taskPlanFileSelect');
+        const contentDiv = document.getElementById('taskPlanContent');
+
+        if (window.sampleTaskPlanData && window.sampleTaskPlanData[select.value]) {
+            contentDiv.textContent = JSON.stringify(window.sampleTaskPlanData[select.value], null, 2);
+        }
+    },
+
+    // Show trial details
+    showTrialDetails(gameName, iterationId, trialNum) {
+        alert(`Trial ${trialNum} 상세 정보:\n\n게임: ${gameName}\n이터레이션: ${iterationId}\n경로: /iteration_${iterationId}/${gameName}/trial_${trialNum}/`);
     }
 };
 

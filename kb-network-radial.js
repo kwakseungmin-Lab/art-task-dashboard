@@ -242,44 +242,65 @@ const KBNetworkRadial = {
     generateRadialData(kbType) {
         if (kbType === 'art') {
             return {
-                name: 'Art Task Plan KB',
+                name: 'Art Task Plan KB\n26,789 entities',
                 type: 'root',
                 children: [
                     {
-                        name: 'Iterations',
+                        name: 'Iterations (9)',
                         type: 'category',
                         children: [
                             {
-                                name: 'Iteration 8',
+                                name: 'Iter 8 (96%)',
                                 type: 'iteration',
-                                value: '96%',
+                                value: '24/25 PASS',
                                 children: [
-                                    { name: 'CDR Trials', type: 'task_plan', count: 5 },
-                                    { name: 'Umbra Trials', type: 'task_plan', count: 5 },
-                                    { name: 'Eclipse Trials', type: 'task_plan', count: 5 },
-                                    { name: 'Pico Trials', type: 'task_plan', count: 5 },
-                                    { name: 'Nebula Trials', type: 'task_plan', count: 5 }
+                                    {
+                                        name: 'Chrome_Dino_Runner',
+                                        type: 'task_plan',
+                                        children: [
+                                            { name: 'Trial 1: PASS', type: 'atomic_fact' },
+                                            { name: 'Trial 2: PASS', type: 'atomic_fact' },
+                                            { name: 'Trial 3: PASS', type: 'atomic_fact' },
+                                            { name: 'Trial 4: PASS', type: 'atomic_fact' },
+                                            { name: 'Trial 5: PASS', type: 'atomic_fact' }
+                                        ]
+                                    },
+                                    {
+                                        name: 'Pico_Echo',
+                                        type: 'task_plan',
+                                        children: [
+                                            { name: 'All 5 Trials PASS', type: 'atomic_fact' }
+                                        ]
+                                    },
+                                    {
+                                        name: 'reflect_academy',
+                                        type: 'task_plan',
+                                        children: [
+                                            { name: 'Trial 1: FAIL (IF-4)', type: 'harness' },
+                                            { name: '4 Trials PASS', type: 'atomic_fact' }
+                                        ]
+                                    },
+                                    { name: 'slip_down: 5/5', type: 'task_plan' },
+                                    { name: 'umbra_scale: 5/5', type: 'task_plan' }
                                 ]
                             },
                             {
-                                name: 'Iteration 7',
+                                name: 'Iter 7 (100%)',
                                 type: 'iteration',
-                                value: '80%',
+                                value: '25/25 PASS',
                                 children: [
-                                    { name: '25 Task Plans', type: 'task_plan' },
-                                    { name: '20 Pass', type: 'harness' }
+                                    { name: '5 Games', type: 'task_plan' },
+                                    { name: '25 Trials', type: 'task_plan' },
+                                    { name: 'All PASS', type: 'atomic_fact' }
                                 ]
                             },
-                            {
-                                name: 'Iteration 6',
-                                type: 'iteration',
-                                value: '44%'
-                            },
-                            {
-                                name: 'Iteration 5',
-                                type: 'iteration',
-                                value: '37%'
-                            }
+                            { name: 'Iter 6 (84%)', type: 'iteration' },
+                            { name: 'Iter 5 (72%)', type: 'iteration' },
+                            { name: 'Iter 4 (56%)', type: 'iteration' },
+                            { name: 'Iter 3 (44%)', type: 'iteration' },
+                            { name: 'Iter 2 (28%)', type: 'iteration' },
+                            { name: 'Iter 1 (12%)', type: 'iteration' },
+                            { name: 'Iter 0 (Baseline)', type: 'iteration' }
                         ]
                     },
                     {
