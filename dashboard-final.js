@@ -62,22 +62,22 @@ const Dashboard = {
                 </div>
                 <div class="right-section">
                     <div class="kb-panel">
-                        <h3 style="color: #3b82f6; font-size: 18px;">🗄️ Art Task Plan KB (26,789 entities)</h3>
-                        <iframe src="kb-network-complete.html?kb=art" frameborder="0" style="width: 100%; height: 400px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.3);"></iframe>
+                        <h3 style="color: #3b82f6; font-size: 20px; margin-bottom: 15px;">🗄️ Art Task Plan KB (26,789 entities)</h3>
+                        <iframe src="kb-network-complete.html?kb=art" frameborder="0" style="width: 100%; height: calc(50vh - 80px); min-height: 450px; border-radius: 10px; border: 2px solid rgba(59, 130, 246, 0.4);"></iframe>
                     </div>
                     <div class="kb-panel">
-                        <h3 style="color: #10b981; font-size: 18px;">🔄 Meta Iteration KB (8,032 entities)</h3>
-                        <iframe src="kb-network-complete.html?kb=meta" frameborder="0" style="width: 100%; height: 400px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);"></iframe>
+                        <h3 style="color: #10b981; font-size: 20px; margin-bottom: 15px;">🔄 Meta Iteration KB (8,032 entities)</h3>
+                        <iframe src="kb-network-complete.html?kb=meta" frameborder="0" style="width: 100%; height: calc(50vh - 80px); min-height: 450px; border-radius: 10px; border: 2px solid rgba(16, 185, 129, 0.4);"></iframe>
                     </div>
                 </div>
             </div>
             <style>
                 .overview-container {
                     display: grid;
-                    grid-template-columns: 55% 45%;
-                    gap: 15px;
-                    height: calc(100vh - 120px);
-                    padding: 10px;
+                    grid-template-columns: 50% 50%;
+                    gap: 20px;
+                    height: calc(100vh - 100px);
+                    padding: 15px;
                 }
                 .left-section {
                     display: flex;
@@ -255,39 +255,30 @@ const Dashboard = {
             </div>
 
             <div class="task-plan-container">
-                <div class="file-browser">
-                    <h3>Task Plan Files</h3>
-                    ${files.map(file => {
-                        const isMain = file === '_project_common.json';
-                        const category = file.split('/')[0];
-                        const icon = category === 'character' ? '🦖' :
-                                    category === 'obstacles' ? '🚧' :
-                                    category === 'ui' ? '🎨' :
-                                    category === 'world' ? '🌍' : '📄';
-                        return `
-                            <div class="file-item ${isMain ? 'main-file' : ''}"
-                                 onclick="window.dashboard.viewTaskPlanJSON('${basePath}${file}')"
-                                 style="cursor: pointer;">
-                                <span class="file-icon">${icon}</span>
-                                <span class="file-name">${file}</span>
-                                ${isMain ? '<span class="file-badge">Main</span>' : ''}
-                            </div>
-                        `;
-                    }).join('')}
+                <div class="file-selector">
+                    <h3>Select JSON File:</h3>
+                    <select id="file-dropdown" onchange="window.dashboard.viewTaskPlanJSON('${basePath}' + this.value)" style="width: 100%; padding: 8px; background: #1a1f2e; color: #e1e8ed; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px;">
+                        <option value="_project_common.json">📄 _project_common.json (Main)</option>
+                        <option value="character/dino_runner_core.json">🦖 character/dino_runner_core.json</option>
+                        <option value="character/dino_low_profile.json">🦖 character/dino_low_profile.json</option>
+                        <option value="obstacles/cactus_single.json">🚧 obstacles/cactus_single.json</option>
+                        <option value="obstacles/cactus_pair_cluster.json">🚧 obstacles/cactus_pair_cluster.json</option>
+                        <option value="obstacles/cactus_triplet_cluster.json">🚧 obstacles/cactus_triplet_cluster.json</option>
+                        <option value="obstacles/pterodactyl_flap_sheet.json">🚧 obstacles/pterodactyl_flap_sheet.json</option>
+                        <option value="world/sky_day_field.json">🌍 world/sky_day_field.json</option>
+                        <option value="world/cloud_pass_small.json">🌍 world/cloud_pass_small.json</option>
+                        <option value="world/ground_runner_strip.json">🌍 world/ground_runner_strip.json</option>
+                        <option value="world/ground_pebble_overlay.json">🌍 world/ground_pebble_overlay.json</option>
+                        <option value="ui/game_over_message.json">🎨 ui/game_over_message.json</option>
+                        <option value="ui/restart_hint_label.json">🎨 ui/restart_hint_label.json</option>
+                        <option value="ui/score_digits_font.json">🎨 ui/score_digits_font.json</option>
+                        <option value="ui/score_rack_panel.json">🎨 ui/score_rack_panel.json</option>
+                    </select>
                 </div>
 
-                <div class="file-stats">
-                    <div class="stat">
-                        <strong>Total Files:</strong> ${files.length}
-                    </div>
-                    <div class="stat">
-                        <strong>Categories:</strong> ${[...new Set(files.map(f => f.split('/')[0]))].length}
-                    </div>
-                </div>
-
-                <div id="json-viewer" class="json-viewer">
+                <div id="json-viewer" class="json-viewer-centered">
                     <div class="viewer-placeholder">
-                        <p>👈 Select a file to view its complete JSON content</p>
+                        <p>Select a file above to view its complete JSON content</p>
                     </div>
                 </div>
             </div>
@@ -306,11 +297,12 @@ const Dashboard = {
                     font-size: 12px;
                 }
                 .task-plan-container {
-                    display: grid;
-                    grid-template-columns: 200px 1fr;
-                    gap: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
                     height: calc(100vh - 100px);
-                    padding: 10px;
+                    padding: 20px;
                 }
                 .file-browser {
                     background: rgba(15, 20, 25, 0.6);
@@ -366,16 +358,32 @@ const Dashboard = {
                     font-size: 10px;
                     text-transform: uppercase;
                 }
-                .json-viewer {
-                    background: rgba(15, 20, 25, 0.9);
-                    border: 2px solid rgba(59, 130, 246, 0.3);
+                .file-selector {
+                    width: 100%;
+                    max-width: 800px;
+                    background: rgba(15, 20, 25, 0.8);
+                    padding: 15px;
                     border-radius: 8px;
-                    padding: 20px;
+                    border: 1px solid rgba(59, 130, 246, 0.3);
+                }
+                .file-selector h3 {
+                    margin: 0 0 10px 0;
+                    color: #3b82f6;
+                    font-size: 16px;
+                }
+                .json-viewer-centered {
+                    background: rgba(15, 20, 25, 0.95);
+                    border: 2px solid rgba(59, 130, 246, 0.4);
+                    border-radius: 10px;
+                    padding: 30px;
                     overflow-y: auto;
                     position: relative;
-                    height: calc(100vh - 180px);
-                    min-height: 700px;
-                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                    width: 90%;
+                    max-width: 1400px;
+                    height: calc(100vh - 250px);
+                    min-height: 600px;
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+                    margin: 0 auto;
                 }
                 .viewer-placeholder {
                     display: flex;
@@ -410,7 +418,7 @@ const Dashboard = {
 
     // View Task Plan JSON content - COMPLETE FILE
     viewTaskPlanJSON(filepath) {
-        const viewer = document.getElementById('json-viewer');
+        const viewer = document.getElementById('json-viewer') || document.querySelector('.json-viewer-centered');
         const filename = filepath.split('/').pop();
 
         console.log('viewTaskPlanJSON called with:', filepath, 'filename:', filename);
