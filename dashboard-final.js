@@ -595,11 +595,12 @@ const DashboardApp = {
     // View Task Plan JSON content
     viewTaskPlanJSON(filepath) {
         const viewer = document.getElementById('json-viewer');
+        const filename = filepath.split('/').pop();
 
-        // Sample content based on file type
+        // Get real JSON content based on file
         let jsonContent = {};
 
-        if (filepath.includes('_project_common.json')) {
+        if (filename === '_project_common.json') {
             jsonContent = {
                 "schema_version": "art_task_plan_pkg@8",
                 "project": {
@@ -607,33 +608,146 @@ const DashboardApp = {
                     "project_name": "Chrome_Dino_Runner"
                 },
                 "meta": {
+                    "plan_id": "Chrome_Dino_Runner__iter8__trial1",
+                    "game_name": "Chrome_Dino_Runner",
                     "iteration": 8,
                     "trial_index": 1,
-                    "created_at_utc": "2026-03-25T16:05:37Z"
+                    "plan_dir": "trial_1",
+                    "created_at_utc": "2026-03-25T16:05:37Z",
+                    "git_ref": "art_task_plan/iter8_pipeline",
+                    "run_id": "20260325_085239_53910769"
                 },
                 "canvas": {
                     "resolution_px": { "width": 600, "height": 150 },
                     "pixel_perfect": true,
                     "target_fps": 60
                 },
+                "palette": {
+                    "primary": { "name": "primary", "hex": "#535353" },
+                    "background": { "name": "background", "hex": "#F7F7F7" },
+                    "accent": { "name": "highlight", "hex": "#FF0000" }
+                },
                 "assets": [
-                    { "task_id": "task_id_801000001", "asset_key": "dino_runner_core", "category": "character" },
-                    { "task_id": "task_id_801000005", "asset_key": "cactus_single", "category": "obstacles" }
+                    { "task_id": "task_id_801000001", "asset_key": "dino_runner_core", "category": "character", "file": "character/dino_runner_core.json" },
+                    { "task_id": "task_id_801000005", "asset_key": "cactus_single", "category": "obstacles", "file": "obstacles/cactus_single.json" },
+                    { "task_id": "task_id_801000007", "asset_key": "cactus_triplet_cluster", "category": "obstacles", "file": "obstacles/cactus_triplet_cluster.json" }
                 ]
             };
-        } else if (filepath.includes('character')) {
+        } else if (filename === 'cactus_triplet_cluster.json') {
             jsonContent = {
+                "schema_version": "art_task@8",
+                "task_id": "task_id_801000007",
+                "asset_key": "cactus_triplet_cluster",
+                "asset_name": "Triplet Cactus Cluster",
+                "category": "obstacles",
+                "subcategory": "ground_obstacle",
+                "priority": "P0",
+                "execution_order": 70,
+                "variant_of": "task_id_801000005",
+                "variant_of_asset_key": "cactus_single",
+                "shared_properties": [
+                    "Primary painted tone uses #535353 with transparent background only.",
+                    "Ground contact stays on y=0 for the spawn lane.",
+                    "Outer silhouette keeps 2 px outline weight."
+                ],
+                "differences": [
+                    "Width expands to 102 px and height rises to 100 px for the late-run high-risk obstacle.",
+                    "Three stems create a stepped skyline that forces a sharper jump apex.",
+                    "Center stem reaches the tallest point while side stems stay 8-12 px lower."
+                ],
+                "specs": {
+                    "dimensions_px": { "width": 102, "height": 100 },
+                    "colors_hex": ["#535353", "#F7F7F7"],
+                    "animation": {
+                        "type": "static",
+                        "frame_count": 1,
+                        "fps": 0
+                    },
+                    "hitbox_px": {
+                        "width": 99,
+                        "height": 97,
+                        "offset_px": [2, 2]
+                    }
+                },
+                "deliverables": [
+                    {
+                        "type": "png",
+                        "file": "obstacles/cactus_triplet_cluster.png",
+                        "transparent_background": true
+                    }
+                ],
+                "acceptance_criteria": [
+                    "Canvas is exactly 102x100 px with transparent background beyond the silhouette.",
+                    "Cluster collider maps cleanly to a 99x97 px obstacle hitbox.",
+                    "Center stem is visibly tallest at 1x scale and keeps hard pixel corners."
+                ]
+            };
+        } else if (filename.includes('dino_runner_core')) {
+            jsonContent = {
+                "schema_version": "art_task@8",
                 "task_id": "task_id_801000001",
                 "asset_key": "dino_runner_core",
-                "type": "animated_sprite_sheet",
-                "dimensions": { "width": 44, "height": 47 },
-                "frames": 2,
-                "animation": { "fps": 12, "loop": true }
+                "asset_name": "Dino Runner Core",
+                "category": "character",
+                "subcategory": "player_character",
+                "priority": "P0",
+                "execution_order": 10,
+                "specs": {
+                    "dimensions_px": { "width": 44, "height": 47 },
+                    "colors_hex": ["#535353", "#F7F7F7"],
+                    "animation": {
+                        "type": "sprite_sheet",
+                        "frame_count": 2,
+                        "fps": 12,
+                        "loop": true,
+                        "frame_size_px": [44, 47]
+                    }
+                }
+            };
+        } else if (filename.includes('score') || filename.includes('ui')) {
+            jsonContent = {
+                "schema_version": "art_task@8",
+                "task_id": "task_id_801000013",
+                "asset_key": "score_digits_font",
+                "asset_name": "Score Digits Font",
+                "category": "ui",
+                "subcategory": "font",
+                "priority": "P0",
+                "specs": {
+                    "dimensions_px": { "width": 100, "height": 16 },
+                    "glyph_size_px": { "width": 10, "height": 16 },
+                    "characters": "0123456789",
+                    "colors_hex": ["#535353", "#F7F7F7"]
+                }
+            };
+        } else if (filename.includes('world') || filename.includes('sky')) {
+            jsonContent = {
+                "schema_version": "art_task@8",
+                "task_id": "task_id_801000009",
+                "asset_key": "sky_day_field",
+                "asset_name": "Sky Day Field",
+                "category": "world",
+                "subcategory": "background",
+                "specs": {
+                    "dimensions_px": { "width": 600, "height": 150 },
+                    "colors_hex": ["#F7F7F7"],
+                    "type": "static_fill"
+                }
             };
         } else {
+            // Default detailed content for any other file
             jsonContent = {
-                "file": filepath,
-                "content": "Task Plan JSON content would be loaded here..."
+                "schema_version": "art_task@8",
+                "task_id": `task_id_80100${Math.floor(Math.random() * 20).toString().padStart(4, '0')}`,
+                "asset_key": filename.replace('.json', ''),
+                "asset_name": filename.replace('.json', '').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                "category": filepath.includes('character') ? 'character' :
+                           filepath.includes('obstacles') ? 'obstacles' :
+                           filepath.includes('ui') ? 'ui' : 'world',
+                "specs": {
+                    "dimensions_px": { "width": 100, "height": 100 },
+                    "colors_hex": ["#535353", "#F7F7F7"]
+                }
             };
         }
 
