@@ -318,6 +318,21 @@
 
         // Initialize on load
         window.addEventListener('DOMContentLoaded', async () => {
+            // Get KB type from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const kbType = urlParams.get('kb') || 'art'; // default to 'art'
+
+            // Update title based on KB type
+            if (kbType === 'meta') {
+                document.querySelector('h2').textContent = 'Meta Iteration KB Network Visualization';
+                // Update API config for meta KB
+                KBNetworkAPI.config.currentKbId = KBNetworkAPI.config.metaKbId;
+            } else {
+                document.querySelector('h2').textContent = 'Art Task Plan KB Network Visualization';
+                // Update API config for art KB
+                KBNetworkAPI.config.currentKbId = KBNetworkAPI.config.artKbId;
+            }
+
             await loadKBData();
         });
 
@@ -326,8 +341,8 @@
             try {
                 showLoading(true);
 
-                // Fetch complete KB data
-                kbData = await KBNetworkAPI.fetchCompleteKBData(KBNetworkAPI.config.artKbId);
+                // Fetch complete KB data (uses currentKbId set from URL params)
+                kbData = await KBNetworkAPI.fetchCompleteKBData(KBNetworkAPI.config.currentKbId || KBNetworkAPI.config.artKbId);
 
                 // Update statistics
                 updateStats(kbData.stats);

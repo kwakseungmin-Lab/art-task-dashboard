@@ -574,20 +574,16 @@
     window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             if (window.dashboard) {
-                // Override loadArtKB with radial visualization
+                // Override loadArtKB with complete network visualization
                 window.dashboard.loadArtKB = function() {
                     const content = document.getElementById('main-content');
                     content.innerHTML = `
                         <div class="kb-header">
-                            <h2>Art Task Plan KB - Network Visualization</h2>
+                            <h2>Art Task Plan KB - Complete Network Visualization</h2>
                             <div class="kb-stats">
                                 <div class="stat">
                                     <div class="label">Total Entities</div>
-                                    <div class="value">${this.kbConfig.artKb.totalEntities.toLocaleString()}</div>
-                                </div>
-                                <div class="stat">
-                                    <div class="label">Atomic Facts</div>
-                                    <div class="value">${this.kbConfig.artKb.atomicFacts.toLocaleString()}</div>
+                                    <div class="value">26,789</div>
                                 </div>
                                 <div class="stat">
                                     <div class="label">Relations</div>
@@ -597,35 +593,29 @@
                                     <div class="label">Success Rate</div>
                                     <div class="value">96%</div>
                                 </div>
+                                <div class="stat">
+                                    <a href="kb-network-complete.html?kb=art" target="_blank" style="color: #3b82f6; text-decoration: none;">Open in new tab ↗</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="controls" style="margin: 20px 0; text-align: center;">
-                            <button class="btn active" onclick="window.dashboard.switchKBView('radial')">Radial View</button>
-                            <button class="btn" onclick="window.dashboard.switchKBView('force')">Force Network</button>
-                            <button class="btn" onclick="window.dashboard.resetZoom()">Reset Zoom</button>
-                        </div>
-                        <div id="art-kb-network" style="width: 100%; height: 700px; border-radius: 12px; background: linear-gradient(135deg, #0a0e1a 0%, #1a2332 100%);"></div>
+                        <iframe
+                            src="kb-network-complete.html?kb=art"
+                            style="width: 100%; height: calc(100vh - 250px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; background: #0f1419;"
+                            frameborder="0">
+                        </iframe>
                     `;
-
-                    setTimeout(() => {
-                        KBNetworkRadial.init('art-kb-network', 'art');
-                    }, 100);
                 };
 
-                // Override loadMetaKB with radial visualization
+                // Override loadMetaKB with complete network visualization
                 window.dashboard.loadMetaKB = function() {
                     const content = document.getElementById('main-content');
                     content.innerHTML = `
                         <div class="kb-header">
-                            <h2>Meta Iteration KB - Network Visualization</h2>
+                            <h2>Meta Iteration KB - Complete Network Visualization</h2>
                             <div class="kb-stats">
                                 <div class="stat">
                                     <div class="label">Total Entities</div>
-                                    <div class="value">${this.kbConfig.metaKb.totalEntities.toLocaleString()}</div>
-                                </div>
-                                <div class="stat">
-                                    <div class="label">Atomic Facts</div>
-                                    <div class="value">${this.kbConfig.metaKb.atomicFacts.toLocaleString()}</div>
+                                    <div class="value">8,032</div>
                                 </div>
                                 <div class="stat">
                                     <div class="label">Relations</div>
@@ -635,14 +625,17 @@
                                     <div class="label">Improvement</div>
                                     <div class="value">+37%</div>
                                 </div>
+                                <div class="stat">
+                                    <a href="kb-network-complete.html?kb=meta" target="_blank" style="color: #3b82f6; text-decoration: none;">Open in new tab ↗</a>
+                                </div>
                             </div>
                         </div>
-                        <div id="meta-kb-network" style="width: 100%; height: 700px; border-radius: 12px;"></div>
+                        <iframe
+                            src="kb-network-complete.html?kb=meta"
+                            style="width: 100%; height: calc(100vh - 250px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; background: #0f1419;"
+                            frameborder="0">
+                        </iframe>
                     `;
-
-                    setTimeout(() => {
-                        KBNetworkRadial.init('meta-kb-network', 'meta');
-                    }, 100);
                 };
 
                 // Add network visualization methods
