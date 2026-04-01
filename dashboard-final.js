@@ -310,8 +310,19 @@ const Dashboard = {
             </style>
         `;
 
-        // Auto-load the main file
-        this.viewTaskPlanJSON(iterationNum, gameName, trialNum, '_project_common.json');
+        // Auto-load the main file - clear any previous content first
+        const viewer = document.getElementById('json-viewer');
+        if (viewer) {
+            viewer.innerHTML = `
+                <div class="viewer-placeholder">
+                    <p>Loading _project_common.json...</p>
+                </div>
+            `;
+        }
+        // Delay to ensure DOM is ready
+        setTimeout(() => {
+            this.viewTaskPlanJSON(iterationNum, gameName, trialNum, '_project_common.json');
+        }, 100);
     },
 
     // View Task Plan JSON content - DYNAMIC LOADING
@@ -369,6 +380,23 @@ const Dashboard = {
                 "filename": filename,
                 "message": "Please ensure json loaders are loaded"
             };
+        }
+
+        // Check if it's an error response
+        if (jsonContent.error) {
+            viewer.innerHTML = `
+                <div class="error-container" style="padding: 40px; text-align: center;">
+                    <h3 style="color: #ff7b72; margin-bottom: 20px;">❌ Error Loading File</h3>
+                    <p style="color: #8b92a9; margin-bottom: 10px;">File: ${filename}</p>
+                    <p style="color: #8b92a9; margin-bottom: 20px;">${jsonContent.error}: ${jsonContent.message || 'File not found'}</p>
+                    <div style="background: rgba(255, 123, 114, 0.1); border: 1px solid rgba(255, 123, 114, 0.3); border-radius: 8px; padding: 15px; margin-top: 20px;">
+                        <p style="color: #ffa657; font-size: 14px;">💡 Tip: This file may not exist for this game/iteration combination.</p>
+                        <p style="color: #8b92a9; font-size: 12px; margin-top: 10px;">Try selecting a different file from the dropdown above.</p>
+                    </div>
+                </div>
+                ${this.getJsonViewerStyles()}
+            `;
+            return;
         }
 
         // Display the JSON with syntax highlighting
@@ -516,13 +544,94 @@ const Dashboard = {
                     <option value="ui/action_buttons.json">🎮 action_buttons.json</option>
                 </optgroup>
             `;
-        } else {
-            // For other games, try to detect available files
+        } else if (gameName === 'umbra_scale') {
+            html += `
+                <optgroup label="Character">
+                    <option value="character/umbra_player_core_states.json">👤 umbra_player_core_states.json</option>
+                    <option value="character/umbra_echo_marker.json">👻 umbra_echo_marker.json</option>
+                </optgroup>
+                <optgroup label="Obstacles">
+                    <option value="obstacles/balance_scale_rig.json">⚖️ balance_scale_rig.json</option>
+                    <option value="obstacles/mirror_reflector_panel.json">🪞 mirror_reflector_panel.json</option>
+                    <option value="obstacles/moving_light_emitter.json">💡 moving_light_emitter.json</option>
+                    <option value="obstacles/prism_splitter_glass.json">💎 prism_splitter_glass.json</option>
+                </optgroup>
+                <optgroup label="World">
+                    <option value="world/twilight_tower_tileset.json">🏰 twilight_tower_tileset.json</option>
+                    <option value="world/shadow_safe_zone_overlay.json">🌑 shadow_safe_zone_overlay.json</option>
+                    <option value="world/exit_door_ladder_set.json">🚪 exit_door_ladder_set.json</option>
+                </optgroup>
+                <optgroup label="UI">
+                    <option value="ui/exposure_balance_hud.json">📊 exposure_balance_hud.json</option>
+                    <option value="ui/floor_clear_rank_panel.json">🏆 floor_clear_rank_panel.json</option>
+                    <option value="ui/light_path_preview_overlay.json">✨ light_path_preview_overlay.json</option>
+                </optgroup>
+            `;
+        } else if (gameName === 'slip_down') {
+            html += `
+                <optgroup label="Character">
+                    <option value="character/player_slip_slide_states.json">🏂 player_slip_slide_states.json</option>
+                </optgroup>
+                <optgroup label="Obstacles">
+                    <option value="obstacles/platform_breakable_wood.json">🪵 platform_breakable_wood.json</option>
+                    <option value="obstacles/spike_hazard_upward.json">🔺 spike_hazard_upward.json</option>
+                </optgroup>
+                <optgroup label="World">
+                    <option value="world/infinite_tower_tileset.json">🏢 infinite_tower_tileset.json</option>
+                </optgroup>
+                <optgroup label="UI">
+                    <option value="ui/descent_timer_display.json">⏱️ descent_timer_display.json</option>
+                </optgroup>
+            `;
+        } else if (gameName === 'reflect_academy') {
+            html += `
+                <optgroup label="Character">
+                    <option value="character/player_wizard_states.json">🧙 player_wizard_states.json</option>
+                </optgroup>
+                <optgroup label="Mirrors">
+                    <option value="mirrors/mirror_crystal_pivot.json">🔮 mirror_crystal_pivot.json</option>
+                    <option value="mirrors/mirror_splitter_prism.json">💎 mirror_splitter_prism.json</option>
+                </optgroup>
+                <optgroup label="World">
+                    <option value="world/academy_hall_tileset.json">🏛️ academy_hall_tileset.json</option>
+                </optgroup>
+                <optgroup label="UI">
+                    <option value="ui/spell_charge_indicator.json">⚡ spell_charge_indicator.json</option>
+                </optgroup>
+            `;
+        } else if (gameName === 'cosmos_heracles') {
+            html += `
+                <optgroup label="Character">
+                    <option value="character/character.player.heracles_form_64x96.json">⚔️ heracles_form_64x96.json</option>
+                    <option value="character/character.boss.cyclops_state_sheet.json">👁️ cyclops_state_sheet.json</option>
+                    <option value="character/character.boss.hydra_state_sheet.json">🐉 hydra_state_sheet.json</option>
+                    <option value="character/character.enemy.cerberus_state_sheet.json">🐕 cerberus_state_sheet.json</option>
+                </optgroup>
+                <optgroup label="Obstacles">
+                    <option value="obstacles/obstacles.pillar.standard_sheet.json">🏛️ pillar_standard_sheet.json</option>
+                    <option value="obstacles/obstacles.pillar.rotating_sheet.json">🌀 pillar_rotating_sheet.json</option>
+                </optgroup>
+                <optgroup label="World">
+                    <option value="world/world.background.zone1_corridor_parallax.json">🏛️ zone1_corridor_parallax.json</option>
+                    <option value="world/world.floor.star_floor_strip.json">⭐ star_floor_strip.json</option>
+                </optgroup>
+                <optgroup label="UI">
+                    <option value="ui/ui.hud.hp_hearts_row.json">❤️ hp_hearts_row.json</option>
+                    <option value="ui/ui.hud.score_zone_header.json">📊 score_zone_header.json</option>
+                </optgroup>
+            `;
+        } else if (gameName === 'olympus_step' || gameName === 'ricochet_conspiracy' || gameName === 'jarl_of_blizzard') {
+            // Games from iterations 6-7 with similar structure
             html += `
                 <optgroup label="Files">
-                    <option value="character/main_character.json">👤 character/main_character.json</option>
-                    <option value="world/background.json">🌍 world/background.json</option>
-                    <option value="ui/interface.json">🎮 ui/interface.json</option>
+                    <option value="_project_common.json">📄 Project file only available</option>
+                </optgroup>
+            `;
+        } else {
+            // Generic fallback for other games
+            html += `
+                <optgroup label="Available Files">
+                    <option value="">Please check available files for this game</option>
                 </optgroup>
             `;
         }
