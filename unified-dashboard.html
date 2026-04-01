@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Task Plan Pipeline - Unified Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f1419;
+            color: #e1e8ed;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: 50px 1fr;
+            height: 100vh;
+        }
+
+        .header {
+            background: #0a0e1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .layout-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .layout-btn {
+            padding: 6px 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .layout-btn:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+
+        .layout-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        .main-grid {
+            display: grid;
+            gap: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px;
+            height: calc(100vh - 50px);
+        }
+
+        /* 레이아웃 옵션 */
+        .main-grid.layout-vertical {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+
+        .main-grid.layout-horizontal {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        .main-grid.layout-grid {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        .main-grid.layout-focus-main {
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        .main-grid.layout-tabs {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        .iframe-container {
+            background: #0f1419;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .iframe-container.main-dashboard {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .iframe-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 26, 0.95);
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .iframe-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: #94a3b8;
+        }
+
+        .iframe-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .iframe-action {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .iframe-action:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e1e8ed;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #0f1419;
+        }
+
+        /* 탭 레이아웃용 */
+        .tab-container {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tab-container.active {
+            display: block;
+        }
+
+        .tabs {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 2px;
+            background: rgba(10, 14, 26, 0.95);
+            padding: 4px;
+            border-radius: 8px;
+            z-index: 20;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid transparent;
+            color: #94a3b8;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        /* 로딩 인디케이터 */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* 풀스크린 모드 */
+        .fullscreen-mode .header {
+            display: none;
+        }
+
+        .fullscreen-mode .main-grid {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Art Task Plan Pipeline - Unified View</h1>
+            <div class="layout-controls">
+                <button class="layout-btn" onclick="setLayout('horizontal')">3열 수평</button>
+                <button class="layout-btn" onclick="setLayout('vertical')">3행 수직</button>
+                <button class="layout-btn active" onclick="setLayout('focus-main')">메인 포커스</button>
+                <button class="layout-btn" onclick="setLayout('grid')">2x2 그리드</button>
+                <button class="layout-btn" onclick="setLayout('tabs')">탭 전환</button>
+                <button class="layout-btn" onclick="toggleFullscreen()">🔳 전체화면</button>
+            </div>
+        </div>
+
+        <div class="main-grid layout-focus-main" id="mainGrid">
+            <!-- 메인 대시보드 (왼쪽 큰 영역) -->
+            <div class="iframe-container main-dashboard">
+                <div class="iframe-header">
+                    <span class="iframe-title">📊 Main Dashboard</span>
+                    <div class="iframe-actions">
+                        <span class="iframe-action" onclick="reloadFrame('main')" title="새로고침">↻</span>
+                        <span class="iframe-action" onclick="openInNewTab('main')" title="새 탭에서 열기">↗</span>
+                    </div>
+                </div>
+                <iframe id="main-frame" src="https://kwakseungmin-lab.github.io/art-task-dashboard/" style="padding-top: 40px;"></iframe>
+            </div>
+
+            <!-- Art KB 네트워크 (오른쪽 위) -->
+            <div class="iframe-container">
+                <div class="iframe-header">
+                    <span class="iframe-title">🔵 Art Task Plan KB Network</span>
+                    <div class="iframe-actions">
+                        <span class="iframe-action" onclick="reloadFrame('art')" title="새로고침">↻</span>
+                        <span class="iframe-action" onclick="openInNewTab('art')" title="새 탭에서 열기">↗</span>
+                    </div>
+                </div>
+                <iframe id="art-frame" src="https://kwakseungmin-lab.github.io/art-task-dashboard/kb-network-complete.html?kb=art" style="padding-top: 40px;"></iframe>
+            </div>
+
+            <!-- Meta KB 네트워크 (오른쪽 아래) -->
+            <div class="iframe-container">
+                <div class="iframe-header">
+                    <span class="iframe-title">🟣 Meta Iteration KB Network</span>
+                    <div class="iframe-actions">
+                        <span class="iframe-action" onclick="reloadFrame('meta')" title="새로고침">↻</span>
+                        <span class="iframe-action" onclick="openInNewTab('meta')" title="새 탭에서 열기">↗</span>
+                    </div>
+                </div>
+                <iframe id="meta-frame" src="https://kwakseungmin-lab.github.io/art-task-dashboard/kb-network-complete.html?kb=meta" style="padding-top: 40px;"></iframe>
+            </div>
+        </div>
+
+        <!-- 탭 모드용 (초기엔 숨김) -->
+        <div class="tabs" id="tabBar" style="display: none;">
+            <div class="tab active" onclick="switchTab('main')">Main Dashboard</div>
+            <div class="tab" onclick="switchTab('art')">Art KB Network</div>
+            <div class="tab" onclick="switchTab('meta')">Meta KB Network</div>
+        </div>
+    </div>
+
+    <script>
+        let currentLayout = 'focus-main';
+        let currentTab = 'main';
+
+        function setLayout(layout) {
+            const grid = document.getElementById('mainGrid');
+            const tabBar = document.getElementById('tabBar');
+
+            // 모든 레이아웃 클래스 제거
+            grid.className = 'main-grid';
+
+            // 버튼 활성화 상태 업데이트
+            document.querySelectorAll('.layout-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // 레이아웃 적용
+            if (layout === 'tabs') {
+                tabBar.style.display = 'flex';
+                grid.classList.add('layout-tabs');
+
+                // 탭 모드에서는 한번에 하나만 보이도록
+                const containers = grid.querySelectorAll('.iframe-container');
+                containers.forEach((container, index) => {
+                    if (index === 0) {
+                        container.style.display = 'block';
+                    } else {
+                        container.style.display = 'none';
+                    }
+                });
+
+                // main-dashboard 클래스 제거 (탭 모드에서는 전체 화면 사용)
+                containers[0].classList.remove('main-dashboard');
+            } else {
+                tabBar.style.display = 'none';
+
+                // 모든 컨테이너 표시
+                const containers = grid.querySelectorAll('.iframe-container');
+                containers.forEach(container => {
+                    container.style.display = 'block';
+                });
+
+                // 레이아웃별 설정
+                if (layout === 'focus-main') {
+                    grid.classList.add('layout-focus-main');
+                    containers[0].classList.add('main-dashboard');
+                } else {
+                    containers[0].classList.remove('main-dashboard');
+
+                    if (layout === 'horizontal') {
+                        grid.classList.add('layout-horizontal');
+                    } else if (layout === 'vertical') {
+                        grid.classList.add('layout-vertical');
+                    } else if (layout === 'grid') {
+                        grid.classList.add('layout-grid');
+                    }
+                }
+            }
+
+            currentLayout = layout;
+        }
+
+        function switchTab(tab) {
+            const containers = document.querySelectorAll('.iframe-container');
+            const tabs = document.querySelectorAll('.tab');
+
+            // 모든 탭과 컨테이너 비활성화
+            tabs.forEach(t => t.classList.remove('active'));
+            containers.forEach(c => c.style.display = 'none');
+
+            // 선택된 탭 활성화
+            if (tab === 'main') {
+                tabs[0].classList.add('active');
+                containers[0].style.display = 'block';
+            } else if (tab === 'art') {
+                tabs[1].classList.add('active');
+                containers[1].style.display = 'block';
+            } else if (tab === 'meta') {
+                tabs[2].classList.add('active');
+                containers[2].style.display = 'block';
+            }
+
+            currentTab = tab;
+        }
+
+        function reloadFrame(type) {
+            const frame = document.getElementById(`${type}-frame`);
+            frame.src = frame.src;
+        }
+
+        function openInNewTab(type) {
+            const urls = {
+                'main': 'https://kwakseungmin-lab.github.io/art-task-dashboard/',
+                'art': 'https://kwakseungmin-lab.github.io/art-task-dashboard/kb-network-complete.html?kb=art',
+                'meta': 'https://kwakseungmin-lab.github.io/art-task-dashboard/kb-network-complete.html?kb=meta'
+            };
+            window.open(urls[type], '_blank');
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                document.body.classList.add('fullscreen-mode');
+            } else {
+                document.exitFullscreen();
+                document.body.classList.remove('fullscreen-mode');
+            }
+        }
+
+        // 키보드 단축키
+        document.addEventListener('keydown', (e) => {
+            // Alt + 1,2,3 for tab switching
+            if (e.altKey) {
+                if (e.key === '1') {
+                    if (currentLayout === 'tabs') switchTab('main');
+                } else if (e.key === '2') {
+                    if (currentLayout === 'tabs') switchTab('art');
+                } else if (e.key === '3') {
+                    if (currentLayout === 'tabs') switchTab('meta');
+                }
+            }
+
+            // F11 for fullscreen
+            if (e.key === 'F11') {
+                e.preventDefault();
+                toggleFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
