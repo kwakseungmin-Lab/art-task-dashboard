@@ -115,24 +115,47 @@ const KBNetworkAPI = {
     getMockKBData(kbId) {
         const entities = [];
 
-        // 파이프라인 에이전트
-        const agents = [
-            'Orchestrator', 'Designer', 'Analyzer', 'Generator',
-            'Evaluator', 'Process_Validator', 'Evolver', 'Evolver_Reviewer',
-            'Monitor', 'Art_KB_Writer', 'Meta_KB_Writer'
-        ];
+        // Meta KB인지 Art KB인지 구분
+        const isMetaKb = kbId === this.config.metaKbId;
 
-        agents.forEach(agent => {
-            entities.push({
-                id: `agent_${agent.toLowerCase()}`,
-                type: 'agent',
-                name: agent,
-                properties: {
-                    role: agent,
-                    description: `${agent} agent for Art Task Plan Pipeline`
-                }
+        if (isMetaKb) {
+            // Meta KB 전용 에이전트
+            const metaAgents = [
+                'Meta_Orchestrator', 'Strategy_Designer', 'Pattern_Analyzer',
+                'Evolution_Tracker', 'Performance_Monitor'
+            ];
+
+            metaAgents.forEach(agent => {
+                entities.push({
+                    id: `meta_agent_${agent.toLowerCase()}`,
+                    type: 'agent',
+                    name: agent,
+                    properties: {
+                        role: agent,
+                        description: `${agent} agent for Meta Iteration KB`
+                    }
+                });
             });
-        });
+        } else {
+            // Art KB 파이프라인 에이전트
+            const agents = [
+                'Orchestrator', 'Designer', 'Analyzer', 'Generator',
+                'Evaluator', 'Process_Validator', 'Evolver', 'Evolver_Reviewer',
+                'Monitor', 'Art_KB_Writer', 'Meta_KB_Writer'
+            ];
+
+            agents.forEach(agent => {
+                entities.push({
+                    id: `agent_${agent.toLowerCase()}`,
+                    type: 'agent',
+                    name: agent,
+                    properties: {
+                        role: agent,
+                        description: `${agent} agent for Art Task Plan Pipeline`
+                    }
+                });
+            });
+        }
 
         // 이터레이션 (0-8)
         for (let i = 0; i <= 8; i++) {
