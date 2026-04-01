@@ -993,7 +993,7 @@ ${sampleContent[path] || '// Content would be loaded from S3...'}
             <h2>전체 이터레이션 진행 상황</h2>
             <div class="iterations-grid">
                 ${iterationData.map(iter => `
-                    <div class="glass-container iteration-card">
+                    <div class="glass-container iteration-card" onclick="DashboardApp.showIterationDetails(${iter.iter})" style="cursor: pointer">
                         <div class="iteration-header">
                             <h3>Iteration ${iter.iter}</h3>
                             <span class="status-badge ${iter.status === 'pass' ? 'complete' : 'in-progress'}">
@@ -1007,6 +1007,192 @@ ${sampleContent[path] || '// Content would be loaded from S3...'}
                         </div>
                     </div>
                 `).join('')}
+            </div>
+        `;
+    },
+
+    // Show iteration details
+    showIterationDetails(iterationId) {
+        const content = document.getElementById('main-content');
+
+        // Sample data for each iteration
+        const iterationDetails = {
+            8: {
+                games: ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down', 'umbra_scale'],
+                totalTrials: 25,
+                passedTrials: 24,
+                results: [
+                    { game: 'Chrome_Dino_Runner', trials: 5, passed: 5, avgScore: 93.0 },
+                    { game: 'Pico_Echo', trials: 5, passed: 5, avgScore: 85.9 },
+                    { game: 'reflect_academy', trials: 5, passed: 4, avgScore: 90.2 },
+                    { game: 'slip_down', trials: 5, passed: 5, avgScore: 92.7 },
+                    { game: 'umbra_scale', trials: 5, passed: 5, avgScore: 94.8 }
+                ]
+            },
+            7: {
+                games: ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down', 'umbra_scale'],
+                totalTrials: 25,
+                passedTrials: 25,
+                results: [
+                    { game: 'Chrome_Dino_Runner', trials: 5, passed: 5, avgScore: 89.0 },
+                    { game: 'Pico_Echo', trials: 5, passed: 5, avgScore: 87.0 },
+                    { game: 'reflect_academy', trials: 5, passed: 5, avgScore: 86.0 },
+                    { game: 'slip_down', trials: 5, passed: 5, avgScore: 88.0 },
+                    { game: 'umbra_scale', trials: 5, passed: 5, avgScore: 90.0 }
+                ]
+            },
+            6: {
+                games: ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down'],
+                totalTrials: 20,
+                passedTrials: 17,
+                results: [
+                    { game: 'Chrome_Dino_Runner', trials: 5, passed: 5, avgScore: 85.0 },
+                    { game: 'Pico_Echo', trials: 5, passed: 4, avgScore: 82.0 },
+                    { game: 'reflect_academy', trials: 5, passed: 4, avgScore: 80.0 },
+                    { game: 'slip_down', trials: 5, passed: 4, avgScore: 81.0 }
+                ]
+            }
+        };
+
+        const details = iterationDetails[iterationId] || {
+            games: ['Test_Game_1', 'Test_Game_2'],
+            totalTrials: 10,
+            passedTrials: Math.floor(Math.random() * 10),
+            results: []
+        };
+
+        content.innerHTML = `
+            <div class="glass-container">
+                <h2>Iteration ${iterationId} - 상세 결과</h2>
+                <button class="btn-modern small" onclick="DashboardApp.loadIterations()" style="margin-bottom: 20px">
+                    ← 목록으로
+                </button>
+
+                <div class="overview-grid" style="margin-bottom: 24px">
+                    <div class="stat-card">
+                        <h3>총 게임 수</h3>
+                        <div class="stat-value">${details.games.length}</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>총 Trial 수</h3>
+                        <div class="stat-value">${details.totalTrials}</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>성공 Trial</h3>
+                        <div class="stat-value">${details.passedTrials}/${details.totalTrials}</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>성공률</h3>
+                        <div class="stat-value">${Math.round(details.passedTrials / details.totalTrials * 100)}%</div>
+                    </div>
+                </div>
+
+                <h3>게임별 상세 결과</h3>
+                <table style="width: 100%; margin-top: 16px">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; padding: 12px; border-bottom: 2px solid #374151">게임</th>
+                            <th style="text-align: center; padding: 12px; border-bottom: 2px solid #374151">Trials</th>
+                            <th style="text-align: center; padding: 12px; border-bottom: 2px solid #374151">성공</th>
+                            <th style="text-align: center; padding: 12px; border-bottom: 2px solid #374151">평균 점수</th>
+                            <th style="text-align: center; padding: 12px; border-bottom: 2px solid #374151">상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${details.results.map(result => `
+                            <tr style="border-bottom: 1px solid #1f2937">
+                                <td style="padding: 12px; cursor: pointer; color: #60a5fa" onclick="DashboardApp.showGameDetails('${result.game}', ${iterationId})">
+                                    ${result.game}
+                                </td>
+                                <td style="text-align: center; padding: 12px">${result.trials}</td>
+                                <td style="text-align: center; padding: 12px">${result.passed}/${result.trials}</td>
+                                <td style="text-align: center; padding: 12px">${result.avgScore}%</td>
+                                <td style="text-align: center; padding: 12px">
+                                    <span class="status-badge ${result.passed === result.trials ? 'complete' : 'in-progress'}">
+                                        ${result.passed === result.trials ? 'PASS' : 'PARTIAL'}
+                                    </span>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 24px">
+                    <h3>결과물 경로</h3>
+                    <div class="code-block" style="font-size: 12px">
+Solutions/GameMaking/Planning/experiments/iterations/iteration_${iterationId}/
+├── Designer_Output/
+├── Analyzer_Output/
+├── Generator_Output/
+├── Evaluator_Output/
+├── Process_Validator_Output/
+└── Evolver_Output/
+
+S3: s3://a2z-art-assets-prd/planning/Art_Task_Plan/iteration_${iterationId}/
+                    </div>
+                </div>
+            </div>
+        `;
+    },
+
+    // Show game details
+    showGameDetails(gameName, iterationId) {
+        const content = document.getElementById('main-content');
+
+        content.innerHTML = `
+            <div class="glass-container">
+                <h2>${gameName} - Iteration ${iterationId}</h2>
+                <button class="btn-modern small" onclick="DashboardApp.showIterationDetails(${iterationId})" style="margin-bottom: 20px">
+                    ← 이터레이션으로
+                </button>
+
+                <h3>Trial 결과</h3>
+                <div style="margin-top: 16px">
+                    ${[1,2,3,4,5].map(trial => `
+                        <div class="glass-container" style="margin-bottom: 12px; padding: 16px">
+                            <h4>Trial ${trial}</h4>
+                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 12px">
+                                <div>
+                                    <span style="color: #94a3b8">Invariance:</span>
+                                    <span style="color: #10b981; margin-left: 8px">${85 + Math.random() * 15}%</span>
+                                </div>
+                                <div>
+                                    <span style="color: #94a3b8">Structurality:</span>
+                                    <span style="color: #10b981; margin-left: 8px">${90 + Math.random() * 10}%</span>
+                                </div>
+                                <div>
+                                    <span style="color: #94a3b8">Completeness:</span>
+                                    <span style="color: #10b981; margin-left: 8px">100%</span>
+                                </div>
+                                <div>
+                                    <span style="color: #94a3b8">Ref Integrity:</span>
+                                    <span style="color: #10b981; margin-left: 8px">${95 + Math.random() * 5}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <h3>Task Plan 파일</h3>
+                <div class="code-block" style="font-size: 12px; margin-top: 16px">
+${gameName}/trial_1/
+├── _project_common.json
+├── character/
+│   ├── dino.json
+│   └── meta.json
+├── obstacles/
+│   ├── cactus.json
+│   └── bird.json
+├── world/
+│   └── desert.json
+└── ui/
+    ├── score_display.json
+    └── game_over_screen.json
+                </div>
+
+                <button class="btn-modern" style="margin-top: 16px" onclick="alert('S3 경로: s3://a2z-art-assets-prd/planning/Art_Task_Plan/iteration_${iterationId}/${gameName}/')">
+                    S3에서 보기
+                </button>
             </div>
         `;
     }
