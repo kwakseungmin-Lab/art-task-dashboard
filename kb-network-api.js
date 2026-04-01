@@ -245,11 +245,12 @@ const KBNetworkAPI = {
         return { entities, hasMore: false };
     },
 
-    // Mock 관계 데이터
+    // Mock 관계 데이터 - 완전히 연결된 네트워크 생성
     getMockRelations(kbId) {
         const relations = [];
+        let relId = 0;
 
-        // 이터레이션 간 진행 관계
+        // 이터레이션 간 진행 관계 (0 → 1 → 2 → ... → 8)
         for (let i = 0; i < 8; i++) {
             relations.push({
                 id: `rel_iter_${i}_${i+1}`,
@@ -260,8 +261,8 @@ const KBNetworkAPI = {
             });
         }
 
-        // 에이전트 파이프라인 관계
-        const pipeline = ['Orchestrator', 'Designer', 'Analyzer', 'Generator', 'Evaluator', 'Process_Validator', 'Evolver'];
+        // 에이전트 파이프라인 관계 - 모든 에이전트를 순서대로 연결
+        const pipeline = ['Orchestrator', 'Designer', 'Analyzer', 'Generator', 'Evaluator', 'Process_Validator', 'Evolver', 'Evolver_Reviewer', 'Monitor'];
         for (let i = 0; i < pipeline.length - 1; i++) {
             relations.push({
                 id: `rel_pipeline_${i}`,
@@ -272,47 +273,295 @@ const KBNetworkAPI = {
             });
         }
 
-        // 평가 관계
-        const games = ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down', 'umbra_scale'];
-        games.forEach(game => {
-            for (let trial = 1; trial <= 5; trial++) {
-                // Task Plan -> Evaluation
+        // Orchestrator가 모든 에이전트를 관리
+        pipeline.forEach(agent => {
+            if (agent !== 'Orchestrator') {
                 relations.push({
-                    id: `rel_eval_8_${game}_${trial}`,
-                    type: 'EVALUATED_BY',
-                    source: `task_plan::8::${game}::${trial}`,
-                    target: `harness::8::${game}::${trial}::v8`,
-                    properties: {}
-                });
-
-                // Generator -> Task Plan
-                relations.push({
-                    id: `rel_gen_8_${game}_${trial}`,
-                    type: 'GENERATES',
-                    source: `agent_generator`,
-                    target: `task_plan::8::${game}::${trial}`,
+                    id: `rel_orch_control_${agent}`,
+                    type: 'CONTROLS',
+                    source: `agent_orchestrator`,
+                    target: `agent_${agent.toLowerCase()}`,
                     properties: {}
                 });
             }
         });
 
-        // Same Batch 관계
-        for (let i = 0; i <= 8; i++) {
-            games.forEach((game1, idx1) => {
-                games.forEach((game2, idx2) => {
-                    if (idx1 < idx2) {
+        // Monitor가 모든 에이전트를 모니터링
+        pipeline.forEach(agent => {
+            if (agent !== 'Monitor') {
+                relations.push({
+                    id: `rel_mon_observe_${agent}`,
+                    type: 'OBSERVES',
+                    source: `agent_monitor`,
+                    target: `agent_${agent.toLowerCase()}`,
+                    properties: {}
+                });
+            }
+        });
+
+        // KB Writer 연결
+        relations.push({
+            id: `rel_kb_art`,
+            type: 'PIPELINE_FLOW',
+            source: `agent_evolver_reviewer`,
+            target: `agent_art_kb_writer`,
+            properties: {}
+        });
+        relations.push({
+            id: `rel_kb_meta`,
+            type: 'PIPELINE_FLOW',
+            source: `agent_evolver_reviewer`,
+            target: `agent_meta_kb_writer`,
+            properties: {}
+        });
+
+        // KB Writer들이 서로 협력
+        relations.push({
+            id: `rel_kb_collab`,
+            type: 'COLLABORATES_WITH',
+            source: `agent_art_kb_writer`,
+            target: `agent_meta_kb_writer`,
+            properties: {}
+        });
+
+        // 평가 관계 - 모든 이터레이션에 대해
+        const games = ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down', 'umbra_scale'];
+
+        for (let iter = 0; iter <= 8; iter++) {
+            games.forEach((game, gameIdx) => {
+                for (let trial = 1; trial <= 5; trial++) {
+                    // Task Plan -> Evaluation
+                    relations.push({
+                        id: `rel_eval_${iter}_${game}_${trial}`,
+                        type: 'EVALUATED_BY',
+                        source: `task_plan::${iter}::${game}::${trial}`,
+                        target: `harness::${iter}::${game}::${trial}::v8`,
+                        properties: {}
+                    });
+
+                    // Generator -> Task Plan
+                    relations.push({
+                        id: `rel_gen_${iter}_${game}_${trial}`,
+                        type: 'GENERATES',
+                        source: `agent_generator`,
+                        target: `task_plan::${iter}::${game}::${trial}`,
+                        properties: {}
+                    });
+
+                    // Evaluator -> Evaluation
+                    relations.push({
+                        id: `rel_evaluator_${iter}_${game}_${trial}`,
+                        type: 'EVALUATES',
+                        source: `agent_evaluator`,
+                        target: `harness::${iter}::${game}::${trial}::v8`,
+                        properties: {}
+                    });
+
+                    // 이전 trial과 연결 (학습 관계)
+                    if (trial > 1) {
                         relations.push({
-                            id: `rel_batch_${i}_${game1}_${game2}`,
-                            type: 'SAME_BATCH',
-                            source: `harness::${i}::${game1}::1::v8`,
-                            target: `harness::${i}::${game2}::1::v8`,
-                            properties: { iteration: i }
+                            id: `rel_trial_learn_${iter}_${game}_${trial}`,
+                            type: 'LEARNS_FROM',
+                            source: `task_plan::${iter}::${game}::${trial}`,
+                            target: `task_plan::${iter}::${game}::${trial - 1}`,
+                            properties: {}
                         });
                     }
+
+                    // 이전 이터레이션의 같은 게임과 연결 (진화 관계)
+                    if (iter > 0) {
+                        relations.push({
+                            id: `rel_evolve_${iter}_${game}_${trial}`,
+                            type: 'EVOLVES_FROM',
+                            source: `task_plan::${iter}::${game}::${trial}`,
+                            target: `task_plan::${iter - 1}::${game}::${trial}`,
+                            properties: {}
+                        });
+                    }
+                }
+
+                // 같은 이터레이션의 다른 게임과 연결
+                if (gameIdx > 0) {
+                    relations.push({
+                        id: `rel_game_cross_${iter}_${gameIdx}`,
+                        type: 'SHARES_ITERATION',
+                        source: `harness::${iter}::${game}::1::v8`,
+                        target: `harness::${iter}::${games[gameIdx - 1]}::1::v8`,
+                        properties: { iteration: iter }
+                    });
+                }
+            });
+
+            // 이터레이션과 모든 평가 연결
+            relations.push({
+                id: `rel_iter_to_eval_${iter}`,
+                type: 'HAS_EVALUATION',
+                source: `iteration_${iter}`,
+                target: `harness::${iter}::${games[0]}::1::v8`,
+                properties: {}
+            });
+
+            // 에이전트와 이터레이션 연결
+            relations.push({
+                id: `rel_orchestrator_iter_${iter}`,
+                type: 'MANAGES_ITERATION',
+                source: `agent_orchestrator`,
+                target: `iteration_${iter}`,
+                properties: {}
+            });
+
+            // Designer와 이터레이션 연결
+            relations.push({
+                id: `rel_designer_iter_${iter}`,
+                type: 'DESIGNS_FOR',
+                source: `agent_designer`,
+                target: `iteration_${iter}`,
+                properties: {}
+            });
+
+            // Analyzer와 이터레이션 연결
+            relations.push({
+                id: `rel_analyzer_iter_${iter}`,
+                type: 'ANALYZES',
+                source: `agent_analyzer`,
+                target: `iteration_${iter}`,
+                properties: {}
+            });
+        }
+
+        // 방법론과 에이전트 연결 - 여러 에이전트가 방법론 사용
+        for (let v = 1; v <= 8; v++) {
+            ['generator', 'evaluator', 'designer', 'evolver'].forEach(agent => {
+                relations.push({
+                    id: `rel_method_${agent}_${v}`,
+                    type: 'USES_METHODOLOGY',
+                    source: `agent_${agent}`,
+                    target: `methodology_v${v}`,
+                    properties: { version: v }
+                });
+            });
+
+            // 방법론 간 진화 관계
+            if (v > 1) {
+                relations.push({
+                    id: `rel_method_evolve_${v}`,
+                    type: 'EVOLVED_FROM',
+                    source: `methodology_v${v}`,
+                    target: `methodology_v${v - 1}`,
+                    properties: {}
+                });
+            }
+
+            // 방법론과 이터레이션 연결
+            relations.push({
+                id: `rel_method_iter_${v}`,
+                type: 'APPLIED_IN',
+                source: `methodology_v${v}`,
+                target: `iteration_${v}`,
+                properties: {}
+            });
+        }
+
+        // Atomic Facts 연결 - 더 풍부한 연결
+        for (let i = 0; i < 100; i++) {
+            const iterNum = i % 9; // 0-8 이터레이션에 분산
+
+            // Facts와 이터레이션 연결
+            relations.push({
+                id: `rel_fact_iter_${i}`,
+                type: 'EXTRACTED_FROM',
+                source: `fact_${i}`,
+                target: `iteration_${iterNum}`,
+                properties: {}
+            });
+
+            // Facts와 평가 연결
+            const gameIdx = i % games.length;
+            const trialNum = (i % 5) + 1;
+            relations.push({
+                id: `rel_fact_eval_${i}`,
+                type: 'VALIDATES',
+                source: `fact_${i}`,
+                target: `harness::${iterNum}::${games[gameIdx]}::${trialNum}::v8`,
+                properties: {}
+            });
+
+            // Facts 간 연결 (지식 그래프)
+            if (i > 0) {
+                // 이전 fact와 연결
+                relations.push({
+                    id: `rel_fact_chain_${i}`,
+                    type: 'RELATES_TO',
+                    source: `fact_${i}`,
+                    target: `fact_${i - 1}`,
+                    properties: {}
+                });
+
+                // 10개씩 클러스터 형성
+                if (i % 10 === 0 && i > 9) {
+                    relations.push({
+                        id: `rel_fact_cluster_${i}`,
+                        type: 'CLUSTERS_WITH',
+                        source: `fact_${i}`,
+                        target: `fact_${i - 10}`,
+                        properties: {}
+                    });
+                }
+            }
+
+            // Facts와 에이전트 연결
+            if (i % 5 === 0) {
+                const agentIdx = (i / 5) % pipeline.length;
+                relations.push({
+                    id: `rel_fact_agent_${i}`,
+                    type: 'DISCOVERED_BY',
+                    source: `fact_${i}`,
+                    target: `agent_${pipeline[agentIdx].toLowerCase()}`,
+                    properties: {}
+                });
+            }
+        }
+
+        // Process Validator가 모든 평가 검증
+        for (let iter = 0; iter <= 8; iter++) {
+            games.forEach(game => {
+                relations.push({
+                    id: `rel_validate_${iter}_${game}`,
+                    type: 'VALIDATES_RESULT',
+                    source: `agent_process_validator`,
+                    target: `harness::${iter}::${game}::1::v8`,
+                    properties: {}
                 });
             });
         }
 
+        // Evolver가 개선 사항 적용
+        for (let iter = 1; iter <= 8; iter++) {
+            relations.push({
+                id: `rel_evolver_improve_${iter}`,
+                type: 'IMPROVES',
+                source: `agent_evolver`,
+                target: `iteration_${iter}`,
+                properties: {}
+            });
+        }
+
+        // 크로스 게임 학습 관계
+        games.forEach((game1, idx1) => {
+            games.forEach((game2, idx2) => {
+                if (idx1 < idx2) {
+                    relations.push({
+                        id: `rel_cross_game_${game1}_${game2}`,
+                        type: 'SHARES_PATTERNS',
+                        source: `task_plan::8::${game1}::1`,
+                        target: `task_plan::8::${game2}::1`,
+                        properties: {}
+                    });
+                }
+            });
+        });
+
+        console.log(`Generated ${relations.length} relationships for complete network connectivity`);
         return { relations, hasMore: false };
     },
 
@@ -338,22 +587,37 @@ const KBNetworkAPI = {
     transformToNetworkData(kbData) {
         // 노드 생성
         const nodes = kbData.entities.map(entity => ({
-            id: entity.id,
-            name: entity.name,
+            id: entity.id || entity.entity_id, // entity_id도 체크
+            name: entity.name || entity.id,
             type: entity.type,
             properties: entity.properties,
             group: this.getNodeGroup(entity.type)
         }));
 
-        // 링크 생성
-        const links = kbData.relations.map(relation => ({
-            source: relation.source,
-            target: relation.target,
-            type: relation.type,
-            value: 1,
-            properties: relation.properties
-        }));
+        // 노드 ID 세트 생성 (연결 검증용)
+        const nodeIds = new Set(nodes.map(n => n.id));
 
+        // 링크 생성 - 존재하는 노드만 연결
+        const links = kbData.relations
+            .filter(relation => {
+                // source와 target이 실제로 존재하는 노드인지 확인
+                const sourceExists = nodeIds.has(relation.source);
+                const targetExists = nodeIds.has(relation.target);
+                if (!sourceExists || !targetExists) {
+                    console.warn(`Link skipped: ${relation.source} -> ${relation.target}`);
+                    return false;
+                }
+                return true;
+            })
+            .map(relation => ({
+                source: relation.source,
+                target: relation.target,
+                type: relation.type,
+                value: 1,
+                properties: relation.properties
+            }));
+
+        console.log(`Network data: ${nodes.length} nodes, ${links.length} links`);
         return { nodes, links };
     },
 
