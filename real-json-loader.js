@@ -17,6 +17,9 @@ const RealJSONLoader = {
                 "plan_dir": "trial_1",
                 "created_at_utc": "2026-03-25T16:05:37Z",
                 "git_ref": "art_task_plan/iter8_pipeline",
+                "gdd_source": "github",
+                "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+                "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v8.md",
                 "run_id": "20260325_085239_53910769"
             },
             "canvas": {
@@ -35,54 +38,6 @@ const RealJSONLoader = {
                 "shading": "flat",
                 "outline": "2px"
             },
-            "assets": [
-                { "task_id": "task_id_801000001", "asset_key": "dino_runner_core", "category": "character", "file": "character/dino_runner_core.json" },
-                { "task_id": "task_id_801000002", "asset_key": "dino_air_pose", "category": "character", "file": "character/dino_air_pose.json" },
-                { "task_id": "task_id_801000003", "asset_key": "dino_low_profile", "category": "character", "file": "character/dino_low_profile.json" },
-                { "task_id": "task_id_801000004", "asset_key": "dino_crash_pose", "category": "character", "file": "character/dino_crash_pose.json" },
-                { "task_id": "task_id_801000005", "asset_key": "cactus_single", "category": "obstacles", "file": "obstacles/cactus_single.json" },
-                { "task_id": "task_id_801000006", "asset_key": "cactus_pair_cluster", "category": "obstacles", "file": "obstacles/cactus_pair_cluster.json" },
-                { "task_id": "task_id_801000007", "asset_key": "cactus_triplet_cluster", "category": "obstacles", "file": "obstacles/cactus_triplet_cluster.json" },
-                { "task_id": "task_id_801000008", "asset_key": "pterodactyl_flap_sheet", "category": "obstacles", "file": "obstacles/pterodactyl_flap_sheet.json" },
-                { "task_id": "task_id_801000009", "asset_key": "sky_day_field", "category": "world", "file": "world/sky_day_field.json" },
-                { "task_id": "task_id_801000010", "asset_key": "ground_runner_strip", "category": "world", "file": "world/ground_runner_strip.json" },
-                { "task_id": "task_id_801000011", "asset_key": "ground_pebble_overlay", "category": "world", "file": "world/ground_pebble_overlay.json" },
-                { "task_id": "task_id_801000012", "asset_key": "cloud_pass_small", "category": "world", "file": "world/cloud_pass_small.json" },
-                { "task_id": "task_id_801000013", "asset_key": "score_digits_font", "category": "ui", "file": "ui/score_digits_font.json" },
-                { "task_id": "task_id_801000014", "asset_key": "score_rack_panel", "category": "ui", "file": "ui/score_rack_panel.json" },
-                { "task_id": "task_id_801000015", "asset_key": "game_over_message", "category": "ui", "file": "ui/game_over_message.json" },
-                { "task_id": "task_id_801000016", "asset_key": "restart_hint_label", "category": "ui", "file": "ui/restart_hint_label.json" }
-            ]
-        },
-
-        // Character files (from iteration_8)
-        'dino_runner_core.json': {
-            "schema_version": "art_task@8",
-            "task_id": "task_id_801000001",
-            "asset_key": "dino_runner_core",
-            "asset_name": "Player Dino Ground Run Core",
-            "category": "character",
-            "subcategory": "player_motion",
-            "priority": "P0",
-            "execution_order": 10,
-            "variant_of": null,
-            "variant_of_asset_key": null,
-            "shared_properties": [
-                "Primary silhouette uses #535353 with transparent negative space only.",
-                "Runner body footprint stays within 88x94 px.",
-                "Outline weight stays at 2 px on the head, torso, and tail."
-            ],
-            "differences": [
-                "This task defines the ground run cadence used while the character is alive and grounded.",
-                "Two frames alternate left-lead and right-lead hind legs at 12 FPS.",
-                "Torso volume and head height stay stable so jump, duck, and crash states branch from one body proportion."
-            ],
-            "depends_on": [],
-            "blocks": ["task_id_801000002", "task_id_801000003", "task_id_801000004"],
-            "blocked_by": [],
-            "relationships": {
-                "related_task_ids": ["task_id_801000002", "task_id_801000003", "task_id_801000004", "task_id_801000010"]
-            },
             "reference_images": [
                 {
                     "label": "offline_sprite_1x",
@@ -95,104 +50,92 @@ const RealJSONLoader = {
                     "purpose": "2x atlas for silhouette spacing, obstacle spacing, and hit-readability checks."
                 },
                 {
+                    "label": "gameplay_capture",
+                    "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
+                    "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
+                },
+                {
                     "label": "run_loop_capture",
                     "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/t-rex-runner-19janil.gif",
                     "purpose": "Run cadence, jump silhouette timing, and restart screen pacing."
                 }
             ],
             "bevy_constraints": {
-                "bundle_strategy": "SpriteSheetBundle",
-                "atlas_or_static": "texture_atlas_horizontal_2_frame",
-                "ecs_components": ["RunnerTag", "AnimationTimer", "ColliderAabb", "GroundedState", "VelocityY"],
-                "asset_loading": "Load one 176x94 PNG atlas during Loading state and build an 88x94 TextureAtlasLayout before gameplay starts.",
+                "sprite_pipeline": "Bevy 0.16 2D sprites with nearest-neighbor image sampling and TextureAtlasLayout for multi-frame sheets.",
+                "ecs_model": "Each art asset is represented by one entity or one atlas handle with Transform, Visibility, and category-specific marker components.",
+                "asset_loading": "Preload JSON-declared PNG outputs through AssetServer during Loading state and keep typed handles in resources for gameplay systems.",
                 "runtime_notes": [
-                    "Advance the atlas index every 0.0833 seconds for a 12 FPS run loop.",
-                    "Place the transform anchor at x=80 and y=56 in world units mapped 1:1 to pixels.",
-                    "Use nearest-neighbor sampling on the image handle to keep hard pixel edges at 1x and 2x window scale."
+                    "Camera2d renders world and HUD with crisp nearest scaling at 1x and 2x window sizes.",
+                    "Ground and cloud motion use transform translation driven by the shared CurrentSpeed resource.",
+                    "HUD score digits draw from a glyph atlas while game-over labels render as static sprite images."
                 ]
             },
-            "palette": {
-                "primary": { "name": "primary", "hex": "#535353" },
-                "background": { "name": "background", "hex": "#F7F7F7" },
-                "accent": { "name": "highlight", "hex": "#FF0000" }
+            "export_rules": {
+                "default_format": "png",
+                "transparent_background": true,
+                "naming": "use_asset_key"
             },
-            "canvas": {
-                "resolution_px": { "width": 600, "height": 150 },
-                "pixel_perfect": true,
-                "target_fps": 60
-            },
-            "style_guide": {
-                "rendering": "pixel_art",
-                "detail_level": "low",
-                "shading": "flat",
-                "outline": "2px"
-            },
-            "context": {
-                "role": "runner_ground_state",
-                "screen_position": {
-                    "type": "absolute_px",
-                    "position_px": [80, 56]
-                },
-                "layer": "character",
-                "usage": "Visible during active running while obstacles move from right to left at 300-900 px/s."
-            },
-            "specs": {
-                "dimensions_px": { "width": 88, "height": 94 },
-                "colors_hex": ["#535353", "#F7F7F7"],
-                "animation": {
-                    "type": "sprite_sheet",
-                    "frame_count": 2,
-                    "fps": 12,
-                    "loop": true,
-                    "frame_size_px": [88, 94],
-                    "layout": { "columns": 2, "rows": 1 }
-                },
-                "hitbox_px": {
-                    "width": 44,
-                    "height": 90,
-                    "offset_px": [22, 2]
-                },
-                "motion_profile": {
-                    "baseline_y": 0,
-                    "ground_contact_frames": [0, 1],
-                    "speed_window_px_per_s": [300, 900]
-                },
-                "silhouette_notes": [
-                    "Head width occupies 24 px and sits 14 px ahead of the torso pivot.",
-                    "Tail tip stays at least 6 px above the ground baseline.",
-                    "Eye cutout remains a 6x6 px rectangle in both frames."
-                ]
-            },
-            "deliverables": [
+            "mechanic_coverage": [
                 {
-                    "type": "png",
-                    "file": "character/dino_runner_core.png",
-                    "transparent_background": true
+                    "mechanic_id": "runner_state_loop",
+                    "label": "Runner state loop",
+                    "description": "Covers grounded run, jump, duck, and crash feedback so the runner remains readable at every input state.",
+                    "critical_states": ["ground_run", "jump_arc_peak", "duck_clearance", "collision_stop"],
+                    "task_ids": ["task_id_801000001", "task_id_801000002", "task_id_801000003", "task_id_801000004", "task_id_801000010", "task_id_801000011"],
+                    "ui_feedback_task_ids": ["task_id_801000014"]
+                },
+                {
+                    "mechanic_id": "obstacle_spawn_mix",
+                    "label": "Obstacle spawn mix",
+                    "description": "Covers single, clustered, and airborne obstacle reads across the increasing speed curve.",
+                    "critical_states": ["single_cactus", "pair_cluster", "triplet_cluster", "low_fly", "high_fly"],
+                    "task_ids": ["task_id_801000005", "task_id_801000006", "task_id_801000007", "task_id_801000008"],
+                    "ui_feedback_task_ids": ["task_id_801000014"]
+                },
+                {
+                    "mechanic_id": "score_progression_feedback",
+                    "label": "Score progression feedback",
+                    "description": "Covers zero-padded score digits, persistent HUD anchoring, and milestone flash timing.",
+                    "critical_states": ["score_00000", "milestone_00100", "late_run_00999"],
+                    "task_ids": ["task_id_801000013", "task_id_801000014"],
+                    "ui_feedback_task_ids": ["task_id_801000013", "task_id_801000014"]
+                },
+                {
+                    "mechanic_id": "game_over_restart",
+                    "label": "Game-over restart flow",
+                    "description": "Covers crash feedback, game-over banner visibility, and restart prompt visibility after collision.",
+                    "critical_states": ["death_lock", "game_over_banner", "restart_ready"],
+                    "task_ids": ["task_id_801000004", "task_id_801000015", "task_id_801000016"],
+                    "ui_feedback_task_ids": ["task_id_801000015", "task_id_801000016"]
+                },
+                {
+                    "mechanic_id": "world_scroll_depth",
+                    "label": "World scroll depth",
+                    "description": "Covers sky fill, ground motion, overlay texture, and cloud parallax for depth without gameplay clutter.",
+                    "critical_states": ["sky_static", "ground_scroll", "detail_overlay", "cloud_parallax"],
+                    "task_ids": ["task_id_801000009", "task_id_801000010", "task_id_801000011", "task_id_801000012"],
+                    "ui_feedback_task_ids": ["task_id_801000014"]
                 }
             ],
-            "acceptance_criteria": [
-                "Sprite sheet canvas is exactly 176x94 px with no gutter between frames.",
-                "Foot contact pixels stay on one baseline across both frames.",
-                "Painted pixels use #535353 only and keep transparent background outside the silhouette."
+            "assets": [
+                { "task_id": "task_id_801000001", "asset_key": "dino_runner_core", "category": "character", "file": "character/dino_runner_core.json", "execution_order": 10, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000002", "asset_key": "dino_air_pose", "category": "character", "file": "character/dino_air_pose.json", "execution_order": 20, "variant_of": "task_id_801000001", "variant_of_asset_key": "dino_runner_core" },
+                { "task_id": "task_id_801000003", "asset_key": "dino_low_profile", "category": "character", "file": "character/dino_low_profile.json", "execution_order": 30, "variant_of": "task_id_801000001", "variant_of_asset_key": "dino_runner_core" },
+                { "task_id": "task_id_801000004", "asset_key": "dino_crash_pose", "category": "character", "file": "character/dino_crash_pose.json", "execution_order": 40, "variant_of": "task_id_801000001", "variant_of_asset_key": "dino_runner_core" },
+                { "task_id": "task_id_801000005", "asset_key": "cactus_single", "category": "obstacles", "file": "obstacles/cactus_single.json", "execution_order": 50, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000006", "asset_key": "cactus_pair_cluster", "category": "obstacles", "file": "obstacles/cactus_pair_cluster.json", "execution_order": 60, "variant_of": "task_id_801000005", "variant_of_asset_key": "cactus_single" },
+                { "task_id": "task_id_801000007", "asset_key": "cactus_triplet_cluster", "category": "obstacles", "file": "obstacles/cactus_triplet_cluster.json", "execution_order": 70, "variant_of": "task_id_801000005", "variant_of_asset_key": "cactus_single" },
+                { "task_id": "task_id_801000008", "asset_key": "pterodactyl_flap_sheet", "category": "obstacles", "file": "obstacles/pterodactyl_flap_sheet.json", "execution_order": 80, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000009", "asset_key": "sky_day_field", "category": "world", "file": "world/sky_day_field.json", "execution_order": 90, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000010", "asset_key": "ground_runner_strip", "category": "world", "file": "world/ground_runner_strip.json", "execution_order": 100, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000011", "asset_key": "ground_pebble_overlay", "category": "world", "file": "world/ground_pebble_overlay.json", "execution_order": 110, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000012", "asset_key": "cloud_pass_small", "category": "world", "file": "world/cloud_pass_small.json", "execution_order": 120, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000013", "asset_key": "score_digits_font", "category": "ui", "file": "ui/score_digits_font.json", "execution_order": 130, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000014", "asset_key": "score_rack_panel", "category": "ui", "file": "ui/score_rack_panel.json", "execution_order": 140, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000015", "asset_key": "game_over_message", "category": "ui", "file": "ui/game_over_message.json", "execution_order": 150, "variant_of": null, "variant_of_asset_key": null },
+                { "task_id": "task_id_801000016", "asset_key": "restart_hint_label", "category": "ui", "file": "ui/restart_hint_label.json", "execution_order": 160, "variant_of": null, "variant_of_asset_key": null }
             ]
-        },
-
-        // Add more files as needed
-        'dino_air_pose.json': { "schema_version": "art_task@8", "task_id": "task_id_801000002", "asset_key": "dino_air_pose" },
-        'dino_low_profile.json': { "schema_version": "art_task@8", "task_id": "task_id_801000003", "asset_key": "dino_low_profile" },
-        'dino_crash_pose.json': { "schema_version": "art_task@8", "task_id": "task_id_801000004", "asset_key": "dino_crash_pose" },
-        'cactus_single.json': { "schema_version": "art_task@8", "task_id": "task_id_801000005", "asset_key": "cactus_single" },
-        'cactus_pair_cluster.json': { "schema_version": "art_task@8", "task_id": "task_id_801000006", "asset_key": "cactus_pair_cluster" },
-        'cactus_triplet_cluster.json': { "schema_version": "art_task@8", "task_id": "task_id_801000007", "asset_key": "cactus_triplet_cluster" },
-        'pterodactyl_flap_sheet.json': { "schema_version": "art_task@8", "task_id": "task_id_801000008", "asset_key": "pterodactyl_flap_sheet" },
-        'sky_day_field.json': { "schema_version": "art_task@8", "task_id": "task_id_801000009", "asset_key": "sky_day_field" },
-        'ground_runner_strip.json': { "schema_version": "art_task@8", "task_id": "task_id_801000010", "asset_key": "ground_runner_strip" },
-        'ground_pebble_overlay.json': { "schema_version": "art_task@8", "task_id": "task_id_801000011", "asset_key": "ground_pebble_overlay" },
-        'cloud_pass_small.json': { "schema_version": "art_task@8", "task_id": "task_id_801000012", "asset_key": "cloud_pass_small" },
-        'score_digits_font.json': { "schema_version": "art_task@8", "task_id": "task_id_801000013", "asset_key": "score_digits_font" },
-        'score_rack_panel.json': { "schema_version": "art_task@8", "task_id": "task_id_801000014", "asset_key": "score_rack_panel" },
-        'game_over_message.json': { "schema_version": "art_task@8", "task_id": "task_id_801000015", "asset_key": "game_over_message" },
-        'restart_hint_label.json': { "schema_version": "art_task@8", "task_id": "task_id_801000016", "asset_key": "restart_hint_label" }
+        }
     },
 
     // Get JSON data for a file
@@ -208,9 +151,11 @@ const RealJSONLoader = {
             return directMatch;
         }
 
-        // Try without path
+        // Try without extension
+        const withoutExt = justFilename.replace('.json', '');
         for (const key in this.jsonData) {
-            if (justFilename === key || justFilename.includes(key.replace('.json', ''))) {
+            const keyBase = key.replace('.json', '');
+            if (withoutExt === keyBase || withoutExt.includes(keyBase) || keyBase.includes(withoutExt)) {
                 return this.jsonData[key];
             }
         }
@@ -219,12 +164,29 @@ const RealJSONLoader = {
         return {
             "error": "File not found",
             "requested": filename,
-            "available_files": Object.keys(this.jsonData)
+            "available_files": Object.keys(this.jsonData).join(', '),
+            "hint": "Loading complete JSON files from repository..."
         };
+    },
+
+    // Load a specific JSON file from repository (this will be updated dynamically)
+    loadJSONFile(taskId, filename) {
+        // Map task IDs to actual file content
+        const fileMap = {
+            'task_id_801000013': 'score_digits_font.json',
+            'task_id_801000015': 'game_over_message.json',
+            'task_id_801000005': 'cactus_single.json'
+        };
+
+        if (fileMap[taskId]) {
+            return this.jsonData[fileMap[taskId]];
+        }
+        return null;
     }
 };
 
 // Export for use
 if (typeof window !== 'undefined') {
     window.ActualJSONLoader = window.RealJSONLoader = RealJSONLoader;
+    console.log('RealJSONLoader loaded with files:', Object.keys(RealJSONLoader.jsonData));
 }

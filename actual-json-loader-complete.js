@@ -235,69 +235,6 @@ const ActualJSONLoader = {
             ]
         },
 
-        // cactus_pair_cluster.json - COMPLETE FILE
-        'cactus_pair_cluster.json': {
-            "schema_version": "art_task@8",
-            "task_id": "task_id_801000006",
-            "asset_key": "cactus_pair_cluster",
-            "asset_name": "Pair Cactus Cluster",
-            "category": "obstacles",
-            "subcategory": "ground_obstacle",
-            "priority": "P0",
-            "execution_order": 60,
-            "variant_of": "task_id_801000005",
-            "variant_of_asset_key": "cactus_single",
-            "shared_properties": [
-                "Primary painted tone uses #535353 with transparent background only.",
-                "Ground contact stays on y=0 for the spawn lane.",
-                "Outer silhouette keeps 2 px outline weight."
-            ],
-            "differences": [
-                "Width expands to 68 px so two stems read as one obstacle cluster.",
-                "The rear stem sits 12 px behind the front stem to create staggered jump timing.",
-                "Top spike groups remain below 70 px in height for mid-run readability."
-            ],
-            "depends_on": ["task_id_801000005"],
-            "blocks": [],
-            "blocked_by": ["task_id_801000005"],
-            "relationships": {
-                "related_task_ids": ["task_id_801000005", "task_id_801000010"]
-            },
-            "reference_images": [
-                {
-                    "label": "offline_sprite_1x",
-                    "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
-                    "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
-                },
-                {
-                    "label": "offline_sprite_2x",
-                    "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
-                    "purpose": "2x atlas for silhouette spacing, obstacle spacing, and hit-readability checks."
-                },
-                {
-                    "label": "gameplay_capture",
-                    "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/screenshot.gif",
-                    "purpose": "Gameplay frame for HUD anchoring, sky-ground composition, and runner lane spacing."
-                }
-            ],
-            "bevy_constraints": {
-                "bundle_strategy": "SpriteBundle",
-                "atlas_or_static": "single_frame_sprite",
-                "ecs_components": ["ObstacleTag", "GroundObstacle", "ColliderAabb", "ScrollVelocity"],
-                "asset_loading": "Load one 68x70 PNG during Loading state and spawn it from the ground obstacle pool.",
-                "runtime_notes": [
-                    "Spawn the transform anchor at x=650 and y=0 in the obstacle lane.",
-                    "Use one collider sized for the combined cluster to keep jump windows deterministic.",
-                    "Cull the entity after x drops below -100."
-                ]
-            },
-            "palette": {
-                "primary": { "name": "primary", "hex": "#535353" },
-                "background": { "name": "background", "hex": "#F7F7F7" },
-                "accent": { "name": "highlight", "hex": "#FF0000" }
-            }
-        },
-
         // game_over_message.json - COMPLETE FILE
         'game_over_message.json': {
             "schema_version": "art_task@8",
