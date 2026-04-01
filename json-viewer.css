@@ -1,0 +1,70 @@
+/* JSON Viewer Specific Styles for Maximum Visibility */
+
+.json-viewer-centered {
+    position: relative !important;
+    width: 95% !important;
+    max-width: 1600px !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+.json-content {
+    font-size: 20px !important;
+    line-height: 1.9 !important;
+    padding: 45px !important;
+    max-height: calc(100vh - 240px) !important;
+}
+
+/* Ensure dropdown is visible but compact */
+.file-selector {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 20, 25, 0.98);
+    backdrop-filter: blur(10px);
+}
+
+/* KB Panels in Overview - Make them larger */
+.kb-panel iframe {
+    min-height: 500px !important;
+    height: calc(50vh - 60px) !important;
+}
+
+/* Remove any competing margins */
+.task-plan-container {
+    padding: 15px !important;
+    margin: 0 !important;
+}
+
+/* Ensure the JSON viewer takes center stage */
+@media (min-width: 1400px) {
+    .json-viewer-centered {
+        width: 85% !important;
+    }
+}
+
+/* Dark theme optimizations */
+.json-content span {
+    font-weight: 600;
+}
+
+/* Syntax highlighting improvements */
+.json-content .json-key {
+    color: #79c0ff !important;
+}
+
+.json-content .json-string {
+    color: #a5d6ff !important;
+}
+
+.json-content .json-number {
+    color: #ff7b72 !important;
+}
+
+.json-content .json-boolean {
+    color: #f0883e !important;
+}
+
+.json-content .json-null {
+    color: #8b949e !important;
+}
