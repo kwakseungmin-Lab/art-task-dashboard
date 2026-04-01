@@ -238,34 +238,32 @@ const Dashboard = {
 
             <div class="task-plan-container">
                 <div class="file-selector">
-                    <h3>Select JSON File (실제 파일 구조):</h3>
+                    <h3>Select JSON File (Iteration ${iterationNum} - ${gameName}):</h3>
                     <select id="file-dropdown" onchange="window.dashboard.viewTaskPlanJSON('${basePath}' + this.value)" style="width: 100%; padding: 8px; background: #1a1f2e; color: #e1e8ed; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px;">
-                        <option value="_project_common.json">📄 _project_common.json (Main)</option>
-                        <optgroup label="Characters">
-                            <option value="characters/player_run.json">🦖 player_run.json</option>
-                            <option value="characters/player_jump.json">🦖 player_jump.json</option>
-                            <option value="characters/player_duck.json">🦖 player_duck.json</option>
-                            <option value="characters/player_idle.json">🦖 player_idle.json</option>
-                            <option value="characters/player_dead.json">🦖 player_dead.json</option>
+                        <option value="_project_common.json">📄 _project_common.json (Main Project File)</option>
+                        <optgroup label="Character (캐릭터)">
+                            <option value="character/dino_runner_core.json">🦖 dino_runner_core.json (달리기 애니메이션)</option>
+                            <option value="character/dino_air_pose.json">🦖 dino_air_pose.json (점프 자세)</option>
+                            <option value="character/dino_low_profile.json">🦖 dino_low_profile.json (숙이기 자세)</option>
+                            <option value="character/dino_crash_pose.json">🦖 dino_crash_pose.json (충돌 자세)</option>
                         </optgroup>
-                        <optgroup label="Obstacles">
-                            <option value="obstacles/cactus_small.json">🚧 cactus_small.json</option>
-                            <option value="obstacles/cactus_medium.json">🚧 cactus_medium.json</option>
-                            <option value="obstacles/cactus_large.json">🚧 cactus_large.json</option>
-                            <option value="obstacles/pterodactyl_fly.json">🚧 pterodactyl_fly.json</option>
-                            <option value="obstacles/pterodactyl_high.json">🚧 pterodactyl_high.json</option>
-                            <option value="obstacles/pterodactyl_low.json">🚧 pterodactyl_low.json</option>
+                        <optgroup label="Obstacles (장애물)">
+                            <option value="obstacles/cactus_single.json">🌵 cactus_single.json (작은 선인장)</option>
+                            <option value="obstacles/cactus_pair_cluster.json">🌵 cactus_pair_cluster.json (중간 선인장)</option>
+                            <option value="obstacles/cactus_triplet_cluster.json">🌵 cactus_triplet_cluster.json (큰 선인장)</option>
+                            <option value="obstacles/pterodactyl_flap_sheet.json">🦅 pterodactyl_flap_sheet.json (익룡)</option>
                         </optgroup>
-                        <optgroup label="Environment">
-                            <option value="environment/ground.json">🌍 ground.json</option>
-                            <option value="environment/background.json">🌍 background.json</option>
-                            <option value="environment/ground_line.json">🌍 ground_line.json</option>
-                            <option value="environment/cloud_small.json">🌍 cloud_small.json</option>
-                            <option value="environment/cloud_large.json">🌍 cloud_large.json</option>
+                        <optgroup label="World (배경)">
+                            <option value="world/sky_day_field.json">☁️ sky_day_field.json (하늘 배경)</option>
+                            <option value="world/ground_runner_strip.json">🏃 ground_runner_strip.json (땅)</option>
+                            <option value="world/ground_pebble_overlay.json">🪨 ground_pebble_overlay.json (자갈)</option>
+                            <option value="world/cloud_pass_small.json">☁️ cloud_pass_small.json (구름)</option>
                         </optgroup>
-                        <optgroup label="UI">
-                            <option value="ui/game_over_screen.json">🎨 game_over_screen.json</option>
-                            <option value="ui/score_display.json">🎨 score_display.json</option>
+                        <optgroup label="UI (인터페이스)">
+                            <option value="ui/score_digits_font.json">🔢 score_digits_font.json (점수 폰트)</option>
+                            <option value="ui/score_rack_panel.json">📊 score_rack_panel.json (점수판)</option>
+                            <option value="ui/game_over_message.json">💀 game_over_message.json (게임오버)</option>
+                            <option value="ui/restart_hint_label.json">🔄 restart_hint_label.json (재시작)</option>
                         </optgroup>
                     </select>
                 </div>

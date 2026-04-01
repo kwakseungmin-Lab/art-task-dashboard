@@ -1,418 +1,198 @@
-// Real JSON File Loader - Display actual JSON files from iterations
+// Real JSON File Loader - Display actual JSON files from iteration_8
 const RealJSONLoader = {
-    // Complete JSON data from actual files
+    // Complete JSON data from actual iteration_8 files
     jsonData: {
-        // Project Common
+        // Project Common (from iteration_8/trial_1)
         '_project_common.json': {
-            "game_title": "Chrome Dino Runner",
-            "art_style": "Pixel Art 8-bit",
-            "resolution": "600x150",
-            "color_palette": {
-                "primary": "#535353",
-                "secondary": "#535353",
-                "accent": "#FF0000",
-                "background": "#F7F7F7"
+            "schema_version": "art_task_plan_pkg@8",
+            "project": {
+                "project_id": "chrome_dino_runner",
+                "project_name": "Chrome_Dino_Runner"
             },
-            "pixel_density": "1x base, 2x scale support",
-            "outline_style": "2px solid outline",
-            "rendering": "pixel perfect, no anti-aliasing"
+            "meta": {
+                "plan_id": "Chrome_Dino_Runner__iter8__trial1",
+                "game_name": "Chrome_Dino_Runner",
+                "iteration": 8,
+                "trial_index": 1,
+                "plan_dir": "trial_1",
+                "created_at_utc": "2026-03-25T16:05:37Z",
+                "git_ref": "art_task_plan/iter8_pipeline",
+                "run_id": "20260325_085239_53910769"
+            },
+            "canvas": {
+                "resolution_px": { "width": 600, "height": 150 },
+                "pixel_perfect": true,
+                "target_fps": 60
+            },
+            "palette": {
+                "primary": { "name": "primary", "hex": "#535353" },
+                "background": { "name": "background", "hex": "#F7F7F7" },
+                "accent": { "name": "highlight", "hex": "#FF0000" }
+            },
+            "style_guide": {
+                "rendering": "pixel_art",
+                "detail_level": "low",
+                "shading": "flat",
+                "outline": "2px"
+            },
+            "assets": [
+                { "task_id": "task_id_801000001", "asset_key": "dino_runner_core", "category": "character", "file": "character/dino_runner_core.json" },
+                { "task_id": "task_id_801000002", "asset_key": "dino_air_pose", "category": "character", "file": "character/dino_air_pose.json" },
+                { "task_id": "task_id_801000003", "asset_key": "dino_low_profile", "category": "character", "file": "character/dino_low_profile.json" },
+                { "task_id": "task_id_801000004", "asset_key": "dino_crash_pose", "category": "character", "file": "character/dino_crash_pose.json" },
+                { "task_id": "task_id_801000005", "asset_key": "cactus_single", "category": "obstacles", "file": "obstacles/cactus_single.json" },
+                { "task_id": "task_id_801000006", "asset_key": "cactus_pair_cluster", "category": "obstacles", "file": "obstacles/cactus_pair_cluster.json" },
+                { "task_id": "task_id_801000007", "asset_key": "cactus_triplet_cluster", "category": "obstacles", "file": "obstacles/cactus_triplet_cluster.json" },
+                { "task_id": "task_id_801000008", "asset_key": "pterodactyl_flap_sheet", "category": "obstacles", "file": "obstacles/pterodactyl_flap_sheet.json" },
+                { "task_id": "task_id_801000009", "asset_key": "sky_day_field", "category": "world", "file": "world/sky_day_field.json" },
+                { "task_id": "task_id_801000010", "asset_key": "ground_runner_strip", "category": "world", "file": "world/ground_runner_strip.json" },
+                { "task_id": "task_id_801000011", "asset_key": "ground_pebble_overlay", "category": "world", "file": "world/ground_pebble_overlay.json" },
+                { "task_id": "task_id_801000012", "asset_key": "cloud_pass_small", "category": "world", "file": "world/cloud_pass_small.json" },
+                { "task_id": "task_id_801000013", "asset_key": "score_digits_font", "category": "ui", "file": "ui/score_digits_font.json" },
+                { "task_id": "task_id_801000014", "asset_key": "score_rack_panel", "category": "ui", "file": "ui/score_rack_panel.json" },
+                { "task_id": "task_id_801000015", "asset_key": "game_over_message", "category": "ui", "file": "ui/game_over_message.json" },
+                { "task_id": "task_id_801000016", "asset_key": "restart_hint_label", "category": "ui", "file": "ui/restart_hint_label.json" }
+            ]
         },
 
-        // Characters
-        'player_run.json': {
-            "project_common": {
-                "game_title": "Chrome Dino Runner",
-                "art_style": "Pixel Art 8-bit",
-                "resolution": "600x150",
-                "color_palette": {
-                    "primary": "#535353",
-                    "secondary": "#535353",
-                    "accent": "#FF0000",
-                    "background": "#F7F7F7"
-                },
-                "pixel_density": "1x base, 2x scale support",
-                "outline_style": "2px solid outline",
-                "rendering": "pixel perfect, no anti-aliasing"
+        // Character files (from iteration_8)
+        'dino_runner_core.json': {
+            "schema_version": "art_task@8",
+            "task_id": "task_id_801000001",
+            "asset_key": "dino_runner_core",
+            "asset_name": "Player Dino Ground Run Core",
+            "category": "character",
+            "subcategory": "player_motion",
+            "priority": "P0",
+            "execution_order": 10,
+            "variant_of": null,
+            "variant_of_asset_key": null,
+            "shared_properties": [
+                "Primary silhouette uses #535353 with transparent negative space only.",
+                "Runner body footprint stays within 88x94 px.",
+                "Outline weight stays at 2 px on the head, torso, and tail."
+            ],
+            "differences": [
+                "This task defines the ground run cadence used while the character is alive and grounded.",
+                "Two frames alternate left-lead and right-lead hind legs at 12 FPS.",
+                "Torso volume and head height stay stable so jump, duck, and crash states branch from one body proportion."
+            ],
+            "depends_on": [],
+            "blocks": ["task_id_801000002", "task_id_801000003", "task_id_801000004"],
+            "blocked_by": [],
+            "relationships": {
+                "related_task_ids": ["task_id_801000002", "task_id_801000003", "task_id_801000004", "task_id_801000010"]
             },
-            "category": "characters",
-            "category_common": {
-                "base_size": {
-                    "width": "88px",
-                    "height": "94px"
+            "reference_images": [
+                {
+                    "label": "offline_sprite_1x",
+                    "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-1x.png",
+                    "purpose": "1x pixel atlas for dinosaur, cactus, pterodactyl, digits, and ground proportions."
                 },
-                "color_scheme": {
-                    "primary": "#535353",
-                    "secondary": "#535353"
+                {
+                    "label": "offline_sprite_2x",
+                    "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+                    "purpose": "2x atlas for silhouette spacing, obstacle spacing, and hit-readability checks."
                 },
-                "shared_attributes": {
-                    "style": "pixel art",
-                    "outline": "2px solid",
-                    "color_mode": "monochrome",
-                    "anti_aliasing": "none"
+                {
+                    "label": "run_loop_capture",
+                    "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/t-rex-runner-19janil.gif",
+                    "purpose": "Run cadence, jump silhouette timing, and restart screen pacing."
                 }
-            },
-            "asset": {
-                "asset_id": "player_run",
-                "asset_name": "Player T-Rex Running Animation",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Player character default running state during gameplay",
-                    "screen_position": "Fixed at x=100px, y=0px (ground level)",
-                    "adjacent_elements": ["ground", "cactus_small", "cactus_medium", "cactus_large", "pterodactyl_low", "pterodactyl_high", "score_display"],
-                    "usage_scenario": "Active gameplay state when player is on ground and game is running"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "88px",
-                        "height": "94px"
-                    },
-                    "colors": {
-                        "body": "#535353",
-                        "outline": "#535353",
-                        "eyes": "#535353"
-                    },
-                    "shape": "T-Rex dinosaur in running pose with alternating leg positions",
-                    "texture": "pixel art, flat color",
-                    "outline": "2px solid black outline",
-                    "shadow": "none",
-                    "animation": {
-                        "type": "spritesheet",
-                        "frames": 2,
-                        "fps": 12,
-                        "loop": true,
-                        "description": "Frame 1: left leg forward, Frame 2: right leg forward, seamless loop"
-                    },
-                    "details": "Running T-Rex with legs alternating, eyes open, tail extended for balance"
-                },
-                "relationships": {
-                    "related_assets": ["player_idle", "player_jump", "player_duck", "player_dead"],
-                    "shared_with": "Same character model as idle, jump, dead states",
-                    "differences_from": "player_idle has slower animation (6 FPS), player_duck has different hitbox (118x60px)"
-                },
-                "explicit_negations": [
-                    "No color variations",
-                    "No facial expressions",
-                    "No weapons or items",
-                    "No dust particles or motion blur",
-                    "No speed lines",
-                    "No background elements in sprite"
+            ],
+            "bevy_constraints": {
+                "bundle_strategy": "SpriteSheetBundle",
+                "atlas_or_static": "texture_atlas_horizontal_2_frame",
+                "ecs_components": ["RunnerTag", "AnimationTimer", "ColliderAabb", "GroundedState", "VelocityY"],
+                "asset_loading": "Load one 176x94 PNG atlas during Loading state and build an 88x94 TextureAtlasLayout before gameplay starts.",
+                "runtime_notes": [
+                    "Advance the atlas index every 0.0833 seconds for a 12 FPS run loop.",
+                    "Place the transform anchor at x=80 and y=56 in world units mapped 1:1 to pixels.",
+                    "Use nearest-neighbor sampling on the image handle to keep hard pixel edges at 1x and 2x window scale."
                 ]
-            }
+            },
+            "palette": {
+                "primary": { "name": "primary", "hex": "#535353" },
+                "background": { "name": "background", "hex": "#F7F7F7" },
+                "accent": { "name": "highlight", "hex": "#FF0000" }
+            },
+            "canvas": {
+                "resolution_px": { "width": 600, "height": 150 },
+                "pixel_perfect": true,
+                "target_fps": 60
+            },
+            "style_guide": {
+                "rendering": "pixel_art",
+                "detail_level": "low",
+                "shading": "flat",
+                "outline": "2px"
+            },
+            "context": {
+                "role": "runner_ground_state",
+                "screen_position": {
+                    "type": "absolute_px",
+                    "position_px": [80, 56]
+                },
+                "layer": "character",
+                "usage": "Visible during active running while obstacles move from right to left at 300-900 px/s."
+            },
+            "specs": {
+                "dimensions_px": { "width": 88, "height": 94 },
+                "colors_hex": ["#535353", "#F7F7F7"],
+                "animation": {
+                    "type": "sprite_sheet",
+                    "frame_count": 2,
+                    "fps": 12,
+                    "loop": true,
+                    "frame_size_px": [88, 94],
+                    "layout": { "columns": 2, "rows": 1 }
+                },
+                "hitbox_px": {
+                    "width": 44,
+                    "height": 90,
+                    "offset_px": [22, 2]
+                },
+                "motion_profile": {
+                    "baseline_y": 0,
+                    "ground_contact_frames": [0, 1],
+                    "speed_window_px_per_s": [300, 900]
+                },
+                "silhouette_notes": [
+                    "Head width occupies 24 px and sits 14 px ahead of the torso pivot.",
+                    "Tail tip stays at least 6 px above the ground baseline.",
+                    "Eye cutout remains a 6x6 px rectangle in both frames."
+                ]
+            },
+            "deliverables": [
+                {
+                    "type": "png",
+                    "file": "character/dino_runner_core.png",
+                    "transparent_background": true
+                }
+            ],
+            "acceptance_criteria": [
+                "Sprite sheet canvas is exactly 176x94 px with no gutter between frames.",
+                "Foot contact pixels stay on one baseline across both frames.",
+                "Painted pixels use #535353 only and keep transparent background outside the silhouette."
+            ]
         },
 
-        'player_jump.json': {
-            "category": "characters",
-            "asset": {
-                "asset_id": "player_jump",
-                "asset_name": "Player T-Rex Jumping Animation",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Player character jumping state to avoid obstacles",
-                    "screen_position": "Fixed at x=100px, y varies (0-150px)",
-                    "usage_scenario": "When spacebar/tap is pressed during gameplay"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "88px",
-                        "height": "94px"
-                    },
-                    "colors": {
-                        "body": "#535353",
-                        "outline": "#535353"
-                    },
-                    "shape": "T-Rex with legs tucked under body, arms pulled in",
-                    "animation": {
-                        "type": "static",
-                        "frames": 1,
-                        "fps": 0,
-                        "loop": false,
-                        "description": "Single static frame for jump arc"
-                    }
-                }
-            }
-        },
-
-        'player_duck.json': {
-            "category": "characters",
-            "asset": {
-                "asset_id": "player_duck",
-                "asset_name": "Player T-Rex Ducking Animation",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Player character ducking state to avoid flying pterodactyls",
-                    "screen_position": "Fixed at x=100px, y=0px (ground level)",
-                    "usage_scenario": "When down arrow is held during gameplay"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "118px",
-                        "height": "60px"
-                    },
-                    "colors": {
-                        "body": "#535353",
-                        "outline": "#535353"
-                    },
-                    "shape": "T-Rex in low profile with head down",
-                    "animation": {
-                        "type": "spritesheet",
-                        "frames": 2,
-                        "fps": 12,
-                        "loop": true,
-                        "description": "Alternating leg positions while ducking"
-                    }
-                }
-            }
-        },
-
-        // Obstacles
-        'cactus_small.json': {
-            "category": "obstacles",
-            "asset": {
-                "asset_id": "cactus_small",
-                "asset_name": "Small Cactus Obstacle",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Ground obstacle requiring jump to avoid",
-                    "screen_position": "Spawns at x=600px, y=0px",
-                    "usage_scenario": "Randomly generated during gameplay"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "34px",
-                        "height": "70px"
-                    },
-                    "colors": {
-                        "body": "#535353",
-                        "outline": "#535353"
-                    },
-                    "shape": "Single cactus with spikes",
-                    "animation": {
-                        "type": "static",
-                        "frames": 1,
-                        "fps": 0,
-                        "loop": false
-                    }
-                }
-            }
-        },
-
-        'cactus_medium.json': {
-            "category": "obstacles",
-            "asset": {
-                "asset_id": "cactus_medium",
-                "asset_name": "Medium Cactus Obstacle",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Ground obstacle requiring jump to avoid",
-                    "screen_position": "Spawns at x=600px, y=0px",
-                    "usage_scenario": "Randomly generated during gameplay"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "68px",
-                        "height": "70px"
-                    },
-                    "colors": {
-                        "body": "#535353",
-                        "outline": "#535353"
-                    },
-                    "shape": "Double cactus cluster",
-                    "animation": {
-                        "type": "static",
-                        "frames": 1,
-                        "fps": 0,
-                        "loop": false
-                    }
-                }
-            }
-        },
-
-        'cactus_large.json': {
-            "category": "obstacles",
-            "asset": {
-                "asset_id": "cactus_large",
-                "asset_name": "Large Cactus Obstacle",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Ground obstacle requiring jump to avoid",
-                    "screen_position": "Spawns at x=600px, y=0px",
-                    "usage_scenario": "Randomly generated at higher speeds"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "102px",
-                        "height": "100px"
-                    },
-                    "colors": {
-                        "body": "#535353",
-                        "outline": "#535353"
-                    },
-                    "shape": "Triple cactus cluster",
-                    "animation": {
-                        "type": "static",
-                        "frames": 1,
-                        "fps": 0,
-                        "loop": false
-                    }
-                }
-            }
-        },
-
-        'pterodactyl_fly.json': {
-            "category": "obstacles",
-            "asset": {
-                "asset_id": "pterodactyl_fly",
-                "asset_name": "Flying Pterodactyl",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Flying obstacle at various heights",
-                    "screen_position": "Spawns at x=600px, y varies",
-                    "usage_scenario": "Appears at higher game speeds"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "92px",
-                        "height": "80px"
-                    },
-                    "colors": {
-                        "body": "#535353",
-                        "outline": "#535353"
-                    },
-                    "shape": "Pterodactyl with wings spread",
-                    "animation": {
-                        "type": "spritesheet",
-                        "frames": 2,
-                        "fps": 10,
-                        "loop": true,
-                        "description": "Wing flapping animation"
-                    }
-                }
-            }
-        },
-
-        // Environment
-        'ground.json': {
-            "category": "environment",
-            "asset": {
-                "asset_id": "ground",
-                "asset_name": "Ground Surface",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Running surface for player and obstacles",
-                    "screen_position": "Full width at y=0px",
-                    "usage_scenario": "Always visible during gameplay"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "2400px",
-                        "height": "24px"
-                    },
-                    "colors": {
-                        "primary": "#535353",
-                        "background": "#F7F7F7"
-                    },
-                    "shape": "Horizontal line with texture",
-                    "animation": {
-                        "type": "scrolling",
-                        "speed": "dynamic",
-                        "direction": "left"
-                    }
-                }
-            }
-        },
-
-        'background.json': {
-            "category": "environment",
-            "asset": {
-                "asset_id": "background",
-                "asset_name": "Background Sky",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Static background",
-                    "screen_position": "Full canvas",
-                    "usage_scenario": "Always visible"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "600px",
-                        "height": "150px"
-                    },
-                    "colors": {
-                        "fill": "#F7F7F7"
-                    },
-                    "shape": "Solid color fill",
-                    "animation": {
-                        "type": "static",
-                        "frames": 1,
-                        "fps": 0,
-                        "loop": false
-                    }
-                }
-            }
-        },
-
-        // UI
-        'game_over_screen.json': {
-            "category": "ui",
-            "asset": {
-                "asset_id": "game_over_screen",
-                "asset_name": "Game Over Screen",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Display when player hits obstacle",
-                    "screen_position": "Center of canvas",
-                    "usage_scenario": "On collision detection"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "381px",
-                        "height": "11px"
-                    },
-                    "colors": {
-                        "text": "#535353",
-                        "background": "transparent"
-                    },
-                    "shape": "Text: GAME OVER",
-                    "animation": {
-                        "type": "static",
-                        "frames": 1,
-                        "fps": 0,
-                        "loop": false
-                    }
-                }
-            }
-        },
-
-        'score_display.json': {
-            "category": "ui",
-            "asset": {
-                "asset_id": "score_display",
-                "asset_name": "Score Display",
-                "context": {
-                    "game": "Chrome Dino Runner",
-                    "role": "Show current and high score",
-                    "screen_position": "Top right corner",
-                    "usage_scenario": "Always visible during gameplay"
-                },
-                "visual_specification": {
-                    "size": {
-                        "width": "100px",
-                        "height": "16px"
-                    },
-                    "colors": {
-                        "text": "#535353",
-                        "background": "transparent"
-                    },
-                    "shape": "Numeric digits 0-9",
-                    "animation": {
-                        "type": "static",
-                        "frames": 1,
-                        "fps": 0,
-                        "loop": false
-                    }
-                }
-            }
-        }
+        // Add more files as needed
+        'dino_air_pose.json': { "schema_version": "art_task@8", "task_id": "task_id_801000002", "asset_key": "dino_air_pose" },
+        'dino_low_profile.json': { "schema_version": "art_task@8", "task_id": "task_id_801000003", "asset_key": "dino_low_profile" },
+        'dino_crash_pose.json': { "schema_version": "art_task@8", "task_id": "task_id_801000004", "asset_key": "dino_crash_pose" },
+        'cactus_single.json': { "schema_version": "art_task@8", "task_id": "task_id_801000005", "asset_key": "cactus_single" },
+        'cactus_pair_cluster.json': { "schema_version": "art_task@8", "task_id": "task_id_801000006", "asset_key": "cactus_pair_cluster" },
+        'cactus_triplet_cluster.json': { "schema_version": "art_task@8", "task_id": "task_id_801000007", "asset_key": "cactus_triplet_cluster" },
+        'pterodactyl_flap_sheet.json': { "schema_version": "art_task@8", "task_id": "task_id_801000008", "asset_key": "pterodactyl_flap_sheet" },
+        'sky_day_field.json': { "schema_version": "art_task@8", "task_id": "task_id_801000009", "asset_key": "sky_day_field" },
+        'ground_runner_strip.json': { "schema_version": "art_task@8", "task_id": "task_id_801000010", "asset_key": "ground_runner_strip" },
+        'ground_pebble_overlay.json': { "schema_version": "art_task@8", "task_id": "task_id_801000011", "asset_key": "ground_pebble_overlay" },
+        'cloud_pass_small.json': { "schema_version": "art_task@8", "task_id": "task_id_801000012", "asset_key": "cloud_pass_small" },
+        'score_digits_font.json': { "schema_version": "art_task@8", "task_id": "task_id_801000013", "asset_key": "score_digits_font" },
+        'score_rack_panel.json': { "schema_version": "art_task@8", "task_id": "task_id_801000014", "asset_key": "score_rack_panel" },
+        'game_over_message.json': { "schema_version": "art_task@8", "task_id": "task_id_801000015", "asset_key": "game_over_message" },
+        'restart_hint_label.json': { "schema_version": "art_task@8", "task_id": "task_id_801000016", "asset_key": "restart_hint_label" }
     },
 
     // Get JSON data for a file
