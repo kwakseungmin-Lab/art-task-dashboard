@@ -387,15 +387,18 @@ const Dashboard = {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    margin-bottom: 20px;
-                    padding-bottom: 15px;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    margin-bottom: 30px;
+                    padding: 20px;
+                    background: rgba(59, 130, 246, 0.1);
+                    border-radius: 8px;
+                    border: 1px solid rgba(59, 130, 246, 0.3);
                 }
                 .json-header h3 {
                     margin: 0;
-                    color: #e1e8ed;
-                    font-family: monospace;
-                    font-size: 16px;
+                    color: #3b82f6;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 24px;
+                    font-weight: 600;
                 }
                 .json-content {
                     background: #0a0e1a;
