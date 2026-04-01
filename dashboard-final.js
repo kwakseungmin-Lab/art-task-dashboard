@@ -228,24 +228,6 @@ const Dashboard = {
         // Define the base path for this trial
         const basePath = `Solutions/GameMaking/Planning/experiments/iterations/iteration_${iterationNum}/data/task_plans/${gameName}/trial_${trialNum}/`;
 
-        // Define all possible files for a trial
-        const files = [
-            '_project_common.json',
-            'character/dino_runner_core.json',
-            'character/dino_low_profile.json',
-            'obstacles/cactus_single.json',
-            'obstacles/cactus_pair_cluster.json',
-            'obstacles/cactus_triplet_cluster.json',
-            'obstacles/pterodactyl_flap_sheet.json',
-            'world/sky_day_field.json',
-            'world/cloud_pass_small.json',
-            'world/ground_runner_strip.json',
-            'world/ground_pebble_overlay.json',
-            'ui/game_over_message.json',
-            'ui/restart_hint_label.json',
-            'ui/score_digits_font.json',
-            'ui/score_rack_panel.json'
-        ];
 
         content.innerHTML = `
             <div class="task-plan-header">
@@ -304,60 +286,6 @@ const Dashboard = {
                     height: calc(100vh - 100px);
                     padding: 20px;
                 }
-                .file-browser {
-                    background: rgba(15, 20, 25, 0.6);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    border-radius: 8px;
-                    padding: 10px;
-                    overflow-y: auto;
-                    font-size: 11px;
-                }
-                .file-browser h3 {
-                    margin: 0 0 10px 0;
-                    color: #e1e8ed;
-                    font-size: 14px;
-                }
-                .file-item {
-                    display: flex;
-                    align-items: center;
-                    padding: 6px 8px;
-                    margin-bottom: 3px;
-                    background: rgba(255, 255, 255, 0.02);
-                    border: 1px solid transparent;
-                    border-radius: 4px;
-                    transition: all 0.2s;
-                    cursor: pointer;
-                }
-                .file-item:hover {
-                    background: rgba(59, 130, 246, 0.1);
-                    border-color: rgba(59, 130, 246, 0.3);
-                }
-                .file-item.active {
-                    background: rgba(59, 130, 246, 0.2);
-                    border-color: #3b82f6;
-                }
-                .file-item.main-file {
-                    background: rgba(16, 185, 129, 0.1);
-                    border-color: rgba(16, 185, 129, 0.3);
-                }
-                .file-icon {
-                    margin-right: 8px;
-                    font-size: 14px;
-                }
-                .file-name {
-                    flex: 1;
-                    font-family: monospace;
-                    font-size: 11px;
-                    color: #e1e8ed;
-                }
-                .file-badge {
-                    background: #10b981;
-                    color: white;
-                    padding: 2px 6px;
-                    border-radius: 4px;
-                    font-size: 10px;
-                    text-transform: uppercase;
-                }
                 .file-selector {
                     width: 100%;
                     max-width: 800px;
@@ -389,25 +317,9 @@ const Dashboard = {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    height: 100%;
+                    height: 400px;
                     color: #8b92a9;
-                    font-size: 16px;
-                }
-                .file-stats {
-                    background: rgba(15, 20, 25, 0.6);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    border-radius: 8px;
-                    padding: 15px 20px;
-                    margin-top: 20px;
-                    display: flex;
-                    gap: 30px;
-                }
-                .file-stats .stat {
-                    color: #8b92a9;
-                    font-size: 13px;
-                }
-                .file-stats .stat strong {
-                    color: #e1e8ed;
+                    font-size: 20px;
                 }
             </style>
         `;
@@ -487,19 +399,20 @@ const Dashboard = {
                 }
                 .json-content {
                     background: #0a0e1a;
-                    padding: 30px;
-                    border-radius: 8px;
+                    padding: 40px;
+                    border-radius: 10px;
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     overflow-x: auto;
                     font-family: 'Fira Code', 'Courier New', monospace;
-                    font-size: 18px;
+                    font-size: 20px;
                     font-weight: 500;
-                    line-height: 2;
+                    line-height: 1.8;
                     color: #e1e8ed;
-                    min-height: 600px;
-                    max-height: calc(100vh - 200px);
+                    min-height: 500px;
+                    max-height: calc(100vh - 280px);
                     overflow-y: auto;
-                    white-space: pre;
+                    white-space: pre-wrap;
+                    word-wrap: break-word;
                 }
                 .btn-copy {
                     background: rgba(59, 130, 246, 0.1);
