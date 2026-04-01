@@ -62,44 +62,51 @@ const Dashboard = {
                 </div>
                 <div class="right-section">
                     <div class="kb-panel">
-                        <h3>Art Task Plan KB</h3>
-                        <iframe src="kb-network-complete.html?kb=art" frameborder="0" style="width: 100%; height: 350px; border-radius: 8px;"></iframe>
+                        <h3 style="color: #3b82f6; font-size: 18px;">🗄️ Art Task Plan KB (26,789 entities)</h3>
+                        <iframe src="kb-network-complete.html?kb=art" frameborder="0" style="width: 100%; height: 400px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.3);"></iframe>
                     </div>
                     <div class="kb-panel">
-                        <h3>Meta Iteration KB</h3>
-                        <iframe src="kb-network-complete.html?kb=meta" frameborder="0" style="width: 100%; height: 350px; border-radius: 8px;"></iframe>
+                        <h3 style="color: #10b981; font-size: 18px;">🔄 Meta Iteration KB (8,032 entities)</h3>
+                        <iframe src="kb-network-complete.html?kb=meta" frameborder="0" style="width: 100%; height: 400px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);"></iframe>
                     </div>
                 </div>
             </div>
             <style>
                 .overview-container {
                     display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 20px;
-                    height: calc(100vh - 150px);
+                    grid-template-columns: 55% 45%;
+                    gap: 15px;
+                    height: calc(100vh - 120px);
+                    padding: 10px;
                 }
                 .left-section {
                     display: flex;
                     flex-direction: column;
-                    gap: 20px;
+                    gap: 15px;
                     overflow-y: auto;
                 }
                 .right-section {
                     display: flex;
                     flex-direction: column;
-                    gap: 20px;
+                    gap: 15px;
                     overflow-y: auto;
+                    padding-right: 10px;
                 }
                 .kb-panel {
-                    background: rgba(15, 20, 25, 0.6);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    border-radius: 8px;
+                    background: rgba(15, 20, 25, 0.8);
+                    border: 2px solid rgba(59, 130, 246, 0.2);
+                    border-radius: 10px;
                     padding: 15px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                    transition: all 0.3s;
+                }
+                .kb-panel:hover {
+                    border-color: rgba(59, 130, 246, 0.5);
+                    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.1);
                 }
                 .kb-panel h3 {
-                    margin: 0 0 15px 0;
-                    color: #e1e8ed;
-                    font-size: 16px;
+                    margin: 0 0 12px 0;
+                    font-weight: 600;
                 }
             </style>
         `;
@@ -300,31 +307,32 @@ const Dashboard = {
                 }
                 .task-plan-container {
                     display: grid;
-                    grid-template-columns: 250px 1fr;
-                    gap: 15px;
-                    height: calc(100vh - 150px);
+                    grid-template-columns: 200px 1fr;
+                    gap: 10px;
+                    height: calc(100vh - 100px);
+                    padding: 10px;
                 }
                 .file-browser {
                     background: rgba(15, 20, 25, 0.6);
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     border-radius: 8px;
-                    padding: 15px;
+                    padding: 10px;
                     overflow-y: auto;
-                    font-size: 12px;
+                    font-size: 11px;
                 }
                 .file-browser h3 {
-                    margin: 0 0 20px 0;
+                    margin: 0 0 10px 0;
                     color: #e1e8ed;
-                    font-size: 16px;
+                    font-size: 14px;
                 }
                 .file-item {
                     display: flex;
                     align-items: center;
-                    padding: 10px;
-                    margin-bottom: 5px;
+                    padding: 6px 8px;
+                    margin-bottom: 3px;
                     background: rgba(255, 255, 255, 0.02);
                     border: 1px solid transparent;
-                    border-radius: 6px;
+                    border-radius: 4px;
                     transition: all 0.2s;
                     cursor: pointer;
                 }
@@ -341,13 +349,13 @@ const Dashboard = {
                     border-color: rgba(16, 185, 129, 0.3);
                 }
                 .file-icon {
-                    margin-right: 10px;
-                    font-size: 18px;
+                    margin-right: 8px;
+                    font-size: 14px;
                 }
                 .file-name {
                     flex: 1;
                     font-family: monospace;
-                    font-size: 13px;
+                    font-size: 11px;
                     color: #e1e8ed;
                 }
                 .file-badge {
@@ -359,14 +367,15 @@ const Dashboard = {
                     text-transform: uppercase;
                 }
                 .json-viewer {
-                    background: rgba(15, 20, 25, 0.6);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    background: rgba(15, 20, 25, 0.9);
+                    border: 2px solid rgba(59, 130, 246, 0.3);
                     border-radius: 8px;
                     padding: 20px;
                     overflow-y: auto;
                     position: relative;
-                    height: 100%;
-                    min-height: 600px;
+                    height: calc(100vh - 180px);
+                    min-height: 700px;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
                 }
                 .viewer-placeholder {
                     display: flex;
@@ -422,15 +431,22 @@ const Dashboard = {
             };
         }
 
-        // Display the JSON
+        // Display the JSON with syntax highlighting
+        const jsonString = JSON.stringify(jsonContent, null, 2);
+        const highlightedJson = jsonString
+            .replace(/(".*?":\s*".*?")/g, '<span style="color: #a5d6ff;">$1</span>')
+            .replace(/(".*?":\s*)(\d+)/g, '$1<span style="color: #79c0ff;">$2</span>')
+            .replace(/(".*?":\s*)(true|false)/g, '$1<span style="color: #ff7b72;">$2</span>')
+            .replace(/(".*?":\s*)(null)/g, '$1<span style="color: #8b949e;">$2</span>');
+
         viewer.innerHTML = `
             <div class="json-header">
-                <h3>${filename}</h3>
+                <h3 style="font-size: 20px; color: #3b82f6;">📄 ${filename}</h3>
                 <button class="btn-copy" onclick="navigator.clipboard.writeText(JSON.stringify(${JSON.stringify(jsonContent)}, null, 2))">
-                    Copy JSON
+                    📋 Copy JSON
                 </button>
             </div>
-            <pre class="json-content">${JSON.stringify(jsonContent, null, 2)}</pre>
+            <pre class="json-content">${highlightedJson}</pre>
             ${this.getJsonViewerStyles()}
         `;
 
@@ -463,16 +479,17 @@ const Dashboard = {
                 }
                 .json-content {
                     background: #0a0e1a;
-                    padding: 25px;
+                    padding: 30px;
                     border-radius: 8px;
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     overflow-x: auto;
                     font-family: 'Fira Code', 'Courier New', monospace;
-                    font-size: 16px;
-                    line-height: 1.8;
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 2;
                     color: #e1e8ed;
-                    min-height: 500px;
-                    max-height: calc(100vh - 250px);
+                    min-height: 600px;
+                    max-height: calc(100vh - 200px);
                     overflow-y: auto;
                     white-space: pre;
                 }
