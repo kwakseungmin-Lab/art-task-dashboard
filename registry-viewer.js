@@ -277,6 +277,12 @@ const RegistryViewer = {
         const canvas = document.getElementById('registry-chart');
         if (!canvas) return;
 
+        // Skip if Chart.js is not loaded
+        if (typeof Chart === 'undefined') {
+            console.warn('Chart.js not loaded yet, skipping chart drawing');
+            return;
+        }
+
         const ctx = canvas.getContext('2d');
         const data = entries.map(e => ({
             x: `Iter ${e.iteration}`,
