@@ -238,9 +238,9 @@ const Dashboard = {
 
             <div class="task-plan-container">
                 <div class="file-selector">
-                    <h3>Select JSON File (Iteration ${iterationNum} - ${gameName}):</h3>
+                    <h3>Select JSON File (Iteration ${iterationNum} - ${gameName} - Trial ${trialNum}):</h3>
                     <select id="file-dropdown" onchange="window.dashboard.viewTaskPlanJSON(${iterationNum}, '${gameName}', ${trialNum}, this.value)" style="width: 100%; padding: 8px; background: #1a1f2e; color: #e1e8ed; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px;">
-                        ${this.generateFileOptions(gameName, iterationNum)}
+                        ${this.generateFileOptions(gameName, iterationNum, trialNum)}
                     </select>
                 </div>
 
@@ -507,38 +507,45 @@ const Dashboard = {
         return emojiMap[category] || '📄';
     },
 
-    generateFileOptions(gameName, iterationNum = 8) {
-        // Check if GameAvailability is available
-        if (typeof GameAvailability !== 'undefined') {
-            // Check if game is available for this iteration
-            if (!GameAvailability.isGameAvailable(iterationNum, gameName)) {
-                const message = GameAvailability.getAvailabilityMessage(iterationNum, gameName);
-                return `<option value="" disabled>❌ ${message}</option>`;
+    generateFileOptions(gameName, iterationNum = 8, trialNum = 1) {
+        // Use CompleteFileManifest if available
+        if (typeof CompleteFileManifest !== 'undefined' && typeof getFilesForTrial !== 'undefined') {
+            const files = getFilesForTrial(iterationNum, gameName, trialNum);
+
+            if (!files) {
+                return `<option value="" disabled>❌ No files found for ${gameName} - Iteration ${iterationNum} - Trial ${trialNum}</option>`;
             }
 
-            // Get file structure for this game
-            const files = GameAvailability.getGameFiles(gameName, iterationNum);
-
             // Start with common file
-            let html = '<option value="_project_common.json">📄 _project_common.json (Main Project File)</option>';
+            let html = '';
+            if (files['_project_common']) {
+                html += '<option value="_project_common.json">📄 _project_common.json (Main Project File)</option>';
+            }
 
             // Add category groups
-            for (const [category, fileList] of Object.entries(files)) {
-                if (category === 'error') continue;
-
-                html += `<optgroup label="${category}">`;
-                for (const file of fileList) {
-                    const fileName = file.split('/').pop();
-                    const emoji = this.getFileEmoji(category);
-                    html += `<option value="${file}">${emoji} ${fileName}</option>`;
+            const categories = ['Character', 'Obstacles', 'World', 'UI', 'Ui', 'Items', 'Mirrors'];
+            categories.forEach(category => {
+                const fileList = files[category];
+                if (fileList && fileList.length > 0) {
+                    const displayCategory = category === 'Ui' ? 'UI' : category;
+                    html += `<optgroup label="${displayCategory}">`;
+                    for (const file of fileList) {
+                        const fileName = file.split('/').pop();
+                        const emoji = this.getFileEmoji(displayCategory);
+                        html += `<option value="${file}">${emoji} ${fileName}</option>`;
+                    }
+                    html += `</optgroup>`;
                 }
-                html += `</optgroup>`;
+            });
+
+            if (html === '') {
+                return '<option value="" disabled>❌ No files available</option>';
             }
 
             return html;
         }
 
-        // Fallback to original logic if GameAvailability not available
+        // Fallback if CompleteFileManifest not available
         let html = '<option value="_project_common.json">📄 _project_common.json (Main Project File)</option>';
 
         if (gameName === 'Chrome_Dino_Runner') {
