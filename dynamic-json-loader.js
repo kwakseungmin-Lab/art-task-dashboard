@@ -138,7 +138,28 @@ const DynamicJSONLoader = {
                     'ui/level_indicator.json'
                 ]
             };
-        } else if (gameName === 'slip_down' || gameName === 'umbra_scale') {
+        } else if (gameName === 'umbra_scale') {
+            return {
+                'Character': [
+                    'character/player_umbra_idle_6f_12fps.json',
+                    'character/player_umbra_run_8f_12fps.json',
+                    'character/player_umbra_jump_4f_12fps.json',
+                    'character/player_umbra_grab_4f_10fps.json',
+                    'character/player_umbra_exposure_5f_12fps.json',
+                    'character/echo_clone_idle_4f_8fps.json'
+                ],
+                'World': [
+                    'world/laboratory_bg_grid.json',
+                    'world/platform_metallic.json',
+                    'world/shadow_realm_portal.json'
+                ],
+                'UI': [
+                    'ui/health_bar_frame.json',
+                    'ui/shadow_meter.json',
+                    'ui/ability_cooldown.json'
+                ]
+            };
+        } else if (gameName === 'slip_down') {
             return {
                 'Character': [
                     'character/player_sprite.json'

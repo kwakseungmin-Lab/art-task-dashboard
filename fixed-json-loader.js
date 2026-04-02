@@ -64,6 +64,16 @@ const FixedJSONLoader = {
                     return await DynamicJSONLoader.loadJSON(iterationNum, gameName, trialNum, fileName);
                 }
 
+                // Provide helpful error message for missing iterations
+                if (response.status === 404) {
+                    return {
+                        error: "File not found",
+                        message: `This game/iteration combination may not exist. Try iteration 8 for umbra_scale.`,
+                        path: path,
+                        status: 404,
+                        hint: "Available: Chrome_Dino_Runner (iter 3-8), Pico_Echo (iter 3-8), umbra_scale (iter 8 only)"
+                    };
+                }
                 return {
                     error: "Failed to load file",
                     message: `HTTP ${response.status}`,
