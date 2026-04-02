@@ -1,210 +1,1105 @@
 // Complete File Manifest - Auto-generated from actual file system
-// Generated at: 2026-04-02T03:58:49.177Z
+// Generated at: 2026-04-02T08:02:14.850689Z
 
 const CompleteFileManifest = {
-    "3": {
-        "Chrome_Dino_Runner": {
+    "10": {
+        "bubble_farm": {
             "1": {
-                "_project_common": "_project_common.json",
-                "Character": [],
-                "Obstacles": [
-                    "obstacles/cactus_large.json",
-                    "obstacles/cactus_medium.json",
-                    "obstacles/cactus_small.json",
-                    "obstacles/pterodactyl.json",
-                    "obstacles/pterodactyl_fly.json",
-                    "obstacles/pterodactyl_high.json",
-                    "obstacles/pterodactyl_low.json",
-                    "obstacles/_category_common.json"
+                "Character": [
+                    "character/character_bubble_heavy_idle_4f_6fps.json",
+                    "character/character_bubble_jelly_idle_6f_8fps.json",
+                    "character/character_bubble_king_idle_10f_6fps.json",
+                    "character/character_bubble_mini_idle_4f_8fps.json",
+                    "character/character_bubble_normal_idle_6f_8fps.json"
                 ],
-                "World": [],
+                "Obstacles": [
+                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
+                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
+                    "obstacles/obstacles_rock_cell_static.json",
+                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
+                ],
+                "World": [
+                    "world/world_background_mud_loop_64x64_8f.json",
+                    "world/world_balance_axis_beam_64x448.json",
+                    "world/world_balance_meter_400x60.json",
+                    "world/world_grid_board_9x7_576x448.json",
+                    "world/world_path_prediction_overlay_dots_16x16.json"
+                ],
                 "UI": [],
+                "Ui": [
+                    "ui/ui_codex_panel_900x600.json",
+                    "ui/ui_hud_balance_topbar_1920x96.json",
+                    "ui/ui_next_hold_panel_240x320.json",
+                    "ui/ui_popup_game_over_600x400.json",
+                    "ui/ui_prediction_toggle_button_40x40.json"
+                ],
                 "Items": [],
                 "Mirrors": [],
-                "Ui": [
-                    "ui/game_over_screen.json",
-                    "ui/score_display.json",
-                    "ui/_category_common.json"
-                ]
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
-                "Character": [],
-                "Obstacles": [
-                    "obstacles/cactus_large.json",
-                    "obstacles/cactus_medium.json",
-                    "obstacles/cactus_small.json",
-                    "obstacles/pterodactyl_fly_high.json",
-                    "obstacles/pterodactyl_fly_low.json",
-                    "obstacles/_category_common.json"
+                "Character": [
+                    "character/character_bubble_heavy_idle_4f_6fps.json",
+                    "character/character_bubble_jelly_idle_6f_8fps.json",
+                    "character/character_bubble_king_idle_10f_6fps.json",
+                    "character/character_bubble_mini_idle_4f_8fps.json",
+                    "character/character_bubble_normal_idle_6f_8fps.json"
                 ],
-                "World": [],
+                "Obstacles": [
+                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
+                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
+                    "obstacles/obstacles_rock_cell_static.json",
+                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
+                ],
+                "World": [
+                    "world/world_background_mud_loop_64x64_8f.json",
+                    "world/world_balance_axis_beam_64x448.json",
+                    "world/world_balance_meter_400x60.json",
+                    "world/world_grid_board_9x7_576x448.json",
+                    "world/world_path_prediction_overlay_dots_16x16.json"
+                ],
                 "UI": [],
+                "Ui": [
+                    "ui/ui_codex_panel_900x600.json",
+                    "ui/ui_hud_balance_topbar_1920x96.json",
+                    "ui/ui_next_hold_panel_240x320.json",
+                    "ui/ui_popup_game_over_600x400.json",
+                    "ui/ui_prediction_toggle_button_40x40.json"
+                ],
                 "Items": [],
                 "Mirrors": [],
-                "Ui": [
-                    "ui/game_over_screen.json",
-                    "ui/score_display.json",
-                    "ui/_category_common.json"
-                ]
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
-                "Character": [],
-                "Obstacles": [
-                    "obstacles/cactus_large.json",
-                    "obstacles/cactus_medium.json",
-                    "obstacles/cactus_small.json",
-                    "obstacles/pterodactyl_fly.json",
-                    "obstacles/_category_common.json"
+                "Character": [
+                    "character/character_bubble_heavy_idle_4f_6fps.json",
+                    "character/character_bubble_jelly_idle_6f_8fps.json",
+                    "character/character_bubble_king_idle_10f_6fps.json",
+                    "character/character_bubble_mini_idle_4f_8fps.json",
+                    "character/character_bubble_normal_idle_6f_8fps.json"
                 ],
-                "World": [],
+                "Obstacles": [
+                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
+                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
+                    "obstacles/obstacles_rock_cell_static.json",
+                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
+                ],
+                "World": [
+                    "world/world_background_mud_loop_64x64_8f.json",
+                    "world/world_balance_axis_beam_64x448.json",
+                    "world/world_balance_meter_400x60.json",
+                    "world/world_grid_board_9x7_576x448.json",
+                    "world/world_path_prediction_overlay_dots_16x16.json"
+                ],
                 "UI": [],
+                "Ui": [
+                    "ui/ui_codex_panel_900x600.json",
+                    "ui/ui_hud_balance_topbar_1920x96.json",
+                    "ui/ui_next_hold_panel_240x320.json",
+                    "ui/ui_popup_game_over_600x400.json",
+                    "ui/ui_prediction_toggle_button_40x40.json"
+                ],
                 "Items": [],
                 "Mirrors": [],
-                "Ui": [
-                    "ui/gameover_screen.json",
-                    "ui/score_display.json",
-                    "ui/_category_common.json"
-                ]
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
-                "Character": [],
-                "Obstacles": [
-                    "obstacles/cactus_large.json",
-                    "obstacles/cactus_medium.json",
-                    "obstacles/cactus_small.json",
-                    "obstacles/pterodactyl.json",
-                    "obstacles/_category_common.json"
+                "Character": [
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json",
+                    "character/art_000009.json",
+                    "character/art_000010.json"
                 ],
-                "World": [],
+                "Obstacles": [
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json"
+                ],
+                "World": [
+                    "world/art_000001.json",
+                    "world/art_000002.json",
+                    "world/art_000003.json",
+                    "world/art_000004.json",
+                    "world/art_000005.json"
+                ],
                 "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ],
                 "Items": [],
                 "Mirrors": [],
-                "Ui": [
-                    "ui/game_over_screen.json",
-                    "ui/score_display.json",
-                    "ui/_category_common.json"
-                ]
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
-                "Character": [],
-                "Obstacles": [
-                    "obstacles/cactus_large.json",
-                    "obstacles/cactus_medium.json",
-                    "obstacles/cactus_small.json",
-                    "obstacles/pterodactyl_high.json",
-                    "obstacles/pterodactyl_low.json",
-                    "obstacles/_category_common.json"
+                "Character": [
+                    "character/character_bubble_heavy_idle_4f_6fps.json",
+                    "character/character_bubble_jelly_idle_6f_8fps.json",
+                    "character/character_bubble_king_idle_10f_6fps.json",
+                    "character/character_bubble_mini_idle_4f_8fps.json",
+                    "character/character_bubble_normal_idle_6f_8fps.json"
                 ],
-                "World": [],
+                "Obstacles": [
+                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
+                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
+                    "obstacles/obstacles_rock_cell_static.json",
+                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
+                ],
+                "World": [
+                    "world/world_background_mud_loop_64x64_8f.json",
+                    "world/world_balance_axis_beam_64x448.json",
+                    "world/world_balance_meter_400x60.json",
+                    "world/world_grid_board_9x7_576x448.json",
+                    "world/world_path_prediction_overlay_dots_16x16.json"
+                ],
                 "UI": [],
+                "Ui": [
+                    "ui/ui_codex_panel_900x600.json",
+                    "ui/ui_hud_balance_topbar_1920x96.json",
+                    "ui/ui_next_hold_panel_240x320.json",
+                    "ui/ui_popup_game_over_600x400.json",
+                    "ui/ui_prediction_toggle_button_40x40.json"
+                ],
                 "Items": [],
                 "Mirrors": [],
+                "_project_common": "_project_common.json"
+            }
+        },
+        "Chrome_Dino_Runner": {
+            "1": {
+                "Character": [
+                    "character/character_player_dino_dead_static.json",
+                    "character/character_player_dino_duck_2f_12fps.json",
+                    "character/character_player_dino_idle_2f_6fps.json",
+                    "character/character_player_dino_jump_static.json",
+                    "character/character_player_dino_run_2f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_cactus_large_static.json",
+                    "obstacles/obstacles_cactus_medium_static.json",
+                    "obstacles/obstacles_cactus_small_static.json",
+                    "obstacles/obstacles_pterodactyl_fly_2f_10fps.json"
+                ],
+                "World": [
+                    "world/world_background_cloud_large_static.json",
+                    "world/world_background_cloud_small_static.json",
+                    "world/world_background_sky_fill_600x150.json",
+                    "world/world_ground_line_1200x2.json",
+                    "world/world_ground_texture_1200x10.json"
+                ],
+                "UI": [],
                 "Ui": [
-                    "ui/game_over_screen.json",
-                    "ui/score_display.json",
-                    "ui/_category_common.json"
-                ]
+                    "ui/ui_font_score_digits_10x16_0_9.json",
+                    "ui/ui_hud_score_display.json",
+                    "ui/ui_prompt_restart_text_12px.json",
+                    "ui/ui_screen_game_over_text_24px.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "2": {
+                "Character": [
+                    "character/character_player_dino_dead_static.json",
+                    "character/character_player_dino_duck_2f_12fps.json",
+                    "character/character_player_dino_idle_2f_6fps.json",
+                    "character/character_player_dino_jump_static.json",
+                    "character/character_player_dino_run_2f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_cactus_large_static.json",
+                    "obstacles/obstacles_cactus_medium_static.json",
+                    "obstacles/obstacles_cactus_small_static.json",
+                    "obstacles/obstacles_pterodactyl_fly_2f_10fps.json"
+                ],
+                "World": [
+                    "world/world_background_cloud_large_static.json",
+                    "world/world_background_cloud_small_static.json",
+                    "world/world_background_sky_fill_600x150.json",
+                    "world/world_ground_line_1200x2.json",
+                    "world/world_ground_texture_1200x10.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/ui_font_score_digits_10x16_0_9.json",
+                    "ui/ui_hud_score_display.json",
+                    "ui/ui_prompt_restart_text_12px.json",
+                    "ui/ui_screen_game_over_text_24px.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "3": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json"
+                ],
+                "World": [
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "4": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json"
+                ],
+                "World": [
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "5": {
+                "Character": [
+                    "character/character_player_dino_dead_static.json",
+                    "character/character_player_dino_duck_2f_12fps.json",
+                    "character/character_player_dino_idle_2f_6fps.json",
+                    "character/character_player_dino_jump_static.json",
+                    "character/character_player_dino_run_2f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_cactus_large_static.json",
+                    "obstacles/obstacles_cactus_medium_static.json",
+                    "obstacles/obstacles_cactus_small_static.json",
+                    "obstacles/obstacles_pterodactyl_fly_2f_10fps.json"
+                ],
+                "World": [
+                    "world/world_background_cloud_large_static.json",
+                    "world/world_background_cloud_small_static.json",
+                    "world/world_background_sky_fill_600x150.json",
+                    "world/world_ground_line_1200x2.json",
+                    "world/world_ground_texture_1200x10.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/ui_font_score_digits_10x16_0_9.json",
+                    "ui/ui_hud_score_display.json",
+                    "ui/ui_prompt_restart_text_12px.json",
+                    "ui/ui_screen_game_over_text_24px.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            }
+        },
+        "jarl_of_blizzard": {
+            "1": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "2": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "3": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "4": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "5": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            }
+        },
+        "leaf_beat": {
+            "1": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json"
+                ],
+                "World": [
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "2": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json"
+                ],
+                "World": [
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "3": {
+                "Character": [
+                    "character/character_player_leaf_hit_flash_6f_4fps.json",
+                    "character/character_player_leaf_idle_spin_8f_10fps.json",
+                    "character/character_player_leaf_left_drift_4f_12fps.json",
+                    "character/character_player_leaf_perfect_brake_glow_4f_20fps.json",
+                    "character/character_player_leaf_right_drift_4f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_branch_gate_narrow_static_240x16.json",
+                    "obstacles/obstacles_branch_gate_swaying_static_280x16.json",
+                    "obstacles/obstacles_branch_gate_wide_static_360x16.json",
+                    "obstacles/obstacles_fruit_pickup_floating_6f_10fps.json",
+                    "obstacles/obstacles_leaf_cluster_dense_4f_7fps.json"
+                ],
+                "World": [
+                    "world/world_background_sky_gradient_1280x720.json",
+                    "world/world_overlay_danger_vignette_1280x720.json",
+                    "world/world_trees_far_silhouette_1280x720.json",
+                    "world/world_trees_near_silhouette_1280x720.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/ui_beat_marker_note_glyphs_4cell.json",
+                    "ui/ui_front_end_overlay_set_4screen.json",
+                    "ui/ui_hud_strip_score_depth_hp_bpm.json",
+                    "ui/ui_judgement_popup_combo_flame_4cell.json",
+                    "ui/ui_rhythm_lane_panel_1280x160.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "4": {
+                "Character": [
+                    "character/character_player_leaf_hit_flash_invulnerability_6f_4fps.json",
+                    "character/character_player_leaf_idle_spin_8f_10fps.json",
+                    "character/character_player_leaf_left_drift_4f_12fps.json",
+                    "character/character_player_leaf_perfect_air_brake_glow_4f_20fps.json",
+                    "character/character_player_leaf_right_drift_4f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_branch_gate_narrow_240x16.json",
+                    "obstacles/obstacles_branch_gate_swaying_280x16.json",
+                    "obstacles/obstacles_branch_gate_wide_360x16.json",
+                    "obstacles/obstacles_fruit_pickup_recovery_6f_10fps.json",
+                    "obstacles/obstacles_leaf_cluster_dense_4f_7fps.json"
+                ],
+                "World": [
+                    "world/world_background_sepia_sky_1280x720.json",
+                    "world/world_danger_vignette_overlay_1280x720.json",
+                    "world/world_far_tree_silhouettes_1280x720.json",
+                    "world/world_near_tree_silhouettes_1280x720.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/ui_beat_marker_note_glyph_atlas_192x32.json",
+                    "ui/ui_frontend_overlay_states_5120x720.json",
+                    "ui/ui_hud_strip_score_depth_hp_bpm_1280x48.json",
+                    "ui/ui_judgement_combo_popup_atlas_320x64.json",
+                    "ui/ui_rhythm_lane_panel_1280x160.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "5": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json"
+                ],
+                "World": [
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "Pico_Echo": {
             "1": {
-                "_project_common": "_project_common.json",
-                "Character": [],
-                "Obstacles": [],
-                "World": [],
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json",
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json",
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json",
+                    "obstacles/art_000015.json",
+                    "obstacles/art_000016.json",
+                    "obstacles/art_000017.json",
+                    "obstacles/art_000018.json"
+                ],
+                "World": [
+                    "world/art_000019.json",
+                    "world/art_000020.json",
+                    "world/art_000021.json",
+                    "world/art_000022.json",
+                    "world/art_000023.json"
+                ],
                 "UI": [],
+                "Ui": [
+                    "ui/art_000024.json",
+                    "ui/art_000025.json",
+                    "ui/art_000026.json",
+                    "ui/art_000027.json",
+                    "ui/art_000028.json",
+                    "ui/art_000029.json",
+                    "ui/art_000030.json",
+                    "ui/art_000031.json",
+                    "ui/art_000032.json"
+                ],
                 "Items": [],
                 "Mirrors": [],
-                "Ui": [
-                    "ui/care_menu.json",
-                    "ui/happiness_bar.json",
-                    "ui/status_bubble.json",
-                    "ui/_category_common.json"
-                ]
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json",
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json",
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json",
+                    "obstacles/art_000015.json",
+                    "obstacles/art_000016.json",
+                    "obstacles/art_000017.json",
+                    "obstacles/art_000018.json"
+                ],
+                "World": [
+                    "world/art_000019.json",
+                    "world/art_000020.json",
+                    "world/art_000021.json",
+                    "world/art_000022.json",
+                    "world/art_000023.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000024.json",
+                    "ui/art_000025.json",
+                    "ui/art_000026.json",
+                    "ui/art_000027.json",
+                    "ui/art_000028.json",
+                    "ui/art_000029.json",
+                    "ui/art_000030.json",
+                    "ui/art_000031.json",
+                    "ui/art_000032.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "3": {
+                "Character": [
+                    "character/echo_dirty_3f_2fps.json",
+                    "character/echo_eating_6f_4fps.json",
+                    "character/echo_happy_8f_4fps.json",
+                    "character/echo_hungry_4f_2fps.json",
+                    "character/echo_idle_4f_2fps.json",
+                    "character/echo_preening_5f_3fps.json",
+                    "character/echo_singing_8f_4fps.json",
+                    "character/echo_sleeping_3f_1fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/cage_seed_bowl_3state.json",
+                    "obstacles/cage_water_bowl_static.json",
+                    "obstacles/effect_dust_particle_3f.json",
+                    "obstacles/effect_feather_particle_3f.json",
+                    "obstacles/effect_heart_particle_3f.json",
+                    "obstacles/effect_note_particle_4f.json",
+                    "obstacles/effect_sparkle_clean_4f.json",
+                    "obstacles/effect_zzz_particle_3f.json",
+                    "obstacles/item_poop_2x2.json",
+                    "obstacles/item_seed_3x3.json"
+                ],
+                "World": [
+                    "world/cage_background_static.json",
+                    "world/cage_bars_foreground.json",
+                    "world/cage_floor_clean_dirty_2f.json",
+                    "world/cage_perch_static.json",
+                    "world/overlay_night_dim.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/bubble_seed_request_icon.json",
+                    "ui/cursor_touch_indicator_2f.json",
+                    "ui/font_minipixel_3x5_ascii_96glyph.json",
+                    "ui/hud_happiness_bar_128x1.json",
+                    "ui/hud_relationship_label.json",
+                    "ui/icon_clean_broom.json",
+                    "ui/icon_feed_seed.json",
+                    "ui/icon_pet_hand.json",
+                    "ui/menu_care_popup_panel.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "4": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json",
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json",
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json",
+                    "obstacles/art_000015.json",
+                    "obstacles/art_000016.json",
+                    "obstacles/art_000017.json",
+                    "obstacles/art_000018.json"
+                ],
+                "World": [
+                    "world/art_000019.json",
+                    "world/art_000020.json",
+                    "world/art_000021.json",
+                    "world/art_000022.json",
+                    "world/art_000023.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000024.json",
+                    "ui/art_000025.json",
+                    "ui/art_000026.json",
+                    "ui/art_000027.json",
+                    "ui/art_000028.json",
+                    "ui/art_000029.json",
+                    "ui/art_000030.json",
+                    "ui/art_000031.json",
+                    "ui/art_000032.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "5": {
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json",
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json",
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json",
+                    "obstacles/art_000015.json",
+                    "obstacles/art_000016.json",
+                    "obstacles/art_000017.json",
+                    "obstacles/art_000018.json"
+                ],
+                "World": [
+                    "world/art_000019.json",
+                    "world/art_000020.json",
+                    "world/art_000021.json",
+                    "world/art_000022.json",
+                    "world/art_000023.json"
+                ],
+                "UI": [],
+                "Ui": [
+                    "ui/art_000024.json",
+                    "ui/art_000025.json",
+                    "ui/art_000026.json",
+                    "ui/art_000027.json",
+                    "ui/art_000028.json",
+                    "ui/art_000029.json",
+                    "ui/art_000030.json",
+                    "ui/art_000031.json",
+                    "ui/art_000032.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            }
+        }
+    },
+    "3": {
+        "Chrome_Dino_Runner": {
+            "1": {
+                "Character": [],
+                "Obstacles": [
+                    "obstacles/_category_common.json",
+                    "obstacles/cactus_large.json",
+                    "obstacles/cactus_medium.json",
+                    "obstacles/cactus_small.json",
+                    "obstacles/pterodactyl.json",
+                    "obstacles/pterodactyl_fly.json",
+                    "obstacles/pterodactyl_high.json",
+                    "obstacles/pterodactyl_low.json"
+                ],
+                "World": [],
+                "UI": [],
+                "Ui": [
+                    "ui/_category_common.json",
+                    "ui/game_over_screen.json",
+                    "ui/score_display.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "2": {
+                "Character": [],
+                "Obstacles": [
+                    "obstacles/_category_common.json",
+                    "obstacles/cactus_large.json",
+                    "obstacles/cactus_medium.json",
+                    "obstacles/cactus_small.json",
+                    "obstacles/pterodactyl_fly_high.json",
+                    "obstacles/pterodactyl_fly_low.json"
+                ],
+                "World": [],
+                "UI": [],
+                "Ui": [
+                    "ui/_category_common.json",
+                    "ui/game_over_screen.json",
+                    "ui/score_display.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "3": {
+                "Character": [],
+                "Obstacles": [
+                    "obstacles/_category_common.json",
+                    "obstacles/cactus_large.json",
+                    "obstacles/cactus_medium.json",
+                    "obstacles/cactus_small.json",
+                    "obstacles/pterodactyl_fly.json"
+                ],
+                "World": [],
+                "UI": [],
+                "Ui": [
+                    "ui/_category_common.json",
+                    "ui/gameover_screen.json",
+                    "ui/score_display.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "4": {
+                "Character": [],
+                "Obstacles": [
+                    "obstacles/_category_common.json",
+                    "obstacles/cactus_large.json",
+                    "obstacles/cactus_medium.json",
+                    "obstacles/cactus_small.json",
+                    "obstacles/pterodactyl.json"
+                ],
+                "World": [],
+                "UI": [],
+                "Ui": [
+                    "ui/_category_common.json",
+                    "ui/game_over_screen.json",
+                    "ui/score_display.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "5": {
+                "Character": [],
+                "Obstacles": [
+                    "obstacles/_category_common.json",
+                    "obstacles/cactus_large.json",
+                    "obstacles/cactus_medium.json",
+                    "obstacles/cactus_small.json",
+                    "obstacles/pterodactyl_high.json",
+                    "obstacles/pterodactyl_low.json"
+                ],
+                "World": [],
+                "UI": [],
+                "Ui": [
+                    "ui/_category_common.json",
+                    "ui/game_over_screen.json",
+                    "ui/score_display.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            }
+        },
+        "Pico_Echo": {
+            "1": {
                 "Character": [],
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [
-                    "items/poop.json",
-                    "items/seed.json",
-                    "items/_category_common.json"
-                ],
-                "Mirrors": [],
                 "Ui": [
+                    "ui/_category_common.json",
+                    "ui/care_menu.json",
+                    "ui/happiness_bar.json",
+                    "ui/status_bubble.json"
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "2": {
+                "Character": [],
+                "Obstacles": [],
+                "World": [],
+                "UI": [],
+                "Ui": [
+                    "ui/_category_common.json",
                     "ui/care_menu_clean_icon.json",
                     "ui/care_menu_feed_icon.json",
                     "ui/care_menu_pet_icon.json",
-                    "ui/happiness_bar.json",
-                    "ui/_category_common.json"
-                ]
+                    "ui/happiness_bar.json"
+                ],
+                "Items": [
+                    "items/_category_common.json",
+                    "items/poop.json",
+                    "items/seed.json"
+                ],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [],
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
+                "Ui": [
+                    "ui/_category_common.json",
+                    "ui/care_menu.json",
+                    "ui/happiness_bar.json",
+                    "ui/speech_bubble.json"
+                ],
                 "Items": [],
                 "Mirrors": [],
-                "Ui": [
-                    "ui/care_menu.json",
-                    "ui/happiness_bar.json",
-                    "ui/speech_bubble.json",
-                    "ui/_category_common.json"
-                ]
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [],
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
+                "Ui": [
+                    "ui/_category_common.json",
+                    "ui/care_menu.json",
+                    "ui/happiness_bar.json"
+                ],
                 "Items": [
+                    "items/_category_common.json",
                     "items/poop.json",
-                    "items/seed.json",
-                    "items/_category_common.json"
+                    "items/seed.json"
                 ],
                 "Mirrors": [],
-                "Ui": [
-                    "ui/care_menu.json",
-                    "ui/happiness_bar.json",
-                    "ui/_category_common.json"
-                ]
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [],
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [
-                    "items/poop.json",
-                    "items/seed.json",
-                    "items/_category_common.json"
-                ],
-                "Mirrors": [],
                 "Ui": [
+                    "ui/_category_common.json",
                     "ui/care_menu_clean.json",
                     "ui/care_menu_feed.json",
                     "ui/care_menu_pet.json",
-                    "ui/happiness_bar.json",
-                    "ui/_category_common.json"
-                ]
+                    "ui/happiness_bar.json"
+                ],
+                "Items": [
+                    "items/_category_common.json",
+                    "items/poop.json",
+                    "items/seed.json"
+                ],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         }
     },
     "4": {
         "Chrome_Dino_Runner": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_dead.json",
                     "character/player_duck.json",
@@ -215,30 +1110,31 @@ const CompleteFileManifest = {
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [],
-                "Mirrors": []
-            },
-            "2": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/player_dead.json",
-                    "character/player_duck.json",
-                    "character/player_idle.json",
-                    "character/player_jump.json",
-                    "character/player_run.json"
-                ],
-                "Obstacles": [],
-                "World": [],
-                "UI": [],
+                "Ui": [],
                 "Items": [],
                 "Mirrors": [],
+                "_project_common": "_project_common.json"
+            },
+            "2": {
+                "Character": [
+                    "character/player_dead.json",
+                    "character/player_duck.json",
+                    "character/player_idle.json",
+                    "character/player_jump.json",
+                    "character/player_run.json"
+                ],
+                "Obstacles": [],
+                "World": [],
+                "UI": [],
                 "Ui": [
                     "ui/ui_game_over_screen.json",
                     "ui/ui_score_display.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_dead.json",
                     "character/player_duck.json",
@@ -249,15 +1145,15 @@ const CompleteFileManifest = {
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_game_over_screen_spec.json",
                     "ui/ui_score_display_spec.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_dead_trial_4.json",
                     "character/player_duck_trial_4.json",
@@ -268,15 +1164,15 @@ const CompleteFileManifest = {
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_game_over_screen_mock_trial_4.json",
                     "ui/ui_score_display_mock_trial_4.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_dead.json",
                     "character/player_duck.json",
@@ -287,17 +1183,17 @@ const CompleteFileManifest = {
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/game_over_screen.json",
                     "ui/score_display.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "Pico_Echo": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_dirty_strip_120x40.json",
                     "character/echo_eating_strip_240x40.json",
@@ -311,8 +1207,6 @@ const CompleteFileManifest = {
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/status_bubble_bg_12x10.json",
                     "ui/ui_care_menu_bg_40x16.json",
@@ -321,10 +1215,12 @@ const CompleteFileManifest = {
                     "ui/ui_icon_hand_8x8.json",
                     "ui/ui_icon_seed_8x8.json",
                     "ui/ui_icon_sleep_8x8.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_dirty.json",
                     "character/echo_eating.json",
@@ -338,8 +1234,6 @@ const CompleteFileManifest = {
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/care_menu_panel.json",
                     "ui/happiness_bar_bg.json",
@@ -352,10 +1246,12 @@ const CompleteFileManifest = {
                     "ui/status_bubble_bg.json",
                     "ui/status_icon_seed.json",
                     "ui/status_icon_sleep.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_dirty.json",
                     "character/echo_eating.json",
@@ -369,8 +1265,6 @@ const CompleteFileManifest = {
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_care_icon_clean.json",
                     "ui/ui_care_icon_feed.json",
@@ -380,10 +1274,12 @@ const CompleteFileManifest = {
                     "ui/ui_status_bubble_frame.json",
                     "ui/ui_status_icon_seed.json",
                     "ui/ui_status_icon_sleep.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_dirty.json",
                     "character/echo_eating.json",
@@ -397,8 +1293,6 @@ const CompleteFileManifest = {
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_care_menu_panel.json",
                     "ui/ui_happiness_bar_bg.json",
@@ -414,10 +1308,12 @@ const CompleteFileManifest = {
                     "ui/ui_status_bubble_frame.json",
                     "ui/ui_status_icon_seed.json",
                     "ui/ui_status_icon_sleep.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_dirty_animation.json",
                     "character/echo_eating_animation.json",
@@ -431,8 +1327,6 @@ const CompleteFileManifest = {
                 "Obstacles": [],
                 "World": [],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/care_menu_panel_bg.json",
                     "ui/happiness_bar_bg.json",
@@ -446,14 +1340,16 @@ const CompleteFileManifest = {
                     "ui/status_bubble_frame.json",
                     "ui/ui_status_icon_seed.json",
                     "ui/ui_status_icon_sleep.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         }
     },
     "5": {
         "Chrome_Dino_Runner": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino_sprite_set.json"
                 ],
@@ -468,17 +1364,17 @@ const CompleteFileManifest = {
                     "world/world.ground.texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.bitmap_mono_16.json",
                     "ui/ui.game_over_screen.json",
                     "ui/ui.score_display.json",
                     "ui/ui.start_prompt.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_dino_sprite_set.json"
                 ],
@@ -491,16 +1387,16 @@ const CompleteFileManifest = {
                     "world/ground_tile.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/game_over_screen.json",
                     "ui/pixel_font_atlas.json",
                     "ui/score_display.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino_sprite_set.json"
                 ],
@@ -515,17 +1411,17 @@ const CompleteFileManifest = {
                     "world/world.ground.texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.bitmap_mono_16.json",
                     "ui/ui.game_over_screen.json",
                     "ui/ui.score_display.json",
                     "ui/ui.start_prompt.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino.json"
                 ],
@@ -543,8 +1439,6 @@ const CompleteFileManifest = {
                     "world/world.ground.texture_tile_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.effect.score_milestone_flash.json",
                     "ui/ui.font.bitmap_mono_16.json",
@@ -554,10 +1448,12 @@ const CompleteFileManifest = {
                     "ui/ui.text.start_prompt_press_space.json",
                     "ui/ui.widget.high_score_display.json",
                     "ui/ui.widget.score_display.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dead.json",
                     "character/character.player.duck.json",
@@ -579,18 +1475,18 @@ const CompleteFileManifest = {
                     "world/world.ground.texture.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.pixel_mono_16.json",
                     "ui/ui.screen.game_over.json",
                     "ui/ui.widget.score_display.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "Pico_Echo": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo_sprite_sheet.json"
                 ],
@@ -604,15 +1500,15 @@ const CompleteFileManifest = {
                     "world/world.cage_background.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font_3x5_atlas.json",
                     "ui/ui.hud_atlas.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_echo_sprite_sheet_7states_40x40.json"
                 ],
@@ -629,8 +1525,6 @@ const CompleteFileManifest = {
                     "world/world_water_bowl_12x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_care_menu_panel_44x16.json",
                     "ui/ui_hud_happiness_bar_120x2.json",
@@ -640,10 +1534,12 @@ const CompleteFileManifest = {
                     "ui/ui_pixel_font_3x5_digits_percent.json",
                     "ui/ui_status_bubble_12x10.json",
                     "ui/ui_vfx_particles_atlas_32x16.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo_sprite_sheet.json"
                 ],
@@ -661,18 +1557,18 @@ const CompleteFileManifest = {
                     "world/world.water_bowl.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.care_menu_icons_atlas.json",
                     "ui/ui.care_menu_panel.json",
                     "ui/ui.happiness_bar.json",
                     "ui/ui.pixel_font_3x5.json",
                     "ui/ui.status_bubble.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo_sprite_sheet.json"
                 ],
@@ -688,15 +1584,15 @@ const CompleteFileManifest = {
                     "world/world.vfx_zzz.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font_3x5_atlas.json",
                     "ui/ui.hud_atlas.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo_sprite_sheet.json"
                 ],
@@ -720,8 +1616,6 @@ const CompleteFileManifest = {
                     "world/world.water_bowl_set.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.care_menu_icons.json",
                     "ui/ui.hud_happiness_bar.json",
@@ -732,14 +1626,16 @@ const CompleteFileManifest = {
                     "ui/ui.pixel_font_3x5.json",
                     "ui/ui.status_bubble.json",
                     "ui/ui.thought_bubble_seed.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         }
     },
     "6": {
         "Chrome_Dino_Runner": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino_dead_static.json",
                     "character/character.player.dino_duck_2f_12fps.json",
@@ -761,16 +1657,16 @@ const CompleteFileManifest = {
                     "world/world.ground.texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.mono_digits_10x16_0-9.json",
                     "ui/ui.hud.score_display_mock.json",
                     "ui/ui.screen.game_over_text_24px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.dino.dead_static.json",
                     "character/character.dino.duck_2f_6fps.json",
@@ -792,17 +1688,17 @@ const CompleteFileManifest = {
                     "world/world.ground.line_tile_600x16.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.score_digits_5x7_10glyph.json",
                     "ui/ui.icon.restart_24x24.json",
                     "ui/ui.text.game_over_96x16.json",
                     "ui/ui.text.hi_label_16x7.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player_dino.dead_static.json",
                     "character/character.player_dino.duck_2f_12fps.json",
@@ -821,15 +1717,15 @@ const CompleteFileManifest = {
                     "world/world.ground.line_1200x2_scroll.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.score_display_5digit_font16.json",
                     "ui/ui.screen.game_over_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.dino.duck_2f_10fps.json",
                     "character/character.dino.jump_static.json",
@@ -846,17 +1742,17 @@ const CompleteFileManifest = {
                     "world/world.sky.day_static.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.banner.game_over.json",
                     "ui/ui.button.restart_icon.json",
                     "ui/ui.font.digits_5x7_10glyph.json",
                     "ui/ui.hud.score_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino_dead.json",
                     "character/character.player.dino_duck.json",
@@ -878,19 +1774,19 @@ const CompleteFileManifest = {
                     "world/world.ground.texture_tile.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.pixel_mono_16.json",
                     "ui/ui.game_over.game_over_text.json",
                     "ui/ui.game_over.press_space_prompt.json",
                     "ui/ui.hud.score_display.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "cosmos_heracles": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.boss.hydra_attack_alternate.json",
                     "character/character.boss.hydra_idle.json",
@@ -923,8 +1819,6 @@ const CompleteFileManifest = {
                     "world/world.tileset.cosmic_temple_tileset_16x16_atlas.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.counter_gauge_radial_128px.json",
                     "ui/ui.hud.counter_ready_banner_256x64_3state.json",
@@ -932,10 +1826,12 @@ const CompleteFileManifest = {
                     "ui/ui.hud.top_bar_hp_score_zone_1600x64.json",
                     "ui/ui.screen.pause_menu_panel_480x270.json",
                     "ui/ui.screen.title_logo_512x256.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/enemy_medusa_float_attack.json",
                     "character/enemy_slime_bounce.json",
@@ -956,17 +1852,17 @@ const CompleteFileManifest = {
                     "world/star_floor_strip.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/feedback_counter_popup.json",
                     "ui/hud_topbar.json",
                     "ui/icons_size_state.json",
                     "ui/widget_counter_gauge.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.enemy.cerberus.json",
                     "character/character.enemy.cyclops.json",
@@ -993,8 +1889,6 @@ const CompleteFileManifest = {
                     "world/world.ground.star_floor_tile.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.counter.gauge_ring.json",
                     "ui/ui.counter.result_popup_counter.json",
@@ -1009,10 +1903,12 @@ const CompleteFileManifest = {
                     "ui/ui.screen.pause_overlay.json",
                     "ui/ui.screen.title_logo.json",
                     "ui/ui.screen.zone_clear_banner.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.boss.cyclops_idle_attack.json",
                     "character/character.enemy.slime_bounce.json",
@@ -1031,16 +1927,16 @@ const CompleteFileManifest = {
                     "world/world.floor.star_floor_strip.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.counter_gauge.json",
                     "ui/ui.hud.hp_hearts_row.json",
                     "ui/ui.popup.counter_result.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.boss.cyclops.json",
                     "character/character.boss.hydra.json",
@@ -1067,8 +1963,6 @@ const CompleteFileManifest = {
                     "world/world.tileset.temple_marble.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.atlas.core.json",
                     "ui/ui.hud.core.json",
@@ -1080,12 +1974,14 @@ const CompleteFileManifest = {
                     "ui/ui.screen.title.json",
                     "ui/ui.screen.zone_clear.json",
                     "ui/ui.widget.counter_gauge.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "jarl_of_blizzard": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.jarl_portrait_sheet_64_4f.json",
                     "character/character.unit.warrior_idle_sheet_32x48_4f.json"
@@ -1111,8 +2007,6 @@ const CompleteFileManifest = {
                     "world/world.tiles.snow_ground_16_atlas.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.banner.execution_queue_600x80.json",
                     "ui/ui.bar.memory_timer_560x12_sheet_2f.json",
@@ -1129,10 +2023,12 @@ const CompleteFileManifest = {
                     "ui/ui.panel.results_800x500.json",
                     "ui/ui.panel.village_status_300x400.json",
                     "ui/ui.typography.bitmap_font_bw_8px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_jarl_portrait_64.json"
                 ],
@@ -1141,11 +2037,12 @@ const CompleteFileManifest = {
                 ],
                 "World": [],
                 "UI": [],
+                "Ui": [],
                 "Items": [],
-                "Mirrors": []
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.jarl_portrait_sheet_64_4f.json",
                     "character/character.unit.warrior_idle_sheet_32x48_4f.json"
@@ -1161,17 +2058,17 @@ const CompleteFileManifest = {
                     "world/world.tiles.snow_ground_16_atlas.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.cursor.pointer_bw_16.json",
                     "ui/ui.hud.winter_round_bw_panels_atlas.json",
                     "ui/ui.icons.resources_24_set_6.json",
                     "ui/ui.typography.bitmap_font_bw_8px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.jarl_portrait_sheet_64_4f.json",
                     "character/character.unit.warrior_idle_sheet_32x48_4f.json"
@@ -1187,18 +2084,18 @@ const CompleteFileManifest = {
                     "world/world.tiles.snow_ground_16_atlas.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.cursor.pointer_bw_16.json",
                     "ui/ui.hud.queue_step_banner_480x64_2state.json",
                     "ui/ui.hud.winter_round_bw_panels_atlas.json",
                     "ui/ui.icons.resources_24_set_6.json",
                     "ui/ui.typography.bitmap_font_bw_8px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.npc.trader_portrait_64.json",
                     "character/character.player.jarl_portrait_sheet_64_4f.json",
@@ -1218,8 +2115,6 @@ const CompleteFileManifest = {
                     "world/world.tiles.snow_ground_16_atlas.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.cursor.pointer_bw_16.json",
                     "ui/ui.hud.queue_step_banner_480x64_2state.json",
@@ -1229,12 +2124,14 @@ const CompleteFileManifest = {
                     "ui/ui.modal.trade_offer_panel_640x360.json",
                     "ui/ui.panel.memory_queue_360x220.json",
                     "ui/ui.typography.bitmap_font_bw_8px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "olympus_step": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.god_idle.json",
                     "character/character.player.god_teleport.json"
@@ -1256,8 +2153,6 @@ const CompleteFileManifest = {
                     "world/world.grid.tile_stone_ivory.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.confirm.json",
                     "ui/ui.button.reset_path.json",
@@ -1269,10 +2164,12 @@ const CompleteFileManifest = {
                     "ui/ui.popup.clear.json",
                     "ui/ui.popup.evolution.json",
                     "ui/ui.popup.failure.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.god.idle_4f_5fps.json",
                     "character/character.god.teleport_6f_20fps.json",
@@ -1300,8 +2197,6 @@ const CompleteFileManifest = {
                     "world/world.tile.stone_shadow_64x64.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.confirm_180x50_hover.json",
                     "ui/ui.button.confirm_180x50_normal.json",
@@ -1316,10 +2211,12 @@ const CompleteFileManifest = {
                     "ui/ui.popup.clear_400x250.json",
                     "ui/ui.popup.evolution_480x280.json",
                     "ui/ui.popup.failure_400x200.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.god_idle_sheet_48_4f.json",
                     "character/character.player.god_teleport_sheet_48_6f.json"
@@ -1336,18 +2233,18 @@ const CompleteFileManifest = {
                     "world/world.tiles.olympus_grid_64_atlas.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.confirm_button_180x50_2state.json",
                     "ui/ui.hud.right_stats_panel_180x520.json",
                     "ui/ui.hud.stage_banner_top_200x40.json",
                     "ui/ui.icons.hazard_item_icons_24_set_12.json",
                     "ui/ui.typography.pixel_font_8px_olympus.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.olympian_god_idle_sheet_48_4f.json",
                     "character/character.player.olympian_god_teleport_sheet_48_6f.json",
@@ -1368,8 +2265,6 @@ const CompleteFileManifest = {
                     "world/world.tiles.marble_grid_64_atlas.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.confirm_button_180x50_2state.json",
                     "ui/ui.hud.reset_button_120x36_2state.json",
@@ -1377,10 +2272,12 @@ const CompleteFileManifest = {
                     "ui/ui.overlay.path_link_dash_64_sheet_6f.json",
                     "ui/ui.overlay.path_tile_numbers_20_atlas.json",
                     "ui/ui.typography.parchment_bitmap_font_8px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.last_god_idle.json",
                     "character/character.player.last_god_teleport.json"
@@ -1403,8 +2300,6 @@ const CompleteFileManifest = {
                     "world/world.grid.tileset_marble_stone.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.confirm.json",
                     "ui/ui.button.reset_path.json",
@@ -1417,12 +2312,14 @@ const CompleteFileManifest = {
                     "ui/ui.popup.failure.json",
                     "ui/ui.screen.stage_select.json",
                     "ui/ui.screen.title.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "Pico_Echo": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.idle_4f_2fps.json"
                 ],
@@ -1433,15 +2330,15 @@ const CompleteFileManifest = {
                     "world/world.cage.background_static.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.minipixel_3x5_ascii_96glyph.json",
                     "ui/ui.hud.happiness_bar_128x1.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.dirty_3f_2fps.json",
                     "character/character.echo.eating_6f_4fps.json",
@@ -1472,8 +2369,6 @@ const CompleteFileManifest = {
                     "world/world.overlay.night_dim.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.bubble.seed_request_icon.json",
                     "ui/ui.cursor.touch_indicator_2f.json",
@@ -1484,10 +2379,12 @@ const CompleteFileManifest = {
                     "ui/ui.icon.feed_seed.json",
                     "ui/ui.icon.pet_hand.json",
                     "ui/ui.menu.care_popup_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.dirty_3f_2fps.json",
                     "character/character.echo.eating_6f_4fps.json",
@@ -1518,8 +2415,6 @@ const CompleteFileManifest = {
                     "world/world.overlay.night_dim.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.bubble.seed_request_icon.json",
                     "ui/ui.cursor.touch_indicator_2f.json",
@@ -1530,10 +2425,12 @@ const CompleteFileManifest = {
                     "ui/ui.icon.feed_seed.json",
                     "ui/ui.icon.pet_hand.json",
                     "ui/ui.menu.care_popup_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.idle.json"
                 ],
@@ -1544,14 +2441,14 @@ const CompleteFileManifest = {
                     "world/world.cage.interior_base.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.happiness_bar.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.idle_4f_2fps.json"
                 ],
@@ -1562,16 +2459,16 @@ const CompleteFileManifest = {
                     "world/world.cage.background_static.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.icon.feed_seed.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "ricochet_conspiracy": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.noble.boss_idle.json",
                     "character/character.noble.guard_idle.json",
@@ -1602,8 +2499,6 @@ const CompleteFileManifest = {
                     "world/world.bg.court_hall_mid.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.hint.json",
                     "ui/ui.button.menu.json",
@@ -1615,10 +2510,12 @@ const CompleteFileManifest = {
                     "ui/ui.screen.clear_result_overlay.json",
                     "ui/ui.screen.fail_overlay.json",
                     "ui/ui.toast.message_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.boss_noble.idle_8f_3fps.json",
                     "character/character.guard_noble.patrol_6f_6fps.json",
@@ -1641,18 +2538,18 @@ const CompleteFileManifest = {
                     "world/world.stage.floor_marble_tile_64.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.bottom_control_bar_layout_1280x50.json",
                     "ui/ui.hud.top_bar_layout_1280x50.json",
                     "ui/ui.icon.hud_buttons_atlas_hint_restart_menu.json",
                     "ui/ui.popup.toast_remove_text.json",
                     "ui/ui.vfx.trajectory_prediction_dots.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.noble.basic_idle_6f_4fps.json",
                     "character/character.noble.boss_idle_8f_4fps.json",
@@ -1684,8 +2581,6 @@ const CompleteFileManifest = {
                     "world/world.foreground.floor_tileset_puzzle_16px_256.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.hint_60x24_2state.json",
                     "ui/ui.button.restart_60x24.json",
@@ -1696,10 +2591,12 @@ const CompleteFileManifest = {
                     "ui/ui.hud.moves_counter_120x24.json",
                     "ui/ui.hud.top_bar_frame_1280x50.json",
                     "ui/ui.overlay.clear_results_panel_400x300.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.noble.boss_idle_6f_6fps.json",
                     "character/character.noble.guard_patrol_6f_8fps.json",
@@ -1734,8 +2631,6 @@ const CompleteFileManifest = {
                     "world/world.stage.playfield_frame_1280x620.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.hint_32.json",
                     "ui/ui.button.menu_32.json",
@@ -1746,10 +2641,12 @@ const CompleteFileManifest = {
                     "ui/ui.widget.angle_readout.json",
                     "ui/ui.widget.moves_counter.json",
                     "ui/ui.widget.power_slider_240x24.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.noble.boss_idle_6f_4fps.json",
                     "character/character.noble.standard_idle_6f_4fps.json"
@@ -1766,21 +2663,21 @@ const CompleteFileManifest = {
                     "world/world.stage.courtroom_background_parallax_3layer.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.controls.bottom_bar_1280x50.json",
                     "ui/ui.font.court_serif_16px_ascii_96glyph.json",
                     "ui/ui.hud.top_bar_1280x50.json",
                     "ui/ui.icon.hint_24x24.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         }
     },
     "7": {
         "Chrome_Dino_Runner": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino_dead_static.json",
                     "character/character.player.dino_duck_2f_12fps.json",
@@ -1802,16 +2699,16 @@ const CompleteFileManifest = {
                     "world/world.ground.texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.mono_digits_10x16_0-9.json",
                     "ui/ui.hud.score_display_mock.json",
                     "ui/ui.screen.game_over_text_24px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino_dead_static.json",
                     "character/character.player.dino_duck_2f_12fps.json",
@@ -1833,17 +2730,17 @@ const CompleteFileManifest = {
                     "world/world.ground.texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.score_digits_10x16_0_9.json",
                     "ui/ui.hud.score_display.json",
                     "ui/ui.prompt.restart_text_12px.json",
                     "ui/ui.screen.game_over_text_24px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino_dead_static.json",
                     "character/character.player.dino_duck_2f_12fps.json",
@@ -1865,16 +2762,16 @@ const CompleteFileManifest = {
                     "world/world.ground.texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.mono_digits_10x16_0-9.json",
                     "ui/ui.hud.score_display_mock.json",
                     "ui/ui.screen.game_over_text_24px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino_air_pose.json",
                     "character/character.player.dino_crash_pose.json",
@@ -1894,17 +2791,17 @@ const CompleteFileManifest = {
                     "world/world.sky_day_field.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.banner.game_over_message.json",
                     "ui/ui.font.score_digits.json",
                     "ui/ui.hud.score_rack.json",
                     "ui/ui.prompt.restart_hint.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.dino_dead_static.json",
                     "character/character.player.dino_duck_2f_12fps.json",
@@ -1926,19 +2823,19 @@ const CompleteFileManifest = {
                     "world/world.ground.texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.mono_digits_10x16_0-9.json",
                     "ui/ui.hud.score_display_mock.json",
                     "ui/ui.screen.game_over_text_24px.json",
                     "ui/ui.screen.restart_prompt_300x12.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "cosmos_heracles": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.boss.cyclops_state_sheet.json",
                     "character/character.boss.hydra_state_sheet.json",
@@ -1963,18 +2860,18 @@ const CompleteFileManifest = {
                     "world/world.floor.star_floor_strip.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.counter_gauge.json",
                     "ui/ui.hud.hp_hearts_row.json",
                     "ui/ui.hud.score_zone_header.json",
                     "ui/ui.hud.size_state_indicator.json",
                     "ui/ui.popup.counter_result.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.enemy.cerberus_sheet.json",
                     "character/character.enemy.cyclops_sheet.json",
@@ -2002,8 +2899,6 @@ const CompleteFileManifest = {
                     "world/world.zone3.altar_variant.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.ingame_layout.json",
                     "ui/ui.icons.size_state_set.json",
@@ -2014,10 +2909,12 @@ const CompleteFileManifest = {
                     "ui/ui.screen.title_logo.json",
                     "ui/ui.widget.counter_gauge_base.json",
                     "ui/ui.widget.counter_gauge_ready_variant.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.boss.cyclops.json",
                     "character/character.boss.hydra.json",
@@ -2044,8 +2941,6 @@ const CompleteFileManifest = {
                     "world/world.ground.star_floor_strip.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.hp_hearts.json",
                     "ui/ui.hud.score_zone_strip.json",
@@ -2054,10 +2949,12 @@ const CompleteFileManifest = {
                     "ui/ui.screen.state_overlays.json",
                     "ui/ui.screen.title_logo.json",
                     "ui/ui.widget.counter_gauge_ring.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.boss.hydra_dualhead_sheet.json",
                     "character/character.enemy.cerberus_chase_sheet.json",
@@ -2083,8 +2980,6 @@ const CompleteFileManifest = {
                     "world/world.tileset.cosmic_temple_atlas_16x16.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.counter_gauge_radial_48px.json",
                     "ui/ui.hud.counter_result_popup_320x64.json",
@@ -2095,10 +2990,12 @@ const CompleteFileManifest = {
                     "ui/ui.screen.pause_menu_panel_480x270.json",
                     "ui/ui.screen.title_logo_512x256.json",
                     "ui/ui.screen.zone_clear_banner_640x160.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.boss.hydra_dualhead_sheet.json",
                     "character/character.enemy.cerberus_chase_sheet.json",
@@ -2124,8 +3021,6 @@ const CompleteFileManifest = {
                     "world/world.tileset.cosmic_temple_atlas_16x16.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.counter_gauge_radial_48px.json",
                     "ui/ui.hud.counter_result_popup_320x64.json",
@@ -2136,12 +3031,14 @@ const CompleteFileManifest = {
                     "ui/ui.screen.pause_menu_panel_480x270.json",
                     "ui/ui.screen.title_logo_512x256.json",
                     "ui/ui.screen.zone_clear_banner_640x160.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "olympus_step": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.god.idle_4f_5fps.json",
                     "character/character.god.teleport_6f_20fps.json",
@@ -2170,8 +3067,6 @@ const CompleteFileManifest = {
                     "world/world.tile.stone_shadow_64x64.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.confirm_180x50_hover.json",
                     "ui/ui.button.confirm_180x50_normal.json",
@@ -2188,10 +3083,12 @@ const CompleteFileManifest = {
                     "ui/ui.popup.clear_400x250.json",
                     "ui/ui.popup.evolution_480x280.json",
                     "ui/ui.popup.failure_400x200.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.god.idle_4f_5fps.json",
                     "character/character.god.teleport_6f_20fps.json",
@@ -2220,8 +3117,6 @@ const CompleteFileManifest = {
                     "world/world.tile.stone_shadow_64x64.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.confirm_180x50_hover.json",
                     "ui/ui.button.confirm_180x50_normal.json",
@@ -2238,10 +3133,12 @@ const CompleteFileManifest = {
                     "ui/ui.popup.clear_400x250.json",
                     "ui/ui.popup.evolution_480x280.json",
                     "ui/ui.popup.failure_400x200.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.god.idle_4f_5fps.json",
                     "character/character.god.teleport_6f_20fps.json",
@@ -2270,8 +3167,6 @@ const CompleteFileManifest = {
                     "world/world.tile.stone_shadow_64x64.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.confirm_180x50_hover.json",
                     "ui/ui.button.confirm_180x50_normal.json",
@@ -2288,10 +3183,12 @@ const CompleteFileManifest = {
                     "ui/ui.popup.clear_400x250.json",
                     "ui/ui.popup.evolution_480x280.json",
                     "ui/ui.popup.failure_400x200.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.last_olympian_god_idle_sheet_48_4f.json",
                     "character/character.player.last_olympian_god_teleport_sheet_48_6f.json",
@@ -2312,8 +3209,6 @@ const CompleteFileManifest = {
                     "world/world.tiles.marble_grid_64_atlas.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.confirm_button_180x50_2state.json",
                     "ui/ui.hud.reset_button_120x36_2state.json",
@@ -2321,10 +3216,12 @@ const CompleteFileManifest = {
                     "ui/ui.overlay.path_link_dash_64_sheet_6f.json",
                     "ui/ui.overlay.path_tile_numbers_20_atlas.json",
                     "ui/ui.typography.parchment_bitmap_font_8px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.player.last_god_idle.json",
                     "character/character.player.last_god_teleport.json"
@@ -2347,8 +3244,6 @@ const CompleteFileManifest = {
                     "world/world.grid.tileset_marble_stone.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.confirm.json",
                     "ui/ui.button.reset_path.json",
@@ -2361,12 +3256,14 @@ const CompleteFileManifest = {
                     "ui/ui.popup.failure.json",
                     "ui/ui.screen.stage_select.json",
                     "ui/ui.screen.title.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "Pico_Echo": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.dirty_3f_2fps.json",
                     "character/character.echo.eating_6f_4fps.json",
@@ -2397,8 +3294,6 @@ const CompleteFileManifest = {
                     "world/world.overlay.night_dim.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.bubble.seed_request_icon.json",
                     "ui/ui.cursor.touch_indicator_2f.json",
@@ -2409,10 +3304,12 @@ const CompleteFileManifest = {
                     "ui/ui.icon.feed_seed.json",
                     "ui/ui.icon.pet_hand.json",
                     "ui/ui.menu.care_popup_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.dirty_3f_2fps.json",
                     "character/character.echo.eating_6f_4fps.json",
@@ -2443,8 +3340,6 @@ const CompleteFileManifest = {
                     "world/world.overlay.night_dim.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.bubble.seed_request_icon.json",
                     "ui/ui.cursor.touch_indicator_2f.json",
@@ -2455,10 +3350,12 @@ const CompleteFileManifest = {
                     "ui/ui.icon.feed_seed.json",
                     "ui/ui.icon.pet_hand.json",
                     "ui/ui.menu.care_popup_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.dirty_3f_2fps.json",
                     "character/character.echo.eating_6f_4fps.json",
@@ -2489,8 +3386,6 @@ const CompleteFileManifest = {
                     "world/world.overlay.night_dim.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.bubble.seed_request_icon.json",
                     "ui/ui.cursor.touch_indicator_2f.json",
@@ -2501,10 +3396,12 @@ const CompleteFileManifest = {
                     "ui/ui.icon.feed_seed.json",
                     "ui/ui.icon.pet_hand.json",
                     "ui/ui.menu.care_popup_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.dirty_3f_2fps.json",
                     "character/character.echo.eating_6f_4fps.json",
@@ -2535,8 +3432,6 @@ const CompleteFileManifest = {
                     "world/world.overlay.night_dim.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.bubble.seed_request_icon.json",
                     "ui/ui.cursor.touch_indicator_2f.json",
@@ -2547,10 +3442,12 @@ const CompleteFileManifest = {
                     "ui/ui.icon.feed_seed.json",
                     "ui/ui.icon.pet_hand.json",
                     "ui/ui.menu.care_popup_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.echo.affection_rest_sheet_20f.json",
                     "character/character.echo.behavior_core_sheet_21f.json"
@@ -2564,18 +3461,18 @@ const CompleteFileManifest = {
                     "world/world.cage.room_shell_static.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.hud.happiness_bar_states.json",
                     "ui/ui.menu.care_popup_icons.json",
                     "ui/ui.widget.status_bubble_set.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "ricochet_conspiracy": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.noble.boss_command_sheet.json",
                     "character/character.noble.guard_patrol_sheet.json",
@@ -2601,8 +3498,6 @@ const CompleteFileManifest = {
                     "world/world.foreground.marble_floor_strip.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.font.serif_bitmap_16px_ascii96.json",
                     "ui/ui.hud.bottom_control_bar.json",
@@ -2610,10 +3505,12 @@ const CompleteFileManifest = {
                     "ui/ui.overlay.trajectory_dot_tile.json",
                     "ui/ui.screen.clear_overlay_card.json",
                     "ui/ui.screen.fail_overlay_card.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.noble.boss_command_sheet.json",
                     "character/character.noble.guard_patrol_sheet.json",
@@ -2643,8 +3540,6 @@ const CompleteFileManifest = {
                     "world/world.prop.curtain_banner_sheet.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.hint_square.json",
                     "ui/ui.button.menu_square.json",
@@ -2658,10 +3553,12 @@ const CompleteFileManifest = {
                     "ui/ui.screen.clear_overlay_card.json",
                     "ui/ui.screen.fail_overlay_card.json",
                     "ui/ui.toast.system_message_card.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.noble_basic.json",
                     "character/character.noble_boss.json",
@@ -2688,8 +3585,6 @@ const CompleteFileManifest = {
                     "world/world.foreground.floor_tiles.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.hint.json",
                     "ui/ui.control.power_slider.json",
@@ -2697,10 +3592,12 @@ const CompleteFileManifest = {
                     "ui/ui.hud.top_bar.json",
                     "ui/ui.overlay.trajectory_guide.json",
                     "ui/ui.screen.result_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.noble.boss_idle_6f_6fps.json",
                     "character/character.noble.guard_patrol_6f_8fps.json",
@@ -2735,8 +3632,6 @@ const CompleteFileManifest = {
                     "world/world.stage.playfield_frame_1280x620.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.hint_32.json",
                     "ui/ui.button.menu_32.json",
@@ -2747,10 +3642,12 @@ const CompleteFileManifest = {
                     "ui/ui.widget.angle_readout.json",
                     "ui/ui.widget.moves_counter.json",
                     "ui/ui.widget.power_slider_240x24.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character.noble.boss_idle_6f_4fps.json",
                     "character/character.noble.guard_patrol_6f_6fps.json",
@@ -2778,8 +3675,6 @@ const CompleteFileManifest = {
                     "world/world.effect.candle_glow_radial_160x160.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui.button.hint_60x24.json",
                     "ui/ui.button.menu_60x24.json",
@@ -2790,14 +3685,16 @@ const CompleteFileManifest = {
                     "ui/ui.overlay.trajectory_dotted_line_640x96.json",
                     "ui/ui.screen.clear_overlay_400x300.json",
                     "ui/ui.screen.fail_overlay_320x200.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         }
     },
     "8": {
         "Chrome_Dino_Runner": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/dino_air_pose.json",
                     "character/dino_crash_pose.json",
@@ -2817,17 +3714,17 @@ const CompleteFileManifest = {
                     "world/sky_day_field.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/game_over_message.json",
                     "ui/restart_hint_label.json",
                     "ui/score_digits_font.json",
                     "ui/score_rack_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_player_dino_dead_static.json",
                     "character/character_player_dino_duck_2f_12fps.json",
@@ -2849,17 +3746,17 @@ const CompleteFileManifest = {
                     "world/world_ground_texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_font_score_digits_10x16_0_9.json",
                     "ui/ui_hud_score_display.json",
                     "ui/ui_prompt_restart_text_12px.json",
                     "ui/ui_screen_game_over_text_24px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_dino_dead_static.json",
                     "character/player_dino_duck_2f_12fps.json",
@@ -2881,16 +3778,16 @@ const CompleteFileManifest = {
                     "world/world_ground_texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_font_score_digits_10x16_0_9.json",
                     "ui/ui_hud_score_display.json",
                     "ui/ui_screen_game_over_text_24px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_player_dino_dead_static.json",
                     "character/character_player_dino_duck_2f_12fps.json",
@@ -2912,17 +3809,17 @@ const CompleteFileManifest = {
                     "world/world_ground_texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_font_mono_digits_10x16_0_9.json",
                     "ui/ui_hud_score_display_mock.json",
                     "ui/ui_screen_game_over_text_24px.json",
                     "ui/ui_screen_restart_prompt_300x12.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_player_dino_dead_static.json",
                     "character/character_player_dino_duck_2f_12fps.json",
@@ -2944,19 +3841,19 @@ const CompleteFileManifest = {
                     "world/world_ground_texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_font_mono_digits_10x16_0_9.json",
                     "ui/ui_hud_score_display_mock.json",
                     "ui/ui_screen_game_over_text_24px.json",
                     "ui/ui_screen_restart_prompt_300x12.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "Pico_Echo": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_dirty_3f_2fps.json",
                     "character/echo_eating_6f_4fps.json",
@@ -2987,8 +3884,6 @@ const CompleteFileManifest = {
                     "world/overlay_night_dim.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/bubble_seed_request_icon.json",
                     "ui/cursor_touch_indicator_2f.json",
@@ -2999,10 +3894,12 @@ const CompleteFileManifest = {
                     "ui/icon_feed_seed.json",
                     "ui/icon_pet_hand.json",
                     "ui/menu_care_popup_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_echo_idle_4f_2fps.json"
                 ],
@@ -3013,14 +3910,14 @@ const CompleteFileManifest = {
                     "world/world_cage_background_static.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_hud_happiness_bar_128x1.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_dirty_3f_2fps.json",
                     "character/echo_eating_6f_4fps.json",
@@ -3051,8 +3948,6 @@ const CompleteFileManifest = {
                     "world/night_dim_overlay.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/care_icon_clean_broom.json",
                     "ui/care_icon_feed_seed.json",
@@ -3063,10 +3958,12 @@ const CompleteFileManifest = {
                     "ui/relationship_label.json",
                     "ui/seed_request_bubble_icon.json",
                     "ui/touch_indicator_2f.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_dirty_3f_2fps.json",
                     "character/echo_eating_6f_4fps.json",
@@ -3097,8 +3994,6 @@ const CompleteFileManifest = {
                     "world/night_dim_overlay.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/care_icon_clean_broom.json",
                     "ui/care_icon_feed_seed.json",
@@ -3109,10 +4004,12 @@ const CompleteFileManifest = {
                     "ui/relationship_label.json",
                     "ui/seed_request_bubble_icon.json",
                     "ui/touch_indicator_2f.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_echo_affection_rest_sheet_20f.json",
                     "character/character_echo_behavior_core_sheet_21f.json"
@@ -3126,18 +4023,18 @@ const CompleteFileManifest = {
                     "world/world_cage_room_shell_static.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_hud_happiness_bar_states.json",
                     "ui/ui_menu_care_popup_icons.json",
                     "ui/ui_widget_status_bubble_set.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "reflect_academy": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/enemy_caster_duel_loop.json",
                     "character/player_duelist_idle_loop.json",
@@ -3155,18 +4052,18 @@ const CompleteFileManifest = {
                     "world/podium_window_set.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/combo_damage_popup_sheet.json",
                     "ui/duel_hud_hp_panels.json",
                     "ui/hand_card_frame_sheet.json",
                     "ui/spell_forecast_icon_sheet.json",
                     "ui/timing_bar_precision_strip.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_champion_caster_core_sheet.json",
                     "character/character_student_reflector_core_sheet.json"
@@ -3180,17 +4077,17 @@ const CompleteFileManifest = {
                     "world/world_spell_lane_reflection_line.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_card_hand_conversion_set.json",
                     "ui/ui_duel_hud_bars_round_panel.json",
                     "ui/ui_reward_card_pick_panel.json",
                     "ui/ui_timing_bar_judgement_strip.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/enemy_champion_cast_6f_12fps.json",
                     "character/enemy_champion_defeated_8f_8fps.json",
@@ -3213,18 +4110,18 @@ const CompleteFileManifest = {
                     "world/world_spell_lane_overlay_960x220.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_enemy_forecast_icon_atlas_8x40.json",
                     "ui/ui_hand_card_strip_5x80x120.json",
                     "ui/ui_hp_bars_dual_440x32.json",
                     "ui/ui_round_combo_panel_180x64.json",
                     "ui/ui_timing_bar_600x30.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/rival_champion_state_sheet.json",
                     "character/student_reflector_state_sheet.json"
@@ -3240,21 +4137,21 @@ const CompleteFileManifest = {
                     "world/duel_floor_cast_lane.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/battle_hud_resource_panel.json",
                     "ui/card_frame_state_sheet.json",
                     "ui/combo_damage_popup_sheet.json",
                     "ui/timing_reflection_judgement_bar.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_enemy_duelist_cast_6f_8fps.json",
-                    "character/character_player_reflector_idle_8f_6fps.json",
-                    "character/character_player_reflect_cast_6f_10fps.json"
+                    "character/character_player_reflect_cast_6f_10fps.json",
+                    "character/character_player_reflector_idle_8f_6fps.json"
                 ],
                 "Obstacles": [
                     "obstacles/obstacles_fire_spell_projectile_6f_12fps.json",
@@ -3265,19 +4162,19 @@ const CompleteFileManifest = {
                     "world/world_reflection_lane_1600x180.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_attribute_warning_icon_40x40.json",
                     "ui/ui_battle_hud_bars_520x160.json",
                     "ui/ui_hand_card_strip_440x140.json",
                     "ui/ui_timing_bar_600x30.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "slip_down": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_prisoner_brake_left_2f_6fps.json",
                     "character/player_prisoner_brake_right_2f_6fps.json",
@@ -3298,17 +4195,17 @@ const CompleteFileManifest = {
                     "world/world_friction_tilekit_16px.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_friction_gauge_240x8.json",
                     "ui/ui_hp_torch_strip_3slot_24x8.json",
                     "ui/ui_pause_and_result_panels_320x180.json",
                     "ui/ui_survival_timer_48x16.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_prisoner_fall_4f_8fps.json",
                     "character/character_prisoner_hit_flash_2f_12fps.json",
@@ -3328,18 +4225,18 @@ const CompleteFileManifest = {
                     "world/world_safe_ledge_32x8.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_font_press_start_2p_8px_ascii_45glyph.json",
                     "ui/ui_friction_gauge_5state_240x8.json",
                     "ui/ui_hp_torch_strip_4state_24x8.json",
                     "ui/ui_state_overlay_panels_3state_200x120.json",
                     "ui/ui_timer_panel_mmss_64x12.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_prisoner_brake_left_2f_6fps.json",
                     "character/player_prisoner_brake_right_2f_6fps.json",
@@ -3360,17 +4257,17 @@ const CompleteFileManifest = {
                     "world/world_friction_tilekit_16px.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_friction_gauge_240x8.json",
                     "ui/ui_hp_torch_strip_3slot_24x8.json",
                     "ui/ui_pause_and_result_panels_320x180.json",
                     "ui/ui_survival_timer_48x16.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/prisoner_descent_state_sheet.json"
                 ],
@@ -3387,16 +4284,16 @@ const CompleteFileManifest = {
                     "world/friction_surface_tileset.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/friction_meter_bar.json",
                     "ui/pause_game_over_overlay_sheet.json",
                     "ui/survival_hud_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_prisoner_fall_4f_8fps.json",
                     "character/character_prisoner_hurt_flash_2f_12fps.json",
@@ -3416,8 +4313,6 @@ const CompleteFileManifest = {
                     "world/world_stone_wall_high_friction_strip.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_clear_summary_panel.json",
                     "ui/ui_friction_gauge_bar.json",
@@ -3425,12 +4320,14 @@ const CompleteFileManifest = {
                     "ui/ui_hp_torch_icons.json",
                     "ui/ui_pause_overlay_panel.json",
                     "ui/ui_survival_timer_digits_8px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "umbra_scale": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_clone_idle_4f_8fps.json",
                     "character/player_umbra_exposure_5f_12fps.json",
@@ -3453,8 +4350,6 @@ const CompleteFileManifest = {
                     "world/world_tower_tilekit_32px.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_clear_rank_panel_480x270.json",
                     "ui/ui_exposure_gauge_160x12.json",
@@ -3462,10 +4357,12 @@ const CompleteFileManifest = {
                     "ui/ui_hp_and_echo_tokens_sheet_192x32.json",
                     "ui/ui_light_path_preview_overlay_1920x1080.json",
                     "ui/ui_scale_balance_floater_176x40.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_echo_idle_4f_6fps.json",
                     "character/character_umbra_exposure_5f_10fps.json",
@@ -3486,18 +4383,18 @@ const CompleteFileManifest = {
                     "world/world_shadow_safe_zone_overlay_96x96_static.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_floor_timer_header_320x64.json",
                     "ui/ui_hp_exposure_panel_220x56.json",
                     "ui/ui_light_preview_overlay_1920x1080.json",
                     "ui/ui_scale_weight_indicator_180x48.json",
                     "ui/ui_shadow_rank_clear_panel_480x240.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_echo_anchor_idle_4f_4fps.json",
                     "character/player_umbra_exposure_5f_10fps.json",
@@ -3520,8 +4417,6 @@ const CompleteFileManifest = {
                     "world/world_tower_chamber_backdrop_1920x1080.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_art_deco_numeric_font_16px_ascii_48glyph.json",
                     "ui/ui_echo_stock_indicator_96x40.json",
@@ -3530,10 +4425,12 @@ const CompleteFileManifest = {
                     "ui/ui_light_path_preview_overlay_1920x1080.json",
                     "ui/ui_scale_readout_panel_220x56.json",
                     "ui/ui_shadow_rank_clear_panel_640x360.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/player_echo_idle_4f_6fps.json",
                     "character/player_umbra_exposure_5f_12fps.json",
@@ -3556,18 +4453,18 @@ const CompleteFileManifest = {
                     "world/world_tower_backdrop_parallax_1920x1080.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_clear_rank_panel_320x180.json",
                     "ui/ui_exposure_gauge_160x12.json",
                     "ui/ui_floor_counter_panel_220x48.json",
                     "ui/ui_hp_orbs_strip_3slot_72x24.json",
                     "ui/ui_scale_balance_readout_192x40.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/umbra_echo_marker.json",
                     "character/umbra_player_core_states.json"
@@ -3584,20 +4481,20 @@ const CompleteFileManifest = {
                     "world/twilight_tower_tileset.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/exposure_balance_hud.json",
                     "ui/floor_clear_rank_panel.json",
                     "ui/light_path_preview_overlay.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         }
     },
     "9": {
         "bubble_farm": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_bubble_heavy_idle_4f_6fps.json",
                     "character/character_bubble_jelly_idle_6f_8fps.json",
@@ -3619,18 +4516,18 @@ const CompleteFileManifest = {
                     "world/world_path_prediction_overlay_dots_16x16.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_codex_panel_900x600.json",
                     "ui/ui_hud_balance_topbar_1920x96.json",
                     "ui/ui_next_hold_panel_240x320.json",
                     "ui/ui_popup_game_over_600x400.json",
                     "ui/ui_prediction_toggle_button_40x40.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_bubble_heavy_idle_4f_6fps.json",
                     "character/character_bubble_jelly_idle_6f_8fps.json",
@@ -3652,18 +4549,18 @@ const CompleteFileManifest = {
                     "world/world_path_prediction_overlay_dots_16x16.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_codex_panel_900x600.json",
                     "ui/ui_hud_balance_topbar_1920x96.json",
                     "ui/ui_next_hold_panel_240x320.json",
                     "ui/ui_popup_game_over_600x400.json",
                     "ui/ui_prediction_toggle_button_40x40.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_bubble_heavy_idle_4f_6fps.json",
                     "character/character_bubble_jelly_idle_6f_8fps.json",
@@ -3685,18 +4582,18 @@ const CompleteFileManifest = {
                     "world/world_path_prediction_overlay_dots_16x16.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_codex_panel_900x600.json",
                     "ui/ui_hud_balance_topbar_1920x96.json",
                     "ui/ui_next_hold_panel_240x320.json",
                     "ui/ui_popup_game_over_600x400.json",
                     "ui/ui_prediction_toggle_button_40x40.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000006.json",
                     "character/art_000007.json",
@@ -3718,18 +4615,18 @@ const CompleteFileManifest = {
                     "world/art_000005.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_bubble_heavy_idle_4f_6fps.json",
                     "character/character_bubble_jelly_idle_6f_8fps.json",
@@ -3751,20 +4648,20 @@ const CompleteFileManifest = {
                     "world/world_path_prediction_overlay_dots_16x16.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_codex_panel_900x600.json",
                     "ui/ui_hud_balance_topbar_1920x96.json",
                     "ui/ui_next_hold_panel_240x320.json",
                     "ui/ui_popup_game_over_600x400.json",
                     "ui/ui_prediction_toggle_button_40x40.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "Chrome_Dino_Runner": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_player_dino_dead_static.json",
                     "character/character_player_dino_duck_2f_12fps.json",
@@ -3786,17 +4683,17 @@ const CompleteFileManifest = {
                     "world/world_ground_texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_font_score_digits_10x16_0_9.json",
                     "ui/ui_hud_score_display.json",
                     "ui/ui_prompt_restart_text_12px.json",
                     "ui/ui_screen_game_over_text_24px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_player_dino_dead_static.json",
                     "character/character_player_dino_duck_2f_12fps.json",
@@ -3818,17 +4715,17 @@ const CompleteFileManifest = {
                     "world/world_ground_texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_font_score_digits_10x16_0_9.json",
                     "ui/ui_hud_score_display.json",
                     "ui/ui_prompt_restart_text_12px.json",
                     "ui/ui_screen_game_over_text_24px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -3850,16 +4747,16 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -3881,17 +4778,17 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/character_player_dino_dead_static.json",
                     "character/character_player_dino_duck_2f_12fps.json",
@@ -3913,19 +4810,19 @@ const CompleteFileManifest = {
                     "world/world_ground_texture_1200x10.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/ui_font_score_digits_10x16_0_9.json",
                     "ui/ui_hud_score_display.json",
                     "ui/ui_prompt_restart_text_12px.json",
                     "ui/ui_screen_game_over_text_24px.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "jarl_of_blizzard": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -3947,18 +4844,18 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -3980,18 +4877,18 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4013,18 +4910,18 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4046,18 +4943,18 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4079,20 +4976,20 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "leaf_beat": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4114,18 +5011,18 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4147,18 +5044,18 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4180,18 +5077,18 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4213,18 +5110,18 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4246,20 +5143,20 @@ const CompleteFileManifest = {
                     "world/art_000014.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000015.json",
                     "ui/art_000016.json",
                     "ui/art_000017.json",
                     "ui/art_000018.json",
                     "ui/art_000019.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             }
         },
         "Pico_Echo": {
             "1": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4290,8 +5187,6 @@ const CompleteFileManifest = {
                     "world/art_000023.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000024.json",
                     "ui/art_000025.json",
@@ -4302,10 +5197,12 @@ const CompleteFileManifest = {
                     "ui/art_000030.json",
                     "ui/art_000031.json",
                     "ui/art_000032.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "2": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4336,8 +5233,6 @@ const CompleteFileManifest = {
                     "world/art_000023.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000024.json",
                     "ui/art_000025.json",
@@ -4348,10 +5243,12 @@ const CompleteFileManifest = {
                     "ui/art_000030.json",
                     "ui/art_000031.json",
                     "ui/art_000032.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "3": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/echo_dirty_3f_2fps.json",
                     "character/echo_eating_6f_4fps.json",
@@ -4382,8 +5279,6 @@ const CompleteFileManifest = {
                     "world/overlay_night_dim.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/bubble_seed_request_icon.json",
                     "ui/cursor_touch_indicator_2f.json",
@@ -4394,10 +5289,12 @@ const CompleteFileManifest = {
                     "ui/icon_feed_seed.json",
                     "ui/icon_pet_hand.json",
                     "ui/menu_care_popup_panel.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "4": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4428,8 +5325,6 @@ const CompleteFileManifest = {
                     "world/art_000023.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000024.json",
                     "ui/art_000025.json",
@@ -4440,10 +5335,12 @@ const CompleteFileManifest = {
                     "ui/art_000030.json",
                     "ui/art_000031.json",
                     "ui/art_000032.json"
-                ]
+                ],
+                "Items": [],
+                "Mirrors": [],
+                "_project_common": "_project_common.json"
             },
             "5": {
-                "_project_common": "_project_common.json",
                 "Character": [
                     "character/art_000001.json",
                     "character/art_000002.json",
@@ -4474,8 +5371,6 @@ const CompleteFileManifest = {
                     "world/art_000023.json"
                 ],
                 "UI": [],
-                "Items": [],
-                "Mirrors": [],
                 "Ui": [
                     "ui/art_000024.json",
                     "ui/art_000025.json",
@@ -4486,923 +5381,24 @@ const CompleteFileManifest = {
                     "ui/art_000030.json",
                     "ui/art_000031.json",
                     "ui/art_000032.json"
-                ]
-            }
-        }
-    },
-    "10": {
-        "bubble_farm": {
-            "1": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/character_bubble_heavy_idle_4f_6fps.json",
-                    "character/character_bubble_jelly_idle_6f_8fps.json",
-                    "character/character_bubble_king_idle_10f_6fps.json",
-                    "character/character_bubble_mini_idle_4f_8fps.json",
-                    "character/character_bubble_normal_idle_6f_8fps.json"
                 ],
-                "Obstacles": [
-                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
-                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
-                    "obstacles/obstacles_rock_cell_static.json",
-                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
-                ],
-                "World": [
-                    "world/world_background_mud_loop_64x64_8f.json",
-                    "world/world_balance_axis_beam_64x448.json",
-                    "world/world_balance_meter_400x60.json",
-                    "world/world_grid_board_9x7_576x448.json",
-                    "world/world_path_prediction_overlay_dots_16x16.json"
-                ],
-                "UI": [],
                 "Items": [],
                 "Mirrors": [],
-                "Ui": [
-                    "ui/ui_codex_panel_900x600.json",
-                    "ui/ui_hud_balance_topbar_1920x96.json",
-                    "ui/ui_next_hold_panel_240x320.json",
-                    "ui/ui_popup_game_over_600x400.json",
-                    "ui/ui_prediction_toggle_button_40x40.json"
-                ]
-            },
-            "2": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/character_bubble_heavy_idle_4f_6fps.json",
-                    "character/character_bubble_jelly_idle_6f_8fps.json",
-                    "character/character_bubble_king_idle_10f_6fps.json",
-                    "character/character_bubble_mini_idle_4f_8fps.json",
-                    "character/character_bubble_normal_idle_6f_8fps.json"
-                ],
-                "Obstacles": [
-                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
-                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
-                    "obstacles/obstacles_rock_cell_static.json",
-                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
-                ],
-                "World": [
-                    "world/world_background_mud_loop_64x64_8f.json",
-                    "world/world_balance_axis_beam_64x448.json",
-                    "world/world_balance_meter_400x60.json",
-                    "world/world_grid_board_9x7_576x448.json",
-                    "world/world_path_prediction_overlay_dots_16x16.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/ui_codex_panel_900x600.json",
-                    "ui/ui_hud_balance_topbar_1920x96.json",
-                    "ui/ui_next_hold_panel_240x320.json",
-                    "ui/ui_popup_game_over_600x400.json",
-                    "ui/ui_prediction_toggle_button_40x40.json"
-                ]
-            },
-            "3": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/character_bubble_heavy_idle_4f_6fps.json",
-                    "character/character_bubble_jelly_idle_6f_8fps.json",
-                    "character/character_bubble_king_idle_10f_6fps.json",
-                    "character/character_bubble_mini_idle_4f_8fps.json",
-                    "character/character_bubble_normal_idle_6f_8fps.json"
-                ],
-                "Obstacles": [
-                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
-                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
-                    "obstacles/obstacles_rock_cell_static.json",
-                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
-                ],
-                "World": [
-                    "world/world_background_mud_loop_64x64_8f.json",
-                    "world/world_balance_axis_beam_64x448.json",
-                    "world/world_balance_meter_400x60.json",
-                    "world/world_grid_board_9x7_576x448.json",
-                    "world/world_path_prediction_overlay_dots_16x16.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/ui_codex_panel_900x600.json",
-                    "ui/ui_hud_balance_topbar_1920x96.json",
-                    "ui/ui_next_hold_panel_240x320.json",
-                    "ui/ui_popup_game_over_600x400.json",
-                    "ui/ui_prediction_toggle_button_40x40.json"
-                ]
-            },
-            "4": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000006.json",
-                    "character/art_000007.json",
-                    "character/art_000008.json",
-                    "character/art_000009.json",
-                    "character/art_000010.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000011.json",
-                    "obstacles/art_000012.json",
-                    "obstacles/art_000013.json",
-                    "obstacles/art_000014.json"
-                ],
-                "World": [
-                    "world/art_000001.json",
-                    "world/art_000002.json",
-                    "world/art_000003.json",
-                    "world/art_000004.json",
-                    "world/art_000005.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json",
-                    "ui/art_000019.json"
-                ]
-            },
-            "5": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/character_bubble_heavy_idle_4f_6fps.json",
-                    "character/character_bubble_jelly_idle_6f_8fps.json",
-                    "character/character_bubble_king_idle_10f_6fps.json",
-                    "character/character_bubble_mini_idle_4f_8fps.json",
-                    "character/character_bubble_normal_idle_6f_8fps.json"
-                ],
-                "Obstacles": [
-                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
-                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
-                    "obstacles/obstacles_rock_cell_static.json",
-                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
-                ],
-                "World": [
-                    "world/world_background_mud_loop_64x64_8f.json",
-                    "world/world_balance_axis_beam_64x448.json",
-                    "world/world_balance_meter_400x60.json",
-                    "world/world_grid_board_9x7_576x448.json",
-                    "world/world_path_prediction_overlay_dots_16x16.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/ui_codex_panel_900x600.json",
-                    "ui/ui_hud_balance_topbar_1920x96.json",
-                    "ui/ui_next_hold_panel_240x320.json",
-                    "ui/ui_popup_game_over_600x400.json",
-                    "ui/ui_prediction_toggle_button_40x40.json"
-                ]
-            }
-        },
-        "Chrome_Dino_Runner": {
-            "1": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/character_player_dino_dead_static.json",
-                    "character/character_player_dino_duck_2f_12fps.json",
-                    "character/character_player_dino_idle_2f_6fps.json",
-                    "character/character_player_dino_jump_static.json",
-                    "character/character_player_dino_run_2f_12fps.json"
-                ],
-                "Obstacles": [
-                    "obstacles/obstacles_cactus_large_static.json",
-                    "obstacles/obstacles_cactus_medium_static.json",
-                    "obstacles/obstacles_cactus_small_static.json",
-                    "obstacles/obstacles_pterodactyl_fly_2f_10fps.json"
-                ],
-                "World": [
-                    "world/world_background_cloud_large_static.json",
-                    "world/world_background_cloud_small_static.json",
-                    "world/world_background_sky_fill_600x150.json",
-                    "world/world_ground_line_1200x2.json",
-                    "world/world_ground_texture_1200x10.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/ui_font_score_digits_10x16_0_9.json",
-                    "ui/ui_hud_score_display.json",
-                    "ui/ui_prompt_restart_text_12px.json",
-                    "ui/ui_screen_game_over_text_24px.json"
-                ]
-            },
-            "2": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/character_player_dino_dead_static.json",
-                    "character/character_player_dino_duck_2f_12fps.json",
-                    "character/character_player_dino_idle_2f_6fps.json",
-                    "character/character_player_dino_jump_static.json",
-                    "character/character_player_dino_run_2f_12fps.json"
-                ],
-                "Obstacles": [
-                    "obstacles/obstacles_cactus_large_static.json",
-                    "obstacles/obstacles_cactus_medium_static.json",
-                    "obstacles/obstacles_cactus_small_static.json",
-                    "obstacles/obstacles_pterodactyl_fly_2f_10fps.json"
-                ],
-                "World": [
-                    "world/world_background_cloud_large_static.json",
-                    "world/world_background_cloud_small_static.json",
-                    "world/world_background_sky_fill_600x150.json",
-                    "world/world_ground_line_1200x2.json",
-                    "world/world_ground_texture_1200x10.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/ui_font_score_digits_10x16_0_9.json",
-                    "ui/ui_hud_score_display.json",
-                    "ui/ui_prompt_restart_text_12px.json",
-                    "ui/ui_screen_game_over_text_24px.json"
-                ]
-            },
-            "3": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json",
-                    "character/art_000005.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json",
-                    "obstacles/art_000009.json"
-                ],
-                "World": [
-                    "world/art_000010.json",
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json"
-                ]
-            },
-            "4": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json",
-                    "character/art_000005.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json",
-                    "obstacles/art_000009.json"
-                ],
-                "World": [
-                    "world/art_000010.json",
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json"
-                ]
-            },
-            "5": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/character_player_dino_dead_static.json",
-                    "character/character_player_dino_duck_2f_12fps.json",
-                    "character/character_player_dino_idle_2f_6fps.json",
-                    "character/character_player_dino_jump_static.json",
-                    "character/character_player_dino_run_2f_12fps.json"
-                ],
-                "Obstacles": [
-                    "obstacles/obstacles_cactus_large_static.json",
-                    "obstacles/obstacles_cactus_medium_static.json",
-                    "obstacles/obstacles_cactus_small_static.json",
-                    "obstacles/obstacles_pterodactyl_fly_2f_10fps.json"
-                ],
-                "World": [
-                    "world/world_background_cloud_large_static.json",
-                    "world/world_background_cloud_small_static.json",
-                    "world/world_background_sky_fill_600x150.json",
-                    "world/world_ground_line_1200x2.json",
-                    "world/world_ground_texture_1200x10.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/ui_font_score_digits_10x16_0_9.json",
-                    "ui/ui_hud_score_display.json",
-                    "ui/ui_prompt_restart_text_12px.json",
-                    "ui/ui_screen_game_over_text_24px.json"
-                ]
-            }
-        },
-        "jarl_of_blizzard": {
-            "1": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000005.json",
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json"
-                ],
-                "World": [
-                    "world/art_000009.json",
-                    "world/art_000010.json",
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json",
-                    "ui/art_000019.json"
-                ]
-            },
-            "2": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000005.json",
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json"
-                ],
-                "World": [
-                    "world/art_000009.json",
-                    "world/art_000010.json",
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json",
-                    "ui/art_000019.json"
-                ]
-            },
-            "3": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000005.json",
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json"
-                ],
-                "World": [
-                    "world/art_000009.json",
-                    "world/art_000010.json",
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json",
-                    "ui/art_000019.json"
-                ]
-            },
-            "4": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000005.json",
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json"
-                ],
-                "World": [
-                    "world/art_000009.json",
-                    "world/art_000010.json",
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json",
-                    "ui/art_000019.json"
-                ]
-            },
-            "5": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000005.json",
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json"
-                ],
-                "World": [
-                    "world/art_000009.json",
-                    "world/art_000010.json",
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json",
-                    "ui/art_000019.json"
-                ]
-            }
-        },
-        "leaf_beat": {
-            "1": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json",
-                    "character/art_000005.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json",
-                    "obstacles/art_000009.json",
-                    "obstacles/art_000010.json"
-                ],
-                "World": [
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json",
-                    "ui/art_000019.json"
-                ]
-            },
-            "2": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json",
-                    "character/art_000005.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json",
-                    "obstacles/art_000009.json",
-                    "obstacles/art_000010.json"
-                ],
-                "World": [
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json",
-                    "ui/art_000019.json"
-                ]
-            },
-            "3": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/character_player_leaf_hit_flash_6f_4fps.json",
-                    "character/character_player_leaf_idle_spin_8f_10fps.json",
-                    "character/character_player_leaf_left_drift_4f_12fps.json",
-                    "character/character_player_leaf_perfect_brake_glow_4f_20fps.json",
-                    "character/character_player_leaf_right_drift_4f_12fps.json"
-                ],
-                "Obstacles": [
-                    "obstacles/obstacles_branch_gate_narrow_static_240x16.json",
-                    "obstacles/obstacles_branch_gate_swaying_static_280x16.json",
-                    "obstacles/obstacles_branch_gate_wide_static_360x16.json",
-                    "obstacles/obstacles_fruit_pickup_floating_6f_10fps.json",
-                    "obstacles/obstacles_leaf_cluster_dense_4f_7fps.json"
-                ],
-                "World": [
-                    "world/world_background_sky_gradient_1280x720.json",
-                    "world/world_overlay_danger_vignette_1280x720.json",
-                    "world/world_trees_far_silhouette_1280x720.json",
-                    "world/world_trees_near_silhouette_1280x720.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/ui_beat_marker_note_glyphs_4cell.json",
-                    "ui/ui_front_end_overlay_set_4screen.json",
-                    "ui/ui_hud_strip_score_depth_hp_bpm.json",
-                    "ui/ui_judgement_popup_combo_flame_4cell.json",
-                    "ui/ui_rhythm_lane_panel_1280x160.json"
-                ]
-            },
-            "4": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/character_player_leaf_hit_flash_invulnerability_6f_4fps.json",
-                    "character/character_player_leaf_idle_spin_8f_10fps.json",
-                    "character/character_player_leaf_left_drift_4f_12fps.json",
-                    "character/character_player_leaf_perfect_air_brake_glow_4f_20fps.json",
-                    "character/character_player_leaf_right_drift_4f_12fps.json"
-                ],
-                "Obstacles": [
-                    "obstacles/obstacles_branch_gate_narrow_240x16.json",
-                    "obstacles/obstacles_branch_gate_swaying_280x16.json",
-                    "obstacles/obstacles_branch_gate_wide_360x16.json",
-                    "obstacles/obstacles_fruit_pickup_recovery_6f_10fps.json",
-                    "obstacles/obstacles_leaf_cluster_dense_4f_7fps.json"
-                ],
-                "World": [
-                    "world/world_background_sepia_sky_1280x720.json",
-                    "world/world_danger_vignette_overlay_1280x720.json",
-                    "world/world_far_tree_silhouettes_1280x720.json",
-                    "world/world_near_tree_silhouettes_1280x720.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/ui_beat_marker_note_glyph_atlas_192x32.json",
-                    "ui/ui_frontend_overlay_states_5120x720.json",
-                    "ui/ui_hud_strip_score_depth_hp_bpm_1280x48.json",
-                    "ui/ui_judgement_combo_popup_atlas_320x64.json",
-                    "ui/ui_rhythm_lane_panel_1280x160.json"
-                ]
-            },
-            "5": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json",
-                    "character/art_000005.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000006.json",
-                    "obstacles/art_000007.json",
-                    "obstacles/art_000008.json",
-                    "obstacles/art_000009.json",
-                    "obstacles/art_000010.json"
-                ],
-                "World": [
-                    "world/art_000011.json",
-                    "world/art_000012.json",
-                    "world/art_000013.json",
-                    "world/art_000014.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000015.json",
-                    "ui/art_000016.json",
-                    "ui/art_000017.json",
-                    "ui/art_000018.json",
-                    "ui/art_000019.json"
-                ]
-            }
-        },
-        "Pico_Echo": {
-            "1": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json",
-                    "character/art_000005.json",
-                    "character/art_000006.json",
-                    "character/art_000007.json",
-                    "character/art_000008.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000009.json",
-                    "obstacles/art_000010.json",
-                    "obstacles/art_000011.json",
-                    "obstacles/art_000012.json",
-                    "obstacles/art_000013.json",
-                    "obstacles/art_000014.json",
-                    "obstacles/art_000015.json",
-                    "obstacles/art_000016.json",
-                    "obstacles/art_000017.json",
-                    "obstacles/art_000018.json"
-                ],
-                "World": [
-                    "world/art_000019.json",
-                    "world/art_000020.json",
-                    "world/art_000021.json",
-                    "world/art_000022.json",
-                    "world/art_000023.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000024.json",
-                    "ui/art_000025.json",
-                    "ui/art_000026.json",
-                    "ui/art_000027.json",
-                    "ui/art_000028.json",
-                    "ui/art_000029.json",
-                    "ui/art_000030.json",
-                    "ui/art_000031.json",
-                    "ui/art_000032.json"
-                ]
-            },
-            "2": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json",
-                    "character/art_000005.json",
-                    "character/art_000006.json",
-                    "character/art_000007.json",
-                    "character/art_000008.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000009.json",
-                    "obstacles/art_000010.json",
-                    "obstacles/art_000011.json",
-                    "obstacles/art_000012.json",
-                    "obstacles/art_000013.json",
-                    "obstacles/art_000014.json",
-                    "obstacles/art_000015.json",
-                    "obstacles/art_000016.json",
-                    "obstacles/art_000017.json",
-                    "obstacles/art_000018.json"
-                ],
-                "World": [
-                    "world/art_000019.json",
-                    "world/art_000020.json",
-                    "world/art_000021.json",
-                    "world/art_000022.json",
-                    "world/art_000023.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000024.json",
-                    "ui/art_000025.json",
-                    "ui/art_000026.json",
-                    "ui/art_000027.json",
-                    "ui/art_000028.json",
-                    "ui/art_000029.json",
-                    "ui/art_000030.json",
-                    "ui/art_000031.json",
-                    "ui/art_000032.json"
-                ]
-            },
-            "3": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/echo_dirty_3f_2fps.json",
-                    "character/echo_eating_6f_4fps.json",
-                    "character/echo_happy_8f_4fps.json",
-                    "character/echo_hungry_4f_2fps.json",
-                    "character/echo_idle_4f_2fps.json",
-                    "character/echo_preening_5f_3fps.json",
-                    "character/echo_singing_8f_4fps.json",
-                    "character/echo_sleeping_3f_1fps.json"
-                ],
-                "Obstacles": [
-                    "obstacles/cage_seed_bowl_3state.json",
-                    "obstacles/cage_water_bowl_static.json",
-                    "obstacles/effect_dust_particle_3f.json",
-                    "obstacles/effect_feather_particle_3f.json",
-                    "obstacles/effect_heart_particle_3f.json",
-                    "obstacles/effect_note_particle_4f.json",
-                    "obstacles/effect_sparkle_clean_4f.json",
-                    "obstacles/effect_zzz_particle_3f.json",
-                    "obstacles/item_poop_2x2.json",
-                    "obstacles/item_seed_3x3.json"
-                ],
-                "World": [
-                    "world/cage_background_static.json",
-                    "world/cage_bars_foreground.json",
-                    "world/cage_floor_clean_dirty_2f.json",
-                    "world/cage_perch_static.json",
-                    "world/overlay_night_dim.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/bubble_seed_request_icon.json",
-                    "ui/cursor_touch_indicator_2f.json",
-                    "ui/font_minipixel_3x5_ascii_96glyph.json",
-                    "ui/hud_happiness_bar_128x1.json",
-                    "ui/hud_relationship_label.json",
-                    "ui/icon_clean_broom.json",
-                    "ui/icon_feed_seed.json",
-                    "ui/icon_pet_hand.json",
-                    "ui/menu_care_popup_panel.json"
-                ]
-            },
-            "4": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json",
-                    "character/art_000005.json",
-                    "character/art_000006.json",
-                    "character/art_000007.json",
-                    "character/art_000008.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000009.json",
-                    "obstacles/art_000010.json",
-                    "obstacles/art_000011.json",
-                    "obstacles/art_000012.json",
-                    "obstacles/art_000013.json",
-                    "obstacles/art_000014.json",
-                    "obstacles/art_000015.json",
-                    "obstacles/art_000016.json",
-                    "obstacles/art_000017.json",
-                    "obstacles/art_000018.json"
-                ],
-                "World": [
-                    "world/art_000019.json",
-                    "world/art_000020.json",
-                    "world/art_000021.json",
-                    "world/art_000022.json",
-                    "world/art_000023.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000024.json",
-                    "ui/art_000025.json",
-                    "ui/art_000026.json",
-                    "ui/art_000027.json",
-                    "ui/art_000028.json",
-                    "ui/art_000029.json",
-                    "ui/art_000030.json",
-                    "ui/art_000031.json",
-                    "ui/art_000032.json"
-                ]
-            },
-            "5": {
-                "_project_common": "_project_common.json",
-                "Character": [
-                    "character/art_000001.json",
-                    "character/art_000002.json",
-                    "character/art_000003.json",
-                    "character/art_000004.json",
-                    "character/art_000005.json",
-                    "character/art_000006.json",
-                    "character/art_000007.json",
-                    "character/art_000008.json"
-                ],
-                "Obstacles": [
-                    "obstacles/art_000009.json",
-                    "obstacles/art_000010.json",
-                    "obstacles/art_000011.json",
-                    "obstacles/art_000012.json",
-                    "obstacles/art_000013.json",
-                    "obstacles/art_000014.json",
-                    "obstacles/art_000015.json",
-                    "obstacles/art_000016.json",
-                    "obstacles/art_000017.json",
-                    "obstacles/art_000018.json"
-                ],
-                "World": [
-                    "world/art_000019.json",
-                    "world/art_000020.json",
-                    "world/art_000021.json",
-                    "world/art_000022.json",
-                    "world/art_000023.json"
-                ],
-                "UI": [],
-                "Items": [],
-                "Mirrors": [],
-                "Ui": [
-                    "ui/art_000024.json",
-                    "ui/art_000025.json",
-                    "ui/art_000026.json",
-                    "ui/art_000027.json",
-                    "ui/art_000028.json",
-                    "ui/art_000029.json",
-                    "ui/art_000030.json",
-                    "ui/art_000031.json",
-                    "ui/art_000032.json"
-                ]
+                "_project_common": "_project_common.json"
             }
         }
     }
 };
 
-// Helper function to get files for a specific game/iteration/trial
-function getFilesForTrial(iterationNum, gameName, trialNum) {
-    if (!CompleteFileManifest[iterationNum]) return null;
-    if (!CompleteFileManifest[iterationNum][gameName]) return null;
-    if (!CompleteFileManifest[iterationNum][gameName][trialNum]) return null;
-
-    return CompleteFileManifest[iterationNum][gameName][trialNum];
+// Helper function to get files for a specific trial
+function getFilesForTrial(iteration, game, trial) {
+    if (!CompleteFileManifest[iteration]) return null;
+    if (!CompleteFileManifest[iteration][game]) return null;
+    return CompleteFileManifest[iteration][game][trial] || null;
 }
 
-// Export for use
+// Export for use in other scripts
 if (typeof window !== 'undefined') {
     window.CompleteFileManifest = CompleteFileManifest;
     window.getFilesForTrial = getFilesForTrial;
-}
-
-if (typeof module !== 'undefined') {
-    module.exports = { CompleteFileManifest, getFilesForTrial };
 }
