@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Specific File Cases</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #0f1419;
+            color: #e1e8ed;
+            padding: 20px;
+        }
+        .test-case {
+            margin: 20px 0;
+            padding: 15px;
+            background: #1a1f2e;
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .pending { color: #fbbf24; }
+        button {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        pre {
+            background: #0a0e1a;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Specific Problem Files</h1>
+
+    <div class="test-case">
+        <h3>Test Case 1: umbra_scale trial 5 - player_umbra_idle_6f_12fps.json (SHOULD FAIL)</h3>
+        <button onclick="testFile(8, 'umbra_scale', 5, 'character/player_umbra_idle_6f_12fps.json', 'test1')">Test</button>
+        <div id="test1"></div>
+    </div>
+
+    <div class="test-case">
+        <h3>Test Case 2: umbra_scale trial 5 - umbra_player_core_states.json (SHOULD SUCCEED)</h3>
+        <button onclick="testFile(8, 'umbra_scale', 5, 'character/umbra_player_core_states.json', 'test2')">Test</button>
+        <div id="test2"></div>
+    </div>
+
+    <div class="test-case">
+        <h3>Test Case 3: Chrome_Dino_Runner trial 1 - dino_runner_core.json (SHOULD SUCCEED)</h3>
+        <button onclick="testFile(8, 'Chrome_Dino_Runner', 1, 'character/dino_runner_core.json', 'test3')">Test</button>
+        <div id="test3"></div>
+    </div>
+
+    <div class="test-case">
+        <h3>Test Case 4: Check manifest for umbra_scale trial 5</h3>
+        <button onclick="checkManifest(8, 'umbra_scale', 5, 'test4')">Check Manifest</button>
+        <div id="test4"></div>
+    </div>
+
+    <script src="fixed-json-loader.js"></script>
+    <script src="complete-file-manifest.js"></script>
+    <script>
+        async function testFile(iter, game, trial, file, resultId) {
+            const resultDiv = document.getElementById(resultId);
+            resultDiv.innerHTML = '<span class="pending">Testing...</span>';
+
+            try {
+                const data = await FixedJSONLoader.loadJSON(iter, game, trial, file);
+
+                if (data.error) {
+                    resultDiv.innerHTML = `<span class="error">❌ Expected: ${data.error}</span>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>`;
+                } else {
+                    resultDiv.innerHTML = `<span class="success">✅ Success: File loaded</span>
+                        <pre>${JSON.stringify(data, null, 2).substring(0, 500)}...</pre>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ Exception: ${error.message}</span>`;
+            }
+        }
+
+        function checkManifest(iter, game, trial, resultId) {
+            const resultDiv = document.getElementById(resultId);
+
+            if (typeof CompleteFileManifest !== 'undefined' && typeof getFilesForTrial !== 'undefined') {
+                const files = getFilesForTrial(iter, game, trial);
+
+                if (files) {
+                    resultDiv.innerHTML = `<span class="success">✅ Manifest found:</span>
+                        <pre>${JSON.stringify(files, null, 2)}</pre>`;
+                } else {
+                    resultDiv.innerHTML = `<span class="error">❌ No manifest data found</span>`;
+                }
+            } else {
+                resultDiv.innerHTML = `<span class="error">❌ CompleteFileManifest not loaded</span>`;
+            }
+        }
+    </script>
+</body>
+</html>
