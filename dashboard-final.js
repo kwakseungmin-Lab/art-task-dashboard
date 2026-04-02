@@ -240,7 +240,7 @@ const Dashboard = {
                 <div class="file-selector">
                     <h3>Select JSON File (Iteration ${iterationNum} - ${gameName}):</h3>
                     <select id="file-dropdown" onchange="window.dashboard.viewTaskPlanJSON(${iterationNum}, '${gameName}', ${trialNum}, this.value)" style="width: 100%; padding: 8px; background: #1a1f2e; color: #e1e8ed; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px;">
-                        ${this.generateFileOptions(gameName)}
+                        ${this.generateFileOptions(gameName, iterationNum)}
                     </select>
                 </div>
 
@@ -495,7 +495,50 @@ const Dashboard = {
     },
 
     // Generate file options for dropdown based on game type
-    generateFileOptions(gameName) {
+    getFileEmoji(category) {
+        const emojiMap = {
+            'Character': '🦖',
+            'Obstacles': '🌵',
+            'World': '🌍',
+            'UI': '📊',
+            'Items': '🍎',
+            'Mirrors': '🪞'
+        };
+        return emojiMap[category] || '📄';
+    },
+
+    generateFileOptions(gameName, iterationNum = 8) {
+        // Check if GameAvailability is available
+        if (typeof GameAvailability !== 'undefined') {
+            // Check if game is available for this iteration
+            if (!GameAvailability.isGameAvailable(iterationNum, gameName)) {
+                const message = GameAvailability.getAvailabilityMessage(iterationNum, gameName);
+                return `<option value="" disabled>❌ ${message}</option>`;
+            }
+
+            // Get file structure for this game
+            const files = GameAvailability.getGameFiles(gameName, iterationNum);
+
+            // Start with common file
+            let html = '<option value="_project_common.json">📄 _project_common.json (Main Project File)</option>';
+
+            // Add category groups
+            for (const [category, fileList] of Object.entries(files)) {
+                if (category === 'error') continue;
+
+                html += `<optgroup label="${category}">`;
+                for (const file of fileList) {
+                    const fileName = file.split('/').pop();
+                    const emoji = this.getFileEmoji(category);
+                    html += `<option value="${file}">${emoji} ${fileName}</option>`;
+                }
+                html += `</optgroup>`;
+            }
+
+            return html;
+        }
+
+        // Fallback to original logic if GameAvailability not available
         let html = '<option value="_project_common.json">📄 _project_common.json (Main Project File)</option>';
 
         if (gameName === 'Chrome_Dino_Runner') {
