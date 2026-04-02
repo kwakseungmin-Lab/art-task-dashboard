@@ -154,10 +154,13 @@
         <div class="nav-section">
             <div class="nav-section-title">Main</div>
             <div class="nav-item active" data-view="overview" onclick="window.dashboard.loadIterationsView()">
-                <span>Overview</span>
+                <span>📊 Overview</span>
+            </div>
+            <div class="nav-item" data-view="registry" onclick="window.RegistryViewer.renderRegistryView()">
+                <span>🏆 Registry</span>
             </div>
             <div class="nav-item" data-view="iterations" onclick="window.dashboard.loadIterationsView()">
-                <span>All Iterations (0-8)</span>
+                <span>📈 All Iterations</span>
             </div>
         </div>
 
@@ -209,6 +212,7 @@
     <script src="dynamic-json-loader.js?v=20260402_2"></script>
     <script src="game-availability.js?v=20260402_5"></script>
     <script src="complete-file-manifest.js?v=20260402_2"></script>
+    <script src="registry-viewer.js?v=20260402_1"></script>
     <script src="dashboard-final.js?v=20260402_5"></script>
 
     <!-- Initialize Dashboard -->
