@@ -1,5 +1,5 @@
 // Complete File Manifest - Auto-generated from actual file system
-// Generated at: 2026-04-02T02:20:53.053Z
+// Generated at: 2026-04-02T03:58:49.177Z
 
 const CompleteFileManifest = {
     "3": {
@@ -4490,7 +4490,902 @@ const CompleteFileManifest = {
             }
         }
     },
-    "10": {}
+    "10": {
+        "bubble_farm": {
+            "1": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/character_bubble_heavy_idle_4f_6fps.json",
+                    "character/character_bubble_jelly_idle_6f_8fps.json",
+                    "character/character_bubble_king_idle_10f_6fps.json",
+                    "character/character_bubble_mini_idle_4f_8fps.json",
+                    "character/character_bubble_normal_idle_6f_8fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
+                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
+                    "obstacles/obstacles_rock_cell_static.json",
+                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
+                ],
+                "World": [
+                    "world/world_background_mud_loop_64x64_8f.json",
+                    "world/world_balance_axis_beam_64x448.json",
+                    "world/world_balance_meter_400x60.json",
+                    "world/world_grid_board_9x7_576x448.json",
+                    "world/world_path_prediction_overlay_dots_16x16.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/ui_codex_panel_900x600.json",
+                    "ui/ui_hud_balance_topbar_1920x96.json",
+                    "ui/ui_next_hold_panel_240x320.json",
+                    "ui/ui_popup_game_over_600x400.json",
+                    "ui/ui_prediction_toggle_button_40x40.json"
+                ]
+            },
+            "2": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/character_bubble_heavy_idle_4f_6fps.json",
+                    "character/character_bubble_jelly_idle_6f_8fps.json",
+                    "character/character_bubble_king_idle_10f_6fps.json",
+                    "character/character_bubble_mini_idle_4f_8fps.json",
+                    "character/character_bubble_normal_idle_6f_8fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
+                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
+                    "obstacles/obstacles_rock_cell_static.json",
+                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
+                ],
+                "World": [
+                    "world/world_background_mud_loop_64x64_8f.json",
+                    "world/world_balance_axis_beam_64x448.json",
+                    "world/world_balance_meter_400x60.json",
+                    "world/world_grid_board_9x7_576x448.json",
+                    "world/world_path_prediction_overlay_dots_16x16.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/ui_codex_panel_900x600.json",
+                    "ui/ui_hud_balance_topbar_1920x96.json",
+                    "ui/ui_next_hold_panel_240x320.json",
+                    "ui/ui_popup_game_over_600x400.json",
+                    "ui/ui_prediction_toggle_button_40x40.json"
+                ]
+            },
+            "3": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/character_bubble_heavy_idle_4f_6fps.json",
+                    "character/character_bubble_jelly_idle_6f_8fps.json",
+                    "character/character_bubble_king_idle_10f_6fps.json",
+                    "character/character_bubble_mini_idle_4f_8fps.json",
+                    "character/character_bubble_normal_idle_6f_8fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
+                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
+                    "obstacles/obstacles_rock_cell_static.json",
+                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
+                ],
+                "World": [
+                    "world/world_background_mud_loop_64x64_8f.json",
+                    "world/world_balance_axis_beam_64x448.json",
+                    "world/world_balance_meter_400x60.json",
+                    "world/world_grid_board_9x7_576x448.json",
+                    "world/world_path_prediction_overlay_dots_16x16.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/ui_codex_panel_900x600.json",
+                    "ui/ui_hud_balance_topbar_1920x96.json",
+                    "ui/ui_next_hold_panel_240x320.json",
+                    "ui/ui_popup_game_over_600x400.json",
+                    "ui/ui_prediction_toggle_button_40x40.json"
+                ]
+            },
+            "4": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json",
+                    "character/art_000009.json",
+                    "character/art_000010.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json"
+                ],
+                "World": [
+                    "world/art_000001.json",
+                    "world/art_000002.json",
+                    "world/art_000003.json",
+                    "world/art_000004.json",
+                    "world/art_000005.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ]
+            },
+            "5": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/character_bubble_heavy_idle_4f_6fps.json",
+                    "character/character_bubble_jelly_idle_6f_8fps.json",
+                    "character/character_bubble_king_idle_10f_6fps.json",
+                    "character/character_bubble_mini_idle_4f_8fps.json",
+                    "character/character_bubble_normal_idle_6f_8fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
+                    "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
+                    "obstacles/obstacles_rock_cell_static.json",
+                    "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json"
+                ],
+                "World": [
+                    "world/world_background_mud_loop_64x64_8f.json",
+                    "world/world_balance_axis_beam_64x448.json",
+                    "world/world_balance_meter_400x60.json",
+                    "world/world_grid_board_9x7_576x448.json",
+                    "world/world_path_prediction_overlay_dots_16x16.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/ui_codex_panel_900x600.json",
+                    "ui/ui_hud_balance_topbar_1920x96.json",
+                    "ui/ui_next_hold_panel_240x320.json",
+                    "ui/ui_popup_game_over_600x400.json",
+                    "ui/ui_prediction_toggle_button_40x40.json"
+                ]
+            }
+        },
+        "Chrome_Dino_Runner": {
+            "1": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/character_player_dino_dead_static.json",
+                    "character/character_player_dino_duck_2f_12fps.json",
+                    "character/character_player_dino_idle_2f_6fps.json",
+                    "character/character_player_dino_jump_static.json",
+                    "character/character_player_dino_run_2f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_cactus_large_static.json",
+                    "obstacles/obstacles_cactus_medium_static.json",
+                    "obstacles/obstacles_cactus_small_static.json",
+                    "obstacles/obstacles_pterodactyl_fly_2f_10fps.json"
+                ],
+                "World": [
+                    "world/world_background_cloud_large_static.json",
+                    "world/world_background_cloud_small_static.json",
+                    "world/world_background_sky_fill_600x150.json",
+                    "world/world_ground_line_1200x2.json",
+                    "world/world_ground_texture_1200x10.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/ui_font_score_digits_10x16_0_9.json",
+                    "ui/ui_hud_score_display.json",
+                    "ui/ui_prompt_restart_text_12px.json",
+                    "ui/ui_screen_game_over_text_24px.json"
+                ]
+            },
+            "2": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/character_player_dino_dead_static.json",
+                    "character/character_player_dino_duck_2f_12fps.json",
+                    "character/character_player_dino_idle_2f_6fps.json",
+                    "character/character_player_dino_jump_static.json",
+                    "character/character_player_dino_run_2f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_cactus_large_static.json",
+                    "obstacles/obstacles_cactus_medium_static.json",
+                    "obstacles/obstacles_cactus_small_static.json",
+                    "obstacles/obstacles_pterodactyl_fly_2f_10fps.json"
+                ],
+                "World": [
+                    "world/world_background_cloud_large_static.json",
+                    "world/world_background_cloud_small_static.json",
+                    "world/world_background_sky_fill_600x150.json",
+                    "world/world_ground_line_1200x2.json",
+                    "world/world_ground_texture_1200x10.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/ui_font_score_digits_10x16_0_9.json",
+                    "ui/ui_hud_score_display.json",
+                    "ui/ui_prompt_restart_text_12px.json",
+                    "ui/ui_screen_game_over_text_24px.json"
+                ]
+            },
+            "3": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json"
+                ],
+                "World": [
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json"
+                ]
+            },
+            "4": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json"
+                ],
+                "World": [
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json"
+                ]
+            },
+            "5": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/character_player_dino_dead_static.json",
+                    "character/character_player_dino_duck_2f_12fps.json",
+                    "character/character_player_dino_idle_2f_6fps.json",
+                    "character/character_player_dino_jump_static.json",
+                    "character/character_player_dino_run_2f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_cactus_large_static.json",
+                    "obstacles/obstacles_cactus_medium_static.json",
+                    "obstacles/obstacles_cactus_small_static.json",
+                    "obstacles/obstacles_pterodactyl_fly_2f_10fps.json"
+                ],
+                "World": [
+                    "world/world_background_cloud_large_static.json",
+                    "world/world_background_cloud_small_static.json",
+                    "world/world_background_sky_fill_600x150.json",
+                    "world/world_ground_line_1200x2.json",
+                    "world/world_ground_texture_1200x10.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/ui_font_score_digits_10x16_0_9.json",
+                    "ui/ui_hud_score_display.json",
+                    "ui/ui_prompt_restart_text_12px.json",
+                    "ui/ui_screen_game_over_text_24px.json"
+                ]
+            }
+        },
+        "jarl_of_blizzard": {
+            "1": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ]
+            },
+            "2": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ]
+            },
+            "3": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ]
+            },
+            "4": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ]
+            },
+            "5": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000005.json",
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json"
+                ],
+                "World": [
+                    "world/art_000009.json",
+                    "world/art_000010.json",
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ]
+            }
+        },
+        "leaf_beat": {
+            "1": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json"
+                ],
+                "World": [
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ]
+            },
+            "2": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json"
+                ],
+                "World": [
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ]
+            },
+            "3": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/character_player_leaf_hit_flash_6f_4fps.json",
+                    "character/character_player_leaf_idle_spin_8f_10fps.json",
+                    "character/character_player_leaf_left_drift_4f_12fps.json",
+                    "character/character_player_leaf_perfect_brake_glow_4f_20fps.json",
+                    "character/character_player_leaf_right_drift_4f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_branch_gate_narrow_static_240x16.json",
+                    "obstacles/obstacles_branch_gate_swaying_static_280x16.json",
+                    "obstacles/obstacles_branch_gate_wide_static_360x16.json",
+                    "obstacles/obstacles_fruit_pickup_floating_6f_10fps.json",
+                    "obstacles/obstacles_leaf_cluster_dense_4f_7fps.json"
+                ],
+                "World": [
+                    "world/world_background_sky_gradient_1280x720.json",
+                    "world/world_overlay_danger_vignette_1280x720.json",
+                    "world/world_trees_far_silhouette_1280x720.json",
+                    "world/world_trees_near_silhouette_1280x720.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/ui_beat_marker_note_glyphs_4cell.json",
+                    "ui/ui_front_end_overlay_set_4screen.json",
+                    "ui/ui_hud_strip_score_depth_hp_bpm.json",
+                    "ui/ui_judgement_popup_combo_flame_4cell.json",
+                    "ui/ui_rhythm_lane_panel_1280x160.json"
+                ]
+            },
+            "4": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/character_player_leaf_hit_flash_invulnerability_6f_4fps.json",
+                    "character/character_player_leaf_idle_spin_8f_10fps.json",
+                    "character/character_player_leaf_left_drift_4f_12fps.json",
+                    "character/character_player_leaf_perfect_air_brake_glow_4f_20fps.json",
+                    "character/character_player_leaf_right_drift_4f_12fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/obstacles_branch_gate_narrow_240x16.json",
+                    "obstacles/obstacles_branch_gate_swaying_280x16.json",
+                    "obstacles/obstacles_branch_gate_wide_360x16.json",
+                    "obstacles/obstacles_fruit_pickup_recovery_6f_10fps.json",
+                    "obstacles/obstacles_leaf_cluster_dense_4f_7fps.json"
+                ],
+                "World": [
+                    "world/world_background_sepia_sky_1280x720.json",
+                    "world/world_danger_vignette_overlay_1280x720.json",
+                    "world/world_far_tree_silhouettes_1280x720.json",
+                    "world/world_near_tree_silhouettes_1280x720.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/ui_beat_marker_note_glyph_atlas_192x32.json",
+                    "ui/ui_frontend_overlay_states_5120x720.json",
+                    "ui/ui_hud_strip_score_depth_hp_bpm_1280x48.json",
+                    "ui/ui_judgement_combo_popup_atlas_320x64.json",
+                    "ui/ui_rhythm_lane_panel_1280x160.json"
+                ]
+            },
+            "5": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000006.json",
+                    "obstacles/art_000007.json",
+                    "obstacles/art_000008.json",
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json"
+                ],
+                "World": [
+                    "world/art_000011.json",
+                    "world/art_000012.json",
+                    "world/art_000013.json",
+                    "world/art_000014.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000015.json",
+                    "ui/art_000016.json",
+                    "ui/art_000017.json",
+                    "ui/art_000018.json",
+                    "ui/art_000019.json"
+                ]
+            }
+        },
+        "Pico_Echo": {
+            "1": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json",
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json",
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json",
+                    "obstacles/art_000015.json",
+                    "obstacles/art_000016.json",
+                    "obstacles/art_000017.json",
+                    "obstacles/art_000018.json"
+                ],
+                "World": [
+                    "world/art_000019.json",
+                    "world/art_000020.json",
+                    "world/art_000021.json",
+                    "world/art_000022.json",
+                    "world/art_000023.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000024.json",
+                    "ui/art_000025.json",
+                    "ui/art_000026.json",
+                    "ui/art_000027.json",
+                    "ui/art_000028.json",
+                    "ui/art_000029.json",
+                    "ui/art_000030.json",
+                    "ui/art_000031.json",
+                    "ui/art_000032.json"
+                ]
+            },
+            "2": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json",
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json",
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json",
+                    "obstacles/art_000015.json",
+                    "obstacles/art_000016.json",
+                    "obstacles/art_000017.json",
+                    "obstacles/art_000018.json"
+                ],
+                "World": [
+                    "world/art_000019.json",
+                    "world/art_000020.json",
+                    "world/art_000021.json",
+                    "world/art_000022.json",
+                    "world/art_000023.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000024.json",
+                    "ui/art_000025.json",
+                    "ui/art_000026.json",
+                    "ui/art_000027.json",
+                    "ui/art_000028.json",
+                    "ui/art_000029.json",
+                    "ui/art_000030.json",
+                    "ui/art_000031.json",
+                    "ui/art_000032.json"
+                ]
+            },
+            "3": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/echo_dirty_3f_2fps.json",
+                    "character/echo_eating_6f_4fps.json",
+                    "character/echo_happy_8f_4fps.json",
+                    "character/echo_hungry_4f_2fps.json",
+                    "character/echo_idle_4f_2fps.json",
+                    "character/echo_preening_5f_3fps.json",
+                    "character/echo_singing_8f_4fps.json",
+                    "character/echo_sleeping_3f_1fps.json"
+                ],
+                "Obstacles": [
+                    "obstacles/cage_seed_bowl_3state.json",
+                    "obstacles/cage_water_bowl_static.json",
+                    "obstacles/effect_dust_particle_3f.json",
+                    "obstacles/effect_feather_particle_3f.json",
+                    "obstacles/effect_heart_particle_3f.json",
+                    "obstacles/effect_note_particle_4f.json",
+                    "obstacles/effect_sparkle_clean_4f.json",
+                    "obstacles/effect_zzz_particle_3f.json",
+                    "obstacles/item_poop_2x2.json",
+                    "obstacles/item_seed_3x3.json"
+                ],
+                "World": [
+                    "world/cage_background_static.json",
+                    "world/cage_bars_foreground.json",
+                    "world/cage_floor_clean_dirty_2f.json",
+                    "world/cage_perch_static.json",
+                    "world/overlay_night_dim.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/bubble_seed_request_icon.json",
+                    "ui/cursor_touch_indicator_2f.json",
+                    "ui/font_minipixel_3x5_ascii_96glyph.json",
+                    "ui/hud_happiness_bar_128x1.json",
+                    "ui/hud_relationship_label.json",
+                    "ui/icon_clean_broom.json",
+                    "ui/icon_feed_seed.json",
+                    "ui/icon_pet_hand.json",
+                    "ui/menu_care_popup_panel.json"
+                ]
+            },
+            "4": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json",
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json",
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json",
+                    "obstacles/art_000015.json",
+                    "obstacles/art_000016.json",
+                    "obstacles/art_000017.json",
+                    "obstacles/art_000018.json"
+                ],
+                "World": [
+                    "world/art_000019.json",
+                    "world/art_000020.json",
+                    "world/art_000021.json",
+                    "world/art_000022.json",
+                    "world/art_000023.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000024.json",
+                    "ui/art_000025.json",
+                    "ui/art_000026.json",
+                    "ui/art_000027.json",
+                    "ui/art_000028.json",
+                    "ui/art_000029.json",
+                    "ui/art_000030.json",
+                    "ui/art_000031.json",
+                    "ui/art_000032.json"
+                ]
+            },
+            "5": {
+                "_project_common": "_project_common.json",
+                "Character": [
+                    "character/art_000001.json",
+                    "character/art_000002.json",
+                    "character/art_000003.json",
+                    "character/art_000004.json",
+                    "character/art_000005.json",
+                    "character/art_000006.json",
+                    "character/art_000007.json",
+                    "character/art_000008.json"
+                ],
+                "Obstacles": [
+                    "obstacles/art_000009.json",
+                    "obstacles/art_000010.json",
+                    "obstacles/art_000011.json",
+                    "obstacles/art_000012.json",
+                    "obstacles/art_000013.json",
+                    "obstacles/art_000014.json",
+                    "obstacles/art_000015.json",
+                    "obstacles/art_000016.json",
+                    "obstacles/art_000017.json",
+                    "obstacles/art_000018.json"
+                ],
+                "World": [
+                    "world/art_000019.json",
+                    "world/art_000020.json",
+                    "world/art_000021.json",
+                    "world/art_000022.json",
+                    "world/art_000023.json"
+                ],
+                "UI": [],
+                "Items": [],
+                "Mirrors": [],
+                "Ui": [
+                    "ui/art_000024.json",
+                    "ui/art_000025.json",
+                    "ui/art_000026.json",
+                    "ui/art_000027.json",
+                    "ui/art_000028.json",
+                    "ui/art_000029.json",
+                    "ui/art_000030.json",
+                    "ui/art_000031.json",
+                    "ui/art_000032.json"
+                ]
+            }
+        }
+    }
 };
 
 // Helper function to get files for a specific game/iteration/trial

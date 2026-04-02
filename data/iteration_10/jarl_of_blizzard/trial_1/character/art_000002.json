@@ -1,0 +1,165 @@
+{
+  "task_id": "art_000002",
+  "asset_key": "art_000002",
+  "asset_name": "Jarl portrait — Whiteout alert loop",
+  "category": "character",
+  "subcategory": "jarl_portrait_alert",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": "art_000001",
+  "variant_of_asset_key": "art_000001",
+  "shared_properties": [
+    "The portrait keeps the 64x64px frame, fur hood silhouette, and beard outline established by art_000001.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "The upper-left HUD anchor remains unchanged so portrait swaps do not disturb interface layout."
+  ],
+  "differences": [
+    "Eyebrows angle downward and the mouth tightens to communicate high blizzard pressure and urgent decision making.",
+    "Snow flecks and a stronger white cheek rim raise contrast during severe whiteout moments.",
+    "Frame cadence increases to 4fps so the alert state feels more active than the calm loop."
+  ],
+  "depends_on": [
+    "art_000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000001",
+      "art_000007",
+      "art_000018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_player_jarl",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/player_jarl.png",
+      "purpose": "Grounds the jarl portrait silhouette, fur hood shape, and beard readability in a compact HUD footprint."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-backed HUD portrait sprite that swaps in when blizzard intensity and event pressure spike.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "Handle<Image>",
+      "JarlPortraitState",
+      "BlizzardAlertUi"
+    ],
+    "asset_loading": "Load character/art_000002.png with the portrait atlas set and switch to it during alert and crisis states.",
+    "runtime_notes": [
+      "Trigger this atlas when whiteout intensity exceeds the severe threshold or a crisis popup enters focus.",
+      "Keep the pivot aligned with art_000001 so only the expression changes when the alert state appears.",
+      "Use authored snow flecks in the atlas frames instead of runtime particles to keep UI capture deterministic."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "hud_jarl_alert",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        24,
+        24
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Escalated portrait state shown during heavy whiteout and crisis events so the player can read urgency instantly.",
+    "adjacent_elements": [
+      "art_000007",
+      "art_000018"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "slight_right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 4,
+      "loop": true,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Aligned hooded bust with narrowed eyes, brighter frost edge, and a tenser beard contour.",
+      "components": [
+        "fur_hood",
+        "frost_rim",
+        "face_plane",
+        "braided_beard"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/art_000002.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 256x64px with 4 frames of 64x64px and 0px spacing.",
+    "The portrait alignment matches art_000001 so atlas swaps do not shift the HUD anchor.",
+    "Snow flecks and brow tension remain readable without obscuring the eye line or beard silhouette."
+  ]
+}

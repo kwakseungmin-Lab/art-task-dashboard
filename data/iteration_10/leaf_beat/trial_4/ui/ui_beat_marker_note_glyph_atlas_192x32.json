@@ -1,0 +1,164 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010040016",
+  "asset_name": "UI atlas — beat marker and note glyph set",
+  "category": "ui",
+  "subcategory": "rhythm_note_glyphs",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "shared_properties": [
+    "The glyph set uses the warm cream and gold UI palette that pairs with the lane panel.",
+    "All glyphs remain compact enough for even spacing across the 1280px rhythm bar.",
+    "Every glyph cell stays aligned to a shared baseline for deterministic placement."
+  ],
+  "differences": [
+    "This atlas centralizes the moving marker and note symbols used during live rhythm input.",
+    "The filled note uses more gold area than the empty note so required beats stand out quickly.",
+    "A slim lane tick cell supports evenly spaced beat subdivisions without additional texture files."
+  ],
+  "depends_on": [
+    "task_id_010040015"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_010040015"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010040015",
+      "task_id_010040002",
+      "task_id_010040003",
+      "task_id_010040004"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "beat_marker_and_notes",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        640
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Glyph atlas for the moving beat marker, filled note, empty note, and lane ticks.",
+    "adjacent_elements": [
+      "task_id_010040015",
+      "task_id_010040002",
+      "task_id_010040003",
+      "task_id_010040004"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 32
+    },
+    "colors_hex": [
+      "#F5ECD7",
+      "#F5D060",
+      "#E8722A",
+      "#3B2A1A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        48,
+        32
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Compact UI glyph strip containing a triangle marker, filled note, empty note, and vertical tick.",
+      "components": [
+        "triangle_marker",
+        "filled_note",
+        "empty_note",
+        "lane_tick"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_beat_marker_note_glyph_atlas_192x32.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x32px with 4 cells of 48x32px and 0px spacing.",
+    "The triangle marker remains legible at a glance and points upward with a centered tip.",
+    "Filled and empty note glyphs are visually distinct when viewed over the dark lane panel."
+  ],
+  "asset_key": "ui_beat_marker_note_glyph_atlas_192x32",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-driven UI entity set that reuses a compact glyph sheet for the rhythm bar.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "TextureAtlas",
+      "Handle<Image>",
+      "RhythmGlyph"
+    ],
+    "asset_loading": "Load ui/ui_beat_marker_note_glyph_atlas_192x32.png during UI boot and use atlas regions for the triangle marker, filled note, empty note, and bar ticks.",
+    "runtime_notes": [
+      "Bind the moving marker position to BPM-driven timers while the glyph art remains static inside the atlas.",
+      "Keep all glyph anchors on whole pixels so note spacing stays stable at 60 FPS.",
+      "Expose atlas indices in a resource so gameplay, replay, and tutorial systems use one shared glyph mapping."
+    ]
+  }
+}

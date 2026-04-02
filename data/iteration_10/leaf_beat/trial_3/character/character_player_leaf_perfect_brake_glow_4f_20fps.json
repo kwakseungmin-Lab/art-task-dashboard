@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010030002",
+  "asset_key": "character_player_leaf_perfect_brake_glow_4f_20fps",
+  "asset_name": "Player leaf — Perfect air-brake glow burst",
+  "category": "character",
+  "subcategory": "player_leaf_perfect",
+  "priority": "P0",
+  "execution_order": 20,
+  "variant_of": "task_id_010030001",
+  "variant_of_asset_key": "character_player_leaf_idle_spin_8f_10fps",
+  "shared_properties": [
+    "The 32x32px player footprint, stem placement, and five-lobe silhouette stay fixed across all player-state atlases.",
+    "Core palette fields remain fixed at primary #E8722A, background #D4A96A, and accent #F5D060.",
+    "The center vein remains the main structural cue for motion readability."
+  ],
+  "differences": [
+    "A gold halo and brighter vein highlight communicate the strongest timing result immediately.",
+    "The lower edge compresses inward to sell the temporary air-brake force window.",
+    "Frame cadence is faster than the idle loop so the perfect feedback feels punchy during the 0.4 second slowdown."
+  ],
+  "depends_on": [
+    "task_id_010030001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_010030001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010030001",
+      "task_id_010030015",
+      "task_id_010030018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_player_sheet",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/player.png",
+      "purpose": "Grounds the player leaf silhouette, glow accent, and frame density for the responsive states."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas sprite with an additive-looking glow layer baked into the atlas frames for deterministic response timing.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "PlayerLeaf",
+      "PerfectBrakeState"
+    ],
+    "asset_loading": "Load character/character_player_leaf_perfect_brake_glow_4f_20fps.png with the player atlas set and switch to this atlas for the perfect brake state window.",
+    "runtime_notes": [
+      "Spawn the state on a PERFECT lane judgement and return to the idle atlas after 0.4 seconds or the next stronger state change.",
+      "Keep the sprite anchored to a stable center pivot so velocity changes do not produce visible jitter.",
+      "Drive glow intensity from authored frames rather than shader pulses so replay capture stays deterministic across hardware."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "player_perfect_brake",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        288
+      ]
+    },
+    "layer": "character",
+    "usage": "Shown on a PERFECT Space input when the player compresses air and slows the fall speed.",
+    "adjacent_elements": [
+      "task_id_010030001",
+      "task_id_010030015",
+      "task_id_010030018"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_front",
+      "facing": "right_tilt"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#E8722A",
+      "#F5D060",
+      "#FFF4CC",
+      "#9B2335",
+      "#D4A96A",
+      "#3B2A1A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 20,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        32
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "The base leaf silhouette gains a short gold halo and a compressed downward posture.",
+      "components": [
+        "leaf_body",
+        "gold_halo",
+        "center_vein",
+        "stem"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_player_leaf_perfect_brake_glow_4f_20fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 128x32px with 4 frames of 32x32px and 0px spacing.",
+    "Each frame includes a readable gold halo using #F5D060 or #FFF4CC that does not exceed the 32x32px bounds.",
+    "The pivot and body silhouette stay stable across all 4 frames so animation swaps do not shift the collision read."
+  ]
+}

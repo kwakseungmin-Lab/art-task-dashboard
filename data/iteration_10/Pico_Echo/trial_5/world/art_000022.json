@@ -1,0 +1,147 @@
+{
+  "task_id": "art_000022",
+  "asset_key": "art_000022",
+  "asset_name": "Cage Floor Strip (clean vs dirty)",
+  "category": "world",
+  "subcategory": "floor",
+  "priority": "P0",
+  "execution_order": 240,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Asset preserves the front-facing 128x128 cage composition.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering keeps the room calm and readable behind gameplay."
+  ],
+  "differences": [
+    "This layer carries two floor states for clean and dirty readability.",
+    "The dirty state must still preserve contrast for poop targets.",
+    "The floor occupies the lower scene strip and stays static per state."
+  ],
+  "depends_on": [
+    "art_000019"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000019"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000019",
+      "art_000012"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "cage_layout_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "purpose": "Grounds cage framing, perch placement, and lower-floor composition."
+    },
+    {
+      "label": "art_direction_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "purpose": "Grounds warm household palette and front-facing pixel-art rendering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-driven sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "WorldLayerMarker"
+    ],
+    "asset_loading": "Load cage_floor_clean_dirty_2f.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "floor",
+    "layer": "world",
+    "usage": "Bottom floor area; can tint/texture change after cleaning.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        104
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 24
+    },
+    "colors_hex": [
+      "#FFA300",
+      "#FFF1E8",
+      "#AB5236"
+    ],
+    "animation": {
+      "type": "state_sheet",
+      "states": [
+        "clean",
+        "dirty"
+      ],
+      "frame_count": 2,
+      "frame_size_px": [
+        128,
+        24
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "dirty_state_notes": [
+      "Dirty state includes 8-12 scattered #AB5236 pixels; do not create 2x2 blocks.",
+      "Keep the top edge of the strip (y=104) clean with no dirt pixels in the first 2 rows."
+    ]
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/cage_floor_clean_dirty_2f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "State sheet is exactly 256x24px (2 states × 128x24) with 0px spacing.",
+    "Clean state uses only #FFA300 and #FFF1E8; Dirty state adds #AB5236 specks only.",
+    "Both states tile seamlessly from x=0 to x=127 (left and right edges match)."
+  ]
+}

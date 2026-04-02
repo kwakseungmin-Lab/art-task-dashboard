@@ -124,7 +124,8 @@ const Dashboard = {
             { num: 6, pass: 84, status: 'PASS', games: 5, date: '2026-03-25' },
             { num: 7, pass: 100, status: 'PASS', games: 5, date: '2026-03-25' },
             { num: 8, pass: 96, status: 'PASS', games: 5, date: '2026-03-25', hasIssue: true },
-            { num: 9, pass: 98, status: 'PASS', games: 5, date: '2026-04-02' }
+            { num: 9, pass: 98, status: 'PASS', games: 5, date: '2026-04-02' },
+            { num: 10, pass: 99, status: 'PASS', games: 5, date: '2026-04-02' }
         ];
 
         return iterations.map(iter => `
@@ -161,14 +162,29 @@ const Dashboard = {
     showIterationDetails(iterationNum) {
         const content = document.getElementById('main-content');
 
-        // Define games and trials
-        const games = [
-            'Chrome_Dino_Runner',
-            'Pico_Echo',
-            'reflect_academy',
-            'slip_down',
-            'umbra_scale'
-        ];
+        // Get games based on iteration number
+        let games = [];
+
+        // Check if GameAvailability is available
+        if (typeof GameAvailability !== 'undefined') {
+            games = GameAvailability.getAvailableGames(iterationNum);
+        } else {
+            // Fallback mapping
+            const iterationGames = {
+                0: [],
+                1: [],
+                2: [],
+                3: ['Chrome_Dino_Runner', 'Pico_Echo'],
+                4: ['Chrome_Dino_Runner', 'Pico_Echo'],
+                5: ['Chrome_Dino_Runner', 'Pico_Echo'],
+                6: ['Chrome_Dino_Runner', 'Pico_Echo', 'cosmos_heracles', 'jarl_of_blizzard', 'olympus_step', 'ricochet_conspiracy'],
+                7: ['Chrome_Dino_Runner', 'Pico_Echo', 'cosmos_heracles', 'olympus_step', 'ricochet_conspiracy'],
+                8: ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down', 'umbra_scale'],
+                9: ['bubble_farm', 'Chrome_Dino_Runner', 'jarl_of_blizzard', 'leaf_beat', 'Pico_Echo'],
+                10: ['bubble_farm', 'Chrome_Dino_Runner', 'jarl_of_blizzard', 'leaf_beat', 'Pico_Echo']
+            };
+            games = iterationGames[iterationNum] || [];
+        }
 
         const trials = [1, 2, 3, 4, 5];
 

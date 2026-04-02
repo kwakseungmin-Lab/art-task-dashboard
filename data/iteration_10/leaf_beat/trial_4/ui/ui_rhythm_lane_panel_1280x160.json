@@ -1,0 +1,149 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010040015",
+  "asset_name": "UI panel — rhythm lane background",
+  "category": "ui",
+  "subcategory": "rhythm_lane_panel",
+  "priority": "P0",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": [
+    "The panel spans the full screen width and anchors the lower 160px gameplay UI zone.",
+    "Warm brown tones match the autumn palette while remaining darker than the main playfield.",
+    "Reserved anchors keep lane, combo, and BPM placements stable across all gameplay states."
+  ],
+  "differences": [
+    "This asset establishes the dark rhythm-lane foundation visible for the entire run.",
+    "The inner lane trench creates a clear track for the moving marker and note glyphs.",
+    "Layout spacing leaves room for combo text at center and BPM text at the lower-right corner."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_010040016"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010040016",
+      "task_id_010040018"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "rhythm_lane_panel",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        640
+      ]
+    },
+    "layer": "ui_panel",
+    "usage": "Dark lower-screen panel that frames beat notes, the moving marker, combo text, and BPM readout.",
+    "adjacent_elements": [
+      "task_id_010040016",
+      "task_id_010040018"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 160
+    },
+    "colors_hex": [
+      "#3B2A1A",
+      "#5C3A1E",
+      "#F5ECD7",
+      "#F5D060"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Wide rectangular panel with a lighter inner lane trench and reserved anchor bands for notes and labels.",
+      "components": [
+        "panel_body",
+        "inner_lane_trench",
+        "combo_anchor",
+        "bpm_anchor"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_rhythm_lane_panel_1280x160.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 1280x160px with the lane trench centered horizontally.",
+    "The inner lane trench is visibly lighter than the outer panel body so moving notes remain readable.",
+    "Safe areas for combo text and BPM labels stay free of decorative clutter."
+  ],
+  "asset_key": "ui_rhythm_lane_panel_1280x160",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle full-width UI panel entity anchored to the lower 160px of the screen.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "Handle<Image>",
+      "RhythmLanePanel"
+    ],
+    "asset_loading": "Load ui/ui_rhythm_lane_panel_1280x160.png during UI boot and anchor it to the bottom edge at a fixed 1280x160 layout size.",
+    "runtime_notes": [
+      "Keep the panel pixel-perfect at the full screen width so lane coordinates stay stable across the run.",
+      "Reserve internal safe areas for the moving marker track, note row, combo popup, and BPM label.",
+      "Render the panel behind the marker and note sprites while keeping it above all world layers."
+    ]
+  }
+}

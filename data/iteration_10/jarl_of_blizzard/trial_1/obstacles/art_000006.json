@@ -1,0 +1,163 @@
+{
+  "task_id": "art_000006",
+  "asset_key": "art_000006",
+  "asset_name": "Blizzard VFX — Severe gust particle strip",
+  "category": "obstacles",
+  "subcategory": "blizzard_particles_severe",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": "art_000005",
+  "variant_of_asset_key": "art_000005",
+  "shared_properties": [
+    "Particle cells keep the 16x16px frame size and diagonal motion language established by art_000005.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "The strip remains suitable for pooled particle spawning in large weather bursts."
+  ],
+  "differences": [
+    "Flake streaks lengthen and density rises to communicate late-winter and major-storm pressure.",
+    "Brighter white bursts increase the sense of wind shear without obscuring all gameplay anchors.",
+    "Frame cadence rises to 16fps so the gust feels more aggressive than the light snow baseline."
+  ],
+  "depends_on": [
+    "art_000005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000005",
+      "art_000007",
+      "art_000017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas particle strip used by the severe-weather spawner when blizzard pressure reaches high intensity.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "BlizzardParticle",
+      "SevereStormState"
+    ],
+    "asset_loading": "Load obstacles/art_000006.png with the weather atlas family and swap it in for high-intensity storm states.",
+    "runtime_notes": [
+      "Activate this strip only when severe gust thresholds are reached so the visual hierarchy stays clear.",
+      "Keep spawn pivots and particle scale aligned with art_000005 to preserve weather-system tuning.",
+      "Blend the gust strip below the whiteout mask and above world gameplay sprites."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "blizzard_particles_severe",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "vfx_mid",
+    "usage": "Escalated snowfall effect used during severe storms, raid pressure, and late-round whiteout moments.",
+    "adjacent_elements": [
+      "art_000005",
+      "art_000007",
+      "art_000017"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "diagonal_right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#111111"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 16,
+      "loop": true,
+      "frame_size_px": [
+        16,
+        16
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Dense diagonal snow streaks with longer white slashes and clustered gust bursts.",
+      "components": [
+        "gust_streak",
+        "flake_cluster",
+        "crosswind_tail"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/art_000006.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 128x16px with 8 frames of 16x16px and 0px spacing.",
+    "The strip reads as denser and faster than art_000005 without producing opaque full-frame patches.",
+    "Bright streaks remain inside the 16x16px cell bounds so atlas sampling stays clean."
+  ]
+}

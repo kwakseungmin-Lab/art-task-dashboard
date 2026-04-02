@@ -1,0 +1,159 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010030010",
+  "asset_key": "obstacles_fruit_pickup_floating_6f_10fps",
+  "asset_name": "Fruit pickup — floating recovery reward",
+  "category": "obstacles",
+  "subcategory": "pickup_reward",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The pickup keeps a compact 24x24px footprint and a centered collectible silhouette in every frame.",
+    "The accent highlight stays bright enough to read over the warm background palette.",
+    "The glow ring remains secondary to the berry body so the collectible feels solid and clickable."
+  ],
+  "differences": [
+    "The berry uses a wine-red body to distinguish reward objects from branches and leaf clusters.",
+    "A soft glow ring and bobbing loop make the pickup readable during high-speed fall segments.",
+    "The silhouette is intentionally circular to contrast with the player leaf and the horizontal branch obstacles."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010030001",
+      "task_id_010030017",
+      "task_id_010030018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas pickup entity with a compact bobbing loop and a circle-friendly overlap collider.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "RewardFruit"
+    ],
+    "asset_loading": "Load obstacles/obstacles_fruit_pickup_floating_6f_10fps.png during stage setup and pair it with a small overlap collider for collection checks.",
+    "runtime_notes": [
+      "Animate the pickup at 10fps with a gentle bob to make reward opportunities visible during fast descent.",
+      "Keep the overlap collider within a 20x20px center region so collection feels generous without hiding the reward shape.",
+      "Spawn the pickup on non-overlapping lanes at roughly 300px depth intervals according to the stage generator."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "fruit_pickup",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        830,
+        260
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Collectible reward that restores HP up to the cap and adds bonus score.",
+    "adjacent_elements": [
+      "task_id_010030001",
+      "task_id_010030017",
+      "task_id_010030018"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 24
+    },
+    "colors_hex": [
+      "#9B2335",
+      "#E8722A",
+      "#F5D060",
+      "#F5ECD7",
+      "#5C3A1E"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        24,
+        24
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Round berry with a tiny stem, bright highlight, and a warm glow ring.",
+      "components": [
+        "berry_body",
+        "stem",
+        "highlight",
+        "glow_ring"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_fruit_pickup_floating_6f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 144x24px with 6 frames of 24x24px and 0px spacing.",
+    "The berry body remains centered and fully readable in every frame while the bobbing motion stays inside the 24x24px bounds.",
+    "A bright highlight using #F5D060 or #F5ECD7 remains visible on every frame to separate the pickup from branch tones."
+  ]
+}

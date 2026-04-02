@@ -1,0 +1,159 @@
+{
+  "task_id": "art_000019",
+  "asset_key": "art_000019",
+  "asset_name": "Summary overlay — Round results and pause frame",
+  "category": "ui",
+  "subcategory": "results_pause_overlay",
+  "priority": "P1",
+  "execution_order": 190,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The overlay uses a large centered panel format suitable for end-of-round summaries and pause-state information.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "Monochrome blocks separate score, survival status, and action prompts without relying on hue."
+  ],
+  "differences": [
+    "The panel includes a headline zone, metric grid, event recap gutter, and action-footer area for continue or retry prompts.",
+    "Metric cells are large enough to display population, buildings, queue accuracy, and winter outcome at a glance.",
+    "A dim outer veil frames the panel so the paused world remains visible but subdued in the background."
+  ],
+  "depends_on": [
+    "art_000015"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000015"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000001",
+      "art_000008",
+      "art_000011",
+      "art_000014",
+      "art_000015"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Large centered overlay panel paired with a dim screen veil for pause, result, and end-of-winter transitions.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "Handle<Image>",
+      "ResultsOverlay"
+    ],
+    "asset_loading": "Load ui/art_000019.png during UI boot and render it over a semi-opaque screen veil when pause or result states are active.",
+    "runtime_notes": [
+      "Keep the overlay inside the center safe area so the top HUD and portrait can remain visible if needed.",
+      "Expose metric-cell anchors for runtime text injection instead of painting numbers into the texture.",
+      "Fade the veil independently from the panel so transitions can stage background visibility cleanly."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "results_pause_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Large summary panel used for winter results, prosperity checks, and pause-state status review.",
+    "adjacent_elements": [
+      "art_000001",
+      "art_000008",
+      "art_000015"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 840,
+      "height": 560
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Large centered results board with headline strip, metric grid, recap gutter, footer actions, and an outer dim veil.",
+      "components": [
+        "headline_strip",
+        "metric_grid",
+        "recap_gutter",
+        "footer_actions",
+        "outer_veil"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/art_000019.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 840x560px with a clear metric grid and footer action zone.",
+    "Headline, metrics, recap, and footer remain visually distinct in grayscale only.",
+    "The overlay leaves enough negative space for dynamic text without crowding the panel borders."
+  ]
+}

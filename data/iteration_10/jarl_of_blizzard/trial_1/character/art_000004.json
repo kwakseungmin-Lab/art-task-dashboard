@@ -1,0 +1,166 @@
+{
+  "task_id": "art_000004",
+  "asset_key": "art_000004",
+  "asset_name": "Warrior unit — Raid shield raise sheet",
+  "category": "character",
+  "subcategory": "warrior_guard_raid",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "art_000003",
+  "variant_of_asset_key": "art_000003",
+  "shared_properties": [
+    "The unit keeps the 32x48px footprint, shield silhouette, and helmet mass established by art_000003.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "The battle-facing side-view remains aligned with the world grid so combat overlays can reuse placement rules."
+  ],
+  "differences": [
+    "The shield lifts higher and the spear angle rises to communicate an active raid-defense state.",
+    "The cloak and beard silhouette lean forward to signal impact preparation during hostile event windows.",
+    "Frame cadence rises to 10fps so the guard response feels sharper than the idle loop."
+  ],
+  "depends_on": [
+    "art_000003"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000003"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000003",
+      "art_000008",
+      "art_000018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas battlefield unit sprite that replaces the idle guard art during raid-response moments.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "WarriorUnit",
+      "RaidDefenseState"
+    ],
+    "asset_loading": "Load character/art_000004.png with the warrior atlas family and activate it when raid-defense state is entered.",
+    "runtime_notes": [
+      "Trigger this variant during raid warnings and keep the pivot aligned with art_000003 for stable swaps.",
+      "Use authored shield highlights instead of runtime flashes so silhouette readability remains deterministic.",
+      "Advance the response cycle only while the raid state is active to avoid over-busy village idles."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "warrior_raid_guard",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1180,
+        660
+      ]
+    },
+    "layer": "world_character",
+    "usage": "Raised-shield warrior state used when raiders approach and the village defense posture intensifies.",
+    "adjacent_elements": [
+      "art_000008",
+      "art_000018"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_three_quarter",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        48
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Aligned Viking guard with shield lifted to the face line, spear poised upward, and cloak swept forward by impact wind.",
+      "components": [
+        "helmet",
+        "fur_cloak",
+        "raised_round_shield",
+        "spear",
+        "boots"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/art_000004.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x48px with 6 frames of 32x48px and 0px spacing.",
+    "The pivot alignment matches art_000003 so state swaps do not slide the unit on the tile grid.",
+    "The raised shield clearly covers the torso in every frame while the spear tip remains inside the 32x48px bounds."
+  ]
+}

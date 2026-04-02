@@ -1,0 +1,372 @@
+{
+  "project": {
+    "project_id": "bubble_farm",
+    "project_name": "Bubble Farm: Balance of Evolution"
+  },
+  "meta": {
+    "plan_id": "bubble_farm__iter10__trial4",
+    "game_name": "bubble_farm",
+    "iteration": 10,
+    "trial_index": 4,
+    "plan_dir": "trial_4",
+    "created_at_utc": "2026-04-01T16:37:44Z",
+    "git_ref": "art_task_plan/iter10_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/bubble_farm.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md",
+    "run_id": "R26"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "reference_images": [
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    },
+    {
+      "label": "bubble_farm_slime_units",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/slime_units.png",
+      "purpose": "Grounds slime silhouettes, evolution scale, and facial placement."
+    },
+    {
+      "label": "bubble_farm_gameplay_balance",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/gameplay_balance.png",
+      "purpose": "Grounds the 9x7 board, balance axis, route overlay, and HUD placement."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 2D sprites with ImagePlugin::default_nearest(), SpriteBundle for static tiles and UI plates, and TextureAtlasLayout plus SpriteSheetBundle for animated slime and bubble sheets.",
+    "ecs_model": "Keep board visuals in GridCellVisual and BalanceAxisVisual components, units in SlimeUnitVisual components, hazards in BubbleHazardVisual components, and interface art in HudWidgetVisual components.",
+    "asset_loading": "Preload all package textures and atlas layouts through AssetServer during a dedicated Loading state and keep typed handles in resources.",
+    "runtime_notes": [
+      "Run balance recomputation and bubble path updates on a fixed 60 FPS schedule.",
+      "Keep the board on whole-pixel coordinates.",
+      "Scale UI in screen space while keeping sprite art nearest-filtered."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "balance_axis_control",
+      "label": "Balance Axis Control",
+      "description": "Covers placement readability, live balance warnings, and collapse feedback around the center axis.",
+      "critical_states": [
+        "preview_hover",
+        "balanced_lane",
+        "warning_tilt",
+        "collapse_resolution"
+      ],
+      "task_ids": [
+        "art_000002",
+        "art_000003",
+        "art_000004",
+        "art_000006",
+        "art_000007",
+        "art_000008",
+        "art_000010",
+        "art_000015",
+        "art_000019"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000015",
+        "art_000019"
+      ]
+    },
+    {
+      "mechanic_id": "evolution_merge_chain",
+      "label": "Evolution Merge Chain",
+      "description": "Covers deployable slime progression, support evolution, rare king creation, and codex reward feedback.",
+      "critical_states": [
+        "mini_pair_merge",
+        "normal_pair_merge",
+        "support_conversion",
+        "rare_king_unlock"
+      ],
+      "task_ids": [
+        "art_000006",
+        "art_000007",
+        "art_000008",
+        "art_000009",
+        "art_000010",
+        "art_000017",
+        "art_000016"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000017",
+        "art_000016"
+      ]
+    },
+    {
+      "mechanic_id": "hazard_path_prediction",
+      "label": "Hazard Path Prediction",
+      "description": "Covers route previews, rock reflection, boiling and rolling motion, bomb danger timing, and the prediction toggle.",
+      "critical_states": [
+        "prediction_enabled",
+        "boiling_route_preview",
+        "rolling_rebound",
+        "bomb_warning_peak"
+      ],
+      "task_ids": [
+        "art_000002",
+        "art_000005",
+        "art_000011",
+        "art_000012",
+        "art_000013",
+        "art_000014",
+        "art_000018",
+        "art_000015"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000018",
+        "art_000015"
+      ]
+    },
+    {
+      "mechanic_id": "queue_and_codex_flow",
+      "label": "Queue and Codex Flow",
+      "description": "Covers next queue planning, codex inspection, and collection-driven decision support.",
+      "critical_states": [
+        "next_queue_visible",
+        "codex_open",
+        "codex_unlock_notice"
+      ],
+      "task_ids": [
+        "art_000006",
+        "art_000007",
+        "art_000009",
+        "art_000015",
+        "art_000016",
+        "art_000017"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000015",
+        "art_000016",
+        "art_000017"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "art_000001",
+      "asset_key": "art_000001",
+      "category": "world",
+      "file": "world/art_000001.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000002",
+      "asset_key": "art_000002",
+      "category": "world",
+      "file": "world/art_000002.json",
+      "execution_order": 20,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000003",
+      "asset_key": "art_000003",
+      "category": "world",
+      "file": "world/art_000003.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000004",
+      "asset_key": "art_000004",
+      "category": "world",
+      "file": "world/art_000004.json",
+      "execution_order": 40,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000005",
+      "asset_key": "art_000005",
+      "category": "world",
+      "file": "world/art_000005.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000006",
+      "asset_key": "art_000006",
+      "category": "character",
+      "file": "character/art_000006.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000007",
+      "asset_key": "art_000007",
+      "category": "character",
+      "file": "character/art_000007.json",
+      "execution_order": 70,
+      "variant_of": "art_000006",
+      "variant_of_asset_key": "art_000006"
+    },
+    {
+      "task_id": "art_000008",
+      "asset_key": "art_000008",
+      "category": "character",
+      "file": "character/art_000008.json",
+      "execution_order": 80,
+      "variant_of": "art_000007",
+      "variant_of_asset_key": "art_000007"
+    },
+    {
+      "task_id": "art_000009",
+      "asset_key": "art_000009",
+      "category": "character",
+      "file": "character/art_000009.json",
+      "execution_order": 90,
+      "variant_of": "art_000007",
+      "variant_of_asset_key": "art_000007"
+    },
+    {
+      "task_id": "art_000010",
+      "asset_key": "art_000010",
+      "category": "character",
+      "file": "character/art_000010.json",
+      "execution_order": 100,
+      "variant_of": "art_000008",
+      "variant_of_asset_key": "art_000008"
+    },
+    {
+      "task_id": "art_000011",
+      "asset_key": "art_000011",
+      "category": "obstacles",
+      "file": "obstacles/art_000011.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000012",
+      "asset_key": "art_000012",
+      "category": "obstacles",
+      "file": "obstacles/art_000012.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000013",
+      "asset_key": "art_000013",
+      "category": "obstacles",
+      "file": "obstacles/art_000013.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000014",
+      "asset_key": "art_000014",
+      "category": "obstacles",
+      "file": "obstacles/art_000014.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000015",
+      "asset_key": "art_000015",
+      "category": "ui",
+      "file": "ui/art_000015.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000016",
+      "asset_key": "art_000016",
+      "category": "ui",
+      "file": "ui/art_000016.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000017",
+      "asset_key": "art_000017",
+      "category": "ui",
+      "file": "ui/art_000017.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000018",
+      "asset_key": "art_000018",
+      "category": "ui",
+      "file": "ui/art_000018.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000019",
+      "asset_key": "art_000019",
+      "category": "ui",
+      "file": "ui/art_000019.json",
+      "execution_order": 190,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ],
+  "generation_context": {
+    "strategy_mode": "STABILIZATION",
+    "strategy_notes": [
+      "User strategy requested minimal contract drift and a stable structure for iteration 10.",
+      "The package keeps explicit variant lineage and complete category coverage for IF-9 and IF-12 closure.",
+      "The plan uses S3 grounding from the specified simple-exp-20260309193804 snapshot."
+    ],
+    "kb_reference": {
+      "task_plan_kb_summary": [
+        "Delegation was requested to art_task_plan_kb_retriever for bubble_farm failure analysis.",
+        "Delegation was requested to art_task_plan_kb_retriever for custom rule lookup.",
+        "No structured KB briefing payload was visible during this run, so the package emphasized harness-visible closure checks."
+      ],
+      "avoidance_actions": [
+        "Each asset includes real image URLs and Bevy engine constraints.",
+        "Every variant task keeps explicit base lineage, depends_on closure, and manifest alignment.",
+        "The package keeps _project_common.json plus non-empty character, obstacles, world, and ui directories."
+      ]
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "task_id": "art_000016",
+  "asset_key": "art_000016",
+  "asset_name": "Planning panel — Resource queue builder",
+  "category": "ui",
+  "subcategory": "queue_planning_panel",
+  "priority": "P0",
+  "execution_order": 160,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The panel uses a tall right-side footprint that keeps the village visible while queue planning is active.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "Card slots and button wells are spaced for mouse interaction on a 1920x1080 screen."
+  ],
+  "differences": [
+    "The panel contains queue slots, drag handles, undo space, and a confirm footer for the planning phase.",
+    "High-contrast slot frames make item order easy to scan in grayscale-only presentation.",
+    "The confirm footer remains heavier and brighter than the surrounding queue slots to highlight progression."
+  ],
+  "depends_on": [
+    "art_000015"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000015"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000015",
+      "art_000017",
+      "art_000018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Static UI panel rendered on the right side during planning, with dynamic queue cards layered inside authored slots.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "Handle<Image>",
+      "QueuePlanningPanel"
+    ],
+    "asset_loading": "Load ui/art_000016.png during UI boot and attach it to a right-side panel node that stays fixed through planning.",
+    "runtime_notes": [
+      "Keep slot anchors exposed through layout metadata so queue card entities can snap precisely into each row.",
+      "Use the authored confirm footer as a visual target while interactive text and icons are layered at runtime.",
+      "Hide the panel when memory and result phases begin so the center field regains space."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "queue_planning_panel",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "center_right",
+      "offset_px": [
+        -48,
+        0
+      ]
+    },
+    "layer": "ui_panel",
+    "usage": "Right-side planning panel used to build, reorder, and confirm the winter resource queue.",
+    "adjacent_elements": [
+      "art_000015",
+      "art_000017",
+      "art_000018"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 420,
+      "height": 560
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Tall panel with ordered card slots, drag-handle margins, and a strong confirm footer block.",
+      "components": [
+        "panel_shell",
+        "queue_slots",
+        "drag_handle_margin",
+        "confirm_footer",
+        "undo_hint_bar"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/art_000016.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 420x560px with at least seven clearly separated queue slots.",
+    "The confirm footer is visibly brighter than the queue slot interiors.",
+    "Drag-handle margins and slot borders remain readable at 1x scale in grayscale only."
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "task_id": "art_000015",
+  "asset_name": "Score Digit Font Atlas",
+  "category": "ui",
+  "subcategory": "font",
+  "priority": "P1",
+  "execution_order": 150,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [
+    "art_000016"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000016"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "digit_font_atlas",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Provides glyphs for a 5-digit score display with 10 px width and 16 px height per digit.",
+    "adjacent_elements": [
+      "art_000016",
+      "art_000010"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 100,
+      "height": 16
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single-row atlas containing digits 0 through 9 in 10 equal cells of 10x16 px.",
+      "components": [
+        "digit_0",
+        "digit_1",
+        "digit_2",
+        "digit_3",
+        "digit_4",
+        "digit_5",
+        "digit_6",
+        "digit_7",
+        "digit_8",
+        "digit_9"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/art_000015.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 100x16 px.",
+    "Each digit occupies a 10x16 px cell with baseline alignment across all 10 cells.",
+    "Glyph strokes use #535353 with transparent background only."
+  ],
+  "asset_key": "art_000015",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "ui_layout_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B2/_ReferenceImages/game_ui_layout.png?raw=1",
+      "purpose": "Score placement, game-over layout, and screen-safe margin anchor."
+    },
+    {
+      "label": "pixel_art_moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png?raw=1",
+      "purpose": "Pixel-art outline, low-detail silhouette, and monochrome contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "UiImage atlas bundle for digit spritesheet and fixed-top-right score anchoring.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "HudFontAtlas",
+      "UiNode",
+      "Style"
+    ],
+    "asset_loading": "Load ui/art_000015.png through AssetServer and register the handle under art_000015.",
+    "runtime_notes": [
+      "Keep source pixels unfiltered with nearest-neighbor sampling and integer world transforms.",
+      "Spawn order follows execution_order so downstream setup can validate deterministic asset availability.",
+      "Collision and UI code read logical dimensions from specs.dimensions_px rather than texture metadata."
+    ]
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "task_id": "task_id_010030032",
+  "asset_key": "cursor_touch_indicator_2f",
+  "asset_name": "Touch Indicator (tap ring, 2 frames)",
+  "category": "ui",
+  "subcategory": "feedback",
+  "priority": "P2",
+  "execution_order": 390,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Asset remains readable at 1x scale on the 128x128 playfield.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering keeps the interface crisp without hiding gameplay."
+  ],
+  "differences": [
+    "This indicator demonstrates touch or click input with a compact 2-frame cue.",
+    "The animation must stay readable without covering the main interaction targets.",
+    "The cue must remain distinct from the heart and sparkle particles."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "reference_images": [
+    {
+      "label": "hud_widget_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md",
+      "purpose": "Grounds HUD layout, icon sizing, and bottom-screen information density."
+    },
+    {
+      "label": "care_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/CareSystem.md",
+      "purpose": "Grounds care popup behavior, icon semantics, and interaction feedback states."
+    },
+    {
+      "label": "relationship_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/RelationshipSystem.md",
+      "purpose": "Grounds relationship label semantics and progression display needs."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-driven sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "UiNodeMarker"
+    ],
+    "asset_loading": "Load cursor_touch_indicator_2f.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "input_feedback",
+    "layer": "ui",
+    "usage": "Shows a small ring at touch/click position for web builds.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 12,
+      "height": 12
+    },
+    "colors_hex": [
+      "#FF004D",
+      "#1D2B53"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 8,
+      "loop": false,
+      "frame_size_px": [
+        12,
+        12
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "frames": {
+      "frame_0": "6px radius ring, 1px thick",
+      "frame_1": "8px radius ring, 1px thick"
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/cursor_touch_indicator_2f.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 24x12px (2 frames × 12x12).",
+    "Ring thickness is 1px; center is transparent in both frames.",
+    "Uses only #FF004D or #1D2B53 pixels and transparency; no gradients."
+  ],
+  "schema_version": "art_task@8"
+}

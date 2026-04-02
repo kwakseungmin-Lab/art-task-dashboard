@@ -1,0 +1,152 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010040013",
+  "asset_name": "World layer — near tree silhouettes",
+  "category": "world",
+  "subcategory": "parallax_trees_near",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": "task_id_010040012",
+  "shared_properties": [
+    "The layer spans the full screen and remains non-interactive like world_far_tree_silhouettes_1280x720.",
+    "The center opening stays aligned with the gameplay corridor so obstacles remain easy to read.",
+    "The silhouette remains static so scrolling motion comes from code-side parallax only."
+  ],
+  "differences": [
+    "This variant darkens the tree masses and tightens the side framing to increase motion pressure.",
+    "The central opening is slightly narrower than world_far_tree_silhouettes_1280x720 so the scene feels more enclosed.",
+    "Trunk forms are chunkier to hold up under the faster 0.7x parallax rate."
+  ],
+  "depends_on": [
+    "task_id_010040012"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_010040012"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010040012",
+      "task_id_010040006",
+      "task_id_010040009"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "near_tree_layer",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        360
+      ]
+    },
+    "layer": "world_front",
+    "usage": "Faster parallax tree band that tightens the corridor and increases depth at gameplay speed.",
+    "adjacent_elements": [
+      "task_id_010040012",
+      "task_id_010040006",
+      "task_id_010040009"
+    ],
+    "viewpoint": {
+      "camera_angle": "camera_fixed",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "colors_hex": [
+      "#5C3A1E",
+      "#8B5E3C",
+      "#3B2A1A"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Closer tree trunks and branches framing the sides with a sharp central opening for the fall lane.",
+      "components": [
+        "left_trunk_cluster",
+        "right_trunk_cluster",
+        "central_opening"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_near_tree_silhouettes_1280x720.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 1280x720px with no opaque pixels entering the central 240px fall lane.",
+    "Near trunks and branches use visibly darker values than the far layer so depth ordering reads instantly.",
+    "The frame edge detail stays chunky enough to avoid shimmer under 60 FPS scrolling."
+  ],
+  "asset_key": "world_near_tree_silhouettes_1280x720",
+  "variant_of_asset_key": "world_far_tree_silhouettes_1280x720",
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle parallax entity with a stronger movement factor tied to camera descent.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "Handle<Image>",
+      "WorldLayer",
+      "ParallaxLayer"
+    ],
+    "asset_loading": "Load world/world_near_tree_silhouettes_1280x720.png during boot and apply a 0.7x vertical parallax factor during gameplay.",
+    "runtime_notes": [
+      "Scroll the texture at 0.7x of the player fall speed so the near band adds urgency without covering the lane center.",
+      "Keep the central opening aligned with the obstacle corridor and the player anchor position.",
+      "Use darker values than world_far_tree_silhouettes_1280x720 so the near layer reads as a stronger framing element."
+    ]
+  }
+}

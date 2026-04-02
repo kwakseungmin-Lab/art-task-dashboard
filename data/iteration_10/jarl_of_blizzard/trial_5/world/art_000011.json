@@ -1,0 +1,171 @@
+{
+  "task_id": "art_000011",
+  "asset_key": "art_000011",
+  "asset_name": "Longhouse building — Hearth smoke sheet",
+  "category": "world",
+  "subcategory": "longhouse",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The building occupies a 64x64px footprint sized for the settlement grid and winter overview camera.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "Roof snow, wall beams, and doorway contrast remain strong enough for rapid structure recognition."
+  ],
+  "differences": [
+    "This longhouse sheet represents the default housing unit that supports early population growth.",
+    "A 3-frame chimney smoke loop adds life without masking the dark doorway and roof edge.",
+    "Snow buildup on the roof ridge signals the harsh winter setting while preserving building readability."
+  ],
+  "depends_on": [
+    "art_000009",
+    "art_000010"
+  ],
+  "blocks": [
+    "art_000019"
+  ],
+  "blocked_by": [
+    "art_000009",
+    "art_000010"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000009",
+      "art_000010",
+      "art_000019"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas building sprite placed on the settlement grid as a core housing structure with a compact smoke loop.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "VillageBuilding",
+      "HousingBuilding"
+    ],
+    "asset_loading": "Load world/art_000011.png during building boot and use atlas frame cycling for the hearth smoke motion.",
+    "runtime_notes": [
+      "Keep the footprint centered on a single 64px grid tile so placement remains consistent across the village.",
+      "Advance the smoke loop at 3fps to avoid visual noise in the static overview camera.",
+      "Reserve the brightest whites for snowcaps and smoke puffs rather than wall surfaces."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "longhouse_building",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        760,
+        640
+      ]
+    },
+    "layer": "world_building",
+    "usage": "Core housing building used to communicate population capacity and village growth under winter pressure.",
+    "adjacent_elements": [
+      "art_000012",
+      "art_000013",
+      "art_000014",
+      "art_000015"
+    ],
+    "viewpoint": {
+      "camera_angle": "fixed_overview",
+      "facing": "slight_right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 3,
+      "fps": 3,
+      "loop": true,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Square longhouse with pitched snow roof, dark doorway, and a thin chimney plume.",
+      "components": [
+        "roof_ridge",
+        "timber_walls",
+        "doorway",
+        "chimney_smoke"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/art_000011.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x64px with 3 frames of 64x64px and 0px spacing.",
+    "Doorway and wall beams remain readable against nearby snow tiles at 1x scale.",
+    "Smoke motion stays subtle and never obscures the roof silhouette."
+  ]
+}

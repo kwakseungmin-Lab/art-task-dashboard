@@ -1,0 +1,157 @@
+{
+  "task_id": "art_000018",
+  "asset_key": "art_000018",
+  "asset_name": "Crisis popup — Event choice modal",
+  "category": "ui",
+  "subcategory": "crisis_popup",
+  "priority": "P0",
+  "execution_order": 180,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The modal uses a centered wide format that can present an icon, event text, and two to three response buttons.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "Button wells and icon space are arranged for mouse readability during urgent decision points."
+  ],
+  "differences": [
+    "The popup emphasizes event urgency with a bright icon plaque and darker choice-button strip.",
+    "A header band provides space for raid, disease, prophecy, or storm titles supported by the crisis icon atlas.",
+    "The lower controls use thick borders and deep shadows so response options remain obvious in grayscale."
+  ],
+  "depends_on": [
+    "art_000008",
+    "art_000015"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000008",
+    "art_000015"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000015",
+      "art_000008"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Centered event modal with runtime text and icon layers, shown when crises interrupt the winter cycle.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "Handle<Image>",
+      "CrisisPopup"
+    ],
+    "asset_loading": "Load ui/art_000018.png during UI boot and compose it with icon and text children when an event state opens.",
+    "runtime_notes": [
+      "Keep the icon plaque large enough for atlas icons from art_000008 to remain readable at 1x scale.",
+      "Expose button anchor rectangles so response options can be generated dynamically for different event types.",
+      "Place the modal above world layers and weather effects while preserving the top HUD for context."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "crisis_popup_modal",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Centered modal used for raids, disease outbreaks, prophecies, and deep-storm tradeoff choices.",
+    "adjacent_elements": [
+      "art_000002",
+      "art_000008",
+      "art_000015"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 720,
+      "height": 260
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Wide centered modal with icon plaque, title band, body text zone, and heavy choice-button strip.",
+      "components": [
+        "icon_plaque",
+        "title_band",
+        "body_zone",
+        "choice_button_strip"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/art_000018.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 720x260px with a readable icon plaque and at least two choice-button wells.",
+    "Title band, body zone, and choice strip are visually separated by strong borders or tonal shifts.",
+    "Choice-button wells remain readable without color labels and leave enough space for short action text."
+  ]
+}

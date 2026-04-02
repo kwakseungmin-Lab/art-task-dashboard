@@ -1,0 +1,162 @@
+{
+  "task_id": "art_000014",
+  "asset_key": "art_000014",
+  "asset_name": "Support building atlas — Shrine and infirmary pair",
+  "category": "world",
+  "subcategory": "support_buildings",
+  "priority": "P1",
+  "execution_order": 60,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The atlas groups two support structures into one 192x96px texture for efficient loading and placement.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "Both structures maintain compact silhouettes suited to the fixed single-screen settlement camera."
+  ],
+  "differences": [
+    "The left half contains a shrine with standing stones and a bright ritual basin for the faith mechanic.",
+    "The right half contains an infirmary with a cross-beam sign and orderly roofline for disease-response gameplay.",
+    "The atlas pairing helps the support-building category stay compact while preserving distinct silhouettes."
+  ],
+  "depends_on": [
+    "art_000009",
+    "art_000010"
+  ],
+  "blocks": [
+    "art_000019"
+  ],
+  "blocked_by": [
+    "art_000009",
+    "art_000010"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000009",
+      "art_000010",
+      "art_000019"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Shared atlas for two support structures placed by separate ECS definitions that sample different atlas regions.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "VillageBuilding",
+      "SupportBuilding"
+    ],
+    "asset_loading": "Load world/art_000014.png during building boot and register atlas indices for shrine and infirmary placements.",
+    "runtime_notes": [
+      "Expose shrine and infirmary atlas indices through a support-building registry resource.",
+      "Keep each building inside a 96x96px logical cell so placement math stays simple on the village grid.",
+      "Use the brightest whites for ritual basin highlights and infirmary signage rather than roof masses."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "support_building_atlas",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1420,
+        620
+      ]
+    },
+    "layer": "world_building",
+    "usage": "Atlas containing the shrine and infirmary, used for faith events and disease-response states in the settlement.",
+    "adjacent_elements": [
+      "art_000015",
+      "art_000018",
+      "art_000019"
+    ],
+    "viewpoint": {
+      "camera_angle": "fixed_overview",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 192,
+      "height": 96
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Two-cell atlas with a stone-ring shrine on the left and a compact infirmary on the right.",
+      "components": [
+        "shrine_cell",
+        "ritual_basin",
+        "infirmary_cell",
+        "cross_beam_sign"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/art_000014.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 192x96px with two 96x96px logical cells.",
+    "Shrine and infirmary silhouettes remain distinct when each cell is displayed independently at 1x scale.",
+    "Bright ritual and signage details do not overpower the dark structural outlines."
+  ]
+}

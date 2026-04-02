@@ -1,0 +1,159 @@
+{
+  "task_id": "art_000031",
+  "asset_key": "art_000031",
+  "asset_name": "Speech Bubble — Seed Request Icon (for Hungry state)",
+  "category": "ui",
+  "subcategory": "bubble",
+  "priority": "P1",
+  "execution_order": 380,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Asset remains readable at 1x scale on the 128x128 playfield.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering keeps the interface crisp without hiding gameplay."
+  ],
+  "differences": [
+    "This bubble asset pairs the hunger state with a direct seed request symbol.",
+    "The bubble must read clearly against the cream background and cage bars.",
+    "The icon inside the bubble must stay visible without text."
+  ],
+  "depends_on": [
+    "art_000027"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000027"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000027",
+      "art_000007"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "hud_widget_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md",
+      "purpose": "Grounds HUD layout, icon sizing, and bottom-screen information density."
+    },
+    {
+      "label": "care_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/CareSystem.md",
+      "purpose": "Grounds care popup behavior, icon semantics, and interaction feedback states."
+    },
+    {
+      "label": "relationship_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/RelationshipSystem.md",
+      "purpose": "Grounds relationship label semantics and progression display needs."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Static sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "UiNodeMarker"
+    ],
+    "asset_loading": "Load bubble_seed_request_icon.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "speech_bubble",
+    "layer": "ui",
+    "usage": "Shows above Echo when hungry; contains seed icon.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        62,
+        28
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 20,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFF1E8",
+      "#1D2B53",
+      "#FFEC27",
+      "#AB5236"
+    ],
+    "animation": null,
+    "bubble": {
+      "border_hex": "#1D2B53",
+      "fill_hex": "#FFF1E8",
+      "tail_px": {
+        "tip": [
+          6,
+          15
+        ],
+        "base": [
+          9,
+          12
+        ]
+      },
+      "icon_center_px": [
+        11,
+        7
+      ],
+      "icon_dimensions_px": [
+        12,
+        12
+      ],
+      "icon_colors_hex": [
+        "#FFEC27",
+        "#AB5236",
+        "#1D2B53"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/bubble_seed_request_icon.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Bubble is exactly 20x16px with a 1px border (#1D2B53) and solid fill (#FFF1E8).",
+    "Tail points downward-left and stays inside bounds; tip pixel is at (6,15).",
+    "Centered seed icon fits in a 12x12 area and uses only #FFEC27 and #AB5236 (outline may use #1D2B53)."
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "task_id": "art_000012",
+  "asset_name": "Large Cloud Static",
+  "category": "world",
+  "subcategory": "background_prop",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": "art_000011",
+  "shared_properties": [
+    "The cloud uses the same monochrome palette and rounded lobe language as the small cloud base.",
+    "The cloud remains a static asset while runtime scrolling supplies motion.",
+    "The lower edge stays readable against the #F7F7F7 sky fill."
+  ],
+  "differences": [
+    "The silhouette expands to 92x27px with a broader center mass.",
+    "The cloud uses five rounded lobes instead of three.",
+    "The base line widens so the asset feels heavier in the background layer."
+  ],
+  "depends_on": [
+    "art_000011"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000011"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000010",
+      "art_000011"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "background_cloud_large",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        300,
+        28
+      ]
+    },
+    "layer": "world_mid",
+    "usage": "Larger optional parallax cloud that increases depth variation without adding gameplay collision.",
+    "adjacent_elements": [
+      "art_000010"
+    ],
+    "viewpoint": {
+      "camera_angle": "camera_fixed",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 27
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Wide five-lobe cloud with a heavy center mass and flat lower edge.",
+      "components": [
+        "left_lobe",
+        "mid_left_lobe",
+        "center_lobe",
+        "mid_right_lobe",
+        "right_lobe",
+        "flat_base"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/art_000012.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 92x27px.",
+    "The tallest lobe stays centered within the 92px width for stable parallax reuse.",
+    "Only #535353 and transparency appear in painted pixels."
+  ],
+  "asset_key": "art_000012",
+  "variant_of_asset_key": "art_000011",
+  "reference_images": [
+    {
+      "label": "t_rex_runner_sprite_sheet_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "Grounds sky, cloud, and ground strip spacing that defines motion readability."
+    },
+    {
+      "label": "t_rex_runner_sprite_sheet_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/default_100_percent/100-offline-sprite.png",
+      "purpose": "Grounds sky, cloud, and ground strip spacing that defines motion readability."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle with a single nearest-neighbor texture.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer in the Loading state and store the handle in a typed resource before gameplay starts.",
+    "runtime_notes": [
+      "Snap transforms to whole pixels before render extraction.",
+      "Use visibility toggles or spawn pools instead of mutating image handles during active play.",
+      "Keep collider setup separate from the art bundle so gameplay forgiveness margins remain tunable."
+    ]
+  }
+}

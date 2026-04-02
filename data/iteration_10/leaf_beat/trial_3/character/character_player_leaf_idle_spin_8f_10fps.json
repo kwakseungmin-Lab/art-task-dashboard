@@ -1,0 +1,173 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010030001",
+  "asset_key": "character_player_leaf_idle_spin_8f_10fps",
+  "asset_name": "Player leaf — Idle spin loop",
+  "category": "character",
+  "subcategory": "player_leaf",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The player leaf keeps a 32x32px footprint and a readable stem in every occupied frame.",
+    "Core palette fields stay fixed at primary #E8722A, background #D4A96A, and accent #F5D060.",
+    "The center vein remains the brightest structural cue so timing reactions stay legible over the sepia background."
+  ],
+  "differences": [
+    "This base asset defines the neutral fall pose used before braking, steering, or damage states appear.",
+    "The loop rotates through a gentle clockwise and counterclockwise sway that matches the relaxed early-stage fall rhythm.",
+    "Frame spacing prioritizes stable silhouette readability over extreme deformation."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_010030002",
+    "task_id_010030003",
+    "task_id_010030004",
+    "task_id_010030005"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010030015",
+      "task_id_010030016",
+      "task_id_010030017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_player_sheet",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/player.png",
+      "purpose": "Grounds the player leaf silhouette, glow accent, and frame density for the responsive states."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-driven sprite entity updated in FixedUpdate for deterministic loop timing.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "PlayerLeaf"
+    ],
+    "asset_loading": "Load character/character_player_leaf_idle_spin_8f_10fps.png during the Loading state and store the atlas handle in a PlayerArt resource keyed by task_id.",
+    "runtime_notes": [
+      "Keep the entity centered near the camera focus so horizontal drift reads as movement against the obstacle field.",
+      "Advance the idle timer at 10fps and snap every frame to whole pixels to preserve crisp veins and lobe edges.",
+      "Expose the current atlas frame to combo and judgement systems so perfect feedback can layer without replacing gameplay ownership."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "player_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        300
+      ]
+    },
+    "layer": "character",
+    "usage": "Default visible state during the fall loop while the player reads the next rhythm note.",
+    "adjacent_elements": [
+      "task_id_010030015",
+      "task_id_010030016",
+      "task_id_010030017"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_front",
+      "facing": "right_tilt"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#E8722A",
+      "#F5D060",
+      "#9B2335",
+      "#D4A96A",
+      "#8B5E3C",
+      "#5C3A1E",
+      "#F5ECD7",
+      "#3B2A1A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        32
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Asymmetric maple leaf with a narrow stem, five lobes, and a bright central vein.",
+      "components": [
+        "center_vein",
+        "left_upper_lobe",
+        "right_upper_lobe",
+        "lower_side_lobes",
+        "stem"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_player_leaf_idle_spin_8f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 256x32px with 8 frames of 32x32px and 0px spacing.",
+    "The stem remains readable as a 2px-wide dark form in every frame and never leaves the 32x32px bounds.",
+    "Only the listed colors plus transparency are used, with nearest-neighbor edges and no anti-aliasing."
+  ]
+}

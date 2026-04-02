@@ -1,0 +1,152 @@
+{
+  "task_id": "art_000001",
+  "asset_name": "Player Dino Idle Loop",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [
+    "art_000002",
+    "art_000003",
+    "art_000004",
+    "art_000005"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000002",
+      "art_000013"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_idle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "layer": "character",
+    "usage": "Used before obstacle motion starts and after restart state reset.",
+    "adjacent_elements": [
+      "art_000013",
+      "art_000016"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        88,
+        94
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "88x94 side-profile T-Rex with large head, short forearms, thick tail, closed mouth line, and 2px outline.",
+      "components": [
+        "head",
+        "eye_cutout",
+        "mouth_line",
+        "torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/art_000001.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 176x94 px with 2 frames arranged in 2 columns and 1 row.",
+    "Each frame uses only #535353 plus transparent background cutout; no extra fill colors appear.",
+    "Feet touch the ground baseline at the last opaque pixel row with a 2px outline width throughout both frames."
+  ],
+  "asset_key": "art_000001",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "player_dino_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/player_dinosaur.png?raw=1",
+      "purpose": "Player silhouette, jump posture, and run loop proportion anchor."
+    },
+    {
+      "label": "pixel_art_moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png?raw=1",
+      "purpose": "Pixel-art outline, low-detail silhouette, and monochrome contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle for player states so animation frames share one logical entity per state.",
+    "atlas_or_static": "sprite_sheet_1x2",
+    "ecs_components": [
+      "Sprite",
+      "TextureAtlas",
+      "AnimationTimer",
+      "RunnerPlayer",
+      "Transform"
+    ],
+    "asset_loading": "Load character/art_000001.png through AssetServer and register the handle under art_000001.",
+    "runtime_notes": [
+      "Keep source pixels unfiltered with nearest-neighbor sampling and integer world transforms.",
+      "Spawn order follows execution_order so downstream setup can validate deterministic asset availability.",
+      "Collision and UI code read logical dimensions from specs.dimensions_px rather than texture metadata."
+    ]
+  }
+}

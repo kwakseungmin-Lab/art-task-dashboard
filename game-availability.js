@@ -10,7 +10,8 @@ const GameAvailability = {
         6: ['Chrome_Dino_Runner', 'Pico_Echo', 'cosmos_heracles', 'jarl_of_blizzard', 'olympus_step', 'ricochet_conspiracy'],
         7: ['Chrome_Dino_Runner', 'Pico_Echo', 'cosmos_heracles', 'olympus_step', 'ricochet_conspiracy'],
         8: ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down', 'umbra_scale'],
-        9: ['Chrome_Dino_Runner', 'Pico_Echo', 'bubble_farm', 'jarl_of_blizzard', 'leaf_beat']
+        9: ['bubble_farm', 'Chrome_Dino_Runner', 'jarl_of_blizzard', 'leaf_beat', 'Pico_Echo'],
+        10: ['bubble_farm', 'Chrome_Dino_Runner', 'jarl_of_blizzard', 'leaf_beat', 'Pico_Echo']
     },
 
     // Check if a game is available for a specific iteration

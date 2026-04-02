@@ -1,0 +1,139 @@
+{
+  "task_id": "art_000017",
+  "asset_name": "Game Over Center Text",
+  "category": "ui",
+  "subcategory": "screen",
+  "priority": "P1",
+  "execution_order": 170,
+  "variant_of": null,
+  "shared_properties": [],
+  "differences": [],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000005",
+      "art_000010"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "game_over_banner",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        210,
+        45
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Centered banner displayed after collision with 24 px letter height and optional #FF0000 highlight for record state.",
+    "adjacent_elements": [
+      "art_000005",
+      "art_000016"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_ui_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 180,
+      "height": 24
+    },
+    "colors_hex": [
+      "#535353",
+      "#FF0000",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Single-line GAME OVER wordmark occupying 180 px width and 24 px height in blocky uppercase pixels.",
+      "components": [
+        "G",
+        "A",
+        "M",
+        "E",
+        "O",
+        "V",
+        "E",
+        "R"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/art_000017.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 180x24 px.",
+    "Primary text fill uses #535353 and optional record-state highlight uses #FF0000 only.",
+    "Wordmark remains horizontally centered when its top-left corner is placed at 210,45 in a 600x150 frame."
+  ],
+  "asset_key": "art_000017",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "ui_layout_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B2/_ReferenceImages/game_ui_layout.png?raw=1",
+      "purpose": "Score placement, game-over layout, and screen-safe margin anchor."
+    },
+    {
+      "label": "pixel_art_moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png?raw=1",
+      "purpose": "Pixel-art outline, low-detail silhouette, and monochrome contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "UiImage bundle for HUD and state overlays with deterministic anchors.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "ImageNode",
+      "UiNode",
+      "Style"
+    ],
+    "asset_loading": "Load ui/art_000017.png through AssetServer and register the handle under art_000017.",
+    "runtime_notes": [
+      "Keep source pixels unfiltered with nearest-neighbor sampling and integer world transforms.",
+      "Spawn order follows execution_order so downstream setup can validate deterministic asset availability.",
+      "Collision and UI code read logical dimensions from specs.dimensions_px rather than texture metadata."
+    ]
+  }
+}

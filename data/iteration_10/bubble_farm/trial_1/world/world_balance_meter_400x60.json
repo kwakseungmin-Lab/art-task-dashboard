@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010010004",
+  "asset_name": "Balance Meter Bar",
+  "category": "world",
+  "subcategory": "meter_widget",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "The meter shelf size matches the lower center HUD slot from the GDD."
+  ],
+  "differences": [
+    "Eight fill segments step from gold to warning orange.",
+    "A center notch keeps zero deviation visible at a glance.",
+    "Mud brackets tie the meter to the farm machinery theme."
+  ],
+  "depends_on": [
+    "task_id_010010003"
+  ],
+  "blocks": [
+    "task_id_010010015"
+  ],
+  "blocked_by": [
+    "task_id_010010003"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010010003",
+      "task_id_010010015",
+      "task_id_010010019"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "meter_widget",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        760,
+        728
+      ]
+    },
+    "layer": "world_overlay",
+    "usage": "Lower-center readout for live deviation and warning thresholds.",
+    "adjacent_elements": [
+      "task_id_010010003",
+      "task_id_010010015",
+      "task_id_010010019"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_15deg",
+      "facing": "screen_center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 400,
+      "height": 60
+    },
+    "colors_hex": [
+      "#FFD700",
+      "#FF6B00",
+      "#1E1E2E",
+      "#F5F0E1"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        400,
+        60
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "layout": {
+      "segments": 8,
+      "segment_size_px": [
+        40,
+        20
+      ]
+    },
+    "texture": "Dark slate housing with gold slots and cream tick marks.",
+    "shading": "Flat housing with one bright top ridge."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_balance_meter_400x60.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Meter housing size is exactly 400x60px with 8 evenly spaced fill segments.",
+    "The center notch sits on the exact horizontal midpoint.",
+    "All edges stay inside a 1px outline rhythm."
+  ],
+  "asset_key": "world_balance_meter_400x60",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "bubble_farm_gameplay_balance",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/gameplay_balance.png",
+      "purpose": "Grounds the 9x7 board, balance axis, route overlay, and HUD placement."
+    },
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle housing with child fill bars.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "Handle<Image>",
+      "BalanceMeterVisual"
+    ],
+    "asset_loading": "Load world/world_balance_meter_400x60.png and spawn child fill bars from code.",
+    "runtime_notes": [
+      "Keep the housing static while code drives the fill state.",
+      "Snap all tick marks to whole pixels.",
+      "Reserve a transparent outer gutter for popup overlap."
+    ]
+  }
+}

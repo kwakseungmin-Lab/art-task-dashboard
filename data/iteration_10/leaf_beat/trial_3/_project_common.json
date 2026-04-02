@@ -1,0 +1,382 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "leaf_beat",
+    "project_name": "Leaf Beat"
+  },
+  "meta": {
+    "plan_id": "leaf_beat__iter10__trial3",
+    "game_name": "leaf_beat",
+    "iteration": 10,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-04-01T23:37:15Z",
+    "git_ref": "art_task_plan/iter10_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md",
+    "run_id": "R26"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    },
+    {
+      "label": "leaf_beat_player_sheet",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/player.png",
+      "purpose": "Grounds the player leaf silhouette, glow accent, and frame density for the responsive states."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 0.13 SpriteBundle for static layers and TextureAtlasLayout plus SpriteSheetBundle for the player, pickups, and compact UI atlases.",
+    "ecs_model": "Represent the player leaf, obstacle spawnables, reward pickups, parallax layers, rhythm-lane widgets, and overlays as entities tagged with components such as PlayerLeaf, ObstacleKind, RewardFruit, WorldLayer, RhythmLanePanel, RhythmGlyph, HudStrip, and FrontEndOverlay.",
+    "asset_loading": "Preload every JSON-declared PNG through AssetServer during a Loading state, cache handles by task_id, and drive gameplay timing in FixedUpdate at 60Hz.",
+    "runtime_notes": [
+      "Apply nearest-neighbor sampling and whole-pixel camera placement to preserve crisp 1px edges at 1280x720.",
+      "Use direct AABB collision for branches, leaf clusters, fruit pickups, and screen walls without adding Rapier.",
+      "Drive BPM escalation, note-marker travel, combo popup lifetime, and danger-vignette opacity from deterministic timers linked to depth thresholds."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "beat_timed_air_control",
+      "label": "Beat-timed air control",
+      "description": "Covers the lane panel, marker glyphs, and responsive player states used for braking and horizontal drift.",
+      "critical_states": [
+        "idle_fall",
+        "perfect_brake",
+        "left_drift",
+        "right_drift",
+        "miss_recovery"
+      ],
+      "task_ids": [
+        "task_id_010030001",
+        "task_id_010030002",
+        "task_id_010030003",
+        "task_id_010030004",
+        "task_id_010030015",
+        "task_id_010030016",
+        "task_id_010030018"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030015",
+        "task_id_010030016",
+        "task_id_010030018"
+      ]
+    },
+    {
+      "mechanic_id": "obstacle_navigation_and_damage",
+      "label": "Obstacle navigation and damage",
+      "description": "Covers branch gates, leaf-cluster clutter, near-world framing, and the hit-flash response that communicates failed avoidance.",
+      "critical_states": [
+        "tutorial_gap",
+        "branch_gate",
+        "leaf_cluster_pressure",
+        "swaying_branch_climax",
+        "damage_flash"
+      ],
+      "task_ids": [
+        "task_id_010030001",
+        "task_id_010030003",
+        "task_id_010030004",
+        "task_id_010030005",
+        "task_id_010030006",
+        "task_id_010030007",
+        "task_id_010030008",
+        "task_id_010030009",
+        "task_id_010030012",
+        "task_id_010030013"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030017",
+        "task_id_010030018"
+      ]
+    },
+    {
+      "mechanic_id": "reward_and_health_loop",
+      "label": "Reward and health loop",
+      "description": "Covers fruit collection, HP tracking, score bonus readability, and combo reinforcement during successful play.",
+      "critical_states": [
+        "fruit_visible",
+        "fruit_collected",
+        "hp_loss",
+        "hp_recovered",
+        "combo_chain"
+      ],
+      "task_ids": [
+        "task_id_010030001",
+        "task_id_010030005",
+        "task_id_010030010",
+        "task_id_010030017",
+        "task_id_010030018"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030017",
+        "task_id_010030018"
+      ]
+    },
+    {
+      "mechanic_id": "depth_bpm_escalation",
+      "label": "Depth and BPM escalation",
+      "description": "Covers deeper-stage world framing, moving obstacles, rhythm glyph pressure, and the danger vignette during the final fall phase.",
+      "critical_states": [
+        "early_fall",
+        "mid_density",
+        "bpm_125",
+        "bpm_150",
+        "danger_vignette"
+      ],
+      "task_ids": [
+        "task_id_010030002",
+        "task_id_010030008",
+        "task_id_010030011",
+        "task_id_010030012",
+        "task_id_010030013",
+        "task_id_010030014",
+        "task_id_010030016",
+        "task_id_010030017"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030016",
+        "task_id_010030017",
+        "task_id_010030018"
+      ]
+    },
+    {
+      "mechanic_id": "front_end_flow",
+      "label": "Front-end flow",
+      "description": "Covers title, pause, stage-clear, and game-over readability so state transitions stay explicit through a full run.",
+      "critical_states": [
+        "title_ready",
+        "live_play",
+        "paused",
+        "stage_clear",
+        "game_over"
+      ],
+      "task_ids": [
+        "task_id_010030001",
+        "task_id_010030017",
+        "task_id_010030018",
+        "task_id_010030019"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030017",
+        "task_id_010030018",
+        "task_id_010030019"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_010030001",
+      "asset_key": "character_player_leaf_idle_spin_8f_10fps",
+      "category": "character",
+      "file": "character/character_player_leaf_idle_spin_8f_10fps.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030002",
+      "asset_key": "character_player_leaf_perfect_brake_glow_4f_20fps",
+      "category": "character",
+      "file": "character/character_player_leaf_perfect_brake_glow_4f_20fps.json",
+      "execution_order": 20,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "character_player_leaf_idle_spin_8f_10fps"
+    },
+    {
+      "task_id": "task_id_010030003",
+      "asset_key": "character_player_leaf_left_drift_4f_12fps",
+      "category": "character",
+      "file": "character/character_player_leaf_left_drift_4f_12fps.json",
+      "execution_order": 30,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "character_player_leaf_idle_spin_8f_10fps"
+    },
+    {
+      "task_id": "task_id_010030004",
+      "asset_key": "character_player_leaf_right_drift_4f_12fps",
+      "category": "character",
+      "file": "character/character_player_leaf_right_drift_4f_12fps.json",
+      "execution_order": 40,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "character_player_leaf_idle_spin_8f_10fps"
+    },
+    {
+      "task_id": "task_id_010030005",
+      "asset_key": "character_player_leaf_hit_flash_6f_4fps",
+      "category": "character",
+      "file": "character/character_player_leaf_hit_flash_6f_4fps.json",
+      "execution_order": 50,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "character_player_leaf_idle_spin_8f_10fps"
+    },
+    {
+      "task_id": "task_id_010030006",
+      "asset_key": "obstacles_branch_gate_narrow_static_240x16",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_branch_gate_narrow_static_240x16.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030007",
+      "asset_key": "obstacles_branch_gate_wide_static_360x16",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_branch_gate_wide_static_360x16.json",
+      "execution_order": 70,
+      "variant_of": "task_id_010030006",
+      "variant_of_asset_key": "obstacles_branch_gate_narrow_static_240x16"
+    },
+    {
+      "task_id": "task_id_010030008",
+      "asset_key": "obstacles_branch_gate_swaying_static_280x16",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_branch_gate_swaying_static_280x16.json",
+      "execution_order": 80,
+      "variant_of": "task_id_010030006",
+      "variant_of_asset_key": "obstacles_branch_gate_narrow_static_240x16"
+    },
+    {
+      "task_id": "task_id_010030009",
+      "asset_key": "obstacles_leaf_cluster_dense_4f_7fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_leaf_cluster_dense_4f_7fps.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030010",
+      "asset_key": "obstacles_fruit_pickup_floating_6f_10fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_fruit_pickup_floating_6f_10fps.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030011",
+      "asset_key": "world_background_sky_gradient_1280x720",
+      "category": "world",
+      "file": "world/world_background_sky_gradient_1280x720.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030012",
+      "asset_key": "world_trees_far_silhouette_1280x720",
+      "category": "world",
+      "file": "world/world_trees_far_silhouette_1280x720.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030013",
+      "asset_key": "world_trees_near_silhouette_1280x720",
+      "category": "world",
+      "file": "world/world_trees_near_silhouette_1280x720.json",
+      "execution_order": 130,
+      "variant_of": "task_id_010030012",
+      "variant_of_asset_key": "world_trees_far_silhouette_1280x720"
+    },
+    {
+      "task_id": "task_id_010030014",
+      "asset_key": "world_overlay_danger_vignette_1280x720",
+      "category": "world",
+      "file": "world/world_overlay_danger_vignette_1280x720.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030015",
+      "asset_key": "ui_rhythm_lane_panel_1280x160",
+      "category": "ui",
+      "file": "ui/ui_rhythm_lane_panel_1280x160.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030016",
+      "asset_key": "ui_beat_marker_note_glyphs_4cell",
+      "category": "ui",
+      "file": "ui/ui_beat_marker_note_glyphs_4cell.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030017",
+      "asset_key": "ui_hud_strip_score_depth_hp_bpm",
+      "category": "ui",
+      "file": "ui/ui_hud_strip_score_depth_hp_bpm.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030018",
+      "asset_key": "ui_judgement_popup_combo_flame_4cell",
+      "category": "ui",
+      "file": "ui/ui_judgement_popup_combo_flame_4cell.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030019",
+      "asset_key": "ui_front_end_overlay_set_4screen",
+      "category": "ui",
+      "file": "ui/ui_front_end_overlay_set_4screen.json",
+      "execution_order": 190,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

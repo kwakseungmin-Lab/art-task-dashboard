@@ -1,0 +1,165 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010030004",
+  "asset_key": "character_player_leaf_right_drift_4f_12fps",
+  "asset_name": "Player leaf — Right drift steer state",
+  "category": "character",
+  "subcategory": "player_leaf_steer",
+  "priority": "P0",
+  "execution_order": 40,
+  "variant_of": "task_id_010030001",
+  "variant_of_asset_key": "character_player_leaf_idle_spin_8f_10fps",
+  "shared_properties": [
+    "The 32x32px footprint and five-lobe leaf anatomy stay fixed across all player steering states.",
+    "Core palette fields remain fixed at primary #E8722A, background #D4A96A, and accent #F5D060.",
+    "The brightest vein highlight remains centered to keep the player readable against obstacle clutter."
+  ],
+  "differences": [
+    "The body leans right and the right lobe stretches to show lateral airflow response.",
+    "The stem trails to the left to reinforce momentum without changing the collision center.",
+    "Frame pacing prioritizes quick response timing over decorative secondary motion."
+  ],
+  "depends_on": [
+    "task_id_010030001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_010030001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010030001",
+      "task_id_010030006",
+      "task_id_010030016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_player_sheet",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/player.png",
+      "purpose": "Grounds the player leaf silhouette, glow accent, and frame density for the responsive states."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas sprite that tilts the authored leaf body right while keeping the gameplay pivot stable.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "PlayerLeaf",
+      "LateralDriftState"
+    ],
+    "asset_loading": "Load character/character_player_leaf_right_drift_4f_12fps.png with the main player atlas set and select it when the drift direction is positive.",
+    "runtime_notes": [
+      "Keep the collision anchor at the center vein while the artwork leans right so hitboxes remain stable.",
+      "Blend state entry and exit through timer-driven atlas swaps at 12fps to match the 0.3 second drift duration.",
+      "Expose this state to lane replay tools so input timing reviews can confirm lateral response direction."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "player_right_drift",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        660,
+        300
+      ]
+    },
+    "layer": "character",
+    "usage": "Shown on a correctly timed right input while the player nudges around a branch gate.",
+    "adjacent_elements": [
+      "task_id_010030001",
+      "task_id_010030006",
+      "task_id_010030016"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_front",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#E8722A",
+      "#F5D060",
+      "#8B5E3C",
+      "#5C3A1E",
+      "#D4A96A",
+      "#3B2A1A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        32
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Leaf body tilts right with a stretched right lobe and a slightly trailing stem.",
+      "components": [
+        "leaf_body",
+        "center_vein",
+        "right_lobe_pull",
+        "stem_trail"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_player_leaf_right_drift_4f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 128x32px with 4 frames of 32x32px and 0px spacing.",
+    "The center vein remains fully visible in every frame while the body leans right by at least 6 degrees.",
+    "The stem never clips outside the tile bounds and the silhouette stays readable over dark branch colors."
+  ]
+}

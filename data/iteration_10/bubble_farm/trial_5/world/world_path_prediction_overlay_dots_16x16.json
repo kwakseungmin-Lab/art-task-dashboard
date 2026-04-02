@@ -1,0 +1,169 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010050005",
+  "asset_name": "Path Prediction Overlay Dot Set",
+  "category": "world",
+  "subcategory": "overlay_fx",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "The overlay keeps a 16x16px dot module for every predicted route segment."
+  ],
+  "differences": [
+    "Dots use ice blue and cream pixels so board tiles stay visible beneath them.",
+    "Four variants cover upward, horizontal, turn, and impact states.",
+    "Impact markers add alert orange corners for the final collision cell."
+  ],
+  "depends_on": [
+    "task_id_010050002"
+  ],
+  "blocks": [
+    "task_id_010050012",
+    "task_id_010050013",
+    "task_id_010050014",
+    "task_id_010050018"
+  ],
+  "blocked_by": [
+    "task_id_010050002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010050002",
+      "task_id_010050012",
+      "task_id_010050018"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "overlay_fx",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        672,
+        248
+      ]
+    },
+    "layer": "overlay",
+    "usage": "Preview dots and impact markers for hazard routes.",
+    "adjacent_elements": [
+      "task_id_010050002",
+      "task_id_010050012",
+      "task_id_010050018"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_15deg",
+      "facing": "screen_center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 16
+    },
+    "colors_hex": [
+      "#A8D8EA",
+      "#F5F0E1",
+      "#FF6B00"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        16,
+        16
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "layout": {
+      "variants": [
+        "upward",
+        "horizontal",
+        "turn",
+        "impact"
+      ]
+    },
+    "texture": "Open-center dots with a distinct impact glyph.",
+    "shading": "Flat translucent look simulated through sparse fill."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_path_prediction_overlay_dots_16x16.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay sheet size is exactly 64x16px with 4 directional cells of 16x16px.",
+    "Each dot variant keeps enough transparent area for the board to remain legible.",
+    "The impact glyph is distinguishable from the turn glyph within one cell."
+  ],
+  "asset_key": "world_path_prediction_overlay_dots_16x16",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "bubble_farm_gameplay_balance",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/gameplay_balance.png",
+      "purpose": "Grounds the 9x7 board, balance axis, route overlay, and HUD placement."
+    },
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-driven overlay sprites spawned per predicted cell.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "PathPreviewMarker"
+    ],
+    "asset_loading": "Load world/world_path_prediction_overlay_dots_16x16.png and keep a small overlay atlas resource.",
+    "runtime_notes": [
+      "Recycle marker entities instead of despawning them on every hover.",
+      "Keep impact markers on a higher z layer than route dots.",
+      "Spawn markers in board-local coordinates."
+    ]
+  }
+}

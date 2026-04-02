@@ -1,0 +1,151 @@
+{
+  "task_id": "art_000011",
+  "asset_key": "art_000011",
+  "asset_name": "World backdrop — sepia sky gradient fill",
+  "category": "world",
+  "subcategory": "background_sky",
+  "priority": "P0",
+  "execution_order": 110,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The layer covers the entire 1280x720 frame and supports the warm autumn palette.",
+    "The backdrop stays non-interactive and sits behind every gameplay collider.",
+    "The lower area remains slightly darker to improve player and obstacle readability."
+  ],
+  "differences": [
+    "This base layer establishes the sepia sky gradient that defines the game mood instantly.",
+    "The gradient brightens near the top edge to suggest open air before the heavier canopy takes over.",
+    "The lower fall corridor becomes subtly darker so obstacles and the player leaf remain easy to scan."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "art_000012",
+    "art_000013",
+    "art_000014"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000012",
+      "art_000013",
+      "art_000014"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle full-screen backdrop entity rendered behind every gameplay and UI layer.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "Handle<Image>",
+      "WorldLayer"
+    ],
+    "asset_loading": "Load world/art_000011.png during boot and keep the handle resident for every gameplay state that shows the falling stage.",
+    "runtime_notes": [
+      "Render this layer at the farthest depth with no parallax offset so camera movement never reveals empty space.",
+      "Keep all gradient bands hand-authored in the texture rather than generated at runtime to preserve captured footage consistency.",
+      "Use nearest-neighbor sampling and whole-pixel placement even though the gradient is soft so edge seams never appear on upscale."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "sky_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        360
+      ]
+    },
+    "layer": "world_back",
+    "usage": "Full-screen background layer that establishes the warm autumn sky across the whole run.",
+    "adjacent_elements": [
+      "art_000012",
+      "art_000013",
+      "art_000014"
+    ],
+    "viewpoint": {
+      "camera_angle": "camera_fixed",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "colors_hex": [
+      "#D4A96A",
+      "#C58B55",
+      "#8B5E3C",
+      "#F5ECD7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Full-screen vertical gradient with a bright upper band and a darker lower fall corridor.",
+      "components": [
+        "upper_glow",
+        "mid_gradient",
+        "lower_fall_corridor"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/art_000011.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 1280x720px with no transparent pixels inside the active frame.",
+    "The top 120 pixels stay visibly brighter than the lower 200 pixels to support depth perception during descent.",
+    "No band edge creates a hard contour that could be misread as gameplay geometry."
+  ]
+}

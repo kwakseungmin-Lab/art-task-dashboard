@@ -1,0 +1,384 @@
+{
+  "project": {
+    "project_id": "jarl_of_blizzard",
+    "project_name": "Jarl of Blizzard"
+  },
+  "meta": {
+    "plan_id": "jarl_of_blizzard__iter10__trial3",
+    "game_name": "jarl_of_blizzard",
+    "iteration": 10,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-04-01T14:46:35Z",
+    "git_ref": "art_task_plan/iter10_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md",
+    "run_id": "R26"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    },
+    {
+      "label": "jarl_of_blizzard_player_jarl",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/player_jarl.png",
+      "purpose": "Grounds the jarl portrait silhouette, fur hood shape, and beard readability in a compact HUD footprint."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 0.13 SpriteBundle for static village layers and full-screen overlays, and TextureAtlasLayout plus SpriteSheetBundle for portrait states, warrior sheets, weather particles, and compact atlases.",
+    "ecs_model": "Represent portraits, warriors, buildings, ground tiles, weather overlays, queue panels, crisis popups, and result boards as ECS entities tagged with components such as JarlPortraitState, WarriorUnit, VillageBuilding, GroundTile, BlizzardParticle, WhiteoutOverlay, WinterHudStrip, QueuePlanningPanel, MemoryRevealPanel, CrisisPopup, and ResultsOverlay.",
+    "asset_loading": "Preload every JSON-declared PNG through AssetServer during a Loading state, cache handles by task_id, and drive deterministic state updates in FixedUpdate at 60Hz.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and whole-pixel placement for every sprite and UI panel so 1px structure remains crisp at 1920x1080.",
+      "Keep the camera fixed on the full settlement view and layer weather particles below the whiteout mask but above the far village backdrop.",
+      "Drive queue reveal countdowns, crisis popup timing, and whiteout opacity from ECS timers rather than ad hoc frame logic."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "resource_queue_memory",
+      "label": "Resource queue memory",
+      "description": "Covers planning, reveal, and recall feedback for the ordered winter allocation queue.",
+      "critical_states": [
+        "planning_open",
+        "queue_locked",
+        "memory_reveal",
+        "recall_execution",
+        "round_resolution"
+      ],
+      "task_ids": [
+        "art_000001",
+        "art_000015",
+        "art_000016",
+        "art_000017",
+        "art_000019"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000015",
+        "art_000016",
+        "art_000017",
+        "art_000019"
+      ]
+    },
+    {
+      "mechanic_id": "blizzard_visibility_pressure",
+      "label": "Blizzard visibility pressure",
+      "description": "Covers snowfall density, severe gusts, whiteout narrowing, and the alert portrait state during heavy weather.",
+      "critical_states": [
+        "light_snow",
+        "mid_winter_gust",
+        "severe_whiteout",
+        "edge_closure",
+        "alert_command"
+      ],
+      "task_ids": [
+        "art_000001",
+        "art_000002",
+        "art_000005",
+        "art_000006",
+        "art_000007",
+        "art_000009",
+        "art_000017"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000015",
+        "art_000017",
+        "art_000019"
+      ]
+    },
+    {
+      "mechanic_id": "village_growth_and_storage",
+      "label": "Village growth and storage",
+      "description": "Covers the settlement footprint, storage, housing, and support buildings that communicate prosperity pressure.",
+      "critical_states": [
+        "village_overview",
+        "housing_growth",
+        "storage_full",
+        "support_building_online",
+        "winter_status_check"
+      ],
+      "task_ids": [
+        "art_000009",
+        "art_000010",
+        "art_000011",
+        "art_000012",
+        "art_000014",
+        "art_000015",
+        "art_000019"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000015",
+        "art_000019"
+      ]
+    },
+    {
+      "mechanic_id": "raid_and_crisis_response",
+      "label": "Raid and crisis response",
+      "description": "Covers warrior readiness, crisis icons, event choices, and military building context for hostile and disease events.",
+      "critical_states": [
+        "raider_warning",
+        "shield_raise",
+        "disease_alert",
+        "prophecy_choice",
+        "storm_tradeoff"
+      ],
+      "task_ids": [
+        "art_000003",
+        "art_000004",
+        "art_000008",
+        "art_000013",
+        "art_000014",
+        "art_000018"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000015",
+        "art_000018",
+        "art_000019"
+      ]
+    },
+    {
+      "mechanic_id": "front_end_and_round_summary",
+      "label": "Front-end and round summary",
+      "description": "Covers the persistent HUD, pause-state readability, and end-of-round summary flow that closes each winter.",
+      "critical_states": [
+        "hud_live",
+        "pause_open",
+        "event_recapped",
+        "winter_scored",
+        "prosperity_check"
+      ],
+      "task_ids": [
+        "art_000001",
+        "art_000008",
+        "art_000015",
+        "art_000018",
+        "art_000019"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000015",
+        "art_000018",
+        "art_000019"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "art_000001",
+      "asset_key": "art_000001",
+      "category": "character",
+      "file": "character/art_000001.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000002",
+      "asset_key": "art_000002",
+      "category": "character",
+      "file": "character/art_000002.json",
+      "execution_order": 20,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000003",
+      "asset_key": "art_000003",
+      "category": "character",
+      "file": "character/art_000003.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000004",
+      "asset_key": "art_000004",
+      "category": "character",
+      "file": "character/art_000004.json",
+      "execution_order": 40,
+      "variant_of": "art_000003",
+      "variant_of_asset_key": "art_000003"
+    },
+    {
+      "task_id": "art_000005",
+      "asset_key": "art_000005",
+      "category": "obstacles",
+      "file": "obstacles/art_000005.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000006",
+      "asset_key": "art_000006",
+      "category": "obstacles",
+      "file": "obstacles/art_000006.json",
+      "execution_order": 60,
+      "variant_of": "art_000005",
+      "variant_of_asset_key": "art_000005"
+    },
+    {
+      "task_id": "art_000007",
+      "asset_key": "art_000007",
+      "category": "obstacles",
+      "file": "obstacles/art_000007.json",
+      "execution_order": 70,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000008",
+      "asset_key": "art_000008",
+      "category": "obstacles",
+      "file": "obstacles/art_000008.json",
+      "execution_order": 80,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000009",
+      "asset_key": "art_000009",
+      "category": "world",
+      "file": "world/art_000009.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000010",
+      "asset_key": "art_000010",
+      "category": "world",
+      "file": "world/art_000010.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000011",
+      "asset_key": "art_000011",
+      "category": "world",
+      "file": "world/art_000011.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000012",
+      "asset_key": "art_000012",
+      "category": "world",
+      "file": "world/art_000012.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000013",
+      "asset_key": "art_000013",
+      "category": "world",
+      "file": "world/art_000013.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000014",
+      "asset_key": "art_000014",
+      "category": "world",
+      "file": "world/art_000014.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000015",
+      "asset_key": "art_000015",
+      "category": "ui",
+      "file": "ui/art_000015.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000016",
+      "asset_key": "art_000016",
+      "category": "ui",
+      "file": "ui/art_000016.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000017",
+      "asset_key": "art_000017",
+      "category": "ui",
+      "file": "ui/art_000017.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000018",
+      "asset_key": "art_000018",
+      "category": "ui",
+      "file": "ui/art_000018.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000019",
+      "asset_key": "art_000019",
+      "category": "ui",
+      "file": "ui/art_000019.json",
+      "execution_order": 190,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

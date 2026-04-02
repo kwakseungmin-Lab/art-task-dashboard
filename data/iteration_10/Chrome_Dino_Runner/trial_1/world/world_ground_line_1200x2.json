@@ -1,0 +1,146 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010010013",
+  "asset_name": "Ground Line Tile 1200x2",
+  "category": "world",
+  "subcategory": "ground_lane",
+  "priority": "P0",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #535353, background #F7F7F7, and accent #FF0000.",
+    "Canvas target stays 600x150px with pixel-perfect presentation at 60 FPS.",
+    "All painted edges keep a 2px outline rhythm and flat shading."
+  ],
+  "differences": [
+    "The asset is a pure scrolling strip that defines the player baseline across the whole lane.",
+    "The tile is 1200px wide so the loop repeats off-screen rather than inside the visible canvas.",
+    "No decorative texture appears inside the 2px strip."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "task_id_010010014"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010010001",
+      "task_id_010010006",
+      "task_id_010010014"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "ground_baseline",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        118
+      ]
+    },
+    "layer": "world_foreground",
+    "usage": "Scrolling baseline that anchors player feet, cactus bases, and the perceived floor height.",
+    "adjacent_elements": [
+      "task_id_010010001",
+      "task_id_010010006",
+      "task_id_010010014"
+    ],
+    "viewpoint": {
+      "camera_angle": "camera_fixed",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1200,
+      "height": 2
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "scroll_strip",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": true,
+      "speed_px_per_sec": 300
+    },
+    "shape": {
+      "silhouette": "Continuous 2px horizontal line with no breaks across the 1200px tile width.",
+      "components": [
+        "continuous_line_strip"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/world_ground_line_1200x2.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 1200x2px.",
+    "The strip has no transparent gaps along the full 1200px width.",
+    "Only #535353 and transparency appear in painted pixels."
+  ],
+  "asset_key": "world_ground_line_1200x2",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "t_rex_runner_sprite_sheet_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "Grounds sky, cloud, and ground strip spacing that defines motion readability."
+    },
+    {
+      "label": "t_rex_runner_sprite_sheet_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/default_100_percent/100-offline-sprite.png",
+      "purpose": "Grounds sky, cloud, and ground strip spacing that defines motion readability."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle with a single nearest-neighbor texture.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer in the Loading state and store the handle in a typed resource before gameplay starts.",
+    "runtime_notes": [
+      "Snap transforms to whole pixels before render extraction.",
+      "Use visibility toggles or spawn pools instead of mutating image handles during active play.",
+      "Keep collider setup separate from the art bundle so gameplay forgiveness margins remain tunable."
+    ]
+  }
+}

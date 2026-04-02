@@ -1,0 +1,173 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010020018",
+  "asset_name": "Prediction Toggle Button",
+  "category": "ui",
+  "subcategory": "toggle_button",
+  "priority": "P1",
+  "execution_order": 180,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "The compact button uses the same dark slate frame and gold accent language as the larger HUD pieces."
+  ],
+  "differences": [
+    "The icon centers a dotted route glyph inside a 40x40px plate.",
+    "A teal inner glow marks the enabled state and an orange outline supports warning states.",
+    "The button keeps a thicker 2px outer frame than the interior dots."
+  ],
+  "depends_on": [
+    "task_id_010020015",
+    "task_id_010020005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_010020015",
+    "task_id_010020005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010020005",
+      "task_id_010020015",
+      "task_id_010020012"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "toggle_button",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1760,
+        48
+      ]
+    },
+    "layer": "ui",
+    "usage": "Top-right toggle used to enable or disable hazard route prediction.",
+    "adjacent_elements": [
+      "task_id_010020005",
+      "task_id_010020015",
+      "task_id_010020012"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space",
+      "facing": "screen_reader"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 40,
+      "height": 40
+    },
+    "colors_hex": [
+      "#1E1E2E",
+      "#A8D8EA",
+      "#3BBEAC",
+      "#FF6B00",
+      "#F5F0E1"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        40,
+        40
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "layout": {
+      "button_size_px": [
+        40,
+        40
+      ],
+      "icon_area_px": [
+        20,
+        20
+      ],
+      "frame_px": 2
+    },
+    "typography": {
+      "label_text_px": 0,
+      "icon_style": "route_dots"
+    },
+    "shading": "Flat frame with a bright inner glow ring."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_prediction_toggle_button_40x40.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Button texture size is exactly 40x40px with a centered route icon.",
+    "The route icon remains readable at native scale and under hover tint.",
+    "The outer frame stays at least 2px thick on all sides."
+  ],
+  "asset_key": "ui_prediction_toggle_button_40x40",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "bubble_farm_gameplay_balance",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/gameplay_balance.png",
+      "purpose": "Grounds the 9x7 board, balance axis, route overlay, and HUD placement."
+    },
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "ImageBundle button with interaction state colors driven by a UI state component.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Node",
+      "Style",
+      "UiImage",
+      "Interaction",
+      "PredictionToggleTag"
+    ],
+    "asset_loading": "Load ui/ui_prediction_toggle_button_40x40.png during the Loading state and pair it with state-driven tint updates.",
+    "runtime_notes": [
+      "Keep hover and pressed feedback in color modulation.",
+      "Anchor the button in screen space.",
+      "Expose the enabled state through a dedicated resource."
+    ]
+  }
+}

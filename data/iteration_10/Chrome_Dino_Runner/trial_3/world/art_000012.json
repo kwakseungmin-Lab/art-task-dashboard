@@ -1,0 +1,147 @@
+{
+  "task_id": "art_000012",
+  "asset_name": "Large Background Cloud",
+  "category": "world",
+  "subcategory": "background",
+  "priority": "P2",
+  "execution_order": 120,
+  "variant_of": "art_000011",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000.",
+    "Rounded cloud contour language.",
+    "Parallax usage at half of ground speed."
+  ],
+  "differences": [
+    "Width increases from 46 px to 92 px.",
+    "Height increases from 14 px to 27 px.",
+    "Lower edge adds one extra contour step for the larger form."
+  ],
+  "depends_on": [
+    "art_000010",
+    "art_000011"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000011"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000011",
+      "art_000010"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "parallax_cloud_large",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        650,
+        10
+      ]
+    },
+    "layer": "world_back",
+    "usage": "Optional parallax prop moving at half of ground scroll speed with larger screen occupancy.",
+    "adjacent_elements": [
+      "art_000010",
+      "art_000013"
+    ],
+    "viewpoint": {
+      "camera_angle": "orthographic_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 27
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Rounded cloud silhouette 92 px wide and 27 px high with three major lobes and 2px contour thickness.",
+      "components": [
+        "left_lobe",
+        "center_lobe",
+        "right_lobe",
+        "lower_shadow_edge"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/art_000012.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 92x27 px.",
+    "Cloud width spans 2x the small cloud width within a 92 px envelope.",
+    "Opaque fill uses #535353 with transparent background only."
+  ],
+  "asset_key": "art_000012",
+  "variant_of_asset_key": "art_000011",
+  "reference_images": [
+    {
+      "label": "environment_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/environment_design.png?raw=1",
+      "purpose": "Ground texture density, cloud spacing, and skyline emptiness anchor."
+    },
+    {
+      "label": "pixel_art_moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png?raw=1",
+      "purpose": "Pixel-art outline, low-detail silhouette, and monochrome contrast anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle for background and scrolling ground strips with integer-position parallax.",
+    "atlas_or_static": "static_texture",
+    "ecs_components": [
+      "Sprite",
+      "ParallaxLayer",
+      "Transform"
+    ],
+    "asset_loading": "Load world/art_000012.png through AssetServer and register the handle under art_000012.",
+    "runtime_notes": [
+      "Keep source pixels unfiltered with nearest-neighbor sampling and integer world transforms.",
+      "Spawn order follows execution_order so downstream setup can validate deterministic asset availability.",
+      "Collision and UI code read logical dimensions from specs.dimensions_px rather than texture metadata."
+    ]
+  }
+}

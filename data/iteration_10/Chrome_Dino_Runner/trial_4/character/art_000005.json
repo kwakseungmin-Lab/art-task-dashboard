@@ -1,0 +1,163 @@
+{
+  "task_id": "art_000005",
+  "asset_name": "Player Dino Dead Pose",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": "art_000001",
+  "shared_properties": [
+    "Canvas framing matches the 88x94px idle base.",
+    "Core palette remains #535353 with transparent background cutout only.",
+    "The ground contact area aligns with the normal stance so the crash pose lands on the same lane."
+  ],
+  "differences": [
+    "Eye shape switches to a closed crash mark for the fail state.",
+    "Head pitch drops by 4px to read as a collision stop.",
+    "The pose is static and never loops."
+  ],
+  "depends_on": [
+    "art_000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000001",
+      "art_000017"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_dead",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "layer": "character",
+    "usage": "Shown immediately after collision before the restart prompt becomes actionable.",
+    "adjacent_elements": [
+      "art_000013",
+      "art_000017"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Side-profile dinosaur crash pose with lowered head and a rigid tail.",
+      "components": [
+        "head",
+        "closed_eye_mark",
+        "mouth_line",
+        "torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    },
+    "face": {
+      "eyes": "A single closed crash mark replaces the open eye cutout.",
+      "mouth": "One 12px horizontal mouth slit sits below the eye line.",
+      "nose": null
+    },
+    "appendages": {
+      "arms": "Two short forearm clusters stay within a 10x8px chest block.",
+      "legs": "Two hind legs use silhouette swaps that preserve the ground contact read.",
+      "tail": "One thick tail extends 36px from the torso and rises 6px above the baseline at the tip.",
+      "accessories": null
+    },
+    "texture": "Solid monochrome fill with transparent cutout background.",
+    "shading": "Flat 1-tone fill with outline emphasis."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/art_000005.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Canvas size is exactly 88x94px.",
+    "The eye mark clearly differs from the idle and run sheets at 1x scale.",
+    "Only #535353 and transparency appear in painted pixels."
+  ],
+  "asset_key": "art_000005",
+  "variant_of_asset_key": "art_000001",
+  "reference_images": [
+    {
+      "label": "t_rex_runner_sprite_sheet_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "Grounds player silhouette proportions, pose cadence, and frame timing for the runner states."
+    },
+    {
+      "label": "t_rex_runner_sprite_sheet_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/default_100_percent/100-offline-sprite.png",
+      "purpose": "Grounds player silhouette proportions, pose cadence, and frame timing for the runner states."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle with a single nearest-neighbor texture.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "Sprite",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer in the Loading state and store the handle in a typed resource before gameplay starts.",
+    "runtime_notes": [
+      "Snap transforms to whole pixels before render extraction.",
+      "Use visibility toggles or spawn pools instead of mutating image handles during active play.",
+      "Keep collider setup separate from the art bundle so gameplay forgiveness margins remain tunable."
+    ]
+  }
+}
