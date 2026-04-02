@@ -1,0 +1,166 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010050009",
+  "asset_name": "Bubble Jelly Idle Loop",
+  "category": "character",
+  "subcategory": "support_slime",
+  "priority": "P1",
+  "execution_order": 90,
+  "variant_of": "task_id_010050007",
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "The eye line and transparent cutout workflow remain aligned with the main slime family."
+  ],
+  "differences": [
+    "The fill shifts to candy pink with teal edge pixels for a hybrid support read.",
+    "A gelatin wobble stretches the upper dome further than the normal bubble loop.",
+    "The mouth curve makes the support role feel friendlier and more restorative."
+  ],
+  "depends_on": [
+    "task_id_010050007"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_010050007"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010050007",
+      "task_id_010050006",
+      "task_id_010050017"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "support_slime",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        928,
+        376
+      ]
+    },
+    "layer": "character",
+    "usage": "Support evolution that grants a restorative identity and codex variety.",
+    "adjacent_elements": [
+      "task_id_010050007",
+      "task_id_010050006",
+      "task_id_010050017"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_15deg",
+      "facing": "screen_center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FF85A1",
+      "#3BBEAC",
+      "#F5F0E1"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [
+        48,
+        48
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "components": [
+        "body",
+        "highlight_band",
+        "eyes",
+        "smile",
+        "sparkles"
+      ]
+    },
+    "texture": "Gelatin body with bright sparkle clusters and a soft lower edge.",
+    "shading": "Flat fill with a bright top highlight."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_bubble_jelly_idle_6f_8fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 288x48px with 6 columns and 1 row.",
+    "The smile arc remains readable at native scale.",
+    "The wobble amplitude stays within 4px so the silhouette remains centered."
+  ],
+  "asset_key": "character_bubble_jelly_idle_6f_8fps",
+  "variant_of_asset_key": "character_bubble_normal_idle_6f_8fps",
+  "reference_images": [
+    {
+      "label": "bubble_farm_slime_units",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/slime_units.png",
+      "purpose": "Grounds slime silhouettes, evolution scale, and facial placement."
+    },
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with the shared slime animation system and a support-role marker.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "SlimeUnitVisual",
+      "BubbleJellyTag"
+    ],
+    "asset_loading": "Load character/character_bubble_jelly_idle_6f_8fps.png during the Loading state and attach it to the support evolution atlas registry.",
+    "runtime_notes": [
+      "Keep the jelly animation vertically elastic while leaving the cell center fixed.",
+      "Expose a support-role tag to feedback systems.",
+      "Preserve distinct pink and teal clusters on moss tiles."
+    ]
+  }
+}

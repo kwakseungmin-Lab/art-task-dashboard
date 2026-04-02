@@ -1,0 +1,154 @@
+{
+  "task_id": "art_000005",
+  "asset_key": "art_000005",
+  "asset_name": "Player Dino Dead Pose",
+  "category": "character",
+  "subcategory": "player",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": "art_000001",
+  "variant_of_asset_key": "art_000001",
+  "shared_properties": [
+    "Core palette #535353/#F7F7F7/#FF0000 duplicated in this file.",
+    "88x94 pose bounds.",
+    "Side-profile dinosaur silhouette with 2px outline."
+  ],
+  "differences": [
+    "Eye mark closes into a dead-state symbol.",
+    "Head drops by about 4 px and tail lowers by about 4 px.",
+    "Animation is a single-frame static pose for game-over state."
+  ],
+  "depends_on": [
+    "art_000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000001",
+      "art_000017",
+      "art_000018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "player",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/player_dinosaur.png",
+      "purpose": "Ground the dinosaur body proportions and pose silhouettes."
+    },
+    {
+      "label": "style",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png",
+      "purpose": "Ground the monochrome pixel-art outline and spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "bundle_strategy": "SpriteBundle",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Sprite",
+      "Transform",
+      "RunnerState",
+      "Collider"
+    ],
+    "asset_loading": "Load assets/art/chrome_dino_runner/trial_4/art_000005.png with AssetServer during Loading state and keep the handle in a resource entry keyed by art_000005.",
+    "runtime_notes": [
+      "Apply nearest-neighbor sampling and integer-pixel transforms at runtime.",
+      "Keep the authored 1x pixel ratio and scale only by integer multiples in camera space.",
+      "Use a deterministic startup registration order so task execution order maps to asset registration order.",
+      "Spawn the sprite as a single-image handle with no runtime atlas index changes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "player_dead",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        80,
+        56
+      ]
+    },
+    "layer": "character",
+    "usage": "Used during the collision freeze when gameplay stops and the game-over overlay appears.",
+    "adjacent_elements": [
+      "art_000017",
+      "art_000018"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 88,
+      "height": 94
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7",
+      "#FF0000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Stopped T-Rex with lowered head, rigid torso, and dead-state eye mark.",
+      "components": [
+        "head",
+        "eye_mark",
+        "mouth_line",
+        "torso",
+        "forearms",
+        "hind_legs",
+        "tail"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/art_000005.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG bounds are exactly 88x94 px.",
+    "Visible pixels use only the hex colors listed in specs.colors_hex plus transparency.",
+    "Opaque pixels stay inside the authored bounds with no anti-aliased edge pixels."
+  ]
+}

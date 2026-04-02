@@ -1,0 +1,361 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner"
+  },
+  "meta": {
+    "plan_id": "Chrome_Dino_Runner__iter10__trial4",
+    "game_name": "Chrome_Dino_Runner",
+    "iteration": 9,
+    "trial_index": 4,
+    "plan_dir": "trial_4",
+    "created_at_utc": "2026-04-01T12:28:35Z",
+    "git_ref": "art_task_plan/iter10_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md",
+    "run_id": "R26"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "reference_images": [
+    {
+      "label": "art_style_moodboard",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png",
+      "purpose": "Ground the monochrome retro pixel-art silhouette language."
+    },
+    {
+      "label": "environment_design",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/environment_design.png",
+      "purpose": "Ground sky, cloud, and desert ground spacing."
+    },
+    {
+      "label": "player_dinosaur",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/player_dinosaur.png",
+      "purpose": "Ground the T-Rex body proportions and state silhouettes."
+    },
+    {
+      "label": "cactus_obstacles",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/cactus_obstacles.png",
+      "purpose": "Ground the cactus obstacle cluster proportions."
+    },
+    {
+      "label": "pterodactyl_obstacle",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/pterodactyl_obstacle.png",
+      "purpose": "Ground the flying obstacle wing span and beak silhouette."
+    },
+    {
+      "label": "game_ui_layout",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B2/_ReferenceImages/game_ui_layout.png",
+      "purpose": "Ground score placement and game-over overlay spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "engine": "Bevy 0.15",
+    "sprite_pipeline": "Author every sprite as nearest-neighbor PNG, render with orthographic 2D camera, and keep transforms on integer pixels.",
+    "ecs_model": "Use separate entities for player, obstacle, background, ground, and overlay layers; animated assets advance by timer-driven atlas index changes.",
+    "asset_loading": "Load all PNG handles during Loading state with AssetServer and store them in a typed resource keyed by asset_key.",
+    "runtime_notes": [
+      "Use nearest-neighbor image sampling and disable texture filtering.",
+      "Animated sheets use TextureAtlasLayout resources that are created during startup before gameplay begins.",
+      "Keep score UI in the overlay camera layer and world sprites in gameplay layers."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "file_stem_equals_asset_key"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "runner_loop",
+      "label": "Runner loop baseline",
+      "description": "The dinosaur stands on the ground line, transitions into running, and remains readable against the sky and cloud layers.",
+      "critical_states": [
+        "idle",
+        "running",
+        "ground_contact"
+      ],
+      "task_ids": [
+        "art_000001",
+        "art_000002",
+        "art_000010",
+        "art_000011",
+        "art_000013",
+        "art_000014"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000016"
+      ]
+    },
+    {
+      "mechanic_id": "jump_clear_ground_obstacle",
+      "label": "Jump over cactus obstacles",
+      "description": "The jump pose must clear small, medium, and large ground cactus clusters while keeping the collision baseline legible.",
+      "critical_states": [
+        "jump_takeoff",
+        "jump_apex",
+        "landing"
+      ],
+      "task_ids": [
+        "art_000003",
+        "art_000006",
+        "art_000007",
+        "art_000008",
+        "art_000013",
+        "art_000014"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000016"
+      ]
+    },
+    {
+      "mechanic_id": "duck_clear_air_obstacle",
+      "label": "Duck under pterodactyl",
+      "description": "The duck loop must reduce the player silhouette for low-flight pterodactyl passes without breaking baseline readability.",
+      "critical_states": [
+        "duck_start",
+        "duck_hold",
+        "duck_release"
+      ],
+      "task_ids": [
+        "art_000004",
+        "art_000009",
+        "art_000010",
+        "art_000013"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000016"
+      ]
+    },
+    {
+      "mechanic_id": "score_progression",
+      "label": "Score feedback and milestone visibility",
+      "description": "The score display stays visible during running, milestone progression, and the frozen game-over state.",
+      "critical_states": [
+        "running",
+        "milestone_100",
+        "game_over"
+      ],
+      "task_ids": [
+        "art_000015",
+        "art_000016",
+        "art_000017"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000016",
+        "art_000017"
+      ]
+    },
+    {
+      "mechanic_id": "collision_game_over_restart",
+      "label": "Collision, death, and restart prompt",
+      "description": "Collision freezes the run, swaps to the dead pose, and shows central overlay text for game over and restart.",
+      "critical_states": [
+        "collision",
+        "dead",
+        "restart_prompt"
+      ],
+      "task_ids": [
+        "art_000005",
+        "art_000017",
+        "art_000018",
+        "art_000013"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000017",
+        "art_000018"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "art_000001",
+      "asset_key": "art_000001",
+      "category": "character",
+      "file": "character/art_000001.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000002",
+      "asset_key": "art_000002",
+      "category": "character",
+      "file": "character/art_000002.json",
+      "execution_order": 20,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000003",
+      "asset_key": "art_000003",
+      "category": "character",
+      "file": "character/art_000003.json",
+      "execution_order": 30,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000004",
+      "asset_key": "art_000004",
+      "category": "character",
+      "file": "character/art_000004.json",
+      "execution_order": 40,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000005",
+      "asset_key": "art_000005",
+      "category": "character",
+      "file": "character/art_000005.json",
+      "execution_order": 50,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000006",
+      "asset_key": "art_000006",
+      "category": "obstacles",
+      "file": "obstacles/art_000006.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000007",
+      "asset_key": "art_000007",
+      "category": "obstacles",
+      "file": "obstacles/art_000007.json",
+      "execution_order": 70,
+      "variant_of": "art_000006",
+      "variant_of_asset_key": "art_000006"
+    },
+    {
+      "task_id": "art_000008",
+      "asset_key": "art_000008",
+      "category": "obstacles",
+      "file": "obstacles/art_000008.json",
+      "execution_order": 80,
+      "variant_of": "art_000006",
+      "variant_of_asset_key": "art_000006"
+    },
+    {
+      "task_id": "art_000009",
+      "asset_key": "art_000009",
+      "category": "obstacles",
+      "file": "obstacles/art_000009.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000010",
+      "asset_key": "art_000010",
+      "category": "world",
+      "file": "world/art_000010.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000011",
+      "asset_key": "art_000011",
+      "category": "world",
+      "file": "world/art_000011.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000012",
+      "asset_key": "art_000012",
+      "category": "world",
+      "file": "world/art_000012.json",
+      "execution_order": 120,
+      "variant_of": "art_000011",
+      "variant_of_asset_key": "art_000011"
+    },
+    {
+      "task_id": "art_000013",
+      "asset_key": "art_000013",
+      "category": "world",
+      "file": "world/art_000013.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000014",
+      "asset_key": "art_000014",
+      "category": "world",
+      "file": "world/art_000014.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000015",
+      "asset_key": "art_000015",
+      "category": "ui",
+      "file": "ui/art_000015.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000016",
+      "asset_key": "art_000016",
+      "category": "ui",
+      "file": "ui/art_000016.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000017",
+      "asset_key": "art_000017",
+      "category": "ui",
+      "file": "ui/art_000017.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000018",
+      "asset_key": "art_000018",
+      "category": "ui",
+      "file": "ui/art_000018.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

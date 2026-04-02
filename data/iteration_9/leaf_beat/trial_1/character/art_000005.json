@@ -1,0 +1,166 @@
+{
+  "task_id": "art_000005",
+  "asset_key": "art_000005",
+  "asset_name": "Player leaf — Hit flash and invulnerability state",
+  "category": "character",
+  "subcategory": "player_leaf_damage",
+  "priority": "P0",
+  "execution_order": 50,
+  "variant_of": "art_000001",
+  "variant_of_asset_key": "art_000001",
+  "shared_properties": [
+    "The 32x32px footprint and core leaf anatomy stay aligned with art_000001.",
+    "Core palette fields remain fixed at primary #E8722A, background #D4A96A, and accent #F5D060.",
+    "The center vein stays readable even when the damage flash introduces red patches."
+  ],
+  "differences": [
+    "Red flashes and a slightly crumpled top edge communicate the collision event clearly.",
+    "Frame timing is slower than the perfect brake state so the invulnerability feedback reads as a warning instead of a reward.",
+    "The state is tuned for branch and leaf-cluster collisions rather than precise lane-input feedback."
+  ],
+  "depends_on": [
+    "art_000001"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000001"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000001",
+      "art_000006",
+      "art_000008",
+      "art_000018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_player_sheet",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/player.png",
+      "purpose": "Grounds the player leaf silhouette, glow accent, and frame density for the responsive states."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas sprite with authored red flashes so damage readability does not depend on runtime recoloring.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "PlayerLeaf",
+      "DamageState"
+    ],
+    "asset_loading": "Load character/art_000005.png beside the base player atlas and toggle visibility with an invulnerability blink timer.",
+    "runtime_notes": [
+      "Alternate visible and dim frames on a deterministic timer through the full 1.5 second invulnerability window.",
+      "Keep the sprite pivot identical to art_000001 so hit response does not slide relative to obstacle colliders.",
+      "Expose a damage-state marker so SFX and UI systems can sync hit feedback without parsing filenames."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "player_hit_flash",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        300
+      ]
+    },
+    "layer": "character",
+    "usage": "Shown after a collision while the player is invulnerable for 1.5 seconds.",
+    "adjacent_elements": [
+      "art_000001",
+      "art_000006",
+      "art_000008",
+      "art_000018"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_front",
+      "facing": "right_tilt"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#E8722A",
+      "#F05A5A",
+      "#9B2335",
+      "#F5D060",
+      "#5C3A1E",
+      "#3B2A1A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 4,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        32
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Base leaf silhouette with red impact patches and a slightly crumpled top edge.",
+      "components": [
+        "leaf_body",
+        "impact_flash",
+        "vein",
+        "stem"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/art_000005.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x32px with 6 frames of 32x32px and 0px spacing.",
+    "At least two frames visibly introduce red damage coloration while the full silhouette remains readable.",
+    "The hit state preserves the stem and center vein as separate shapes so player orientation stays clear."
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "task_id": "art_000006",
+  "asset_key": "art_000006",
+  "asset_name": "Static branch obstacle — narrow lane gate",
+  "category": "obstacles",
+  "subcategory": "branch_gate",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The obstacle uses dark sepia wood tones that stay readable against the sky and tree layers.",
+    "The branch keeps a thin rectangular collision-friendly profile so lane judgement remains fair.",
+    "The silhouette presents twig forks as secondary detail without hiding the main passable gap."
+  ],
+  "differences": [
+    "This base obstacle defines the narrow branch gate used before the stage reaches the harshest density.",
+    "The total width targets the early and middle depth bands where the player still has room to recover from a miss.",
+    "Twig detail stays compact so collision edges remain easy to parse at 60 FPS."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "art_000007",
+    "art_000008"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000001",
+      "art_000003",
+      "art_000004",
+      "art_000017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle obstacle entity with a fixed AABB collider and lane-slot spawn metadata.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "Handle<Image>",
+      "ObstacleKind",
+      "BranchGate"
+    ],
+    "asset_loading": "Load obstacles/art_000006.png during stage setup and attach a fixed collider sized to the authored branch rectangle.",
+    "runtime_notes": [
+      "Place instances on the obstacle lane grid from 200px depth onward while preserving the authored passable gap width.",
+      "Use the same texture for mirrored placements by flipping the sprite at spawn time instead of storing duplicate art.",
+      "Keep the collider inset by 2px from the painted twig tips so visual readability stays fair during high BPM sections."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "branch_gate_static",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        236
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Primary branch silhouette used for early and mid-stage avoidance lanes.",
+    "adjacent_elements": [
+      "art_000001",
+      "art_000003",
+      "art_000004",
+      "art_000017"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_front",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 240,
+      "height": 16
+    },
+    "colors_hex": [
+      "#5C3A1E",
+      "#8B5E3C",
+      "#3B2A1A",
+      "#D4A96A"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Horizontal branch with a slight upward bend, three twig forks, and a clean under-edge for jump judgement.",
+      "components": [
+        "main_branch",
+        "left_fork",
+        "right_fork",
+        "twig_cluster"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/art_000006.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 240x16px with transparent padding removed from the outer bounds.",
+    "The branch keeps a readable 3-pixel-thick trunk across at least 70 percent of the width.",
+    "Only the listed branch and background support colors are used, with no soft alpha fringe."
+  ]
+}

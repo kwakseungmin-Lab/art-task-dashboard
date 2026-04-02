@@ -123,7 +123,8 @@ const Dashboard = {
             { num: 5, pass: 72, status: 'FAIL', games: 5, date: '2026-03-24' },
             { num: 6, pass: 84, status: 'PASS', games: 5, date: '2026-03-25' },
             { num: 7, pass: 100, status: 'PASS', games: 5, date: '2026-03-25' },
-            { num: 8, pass: 96, status: 'PASS', games: 5, date: '2026-03-25', hasIssue: true }
+            { num: 8, pass: 96, status: 'PASS', games: 5, date: '2026-03-25', hasIssue: true },
+            { num: 9, pass: 98, status: 'PASS', games: 5, date: '2026-04-02' }
         ];
 
         return iterations.map(iter => `

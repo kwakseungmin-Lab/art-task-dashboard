@@ -1,0 +1,168 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010030008",
+  "asset_name": "Heavy Bubble Idle Loop",
+  "category": "character",
+  "subcategory": "deployable_slime",
+  "priority": "P0",
+  "execution_order": 80,
+  "variant_of": "task_id_010030007",
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "The slime family eye spacing and rounded silhouette language remain consistent."
+  ],
+  "differences": [
+    "The fill shifts to deep jade and navy accents that communicate weight value 4.",
+    "The idle loop slows to 6 FPS and uses a denser downward compression.",
+    "A bright gold inner spark hints at the adjacency weight bonus."
+  ],
+  "depends_on": [
+    "task_id_010030007"
+  ],
+  "blocks": [
+    "task_id_010030010"
+  ],
+  "blocked_by": [
+    "task_id_010030007"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010030007",
+      "task_id_010030010",
+      "task_id_010030004"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "deployable_slime",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        864,
+        440
+      ]
+    },
+    "layer": "character",
+    "usage": "Heavy merge outcome that strongly affects balance calculations.",
+    "adjacent_elements": [
+      "task_id_010030007",
+      "task_id_010030010",
+      "task_id_010030004"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_15deg",
+      "facing": "screen_center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#1B6CA8",
+      "#FFD700",
+      "#F5F0E1"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        48,
+        48
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "components": [
+        "body",
+        "highlight_band",
+        "eyes",
+        "mouth",
+        "inner_spark"
+      ]
+    },
+    "texture": "Dense bubble core with gold spark pixels and a darker lower rim.",
+    "shading": "Flat fill with a heavy dark base."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_bubble_heavy_idle_4f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 192x48px with 4 columns and 1 row.",
+    "The body mass reads heavier than the normal tier within one frame.",
+    "The gold inner spark never exceeds a 6x6px cluster."
+  ],
+  "asset_key": "character_bubble_heavy_idle_4f_6fps",
+  "variant_of_asset_key": "character_bubble_normal_idle_6f_8fps",
+  "reference_images": [
+    {
+      "label": "bubble_farm_slime_units",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/slime_units.png",
+      "purpose": "Grounds slime silhouettes, evolution scale, and facial placement."
+    },
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with a slower fixed-step timer.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "SlimeUnitVisual",
+      "BubbleHeavyTag"
+    ],
+    "asset_loading": "Load character/character_bubble_heavy_idle_4f_6fps.png during the Loading state and register it as a heavier-tier atlas entry.",
+    "runtime_notes": [
+      "Keep collision and weight data outside the art bundle.",
+      "Use the same transform origin as the normal bubble.",
+      "Limit the inner spark to palette-correct pixels."
+    ]
+  }
+}

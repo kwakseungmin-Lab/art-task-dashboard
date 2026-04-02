@@ -1,0 +1,155 @@
+{
+  "task_id": "art_000007",
+  "asset_key": "art_000007",
+  "asset_name": "Whiteout overlay — Peripheral closure mask",
+  "category": "obstacles",
+  "subcategory": "whiteout_vignette",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The overlay covers the full 1920x1080 frame and uses monochrome values that preserve the project palette contract.",
+    "The effect is authored as a screen-space texture so weather readability does not depend on runtime shader variance.",
+    "The center zone remains readable enough for queue and village inspection while edges close in with snow pressure."
+  ],
+  "differences": [
+    "This mask creates the heavy edge whitening described for late winter and major storm situations.",
+    "Peripheral opacity ramps inward more aggressively on the left and right edges to reinforce tunnel vision.",
+    "Sparse horizontal noise bands imply moving snow walls without turning the image into flat white."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000002",
+      "art_000005",
+      "art_000006",
+      "art_000017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Full-screen SpriteBundle overlay rendered between world layers and the top HUD to simulate whiteout pressure.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "Handle<Image>",
+      "WhiteoutOverlay"
+    ],
+    "asset_loading": "Load obstacles/art_000007.png at boot and fade its alpha in or out according to storm severity thresholds.",
+    "runtime_notes": [
+      "Render the mask after village layers and weather particles so the player still sees flakes through the whitening effect.",
+      "Animate opacity through ECS values rather than swapping textures to keep transitions smooth.",
+      "Clamp the center safe area so critical queue and status text remains readable at high severity."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "whiteout_overlay",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "overlay_front",
+    "usage": "Peripheral whiteout mask used when blizzard intensity narrows vision and stresses the memory mechanic.",
+    "adjacent_elements": [
+      "art_000002",
+      "art_000006",
+      "art_000017"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Full-screen snow-ring mask with a clear center window and dense edge whitening.",
+      "components": [
+        "center_window",
+        "left_white_band",
+        "right_white_band",
+        "noise_strips"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/art_000007.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 1920x1080px with a centered readable window for primary gameplay information.",
+    "Edge whitening is visibly stronger in the outer 25 percent of the frame than in the middle zone.",
+    "Noise bands do not create hard geometric edges that could be mistaken for interactable objects."
+  ]
+}

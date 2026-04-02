@@ -1,0 +1,167 @@
+{
+  "task_id": "art_000001",
+  "asset_key": "art_000001",
+  "asset_name": "Jarl portrait — Calm command loop",
+  "category": "character",
+  "subcategory": "jarl_portrait_calm",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The portrait uses a 64x64px frame, a fur hood silhouette, and a braided beard readable at 1x scale.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "The portrait stays anchored to the upper-left HUD zone so winter-state feedback remains stable."
+  ],
+  "differences": [
+    "This base asset shows the composed command expression used during low-blizzard planning turns.",
+    "The beard and hood move through a restrained 4-frame idle cycle that reads as breathing rather than panic.",
+    "White rim light stays narrow so the portrait remains clear over dense black HUD panels."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "art_000002"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000002",
+      "art_000015",
+      "art_000019"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_player_jarl",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/player_jarl.png",
+      "purpose": "Grounds the jarl portrait silhouette, fur hood shape, and beard readability in a compact HUD footprint."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-backed HUD portrait sprite rendered as a fixed screen-space entity in the top-left corner.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "Handle<Image>",
+      "JarlPortraitState"
+    ],
+    "asset_loading": "Load character/art_000001.png during UI boot and keep the atlas handle in a portrait state resource keyed by task_id.",
+    "runtime_notes": [
+      "Advance the idle loop at 2fps so expression changes stay readable during planning and result screens.",
+      "Keep the portrait pivot locked to the upper-left safe area to avoid jitter during overlay transitions.",
+      "Use nearest-neighbor sampling and whole-pixel placement so beard strands and hood trim remain crisp."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "hud_jarl_calm",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_left",
+      "offset_px": [
+        24,
+        24
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Default portrait state shown while the village is planning a winter allocation queue under manageable weather.",
+    "adjacent_elements": [
+      "art_000015",
+      "art_000019"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "slight_right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 2,
+      "loop": true,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Compact hooded bust with a square shoulder crop, bright brow edge, and dark beard mass.",
+      "components": [
+        "fur_hood",
+        "face_plane",
+        "braided_beard",
+        "shoulder_trim"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/art_000001.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 256x64px with 4 frames of 64x64px and 0px spacing.",
+    "Eyes, nose bridge, and beard edge remain readable at 1x scale on a 1920x1080 HUD.",
+    "Only the listed grayscale values plus transparency appear in the exported PNG."
+  ]
+}

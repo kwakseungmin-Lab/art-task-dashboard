@@ -9,7 +9,8 @@ const GameAvailability = {
         5: ['Chrome_Dino_Runner', 'Pico_Echo'],
         6: ['Chrome_Dino_Runner', 'Pico_Echo', 'cosmos_heracles', 'jarl_of_blizzard', 'olympus_step', 'ricochet_conspiracy'],
         7: ['Chrome_Dino_Runner', 'Pico_Echo', 'cosmos_heracles', 'olympus_step', 'ricochet_conspiracy'],
-        8: ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down', 'umbra_scale']
+        8: ['Chrome_Dino_Runner', 'Pico_Echo', 'reflect_academy', 'slip_down', 'umbra_scale'],
+        9: ['Chrome_Dino_Runner', 'Pico_Echo', 'bubble_farm', 'jarl_of_blizzard', 'leaf_beat']
     },
 
     // Check if a game is available for a specific iteration
@@ -209,6 +210,41 @@ const GameAvailability = {
                 'UI': [
                     'ui/ui.frost_meter.json',
                     'ui/ui.score.json'
+                ]
+            },
+            'bubble_farm': {
+                'Character': [
+                    'character/character_bubble_normal_idle_6f_8fps.json',
+                    'character/character_bubble_heavy_idle_4f_6fps.json',
+                    'character/character_bubble_mini_idle_4f_8fps.json',
+                    'character/character_bubble_jelly_idle_6f_8fps.json',
+                    'character/character_bubble_king_idle_10f_6fps.json'
+                ],
+                'World': [
+                    'world/world_farm_background_day.json',
+                    'world/world_farm_fence.json',
+                    'world/world_bubble_spawner.json'
+                ],
+                'UI': [
+                    'ui/ui_bubble_counter.json',
+                    'ui/ui_score_display.json',
+                    'ui/ui_time_bar.json'
+                ]
+            },
+            'leaf_beat': {
+                'Character': [
+                    'character/character_leaf_sprite_idle_4f_8fps.json',
+                    'character/character_leaf_sprite_bounce_6f_12fps.json'
+                ],
+                'World': [
+                    'world/world_forest_background.json',
+                    'world/world_tree_branch.json',
+                    'world/world_wind_effect.json'
+                ],
+                'UI': [
+                    'ui/ui_rhythm_indicator.json',
+                    'ui/ui_combo_counter.json',
+                    'ui/ui_score_display.json'
                 ]
             }
         };

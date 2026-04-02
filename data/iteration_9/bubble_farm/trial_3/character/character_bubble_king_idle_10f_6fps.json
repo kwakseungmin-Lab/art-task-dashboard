@@ -1,0 +1,167 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010030010",
+  "asset_name": "Bubble King Idle Loop",
+  "category": "character",
+  "subcategory": "rare_slime",
+  "priority": "P1",
+  "execution_order": 100,
+  "variant_of": "task_id_010030008",
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "The royal unit keeps the bubble family eye language and rounded body language."
+  ],
+  "differences": [
+    "The body expands to a 96x96px footprint that covers a 2x2 result state.",
+    "Ten frames add crown glint pulses and slow regal breathing.",
+    "Royal violet fill and gold crown details make the unit the highest-value visual on the board."
+  ],
+  "depends_on": [
+    "task_id_010030008"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_010030008"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010030008",
+      "task_id_010030009",
+      "task_id_010030017"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "rare_slime",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        832,
+        312
+      ]
+    },
+    "layer": "character",
+    "usage": "Large rare evolution that anchors late-stage balance swings and codex milestones.",
+    "adjacent_elements": [
+      "task_id_010030008",
+      "task_id_010030009",
+      "task_id_010030017"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_15deg",
+      "facing": "screen_center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 96
+    },
+    "colors_hex": [
+      "#7B2FBE",
+      "#FFD700",
+      "#F5F0E1"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 10,
+      "fps": 6,
+      "loop": true,
+      "frame_size_px": [
+        96,
+        96
+      ],
+      "layout": {
+        "columns": 10,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "components": [
+        "body",
+        "crown",
+        "highlight_band",
+        "eyes",
+        "mouth",
+        "sparkles"
+      ]
+    },
+    "texture": "Royal violet core with a gold crown and cream highlight beads.",
+    "shading": "Flat fill with stronger highlight clusters near the crown."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/character_bubble_king_idle_10f_6fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 960x96px with 10 columns and 1 row.",
+    "The crown remains readable as a separate gold prop at native scale.",
+    "The unit silhouette clearly occupies more visual mass than a single-cell slime."
+  ],
+  "asset_key": "character_bubble_king_idle_10f_6fps",
+  "variant_of_asset_key": "character_bubble_heavy_idle_4f_6fps",
+  "reference_images": [
+    {
+      "label": "bubble_farm_slime_units",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/slime_units.png",
+      "purpose": "Grounds slime silhouettes, evolution scale, and facial placement."
+    },
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with a large atlas layout and a dedicated rare-unit marker.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "SlimeUnitVisual",
+      "BubbleKingTag"
+    ],
+    "asset_loading": "Load character/character_bubble_king_idle_10f_6fps.png during the Loading state and store the handle in a rare-unit art resource.",
+    "runtime_notes": [
+      "Anchor the root transform to the center of the 2x2 occupied footprint.",
+      "Advance crown glint frames through the same timer as the body breath loop.",
+      "Keep the outer transparent gutter at least 4px wide."
+    ]
+  }
+}

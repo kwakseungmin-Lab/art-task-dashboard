@@ -1,0 +1,351 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome Dino Runner"
+  },
+  "meta": {
+    "plan_id": "Chrome_Dino_Runner__iter10__trial1",
+    "game_name": "Chrome_Dino_Runner",
+    "iteration": 9,
+    "trial_index": 1,
+    "plan_dir": "trial_1",
+    "created_at_utc": "2026-04-01T12:47:30Z",
+    "git_ref": "art_task_plan/iter10_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md",
+    "run_id": "R26"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "reference_images": [
+    {
+      "label": "t_rex_runner_sprite_sheet_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "Grounds the monochrome Chrome Dino silhouette set, obstacle silhouettes, and pixel spacing."
+    },
+    {
+      "label": "t_rex_runner_sprite_sheet_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/default_100_percent/100-offline-sprite.png",
+      "purpose": "Grounds the 1x pixel-art HUD glyphs, ground line rhythm, and cloud spacing."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 2D sprites with ImagePlugin::default_nearest(), SpriteBundle for static art, and TextureAtlasLayout plus SpriteSheetBundle for animated sheets.",
+    "ecs_model": "Store gameplay art handles in resources and drive state swaps with components such as DinoState, ObstacleTag, GroundTag, HudTag, and GameOverTag.",
+    "asset_loading": "Preload package textures through AssetServer during a Loading state, keep handles in typed resources, and reuse atlas layouts for all animated sheets.",
+    "runtime_notes": [
+      "Run gameplay at a fixed 60 FPS update cadence so sprite timing stays deterministic.",
+      "Animated player and pterodactyl sheets use atlas indices advanced by timers rather than texture swaps.",
+      "UI digits stay pixel-perfect by disabling texture filtering and snapping the HUD to whole pixels."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "runner_state_loop",
+      "label": "Runner State Loop",
+      "description": "Covers the always-running dinosaur state machine and the grounded landing read that keeps jump timing legible.",
+      "critical_states": [
+        "idle_ready",
+        "running",
+        "jumping",
+        "ducking",
+        "dead"
+      ],
+      "task_ids": [
+        "task_id_010010001",
+        "task_id_010010002",
+        "task_id_010010003",
+        "task_id_010010004",
+        "task_id_010010005",
+        "task_id_010010013",
+        "task_id_010010014"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010010016",
+        "task_id_010010017",
+        "task_id_010010018"
+      ]
+    },
+    {
+      "mechanic_id": "ground_obstacle_timing",
+      "label": "Ground Obstacle Timing",
+      "description": "Covers cactus silhouettes, jump arcs, and the ground horizon that define the timing window for obstacle clearance.",
+      "critical_states": [
+        "spawn_approach",
+        "takeoff",
+        "apex_clear",
+        "landing_clear"
+      ],
+      "task_ids": [
+        "task_id_010010006",
+        "task_id_010010007",
+        "task_id_010010008",
+        "task_id_010010002",
+        "task_id_010010003",
+        "task_id_010010013"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010010016"
+      ]
+    },
+    {
+      "mechanic_id": "air_obstacle_timing",
+      "label": "Air Obstacle Timing",
+      "description": "Covers pterodactyl flight, ducking readability, and cloud layering that keeps the airborne threat easy to parse.",
+      "critical_states": [
+        "score_gate_200",
+        "high_flight",
+        "low_flight",
+        "duck_clear"
+      ],
+      "task_ids": [
+        "task_id_010010009",
+        "task_id_010010002",
+        "task_id_010010003",
+        "task_id_010010004",
+        "task_id_010010011",
+        "task_id_010010012"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010010016"
+      ]
+    },
+    {
+      "mechanic_id": "score_and_restart_feedback",
+      "label": "Score and Restart Feedback",
+      "description": "Covers score readability, the game-over announcement, and the restart prompt used after a collision.",
+      "critical_states": [
+        "score_tick",
+        "milestone_notice",
+        "game_over",
+        "restart_ready"
+      ],
+      "task_ids": [
+        "task_id_010010015",
+        "task_id_010010016",
+        "task_id_010010017",
+        "task_id_010010018",
+        "task_id_010010005"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010010015",
+        "task_id_010010016",
+        "task_id_010010017",
+        "task_id_010010018"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_010010001",
+      "asset_key": "character_player_dino_idle_2f_6fps",
+      "category": "character",
+      "file": "character/character_player_dino_idle_2f_6fps.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010002",
+      "asset_key": "character_player_dino_run_2f_12fps",
+      "category": "character",
+      "file": "character/character_player_dino_run_2f_12fps.json",
+      "execution_order": 20,
+      "variant_of": "task_id_010010001",
+      "variant_of_asset_key": "character_player_dino_idle_2f_6fps"
+    },
+    {
+      "task_id": "task_id_010010003",
+      "asset_key": "character_player_dino_jump_static",
+      "category": "character",
+      "file": "character/character_player_dino_jump_static.json",
+      "execution_order": 30,
+      "variant_of": "task_id_010010001",
+      "variant_of_asset_key": "character_player_dino_idle_2f_6fps"
+    },
+    {
+      "task_id": "task_id_010010004",
+      "asset_key": "character_player_dino_duck_2f_12fps",
+      "category": "character",
+      "file": "character/character_player_dino_duck_2f_12fps.json",
+      "execution_order": 40,
+      "variant_of": "task_id_010010001",
+      "variant_of_asset_key": "character_player_dino_idle_2f_6fps"
+    },
+    {
+      "task_id": "task_id_010010005",
+      "asset_key": "character_player_dino_dead_static",
+      "category": "character",
+      "file": "character/character_player_dino_dead_static.json",
+      "execution_order": 50,
+      "variant_of": "task_id_010010001",
+      "variant_of_asset_key": "character_player_dino_idle_2f_6fps"
+    },
+    {
+      "task_id": "task_id_010010006",
+      "asset_key": "obstacles_cactus_small_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_cactus_small_static.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010007",
+      "asset_key": "obstacles_cactus_medium_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_cactus_medium_static.json",
+      "execution_order": 70,
+      "variant_of": "task_id_010010006",
+      "variant_of_asset_key": "obstacles_cactus_small_static"
+    },
+    {
+      "task_id": "task_id_010010008",
+      "asset_key": "obstacles_cactus_large_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_cactus_large_static.json",
+      "execution_order": 80,
+      "variant_of": "task_id_010010006",
+      "variant_of_asset_key": "obstacles_cactus_small_static"
+    },
+    {
+      "task_id": "task_id_010010009",
+      "asset_key": "obstacles_pterodactyl_fly_2f_10fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_pterodactyl_fly_2f_10fps.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010010",
+      "asset_key": "world_background_sky_fill_600x150",
+      "category": "world",
+      "file": "world/world_background_sky_fill_600x150.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010011",
+      "asset_key": "world_background_cloud_small_static",
+      "category": "world",
+      "file": "world/world_background_cloud_small_static.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010012",
+      "asset_key": "world_background_cloud_large_static",
+      "category": "world",
+      "file": "world/world_background_cloud_large_static.json",
+      "execution_order": 120,
+      "variant_of": "task_id_010010011",
+      "variant_of_asset_key": "world_background_cloud_small_static"
+    },
+    {
+      "task_id": "task_id_010010013",
+      "asset_key": "world_ground_line_1200x2",
+      "category": "world",
+      "file": "world/world_ground_line_1200x2.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010014",
+      "asset_key": "world_ground_texture_1200x10",
+      "category": "world",
+      "file": "world/world_ground_texture_1200x10.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010015",
+      "asset_key": "ui_font_score_digits_10x16_0_9",
+      "category": "ui",
+      "file": "ui/ui_font_score_digits_10x16_0_9.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010016",
+      "asset_key": "ui_hud_score_display",
+      "category": "ui",
+      "file": "ui/ui_hud_score_display.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010017",
+      "asset_key": "ui_screen_game_over_text_24px",
+      "category": "ui",
+      "file": "ui/ui_screen_game_over_text_24px.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010010018",
+      "asset_key": "ui_prompt_restart_text_12px",
+      "category": "ui",
+      "file": "ui/ui_prompt_restart_text_12px.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ],
+  "generation_context": {
+    "strategy_mode": "STABILIZATION",
+    "source_package": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Task_Plan_Output/iteration_7/Chrome_Dino_Runner/trial_2",
+    "kb_reference": {
+      "task_plan_kb_summary": [
+        "Iteration 6 recorded an IF-4 failure on Chrome_Dino_Runner trial 4.",
+        "Iteration 6 recorded an IF-9 failure when variant depends_on data was incomplete on Chrome_Dino_Runner trial 1.",
+        "Iteration 7 removed IF-4, IF-8, and IF-9 issues on the stable baseline."
+      ],
+      "avoidance_actions": [
+        "All package strings are written as standalone statements with no cross-file prose dependency phrases.",
+        "Every variant keeps task_id lineage, asset_key lineage, and explicit depends_on closure.",
+        "Every package and asset entry includes real URL image grounding and Bevy engine constraints."
+      ]
+    }
+  }
+}

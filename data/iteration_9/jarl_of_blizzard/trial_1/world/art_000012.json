@@ -1,0 +1,159 @@
+{
+  "task_id": "art_000012",
+  "asset_key": "art_000012",
+  "asset_name": "Warehouse building — Resource storehouse",
+  "category": "world",
+  "subcategory": "warehouse",
+  "priority": "P0",
+  "execution_order": 120,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The storehouse uses a 96x64px footprint that reads as wider and heavier than the longhouse.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "Large door bands and stacked cargo silhouettes help players connect the building to storage capacity."
+  ],
+  "differences": [
+    "This structure communicates resource storage and storm-loss mitigation inside the settlement loop.",
+    "Wide roof overhangs and reinforced beams distinguish it from population and military buildings.",
+    "Exterior crate silhouettes create a practical worksite feel without cluttering the footprint."
+  ],
+  "depends_on": [
+    "art_000009",
+    "art_000010"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000009",
+    "art_000010"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000011",
+      "art_000015",
+      "art_000018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Static building sprite placed as the main storage structure for resource-capacity feedback and storm mitigation cues.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "Handle<Image>",
+      "VillageBuilding",
+      "WarehouseBuilding"
+    ],
+    "asset_loading": "Load world/art_000012.png during building boot and instantiate it as a static sprite on warehouse tiles.",
+    "runtime_notes": [
+      "Place the sprite on a two-tile-wide footprint while keeping the center point aligned with the world grid.",
+      "Use static art rather than a sheet because storage readability matters more than ambient motion here.",
+      "Keep cargo silhouettes near the lower third so UI overlays can sit above the roofline if needed."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "warehouse_building",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        980,
+        620
+      ]
+    },
+    "layer": "world_building",
+    "usage": "Wide storage building used to signal resource capacity, storm protection, and winter stockpile planning.",
+    "adjacent_elements": [
+      "art_000011",
+      "art_000015",
+      "art_000018"
+    ],
+    "viewpoint": {
+      "camera_angle": "fixed_overview",
+      "facing": "slight_left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 96,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Wide timber storehouse with a heavy roof, broad cargo doors, and stacked crate silhouettes.",
+      "components": [
+        "roof_overhang",
+        "cargo_doors",
+        "crate_stack",
+        "support_beams"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/art_000012.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 96x64px with the roof fully contained inside the bounds.",
+    "The building reads wider and heavier than art_000011 when both are displayed at 1x scale.",
+    "Door bands and cargo silhouettes remain readable without blending into nearby snow tiles."
+  ]
+}

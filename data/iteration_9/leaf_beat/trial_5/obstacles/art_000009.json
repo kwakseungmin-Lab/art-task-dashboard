@@ -1,0 +1,159 @@
+{
+  "task_id": "art_000009",
+  "asset_key": "art_000009",
+  "asset_name": "Leaf cluster obstacle — dense canopy lump",
+  "category": "obstacles",
+  "subcategory": "leaf_cluster",
+  "priority": "P1",
+  "execution_order": 90,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The obstacle keeps a warm autumn palette that remains readable over the sky and tree layers.",
+    "The silhouette acts as a single rounded blocking mass with a compact lower trunk cue.",
+    "Secondary leaf fray stays inside the 80x80px frame in every pose."
+  ],
+  "differences": [
+    "This obstacle replaces strict linear geometry with a soft canopy lump to vary the scan pattern.",
+    "The animation introduces a gentle sway instead of branch-like horizontal stretching.",
+    "Orange highlights make the obstacle feel seasonal while darker pockets keep the collision mass obvious."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000001",
+      "art_000012",
+      "art_000017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas obstacle entity for a subtle sway loop that keeps the canopy lump readable without code-side deformation.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "ObstacleKind",
+      "LeafCluster"
+    ],
+    "asset_loading": "Load obstacles/art_000009.png during stage setup and assign a loop timer for the subtle sway animation frames.",
+    "runtime_notes": [
+      "Use the animated atlas at 7fps for a gentle canopy shimmer that does not alter the collision outline.",
+      "Keep the AABB collider anchored to the middle 72x72px region so the outer leaf fray remains a visual cushion.",
+      "Spawn this obstacle from 600px depth onward to increase silhouette variety after the earliest training beats."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "leaf_cluster_static",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        720,
+        320
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Rounded leaf-mass obstacle used to vary silhouette density after the tutorial zone.",
+    "adjacent_elements": [
+      "art_000001",
+      "art_000012",
+      "art_000017"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 80,
+      "height": 80
+    },
+    "colors_hex": [
+      "#8B5E3C",
+      "#5C3A1E",
+      "#D4A96A",
+      "#E8722A",
+      "#F5D060"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 7,
+      "loop": true,
+      "frame_size_px": [
+        80,
+        80
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Rounded canopy clump with clustered lobes and a darker trunk nub at the lower edge.",
+      "components": [
+        "leaf_mass",
+        "outer_lobes",
+        "inner_shadow",
+        "trunk_nub"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/art_000009.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 320x80px with 4 frames of 80x80px and 0px spacing.",
+    "The silhouette reads as a single obstacle mass from a gameplay zoomed-out view and never breaks into detached pieces.",
+    "The animation preserves the outer bounds so the collider can remain constant across all frames."
+  ]
+}

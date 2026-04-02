@@ -1,0 +1,381 @@
+{
+  "project": {
+    "project_id": "leaf_beat",
+    "project_name": "Leaf Beat"
+  },
+  "meta": {
+    "plan_id": "leaf_beat__iter10__trial2",
+    "game_name": "leaf_beat",
+    "iteration": 9,
+    "trial_index": 2,
+    "plan_dir": "trial_2",
+    "created_at_utc": "2026-04-01T13:45:39Z",
+    "git_ref": "art_task_plan/iter10_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md",
+    "run_id": "R26"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    },
+    {
+      "label": "leaf_beat_player_sheet",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/player.png",
+      "purpose": "Grounds the player leaf silhouette, glow accent, and frame density for the responsive states."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 0.13 SpriteBundle for static layers and TextureAtlasLayout plus SpriteSheetBundle for the player, pickups, and compact UI atlases.",
+    "ecs_model": "Represent the player leaf, obstacle spawnables, reward pickups, parallax layers, rhythm-lane widgets, and overlays as entities tagged with components such as PlayerLeaf, ObstacleKind, RewardFruit, WorldLayer, RhythmLanePanel, RhythmGlyph, HudStrip, and FrontEndOverlay.",
+    "asset_loading": "Preload every JSON-declared PNG through AssetServer during a Loading state, cache handles by task_id, and drive gameplay timing in FixedUpdate at 60Hz.",
+    "runtime_notes": [
+      "Apply nearest-neighbor sampling and whole-pixel camera placement to preserve crisp 1px edges at 1280x720.",
+      "Use direct AABB collision for branches, leaf clusters, fruit pickups, and screen walls without adding Rapier.",
+      "Drive BPM escalation, note-marker travel, combo popup lifetime, and danger-vignette opacity from deterministic timers linked to depth thresholds."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "beat_timed_air_control",
+      "label": "Beat-timed air control",
+      "description": "Covers the lane panel, marker glyphs, and responsive player states used for braking and horizontal drift.",
+      "critical_states": [
+        "idle_fall",
+        "perfect_brake",
+        "left_drift",
+        "right_drift",
+        "miss_recovery"
+      ],
+      "task_ids": [
+        "art_000001",
+        "art_000002",
+        "art_000003",
+        "art_000004",
+        "art_000015",
+        "art_000016",
+        "art_000018"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000015",
+        "art_000016",
+        "art_000018"
+      ]
+    },
+    {
+      "mechanic_id": "obstacle_navigation_and_damage",
+      "label": "Obstacle navigation and damage",
+      "description": "Covers branch gates, leaf-cluster clutter, near-world framing, and the hit-flash response that communicates failed avoidance.",
+      "critical_states": [
+        "tutorial_gap",
+        "branch_gate",
+        "leaf_cluster_pressure",
+        "swaying_branch_climax",
+        "damage_flash"
+      ],
+      "task_ids": [
+        "art_000001",
+        "art_000003",
+        "art_000004",
+        "art_000005",
+        "art_000006",
+        "art_000007",
+        "art_000008",
+        "art_000009",
+        "art_000012",
+        "art_000013"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000017",
+        "art_000018"
+      ]
+    },
+    {
+      "mechanic_id": "reward_and_health_loop",
+      "label": "Reward and health loop",
+      "description": "Covers fruit collection, HP tracking, score bonus readability, and combo reinforcement during successful play.",
+      "critical_states": [
+        "fruit_visible",
+        "fruit_collected",
+        "hp_loss",
+        "hp_recovered",
+        "combo_chain"
+      ],
+      "task_ids": [
+        "art_000001",
+        "art_000005",
+        "art_000010",
+        "art_000017",
+        "art_000018"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000017",
+        "art_000018"
+      ]
+    },
+    {
+      "mechanic_id": "depth_bpm_escalation",
+      "label": "Depth and BPM escalation",
+      "description": "Covers deeper-stage world framing, moving obstacles, rhythm glyph pressure, and the danger vignette during the final fall phase.",
+      "critical_states": [
+        "early_fall",
+        "mid_density",
+        "bpm_125",
+        "bpm_150",
+        "danger_vignette"
+      ],
+      "task_ids": [
+        "art_000002",
+        "art_000008",
+        "art_000011",
+        "art_000012",
+        "art_000013",
+        "art_000014",
+        "art_000016",
+        "art_000017"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000016",
+        "art_000017",
+        "art_000018"
+      ]
+    },
+    {
+      "mechanic_id": "front_end_flow",
+      "label": "Front-end flow",
+      "description": "Covers title, pause, stage-clear, and game-over readability so state transitions stay explicit through a full run.",
+      "critical_states": [
+        "title_ready",
+        "live_play",
+        "paused",
+        "stage_clear",
+        "game_over"
+      ],
+      "task_ids": [
+        "art_000001",
+        "art_000017",
+        "art_000018",
+        "art_000019"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000017",
+        "art_000018",
+        "art_000019"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "art_000001",
+      "asset_key": "art_000001",
+      "category": "character",
+      "file": "character/art_000001.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000002",
+      "asset_key": "art_000002",
+      "category": "character",
+      "file": "character/art_000002.json",
+      "execution_order": 20,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000003",
+      "asset_key": "art_000003",
+      "category": "character",
+      "file": "character/art_000003.json",
+      "execution_order": 30,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000004",
+      "asset_key": "art_000004",
+      "category": "character",
+      "file": "character/art_000004.json",
+      "execution_order": 40,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000005",
+      "asset_key": "art_000005",
+      "category": "character",
+      "file": "character/art_000005.json",
+      "execution_order": 50,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000006",
+      "asset_key": "art_000006",
+      "category": "obstacles",
+      "file": "obstacles/art_000006.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000007",
+      "asset_key": "art_000007",
+      "category": "obstacles",
+      "file": "obstacles/art_000007.json",
+      "execution_order": 70,
+      "variant_of": "art_000006",
+      "variant_of_asset_key": "art_000006"
+    },
+    {
+      "task_id": "art_000008",
+      "asset_key": "art_000008",
+      "category": "obstacles",
+      "file": "obstacles/art_000008.json",
+      "execution_order": 80,
+      "variant_of": "art_000006",
+      "variant_of_asset_key": "art_000006"
+    },
+    {
+      "task_id": "art_000009",
+      "asset_key": "art_000009",
+      "category": "obstacles",
+      "file": "obstacles/art_000009.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000010",
+      "asset_key": "art_000010",
+      "category": "obstacles",
+      "file": "obstacles/art_000010.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000011",
+      "asset_key": "art_000011",
+      "category": "world",
+      "file": "world/art_000011.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000012",
+      "asset_key": "art_000012",
+      "category": "world",
+      "file": "world/art_000012.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000013",
+      "asset_key": "art_000013",
+      "category": "world",
+      "file": "world/art_000013.json",
+      "execution_order": 130,
+      "variant_of": "art_000012",
+      "variant_of_asset_key": "art_000012"
+    },
+    {
+      "task_id": "art_000014",
+      "asset_key": "art_000014",
+      "category": "world",
+      "file": "world/art_000014.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000015",
+      "asset_key": "art_000015",
+      "category": "ui",
+      "file": "ui/art_000015.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000016",
+      "asset_key": "art_000016",
+      "category": "ui",
+      "file": "ui/art_000016.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000017",
+      "asset_key": "art_000017",
+      "category": "ui",
+      "file": "ui/art_000017.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000018",
+      "asset_key": "art_000018",
+      "category": "ui",
+      "file": "ui/art_000018.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000019",
+      "asset_key": "art_000019",
+      "category": "ui",
+      "file": "ui/art_000019.json",
+      "execution_order": 190,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ]
+}

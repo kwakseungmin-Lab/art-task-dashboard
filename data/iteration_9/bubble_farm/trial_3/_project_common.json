@@ -1,0 +1,373 @@
+{
+  "schema_version": "art_task_plan_pkg@8",
+  "project": {
+    "project_id": "bubble_farm",
+    "project_name": "Bubble Farm: Balance of Evolution"
+  },
+  "meta": {
+    "plan_id": "bubble_farm__iter10__trial3",
+    "game_name": "bubble_farm",
+    "iteration": 9,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-04-01T16:20:54Z",
+    "git_ref": "art_task_plan/iter10_pipeline",
+    "gdd_source": "s3",
+    "gdd_path": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/bubble_farm.md",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md",
+    "run_id": "R26"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "reference_images": [
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    },
+    {
+      "label": "bubble_farm_slime_units",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/slime_units.png",
+      "purpose": "Grounds slime silhouettes, evolution scale, and facial placement."
+    },
+    {
+      "label": "bubble_farm_gameplay_balance",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/gameplay_balance.png",
+      "purpose": "Grounds the 9x7 board, balance axis, route overlay, and HUD placement."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy 2D sprites with ImagePlugin::default_nearest(), SpriteBundle for static tiles and UI plates, and TextureAtlasLayout plus SpriteSheetBundle for animated slime and bubble sheets.",
+    "ecs_model": "Keep board visuals in GridCellVisual and BalanceAxisVisual components, units in SlimeUnitVisual components, hazards in BubbleHazardVisual components, and interface art in HudWidgetVisual components.",
+    "asset_loading": "Preload all package textures and atlas layouts through AssetServer during a dedicated Loading state and keep typed handles in resources.",
+    "runtime_notes": [
+      "Run balance recomputation and bubble path updates on a fixed 60 FPS schedule.",
+      "Keep the board on whole-pixel coordinates.",
+      "Scale UI in screen space while keeping sprite art nearest-filtered."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key_png"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "balance_axis_control",
+      "label": "Balance Axis Control",
+      "description": "Covers placement readability, live balance warnings, and collapse feedback around the center axis.",
+      "critical_states": [
+        "preview_hover",
+        "balanced_lane",
+        "warning_tilt",
+        "collapse_resolution"
+      ],
+      "task_ids": [
+        "task_id_010030002",
+        "task_id_010030003",
+        "task_id_010030004",
+        "task_id_010030006",
+        "task_id_010030007",
+        "task_id_010030008",
+        "task_id_010030010",
+        "task_id_010030015",
+        "task_id_010030019"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030015",
+        "task_id_010030019"
+      ]
+    },
+    {
+      "mechanic_id": "evolution_merge_chain",
+      "label": "Evolution Merge Chain",
+      "description": "Covers deployable slime progression, support evolution, rare king creation, and codex reward feedback.",
+      "critical_states": [
+        "mini_pair_merge",
+        "normal_pair_merge",
+        "support_conversion",
+        "rare_king_unlock"
+      ],
+      "task_ids": [
+        "task_id_010030006",
+        "task_id_010030007",
+        "task_id_010030008",
+        "task_id_010030009",
+        "task_id_010030010",
+        "task_id_010030017",
+        "task_id_010030016"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030017",
+        "task_id_010030016"
+      ]
+    },
+    {
+      "mechanic_id": "hazard_path_prediction",
+      "label": "Hazard Path Prediction",
+      "description": "Covers route previews, rock reflection, boiling and rolling motion, bomb danger timing, and the prediction toggle.",
+      "critical_states": [
+        "prediction_enabled",
+        "boiling_route_preview",
+        "rolling_rebound",
+        "bomb_warning_peak"
+      ],
+      "task_ids": [
+        "task_id_010030002",
+        "task_id_010030005",
+        "task_id_010030011",
+        "task_id_010030012",
+        "task_id_010030013",
+        "task_id_010030014",
+        "task_id_010030018",
+        "task_id_010030015"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030018",
+        "task_id_010030015"
+      ]
+    },
+    {
+      "mechanic_id": "queue_and_codex_flow",
+      "label": "Queue and Codex Flow",
+      "description": "Covers next queue planning, codex inspection, and collection-driven decision support.",
+      "critical_states": [
+        "next_queue_visible",
+        "codex_open",
+        "codex_unlock_notice"
+      ],
+      "task_ids": [
+        "task_id_010030006",
+        "task_id_010030007",
+        "task_id_010030009",
+        "task_id_010030015",
+        "task_id_010030016",
+        "task_id_010030017"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030015",
+        "task_id_010030016",
+        "task_id_010030017"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_010030001",
+      "asset_key": "world_background_mud_loop_64x64_8f",
+      "category": "world",
+      "file": "world/world_background_mud_loop_64x64_8f.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030002",
+      "asset_key": "world_grid_board_9x7_576x448",
+      "category": "world",
+      "file": "world/world_grid_board_9x7_576x448.json",
+      "execution_order": 20,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030003",
+      "asset_key": "world_balance_axis_beam_64x448",
+      "category": "world",
+      "file": "world/world_balance_axis_beam_64x448.json",
+      "execution_order": 30,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030004",
+      "asset_key": "world_balance_meter_400x60",
+      "category": "world",
+      "file": "world/world_balance_meter_400x60.json",
+      "execution_order": 40,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030005",
+      "asset_key": "world_path_prediction_overlay_dots_16x16",
+      "category": "world",
+      "file": "world/world_path_prediction_overlay_dots_16x16.json",
+      "execution_order": 50,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030006",
+      "asset_key": "character_bubble_mini_idle_4f_8fps",
+      "category": "character",
+      "file": "character/character_bubble_mini_idle_4f_8fps.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030007",
+      "asset_key": "character_bubble_normal_idle_6f_8fps",
+      "category": "character",
+      "file": "character/character_bubble_normal_idle_6f_8fps.json",
+      "execution_order": 70,
+      "variant_of": "task_id_010030006",
+      "variant_of_asset_key": "character_bubble_mini_idle_4f_8fps"
+    },
+    {
+      "task_id": "task_id_010030008",
+      "asset_key": "character_bubble_heavy_idle_4f_6fps",
+      "category": "character",
+      "file": "character/character_bubble_heavy_idle_4f_6fps.json",
+      "execution_order": 80,
+      "variant_of": "task_id_010030007",
+      "variant_of_asset_key": "character_bubble_normal_idle_6f_8fps"
+    },
+    {
+      "task_id": "task_id_010030009",
+      "asset_key": "character_bubble_jelly_idle_6f_8fps",
+      "category": "character",
+      "file": "character/character_bubble_jelly_idle_6f_8fps.json",
+      "execution_order": 90,
+      "variant_of": "task_id_010030007",
+      "variant_of_asset_key": "character_bubble_normal_idle_6f_8fps"
+    },
+    {
+      "task_id": "task_id_010030010",
+      "asset_key": "character_bubble_king_idle_10f_6fps",
+      "category": "character",
+      "file": "character/character_bubble_king_idle_10f_6fps.json",
+      "execution_order": 100,
+      "variant_of": "task_id_010030008",
+      "variant_of_asset_key": "character_bubble_heavy_idle_4f_6fps"
+    },
+    {
+      "task_id": "task_id_010030011",
+      "asset_key": "obstacles_rock_cell_static",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_rock_cell_static.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030012",
+      "asset_key": "obstacles_boiling_bubble_rise_4f_12fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_boiling_bubble_rise_4f_12fps.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030013",
+      "asset_key": "obstacles_rolling_bubble_spin_4f_12fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_rolling_bubble_spin_4f_12fps.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030014",
+      "asset_key": "obstacles_bomb_bubble_warning_8f_10fps",
+      "category": "obstacles",
+      "file": "obstacles/obstacles_bomb_bubble_warning_8f_10fps.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030015",
+      "asset_key": "ui_hud_balance_topbar_1920x96",
+      "category": "ui",
+      "file": "ui/ui_hud_balance_topbar_1920x96.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030016",
+      "asset_key": "ui_next_hold_panel_240x320",
+      "category": "ui",
+      "file": "ui/ui_next_hold_panel_240x320.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030017",
+      "asset_key": "ui_codex_panel_900x600",
+      "category": "ui",
+      "file": "ui/ui_codex_panel_900x600.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030018",
+      "asset_key": "ui_prediction_toggle_button_40x40",
+      "category": "ui",
+      "file": "ui/ui_prediction_toggle_button_40x40.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030019",
+      "asset_key": "ui_popup_game_over_600x400",
+      "category": "ui",
+      "file": "ui/ui_popup_game_over_600x400.json",
+      "execution_order": 190,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ],
+  "generation_context": {
+    "strategy_mode": "STABILIZATION",
+    "strategy_notes": [
+      "User strategy requested minimal contract drift and a stable structure for iteration 9.",
+      "The package keeps explicit variant lineage and complete category coverage for IF-9 and IF-12 closure.",
+      "The plan uses S3 grounding from the specified simple-exp-20260309193804 snapshot."
+    ],
+    "kb_reference": {
+      "task_plan_kb_summary": [
+        "Delegation was requested to art_task_plan_kb_retriever for bubble_farm failure analysis.",
+        "Delegation was requested to art_task_plan_kb_retriever for custom rule lookup.",
+        "No structured KB briefing payload was visible during this run, so the package emphasized harness-visible closure checks."
+      ],
+      "avoidance_actions": [
+        "Each asset includes real image URLs and Bevy engine constraints.",
+        "Every variant task keeps explicit base lineage, depends_on closure, and manifest alignment.",
+        "The package keeps _project_common.json plus non-empty character, obstacles, world, and ui directories."
+      ]
+    }
+  }
+}

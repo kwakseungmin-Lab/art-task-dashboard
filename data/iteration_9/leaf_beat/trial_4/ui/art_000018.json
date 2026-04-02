@@ -1,0 +1,164 @@
+{
+  "task_id": "art_000018",
+  "asset_key": "art_000018",
+  "asset_name": "UI atlas — judgement popup and combo flame set",
+  "category": "ui",
+  "subcategory": "judgement_feedback",
+  "priority": "P0",
+  "execution_order": 180,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "All feedback cells use the same compact atlas format and align to a shared baseline.",
+    "Warm cream and gold tones keep positive feedback bright without clashing with the autumn palette.",
+    "Letterforms stay bold enough for a 0.5 second on-screen lifetime."
+  ],
+  "differences": [
+    "This atlas packages the three judgement labels and the combo flame badge used during live play.",
+    "PERFECT is the brightest cell to emphasize the strongest timing reward immediately.",
+    "MISS adopts a darker warning tone so the failure state stands apart from the reward cells."
+  ],
+  "depends_on": [
+    "art_000016"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000016"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000002",
+      "art_000005",
+      "art_000010",
+      "art_000016"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-driven UI entity set for transient judgement and combo feedback anchored above the player sprite.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "TextureAtlas",
+      "Handle<Image>",
+      "JudgementPopup"
+    ],
+    "asset_loading": "Load ui/art_000018.png during UI boot and select atlas cells for PERFECT, GOOD, MISS, and combo flame states.",
+    "runtime_notes": [
+      "Spawn the popup about 40px above the player anchor and fade it over 0.5 seconds through code-side opacity changes.",
+      "Keep the atlas cells compact so transient feedback can coexist with obstacles and the rhythm lane in capture frames.",
+      "Expose atlas indices and color metadata so replay review tools can reconstruct the exact judgement label used."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "judgement_popup",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        520
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Compact atlas for PERFECT, GOOD, MISS, and combo flame feedback near the player.",
+    "adjacent_elements": [
+      "art_000002",
+      "art_000005",
+      "art_000010",
+      "art_000016"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 320,
+      "height": 64
+    },
+    "colors_hex": [
+      "#FFF4CC",
+      "#F5D060",
+      "#F5ECD7",
+      "#9B2335",
+      "#3B2A1A"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        80,
+        64
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Four-cell UI atlas containing PERFECT, GOOD, MISS, and a flame badge for combo emphasis.",
+      "components": [
+        "perfect_label",
+        "good_label",
+        "miss_label",
+        "combo_flame"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/art_000018.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 320x64px with 4 cells of 80x64px and 0px spacing.",
+    "PERFECT uses the brightest cream-gold treatment, GOOD uses a calmer gold treatment, and MISS keeps a darker warning tone.",
+    "The combo flame remains legible when composited near the player and over the dark rhythm lane panel."
+  ]
+}

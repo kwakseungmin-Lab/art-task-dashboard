@@ -1,0 +1,177 @@
+{
+  "task_id": "art_000030",
+  "asset_key": "art_000030",
+  "asset_name": "Care Popup Panel (3-button radial)",
+  "category": "ui",
+  "subcategory": "menu",
+  "priority": "P0",
+  "execution_order": 370,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Asset remains readable at 1x scale on the 128x128 playfield.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering keeps the interface crisp without hiding gameplay."
+  ],
+  "differences": [
+    "This panel groups the three care actions into a single touch menu.",
+    "Popup bounds must stay inside the 128x128 canvas without covering Echo completely.",
+    "Panel styling must remain soft and readable within the warm palette."
+  ],
+  "depends_on": [
+    "art_000027",
+    "art_000028",
+    "art_000029"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000027",
+    "art_000028",
+    "art_000029"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000027",
+      "art_000028",
+      "art_000029"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "hud_widget_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md",
+      "purpose": "Grounds HUD layout, icon sizing, and bottom-screen information density."
+    },
+    {
+      "label": "care_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/CareSystem.md",
+      "purpose": "Grounds care popup behavior, icon semantics, and interaction feedback states."
+    },
+    {
+      "label": "relationship_system_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/01_Systems/RelationshipSystem.md",
+      "purpose": "Grounds relationship label semantics and progression display needs."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Static sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "UiNodeMarker"
+    ],
+    "asset_loading": "Load menu_care_popup_panel.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "menu",
+    "layer": "ui",
+    "usage": "On tap, shows 3 care icons (feed/clean/pet) in a small popup.",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "bottom_right",
+      "offset_px": [
+        -20,
+        -20
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 48,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFF1E8",
+      "#1D2B53",
+      "#C2C3C7"
+    ],
+    "animation": null,
+    "layout": {
+      "panel_shape": "rounded_square",
+      "corner_radius_px": 4,
+      "border_px": 1,
+      "icon_slots": [
+        {
+          "name": "feed",
+          "center_px": [
+            24,
+            12
+          ],
+          "size_px": [
+            12,
+            12
+          ]
+        },
+        {
+          "name": "clean",
+          "center_px": [
+            12,
+            30
+          ],
+          "size_px": [
+            12,
+            12
+          ]
+        },
+        {
+          "name": "pet",
+          "center_px": [
+            36,
+            30
+          ],
+          "size_px": [
+            12,
+            12
+          ]
+        }
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/menu_care_popup_panel.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Panel is exactly 48x48px with 1px border in #1D2B53 and fill #FFF1E8.",
+    "Icon slots are clear: three 12x12 areas centered at (24,12), (12,30), (36,30).",
+    "Panel remains readable on cream background; no anti-aliasing and corners are blocky 4px radius."
+  ]
+}

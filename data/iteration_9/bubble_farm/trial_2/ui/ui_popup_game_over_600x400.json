@@ -1,0 +1,172 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010020019",
+  "asset_name": "Game Over Popup",
+  "category": "ui",
+  "subcategory": "result_popup",
+  "priority": "P1",
+  "execution_order": 190,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "The result popup keeps a centered 600x400px card size and dark slate framing."
+  ],
+  "differences": [
+    "The tone shifts to warning orange and muted teal accents that support a failure state.",
+    "The title banner reserves extra contrast for a direct game-over label and collapse summary.",
+    "Corner ornaments use cracked mud glyphs so failure feels distinct."
+  ],
+  "depends_on": [
+    "task_id_010020015"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_010020015"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010020004",
+      "task_id_010020015",
+      "task_id_010020014"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "result_popup",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        660,
+        240
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Centered result card shown after balance collapse or target failure.",
+    "adjacent_elements": [
+      "task_id_010020004",
+      "task_id_010020015",
+      "task_id_010020014"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space",
+      "facing": "screen_reader"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 600,
+      "height": 400
+    },
+    "colors_hex": [
+      "#1E1E2E",
+      "#F5F0E1",
+      "#FF6B00",
+      "#6B4226"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false,
+      "frame_size_px": [
+        600,
+        400
+      ],
+      "layout": {
+        "columns": 1,
+        "rows": 1
+      }
+    },
+    "layout": {
+      "button_count": 2,
+      "button_size_px": [
+        180,
+        52
+      ],
+      "summary_panel_size_px": [
+        520,
+        160
+      ]
+    },
+    "typography": {
+      "title_text_px": 32,
+      "summary_text_px": 20,
+      "button_text_px": 22,
+      "font_style": "rounded_pixel_sans"
+    },
+    "shading": "Flat failure card fill with a strong warning border."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/ui_popup_game_over_600x400.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Popup texture size is exactly 600x400px with space for a title banner, summary panel, and two action buttons.",
+    "Failure accents are visually distinct within one glance at native scale.",
+    "The title banner remains readable over the dark slate body."
+  ],
+  "asset_key": "ui_popup_game_over_600x400",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "bubble_farm_gameplay_balance",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/gameplay_balance.png",
+      "purpose": "Grounds the 9x7 board, balance axis, route overlay, and HUD placement."
+    },
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "ImageBundle popup root with child text and button nodes.",
+    "atlas_or_static": "static_sprite",
+    "ecs_components": [
+      "Name",
+      "Node",
+      "Style",
+      "UiImage",
+      "Interaction",
+      "GameOverPopupTag"
+    ],
+    "asset_loading": "Load ui/ui_popup_game_over_600x400.png during the Loading state and bind it to the failure result UI state.",
+    "runtime_notes": [
+      "Reuse the same child-node layout as other result popups when orchestration adds more states.",
+      "Keep numbers and button labels dynamic.",
+      "Expose retry and menu buttons through explicit components."
+    ]
+  }
+}

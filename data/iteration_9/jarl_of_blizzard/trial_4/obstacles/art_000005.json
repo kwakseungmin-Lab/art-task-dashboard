@@ -1,0 +1,169 @@
+{
+  "task_id": "art_000005",
+  "asset_key": "art_000005",
+  "asset_name": "Blizzard VFX — Light snow particle strip",
+  "category": "obstacles",
+  "subcategory": "blizzard_particles_light",
+  "priority": "P0",
+  "execution_order": 100,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Particle cells use a compact 16x16px frame size so the strip can feed many instances efficiently.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "The particle language favors thin white flakes and short diagonal drift readable over dark and bright surfaces."
+  ],
+  "differences": [
+    "This base strip supports the early and mid-winter snow flow used before severe whiteout states arrive.",
+    "Flake density stays moderate so building silhouettes and queue UI remain readable beneath the effect.",
+    "The 8-frame loop creates a gentle left-to-right drift that suggests steady blizzard motion."
+  ],
+  "depends_on": [
+    "art_000009"
+  ],
+  "blocks": [
+    "art_000006",
+    "art_000007"
+  ],
+  "blocked_by": [
+    "art_000009"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000009",
+      "art_000006",
+      "art_000007"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas particle strip instantiated by a weather spawner that emits lightweight sprite flakes across the playfield.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "BlizzardParticle"
+    ],
+    "asset_loading": "Load obstacles/art_000005.png during weather boot and reuse the atlas handle for repeated particle spawn batches.",
+    "runtime_notes": [
+      "Spawn flakes in screen space or world space according to the current phase while keeping motion deterministic at 60Hz.",
+      "Use pooled entities so the particle budget stays stable during long winter rounds.",
+      "Layer the particles below the heavy whiteout mask and above the far background."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "blizzard_particles_light",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "vfx_mid",
+    "usage": "Baseline snowfall effect used through standard winter pressure and tutorial rounds.",
+    "adjacent_elements": [
+      "art_000007",
+      "art_000009",
+      "art_000017"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "diagonal_right"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 16,
+      "height": 16
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#111111"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        16,
+        16
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Small diagonal snow flecks with a bright leading edge and sparse tail marks.",
+      "components": [
+        "flake_head",
+        "drift_tail",
+        "crosswind_streak"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/art_000005.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 128x16px with 8 frames of 16x16px and 0px spacing.",
+    "Each frame remains readable over both black HUD edges and white snow ground without large opaque blobs.",
+    "The flake motion suggests left-to-right drift when frames advance at 12fps."
+  ]
+}

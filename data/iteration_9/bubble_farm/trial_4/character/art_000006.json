@@ -1,0 +1,166 @@
+{
+  "task_id": "art_000006",
+  "asset_name": "Mini Bubble Idle Loop",
+  "category": "character",
+  "subcategory": "deployable_slime",
+  "priority": "P0",
+  "execution_order": 60,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "The deployable slime family keeps large eyes and a soft bubble rim."
+  ],
+  "differences": [
+    "The mini unit uses the lightest silhouette at 32x32px and communicates weight value 1.",
+    "Cream highlight bands sit on the upper-left arc.",
+    "The mouth stays minimal so several pieces remain readable in adjacent cells."
+  ],
+  "depends_on": [
+    "art_000002"
+  ],
+  "blocks": [
+    "art_000007"
+  ],
+  "blocked_by": [
+    "art_000002"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000007",
+      "art_000009",
+      "art_000002"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "deployable_slime",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        736,
+        312
+      ]
+    },
+    "layer": "character",
+    "usage": "Base single-cell slime used for early placement and merges.",
+    "adjacent_elements": [
+      "art_000007",
+      "art_000009",
+      "art_000002"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_15deg",
+      "facing": "screen_center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 32
+    },
+    "colors_hex": [
+      "#89CFF0",
+      "#F5F0E1",
+      "#6DBF7E"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        32
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "components": [
+        "body",
+        "highlight_band",
+        "eyes",
+        "mouth"
+      ]
+    },
+    "texture": "Soft bubble rim with light internal swirl pixels.",
+    "shading": "Flat fill with one cream highlight arc."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/art_000006.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 128x32px with 4 columns and 1 row.",
+    "Eye placement stays inside a 10x8px central zone on every frame.",
+    "The outline never touches the outermost texture border."
+  ],
+  "asset_key": "art_000006",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "bubble_farm_slime_units",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/slime_units.png",
+      "purpose": "Grounds slime silhouettes, evolution scale, and facial placement."
+    },
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with a lightweight idle timer.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "SlimeUnitVisual",
+      "BubbleMiniTag"
+    ],
+    "asset_loading": "Load character/art_000006.png during the Loading state and cache the atlas handle in a slime art registry resource.",
+    "runtime_notes": [
+      "Snap the slime root transform to the board cell center.",
+      "Drive idle animation through a shared timer resource.",
+      "Keep a 2px transparent gutter on every frame."
+    ]
+  }
+}

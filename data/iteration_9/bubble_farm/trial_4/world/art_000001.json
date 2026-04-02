@@ -1,0 +1,152 @@
+{
+  "task_id": "art_000001",
+  "asset_name": "Mud Background Loop Tile",
+  "category": "world",
+  "subcategory": "background_tile",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "The tile repeats cleanly across the full background field."
+  ],
+  "differences": [
+    "Eight frames cycle soft mud bubbles and moss shimmer.",
+    "Highlight pockets keep the board readable over the backdrop.",
+    "The loop stays calm at 10 FPS and never dominates the play area."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "art_000002"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000002",
+      "art_000003"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "background_tile",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    },
+    "layer": "background",
+    "usage": "Repeating farm backdrop tile behind the full board and side panels.",
+    "adjacent_elements": [
+      "art_000002",
+      "art_000003"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_15deg",
+      "facing": "screen_center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 64,
+      "height": 64
+    },
+    "colors_hex": [
+      "#6B4226",
+      "#4A7C59",
+      "#2D5A3D",
+      "#F5F0E1"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 8,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        64,
+        64
+      ],
+      "layout": {
+        "columns": 8,
+        "rows": 1
+      }
+    },
+    "texture": "Mud ripples, moss flecks, and shallow bubble pockets.",
+    "shading": "Flat fill with one bright rim and one dark recessed band."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/art_000001.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 512x64px with 8 columns and 1 row.",
+    "Opposite tile edges match on every frame so repetition stays seamless.",
+    "The brightest highlight cluster stays under 12 contiguous pixels."
+  ],
+  "asset_key": "art_000001",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    },
+    {
+      "label": "bubble_farm_gameplay_balance",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/gameplay_balance.png",
+      "purpose": "Grounds the 9x7 board, balance axis, route overlay, and HUD placement."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with a shared loop timer.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "BackgroundLoop"
+    ],
+    "asset_loading": "Load world/art_000001.png during the Loading state and tile it through a background spawner resource.",
+    "runtime_notes": [
+      "Align every tile to a 64px grid.",
+      "Reuse one atlas timer across the loop set.",
+      "Keep the backdrop beneath every gameplay and UI layer."
+    ]
+  }
+}

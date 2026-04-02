@@ -1,0 +1,527 @@
+{
+  "project": {
+    "project_id": "pico_echo",
+    "project_name": "Pico Echo"
+  },
+  "meta": {
+    "plan_id": "Pico_Echo__iter10__trial3",
+    "game_name": "Pico_Echo",
+    "iteration": 9,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-04-01T23:20:51Z",
+    "git_ref": "art_task_plan/iter10_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md",
+    "run_id": "R26"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "reference_images": [
+    {
+      "label": "game_direction_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Game_Direction.md",
+      "purpose": "Grounds the warm virtual-pet loop, session rhythm, and no-failure design philosophy."
+    },
+    {
+      "label": "art_direction_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "purpose": "Grounds the 128x128 PICO-8-inspired palette, outline weight, and central composition rules."
+    },
+    {
+      "label": "echo_object_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Echo.md",
+      "purpose": "Grounds Echo silhouette, crest, cheek patch, and state-dependent acting cues."
+    },
+    {
+      "label": "cage_object_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "purpose": "Grounds cage layout, perch placement, bowl scale, and floor-cleaning playfield zones."
+    },
+    {
+      "label": "hud_widget_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/03_UI_Widgets/HUD.md",
+      "purpose": "Grounds HUD placement, icon sizing, and bottom-edge happiness readout."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Bevy 0.16 2D sprites with nearest-neighbor sampling, fixed virtual resolution 128x128, and TextureAtlasLayout for all multi-frame sheets.",
+    "ecs_model": "Echo, cage props, particles, world layers, and HUD widgets each map to ECS entities with marker components so systems address gameplay state without filename parsing.",
+    "asset_loading": "Preload JSON-declared PNG outputs through AssetServer during Loading state and cache handles by task_id and asset_key for deterministic runtime lookup.",
+    "runtime_notes": [
+      "Use Camera2d with integer upscale so 1px outlines and tiny 3x3 or 2x2 interactables remain crisp on larger windows.",
+      "Drive behavior changes through atlas index swaps, visibility toggles, and state markers instead of procedural recoloring to preserve palette invariance.",
+      "Bind care UI hit regions to absolute pixel anchors that match the authored screen_position metadata in this package."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_asset_key"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "echo_state_loop",
+      "label": "Echo state loop",
+      "description": "Covers readable transitions for idle, feeding, sleeping, happy, preening, dirty, hungry, and singing states in the central cage composition.",
+      "critical_states": [
+        "idle",
+        "eating",
+        "sleeping",
+        "happy",
+        "preening",
+        "dirty",
+        "hungry",
+        "singing"
+      ],
+      "task_ids": [
+        "task_id_010030001",
+        "task_id_010030002",
+        "task_id_010030003",
+        "task_id_010030004",
+        "task_id_010030005",
+        "task_id_010030006",
+        "task_id_010030007",
+        "task_id_010030008",
+        "task_id_010030013",
+        "task_id_010030014",
+        "task_id_010030015",
+        "task_id_010030016",
+        "task_id_010030017"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030031",
+        "task_id_010030025",
+        "task_id_010030026"
+      ]
+    },
+    {
+      "mechanic_id": "feeding_care_cycle",
+      "label": "Feeding care cycle",
+      "description": "Covers bowl fill states, seed affordance, hunger request bubble, touch feedback, and the eating response loop after player care.",
+      "critical_states": [
+        "bowl_full",
+        "bowl_half",
+        "bowl_empty",
+        "seed_drop",
+        "hungry_request",
+        "eating_response"
+      ],
+      "task_ids": [
+        "task_id_010030009",
+        "task_id_010030011",
+        "task_id_010030007",
+        "task_id_010030002",
+        "task_id_010030027",
+        "task_id_010030030",
+        "task_id_010030032",
+        "task_id_010030031"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030027",
+        "task_id_010030030",
+        "task_id_010030032",
+        "task_id_010030031"
+      ]
+    },
+    {
+      "mechanic_id": "cleaning_feedback_loop",
+      "label": "Cleaning feedback loop",
+      "description": "Covers dirty floor readability, poop targets, broom affordance, swipe feedback, cleanup sparkle, and Echo dirty-to-clean presentation.",
+      "critical_states": [
+        "dirty_floor",
+        "poop_target_visible",
+        "swipe_clean",
+        "sparkle_resolve",
+        "echo_dirty"
+      ],
+      "task_ids": [
+        "task_id_010030022",
+        "task_id_010030012",
+        "task_id_010030017",
+        "task_id_010030018",
+        "task_id_010030006",
+        "task_id_010030028",
+        "task_id_010030030",
+        "task_id_010030032"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030028",
+        "task_id_010030030",
+        "task_id_010030032",
+        "task_id_010030025"
+      ]
+    },
+    {
+      "mechanic_id": "affection_and_relationship_growth",
+      "label": "Affection and relationship growth",
+      "description": "Covers pet interaction, immediate positive feedback, happiness readout, and longer-term relationship label progression.",
+      "critical_states": [
+        "pet_trigger",
+        "happy_response",
+        "heart_feedback",
+        "relationship_level_up",
+        "song_unlock"
+      ],
+      "task_ids": [
+        "task_id_010030004",
+        "task_id_010030008",
+        "task_id_010030013",
+        "task_id_010030014",
+        "task_id_010030029",
+        "task_id_010030025",
+        "task_id_010030026",
+        "task_id_010030030"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030029",
+        "task_id_010030025",
+        "task_id_010030026",
+        "task_id_010030030"
+      ]
+    },
+    {
+      "mechanic_id": "cage_scene_and_day_night_readability",
+      "label": "Cage scene and day-night readability",
+      "description": "Covers fixed cage composition, perch readability, bowl placement, and nighttime dimming without obscuring the pet or HUD.",
+      "critical_states": [
+        "day_view",
+        "night_view",
+        "perch_alignment",
+        "bar_foreground",
+        "water_bowl_visible"
+      ],
+      "task_ids": [
+        "task_id_010030019",
+        "task_id_010030020",
+        "task_id_010030021",
+        "task_id_010030023",
+        "task_id_010030010",
+        "task_id_010030024"
+      ],
+      "ui_feedback_task_ids": [
+        "task_id_010030024",
+        "task_id_010030025",
+        "task_id_010030026"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "task_id_010030001",
+      "asset_key": "echo_idle_4f_2fps",
+      "category": "character",
+      "file": "character/echo_idle_4f_2fps.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030002",
+      "asset_key": "echo_eating_6f_4fps",
+      "category": "character",
+      "file": "character/echo_eating_6f_4fps.json",
+      "execution_order": 20,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "echo_idle_4f_2fps"
+    },
+    {
+      "task_id": "task_id_010030003",
+      "asset_key": "echo_sleeping_3f_1fps",
+      "category": "character",
+      "file": "character/echo_sleeping_3f_1fps.json",
+      "execution_order": 30,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "echo_idle_4f_2fps"
+    },
+    {
+      "task_id": "task_id_010030004",
+      "asset_key": "echo_happy_8f_4fps",
+      "category": "character",
+      "file": "character/echo_happy_8f_4fps.json",
+      "execution_order": 40,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "echo_idle_4f_2fps"
+    },
+    {
+      "task_id": "task_id_010030005",
+      "asset_key": "echo_preening_5f_3fps",
+      "category": "character",
+      "file": "character/echo_preening_5f_3fps.json",
+      "execution_order": 50,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "echo_idle_4f_2fps"
+    },
+    {
+      "task_id": "task_id_010030006",
+      "asset_key": "echo_dirty_3f_2fps",
+      "category": "character",
+      "file": "character/echo_dirty_3f_2fps.json",
+      "execution_order": 60,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "echo_idle_4f_2fps"
+    },
+    {
+      "task_id": "task_id_010030007",
+      "asset_key": "echo_hungry_4f_2fps",
+      "category": "character",
+      "file": "character/echo_hungry_4f_2fps.json",
+      "execution_order": 70,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "echo_idle_4f_2fps"
+    },
+    {
+      "task_id": "task_id_010030008",
+      "asset_key": "echo_singing_8f_4fps",
+      "category": "character",
+      "file": "character/echo_singing_8f_4fps.json",
+      "execution_order": 80,
+      "variant_of": "task_id_010030001",
+      "variant_of_asset_key": "echo_idle_4f_2fps"
+    },
+    {
+      "task_id": "task_id_010030009",
+      "asset_key": "cage_seed_bowl_3state",
+      "category": "obstacles",
+      "file": "obstacles/cage_seed_bowl_3state.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030010",
+      "asset_key": "cage_water_bowl_static",
+      "category": "obstacles",
+      "file": "obstacles/cage_water_bowl_static.json",
+      "execution_order": 120,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030011",
+      "asset_key": "item_seed_3x3",
+      "category": "obstacles",
+      "file": "obstacles/item_seed_3x3.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030012",
+      "asset_key": "item_poop_2x2",
+      "category": "obstacles",
+      "file": "obstacles/item_poop_2x2.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030013",
+      "asset_key": "effect_heart_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/effect_heart_particle_3f.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030014",
+      "asset_key": "effect_note_particle_4f",
+      "category": "obstacles",
+      "file": "obstacles/effect_note_particle_4f.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030015",
+      "asset_key": "effect_zzz_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/effect_zzz_particle_3f.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030016",
+      "asset_key": "effect_feather_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/effect_feather_particle_3f.json",
+      "execution_order": 180,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030017",
+      "asset_key": "effect_dust_particle_3f",
+      "category": "obstacles",
+      "file": "obstacles/effect_dust_particle_3f.json",
+      "execution_order": 190,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030018",
+      "asset_key": "effect_sparkle_clean_4f",
+      "category": "obstacles",
+      "file": "obstacles/effect_sparkle_clean_4f.json",
+      "execution_order": 200,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030019",
+      "asset_key": "cage_background_static",
+      "category": "world",
+      "file": "world/cage_background_static.json",
+      "execution_order": 210,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030020",
+      "asset_key": "cage_bars_foreground",
+      "category": "world",
+      "file": "world/cage_bars_foreground.json",
+      "execution_order": 220,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030021",
+      "asset_key": "cage_perch_static",
+      "category": "world",
+      "file": "world/cage_perch_static.json",
+      "execution_order": 230,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030022",
+      "asset_key": "cage_floor_clean_dirty_2f",
+      "category": "world",
+      "file": "world/cage_floor_clean_dirty_2f.json",
+      "execution_order": 240,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030023",
+      "asset_key": "overlay_night_dim",
+      "category": "world",
+      "file": "world/overlay_night_dim.json",
+      "execution_order": 250,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030024",
+      "asset_key": "font_minipixel_3x5_ascii_96glyph",
+      "category": "ui",
+      "file": "ui/font_minipixel_3x5_ascii_96glyph.json",
+      "execution_order": 310,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030025",
+      "asset_key": "hud_happiness_bar_128x1",
+      "category": "ui",
+      "file": "ui/hud_happiness_bar_128x1.json",
+      "execution_order": 320,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030026",
+      "asset_key": "hud_relationship_label",
+      "category": "ui",
+      "file": "ui/hud_relationship_label.json",
+      "execution_order": 330,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030027",
+      "asset_key": "icon_feed_seed",
+      "category": "ui",
+      "file": "ui/icon_feed_seed.json",
+      "execution_order": 340,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030028",
+      "asset_key": "icon_clean_broom",
+      "category": "ui",
+      "file": "ui/icon_clean_broom.json",
+      "execution_order": 350,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030029",
+      "asset_key": "icon_pet_hand",
+      "category": "ui",
+      "file": "ui/icon_pet_hand.json",
+      "execution_order": 360,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030030",
+      "asset_key": "menu_care_popup_panel",
+      "category": "ui",
+      "file": "ui/menu_care_popup_panel.json",
+      "execution_order": 370,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030031",
+      "asset_key": "bubble_seed_request_icon",
+      "category": "ui",
+      "file": "ui/bubble_seed_request_icon.json",
+      "execution_order": 380,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "task_id_010030032",
+      "asset_key": "cursor_touch_indicator_2f",
+      "category": "ui",
+      "file": "ui/cursor_touch_indicator_2f.json",
+      "execution_order": 390,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ],
+  "schema_version": "art_task_plan_pkg@8"
+}

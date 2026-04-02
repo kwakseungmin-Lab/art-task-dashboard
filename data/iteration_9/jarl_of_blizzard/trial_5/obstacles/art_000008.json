@@ -1,0 +1,161 @@
+{
+  "task_id": "art_000008",
+  "asset_key": "art_000008",
+  "asset_name": "Crisis icon atlas — Raiders, disease, prophecy, deep storm",
+  "category": "obstacles",
+  "subcategory": "crisis_icons",
+  "priority": "P1",
+  "execution_order": 160,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Each icon occupies a 32x32px cell so the atlas can support HUD markers and event popups with one asset.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "Silhouettes are designed for quick recognition under grayscale-only presentation."
+  ],
+  "differences": [
+    "The atlas includes a raider axe emblem, a disease droplet, a prophecy rune, and a spiral storm glyph.",
+    "Each icon uses a distinct outer silhouette so players can differentiate event types without color cues.",
+    "Interior detailing stays minimal so the atlas remains readable at small HUD sizes."
+  ],
+  "depends_on": [
+    "art_000013",
+    "art_000015"
+  ],
+  "blocks": [
+    "art_000018"
+  ],
+  "blocked_by": [
+    "art_000013",
+    "art_000015"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000013",
+      "art_000015",
+      "art_000018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Compact atlas loaded once and sampled by event banners, crisis popups, and winter summary screens.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "TextureAtlas",
+      "Handle<Image>",
+      "CrisisIconAtlas"
+    ],
+    "asset_loading": "Load obstacles/art_000008.png during UI boot and keep atlas indices for each crisis type in a lookup resource.",
+    "runtime_notes": [
+      "Use atlas indexing so the event system can swap icons without loading multiple small textures.",
+      "Keep a 1px clear gutter between icon cells in the authored sheet to avoid bleed on scaling.",
+      "Apply icons only in UI layers so they never compete with world-space object silhouettes."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "crisis_icon_atlas",
+    "screen_position": {
+      "type": "anchor_offset",
+      "anchor": "top_right",
+      "offset_px": [
+        -180,
+        40
+      ]
+    },
+    "layer": "ui_hud",
+    "usage": "Shared icon atlas for crisis warnings, event choices, and winter result summaries.",
+    "adjacent_elements": [
+      "art_000015",
+      "art_000018",
+      "art_000019"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 32
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Four compact monochrome glyphs arranged in a single-row atlas with distinct outer silhouettes.",
+      "components": [
+        "raider_axe",
+        "disease_drop",
+        "prophecy_rune",
+        "storm_spiral"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/art_000008.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 128x32px with four 32x32px icon cells and 0px outer padding.",
+    "Each icon remains identifiable at 24x24px display size without relying on hue differences.",
+    "The raider, disease, prophecy, and storm glyphs all have distinct silhouettes."
+  ]
+}

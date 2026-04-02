@@ -1,0 +1,136 @@
+{
+  "task_id": "art_000020",
+  "asset_key": "art_000020",
+  "asset_name": "Cage Bars Foreground Overlay",
+  "category": "world",
+  "subcategory": "foreground",
+  "priority": "P0",
+  "execution_order": 220,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "Asset preserves the front-facing 128x128 cage composition.",
+    "Core palette fields stay fixed at primary #1D2B53, background #FFF1E8, and accent #FF004D.",
+    "Flat pixel rendering keeps the room calm and readable behind gameplay."
+  ],
+  "differences": [
+    "This layer adds cage depth with a readable foreground grid.",
+    "Bar spacing must preserve visibility of Echo and the care props.",
+    "The overlay remains static and supports the front-facing composition."
+  ],
+  "depends_on": [
+    "art_000019"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000019"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000019"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "cage_layout_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/02_Objects/Cage.md",
+      "purpose": "Grounds cage framing, perch placement, and lower-floor composition."
+    },
+    {
+      "label": "art_direction_reference",
+      "url": "https://raw.githubusercontent.com/a2z-team/a2z-docs/art_task_plan/iter10_pipeline/Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/pico_echo/00_Global_Architecture/Art_Direction.md",
+      "purpose": "Grounds warm household palette and front-facing pixel-art rendering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Static sprite entity with fixed virtual-pixel scaling.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "WorldLayerMarker"
+    ],
+    "asset_loading": "Load cage_bars_foreground.png via AssetServer during Loading state, then bind handles by task_id for deterministic system lookup.",
+    "runtime_notes": [
+      "Use nearest-neighbor sampling and a 128x128 virtual canvas so every authored pixel remains crisp after upscale.",
+      "Drive state swaps through atlas index changes or visibility toggles instead of runtime repainting to preserve palette invariance.",
+      "Attach marker components so CareSystem, BehaviorSystem, TimeSystem, and HUD systems can target the asset without filename inference."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#1D2B53"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#FFF1E8"
+    },
+    "accent": {
+      "name": "accent",
+      "hex": "#FF004D"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 128,
+      "height": 128
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low_plus_readable",
+    "shading": "flat",
+    "outline": "1px"
+  },
+  "context": {
+    "role": "cage_bars",
+    "layer": "world_foreground",
+    "usage": "Overlay bars drawn above Echo; must avoid central facial area.",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        0,
+        0
+      ]
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 128,
+      "height": 128
+    },
+    "colors_hex": [
+      "#C2C3C7",
+      "#1D2B53"
+    ],
+    "animation": null,
+    "bar_rules": {
+      "vertical_bar_width_px": 1,
+      "vertical_bar_spacing_px": 8,
+      "outline_hex": "#1D2B53",
+      "fill_hex": "#C2C3C7",
+      "safe_face_region_px": [
+        54,
+        50,
+        16,
+        16
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/cage_bars_foreground.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Overlay is exactly 128x128px with transparent gaps between bars.",
+    "Bars are 1px wide and repeat every 8px across the canvas.",
+    "No bar pixels exist inside safe face region (54,50,16,16) so eyes/beak remain unobstructed."
+  ]
+}

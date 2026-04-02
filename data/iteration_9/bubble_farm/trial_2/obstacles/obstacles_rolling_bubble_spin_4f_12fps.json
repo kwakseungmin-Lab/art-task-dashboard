@@ -1,0 +1,164 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010020013",
+  "asset_name": "Rolling Bubble Spin Loop",
+  "category": "obstacles",
+  "subcategory": "moving_hazard",
+  "priority": "P1",
+  "execution_order": 130,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #3BBEAC, background #1E1E2E, and accent #FFD700.",
+    "Canvas target stays 1920x1080px with pixel-perfect nearest-neighbor presentation at 60 FPS.",
+    "Rendering stays 2D pixel art with flat shading and a 1px dark moss outline.",
+    "Hazard bubbles keep a compact transparent cutout and strong highlight separation."
+  ],
+  "differences": [
+    "The rolling hazard uses a horizontal swirl band and four-frame spin.",
+    "Dark side bands create a strong rotational cue.",
+    "A small trailing spark helps players read rebound timing near rock cells."
+  ],
+  "depends_on": [
+    "task_id_010020002",
+    "task_id_010020005"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "task_id_010020002",
+    "task_id_010020005"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010020011",
+      "task_id_010020005",
+      "task_id_010020018"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "teal_slime",
+      "hex": "#3BBEAC"
+    },
+    "background": {
+      "name": "dark_slate",
+      "hex": "#1E1E2E"
+    },
+    "accent": {
+      "name": "gold_line",
+      "hex": "#FFD700"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium",
+    "shading": "flat_with_selective_highlight",
+    "outline": "1px_dark_moss"
+  },
+  "context": {
+    "role": "moving_hazard",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        672,
+        472
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Moving hazard that rolls across rows and rebounds at walls or rock blockers.",
+    "adjacent_elements": [
+      "task_id_010020011",
+      "task_id_010020005",
+      "task_id_010020018"
+    ],
+    "viewpoint": {
+      "camera_angle": "top_down_15deg",
+      "facing": "screen_center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 24,
+      "height": 24
+    },
+    "colors_hex": [
+      "#A8D8EA",
+      "#3BBEAC",
+      "#F5F0E1",
+      "#2D5A3D"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 4,
+      "fps": 12,
+      "loop": true,
+      "frame_size_px": [
+        24,
+        24
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      }
+    },
+    "motion": {
+      "pattern": "horizontal_roll",
+      "speed_cells_per_second": 3.0
+    },
+    "texture": "Spinning swirl bands with alternating highlight and shadow wedges.",
+    "shading": "Flat fill with stronger side contrast for spin readability."
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_rolling_bubble_spin_4f_12fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 96x24px with 4 columns and 1 row.",
+    "Rotational motion remains readable even during quick rebounds.",
+    "The trailing spark never exceeds a 4x4px cluster."
+  ],
+  "asset_key": "obstacles_rolling_bubble_spin_4f_12fps",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "bubble_farm_gameplay_balance",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/gameplay_balance.png",
+      "purpose": "Grounds the 9x7 board, balance axis, route overlay, and HUD placement."
+    },
+    {
+      "label": "bubble_farm_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193804/bubble_farm/_images/moodboard.png",
+      "purpose": "Grounds the pastel mud farm palette and warm pixel-art tone."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle driven by a row-based hazard system and wall-rebound event hooks.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "BubbleHazardVisual",
+      "RollingBubbleTag"
+    ],
+    "asset_loading": "Load obstacles/obstacles_rolling_bubble_spin_4f_12fps.png during the Loading state and register it with the hazard atlas resource.",
+    "runtime_notes": [
+      "Keep rebound logic in gameplay code.",
+      "Snap the hazard to row centers at all times.",
+      "Reuse the same atlas timer across active rolling hazards."
+    ]
+  }
+}

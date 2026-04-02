@@ -1,0 +1,163 @@
+{
+  "task_id": "art_000009",
+  "asset_key": "art_000009",
+  "asset_name": "Village backdrop — Frozen basin panorama",
+  "category": "world",
+  "subcategory": "village_backdrop",
+  "priority": "P0",
+  "execution_order": 10,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The backdrop covers the full 1920x1080 frame and defines the monochrome winter mood for the settlement.",
+    "A central basin composition keeps the village readable inside the fixed camera view described by the GDD.",
+    "The horizon and mountain masses remain low-detail so gameplay layers can sit clearly above them."
+  ],
+  "differences": [
+    "This scene establishes the snow-blown valley, distant cliffs, and settlement footprint for the entire run.",
+    "The center lane stays slightly brighter than the side cliffs so buildings and overlays remain legible.",
+    "Drift ridges and wind streaks guide the eye toward the village core without creating interactable confusion."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "art_000010",
+    "art_000011",
+    "art_000012",
+    "art_000013",
+    "art_000014",
+    "art_000015",
+    "art_000005"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": []
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Full-screen SpriteBundle background rendered behind every settlement tile, building, and weather overlay.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "Handle<Image>",
+      "VillageBackdrop"
+    ],
+    "asset_loading": "Load world/art_000009.png during world boot and keep it active across planning, memory, execution, and result phases.",
+    "runtime_notes": [
+      "Place the backdrop at the farthest world depth with no parallax so the fixed camera never reveals empty space.",
+      "Bake wind streaks into the texture to preserve deterministic capture and replay behavior.",
+      "Keep the brightest snow field behind the playable village center rather than at the frame edge."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "village_backdrop",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        540
+      ]
+    },
+    "layer": "world_back",
+    "usage": "Primary landscape layer that frames the settlement, distant cliffs, and blizzard lanes under a fixed camera.",
+    "adjacent_elements": [
+      "art_000010",
+      "art_000011",
+      "art_000012",
+      "art_000013",
+      "art_000014"
+    ],
+    "viewpoint": {
+      "camera_angle": "fixed_overview",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Wide frozen basin with a bright village center, dark cliff shoulders, and wind-carved snow ridges.",
+      "components": [
+        "sky_band",
+        "distant_cliffs",
+        "snow_basin",
+        "wind_ridges"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "world/art_000009.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 1920x1080px with the village focus area centered horizontally.",
+    "The central basin remains brighter than the outer cliff shoulders to support building readability.",
+    "No painted edge resembles a clickable UI panel or passable corridor."
+  ]
+}

@@ -16,7 +16,7 @@ function getJsonFiles(dirPath) {
 }
 
 // Scan all iterations
-for (let iter = 3; iter <= 8; iter++) {
+for (let iter = 3; iter <= 10; iter++) {
     manifest[iter] = {};
     const iterDir = path.join(dataDir, `iteration_${iter}`);
 

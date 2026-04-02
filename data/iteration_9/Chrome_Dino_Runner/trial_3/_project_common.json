@@ -1,0 +1,377 @@
+{
+  "project": {
+    "project_id": "chrome_dino_runner",
+    "project_name": "Chrome_Dino_Runner"
+  },
+  "meta": {
+    "plan_id": "Chrome_Dino_Runner__iter10__trial3",
+    "game_name": "Chrome_Dino_Runner",
+    "iteration": 9,
+    "trial_index": 3,
+    "plan_dir": "trial_3",
+    "created_at_utc": "2026-04-01T12:26:38Z",
+    "git_ref": "art_task_plan/iter10_pipeline",
+    "gdd_source": "github",
+    "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+    "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md"
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "reference_images": [
+    {
+      "label": "pixel_art_moodboard",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/art_style_moodboard.png?raw=1",
+      "purpose": "Pixel-art outline, low-detail silhouette, and monochrome contrast anchor."
+    },
+    {
+      "label": "player_dino_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/player_dinosaur.png?raw=1",
+      "purpose": "Player silhouette, jump posture, and run loop proportion anchor."
+    },
+    {
+      "label": "cactus_obstacle_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/cactus_obstacles.png?raw=1",
+      "purpose": "Ground obstacle size bands and arm-spike silhouette anchor."
+    },
+    {
+      "label": "pterodactyl_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/pterodactyl_obstacle.png?raw=1",
+      "purpose": "Air obstacle wing cadence and body proportion anchor."
+    },
+    {
+      "label": "environment_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B1/_ReferenceImages/environment_design.png?raw=1",
+      "purpose": "Ground texture density, cloud spacing, and skyline emptiness anchor."
+    },
+    {
+      "label": "ui_layout_reference",
+      "url": "https://github.com/a2z-team/a2z-docs/blob/art_task_plan/iter10_pipeline/Solutions/GameMaking/Ideation/experiments/_archive/schema_compliance/260212_B2/_ReferenceImages/game_ui_layout.png?raw=1",
+      "purpose": "Score placement, game-over layout, and screen-safe margin anchor."
+    }
+  ],
+  "bevy_constraints": {
+    "sprite_pipeline": "Use Bevy SpriteBundle with nearest-neighbor sampling, 1x source pixels, and transparent PNG export for every asset.",
+    "ecs_model": "Spawn player, obstacle, world, and UI entities as separate ECS bundles with category-tag components and deterministic z-order layers.",
+    "asset_loading": "Load each PNG through AssetServer at startup, keep handles in a resource map keyed by task_id, and build animation timers from manifest metadata.",
+    "runtime_notes": [
+      "Animated assets use sprite-sheet frame stepping driven by Timer and TextureAtlasLayout resources.",
+      "Static obstacles and world tiles remain single-texture sprites with integer translation values only.",
+      "UI nodes pin to screen-space anchors inside a 600x150 logical canvas with a 2x render scale option."
+    ]
+  },
+  "export_rules": {
+    "default_format": "png",
+    "transparent_background": true,
+    "naming": "use_task_id"
+  },
+  "mechanic_coverage": [
+    {
+      "mechanic_id": "runner_loop",
+      "label": "Runner loop and speed ramp readability",
+      "description": "Covers the always-running player state, scrolling ground strip, and score HUD that communicate survival pace.",
+      "critical_states": [
+        "ready",
+        "running",
+        "speed_ramp"
+      ],
+      "task_ids": [
+        "art_000001",
+        "art_000002",
+        "art_000010",
+        "art_000011",
+        "art_000012",
+        "art_000013",
+        "art_000014"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000015",
+        "art_000016"
+      ]
+    },
+    {
+      "mechanic_id": "jump_over_ground_hazards",
+      "label": "Jump timing against cactus hazards",
+      "description": "Covers ground obstacle read, jump silhouette, and landing readability for low obstacles.",
+      "critical_states": [
+        "running",
+        "jump_rise",
+        "jump_apex",
+        "jump_land"
+      ],
+      "task_ids": [
+        "art_000002",
+        "art_000003",
+        "art_000006",
+        "art_000007",
+        "art_000008",
+        "art_000013",
+        "art_000014"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000016"
+      ]
+    },
+    {
+      "mechanic_id": "duck_under_air_hazard",
+      "label": "Duck timing against low pterodactyl flight",
+      "description": "Covers the low-profile duck state and air-obstacle silhouette contrast against the sky band.",
+      "critical_states": [
+        "running",
+        "ducking",
+        "recover"
+      ],
+      "task_ids": [
+        "art_000002",
+        "art_000004",
+        "art_000009",
+        "art_000010",
+        "art_000011"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000016"
+      ]
+    },
+    {
+      "mechanic_id": "collision_and_restart_feedback",
+      "label": "Collision readability and restart callout",
+      "description": "Covers the dead player state and game-over overlay that communicate a failed run and restart readiness.",
+      "critical_states": [
+        "collision",
+        "dead",
+        "game_over",
+        "restart_ready"
+      ],
+      "task_ids": [
+        "art_000005",
+        "art_000017"
+      ],
+      "ui_feedback_task_ids": [
+        "art_000016",
+        "art_000017"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "task_id": "art_000001",
+      "asset_key": "art_000001",
+      "category": "character",
+      "file": "character/art_000001.json",
+      "execution_order": 10,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000002",
+      "asset_key": "art_000002",
+      "category": "character",
+      "file": "character/art_000002.json",
+      "execution_order": 20,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000003",
+      "asset_key": "art_000003",
+      "category": "character",
+      "file": "character/art_000003.json",
+      "execution_order": 30,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000004",
+      "asset_key": "art_000004",
+      "category": "character",
+      "file": "character/art_000004.json",
+      "execution_order": 40,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000005",
+      "asset_key": "art_000005",
+      "category": "character",
+      "file": "character/art_000005.json",
+      "execution_order": 50,
+      "variant_of": "art_000001",
+      "variant_of_asset_key": "art_000001"
+    },
+    {
+      "task_id": "art_000006",
+      "asset_key": "art_000006",
+      "category": "obstacles",
+      "file": "obstacles/art_000006.json",
+      "execution_order": 60,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000007",
+      "asset_key": "art_000007",
+      "category": "obstacles",
+      "file": "obstacles/art_000007.json",
+      "execution_order": 70,
+      "variant_of": "art_000006",
+      "variant_of_asset_key": "art_000006"
+    },
+    {
+      "task_id": "art_000008",
+      "asset_key": "art_000008",
+      "category": "obstacles",
+      "file": "obstacles/art_000008.json",
+      "execution_order": 80,
+      "variant_of": "art_000006",
+      "variant_of_asset_key": "art_000006"
+    },
+    {
+      "task_id": "art_000009",
+      "asset_key": "art_000009",
+      "category": "obstacles",
+      "file": "obstacles/art_000009.json",
+      "execution_order": 90,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000010",
+      "asset_key": "art_000010",
+      "category": "world",
+      "file": "world/art_000010.json",
+      "execution_order": 100,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000011",
+      "asset_key": "art_000011",
+      "category": "world",
+      "file": "world/art_000011.json",
+      "execution_order": 110,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000012",
+      "asset_key": "art_000012",
+      "category": "world",
+      "file": "world/art_000012.json",
+      "execution_order": 120,
+      "variant_of": "art_000011",
+      "variant_of_asset_key": "art_000011"
+    },
+    {
+      "task_id": "art_000013",
+      "asset_key": "art_000013",
+      "category": "world",
+      "file": "world/art_000013.json",
+      "execution_order": 130,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000014",
+      "asset_key": "art_000014",
+      "category": "world",
+      "file": "world/art_000014.json",
+      "execution_order": 140,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000015",
+      "asset_key": "art_000015",
+      "category": "ui",
+      "file": "ui/art_000015.json",
+      "execution_order": 150,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000016",
+      "asset_key": "art_000016",
+      "category": "ui",
+      "file": "ui/art_000016.json",
+      "execution_order": 160,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    },
+    {
+      "task_id": "art_000017",
+      "asset_key": "art_000017",
+      "category": "ui",
+      "file": "ui/art_000017.json",
+      "execution_order": 170,
+      "variant_of": null,
+      "variant_of_asset_key": null
+    }
+  ],
+  "generation_context": {
+    "input_summary": {
+      "gdd_source_selected": "github",
+      "gdd_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/GDD/chrome_dino_runner/_gdd_data.json",
+      "prompt_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Prompts/Assembled_Prompt_v10.md",
+      "concept_path": "Solutions/GameMaking/Planning/Repository/Art_Task_Plan/Concepts/Concept_v8_Evidence_Traceability.md"
+    },
+    "meta_analysis": {
+      "strategy_run_id": "R20",
+      "strategic_mode": "STABILIZATION",
+      "kb_state_stability": "high",
+      "recent_pass_rate": 1.0,
+      "focus_areas": [
+        "Chrome_Dino_Runner IF-4 gate validation",
+        "Reliable pipeline execution",
+        "Evidence traceability verification"
+      ],
+      "recommendations_applied": [
+        "Keep a conservative asset set that already matched recent pass behavior.",
+        "Inline all concrete values in every file and keep pointer tokens at zero.",
+        "Close variant lineage with task_id plus asset_key identity for every derived asset."
+      ]
+    },
+    "kb_lookup": {
+      "art_task_plan_kb": {
+        "status": "retrieved",
+        "observed_issue_codes": [
+          "IF-9"
+        ],
+        "observed_summary": "Iteration 6 failures showed derived Chrome_Dino_Runner assets with empty depends_on fields."
+      },
+      "meta_iteration_kb": {
+        "status": "retrieved",
+        "observed_summary": "Iteration 8 retry context points to infrastructure instability while quality baseline stayed at full pass rate in iteration 7."
+      }
+    },
+    "avoidance_actions": [
+      "Every derived asset lists variant_of, variant_of_asset_key, and the base task_id inside depends_on.",
+      "Every file carries a full inline core palette copy and avoids pointer phrases.",
+      "Mechanic coverage closes every declared task_id and keeps UI feedback references inside the ui category."
+    ]
+  }
+}

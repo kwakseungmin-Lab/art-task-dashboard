@@ -1,0 +1,156 @@
+{
+  "schema_version": "art_task@8",
+  "task_id": "task_id_010050009",
+  "asset_name": "Pterodactyl Flight Sheet",
+  "category": "obstacles",
+  "subcategory": "air_hazard",
+  "priority": "P0",
+  "execution_order": 90,
+  "variant_of": null,
+  "shared_properties": [
+    "Project core palette keeps primary #535353, background #F7F7F7, and accent #FF0000.",
+    "Canvas target stays 600x150px with pixel-perfect presentation at 60 FPS.",
+    "All painted edges keep a 2px outline rhythm and flat shading."
+  ],
+  "differences": [
+    "This hazard uses a two-frame wing flap rather than a static silhouette.",
+    "The body supports both a low lane and a high lane spawn height in gameplay.",
+    "The beak projects forward to make the air hazard readable at speed."
+  ],
+  "depends_on": [],
+  "blocks": [],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "task_id_010050004",
+      "task_id_010050003",
+      "task_id_010050010"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "primary",
+      "hex": "#535353"
+    },
+    "background": {
+      "name": "background",
+      "hex": "#F7F7F7"
+    },
+    "accent": {
+      "name": "highlight",
+      "hex": "#FF0000"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 600,
+      "height": 150
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "low",
+    "shading": "flat",
+    "outline": "2px"
+  },
+  "context": {
+    "role": "air_obstacle",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        520,
+        24
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Flying obstacle that enters after the score threshold where ducking becomes mandatory.",
+    "adjacent_elements": [
+      "task_id_010050010",
+      "task_id_010050004"
+    ],
+    "viewpoint": {
+      "camera_angle": "profile_side",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 92,
+      "height": 80
+    },
+    "colors_hex": [
+      "#535353",
+      "#F7F7F7"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 2,
+      "fps": 10,
+      "loop": true,
+      "frame_size_px": [
+        92,
+        80
+      ],
+      "layout": {
+        "columns": 2,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Flying side-profile pterodactyl with long beak, compact body, and two wing positions.",
+      "components": [
+        "beak",
+        "crest",
+        "body",
+        "wing_up_frame",
+        "wing_down_frame",
+        "tail_stub"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/obstacles_pterodactyl_fly_2f_10fps.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet size is exactly 184x80px with 2 columns and 1 row.",
+    "Wing tip travel reads clearly at 10 FPS without requiring tweening.",
+    "Only #535353 and transparency appear in painted pixels."
+  ],
+  "asset_key": "obstacles_pterodactyl_fly_2f_10fps",
+  "variant_of_asset_key": null,
+  "reference_images": [
+    {
+      "label": "t_rex_runner_sprite_sheet_2x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/offline-sprite-2x.png",
+      "purpose": "Grounds cactus and pterodactyl hit-read silhouettes used in obstacle timing."
+    },
+    {
+      "label": "t_rex_runner_sprite_sheet_1x",
+      "url": "https://raw.githubusercontent.com/wayou/t-rex-runner/gh-pages/assets/default_100_percent/100-offline-sprite.png",
+      "purpose": "Grounds cactus and pterodactyl hit-read silhouettes used in obstacle timing."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteSheetBundle with TextureAtlasLayout and a fixed-step animation timer.",
+    "atlas_or_static": "texture_atlas",
+    "ecs_components": [
+      "Name",
+      "Handle<Image>",
+      "TextureAtlas",
+      "AnimationTimer",
+      "Visibility"
+    ],
+    "asset_loading": "Load through AssetServer in the Loading state and store the handle in a typed resource before gameplay starts.",
+    "runtime_notes": [
+      "Snap transforms to whole pixels before render extraction.",
+      "Use visibility toggles or spawn pools instead of mutating image handles during active play.",
+      "Keep collider setup separate from the art bundle so gameplay forgiveness margins remain tunable."
+    ]
+  }
+}

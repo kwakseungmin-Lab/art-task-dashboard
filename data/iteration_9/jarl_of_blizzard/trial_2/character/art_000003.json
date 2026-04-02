@@ -1,0 +1,168 @@
+{
+  "task_id": "art_000003",
+  "asset_key": "art_000003",
+  "asset_name": "Warrior unit — Shield brace idle sheet",
+  "category": "character",
+  "subcategory": "warrior_guard_idle",
+  "priority": "P0",
+  "execution_order": 30,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The warrior occupies a 32x48px footprint with a readable round shield and fur-lined helmet silhouette.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "The pose is authored for side-view battlefield readability against pale snow tiles and dark buildings."
+  ],
+  "differences": [
+    "This base sheet covers the neutral guard stance used while the village is waiting for a raid trigger.",
+    "The shield angle stays forward and the spear remains low so the unit reads as ready rather than attacking.",
+    "A 6-frame loop adds cloak flutter and small stance shifts suited to windy battlefield idles."
+  ],
+  "depends_on": [],
+  "blocks": [
+    "art_000004"
+  ],
+  "blocked_by": [],
+  "relationships": {
+    "related_task_ids": [
+      "art_000004",
+      "art_000013",
+      "art_000018"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    },
+    {
+      "label": "jarl_of_blizzard_village_scene",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/village_blizzard.png",
+      "purpose": "Grounds the settlement composition, building spacing, and whiteout layering over the frozen basin."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "TextureAtlas-driven battlefield unit sprite spawned as a world entity in defense scenes and result cutaways.",
+    "atlas_or_static": "atlas",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "TextureAtlas",
+      "Handle<Image>",
+      "WarriorUnit"
+    ],
+    "asset_loading": "Load character/art_000003.png during the world Loading state and cache the atlas handle for defense encounters.",
+    "runtime_notes": [
+      "Advance the idle loop at 8fps so cloak motion feels alive without looking like an attack wind-up.",
+      "Keep feet anchored to the bottom of the 32x48px frame so tile alignment stays stable on the snow grid.",
+      "Use whole-pixel translations for unit placement to preserve shield rim clarity."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "warrior_idle_guard",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        1180,
+        660
+      ]
+    },
+    "layer": "world_character",
+    "usage": "Default defensive warrior state used during raid warnings, village overview scenes, and settlement status screens.",
+    "adjacent_elements": [
+      "art_000013",
+      "art_000018"
+    ],
+    "viewpoint": {
+      "camera_angle": "side_three_quarter",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 32,
+      "height": 48
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "sprite_sheet",
+      "frame_count": 6,
+      "fps": 8,
+      "loop": true,
+      "frame_size_px": [
+        32,
+        48
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      }
+    },
+    "shape": {
+      "silhouette": "Compact Viking guard with round shield forward, low spear, and fur cloak trailing behind the stance.",
+      "components": [
+        "helmet",
+        "fur_cloak",
+        "round_shield",
+        "spear",
+        "boots"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "character/art_000003.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "Sprite sheet is exactly 192x48px with 6 frames of 32x48px and 0px spacing.",
+    "Shield edge, helmet, and spear tip remain legible against both #FFFFFF snow and #111111 building shadows.",
+    "The feet baseline stays aligned across every frame so tile placement remains stable."
+  ]
+}

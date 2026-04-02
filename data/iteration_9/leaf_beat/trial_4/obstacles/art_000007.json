@@ -1,0 +1,155 @@
+{
+  "task_id": "art_000007",
+  "asset_key": "art_000007",
+  "asset_name": "Static branch obstacle — wide lane gate",
+  "category": "obstacles",
+  "subcategory": "branch_gate",
+  "priority": "P0",
+  "execution_order": 70,
+  "variant_of": "art_000006",
+  "variant_of_asset_key": "art_000006",
+  "shared_properties": [
+    "The obstacle keeps the same wood palette and flat shading logic as art_000006.",
+    "The branch maintains a collision-friendly low profile for fair lane judgement.",
+    "Twig forks stay secondary to the main trunk silhouette."
+  ],
+  "differences": [
+    "This variant extends the trunk width to reduce the recoverable gap during mid-depth sections.",
+    "The center mass is thicker than art_000006 to make steering commitment more obvious.",
+    "The right-side twig group is denser to create a more dramatic silhouette under scrolling motion."
+  ],
+  "depends_on": [
+    "art_000006"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000006"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000006",
+      "art_000003",
+      "art_000004",
+      "art_000017"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "leaf_beat_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/leaf_beat.md",
+      "purpose": "Grounds the core loop, timing windows, obstacle pacing, UI layout, and Bevy target constraints."
+    },
+    {
+      "label": "leaf_beat_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309193402/leaf_beat/_images/moodboard.png",
+      "purpose": "Grounds the sepia autumn atmosphere, tree silhouettes, and warm color layering."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "SpriteBundle obstacle entity with a fixed AABB collider and stage-density tags for mid-depth spawn tables.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Transform",
+      "Visibility",
+      "Sprite",
+      "Handle<Image>",
+      "ObstacleKind",
+      "BranchGate"
+    ],
+    "asset_loading": "Load obstacles/art_000007.png during stage setup and attach a fixed collider sized to the authored branch rectangle.",
+    "runtime_notes": [
+      "Spawn this variant in 600px to 1700px depth bands where the player needs cleaner steering reads.",
+      "Mirror the texture at spawn time when lane composition requires the thicker fork cluster on the opposite side.",
+      "Keep the collider inset by 2px from the painted twig tips so the visual silhouette remains slightly stricter than the hitbox."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "maple_orange",
+      "hex": "#E8722A"
+    },
+    "background": {
+      "name": "sepia_sky",
+      "hex": "#D4A96A"
+    },
+    "accent": {
+      "name": "perfect_gold",
+      "hex": "#F5D060"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1280,
+      "height": 720
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "branch_gate_wide",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        640,
+        220
+      ]
+    },
+    "layer": "obstacles",
+    "usage": "Wider branch gate used after the player enters the denser fall segments.",
+    "adjacent_elements": [
+      "art_000006",
+      "art_000003",
+      "art_000004",
+      "art_000017"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_front",
+      "facing": "left"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 360,
+      "height": 16
+    },
+    "colors_hex": [
+      "#5C3A1E",
+      "#8B5E3C",
+      "#3B2A1A",
+      "#D4A96A"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Long horizontal branch with a broader center mass and four twig clusters that compress the passable lane.",
+      "components": [
+        "main_branch",
+        "center_mass",
+        "left_twigs",
+        "right_twigs"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "obstacles/art_000007.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 360x16px with transparent padding removed from the outer bounds.",
+    "The silhouette keeps a continuous trunk thickness of at least 3 pixels across the middle 200 pixels of the sprite.",
+    "Twig clusters remain visually subordinate to the trunk so the player can read the main blocking shape at a glance."
+  ]
+}

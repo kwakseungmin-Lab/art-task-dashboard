@@ -1,0 +1,158 @@
+{
+  "task_id": "art_000017",
+  "asset_key": "art_000017",
+  "asset_name": "Memory panel — Queue reveal board",
+  "category": "ui",
+  "subcategory": "memory_reveal_panel",
+  "priority": "P0",
+  "execution_order": 170,
+  "variant_of": null,
+  "variant_of_asset_key": null,
+  "shared_properties": [
+    "The panel uses a centered presentation format tuned for short-term memory reading during the reveal phase.",
+    "Core palette fields remain fixed at primary #111111, background #000000, and accent #FFFFFF.",
+    "Large card wells and strong border contrast support rapid reading before the panel disappears."
+  ],
+  "differences": [
+    "The reveal board dedicates more space to the queue itself and less to controls than the planning panel.",
+    "A heavy outer frame and bright inner wells make the sequence readable under growing weather pressure.",
+    "The lower edge reserves room for a countdown timer and confirm prompt without cluttering the queue rows."
+  ],
+  "depends_on": [
+    "art_000007",
+    "art_000015"
+  ],
+  "blocks": [],
+  "blocked_by": [
+    "art_000007",
+    "art_000015"
+  ],
+  "relationships": {
+    "related_task_ids": [
+      "art_000015",
+      "art_000007"
+    ]
+  },
+  "reference_images": [
+    {
+      "label": "jarl_of_blizzard_gdd",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/jarl_of_blizzard.md",
+      "purpose": "Grounds the winter survival loop, queue-memory mechanic, building roster, and 1920x1080 Bevy target."
+    },
+    {
+      "label": "jarl_of_blizzard_moodboard",
+      "url": "s3://dev-gamelift-assets-859616339670-use1/ideation/simple-exp-20260309194408/jarl_of_blizzard/_images/moodboard.png",
+      "purpose": "Grounds the monochrome blizzard mood, Viking settlement silhouettes, and snow density targets."
+    }
+  ],
+  "bevy_constraints": {
+    "bundle_strategy": "Centered memory-phase UI panel rendered above the world and below the top HUD during queue reveal moments.",
+    "atlas_or_static": "static",
+    "ecs_components": [
+      "Node",
+      "Style",
+      "UiImage",
+      "Handle<Image>",
+      "MemoryRevealPanel"
+    ],
+    "asset_loading": "Load ui/art_000017.png during UI boot and show it only during the memory countdown window.",
+    "runtime_notes": [
+      "Keep the panel in the center safe area so edge whiteout does not swallow the primary queue information.",
+      "Expose timer anchor points for a runtime countdown bar and confirmation prompt.",
+      "Fade the panel out cleanly before execution begins so the world view remains unobstructed."
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "ink_black",
+      "hex": "#111111"
+    },
+    "background": {
+      "name": "midnight_snow",
+      "hex": "#000000"
+    },
+    "accent": {
+      "name": "blizzard_white",
+      "hex": "#FFFFFF"
+    }
+  },
+  "canvas": {
+    "resolution_px": {
+      "width": 1920,
+      "height": 1080
+    },
+    "pixel_perfect": true,
+    "target_fps": 60
+  },
+  "style_guide": {
+    "rendering": "pixel_art",
+    "detail_level": "medium_readable",
+    "shading": "flat_plus_2tone",
+    "outline": "1px_dark"
+  },
+  "context": {
+    "role": "memory_reveal_panel",
+    "screen_position": {
+      "type": "absolute_px",
+      "position_px": [
+        960,
+        420
+      ]
+    },
+    "layer": "ui_overlay",
+    "usage": "Centered memory board used to show the full queue briefly before the player executes from recall.",
+    "adjacent_elements": [
+      "art_000002",
+      "art_000006",
+      "art_000007",
+      "art_000015"
+    ],
+    "viewpoint": {
+      "camera_angle": "screen_space_front",
+      "facing": "center"
+    }
+  },
+  "specs": {
+    "dimensions_px": {
+      "width": 720,
+      "height": 420
+    },
+    "colors_hex": [
+      "#FFFFFF",
+      "#E0E0E0",
+      "#C0C0C0",
+      "#888888",
+      "#555555",
+      "#333333",
+      "#111111",
+      "#000000"
+    ],
+    "animation": {
+      "type": "static",
+      "frame_count": 1,
+      "fps": 0,
+      "loop": false
+    },
+    "shape": {
+      "silhouette": "Centered monochrome board with oversized queue wells, timer gutter, and a bold outer frame.",
+      "components": [
+        "outer_frame",
+        "queue_wells",
+        "timer_gutter",
+        "confirm_prompt_band"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "type": "png",
+      "file": "ui/art_000017.png",
+      "transparent_background": true
+    }
+  ],
+  "acceptance_criteria": [
+    "PNG canvas is exactly 720x420px with enough queue wells to display seven ordered actions.",
+    "The queue wells remain readable inside the central safe area even when art_000007 overlays the edges.",
+    "Timer and prompt gutters stay visually separated from the main queue wells."
+  ]
+}
