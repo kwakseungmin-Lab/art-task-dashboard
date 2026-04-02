@@ -1,7 +1,7 @@
 {
-  "id": "ec939f2140d6",
+  "id": "335f04d51097",
   "iteration": 9,
-  "timestamp": "2026-04-02T07:25:47.982932Z",
+  "timestamp": "2026-03-30T07:43:19.785482+00:00Z",
   "status": "COMPLETED",
   "scores": {
     "pass_rate": 96.0,
@@ -11,6 +11,8 @@
     "pass_rate": 96.0,
     "total_games": 5,
     "total_trials": 25,
+    "passed_trials": 24,
+    "failed_trials": 1,
     "coverage_gate": "PASS"
   },
   "games": [

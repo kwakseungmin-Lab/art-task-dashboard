@@ -217,7 +217,12 @@
 
     <!-- Initialize Dashboard -->
     <script>
-        window.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('DOMContentLoaded', async () => {
+            // Load Registry data on startup
+            if (window.RegistryViewer) {
+                await window.RegistryViewer.loadRegistry();
+            }
+
             if (window.dashboard) {
                 window.dashboard.loadIterationsView();
             }

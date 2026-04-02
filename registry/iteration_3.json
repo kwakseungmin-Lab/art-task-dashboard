@@ -1,0 +1,25 @@
+{
+  "id": "13d51a352e3d",
+  "iteration": 3,
+  "timestamp": "2026-03-12T07:43:19.783273+00:00Z",
+  "status": "COMPLETED",
+  "scores": {
+    "pass_rate": 80.0,
+    "overall": 80.0
+  },
+  "metrics": {
+    "pass_rate": 80.0,
+    "total_games": 4,
+    "total_trials": 20,
+    "passed_trials": 16,
+    "failed_trials": 4,
+    "coverage_gate": "PASS"
+  },
+  "games": [
+    "Chrome_Dino_Runner",
+    "Pico_Echo",
+    "ricochet",
+    "cosmos"
+  ],
+  "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/3"
+}

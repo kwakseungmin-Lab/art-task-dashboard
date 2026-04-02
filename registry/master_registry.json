@@ -1,9 +1,210 @@
 {
   "entries": [
     {
-      "id": "ec939f2140d6",
+      "id": "aa05f757baa4",
+      "iteration": 1,
+      "timestamp": "2026-03-06T07:43:19.782383+00:00Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 72.0,
+        "overall": 72.0
+      },
+      "metrics": {
+        "pass_rate": 72.0,
+        "total_games": 2,
+        "total_trials": 10,
+        "passed_trials": 7,
+        "failed_trials": 3,
+        "coverage_gate": "FAIL"
+      },
+      "games": [
+        "Chrome_Dino_Runner",
+        "Pico_Echo"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/1"
+    },
+    {
+      "id": "0e4cd09444e0",
+      "iteration": 2,
+      "timestamp": "2026-03-09T07:43:19.782869+00:00Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 76.0,
+        "overall": 76.0
+      },
+      "metrics": {
+        "pass_rate": 76.0,
+        "total_games": 3,
+        "total_trials": 15,
+        "passed_trials": 11,
+        "failed_trials": 4,
+        "coverage_gate": "FAIL"
+      },
+      "games": [
+        "Chrome_Dino_Runner",
+        "Pico_Echo",
+        "ricochet"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/2"
+    },
+    {
+      "id": "13d51a352e3d",
+      "iteration": 3,
+      "timestamp": "2026-03-12T07:43:19.783273+00:00Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 80.0,
+        "overall": 80.0
+      },
+      "metrics": {
+        "pass_rate": 80.0,
+        "total_games": 4,
+        "total_trials": 20,
+        "passed_trials": 16,
+        "failed_trials": 4,
+        "coverage_gate": "PASS"
+      },
+      "games": [
+        "Chrome_Dino_Runner",
+        "Pico_Echo",
+        "ricochet",
+        "cosmos"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/3"
+    },
+    {
+      "id": "a3d512be5464",
+      "iteration": 4,
+      "timestamp": "2026-03-15T07:43:19.783659+00:00Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 82.0,
+        "overall": 82.0
+      },
+      "metrics": {
+        "pass_rate": 82.0,
+        "total_games": 4,
+        "total_trials": 20,
+        "passed_trials": 16,
+        "failed_trials": 4,
+        "coverage_gate": "PASS"
+      },
+      "games": [
+        "Chrome_Dino_Runner",
+        "Pico_Echo",
+        "ricochet",
+        "cosmos"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/4"
+    },
+    {
+      "id": "3fc12e2758ea",
+      "iteration": 5,
+      "timestamp": "2026-03-18T07:43:19.784046+00:00Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 84.0,
+        "overall": 84.0
+      },
+      "metrics": {
+        "pass_rate": 84.0,
+        "total_games": 5,
+        "total_trials": 25,
+        "passed_trials": 21,
+        "failed_trials": 4,
+        "coverage_gate": "PASS"
+      },
+      "games": [
+        "Chrome_Dino_Runner",
+        "Pico_Echo",
+        "ricochet",
+        "cosmos",
+        "alien_attack"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/5"
+    },
+    {
+      "id": "23ea698582c5",
+      "iteration": 6,
+      "timestamp": "2026-03-21T07:43:19.784428+00:00Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 88.0,
+        "overall": 88.0
+      },
+      "metrics": {
+        "pass_rate": 88.0,
+        "total_games": 5,
+        "total_trials": 25,
+        "passed_trials": 22,
+        "failed_trials": 3,
+        "coverage_gate": "PASS"
+      },
+      "games": [
+        "Chrome_Dino_Runner",
+        "Pico_Echo",
+        "ricochet",
+        "cosmos",
+        "alien_attack"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/6"
+    },
+    {
+      "id": "1bc5fa977b52",
+      "iteration": 7,
+      "timestamp": "2026-03-24T07:43:19.784744+00:00Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 90.0,
+        "overall": 90.0
+      },
+      "metrics": {
+        "pass_rate": 90.0,
+        "total_games": 5,
+        "total_trials": 25,
+        "passed_trials": 22,
+        "failed_trials": 3,
+        "coverage_gate": "PASS"
+      },
+      "games": [
+        "Chrome_Dino_Runner",
+        "Pico_Echo",
+        "ricochet",
+        "cosmos",
+        "alien_attack"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/7"
+    },
+    {
+      "id": "d5bc50fbf65f",
+      "iteration": 8,
+      "timestamp": "2026-03-27T07:43:19.785068+00:00Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 92.0,
+        "overall": 92.0
+      },
+      "metrics": {
+        "pass_rate": 92.0,
+        "total_games": 5,
+        "total_trials": 25,
+        "passed_trials": 23,
+        "failed_trials": 2,
+        "coverage_gate": "PASS"
+      },
+      "games": [
+        "Chrome_Dino_Runner",
+        "Pico_Echo",
+        "bubble_farm",
+        "leaf_beat",
+        "jarl_of_blizzard"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/8"
+    },
+    {
+      "id": "335f04d51097",
       "iteration": 9,
-      "timestamp": "2026-04-02T07:25:47.982932Z",
+      "timestamp": "2026-03-30T07:43:19.785482+00:00Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 96.0,
@@ -13,6 +214,8 @@
         "pass_rate": 96.0,
         "total_games": 5,
         "total_trials": 25,
+        "passed_trials": 24,
+        "failed_trials": 1,
         "coverage_gate": "PASS"
       },
       "games": [
@@ -23,7 +226,35 @@
         "jarl_of_blizzard"
       ],
       "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/9"
+    },
+    {
+      "id": "05f2b0c5f398",
+      "iteration": 10,
+      "timestamp": "2026-04-02T07:43:19.785819+00:00Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 94.0,
+        "overall": 94.0
+      },
+      "metrics": {
+        "pass_rate": 94.0,
+        "total_games": 5,
+        "total_trials": 25,
+        "passed_trials": 23,
+        "failed_trials": 2,
+        "coverage_gate": "PASS"
+      },
+      "games": [
+        "umbra_scale",
+        "frozen_flame",
+        "crystal_keeper",
+        "void_jumper",
+        "star_runner"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/10"
     }
   ],
-  "last_updated": "2026-04-02T07:25:47.994037Z"
+  "last_updated": "2026-04-02T07:43:19.786180+00:00Z",
+  "total_iterations": 10,
+  "average_pass_rate": 85.4
 }

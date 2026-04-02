@@ -1,0 +1,26 @@
+{
+  "id": "d5bc50fbf65f",
+  "iteration": 8,
+  "timestamp": "2026-03-27T07:43:19.785068+00:00Z",
+  "status": "COMPLETED",
+  "scores": {
+    "pass_rate": 92.0,
+    "overall": 92.0
+  },
+  "metrics": {
+    "pass_rate": 92.0,
+    "total_games": 5,
+    "total_trials": 25,
+    "passed_trials": 23,
+    "failed_trials": 2,
+    "coverage_gate": "PASS"
+  },
+  "games": [
+    "Chrome_Dino_Runner",
+    "Pico_Echo",
+    "bubble_farm",
+    "leaf_beat",
+    "jarl_of_blizzard"
+  ],
+  "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/8"
+}
