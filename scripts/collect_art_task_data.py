@@ -94,8 +94,11 @@ def simulate_iteration_data():
         with open(registry_path, 'r') as f:
             master = json.load(f)
             if master["entries"]:
-                # Handle both Z and +00:00 format
+                # Handle various timestamp formats
                 timestamp_str = master["entries"][-1]["timestamp"]
+                # Clean up malformed timestamps (e.g., "+00:00Z" or "+00:00+00:00")
+                timestamp_str = timestamp_str.replace("+00:00Z", "+00:00")
+                timestamp_str = timestamp_str.replace("+00:00+00:00", "+00:00")
                 if timestamp_str.endswith("Z"):
                     timestamp_str = timestamp_str.replace("Z", "+00:00")
                 last_timestamp = datetime.fromisoformat(timestamp_str)

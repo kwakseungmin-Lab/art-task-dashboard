@@ -3,7 +3,7 @@
     {
       "id": "aa05f757baa4",
       "iteration": 1,
-      "timestamp": "2026-03-06T07:43:19.782383+00:00Z",
+      "timestamp": "2026-03-06T07:43:19.782383Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 72.0,
@@ -26,7 +26,7 @@
     {
       "id": "0e4cd09444e0",
       "iteration": 2,
-      "timestamp": "2026-03-09T07:43:19.782869+00:00Z",
+      "timestamp": "2026-03-09T07:43:19.782869Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 76.0,
@@ -50,7 +50,7 @@
     {
       "id": "13d51a352e3d",
       "iteration": 3,
-      "timestamp": "2026-03-12T07:43:19.783273+00:00Z",
+      "timestamp": "2026-03-12T07:43:19.783273Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 80.0,
@@ -75,7 +75,7 @@
     {
       "id": "a3d512be5464",
       "iteration": 4,
-      "timestamp": "2026-03-15T07:43:19.783659+00:00Z",
+      "timestamp": "2026-03-15T07:43:19.783659Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 82.0,
@@ -100,7 +100,7 @@
     {
       "id": "3fc12e2758ea",
       "iteration": 5,
-      "timestamp": "2026-03-18T07:43:19.784046+00:00Z",
+      "timestamp": "2026-03-18T07:43:19.784046Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 84.0,
@@ -126,7 +126,7 @@
     {
       "id": "23ea698582c5",
       "iteration": 6,
-      "timestamp": "2026-03-21T07:43:19.784428+00:00Z",
+      "timestamp": "2026-03-21T07:43:19.784428Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 88.0,
@@ -152,7 +152,7 @@
     {
       "id": "1bc5fa977b52",
       "iteration": 7,
-      "timestamp": "2026-03-24T07:43:19.784744+00:00Z",
+      "timestamp": "2026-03-24T07:43:19.784744Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 90.0,
@@ -178,7 +178,7 @@
     {
       "id": "d5bc50fbf65f",
       "iteration": 8,
-      "timestamp": "2026-03-27T07:43:19.785068+00:00Z",
+      "timestamp": "2026-03-27T07:43:19.785068Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 92.0,
@@ -230,7 +230,7 @@
     {
       "id": "05f2b0c5f398",
       "iteration": 10,
-      "timestamp": "2026-04-02T07:43:19.785819+00:00Z",
+      "timestamp": "2026-04-02T07:43:19.785819Z",
       "status": "COMPLETED",
       "scores": {
         "pass_rate": 94.0,
