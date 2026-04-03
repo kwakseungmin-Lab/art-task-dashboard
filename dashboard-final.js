@@ -62,11 +62,11 @@ const Dashboard = {
                 </div>
                 <div class="right-section">
                     <div class="kb-panel">
-                        <h3 style="color: #3b82f6; font-size: 20px; margin-bottom: 15px;">Art Task Plan KB (26,789 entities)</h3>
+                        <h3 style="color: #3b82f6; font-size: 20px; margin-bottom: 15px;">Art Task Plan KB (30,689 entities)</h3>
                         <iframe src="kb-network-complete.html?kb=art" frameborder="0" style="width: 100%; height: calc(50vh - 80px); min-height: 450px; border-radius: 10px; border: 2px solid rgba(59, 130, 246, 0.4);"></iframe>
                     </div>
                     <div class="kb-panel">
-                        <h3 style="color: #10b981; font-size: 20px; margin-bottom: 15px;">Meta Iteration KB (8,032 entities)</h3>
+                        <h3 style="color: #10b981; font-size: 20px; margin-bottom: 15px;">Meta Iteration KB (3,169 entities)</h3>
                         <iframe src="kb-network-complete.html?kb=meta" frameborder="0" style="width: 100%; height: calc(50vh - 80px); min-height: 450px; border-radius: 10px; border: 2px solid rgba(16, 185, 129, 0.4);"></iframe>
                     </div>
                 </div>
@@ -714,10 +714,11 @@ const Dashboard = {
         content.innerHTML = `
             <div class="kb-header">
                 <h2>Art Task Plan KB - Complete Network Visualization</h2>
+                <p style="color: #8b92a9; font-size: 12px; margin-top: 5px;">Data Snapshot: 2026-04-03 14:30</p>
                 <div class="kb-stats">
                     <div class="stat">
                         <div class="label">Total Entities</div>
-                        <div class="value">26,789</div>
+                        <div class="value">30,689</div>
                     </div>
                     <div class="stat">
                         <div class="label">Relations</div>
@@ -746,14 +747,15 @@ const Dashboard = {
         content.innerHTML = `
             <div class="kb-header">
                 <h2>Meta Iteration KB - Complete Network Visualization</h2>
+                <p style="color: #8b92a9; font-size: 12px; margin-top: 5px;">Data Snapshot: 2026-04-03 14:30</p>
                 <div class="kb-stats">
                     <div class="stat">
                         <div class="label">Total Entities</div>
-                        <div class="value">8,032</div>
+                        <div class="value">3,169</div>
                     </div>
                     <div class="stat">
                         <div class="label">Relations</div>
-                        <div class="value">476</div>
+                        <div class="value">2,923</div>
                     </div>
                     <div class="stat">
                         <div class="label">Improvement</div>
