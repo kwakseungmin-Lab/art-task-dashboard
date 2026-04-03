@@ -383,12 +383,12 @@ const Dashboard = {
 
         // Try LocalJSONLoader first (local repository data)
         if (typeof LocalJSONLoader !== 'undefined') {
-            jsonContent = await LocalJSONLoader.loadJSON(iterationNum, gameName, trialNum, filename);
+            jsonContent = await LocalJSONLoader.loadJSON(iterationNum, gameName, trialNum, filepath);
             console.log('Loaded JSON:', jsonContent);
         }
         // Fallback to DynamicJSONLoader (GitHub)
         else if (typeof DynamicJSONLoader !== 'undefined') {
-            jsonContent = await DynamicJSONLoader.loadJSON(iterationNum, gameName, trialNum, filename);
+            jsonContent = await DynamicJSONLoader.loadJSON(iterationNum, gameName, trialNum, filepath);
             console.log('Loaded JSON from GitHub:', jsonContent);
         } else {
             // Final fallback
