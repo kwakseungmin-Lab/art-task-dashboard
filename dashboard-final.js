@@ -1,4 +1,4 @@
-// Art Task Plan Pipeline Dashboard - Complete Implementation
+// Art Task Plan Pipeline Dashboard - Complete Implementation (No Emojis v2)
 const Dashboard = {
     currentView: 'iterations',
 
@@ -62,11 +62,11 @@ const Dashboard = {
                 </div>
                 <div class="right-section">
                     <div class="kb-panel">
-                        <h3 style="color: #3b82f6; font-size: 20px; margin-bottom: 15px;">🗄️ Art Task Plan KB (26,789 entities)</h3>
+                        <h3 style="color: #3b82f6; font-size: 20px; margin-bottom: 15px;">Art Task Plan KB (26,789 entities)</h3>
                         <iframe src="kb-network-complete.html?kb=art" frameborder="0" style="width: 100%; height: calc(50vh - 80px); min-height: 450px; border-radius: 10px; border: 2px solid rgba(59, 130, 246, 0.4);"></iframe>
                     </div>
                     <div class="kb-panel">
-                        <h3 style="color: #10b981; font-size: 20px; margin-bottom: 15px;">🔄 Meta Iteration KB (8,032 entities)</h3>
+                        <h3 style="color: #10b981; font-size: 20px; margin-bottom: 15px;">Meta Iteration KB (8,032 entities)</h3>
                         <iframe src="kb-network-complete.html?kb=meta" frameborder="0" style="width: 100%; height: calc(50vh - 80px); min-height: 450px; border-radius: 10px; border: 2px solid rgba(16, 185, 129, 0.4);"></iframe>
                     </div>
                 </div>
@@ -124,8 +124,7 @@ const Dashboard = {
             { num: 6, pass: 84, status: 'PASS', games: 5, date: '2026-03-25' },
             { num: 7, pass: 100, status: 'PASS', games: 5, date: '2026-03-25' },
             { num: 8, pass: 96, status: 'PASS', games: 5, date: '2026-03-25', hasIssue: true },
-            { num: 9, pass: 98, status: 'PASS', games: 5, date: '2026-04-02' },
-            { num: 10, pass: 99, status: 'PASS', games: 5, date: '2026-04-02' }
+            { num: 9, pass: 98, status: 'PASS', games: 5, date: '2026-04-02' }
         ];
 
         return iterations.map(iter => `
@@ -403,11 +402,11 @@ const Dashboard = {
         if (jsonContent.error) {
             viewer.innerHTML = `
                 <div class="error-container" style="padding: 40px; text-align: center;">
-                    <h3 style="color: #ff7b72; margin-bottom: 20px;">❌ Error Loading File</h3>
+                    <h3 style="color: #ff7b72; margin-bottom: 20px;">Error Loading File</h3>
                     <p style="color: #8b92a9; margin-bottom: 10px;">File: ${filename}</p>
                     <p style="color: #8b92a9; margin-bottom: 20px;">${jsonContent.error}: ${jsonContent.message || 'File not found'}</p>
                     <div style="background: rgba(255, 123, 114, 0.1); border: 1px solid rgba(255, 123, 114, 0.3); border-radius: 8px; padding: 15px; margin-top: 20px;">
-                        <p style="color: #ffa657; font-size: 14px;">💡 Tip: This file may not exist for this game/iteration combination.</p>
+                        <p style="color: #ffa657; font-size: 14px;">Tip: This file may not exist for this game/iteration combination.</p>
                         <p style="color: #8b92a9; font-size: 12px; margin-top: 10px;">Try selecting a different file from the dropdown above.</p>
                     </div>
                 </div>
@@ -430,13 +429,13 @@ const Dashboard = {
 
         viewer.innerHTML = `
             <div class="json-header">
-                <h3 style="font-size: 20px; color: #3b82f6;">📄 ${filename}</h3>
+                <h3 style="font-size: 20px; color: #3b82f6;">${filename}</h3>
                 <div style="display: flex; align-items: center; gap: 20px;">
                     <span style="color: #8b92a9; font-size: 14px;">
                         Lines: ${lineCount} | Size: ${sizeKB} KB
                     </span>
                     <button class="btn-copy" onclick="navigator.clipboard.writeText(JSON.stringify(${JSON.stringify(jsonContent)}, null, 2))">
-                        📋 Copy JSON
+                        Copy JSON
                     </button>
                 </div>
             </div>
@@ -483,7 +482,7 @@ const Dashboard = {
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     overflow-x: auto;
                     font-family: 'Fira Code', 'Courier New', monospace;
-                    font-size: 20px;
+                    font-size: 10px;
                     font-weight: 500;
                     line-height: 1.8;
                     color: #e1e8ed;
@@ -512,16 +511,9 @@ const Dashboard = {
     },
 
     // Generate file options for dropdown based on game type
-    getFileEmoji(category) {
-        const emojiMap = {
-            'Character': '🦖',
-            'Obstacles': '🌵',
-            'World': '🌍',
-            'UI': '📊',
-            'Items': '🍎',
-            'Mirrors': '🪞'
-        };
-        return emojiMap[category] || '📄';
+    getFileEmoji() {
+        // Emojis removed for clarity
+        return '';
     },
 
     generateFileOptions(gameName, iterationNum = 8, trialNum = 1) {
@@ -530,13 +522,13 @@ const Dashboard = {
             const files = getFilesForTrial(iterationNum, gameName, trialNum);
 
             if (!files) {
-                return `<option value="" disabled>❌ No files found for ${gameName} - Iteration ${iterationNum} - Trial ${trialNum}</option>`;
+                return `<option value="" disabled>No files found for ${gameName} - Iteration ${iterationNum} - Trial ${trialNum}</option>`;
             }
 
             // Start with common file
             let html = '';
             if (files['_project_common']) {
-                html += '<option value="_project_common.json">📄 _project_common.json (Main Project File)</option>';
+                html += '<option value="_project_common.json">_project_common.json (Main Project File)</option>';
             }
 
             // Add category groups
@@ -548,161 +540,160 @@ const Dashboard = {
                     html += `<optgroup label="${displayCategory}">`;
                     for (const file of fileList) {
                         const fileName = file.split('/').pop();
-                        const emoji = this.getFileEmoji(displayCategory);
-                        html += `<option value="${file}">${emoji} ${fileName}</option>`;
+                        html += `<option value="${file}">${fileName}</option>`;
                     }
                     html += `</optgroup>`;
                 }
             });
 
             if (html === '') {
-                return '<option value="" disabled>❌ No files available</option>';
+                return '<option value="" disabled>No files available</option>';
             }
 
             return html;
         }
 
         // Fallback if CompleteFileManifest not available
-        let html = '<option value="_project_common.json">📄 _project_common.json (Main Project File)</option>';
+        let html = '<option value="_project_common.json">_project_common.json (Main Project File)</option>';
 
         if (gameName === 'Chrome_Dino_Runner') {
             html += `
                 <optgroup label="Character (캐릭터)">
-                    <option value="character/dino_runner_core.json">🦖 dino_runner_core.json (달리기 애니메이션)</option>
-                    <option value="character/dino_air_pose.json">🦖 dino_air_pose.json (점프 자세)</option>
-                    <option value="character/dino_low_profile.json">🦖 dino_low_profile.json (숙이기 자세)</option>
-                    <option value="character/dino_crash_pose.json">🦖 dino_crash_pose.json (충돌 자세)</option>
+                    <option value="character/dino_runner_core.json">dino_runner_core.json (달리기 애니메이션)</option>
+                    <option value="character/dino_air_pose.json">dino_air_pose.json (점프 자세)</option>
+                    <option value="character/dino_low_profile.json">dino_low_profile.json (숙이기 자세)</option>
+                    <option value="character/dino_crash_pose.json">dino_crash_pose.json (충돌 자세)</option>
                 </optgroup>
                 <optgroup label="Obstacles (장애물)">
-                    <option value="obstacles/cactus_single.json">🌵 cactus_single.json (작은 선인장)</option>
-                    <option value="obstacles/cactus_pair_cluster.json">🌵 cactus_pair_cluster.json (중간 선인장)</option>
-                    <option value="obstacles/cactus_triplet_cluster.json">🌵 cactus_triplet_cluster.json (큰 선인장)</option>
-                    <option value="obstacles/pterodactyl_flap_sheet.json">🦅 pterodactyl_flap_sheet.json (익룡)</option>
+                    <option value="obstacles/cactus_single.json">cactus_single.json (작은 선인장)</option>
+                    <option value="obstacles/cactus_pair_cluster.json">cactus_pair_cluster.json (중간 선인장)</option>
+                    <option value="obstacles/cactus_triplet_cluster.json">cactus_triplet_cluster.json (큰 선인장)</option>
+                    <option value="obstacles/pterodactyl_flap_sheet.json">pterodactyl_flap_sheet.json (익룡)</option>
                 </optgroup>
                 <optgroup label="World (배경)">
-                    <option value="world/sky_day_field.json">☁️ sky_day_field.json (하늘 배경)</option>
-                    <option value="world/ground_runner_strip.json">🏃 ground_runner_strip.json (땅)</option>
-                    <option value="world/ground_pebble_overlay.json">🪨 ground_pebble_overlay.json (자갈)</option>
-                    <option value="world/cloud_pass_small.json">☁️ cloud_pass_small.json (구름)</option>
+                    <option value="world/sky_day_field.json">sky_day_field.json (하늘 배경)</option>
+                    <option value="world/ground_runner_strip.json">ground_runner_strip.json (땅)</option>
+                    <option value="world/ground_pebble_overlay.json">ground_pebble_overlay.json (자갈)</option>
+                    <option value="world/cloud_pass_small.json">cloud_pass_small.json (구름)</option>
                 </optgroup>
                 <optgroup label="UI (인터페이스)">
-                    <option value="ui/score_digits_font.json">🔢 score_digits_font.json (점수 폰트)</option>
-                    <option value="ui/score_rack_panel.json">📊 score_rack_panel.json (점수판)</option>
-                    <option value="ui/game_over_message.json">💀 game_over_message.json (게임오버)</option>
-                    <option value="ui/restart_hint_label.json">🔄 restart_hint_label.json (재시작)</option>
+                    <option value="ui/score_digits_font.json">score_digits_font.json (점수 폰트)</option>
+                    <option value="ui/score_rack_panel.json">score_rack_panel.json (점수판)</option>
+                    <option value="ui/game_over_message.json">game_over_message.json (게임오버)</option>
+                    <option value="ui/restart_hint_label.json">restart_hint_label.json (재시작)</option>
                 </optgroup>
             `;
         } else if (gameName === 'Pico_Echo') {
             html += `
                 <optgroup label="Character">
-                    <option value="character/echo_idle_4f_2fps.json">🦜 echo_idle_4f_2fps.json</option>
-                    <option value="character/echo_happy_8f_4fps.json">🦜 echo_happy_8f_4fps.json</option>
-                    <option value="character/echo_hungry_4f_2fps.json">🦜 echo_hungry_4f_2fps.json</option>
-                    <option value="character/echo_eating_6f_4fps.json">🦜 echo_eating_6f_4fps.json</option>
-                    <option value="character/echo_dirty_3f_2fps.json">🦜 echo_dirty_3f_2fps.json</option>
-                    <option value="character/echo_preening_5f_3fps.json">🦜 echo_preening_5f_3fps.json</option>
-                    <option value="character/echo_singing_8f_4fps.json">🦜 echo_singing_8f_4fps.json</option>
+                    <option value="character/echo_idle_4f_2fps.json">echo_idle_4f_2fps.json</option>
+                    <option value="character/echo_happy_8f_4fps.json">echo_happy_8f_4fps.json</option>
+                    <option value="character/echo_hungry_4f_2fps.json">echo_hungry_4f_2fps.json</option>
+                    <option value="character/echo_eating_6f_4fps.json">echo_eating_6f_4fps.json</option>
+                    <option value="character/echo_dirty_3f_2fps.json">echo_dirty_3f_2fps.json</option>
+                    <option value="character/echo_preening_5f_3fps.json">echo_preening_5f_3fps.json</option>
+                    <option value="character/echo_singing_8f_4fps.json">echo_singing_8f_4fps.json</option>
                 </optgroup>
                 <optgroup label="Items">
-                    <option value="items/fruit_apple.json">🍎 fruit_apple.json</option>
-                    <option value="items/fruit_orange.json">🍊 fruit_orange.json</option>
-                    <option value="items/fruit_grape.json">🍇 fruit_grape.json</option>
-                    <option value="items/water_bowl.json">💧 water_bowl.json</option>
-                    <option value="items/bath_spray.json">🚿 bath_spray.json</option>
+                    <option value="items/fruit_apple.json">fruit_apple.json</option>
+                    <option value="items/fruit_orange.json">fruit_orange.json</option>
+                    <option value="items/fruit_grape.json">fruit_grape.json</option>
+                    <option value="items/water_bowl.json">water_bowl.json</option>
+                    <option value="items/bath_spray.json">bath_spray.json</option>
                 </optgroup>
                 <optgroup label="World">
-                    <option value="world/cage_background.json">🏠 cage_background.json</option>
-                    <option value="world/perch.json">🪵 perch.json</option>
-                    <option value="world/feeder.json">🥣 feeder.json</option>
+                    <option value="world/cage_background.json">cage_background.json</option>
+                    <option value="world/perch.json">perch.json</option>
+                    <option value="world/feeder.json">feeder.json</option>
                 </optgroup>
                 <optgroup label="UI">
-                    <option value="ui/hunger_meter.json">🍽️ hunger_meter.json</option>
-                    <option value="ui/happiness_meter.json">😊 happiness_meter.json</option>
-                    <option value="ui/cleanliness_meter.json">🧼 cleanliness_meter.json</option>
-                    <option value="ui/action_buttons.json">🎮 action_buttons.json</option>
+                    <option value="ui/hunger_meter.json">hunger_meter.json</option>
+                    <option value="ui/happiness_meter.json">happiness_meter.json</option>
+                    <option value="ui/cleanliness_meter.json">cleanliness_meter.json</option>
+                    <option value="ui/action_buttons.json">action_buttons.json</option>
                 </optgroup>
             `;
         } else if (gameName === 'umbra_scale') {
             html += `
                 <optgroup label="Character">
-                    <option value="character/umbra_player_core_states.json">👤 umbra_player_core_states.json</option>
-                    <option value="character/umbra_echo_marker.json">👻 umbra_echo_marker.json</option>
+                    <option value="character/umbra_player_core_states.json">umbra_player_core_states.json</option>
+                    <option value="character/umbra_echo_marker.json">umbra_echo_marker.json</option>
                 </optgroup>
                 <optgroup label="Obstacles">
-                    <option value="obstacles/balance_scale_rig.json">⚖️ balance_scale_rig.json</option>
-                    <option value="obstacles/mirror_reflector_panel.json">🪞 mirror_reflector_panel.json</option>
-                    <option value="obstacles/moving_light_emitter.json">💡 moving_light_emitter.json</option>
-                    <option value="obstacles/prism_splitter_glass.json">💎 prism_splitter_glass.json</option>
+                    <option value="obstacles/balance_scale_rig.json">balance_scale_rig.json</option>
+                    <option value="obstacles/mirror_reflector_panel.json">mirror_reflector_panel.json</option>
+                    <option value="obstacles/moving_light_emitter.json">moving_light_emitter.json</option>
+                    <option value="obstacles/prism_splitter_glass.json">prism_splitter_glass.json</option>
                 </optgroup>
                 <optgroup label="World">
-                    <option value="world/twilight_tower_tileset.json">🏰 twilight_tower_tileset.json</option>
-                    <option value="world/shadow_safe_zone_overlay.json">🌑 shadow_safe_zone_overlay.json</option>
-                    <option value="world/exit_door_ladder_set.json">🚪 exit_door_ladder_set.json</option>
+                    <option value="world/twilight_tower_tileset.json">twilight_tower_tileset.json</option>
+                    <option value="world/shadow_safe_zone_overlay.json">shadow_safe_zone_overlay.json</option>
+                    <option value="world/exit_door_ladder_set.json">exit_door_ladder_set.json</option>
                 </optgroup>
                 <optgroup label="UI">
-                    <option value="ui/exposure_balance_hud.json">📊 exposure_balance_hud.json</option>
-                    <option value="ui/floor_clear_rank_panel.json">🏆 floor_clear_rank_panel.json</option>
-                    <option value="ui/light_path_preview_overlay.json">✨ light_path_preview_overlay.json</option>
+                    <option value="ui/exposure_balance_hud.json">exposure_balance_hud.json</option>
+                    <option value="ui/floor_clear_rank_panel.json">floor_clear_rank_panel.json</option>
+                    <option value="ui/light_path_preview_overlay.json">light_path_preview_overlay.json</option>
                 </optgroup>
             `;
         } else if (gameName === 'slip_down') {
             html += `
                 <optgroup label="Character">
-                    <option value="character/player_slip_slide_states.json">🏂 player_slip_slide_states.json</option>
+                    <option value="character/player_slip_slide_states.json">player_slip_slide_states.json</option>
                 </optgroup>
                 <optgroup label="Obstacles">
-                    <option value="obstacles/platform_breakable_wood.json">🪵 platform_breakable_wood.json</option>
-                    <option value="obstacles/spike_hazard_upward.json">🔺 spike_hazard_upward.json</option>
+                    <option value="obstacles/platform_breakable_wood.json">platform_breakable_wood.json</option>
+                    <option value="obstacles/spike_hazard_upward.json">spike_hazard_upward.json</option>
                 </optgroup>
                 <optgroup label="World">
-                    <option value="world/infinite_tower_tileset.json">🏢 infinite_tower_tileset.json</option>
+                    <option value="world/infinite_tower_tileset.json">infinite_tower_tileset.json</option>
                 </optgroup>
                 <optgroup label="UI">
-                    <option value="ui/descent_timer_display.json">⏱️ descent_timer_display.json</option>
+                    <option value="ui/descent_timer_display.json">descent_timer_display.json</option>
                 </optgroup>
             `;
         } else if (gameName === 'reflect_academy') {
             html += `
                 <optgroup label="Character">
-                    <option value="character/player_wizard_states.json">🧙 player_wizard_states.json</option>
+                    <option value="character/player_wizard_states.json">player_wizard_states.json</option>
                 </optgroup>
                 <optgroup label="Mirrors">
-                    <option value="mirrors/mirror_crystal_pivot.json">🔮 mirror_crystal_pivot.json</option>
-                    <option value="mirrors/mirror_splitter_prism.json">💎 mirror_splitter_prism.json</option>
+                    <option value="mirrors/mirror_crystal_pivot.json">mirror_crystal_pivot.json</option>
+                    <option value="mirrors/mirror_splitter_prism.json">mirror_splitter_prism.json</option>
                 </optgroup>
                 <optgroup label="World">
-                    <option value="world/academy_hall_tileset.json">🏛️ academy_hall_tileset.json</option>
+                    <option value="world/academy_hall_tileset.json">academy_hall_tileset.json</option>
                 </optgroup>
                 <optgroup label="UI">
-                    <option value="ui/spell_charge_indicator.json">⚡ spell_charge_indicator.json</option>
+                    <option value="ui/spell_charge_indicator.json">spell_charge_indicator.json</option>
                 </optgroup>
             `;
         } else if (gameName === 'cosmos_heracles') {
             html += `
                 <optgroup label="Character">
-                    <option value="character/character.player.heracles_form_64x96.json">⚔️ heracles_form_64x96.json</option>
-                    <option value="character/character.boss.cyclops_state_sheet.json">👁️ cyclops_state_sheet.json</option>
-                    <option value="character/character.boss.hydra_state_sheet.json">🐉 hydra_state_sheet.json</option>
-                    <option value="character/character.enemy.cerberus_state_sheet.json">🐕 cerberus_state_sheet.json</option>
+                    <option value="character/character.player.heracles_form_64x96.json">heracles_form_64x96.json</option>
+                    <option value="character/character.boss.cyclops_state_sheet.json">cyclops_state_sheet.json</option>
+                    <option value="character/character.boss.hydra_state_sheet.json">hydra_state_sheet.json</option>
+                    <option value="character/character.enemy.cerberus_state_sheet.json">cerberus_state_sheet.json</option>
                 </optgroup>
                 <optgroup label="Obstacles">
-                    <option value="obstacles/obstacles.pillar.standard_sheet.json">🏛️ pillar_standard_sheet.json</option>
-                    <option value="obstacles/obstacles.pillar.rotating_sheet.json">🌀 pillar_rotating_sheet.json</option>
+                    <option value="obstacles/obstacles.pillar.standard_sheet.json">pillar_standard_sheet.json</option>
+                    <option value="obstacles/obstacles.pillar.rotating_sheet.json">pillar_rotating_sheet.json</option>
                 </optgroup>
                 <optgroup label="World">
-                    <option value="world/world.background.zone1_corridor_parallax.json">🏛️ zone1_corridor_parallax.json</option>
-                    <option value="world/world.floor.star_floor_strip.json">⭐ star_floor_strip.json</option>
+                    <option value="world/world.background.zone1_corridor_parallax.json">zone1_corridor_parallax.json</option>
+                    <option value="world/world.floor.star_floor_strip.json">star_floor_strip.json</option>
                 </optgroup>
                 <optgroup label="UI">
-                    <option value="ui/ui.hud.hp_hearts_row.json">❤️ hp_hearts_row.json</option>
-                    <option value="ui/ui.hud.score_zone_header.json">📊 score_zone_header.json</option>
+                    <option value="ui/ui.hud.hp_hearts_row.json">hp_hearts_row.json</option>
+                    <option value="ui/ui.hud.score_zone_header.json">score_zone_header.json</option>
                 </optgroup>
             `;
         } else if (gameName === 'olympus_step' || gameName === 'ricochet_conspiracy' || gameName === 'jarl_of_blizzard') {
             // Games from iterations 6-7 with similar structure
             html += `
                 <optgroup label="Files">
-                    <option value="_project_common.json">📄 Project file only available</option>
+                    <option value="_project_common.json">Project file only available</option>
                 </optgroup>
             `;
         } else {

@@ -27,7 +27,7 @@ const RegistryViewer = {
         if (!this.registryData || !this.registryData.entries) {
             content.innerHTML = `
                 <div class="registry-empty">
-                    <h2>📊 Registry가 아직 비어있습니다</h2>
+                    <h2>Registry가 아직 비어있습니다</h2>
                     <p>Iteration이 완료되면 자동으로 등록됩니다.</p>
                 </div>
             `;
@@ -40,7 +40,7 @@ const RegistryViewer = {
         content.innerHTML = `
             <div class="registry-container">
                 <div class="registry-header">
-                    <h2>🏆 Art Task Plan Registry</h2>
+                    <h2>Art Task Plan Registry</h2>
                     <p>모든 Iteration 결과가 자동으로 기록됩니다</p>
                     <p class="last-updated">마지막 업데이트: ${new Date(this.registryData.last_updated).toLocaleString()}</p>
                 </div>
@@ -60,13 +60,9 @@ const RegistryViewer = {
                     </div>
                 </div>
 
-                <div class="registry-timeline">
-                    <h3>📈 Performance Timeline</h3>
-                    <canvas id="registry-chart" width="800" height="300"></canvas>
-                </div>
 
                 <div class="registry-entries">
-                    <h3>📋 Registry Entries</h3>
+                    <h3>Registry Entries</h3>
                     ${entries.map(entry => this.renderEntry(entry)).join('')}
                 </div>
             </div>
@@ -99,12 +95,6 @@ const RegistryViewer = {
                 }
                 .stat-card.highlight .stat-value {
                     font-size: 48px;
-                }
-                .registry-timeline {
-                    background: rgba(26, 31, 46, 0.5);
-                    padding: 20px;
-                    border-radius: 12px;
-                    margin-bottom: 30px;
                 }
                 .registry-entries {
                     background: rgba(26, 31, 46, 0.3);
@@ -201,8 +191,6 @@ const RegistryViewer = {
             </style>
         `;
 
-        // 차트 그리기
-        setTimeout(() => this.drawChart(entries), 100);
     },
 
     renderEntry(entry) {
@@ -273,69 +261,6 @@ const RegistryViewer = {
         return "just now";
     },
 
-    drawChart(entries) {
-        const canvas = document.getElementById('registry-chart');
-        if (!canvas) return;
-
-        // Skip if Chart.js is not loaded
-        if (typeof Chart === 'undefined') {
-            console.warn('Chart.js not loaded yet, skipping chart drawing');
-            return;
-        }
-
-        const ctx = canvas.getContext('2d');
-        const data = entries.map(e => ({
-            x: `Iter ${e.iteration}`,
-            y: e.scores.pass_rate
-        })).reverse();
-
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: data.map(d => d.x),
-                datasets: [{
-                    label: 'Pass Rate (%)',
-                    data: data.map(d => d.y),
-                    borderColor: '#3b82f6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                    tension: 0.4,
-                    fill: true
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
-                        ticks: {
-                            color: '#8b92a9',
-                            callback: function(value) {
-                                return value + '%';
-                            }
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            color: '#8b92a9'
-                        }
-                    }
-                }
-            }
-        });
-    }
 };
 
 // Export

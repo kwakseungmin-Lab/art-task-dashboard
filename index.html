@@ -153,14 +153,11 @@
 
         <div class="nav-section">
             <div class="nav-section-title">Main</div>
-            <div class="nav-item active" data-view="overview" onclick="window.dashboard.loadIterationsView()">
-                <span>📊 Overview</span>
-            </div>
             <div class="nav-item" data-view="registry" onclick="window.RegistryViewer.renderRegistryView()">
-                <span>🏆 Registry</span>
+                <span>Registry</span>
             </div>
-            <div class="nav-item" data-view="iterations" onclick="window.dashboard.loadIterationsView()">
-                <span>📈 All Iterations</span>
+            <div class="nav-item active" data-view="iterations" onclick="window.dashboard.loadIterationsView()">
+                <span>All Iterations</span>
             </div>
         </div>
 
@@ -174,12 +171,6 @@
             </div>
         </div>
 
-        <div class="nav-section">
-            <div class="nav-section-title">Storage</div>
-            <div class="nav-item" data-view="s3-viewer">
-                <span>S3 Artifacts</span>
-            </div>
-        </div>
     </div>
 
     <!-- Main Content -->
@@ -198,8 +189,6 @@
     <!-- Additional Styles -->
     <link rel="stylesheet" href="json-viewer.css?v=20260401_3">
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- D3.js for KB Network Visualization -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -210,8 +199,8 @@
     <script src="game-availability.js?v=20260402_5"></script>
     <script src="complete-file-manifest.js?v=20260402_2"></script>
     <script src="local-json-loader.js?v=20260402_1"></script>
-    <script src="registry-viewer.js?v=20260402_1"></script>
-    <script src="dashboard-final.js?v=20260402_6"></script>
+    <script src="registry-viewer.js?v=20260403_1"></script>
+    <script src="dashboard-final.js?v=20260403_2"></script>
 
     <!-- Initialize Dashboard -->
     <script>
