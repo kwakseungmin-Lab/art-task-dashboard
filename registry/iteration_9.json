@@ -1,18 +1,18 @@
 {
-  "id": "335f04d51097",
+  "id": "4c7908ab30a9",
   "iteration": 9,
-  "timestamp": "2026-03-30T07:43:19.785482+00:00Z",
+  "timestamp": "2026-04-03T06:17:30.337433Z",
   "status": "COMPLETED",
   "scores": {
-    "pass_rate": 96.0,
-    "overall": 96.0
+    "pass_rate": 100.0,
+    "overall": 100.0
   },
   "metrics": {
-    "pass_rate": 96.0,
+    "pass_rate": 100.0,
     "total_games": 5,
     "total_trials": 25,
-    "passed_trials": 24,
-    "failed_trials": 1,
+    "passed_trials": 25,
+    "failed_trials": 0,
     "coverage_gate": "PASS"
   },
   "games": [
@@ -20,7 +20,7 @@
     "Pico_Echo",
     "bubble_farm",
     "leaf_beat",
-    "jarl_of_blizzard"
+    "rainbow_road"
   ],
   "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/9"
 }
