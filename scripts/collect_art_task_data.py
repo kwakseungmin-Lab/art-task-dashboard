@@ -94,7 +94,11 @@ def simulate_iteration_data():
         with open(registry_path, 'r') as f:
             master = json.load(f)
             if master["entries"]:
-                last_timestamp = datetime.fromisoformat(master["entries"][-1]["timestamp"].replace("Z", "+00:00"))
+                # Handle both Z and +00:00 format
+                timestamp_str = master["entries"][-1]["timestamp"]
+                if timestamp_str.endswith("Z"):
+                    timestamp_str = timestamp_str.replace("Z", "+00:00")
+                last_timestamp = datetime.fromisoformat(timestamp_str)
                 if datetime.utcnow() - last_timestamp.replace(tzinfo=None) > timedelta(hours=24):
                     should_add_new = True
     else:
