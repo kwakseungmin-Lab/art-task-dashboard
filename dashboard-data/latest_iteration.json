@@ -1,26 +1,26 @@
 {
-  "id": "05f2b0c5f398",
-  "iteration": 10,
-  "timestamp": "2026-04-02T07:43:19.785819Z",
+  "id": "4c7908ab30a9",
+  "iteration": 9,
+  "timestamp": "2026-04-03T06:17:30.337433Z",
   "status": "COMPLETED",
   "scores": {
-    "pass_rate": 94.0,
-    "overall": 94.0
+    "pass_rate": 100.0,
+    "overall": 100.0
   },
   "metrics": {
-    "pass_rate": 94.0,
+    "pass_rate": 100.0,
     "total_games": 5,
     "total_trials": 25,
-    "passed_trials": 23,
-    "failed_trials": 2,
+    "passed_trials": 25,
+    "failed_trials": 0,
     "coverage_gate": "PASS"
   },
   "games": [
-    "umbra_scale",
-    "frozen_flame",
-    "crystal_keeper",
-    "void_jumper",
-    "star_runner"
+    "Chrome_Dino_Runner",
+    "Pico_Echo",
+    "bubble_farm",
+    "leaf_beat",
+    "rainbow_road"
   ],
-  "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/10"
+  "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/9"
 }
