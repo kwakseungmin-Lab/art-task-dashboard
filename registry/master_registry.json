@@ -252,9 +252,35 @@
         "pixel_quest"
       ],
       "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/10"
+    },
+    {
+      "id": "1cdeefd9ebc3",
+      "iteration": 11,
+      "timestamp": "2026-04-06T01:25:09.157751Z",
+      "status": "COMPLETED",
+      "scores": {
+        "pass_rate": 98.0,
+        "overall": 98.0
+      },
+      "metrics": {
+        "pass_rate": 98.0,
+        "total_games": 5,
+        "total_trials": 25,
+        "passed_trials": 24,
+        "failed_trials": 1,
+        "coverage_gate": "PASS"
+      },
+      "games": [
+        "Chrome_Dino_Runner",
+        "bubble_farm",
+        "crystal_keeper",
+        "void_jumper",
+        "star_runner"
+      ],
+      "dashboard_url": "https://kwakseungmin-lab.github.io/art-task-dashboard/#iteration/11"
     }
   ],
-  "last_updated": "2026-04-05T01:24:57.143980Z",
-  "total_iterations": 10,
-  "average_pass_rate": 86.2
+  "last_updated": "2026-04-06T01:25:09.158048Z",
+  "total_iterations": 11,
+  "average_pass_rate": 87.3
 }

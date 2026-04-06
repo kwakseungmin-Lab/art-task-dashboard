@@ -2,38 +2,38 @@
   "art_kb": {
     "id": "8cb7d4ac-7882-419a-a0cb-90b586fea960",
     "name": "Art Task Plan KB",
-    "total_entities": 30405,
-    "relations": 1663,
+    "total_entities": 31606,
+    "relations": 1800,
     "growth": {
-      "daily": 1212,
-      "weekly": 8484,
-      "monthly": 36360
+      "daily": 1201,
+      "weekly": 8407,
+      "monthly": 36030
     },
     "categories": {
-      "task_plans": 9371,
-      "evaluation_results": 8488,
-      "pipeline_configs": 5821,
-      "agent_prompts": 3933,
-      "execution_logs": 2793
+      "task_plans": 9731,
+      "evaluation_results": 8824,
+      "pipeline_configs": 6061,
+      "agent_prompts": 4077,
+      "execution_logs": 2913
     },
-    "last_updated": "2026-04-05T01:24:57.204805Z"
+    "last_updated": "2026-04-06T01:25:09.197097Z"
   },
   "meta_kb": {
     "id": "6e8d718c-5c37-44e1-ba6f-347195b46811",
     "name": "Meta Iteration KB",
-    "total_entities": 3155,
-    "relations": 2988,
+    "total_entities": 3436,
+    "relations": 3287,
     "growth": {
-      "daily": 253,
-      "weekly": 1771,
-      "monthly": 7590
+      "daily": 281,
+      "weekly": 1967,
+      "monthly": 8430
     },
     "categories": {
-      "strategies": 818,
-      "iterations": 751,
-      "analysis": 509,
-      "atomic_facts": 220
+      "strategies": 916,
+      "iterations": 840,
+      "analysis": 570,
+      "atomic_facts": 250
     },
-    "last_updated": "2026-04-05T01:24:57.204805Z"
+    "last_updated": "2026-04-06T01:25:09.197097Z"
   }
 }
