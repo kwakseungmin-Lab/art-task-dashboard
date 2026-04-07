@@ -1,182 +1,31 @@
-[
-  {
-    "thread_id": "thread-4012",
-    "status": "failed",
-    "phase": "Complete",
-    "started_at": "2026-03-31T12:34:24.215593",
-    "duration_minutes": 7.0390402913159855,
-    "agent": "art_task_plan_complete",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-8664",
-    "status": "success",
-    "phase": "Analyzer",
-    "started_at": "2026-03-31T12:19:24.215593",
-    "duration_minutes": 29.395016450635513,
-    "agent": "art_task_plan_analyzer",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-1673",
-    "status": "success",
-    "phase": "KB Write",
-    "started_at": "2026-03-31T12:13:24.215593",
-    "duration_minutes": 13.091156577488462,
-    "agent": "art_task_plan_kb_write",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-6640",
-    "status": "failed",
-    "phase": "Designer",
-    "started_at": "2026-03-31T12:09:24.215593",
-    "duration_minutes": 9.86412516565565,
-    "agent": "art_task_plan_designer",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-8330",
-    "status": "success",
-    "phase": "Agent Evolver",
-    "started_at": "2026-03-31T12:03:24.215593",
-    "duration_minutes": 16.602284292158068,
-    "agent": "art_task_plan_agent_evolver",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-7745",
-    "status": "success",
-    "phase": "Evaluator",
-    "started_at": "2026-03-31T11:52:24.215593",
-    "duration_minutes": 15.66272270691599,
-    "agent": "art_task_plan_evaluator",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-6309",
-    "status": "failed",
-    "phase": "Analyzer",
-    "started_at": "2026-03-31T11:47:24.215593",
-    "duration_minutes": 11.574946554702073,
-    "agent": "art_task_plan_analyzer",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-1373",
-    "status": "success",
-    "phase": "KB Write",
-    "started_at": "2026-03-31T11:41:24.215593",
-    "duration_minutes": 13.237529171660572,
-    "agent": "art_task_plan_kb_write",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-2905",
-    "status": "success",
-    "phase": "Agent Evolver",
-    "started_at": "2026-03-31T11:38:24.215593",
-    "duration_minutes": 7.872041125253291,
-    "agent": "art_task_plan_agent_evolver",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-9293",
-    "status": "success",
-    "phase": "Agent Evolver",
-    "started_at": "2026-03-31T11:25:24.215593",
-    "duration_minutes": 44.310051657251236,
-    "agent": "art_task_plan_agent_evolver",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-2046",
-    "status": "success",
-    "phase": "Generator",
-    "started_at": "2026-03-31T11:17:24.215593",
-    "duration_minutes": 40.871252503981026,
-    "agent": "art_task_plan_generator",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-6395",
-    "status": "success",
-    "phase": "Evaluator",
-    "started_at": "2026-03-31T11:16:24.215593",
-    "duration_minutes": 33.70209152287854,
-    "agent": "art_task_plan_evaluator",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-4774",
-    "status": "running",
-    "phase": "Analyzer",
-    "started_at": "2026-03-31T11:15:24.215593",
-    "duration_minutes": null,
-    "agent": "art_task_plan_analyzer",
-    "progress": 35
-  },
-  {
-    "thread_id": "thread-1968",
-    "status": "failed",
-    "phase": "Evolver Reviewer",
-    "started_at": "2026-03-31T11:07:24.215593",
-    "duration_minutes": 23.25871562630614,
-    "agent": "art_task_plan_evolver_reviewer",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-1750",
-    "status": "success",
-    "phase": "Generator",
-    "started_at": "2026-03-31T10:44:24.215593",
-    "duration_minutes": 14.38279460223852,
-    "agent": "art_task_plan_generator",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-9833",
-    "status": "running",
-    "phase": "Evaluator",
-    "started_at": "2026-03-31T09:33:24.215593",
-    "duration_minutes": null,
-    "agent": "art_task_plan_evaluator",
-    "progress": 94
-  },
-  {
-    "thread_id": "thread-4389",
-    "status": "running",
-    "phase": "Designer",
-    "started_at": "2026-03-31T09:32:24.215593",
-    "duration_minutes": null,
-    "agent": "art_task_plan_designer",
-    "progress": 39
-  },
-  {
-    "thread_id": "thread-2796",
-    "status": "running",
-    "phase": "Agent Evolver",
-    "started_at": "2026-03-31T09:20:24.215593",
-    "duration_minutes": null,
-    "agent": "art_task_plan_agent_evolver",
-    "progress": 23
-  },
-  {
-    "thread_id": "thread-1068",
-    "status": "failed",
-    "phase": "Agent Evolver",
-    "started_at": "2026-03-31T09:13:24.215593",
-    "duration_minutes": 17.95964382351354,
-    "agent": "art_task_plan_agent_evolver",
-    "progress": 100
-  },
-  {
-    "thread_id": "thread-4889",
-    "status": "success",
-    "phase": "Evaluator",
-    "started_at": "2026-03-31T09:10:24.215593",
-    "duration_minutes": 13.644751775319875,
-    "agent": "art_task_plan_evaluator",
-    "progress": 100
-  }
-]
+{
+  "total_iterations": 9,
+  "successful": 7,
+  "failed": 2,
+  "current_iteration": 9,
+  "status": "retry_pending",
+  "last_update": "2026-04-07T20:18:38.483231",
+  "recent_executions": [
+    {
+      "iteration": 9,
+      "game": "Shadow of the Full Moon",
+      "status": "retry",
+      "reason": "Registry 구조 재테스트",
+      "date": "2026-04-06"
+    },
+    {
+      "iteration": 8,
+      "game": "Pong",
+      "status": "success",
+      "score": 85,
+      "date": "2026-04-03"
+    },
+    {
+      "iteration": 7,
+      "game": "Ricochet Conspiracy",
+      "status": "success",
+      "score": 82,
+      "date": "2026-04-01"
+    }
+  ]
+}

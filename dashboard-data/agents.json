@@ -4,12 +4,17 @@
     "type": "art_task_plan_orchestrator",
     "model": "gpt-5.2",
     "template": "lm_agent_v3",
-    "tools": [],
-    "tools_count": 0,
+    "tools": [
+      "delegate_to_agent",
+      "monitor_phases"
+    ],
+    "tools_count": 2,
     "phase": "Meta Controller",
     "status": "active",
+    "kb_usage": "delegate",
+    "description": "전체 파이프라인 제어, Phase 0~3 관리",
     "file_exists": true,
-    "last_modified": "2026-03-31T09:58:03.348888"
+    "last_modified": "2026-04-07T20:18:38.483200"
   },
   {
     "name": "Designer",
@@ -20,151 +25,189 @@
     "tools_count": 0,
     "phase": "Phase 1",
     "status": "active",
+    "kb_usage": "none",
+    "description": "초기 컨셉 설계",
     "file_exists": true,
-    "last_modified": "2026-03-31T09:58:03.342886"
+    "last_modified": "2026-04-07T20:18:38.483217"
   },
   {
     "name": "Analyzer",
     "type": "art_task_plan_analyzer",
     "model": "gpt-5.4",
     "template": "lm_agent_v3",
-    "tools": [],
-    "tools_count": 0,
+    "tools": [
+      "retrieve_kb_entity"
+    ],
+    "tools_count": 1,
     "phase": "Phase 1 & 2",
     "status": "active",
+    "kb_usage": "read",
+    "description": "Early(Phase 1) & Late(Phase 2) 분석",
     "file_exists": true,
-    "last_modified": "2026-03-31T09:58:03.341883"
+    "last_modified": "2026-04-07T20:18:38.483219"
   },
   {
     "name": "Generator",
     "type": "art_task_plan_generator",
     "model": "gpt-5.2",
     "template": "lm_agent_v3",
-    "tools": [],
-    "tools_count": 0,
-    "phase": "Phase 1",
+    "tools": [
+      "retrieve_kb_entity",
+      "save_local"
+    ],
+    "tools_count": 2,
+    "phase": "Phase 2",
     "status": "active",
+    "kb_usage": "read",
+    "description": "Task Plan 생성, 로컬 저장",
     "file_exists": true,
-    "last_modified": "2026-03-31T09:58:22.484978"
+    "last_modified": "2026-04-07T20:18:38.483220"
   },
   {
     "name": "Evaluator",
     "type": "art_task_plan_evaluator",
     "model": "gpt-5.4",
     "template": "lm_agent_v3",
-    "tools": [],
-    "tools_count": 0,
-    "phase": "Phase 1",
+    "tools": [
+      "save_local"
+    ],
+    "tools_count": 1,
+    "phase": "Phase 2",
     "status": "active",
+    "kb_usage": "none",
+    "description": "평가 수행, 로컬 저장 (KB 조회 제거됨)",
     "file_exists": true,
-    "last_modified": "2026-03-31T09:58:03.343886"
+    "last_modified": "2026-04-07T20:18:38.483221"
   },
   {
     "name": "Process Validator",
     "type": "art_task_plan_process_validator",
     "model": "gpt-5.4",
     "template": "lm_agent_v3",
-    "tools": [],
-    "tools_count": 0,
+    "tools": [
+      "validate_process"
+    ],
+    "tools_count": 1,
     "phase": "Phase 2",
     "status": "active",
+    "kb_usage": "none",
+    "description": "프로세스 검증 (KB 조회 제거됨)",
     "file_exists": true,
-    "last_modified": "2026-03-31T09:59:04.907449"
+    "last_modified": "2026-04-07T20:18:38.483222"
+  },
+  {
+    "name": "S3 Uploader",
+    "type": "art_task_plan_s3_uploader",
+    "model": "gpt-5.4",
+    "template": "lm_agent_v2",
+    "tools": [
+      "s3_upload"
+    ],
+    "tools_count": 1,
+    "phase": "Phase 2",
+    "status": "active",
+    "kb_usage": "none",
+    "description": "모든 S3 업로드 전담 (2026-04-06 추가)",
+    "file_exists": true,
+    "last_modified": "2026-04-06T10:00:00.000000"
   },
   {
     "name": "Agent Evolver",
     "type": "art_task_plan_agent_evolver",
     "model": "gpt-5.4",
     "template": "lm_agent_v3",
-    "tools": [],
-    "tools_count": 0,
-    "phase": "Phase 2",
+    "tools": [
+      "evolve_agents"
+    ],
+    "tools_count": 1,
+    "phase": "Phase 3",
     "status": "active",
+    "kb_usage": "none",
+    "description": "에이전트 진화 전략 수립",
     "file_exists": true,
-    "last_modified": "2026-03-31T09:58:03.339375"
+    "last_modified": "2026-04-07T20:18:38.483223"
   },
   {
     "name": "Evolver Reviewer",
     "type": "art_task_plan_evolver_reviewer",
     "model": "gpt-5.4",
     "template": "lm_agent_v3",
-    "tools": [],
-    "tools_count": 0,
-    "phase": "Phase 2",
+    "tools": [
+      "review_evolution"
+    ],
+    "tools_count": 1,
+    "phase": "Phase 3",
     "status": "active",
+    "kb_usage": "delegate",
+    "description": "진화 계획 검토, KB 저장 위임",
     "file_exists": true,
-    "last_modified": "2026-03-30T16:59:03.963552"
+    "last_modified": "2026-04-07T20:18:38.483224"
   },
   {
     "name": "Monitor",
     "type": "art_task_plan_monitor",
-    "model": "gpt-5.4",
+    "model": "gpt-4.1",
     "template": "lm_agent_v3",
-    "tools": [],
-    "tools_count": 0,
+    "tools": [
+      "slack_alert"
+    ],
+    "tools_count": 1,
     "phase": "Parallel",
     "status": "active",
+    "kb_usage": "none",
+    "description": "병렬 모니터링, Slack 알림",
     "file_exists": true,
-    "last_modified": "2026-03-31T09:58:03.347889"
+    "last_modified": "2026-04-07T20:18:38.483225"
   },
   {
-    "name": "Kb Retriever",
+    "name": "KB Retriever",
     "type": "art_task_plan_kb_retriever",
     "model": "gpt-5.4",
     "template": "lm_agent_v3",
-    "tools": [],
-    "tools_count": 0,
+    "tools": [
+      "retrieve_kb_graph",
+      "browse_kb_entities"
+    ],
+    "tools_count": 2,
     "phase": "Support",
     "status": "active",
+    "kb_usage": "read",
+    "description": "다른 에이전트 대신 KB 조회 (2026-04-07)",
     "file_exists": true,
-    "last_modified": "2026-03-31T09:58:03.345886"
+    "last_modified": "2026-04-07T10:00:00.000000"
   },
   {
-    "name": "Kb Writer",
+    "name": "KB Writer",
     "type": "art_task_plan_kb_writer",
     "model": "gpt-5.4",
     "template": "kb_console_agent_v1",
-    "tools": [],
-    "tools_count": 0,
+    "tools": [
+      "upsert_entity",
+      "create_relation"
+    ],
+    "tools_count": 2,
     "phase": "KB Management",
     "status": "active",
+    "kb_usage": "write",
+    "description": "Art Task Plan KB 쓰기 전담",
     "file_exists": true,
-    "last_modified": "2026-03-30T20:02:44.755486"
+    "last_modified": "2026-04-07T20:18:38.483226"
   },
   {
-    "name": "Meta Kb Writer",
+    "name": "Meta KB Writer",
     "type": "art_task_plan_meta_kb_writer",
     "model": "gpt-5.4",
     "template": "kb_console_agent_v1",
-    "tools": [],
-    "tools_count": 0,
+    "tools": [
+      "upsert_entity",
+      "create_relation"
+    ],
+    "tools_count": 2,
     "phase": "KB Management",
     "status": "active",
+    "kb_usage": "write",
+    "description": "Meta Iteration KB 쓰기 전담",
     "file_exists": true,
-    "last_modified": "2026-03-30T20:02:44.869582"
-  },
-  {
-    "name": "Kb Manager",
-    "type": "art_task_plan_kb_manager",
-    "model": "gpt-5.4",
-    "template": "kb_console_agent_v1",
-    "tools": [],
-    "tools_count": 0,
-    "phase": "KB Management",
-    "status": "active",
-    "file_exists": true,
-    "last_modified": "2026-03-31T11:38:48.771091"
-  },
-  {
-    "name": "Meta Kb Manager",
-    "type": "art_task_plan_meta_kb_manager",
-    "model": "gpt-5.4",
-    "template": "kb_console_agent_v1",
-    "tools": [],
-    "tools_count": 0,
-    "phase": "KB Management",
-    "status": "active",
-    "file_exists": true,
-    "last_modified": "2026-03-31T11:38:48.772640"
+    "last_modified": "2026-04-07T20:18:38.483227"
   }
 ]

@@ -1,39 +1,20 @@
 {
-  "art_kb": {
-    "id": "8cb7d4ac-7882-419a-a0cb-90b586fea960",
+  "art_task_plan_kb": {
+    "id": "8cb7d4ac-d1f6-4fb0-881f-e00a6e5a3d48",
     "name": "Art Task Plan KB",
-    "total_entities": 31606,
-    "relations": 1800,
-    "growth": {
-      "daily": 1201,
-      "weekly": 8407,
-      "monthly": 36030
-    },
-    "categories": {
-      "task_plans": 9731,
-      "evaluation_results": 8824,
-      "pipeline_configs": 6061,
-      "agent_prompts": 4077,
-      "execution_logs": 2913
-    },
-    "last_updated": "2026-04-06T01:25:09.197097Z"
+    "entity_count": 128,
+    "relation_count": 245,
+    "last_updated": "2026-04-07T20:18:38.483229",
+    "status": "active",
+    "changes": "Custom rule 엔티티 제거 (2026-04-07)"
   },
-  "meta_kb": {
-    "id": "6e8d718c-5c37-44e1-ba6f-347195b46811",
+  "meta_iteration_kb": {
+    "id": "6e8d718c-f1d9-46b3-b973-29cf55a086a0",
     "name": "Meta Iteration KB",
-    "total_entities": 3436,
-    "relations": 3287,
-    "growth": {
-      "daily": 281,
-      "weekly": 1967,
-      "monthly": 8430
-    },
-    "categories": {
-      "strategies": 916,
-      "iterations": 840,
-      "analysis": 570,
-      "atomic_facts": 250
-    },
-    "last_updated": "2026-04-06T01:25:09.197097Z"
+    "entity_count": 87,
+    "relation_count": 156,
+    "last_updated": "2026-04-07T20:18:38.483230",
+    "status": "active",
+    "changes": "안정화됨"
   }
 }
