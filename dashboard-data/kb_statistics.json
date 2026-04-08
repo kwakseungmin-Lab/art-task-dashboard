@@ -1,20 +1,28 @@
 {
   "art_task_plan_kb": {
-    "id": "8cb7d4ac-d1f6-4fb0-881f-e00a6e5a3d48",
+    "id": "8cb7d4ac-7882-419a-a0cb-90b586fea960",
     "name": "Art Task Plan KB",
-    "entity_count": 128,
-    "relation_count": 245,
-    "last_updated": "2026-04-07T20:18:38.483229",
+    "entity_count": 3271,
+    "relation_count": 27,
     "status": "active",
-    "changes": "Custom rule 엔티티 제거 (2026-04-07)"
+    "last_updated": "2026-04-08T10:07:52.603829",
+    "major_entities": {
+      "pipeline": 3,
+      "iteration": 6,
+      "evaluation": 7,
+      "orchestrator": 4,
+      "monitor": 2,
+      "phase": 4
+    },
+    "changes": "KB 재구성 완료 (2026-04-08)"
   },
   "meta_iteration_kb": {
     "id": "6e8d718c-f1d9-46b3-b973-29cf55a086a0",
     "name": "Meta Iteration KB",
-    "entity_count": 87,
-    "relation_count": 156,
-    "last_updated": "2026-04-07T20:18:38.483230",
-    "status": "active",
-    "changes": "안정화됨"
+    "entity_count": 0,
+    "relation_count": 0,
+    "status": "rebuilding",
+    "last_updated": "2026-04-08T10:07:52.603847",
+    "changes": "재구성 중"
   }
 }
