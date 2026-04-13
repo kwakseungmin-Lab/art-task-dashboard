@@ -32,7 +32,7 @@ def simulate_kb_growth():
             current = json.load(f)
 
         # Calculate days since last update
-        last_update = datetime.fromisoformat(current["art_kb"]["last_updated"].replace("Z", ""))
+        last_update = datetime.fromisoformat(current["art_task_plan_kb"]["last_updated"].replace("Z", ""))
         days_passed = (datetime.utcnow() - last_update).days
 
         if days_passed == 0:
@@ -44,47 +44,47 @@ def simulate_kb_growth():
         meta_kb_daily_growth = random.randint(250, 350)    # ~300 entities per day
 
         # Update Art Task Plan KB
-        current["art_kb"]["total_entities"] += art_kb_daily_growth * days_passed
-        current["art_kb"]["relations"] += random.randint(100, 200) * days_passed
+        current["art_task_plan_kb"]["entity_count"] += art_kb_daily_growth * days_passed
+        current["art_task_plan_kb"]["relation_count"] += random.randint(100, 200) * days_passed
 
         # Update categories proportionally
         total_growth = art_kb_daily_growth * days_passed
-        current["art_kb"]["categories"]["task_plans"] += int(total_growth * 0.3)
-        current["art_kb"]["categories"]["evaluation_results"] += int(total_growth * 0.28)
-        current["art_kb"]["categories"]["pipeline_configs"] += int(total_growth * 0.2)
-        current["art_kb"]["categories"]["agent_prompts"] += int(total_growth * 0.12)
-        current["art_kb"]["categories"]["execution_logs"] += int(total_growth * 0.1)
+        current["art_task_plan_kb"]["categories"]["task_plans"] += int(total_growth * 0.3)
+        current["art_task_plan_kb"]["categories"]["evaluation_results"] += int(total_growth * 0.28)
+        current["art_task_plan_kb"]["categories"]["pipeline_configs"] += int(total_growth * 0.2)
+        current["art_task_plan_kb"]["categories"]["agent_prompts"] += int(total_growth * 0.12)
+        current["art_task_plan_kb"]["categories"]["execution_logs"] += int(total_growth * 0.1)
 
         # Update Meta Iteration KB
-        current["meta_kb"]["total_entities"] += meta_kb_daily_growth * days_passed
-        current["meta_kb"]["relations"] += random.randint(200, 300) * days_passed
+        current["meta_iteration_kb"]["entity_count"] += meta_kb_daily_growth * days_passed
+        current["meta_iteration_kb"]["relation_count"] += random.randint(200, 300) * days_passed
 
         # Update categories
         meta_growth = meta_kb_daily_growth * days_passed
-        current["meta_kb"]["categories"]["strategies"] += int(meta_growth * 0.35)
-        current["meta_kb"]["categories"]["iterations"] += int(meta_growth * 0.32)
-        current["meta_kb"]["categories"]["analysis"] += int(meta_growth * 0.22)
-        current["meta_kb"]["categories"]["atomic_facts"] += int(meta_growth * 0.11)
+        current["meta_iteration_kb"]["categories"]["strategies"] += int(meta_growth * 0.35)
+        current["meta_iteration_kb"]["categories"]["iterations"] += int(meta_growth * 0.32)
+        current["meta_iteration_kb"]["categories"]["analysis"] += int(meta_growth * 0.22)
+        current["meta_iteration_kb"]["categories"]["atomic_facts"] += int(meta_growth * 0.11)
 
         # Update timestamps
         now = datetime.utcnow().isoformat() + "Z"
-        current["art_kb"]["last_updated"] = now
-        current["meta_kb"]["last_updated"] = now
+        current["art_task_plan_kb"]["last_updated"] = now
+        current["meta_iteration_kb"]["last_updated"] = now
 
         # Update growth rates
-        current["art_kb"]["growth"]["daily"] = art_kb_daily_growth
-        current["art_kb"]["growth"]["weekly"] = art_kb_daily_growth * 7
-        current["art_kb"]["growth"]["monthly"] = art_kb_daily_growth * 30
+        current["art_task_plan_kb"]["growth"]["daily"] = art_kb_daily_growth
+        current["art_task_plan_kb"]["growth"]["weekly"] = art_kb_daily_growth * 7
+        current["art_task_plan_kb"]["growth"]["monthly"] = art_kb_daily_growth * 30
 
-        current["meta_kb"]["growth"]["daily"] = meta_kb_daily_growth
-        current["meta_kb"]["growth"]["weekly"] = meta_kb_daily_growth * 7
-        current["meta_kb"]["growth"]["monthly"] = meta_kb_daily_growth * 30
+        current["meta_iteration_kb"]["growth"]["daily"] = meta_kb_daily_growth
+        current["meta_iteration_kb"]["growth"]["weekly"] = meta_kb_daily_growth * 7
+        current["meta_iteration_kb"]["growth"]["monthly"] = meta_kb_daily_growth * 30
 
         return current
     else:
         # Create initial statistics
         return {
-            "art_kb": {
+            "art_task_plan_kb": {
                 "id": "8cb7d4ac-7882-419a-a0cb-90b586fea960",
                 "name": "Art Task Plan KB",
                 "total_entities": 30689,
@@ -103,7 +103,7 @@ def simulate_kb_growth():
                 },
                 "last_updated": datetime.utcnow().isoformat() + "Z"
             },
-            "meta_kb": {
+            "meta_iteration_kb": {
                 "id": "6e8d718c-5c37-44e1-ba6f-347195b46811",
                 "name": "Meta Iteration KB",
                 "total_entities": 3169,
