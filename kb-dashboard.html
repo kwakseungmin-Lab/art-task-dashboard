@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Task Plan KB Dashboard - Phase 3 Data</title>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.6/dist/vis-network.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/vis-network@9.1.6/dist/vis-network.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f1419;
+            color: #e1e8ed;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 320px;
+            background: #1a1f2e;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #2a3441;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #3b82f6;
+        }
+
+        .kb-selector {
+            margin-bottom: 20px;
+        }
+
+        .kb-option {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #252d3d;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .kb-option:hover {
+            background: #2a3441;
+        }
+
+        .kb-option.active {
+            border-color: #3b82f6;
+            background: #2a3441;
+        }
+
+        .kb-option h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .kb-option .stats {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .stats-panel {
+            background: #252d3d;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .stat-value {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding: 20px;
+            background: #1a1f2e;
+            border-bottom: 1px solid #2a3441;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .controls {
+            padding: 15px 20px;
+            background: #1a1f2e;
+            border-bottom: 1px solid #2a3441;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        .btn.secondary {
+            background: #4b5563;
+        }
+
+        .btn.secondary:hover {
+            background: #6b7280;
+        }
+
+        .network-container {
+            flex: 1;
+            position: relative;
+            background: #0a0e17;
+        }
+
+        #network {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .spinner {
+            border: 3px solid rgba(59, 130, 246, 0.3);
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Entity Details Panel */
+        .details-panel {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 350px;
+            background: #1a1f2e;
+            border: 1px solid #2a3441;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 80vh;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .details-panel.visible {
+            display: block;
+        }
+
+        .details-header {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #2a3441;
+        }
+
+        .details-header h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .details-type {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .details-section {
+            margin-bottom: 15px;
+        }
+
+        .details-section h4 {
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #94a3b8;
+        }
+
+        .property-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .property-key {
+            color: #94a3b8;
+        }
+
+        .property-value {
+            color: #e1e8ed;
+            text-align: right;
+            max-width: 60%;
+            word-break: break-all;
+        }
+
+        .close-details {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .close-details:hover {
+            color: #e1e8ed;
+        }
+
+        /* Legend */
+        .legend {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: #1a1f2e;
+            border: 1px solid #2a3441;
+            border-radius: 8px;
+            padding: 15px;
+            max-width: 200px;
+        }
+
+        .legend h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Knowledge Bases</h2>
+
+            <div class="kb-selector">
+                <div class="kb-option active" data-kb="combined">
+                    <h3>📊 Combined View</h3>
+                    <div class="stats">ATP + META KBs</div>
+                </div>
+                <div class="kb-option" data-kb="atp">
+                    <h3>🔷 ATP KB</h3>
+                    <div class="stats">42 entities • 35 relations • Iteration 3-9</div>
+                </div>
+                <div class="kb-option" data-kb="meta">
+                    <h3>🔶 META KB</h3>
+                    <div class="stats">53 entities • 66 relations • Concepts v3-v9</div>
+                </div>
+            </div>
+
+            <div class="stats-panel">
+                <h3 style="margin-bottom: 15px; font-size: 14px;">Statistics</h3>
+                <div id="stats-content">
+                    <div class="stat-item">
+                        <span>Total Entities:</span>
+                        <span class="stat-value">95</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Total Relations:</span>
+                        <span class="stat-value">101</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Iterations:</span>
+                        <span class="stat-value">3-9</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Concepts:</span>
+                        <span class="stat-value">v3-v9</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Harness:</span>
+                        <span class="stat-value">v1-v4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-panel">
+                <h3 style="margin-bottom: 15px; font-size: 14px;">Entity Types</h3>
+                <div id="entity-types-list">
+                    <!-- Will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Art Task Plan KB Dashboard</h1>
+                <p>Phase 3 Data Visualization - Real KB from Azle Platform</p>
+            </div>
+
+            <div class="controls">
+                <button class="btn" onclick="dashboard.refreshData()">🔄 Refresh</button>
+                <button class="btn secondary" onclick="dashboard.resetView()">⟲ Reset View</button>
+                <button class="btn secondary" onclick="dashboard.togglePhysics()">⚙️ Physics</button>
+                <button class="btn secondary" onclick="dashboard.clearCache()">🗑️ Clear Cache</button>
+                <select id="layout-select" onchange="dashboard.changeLayout(this.value)">
+                    <option value="physics">Physics Layout</option>
+                    <option value="hierarchical">Hierarchical</option>
+                    <option value="circular">Circular</option>
+                </select>
+            </div>
+
+            <div class="network-container">
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading KB Data...</p>
+                </div>
+                <div id="network"></div>
+
+                <!-- Legend -->
+                <div class="legend">
+                    <h4>Legend</h4>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #FF6B6B"></div>
+                        <span>Execution</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #45B7D1"></div>
+                        <span>TaskPlan</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #FFA07A"></div>
+                        <span>Evaluation</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #9370DB"></div>
+                        <span>Concept</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #8B4789"></div>
+                        <span>Harness</span>
+                    </div>
+                </div>
+
+                <!-- Details Panel -->
+                <div id="details-panel" class="details-panel">
+                    <button class="close-details" onclick="dashboard.closeDetails()">×</button>
+                    <div id="details-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load configuration and scripts -->
+    <script src="kb-config.js"></script>
+    <script src="kb-api-client.js"></script>
+    <script src="kb-dashboard.js"></script>
+
+    <script>
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            dashboard.init();
+        });
+    </script>
+</body>
+</html>
