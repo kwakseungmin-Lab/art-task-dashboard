@@ -47,25 +47,6 @@ def simulate_kb_growth():
         current["art_task_plan_kb"]["entity_count"] += art_kb_daily_growth * days_passed
         current["art_task_plan_kb"]["relation_count"] += random.randint(100, 200) * days_passed
 
-        # Update categories proportionally
-        total_growth = art_kb_daily_growth * days_passed
-        current["art_task_plan_kb"]["categories"]["task_plans"] += int(total_growth * 0.3)
-        current["art_task_plan_kb"]["categories"]["evaluation_results"] += int(total_growth * 0.28)
-        current["art_task_plan_kb"]["categories"]["pipeline_configs"] += int(total_growth * 0.2)
-        current["art_task_plan_kb"]["categories"]["agent_prompts"] += int(total_growth * 0.12)
-        current["art_task_plan_kb"]["categories"]["execution_logs"] += int(total_growth * 0.1)
-
-        # Update Meta Iteration KB
-        current["meta_iteration_kb"]["entity_count"] += meta_kb_daily_growth * days_passed
-        current["meta_iteration_kb"]["relation_count"] += random.randint(200, 300) * days_passed
-
-        # Update categories
-        meta_growth = meta_kb_daily_growth * days_passed
-        current["meta_iteration_kb"]["categories"]["strategies"] += int(meta_growth * 0.35)
-        current["meta_iteration_kb"]["categories"]["iterations"] += int(meta_growth * 0.32)
-        current["meta_iteration_kb"]["categories"]["analysis"] += int(meta_growth * 0.22)
-        current["meta_iteration_kb"]["categories"]["atomic_facts"] += int(meta_growth * 0.11)
-
         # Update timestamps
         now = datetime.utcnow().isoformat() + "Z"
         current["art_task_plan_kb"]["last_updated"] = now
